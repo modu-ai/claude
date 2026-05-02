@@ -1,7 +1,7 @@
 ---
 title: "빠른 시작"
-weight: 10
-description: "modu-ai/cowork-plugins 마켓플레이스 등록부터 첫 스킬 체인 실행까지 약 10분 완성 가이드입니다."
+weight: 30
+description: "modu-ai/cowork-plugins 마켓플레이스 등록부터 첫 스킬 체인 실행까지 약 10분 완성 가이드"
 geekdocBreadcrumb: true
 ---
 
@@ -11,20 +11,20 @@ geekdocBreadcrumb: true
 
 ## 사전 체크
 
-- [Cowork 설치](../../cowork/install/) 완료
+- [Cowork 설치](../install/) 완료
 - 작업할 **로컬 폴더** 하나 준비 (Windows에서는 짧은 경로를 권장합니다)
 
 ## 전체 흐름
 
 1. **마켓플레이스 등록**
 
-   Cowork **좌측 사이드바 → 사용자 지정(Customize) → 개인 플러그인 → 플러그인 추가 → 마켓플레이스 추가**에서 다음 URL을 입력합니다.
+   Cowork **좌측 사이드바 → 사용자 지정(Customize) → 개인 플러그인 → 플러그인 추가 → 마켓플이스 추가**에서 다음 URL을 입력합니다.
 
    ```text
    modu-ai/cowork-plugins
    ```
 
-   동기화가 끝나면 17개 플러그인·84개 스킬 목록이 표시됩니다.
+   동기화가 끝나면 17개 플러그인 목록이 표시됩니다.
 
 2. **`moai-core` 설치**
 
@@ -53,7 +53,7 @@ geekdocBreadcrumb: true
    /project init
    ```
 
-   `moai-core:project` 스킬이 실행되어 **7단계 흐름**(Interview → Detect → Chain → Confirm → Generate → APIKey → First Run)을 진행합니다. 자세한 내용은 [moai-core 상세](./moai-core/)에서 확인할 수 있습니다. 약 3~5분 안에 프로젝트용 `CLAUDE.md`가 루트에 생성됩니다.
+   `moai-core:project` 스킬이 실행되어 **7단계 흐름**(Interview → Detect → Chain → Confirm → Generate → APIKey → First Run)을 진행합니다. 자세한 내용은 [moai-core 상세](../plugins/moai-core/)에서 확인할 수 있습니다. 약 3~5분 안에 프로젝트용 `CLAUDE.md`가 루트에 생성됩니다.
 
 5. **첫 요청**
 
@@ -89,13 +89,76 @@ geekdocBreadcrumb: true
 - **Word·PPT 파일이 깨질 때**: `moai-office`가 설치돼 있는지, Python 의존성(`python-docx`, `python-hwpx` 등)이 갖춰졌는지 확인합니다.
 - **AI 슬롭 검수가 실행되지 않을 때**: 요청에 "빠르게"라는 표현이 포함되면 검수가 스킵될 수 있습니다. "검수까지 돌려줘"라고 명시하세요.
 
+## 주요 스킬 카탈로그 (84개)
+
+### moai-core (핵심 유틸리티)
+- **ai-slop-reviewer**: 모든 텍스트 산출물의 AI 패턴 검수 및 개선
+- **project**: 프로젝트 초기화 및 문서 생성
+- **feedback**: 사용자 피드백 수집 및 GitHub 이슈 생성
+
+### moai-content (콘텐츠 생성)
+- **blog**: 블로그 포스팅 생성
+- **card-news**: 뉴스 카드 생성
+- **copywriting**: 마케팅 카피 작성
+- **landing-page**: 랜딩 페이지 생성
+- **newsletter**: 뉴스레터 생성
+- **product-detail**: 제품 상세페이지 작성
+- **social-media**: SNS 콘텐츠 생성
+
+### moai-business (비즈니스)
+- **daily-briefing**: 일간 브리핑 생성
+- **investor-relations**: 투자자 관계 문서 생성
+- **market-analyst**: 시장 분석 보고서 작성
+- **strategy-planner**: 전략 계획 수립
+- **sbiz365-analyst**: 소상공인365 상권분석
+- **kr-gov-grant**: 정부지원사업 통합 지원
+
+### moai-office (오피스 문서)
+- **docx-generator**: Word 문서 생성
+- **pptx-designer**: PowerPoint 디자인
+- **xlsx-creator**: Excel 생성
+- **hwpx-writer**: 한글 문서 작성
+
+### moai-legal (법률)
+- **compliance-check**: 규정 준수 검사
+- **contract-review**: 계약서 검토
+- **legal-risk**: 법적 위험 평가
+- **nda-triage**: NDA 우선순위 분류
+
+### moai-finance (재무)
+- **close-management**: 마감 관리
+- **financial-statements**: 재무제표 생성
+- **tax-helper**: 세무 도우미
+- **variance-analysis**: 분석 차이
+
+### moai-marketing (마케팅)
+- **brand-identity**: 브랜드 정체성 생성
+- **campaign-planner**: 캠페인 기획
+- **email-sequence**: 이메일 시퀀스 작성
+- **performance-report**: 성과 보고서
+- **personal-branding**: 개인 브랜딩
+- **seo-audit**: SEO 감사
+- **sns-content**: SNS 콘텐츠
+- **target-script**: 타겟 스크립트 생성
+
+### moai-education (교육)
+- **assessment-creator**: 평가 문제 생성
+- **curriculum-designer**: 커리큘럼 설계
+- **research-assistant**: 연구 보조
+
+### moai-media (미디어)
+- **image-gen**: 이미지 생성
+- **video-gen**: 비디오 생성
+- **nano-banana**: 이미지 생성 (Nano Banana Pro)
+
+### moai-product (제품)
+- **ux-designer**: UX 디자인
+
 ## 다음 단계
 
-- [`moai-core` 상세](./moai-core/)
-- [`moai-content` 상세](./moai-content/)
+- [moai-core 상세](../plugins/moai-core/)
+- [moai-content 상세](../plugins/moai-content/)
 - [Cowork 플러그인 사용](../../cowork/plugins/) — Cowork 환경 통합 가이드
-
----
 
 ### Sources
 
