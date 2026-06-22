@@ -36,8 +36,19 @@ Cowork는 2026-01-30 리서치 프리뷰로 공개된 뒤 **2026-02 macOS/Window
 ## 설치 절차
 
 1. **Claude Desktop 앱 내려받기** — [Claude Desktop 다운로드 안내](https://support.claude.com/en/articles/10065433)에서 macOS 또는 Windows용 설치 파일을 받습니다.
+
+![Claude Desktop 설치 계획 — 요금제 확인](/screenshots/cowork/cowork-install-plan.png)
+
+Claude Desktop을 설치하기 전에 현재 요금제가 Cowork를 지원하는지 확인하세요.
+
 2. **로그인** — Desktop 앱을 실행하고 사용 중인 계정으로 로그인합니다. Team·Enterprise 사용자는 조직이 Cowork를 활성화했는지 관리자에게 확인합니다.
+
 3. **Cowork 모드 시작** — 좌측 상단 메뉴 또는 명령 팔레트에서 Cowork를 선택합니다. 진입 시 "작업 폴더" 선택 창이 뜨면 프로젝트용 폴더를 지정합니다.
+
+![Cowork 모드 활성화 — 작업 폴더 선택](/screenshots/cowork/cowork-install-enable.png)
+
+Cowork 모드를 활성화하면 작업할 폴더를 선택하는 대화상자가 나타납니다.
+
 4. **폴더 선택과 권한** — Cowork는 선택한 폴더에만 읽기·쓰기 권한을 갖습니다. 전체 드라이브를 내어주지 않아도 됩니다. macOS의 경우 첫 실행 시 "Claude가 파일을 접근하도록 허용" 시스템 대화상자가 뜹니다.
 
 ## Windows 사용자를 위한 주의

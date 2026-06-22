@@ -1,7 +1,7 @@
 ---
 title: "moai-design — Claude Design 보조"
 weight: 200
-description: "claude.ai/design 사용을 받쳐 주는 풀스택 6 스킬. 6요소 브리프 자동 채움, 디자인 시스템 자산 합성(DESIGN.md), 시니어 UX 10 패턴 프롬프트 빌더, Claude Code 핸드오프 번들 분석, AI 슬롭 검수, 56개 글로벌 브랜드 디자인 시스템 라이브러리(design-system-library)."
+description: "claude.ai/design 사용을 받쳐 주는 풀스택 6 스킬. 6요소 브리프 자동 채움, 디자인 시스템 자산 합성(DESIGN.md), 시니어 UX 10 패턴 프롬프트 빌더, Claude Code 핸드오프 번들 분석, AI 슬롭 검수, 75개 글로벌 브랜드 디자인 시스템 라이브러리(design-system-library)."
 geekdocBreadcrumb: true
 tags: ["moai-design", "Claude Design"]
 ---
@@ -130,9 +130,9 @@ Claude Design에서 "Hand off to Claude Code" → 번들 다운로드 → Cowork
 
 Claude Design에서 생성된 카피를 Cowork의 `/claude-design-slop-check`에 붙여넣기 → "Reimagine your" "혁신적인" 같은 슬롭 패턴 검출 → 수정안 3개 → (선택) `moai-content:humanize-korean`으로 한국어 카피 자연화.
 
-## 56개 브랜드 디자인 시스템 라이브러리 (design-system-library)
+## 75개 브랜드 디자인 시스템 라이브러리 (design-system-library)
 
-[`design-system-library`](https://github.com/modu-ai/cowork-plugins/tree/main/moai-design/skills/design-system-library)는 Claude·ClickHouse·Clay 기본 3테마부터 Notion·Linear·Stripe·Vercel·Figma·Sentry 등 **56개 글로벌 브랜드 디자인 시스템** 토큰(색·타이포·radius·spacing)을 단일 진실 원천으로 보관하는 라이브러리입니다. 위 5단계 워크플로우와는 별개 축으로, **HTML 산출물에 브랜드 무드를 입히는** 용도입니다.
+[`design-system-library`](https://github.com/modu-ai/cowork-plugins/tree/main/moai-design/skills/design-system-library)는 Claude·ClickHouse·Clay 기본 3테마부터 Notion·Linear·Stripe·Vercel·Figma·Sentry 등 **75개 글로벌 브랜드 디자인 시스템** 토큰(색·타이포·radius·spacing)을 단일 진실 원천으로 보관하는 라이브러리입니다. 위 5단계 워크플로우와는 별개 축으로, **HTML 산출물에 브랜드 무드를 입히는** 용도입니다.
 
 | 기본 테마 | 무드 | 적합 산출물 |
 |------|------|------|
@@ -147,7 +147,7 @@ Claude Design에서 생성된 카피를 Cowork의 `/claude-design-slop-check`에
 | `html-report` + `design_system` 파라미터 | 지정한 브랜드 토큰 → Tailwind Play CDN config + shadcn vanilla 컴포넌트로 단일 HTML 렌더 |
 | `claude-design-system-prep` | 사용자가 지정한 시스템(또는 브랜드 무드 매칭)을 DESIGN.md 합성 소스로 로드 → Claude Design 핸드오프 지침 |
 
-`design_system`을 지정하지 않으면 기존 `html-report` 0의존 템플릿이 그대로 쓰입니다(하위 호환). 56개 중 48종은 휘도 기반 분류(light 33·dark 13·warm 2)가 완료되었고, 8종(theverge·tesla·starbucks·spotify·mastercard·lovable·lamborghini·kraken)은 colors 구조 후속 보완 예정입니다. 상세 토큰과 전체 56개 카탈로그는 [SKILL.md](https://github.com/modu-ai/cowork-plugins/blob/main/moai-design/skills/design-system-library/SKILL.md)와 [`systems/registry.md`](https://github.com/modu-ai/cowork-plugins/blob/main/moai-design/skills/design-system-library/systems/registry.md)를 참조하세요.
+`design_system`을 지정하지 않으면 기존 `html-report` 0의존 템플릿이 그대로 쓰입니다(하위 호환). 전체 75개 시스템(56개 풍부 분석 + 19개 경량 토큰)을 보관하며, 기본 3테마(claude·clickhouse·clay)는 Tailwind 매핑이 검증됐고 19개 경량 토큰은 typography 스케일 등 후속 보완이 예정돼 있습니다. 상세 토큰과 전체 카탈로그는 [SKILL.md](https://github.com/modu-ai/cowork-plugins/blob/main/moai-design/skills/design-system-library/SKILL.md)와 [`systems/registry.md`](https://github.com/modu-ai/cowork-plugins/blob/main/moai-design/skills/design-system-library/systems/registry.md)를 참조하세요.
 
 ## docs-site 가이드와의 관계
 

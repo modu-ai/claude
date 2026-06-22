@@ -33,6 +33,11 @@ flowchart TD
 커뮤니티 마켓플레이스를 예로 들면 아래 순서입니다.
 
 1. Cowork **좌측 사이드바 > 사용자 지정(Customize) > 개인 플러그인** 진입
+
+![Cowork 플러그인 마켓플레이스 — 설치 가능한 플러그인 목록](/screenshots/cowork/cowork-plugins-detail.png)
+
+플러그인 마켓플레이스에서 필요한 플러그인을 찾아 설치할 수 있습니다.
+
 2. **플러그인 추가 > 마켓플레이스 추가** 버튼
 3. URL 칸에 `modu-ai/cowork-plugins` 입력 → 동기화
 4. 목록에서 원하는 플러그인 옆 **+** 클릭해 설치

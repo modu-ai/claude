@@ -52,6 +52,10 @@ flowchart TD
 
 ## 첫 폴더 허용 — 단계별 흐름
 
+![권한 승인 대화 — 파일 및 폴더 접근 요청](/screenshots/cowork/cowork-permissions-dialog.png)
+
+Cowork를 처음 실행할 때 시스템 권한 승인 대화가 나타납니다.
+
 ```mermaid
 sequenceDiagram
     autonumber

@@ -11,6 +11,17 @@
     }
   },
   "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "cowork.mo.ai.kr" }],
+      "destination": "https://claude.mo.ai.kr/$1",
+      "permanent": true
+    },
+    {
+      "source": "/claude-design/:path*",
+      "destination": "/design/:path*",
+      "permanent": true
+    },
     { "source": "/docs", "destination": "/", "permanent": true }
   ],
   "headers": [

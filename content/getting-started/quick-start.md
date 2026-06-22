@@ -328,7 +328,7 @@ flowchart LR
 - **commerce-margin-calculator** / **commerce-promotion-planner** / **commerce-voc-triage** 등 30종
 
 ### 그 밖의 도메인 플러그인 (대표 스킬 한 줄)
-- **moai-design**: `design-system-library` (56개 글로벌 브랜드 디자인 시스템 → Tailwind Play CDN + shadcn) 외 Claude Design 연동 6종
+- **moai-design**: `design-system-library` (75개 글로벌 브랜드 디자인 시스템 → Tailwind Play CDN + shadcn) 외 Claude Design 연동 6종
 - **moai-book**: 책 기획·집필 8종 — `book-concept-planner`, `book-chapter-writer`, `book-proposal-writer` 등
 - **moai-tutor**: 학습자 전용 3종 — `learning-project`, `tutor-research`, `learning-material`
 - **moai-product**: `ux-designer`, `ux-researcher`, `spec-writer`, `roadmap-manager` (4종)

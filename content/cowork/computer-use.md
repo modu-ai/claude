@@ -8,6 +8,10 @@ geekdocBreadcrumb: true
 
 ## 작동 방식
 
+![컴퓨터 사용 기능 — Claude의 스크린샷 캡처와 클릭](/screenshots/cowork/cowork-computeruse.png)
+
+Claude가 마우스 클릭, 키보드 입력, 화면 캡처를 통해 데스크톱 앱과 브라우저를 직접 조작합니다.
+
 ```mermaid
 sequenceDiagram
     autonumber

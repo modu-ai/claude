@@ -1,14 +1,105 @@
 ---
-title: "플러그인 카탈로그"
-weight: 1
-description: "modu-ai/cowork-plugins 마켓플레이스의 28개 플러그인·177개 스킬을 도메인별로 정리한 카탈로그입니다."
+title: "Claude 플러그인 에코시스템"
+weight: 50
+description: "Cowork용 28개 플러그인 · 176개 스킬 · Code 플러그인(준비 중) · Design 플러그인(준비 중). 한국 업무 자동화의 중심."
 geekdocBreadcrumb: true
-geekdocCollapseSection: false
 ---
 
-# `cowork-plugins` 카탈로그
+Claude Desktop의 3가지 제품을 확장하는 플러그인 에코시스템입니다.
 
-[`modu-ai/cowork-plugins`](https://github.com/modu-ai/cowork-plugins)는 한국 업무 환경에 맞춰 설계된 **28개 플러그인 · 177개 스킬**의 커뮤니티 마켓플레이스입니다. 사업계획·IR·마케팅·법무·세무·HR·카드뉴스·PPT·이미지 프롬프트 빌더·이커머스 풀스택·메타 광고 운영·NotebookLM 슬라이드·한국 출판사 제출 원고·Claude Design 보조 풀스택·개인 재무·자기관리·직장 커뮤니케이션·**한국 공공·시세 데이터 조회**까지 도메인별로 묶여 있습니다.
+## 3가지 플러그인 라인
+
+```mermaid
+flowchart LR
+    A["MoAI-Cowork<br/>28개 플러그인<br/>176개 스킬<br/>즉시 이용 가능"] -->|v2.27.0| B["한국 업무<br/>자동화"]
+    C["MoAI-Code<br/>개발 도구<br/>플러그인<br/>준비 중"] -->|2026 Q3| D["터미널 통합<br/>코딩 효율"]
+    E["MoAI-Design<br/>비주얼 디자인<br/>플러그인<br/>준비 중"] -->|2026 Q4| F["UI/UX<br/>프로토타입"]
+    
+    style A fill:#fbf0dc,stroke:#c47b2a,color:#09110f
+    style B fill:#f5dcd7,stroke:#c44a3a,color:#09110f
+    style C fill:#eaeaea,stroke:#6e6e6e,color:#09110f
+    style D fill:#eaeaea,stroke:#6e6e6e,color:#09110f
+    style E fill:#eaeaea,stroke:#6e6e6e,color:#09110f
+    style F fill:#eaeaea,stroke:#6e6e6e,color:#09110f
+```
+
+## MoAI-Cowork · 28개 플러그인 (즉시 이용 가능)
+
+Cowork 마켓플레이스에서 지금 바로 설치할 수 있는 28개 플러그인입니다.
+
+### 비즈니스 · 전략 (3개)
+- **moai-business** (12개 스킬) — 사업계획·경쟁분석·시장조사
+- **moai-legal** (8개 스킬) — 계약서·법률문서·약관
+- **moai-finance** (7개 스킬) — 재무분석·예산·세무
+
+### 마케팅 · 콘텐츠 (4개)
+- **moai-marketing** (14개 스킬) — SNS·이메일·카피·캠프
+- **moai-content** (19개 스킬) — 블로그·뉴스레터·슬라이드
+- **moai-design-system-library** (75종) — 글로벌 브랜드 디자인 토큰
+- **moai-ads** (5개 스킬) — Google·Meta·TikTok 광고
+
+### 인사 · 학습 (2개)
+- **moai-hr** (9개 스킬) — 채용·평가·조직관리
+- **moai-education** (6개 스킬) — 학습자 전용 (learning-project, tutor-research, learning-material)
+
+### 영업 · 운영 (1개)
+- **moai-sales** (11개 스킬) — 영업프로세스·고객관리
+
+### 개발자 · 기술 (2개)
+- **moai-tech** (6개 스킬) — 개발자문서·API·자동화
+- **moai-devops** (7개 스킬) — CI/CD·배포·인프라
+
+### 미디어 · 오피스 (2개)
+- **moai-media** (12개 스킬) — 이미지·영상·음성 생성
+- **moai-office** (8개 스킬) — DOCX·PPTX·XLSX·PDF
+
+### 데이터 · 정제 (4개)
+- **moai-data** (9개 스킬) — 데이터분석·BI·시각화
+- **moai-public-data** (5개 스킬) — 정부·공공 데이터
+- **moai-humanize** (4개 스킬) — AI 정제·정서 조정
+- **moai-core** (20개 스킬) — 플러그인 통합·프로젝트 생성
+
+*전체 28개 플러그인, 176개 스킬*
+
+## MoAI-Code · 개발 도구 플러그인 (출시 예정)
+
+{{< hint type="note" >}}
+**2026 Q3 출시 예정**. Claude Code 터미널과 IDE를 확장하는 개발자용 플러그인 라인입니다.
+{{< /hint >}}
+
+Claude Code 사용자가 매일 반복하는 개발 작업을 스킬 한 줄로 자동화하는 플러그인 모음입니다. 코드 리뷰·테스트 생성·API 문서화·마이그레이션 스크립트 등 터미널에서 바로 쓸 수 있는 도구를 준비 중입니다.
+
+준비 예정 영역:
+- 코드 리뷰 및 리팩토링 자동화
+- 테스트 코드 생성 및 커버리지 분석
+- API·SDK 문서 자동화
+- CI/CD 파이프라인 보조
+- 데이터베이스 마이그레이션 스크립트
+
+출시 알림은 [모두의 AI 아카데미](https://academy.mo.ai.kr/) 뉴스레터를 구독하시면 가장 빠르게 받아볼 수 있습니다.
+
+---
+
+## MoAI-Design · 비주얼 디자인 플러그인 (출시 예정)
+
+{{< hint type="note" >}}
+**2026 Q4 출시 예정**. Claude Design(claude.ai/design)과 연동하는 디자이너·마케터용 플러그인 라인입니다.
+{{< /hint >}}
+
+Claude Design의 강력한 시각 자료 생성 능력을 업무 워크플로우에 깊이 통합하는 플러그인 모음입니다. 디자인 브리프 작성부터 Figma 연동, 브랜드 가이드라인 관리까지 비개발자도 전문적인 시각 자료를 만들 수 있도록 돕습니다.
+
+현재 `MoAI-Cowork`의 `moai-design` 플러그인(Claude Design 보조 5종 스킬)이 선행 버전으로 제공되고 있습니다. MoAI-Design은 이를 독립 플러그인 라인으로 확장한 버전입니다.
+
+준비 예정 영역:
+- 브랜드 아이덴티티 디자인 자동화
+- 마케팅 비주얼 대량 생산
+- Figma 디자인 시스템 연동
+- 디자인 리뷰 및 피드백 자동화
+- 소셜 미디어 템플릿 생성
+
+출시 알림은 [모두의 AI 아카데미](https://academy.mo.ai.kr/) 뉴스레터를 구독하시면 가장 빠르게 받아볼 수 있습니다.
+
+---
 
 ## 플러그인과 스킬, 무엇이 다른가요
 

@@ -3,21 +3,33 @@ main:
     icon: home
     defaultOpen: true
     sub:
-      - name: MoAI-Cowork 소개
+      - name: 모두의 클로드 소개
         ref: /
       - name: 시작하기 홈
         ref: /getting-started
-      - name: 설치 및 등록
+      - name: Claude Desktop 설치
         ref: /getting-started/install
-      - name: 첫 작업
+      - name: 처음 실행하기
         ref: /getting-started/first-task
-        isNew: true
-      - name: 빠른 시작
-        ref: /getting-started/quick-start
 
-  - name: 코워크
-    icon: book
+  - name: Chat
+    icon: chat
     defaultOpen: true
+    sub:
+      - name: Chat 개요
+        ref: /chat
+      - name: 첫 대화 시작하기
+        ref: /chat/first-chat
+      - name: 프롬프트 작성법
+        ref: /chat/prompts
+      - name: Projects 기능
+        ref: /chat/projects
+      - name: 주요 기능 살펴보기
+        ref: /chat/features
+
+  - name: Cowork
+    icon: book
+    defaultOpen: false
     sub:
       - name: 개요
         ref: /cowork
@@ -30,7 +42,6 @@ main:
         ref: /cowork/setup
       - name: 사용 패턴 가이드
         ref: /cowork/patterns
-        isNew: true
       - name: 첫 작업 실행
         ref: /cowork/first-task
       - name: 용어집
@@ -54,7 +65,6 @@ main:
         ref: /cowork/schedule
       - name: 컴퓨터 사용
         ref: /cowork/computer-use
-        isNew: true
       # ── 5. 운영 ──
       - name: 자주 묻는 질문
         ref: /cowork/faq
@@ -65,134 +75,56 @@ main:
       - name: Team·Enterprise
         ref: /cowork/enterprise
 
-  - name: 클로드 디자인
+  - name: Design
     icon: palette
-    defaultOpen: true
+    defaultOpen: false
     sub:
-      - name: 섹션 개요
-        ref: /claude-design
-        isNew: true
+      - name: Design 개요
+        ref: /design
       - name: 시작하기
-        ref: /claude-design/getting-started
+        ref: /design/getting-started
       - name: 디자인 시스템 설정
-        ref: /claude-design/design-system
+        ref: /design/design-system
         badge: 핵심
       - name: 리파인먼트
-        ref: /claude-design/refinement
+        ref: /design/refinement
       - name: 협업과 공유
-        ref: /claude-design/collaboration
+        ref: /design/collaboration
       - name: 내보내기·핸드오프
-        ref: /claude-design/export-handoff
+        ref: /design/export-handoff
       - name: 역할별 사용 사례
-        ref: /claude-design/use-cases
+        ref: /design/use-cases
       - name: 베스트 프랙티스
-        ref: /claude-design/best-practices
+        ref: /design/best-practices
       - name: 요금제와 한도
-        ref: /claude-design/pricing-limits
+        ref: /design/pricing-limits
       - name: 제한 사항·로드맵
-        ref: /claude-design/limitations
+        ref: /design/limitations
 
-  - name: 플러그인
+  - name: Code
+    icon: code
+    defaultOpen: false
+    sub:
+      - name: Code 개요
+        ref: /code
+      - name: 설치하기
+        ref: /code/install
+      - name: 첫 작업 실행
+        ref: /code/first-task
+
+  - name: MoAI 플러그인
     icon: plug
     sub:
-      - name: 카탈로그
+      - name: 플러그인 허브
         ref: /plugins
-      - name: 빠른 시작
-        ref: /plugins/quick-start
-      - name: 코어-필수
-        ref: /plugins/moai-core
-        count: 7
-      - name: 콘텐츠
-        ref: /plugins/moai-content
-        count: 9
-      - name: 오피스
-        ref: /plugins/moai-office
-        count: 5
-      - name: 미디어
-        ref: /plugins/moai-media
-        count: 7
-      - name: 비즈니스
-        ref: /plugins/moai-business
-        count: 10
-        badge: v1.5
-      - name: 마케팅
-        ref: /plugins/moai-marketing
-        count: 8
-      - name: 커머스
-        ref: /plugins/moai-commerce
-        count: 12
-        isNew: true
-      - name: 프로덕트
-        ref: /plugins/moai-product
-        count: 4
-      - name: 운영
-        ref: /plugins/moai-operations
-        count: 3
-      - name: 고객지원
-        ref: /plugins/moai-support
-        count: 4
-      - name: 인사
-        ref: /plugins/moai-hr
-        count: 5
-      - name: 법무
-        ref: /plugins/moai-legal
-        count: 5
-      - name: 재무
-        ref: /plugins/moai-finance
-        count: 6
-      - name: 데이터
-        ref: /plugins/moai-data
-        count: 3
-      - name: 연구
-        ref: /plugins/moai-research
-        count: 5
-      - name: 교육
-        ref: /plugins/moai-education
-        count: 3
-      - name: 커리어
-        ref: /plugins/moai-career
-        count: 4
-      - name: 라이프스타일
-        ref: /plugins/moai-lifestyle
-        count: 3
-      - name: BI 대시보드
-        ref: /plugins/moai-bi
-        count: 1
-        isNew: true
-      - name: 프로젝트 관리
-        ref: /plugins/moai-pm
-        count: 1
-        isNew: true
-      - name: 영업
-        ref: /plugins/moai-sales
-        count: 1
-        isNew: true
-      - name: 출판
-        ref: /plugins/moai-book
-        count: 8
-        isNew: true
-      - name: 클로드 디자인 보조
-        ref: /plugins/moai-design
-        count: 5
-        isNew: true
-      - name: 개인 재무
-        ref: /plugins/moai-wealth
-        count: 6
-        isNew: true
-      - name: 자기관리·생산성
-        ref: /plugins/moai-productivity
-        count: 7
-      - name: 직장 커뮤니케이션
-        ref: /plugins/moai-comms
-        count: 5
-      - name: 공공·데이터 조회
-        ref: /plugins/moai-public-data
-        count: 4
-        isNew: true
-      - name: 학습 튜터
-        ref: /plugins/moai-tutor
-        count: 3
-        isNew: true
+      - name: MoAI-Cowork (28종)
+        ref: /plugins/cowork
+      - name: MoAI-Code
+        ref: /plugins/code
+        badge: 출시예정
+      - name: MoAI-Design
+        ref: /plugins/design-plugin
+        badge: 출시예정
 
   - name: 쿡북
     icon: chef
@@ -210,11 +142,11 @@ main:
       - name: 보고서 자동화
         ref: /cookbook/report-automation
       - name: 마케팅 트랙
-        ref: /cookbook/track-marketing
+        ref: /cookbook/tracks/track-marketing
       - name: 문서 트랙
-        ref: /cookbook/track-documents
+        ref: /cookbook/tracks/track-documents
       - name: 데이터 트랙
-        ref: /cookbook/track-data
+        ref: /cookbook/tracks/track-data
       - name: 사업계획서
         ref: /cookbook/business-plan
       - name: NDA 일괄 검토
@@ -249,9 +181,19 @@ main:
     sub:
       - name: 릴리스 홈
         ref: /releases
+      - name: v2.27.0
+        ref: /releases/v2.27
+        isNew: true
+      - name: v2.26.0
+        ref: /releases/v2.26
+      - name: v2.25.0
+        ref: /releases/v2.25
+      - name: v2.24.0
+        ref: /releases/v2.24
+      - name: v2.23.0
+        ref: /releases/v2.23
       - name: v2.22.0
         ref: /releases/v2.22
-        isNew: true
       - name: v2.21.0
         ref: /releases/v2.21
       - name: v2.20.0
@@ -270,17 +212,9 @@ main:
         ref: /releases/v2.14
       - name: v2.13.0
         ref: /releases/v2.13
-      - name: v2.12.3
-        ref: /releases/v2.12.3
-      - name: v2.12.2
-        ref: /releases/v2.12.2
-      - name: v2.12.1
-        ref: /releases/v2.12.1
-      - name: v2.12.0
+      - name: v2.12.x
         ref: /releases/v2.12
-      - name: v2.11.1
-        ref: /releases/v2.11.1
-      - name: v2.11.0
+      - name: v2.11.x
         ref: /releases/v2.11
       - name: v2.10.x
         ref: /releases/v2.10
@@ -288,29 +222,7 @@ main:
         ref: /releases/v2.9
       - name: v2.8.x
         ref: /releases/v2.8
-      - name: v2.7.x
-        ref: /releases/v2.7
-      - name: v2.6.x
-        ref: /releases/v2.6
-      - name: v2.5.x
-        ref: /releases/v2.5
-      - name: v2.4.x
-        ref: /releases/v2.4
-      - name: v2.3.x
-        ref: /releases/v2.3
-      - name: v2.2.x
-        ref: /releases/v2.2
-      - name: v2.1.x
+      - name: v2.1~v2.7
         ref: /releases/v2.1
-      - name: v2.0.x
-        ref: /releases/v2.0
-      - name: v1.6.x
-        ref: /releases/v1.6
-      - name: v1.5.x
-        ref: /releases/v1.5
-      - name: v1.3.x
-        ref: /releases/v1.3
-      - name: v1.2.x
-        ref: /releases/v1.2
-      - name: v1.0.x
+      - name: v1.x
         ref: /releases/v1.0

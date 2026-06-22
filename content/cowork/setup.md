@@ -40,6 +40,14 @@ Claude Desktop에서 설정에 접근하는 방법:
    - **Connectors**: MCP 서버 및 외부 서비스 연결
    - **Permissions**: 파일/폴더 접근 권한 관리
 
+![Cowork 설정 — 폴더와 스킬 연결](/screenshots/cowork/cowork-setup-folder.png)
+
+Cowork 설정 화면에서 작업 폴더를 지정하고 필요한 스킬과 커넥터를 활성화합니다.
+
+![Cowork 스킬 검증 — 설치된 스킬 목록 확인](/screenshots/cowork/cowork-setup-skills.png)
+
+설치된 스킬이 올바르게 로드되었는지 검증하고, 사용 가능한 모든 슬래시 명령을 확인할 수 있습니다.
+
 ## 전역 지시어 (Global Instructions)
 
 전역 지시어는 **모든 Cowork 세션의 시작점**에서 Claude가 읽는 영구 규칙입니다.

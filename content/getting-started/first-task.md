@@ -168,6 +168,10 @@ flowchart LR
 > "SaaS Series A IR 덱 초안 만들어줘"
 {{< /terminal >}}
 
+![Getting Started 첫 작업 — 자연어 요청 입력](/screenshots/getting-started/gs-firsttask-1.png)
+
+프로젝트가 준비되면 자연어로 원하는 작업을 요청합니다.
+
 **요청 상세 내용**:
 - 비즈니스 모델: SaaS 플랫폼
 - 투자 단계: Series A
@@ -238,6 +242,10 @@ sequenceDiagram
 ### 5단계: 결과물 확인
 
 작업이 완료되면 다음과 같이 결과물을 확인할 수 있습니다:
+
+![Getting Started 첫 작업 완료 — 생성된 IR 덱 검증](/screenshots/getting-started/gs-firsttask-2.png)
+
+스킬 체인의 모든 단계가 완료되면 최종 IR 덱 파일이 생성되고, 프로젝트 폴더에서 바로 확인할 수 있습니다.
 
 #### 생성된 파일
 - `SaaS_Series_A_IR_Deck.pptx` - 최종 IR 덱 파일

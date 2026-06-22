@@ -31,6 +31,10 @@ flowchart TD
 - "계약서 검토해줘" → `moai-legal:contract-review`
 - "사업계획서 만들어줘" → `moai-business:strategy-planner`
 
+![스킬 자동 호출 — 슬래시 명령 자동완성](/screenshots/cowork/cowork-skills-invoke.png)
+
+사용자 입력이 스킬의 트리거 조건과 일치하면, 관련 스킬이 자동으로 호출되고 슬래시 명령 자동완성이 나타납니다.
+
 ## 스킬의 구조
 ## 정보를 조금씩 펼치는 원칙 (Progressive Disclosure)
 

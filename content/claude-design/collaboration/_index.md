@@ -15,9 +15,13 @@ geekdocBreadcrumb: true
 | 권한 유형 | Private · View-only · Edit access (3종) |
 | 그룹 대화 | 여러 멤버가 같은 문서에서 동시에 Claude와 대화 |
 | 권한 변경 | 문서 소유자 또는 조직 관리자 |
-| 감사 로그 | 현재 별도 audit log 미제공 (Research Preview 한계) |
+| 감사 로그 | 현재 별도 audit log 미제공 (Beta 단계에서 개선 예정) |
 
 ## 권한 3종 — 상세
+
+![권한 설정 인터페이스 — Private · View-only · Edit access 권한 부여](/screenshots/claude-design/cd-share-perms.png)
+
+공유 메뉴에서 각 멤버별로 권한을 세밀하게 설정할 수 있습니다.
 
 ### Private (기본)
 
@@ -179,7 +183,7 @@ Cowork에서 Slack·Drive·Notion 커넥터로 자동 업로드하려면 [Cowork
 
 - **다음 페이지**: [내보내기와 핸드오프](../export-handoff/) — Canva·PPTX·HTML·Claude Code 핸드오프 6가지 경로
 - 참고: [요금제·한도](../pricing-limits/) — RBAC·관리자 절차
-- 깊이: [제한 사항](../limitations/) — Research Preview에서 아직 빠진 거버넌스 기능
+- 깊이: [제한 사항](../limitations/) — Beta 단계에서 계속 보강되는 거버넌스 기능
 
 ---
 

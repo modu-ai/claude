@@ -13,7 +13,7 @@ geekdocCollapseSection: false
 
 차이점은 디자이너가 사람이 아니라 Claude라는 점, 그리고 손님이 "텍스트와 이미지"로만 요청해도 Claude가 그것을 읽고(이것을 **비전 기반** — 그림·사진·문서를 눈으로 보듯 이해하는 능력이라 합니다) 클릭할 수 있는 화면 시안으로 만들어낸다는 점입니다. 결과물은 그림 파일이 아니라 **인터랙티브 프로토타입**(버튼을 누르면 화면이 넘어가는 등 실제로 조작해 볼 수 있는 시안)입니다. "랜딩 페이지 하나 만들어줘"라고 말하면 당장 브라우저에서 클릭해 볼 수 있는 화면이 뜹니다.
 
-"Anthropic Labs"와 "Research Preview"라는 표현이 자주 보입니다. **Anthropic Labs**는 Anthropic이 새 기능을 빠르게 실험해 보는 조직 단위이고, **Research Preview**는 "완성된 정식 제품이 아니라 공개적으로 시험 중인 단계"를 뜻합니다. 즉 Claude Design은 안정화가 계속 진행 중인, 쓸 만하지만 발전 중인 도구입니다.
+"Anthropic Labs"와 "Beta"라는 표현이 자주 보입니다. **Anthropic Labs**는 Anthropic이 새 기능을 빠르게 실험해 보는 조직 단위이고, **Beta**는 "정식 출시는 되었지만 기능이 계속 추가되고 안정화 중"을 의미합니다 (2026년 6월 beta 단계 진입). 즉 Claude Design은 핵심 기능은 안정적이지만 거버넌스·모바일·데이터 거주지 같은 엔터프라이즈 기능은 계속 개선 중인 도구입니다.
 
 ```mermaid
 flowchart LR
@@ -37,7 +37,7 @@ flowchart LR
 | <span style="white-space:nowrap">3. 작업</span> | [리파인먼트](refinement/), [협업과 공유](collaboration/) | 시안 다듬기 + 팀 공동 작업 |
 | <span style="white-space:nowrap">4. 내보내기</span> | [내보내기와 핸드오프](export-handoff/) | Canva·PPTX·Claude Code 등 6가지 산출 경로 |
 | <span style="white-space:nowrap">5. 적용</span> | [역할별 사용 사례](use-cases/), [베스트 프랙티스](best-practices/) | 실전 워크플로우 + 10대 원칙 |
-| <span style="white-space:nowrap">6. 운영</span> | [요금제와 한도](pricing-limits/), [제한 사항과 로드맵](limitations/) | 도입 의사결정 + Research Preview 위치 이해 |
+| <span style="white-space:nowrap">6. 운영</span> | [요금제와 한도](pricing-limits/), [제한 사항과 로드맵](limitations/) | 도입 의사결정 + Beta 단계 위치 이해 |
 
 ```mermaid
 flowchart TD
@@ -60,17 +60,26 @@ flowchart TD
 | 항목 | 내용 |
 |---|---|
 | 출시 | 2026-04-17, Anthropic Labs |
-| 진입 URL | [claude.ai/design](https://claude.ai/design) (웹 전용) |
+| 진입 경로 | [claude.ai/design](https://claude.ai/design) (웹) · Claude Desktop (사이드바) · Claude Code 터미널 (`/design` 커맨드) |
 | 베이스 모델 | Claude Opus 4.7 이상 (비전 기반) |
-| 상태 | Research Preview (점진 롤아웃) |
+| 상태 | **Beta** (2026년 6월 기준) |
 | 요금제 | Pro · Max · Team · Enterprise |
 | Enterprise 기본값 | OFF — 관리자가 Anthropic Labs 설정에서 활성화 |
-| 사용량 한도 | 일반 채팅·Claude Code와 **분리된 별도 쿼터** |
-| Enterprise 사용량제 크레딧 | 약 20 프롬프트 일회성 (2026-07-17 만료) |
+| 사용량 한도 | 일반 채팅·Claude Code와 **공유 풀** (별도 쿼터 없음) |
+| Extra usage | 한도 초과 시 활성화 가능 (추가 요금) |
 | 출력 형식 | **Canva(네이티브 파트너십)** · PDF · PPTX · 표준 HTML · ZIP · Claude Code 핸드오프 번들 |
+| 양방향 동기화 | `/design-sync` (Claude Code 터미널)로 양방향 디자인 시스템 동기화 가능 |
 
 {{< hint type="note" >}}
-**플러그인과 다릅니다.** `claude.ai/design`(이 섹션의 주제)은 비주얼 생성 제품이고, [`claude.com/plugins/design`](https://claude.com/plugins/design)은 Cowork에서 디자인 비평·UX 카피·접근성 감사를 돕는 **별도 플러그인**입니다. 두 도구는 함께 쓸 수 있지만 같은 도구가 아닙니다.
+**플러그인과 다릅니다.** `claude.ai/design`(이 섹션의 주제)은 Anthropic의 비주얼 생성 제품이고, [`claude.com/plugins/design`](https://claude.com/plugins/design)은 Cowork에서 디자인 비평·UX 카피·접근성 감사를 돕는 **별도 플러그인**(MoAI 플러그인 `moai-design`과도 다름)입니다. 세 도구는 서로 다르며 같은 프로젝트 내에서 함께 쓸 수 있습니다.
+{{< /hint >}}
+
+{{< hint type="note" >}}
+**2026년 6월 업데이트.** Claude Design은 4월 출시 후 6월에 크게 개편됐습니다 (개편 시점·초기 사용량 수치는 외부 보도 기준):
+- **양방향 동기화** — Claude Code `/design-sync`로 기존 코드베이스의 디자인 시스템을 Claude Design으로 가져옵니다 (코드 → 디자인). 완성된 시안은 다시 Claude Code로 핸드오프 (디자인 → 코드).
+- **디자인 시스템 import** — GitHub repo·디자인 파일·업로드에서 시스템을 불러오고, Claude가 출력을 시스템에 대조해 자가 수정합니다.
+- **엔터프라이즈 거버넌스** — 관리자가 표준 시스템 1개를 승인하고 편집을 잠급니다.
+- **토큰 효율** — 별도 주간 쿼터를 폐지하고 일반 채팅·Claude Code·Cowork와 **공유 풀**로 통합했습니다.
 {{< /hint >}}
 
 ## 작동 방식
@@ -111,7 +120,7 @@ Claude Design에서도 똑같습니다. 우리 회사의 색·글씨체·버튼 
 
 반대로 디자인 시스템을 먼저 등록하면 어떻게 될까요. 우리 브랜드 색과 글씨체가 시안에 일관되게 묻어납니다. 매장마다 분위기가 같아지는 것처럼, 어떤 페이지를 만들든 우리 회사 느낌이 유지됩니다. 그래서 학습 경로 두 번째 단계에 ★ 표시가 붙어 있고, "디자인 시스템 페이지를 반드시 통과할 것"을 권장하는 것입니다. 한두 단계 건너뛰면 결과가 AI 냄새 나는 일반적 디자인으로 퇴색합니다.
 
-> **가이드북이 아직 없다면** — 밑바닥부터 토큰을 정의하는 대신, [`moai-design` 플러그인](../plugins/moai-design/)의 `design-system-library` 스킬이 제공하는 56개 글로벌 브랜드 시스템(Notion·Linear·Stripe·Vercel·Figma·Sentry 등) 중 하나에서 시작하세요. 검증된 시스템을 DESIGN.md 소스로 가져오면 "학습 데이터 평균값으로 수렴"하는 함정을 피할 수 있습니다. 자세한 원칙은 [디자인 시스템 설정](design-system/) 페이지의 "사전 빌트인 시스템에서 시작"을 참고하세요.
+> **가이드북이 아직 없다면** — 밑바닥부터 토큰을 정의하는 대신, [`moai-design` 플러그인](../plugins/moai-design/)의 `design-system-library` 스킬이 제공하는 75개 글로벌 브랜드 시스템(Notion·Linear·Stripe·Vercel·Figma·Sentry 등) 중 하나에서 시작하세요. 검증된 시스템을 DESIGN.md 소스로 가져오면 "학습 데이터 평균값으로 수렴"하는 함정을 피할 수 있습니다. 자세한 원칙은 [디자인 시스템 설정](design-system/) 페이지의 "사전 빌트인 시스템에서 시작"을 참고하세요.
 
 ## 누구를 위한 가이드인가
 
@@ -187,12 +196,12 @@ flowchart LR
 
 이 섹션의 운영 원칙·베스트 프랙티스를 자동화한 [`moai-design`](../plugins/moai-design/) 플러그인이 마켓플레이스에 정식 등록되어 있습니다(6개 스킬). Cowork에서 자연어로 호출하면 AskUserQuestion으로 정보를 모은 뒤 claude.ai/design 채팅에 그대로 붙여 넣을 수 있는 산출물을 만들어 줍니다.
 
-특히 **`design-system-library`**는 우리 브랜드 가이드북이 없을 때 가장 먼저 손댈 곳입니다. Notion·Linear·Stripe·Vercel·Figma·Sentry 등 56개 글로벌 브랜드 디자인 시스템을 빌트인으로 품고 있어, 밑바닥부터 토큰을 정의하지 않고도 검증된 시스템에서 출발할 수 있습니다. [디자인 시스템 설정](design-system/) 페이지의 "사전 빌트인 시스템에서 시작" 원칙(원칙 6)과 직결됩니다.
+특히 **`design-system-library`**는 우리 브랜드 가이드북이 없을 때 가장 먼저 손댈 곳입니다. Notion·Linear·Stripe·Vercel·Figma·Sentry 등 75개 글로벌 브랜드 디자인 시스템을 빌트인으로 품고 있어, 밑바닥부터 토큰을 정의하지 않고도 검증된 시스템에서 출발할 수 있습니다. [디자인 시스템 설정](design-system/) 페이지의 "사전 빌트인 시스템에서 시작" 원칙(원칙 6)과 직결됩니다.
 
 | 단계 | 스킬 | 결과물 |
 |---|---|---|
 | 디자인 시스템 셋업 | `claude-design-system-prep` | DESIGN.md + 자산 정리 |
-| 디자인 시스템 소스 | `design-system-library` | 56개 글로벌 브랜드 디자인 시스템(Notion·Linear·Stripe 등) → Tailwind Play CDN + shadcn |
+| 디자인 시스템 소스 | `design-system-library` | 75개 글로벌 브랜드 디자인 시스템(Notion·Linear·Stripe 등) → Tailwind Play CDN + shadcn |
 | 시안 작성 | `claude-design-brief` | 6요소 복붙용 프롬프트 |
 | 특정 영역 | `claude-design-prompt-builder` | 시니어 UX 10 패턴 프롬프트 |
 | 결과 검수 | `claude-design-slop-check` | AI 슬롭 검수 + 수정안 |
@@ -200,13 +209,14 @@ flowchart LR
 
 ## 다음 단계
 
-먼저 [시작하기](getting-started/)에서 첫 프롬프트와 입력 4종을 익히세요. 그다음 [디자인 시스템 설정](design-system/) ★ 페이지를 반드시 통과하는 것을 권장합니다. 디자인 시스템 셋업을 건너뛰면 결과 품질이 학습 데이터 평균값으로 수렴해 "AI가 만든 것 같은" 일반적 디자인이 나옵니다.
+먼저 [시작하기](getting-started/)에서 첫 프롬프트와 입력 4종을 익히세요. 그다음 [디자인 시스템 설정](design-system/) ★ 페이지를 반드시 통과하는 것을 권장합니다. 디자인 시스템 셋업을 건너뛰면 결과 품질이 학습 데이터 평균값으로 수렴해 "AI가 만든 것 같은" 일반적 디자인이 나옵니다. Beta 단계인 지금은 핵심 기능만 안정적이고 엔터프라이즈 기능은 계속 보강 중이므로, 정기적인 업데이트를 확인하시기 바랍니다.
 
 ---
 
 ### Sources (섹션 공통)
 
-- [Introducing Claude Design by Anthropic Labs](https://www.anthropic.com/news/claude-design-anthropic-labs) — 공식 출시 공지 (2026-04-17)
+- [Introducing Claude Design by Anthropic Labs](https://www.anthropic.com/news/claude-design-anthropic-labs) — 공식 출시 공지 (2026-04-17, Opus 4.7 베이스)
+- [Get started with Claude Design (Support)](https://support.claude.com/en/articles/14604416-get-started-with-claude-design) — Beta 상태, 공유 쿼터 설명
 - [Using Claude Design for prototypes and UX (Anthropic Tutorial)](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux) — 공식 튜토리얼
 - [Set up your design system in Claude Design](https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design) — 디자인 시스템 설정 도움말
 - [Claude Design admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans) — 관리자 가이드

@@ -50,6 +50,10 @@ flowchart TB
 - `modu-ai/cowork-plugins` 같은 커뮤니티 마켓플레이스도 조직 정책에 맞춰 선별 등록할 수 있습니다.
 - 각 플러그인이 요구하는 API 키·MCP 권한은 조직 공용 자격 증명으로 관리하도록 합니다.
 
+![Enterprise 관리자 콘솔 — 조직 정책 및 플러그인 관리](/screenshots/cowork/cowork-enterprise-admin.png)
+
+Enterprise 계정의 관리자는 조직의 Cowork 정책을 설정하고 구성원의 플러그인 사용 범위를 제어합니다.
+
 ## 모니터링 (OpenTelemetry)
 
 - Cowork의 프롬프트·도구 사용·API 호출·오류를 OTel 이벤트로 내보낼 수 있습니다.

@@ -41,6 +41,14 @@ flowchart TB
 
 Cowork 설정에서 "커넥터" 항목을 열면 Google Drive, Gmail, Google Calendar, Slack, GitHub 등 자주 쓰이는 서비스를 한 번에 연결할 수 있습니다.
 
+![커넥터 추가 인터페이스 — 외부 서비스 연결](/screenshots/cowork/cowork-connector-add.png)
+
+설정 메뉴에서 Google Drive, Slack, Gmail 등의 커넥터를 추가하여 외부 서비스와 연결합니다.
+
+![커넥터 권한 승인 — OAuth 인증](/screenshots/cowork/cowork-connector-auth.png)
+
+커넥터 추가 시 각 서비스의 권한 승인 화면이 나타나며, OAuth를 통해 안전하게 인증합니다.
+
 ### 2026-02 신규 12종 커넥터 (영업·분석·법무·마케팅)
 
 | 영역 | 커넥터 | 용도 |

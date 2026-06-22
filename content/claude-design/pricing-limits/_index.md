@@ -1,45 +1,55 @@
 ---
 title: "요금제와 한도"
 weight: 80
-description: "Pro·Max·Team·Enterprise 플랜별 차이, Enterprise 활성화 절차, RBAC 그룹 배포, 별도 쿼터 메커니즘, Extra usage 옵션, 한국 결제 환경 메모."
+description: "Pro·Max·Team·Enterprise 플랜별 차이, Enterprise 활성화 절차, RBAC 그룹 배포, 공유 풀 메커니즘, Extra usage 옵션, 한국 결제 환경 메모."
 geekdocBreadcrumb: true
 ---
-> Claude Design은 **별도 쿼터**를 가진 Research Preview 제품입니다. 일반 채팅·Claude Code 사용량과 분리되어 있어 한쪽이 부족해도 다른 쪽은 영향을 받지 않습니다. 다만 디자인 시스템 생성과 큰 프로젝트는 토큰을 빠르게 소비합니다.
+> Claude Design은 **공유 풀**(chat·Claude Code와 동일한 한도에서 차감)에서 사용량을 계산합니다. 별도 할당량은 없습니다. 따라서 Claude Design 사용이 늘면 일반 채팅 한도가 줄어듭니다. Extra usage를 활성화하면 한도 초과분도 계속 사용 가능합니다. 다만 디자인 시스템 생성과 큰 프로젝트는 토큰을 빠르게 소비합니다.
 
 ## 플랜별 요약
 
-| 플랜 | Claude Design 접근 | 한도 메커니즘 | Extra usage | Enterprise 크레딧 |
+| 플랜 | Claude Design 접근 | 한도 메커니즘 | Extra usage | 비고 |
 |---|---|---|---|---|
 | Free | ✗ | — | — | — |
-| Pro | ✓ | 별도 주간 쿼터 | 옵션 활성화 시 가능 | — |
-| Max | ✓ | 별도 주간 쿼터 (Pro보다 큼) | 옵션 활성화 시 가능 | — |
-| Team | ✓ | 멤버별 + 조직 합산 | 옵션 활성화 시 가능 | — |
-| Enterprise | ✓ (기본 OFF) | 조직 단위, 관리자 활성화 필요 | 옵션 활성화 시 가능 | 사용량제 고객: 약 20프롬프트 일회성 (2026-07-17 만료) |
+| Pro | ✓ | 공유 풀(chat·Claude Code와 동일) | 옵션 활성화 시 가능 | — |
+| Max | ✓ | 공유 풀(chat·Claude Code와 동일, Pro보다 큼) | 옵션 활성화 시 가능 | — |
+| Team | ✓ | 공유 풀(멤버별 + 조직 합산) | 옵션 활성화 시 가능 | — |
+| Enterprise | ✓ (기본 OFF) | 공유 풀(조직 단위, 관리자 활성화 필요) | 옵션 활성화 시 가능 | — |
 
 {{< hint type="note" >}}
-정확한 한도 수치는 Anthropic이 공개하지 않으며 Research Preview 기간 동안 변동될 수 있습니다. 한도 변화는 [공식 도움말](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans)을 주기적으로 확인하세요.
+정확한 한도 수치는 Anthropic이 공개하지 않으며 Beta 단계에서 변동될 수 있습니다. 한도 변화는 [공식 도움말](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans)을 주기적으로 확인하세요.
 {{< /hint >}}
 
-## 별도 쿼터 메커니즘
+## 공유 풀 메커니즘 (과거 별도 쿼터에서 변경됨)
 
-Claude Design은 **일반 채팅·Claude Code와 분리된 별도 쿼터**를 사용합니다.
+Claude Design은 **일반 채팅·Claude Code와 동일한 공유 풀**에서 사용량을 차감합니다. 별도 할당량은 없습니다 (2026년 6월 정책 변경).
 
 ```mermaid
 flowchart TB
     subgraph Acc["사용자의 Anthropic 계정"]
         direction LR
-        A["일반 채팅<br/>claude.ai<br/><br/><b>쿼터 A</b>"]
-        B["Claude Code<br/><br/><br/><b>쿼터 B</b>"]
-        C["Claude Design<br/>claude.ai/design<br/><br/><b>쿼터 C</b>"]
+        Pool["<b>공유 풀</b><br/>일반 채팅 + Claude Code + Claude Design<br/>같은 한도에서 함께 차감"]
     end
 
+    subgraph Contrib["풀에서 차감되는 사용량"]
+        A["일반 채팅<br/>claude.ai"]
+        B["Claude Code<br/>(design 제외)"]
+        C["Claude Design<br/>claude.ai/design"]
+    end
+
+    A -.->|차감| Pool
+    B -.->|차감| Pool
+    C -.->|차감| Pool
+
     style Acc fill:#eaeaea,stroke:#6e6e6e,color:#09110f
+    style Pool fill:#d6ebe7,stroke:#1c7c70,stroke-width:2px,color:#09110f
+    style Contrib fill:#fbf0dc,stroke:#c47b2a,color:#09110f
     style A fill:#fbf0dc,stroke:#c47b2a,color:#09110f
-    style B fill:#e6f0ef,stroke:#144a46,color:#09110f
-    style C fill:#d6ebe7,stroke:#1c7c70,stroke-width:2px,color:#09110f
+    style B fill:#fbf0dc,stroke:#c47b2a,color:#09110f
+    style C fill:#fbf0dc,stroke:#c47b2a,color:#09110f
 ```
 
-A·B·C는 서로 영향을 주지 않습니다. 일반 채팅 한도를 다 써도 Design은 그대로 가능하고, 그 반대도 같습니다.
+**중요**: Claude Design 사용량이 늘면 일반 채팅 한도가 줄어듭니다. 같은 풀이기 때문입니다. 한도를 초과하면 Extra usage를 활성화해야 계속 사용 가능합니다.
 
 ## 무엇이 쿼터를 빠르게 소비하나
 
@@ -113,16 +123,20 @@ flowchart LR
 
 각 단계 사이에 1-2주 관찰 기간을 두는 것을 권장합니다.
 
-### Enterprise 사용량제 크레딧
+### Enterprise 사용량제 크레딧 — 가용성 확인 필요
 
 ```
 대상: Enterprise usage-based pricing 고객
-크레딧: 약 20 프롬프트 일회성 (사용 시작 시점 기준)
-만료: 2026-07-17
+크레딧: 도입 시점에 따라 다름 (과거: 약 20 프롬프트)
+만료: 시점에 따라 상이 — 최신 정보는 Anthropic Sales 문의
 적용: 자동 — 별도 신청 불필요
 ```
 
-크레딧은 평가·도입 결정용입니다. 본격 도입 후에는 통상 사용량 정책이 적용됩니다.
+크레딧은 평가·도입 결정용입니다. 본격 도입 후에는 통상 사용량 정책이 적용됩니다. 정확한 크레딧 규모와 만료일은 Anthropic과 계약 시 협상되므로, 영업 팀에 문의하세요.
+
+![Enterprise 관리자 콘솔 — Claude Design 기능 활성화](/screenshots/claude-design/cd-admin-enable.png)
+
+Enterprise 조직의 관리자는 Anthropic 콘솔에서 Claude Design 기능을 활성화하고 멤버의 접근 권한을 제어할 수 있습니다.
 
 ### 커스텀 역할 설계 예시
 
@@ -164,7 +178,7 @@ flowchart LR
 
 | 기능 | 상태 |
 |---|---|
-| 멤버별 사용량 대시보드 | 제한적 (Research Preview 단계) |
+| 멤버별 사용량 대시보드 | 제한적 (Beta 단계) |
 | 감사 로그 (누가 무엇을 만들었나) | 미제공 |
 | 프로젝트별 토큰 사용량 | 미제공 |
 | 사용량 알림 (특정 임계치 도달 시) | 미제공 |
@@ -198,7 +212,7 @@ flowchart LR
 
 ## 다음 단계
 
-- **다음 페이지**: [제한 사항과 로드맵](../limitations/) — Research Preview 위치 정리
+- **다음 페이지**: [제한 사항과 로드맵](../limitations/) — Beta 단계 현재 상태 정리
 - 참고: [협업·공유](../collaboration/) — 권한 모델
 - 깊이: [베스트 프랙티스](../best-practices/) — 조직 운영 체크리스트
 
@@ -206,7 +220,8 @@ flowchart LR
 
 ### Sources
 
+- [Get started with Claude Design (Support)](https://support.claude.com/en/articles/14604416-get-started-with-claude-design) — 공유 쿼터 설명, beta 상태
 - [Claude Design admin guide for Team and Enterprise plans](https://support.claude.com/en/articles/14604406-claude-design-admin-guide-for-team-and-enterprise-plans)
-- [Introducing Claude Design by Anthropic Labs](https://www.anthropic.com/news/claude-design-anthropic-labs)
+- [Introducing Claude Design by Anthropic Labs](https://www.anthropic.com/news/claude-design-anthropic-labs) — 출시 발표
 - [Claude Design: Complete Guide for Non-Designers (BuildFastWithAI)](https://www.buildfastwithai.com/blogs/claude-design-anthropic-guide-2026)
 - [Using Claude Design for prototypes and UX (Anthropic Tutorial)](https://claude.com/resources/tutorials/using-claude-design-for-prototypes-and-ux)

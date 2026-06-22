@@ -92,7 +92,7 @@ performance-review → docx-generator(면담 스크립트)
 ## 빠른 사용 예
 
 {{< terminal title="claude — cowork" >}}
-> 시니어 백엔드 개발자 채용 JD 만들어줘. 연봉 밴드 5500~7500만.
+> 시니어 백엔드 개발자 채용 JD 만들어줘. 연봉 밴드 5500-7500만.
 {{< /terminal >}}
 
 {{< terminal title="claude — cowork" >}}
