@@ -53,8 +53,8 @@ disablePathToLower = true
   # 반드시 이 두 줄을 동시에 갱신할 것 (feedback_version_bump_docs_checklist 참조).
   version = "2.27.0"
   releaseDate = "2026-06-19"
-  geekdocRepo = "https://github.com/modu-ai/cowork-plugins"
-  geekdocEditPath = "edit/main/docs-site/content"
+  geekdocRepo = "https://github.com/modu-ai/claude"
+  geekdocEditPath = "edit/main/content"
   geekdocSearch = true
   geekdocSearchShowParent = true
   geekdocLegalNotice = "https://github.com/modu-ai/cowork-plugins"
