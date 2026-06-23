@@ -1,36 +1,41 @@
+{{- /* Claude Design f22cdda7 redesign header — logo · 제품 nav · 검색 · 홈/문서 토글 · GitHub Star.
+       다크모드 토글/언어 스위치 제거(2026-06). 홈/문서 토글은 SPA 뷰가 아닌 네비 링크로 매핑. */ -}}
+{{- $page := .Root -}}
+{{- $rel := $page.RelPermalink -}}
 <header class="gdoc-header" role="banner">
   <div class="cw-header-inner">
-    <a class="gdoc-brand cw-brand" href="/">
-      <span class="cw-brand-name">MoAI-Cowork 문서</span>
-      <span class="cw-brand-ver">v{{ site.Params.version }}</span>
+    <a class="cw-brand" href="/">
+      <span class="cw-brand-mark" aria-hidden="true">C</span>
+      <span class="cw-brand-name">모두의 클로드</span>
+      <span class="cw-brand-tag">docs</span>
     </a>
+
+    <nav class="cw-prodnav" aria-label="제품">
+      <a href="/chat/" class="cw-prodnav-link{{ if hasPrefix $rel "/chat/" }} active{{ end }}">Chat</a>
+      <a href="/cowork/" class="cw-prodnav-link{{ if hasPrefix $rel "/cowork/" }} active{{ end }}">Cowork</a>
+      <a href="/design/" class="cw-prodnav-link{{ if hasPrefix $rel "/design/" }} active{{ end }}">Design</a>
+      <a href="/code/" class="cw-prodnav-link{{ if hasPrefix $rel "/code/" }} active{{ end }}">Code</a>
+    </nav>
+
+    <span class="cw-header-spacer"></span>
+
     <div class="cw-nav-search">
       <button type="button" class="cw-search-input" data-search-trigger aria-label="문서 검색 (⌘K)">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3" stroke-linecap="round"/></svg>
-        <span>문서 검색</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3" stroke-linecap="round"/></svg>
+        <span>문서 검색…</span>
         <kbd>⌘K</kbd>
       </button>
     </div>
-    <div class="cw-nav-actions">
-      {{- /* 언어 선택 — 추후 사용 예정, 현재는 숨김. DOM 보존하여 차후 재활성화 시 CSS 한 줄만 풀면 됨 */ -}}
-      <div class="cw-lang-switch" role="tablist" aria-label="언어" hidden style="display:none">
-        <button class="active" type="button">KO</button>
-        <button type="button">EN</button>
-        <button type="button">JA</button>
-        <button type="button">ZH</button>
-      </div>
-      {{- if default true .Site.Params.geekdocDarkModeToggle }}
-      <span id="gdoc-color-theme" class="cw-theme-toggle" tabindex="0" role="button" aria-pressed="false" aria-label="다크 모드 전환">
-        <svg class="gdoc-icon gdoc_brightness_dark" width="18" height="18"><use xlink:href="#gdoc_brightness_dark"></use></svg>
-        <svg class="gdoc-icon gdoc_brightness_light" width="18" height="18"><use xlink:href="#gdoc_brightness_light"></use></svg>
-      </span>
-      {{- end }}
-      <a class="cw-gh-stars" href="https://github.com/modu-ai/cowork-plugins" target="_blank" rel="noopener noreferrer" aria-label="GitHub 저장소 (modu-ai/cowork-plugins) 새 창으로 열기">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
-        <span>Star</span>
-        <span class="cw-gh-count" data-gh-stars>—</span>
-      </a>
+
+    <div class="cw-viewseg" role="group" aria-label="홈/문서 보기">
+      <a href="/" class="cw-viewseg-btn{{ if $page.IsHome }} active{{ end }}">홈</a>
+      <a href="/getting-started/" class="cw-viewseg-btn{{ if not $page.IsHome }} active{{ end }}">문서</a>
     </div>
+
+    <a class="cw-gh-stars" href="https://github.com/modu-ai/cowork-plugins" target="_blank" rel="noopener noreferrer" aria-label="GitHub 저장소 (modu-ai/cowork-plugins) 새 창으로 열기">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+      <span class="cw-gh-count" data-gh-stars>—</span>
+    </a>
   </div>
 </header>
 
