@@ -6,11 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Design Tokens — Claude Warm Editorial</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://statics.goorm.io" crossorigin="anonymous">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://statics.goorm.io/fonts/GoormSansCode/v1.0.1/GoormSansCode.min.css">
 <script>
 tailwind.config = { theme: { extend: {
   colors: { primary:'#cc785c','primary-active':'#a9583e','primary-disabled':'#e6dfd8', ink:'#141413', body:'#3d3d3a','body-strong':'#252523', muted:'#6c6a64','muted-soft':'#8e8b82', hairline:'#e6dfd8','hairline-soft':'#ebe6df', canvas:'#faf9f5','surface-soft':'#f5f0e8','surface-card':'#efe9de','surface-dark':'#181715','surface-dark-elevated':'#252320','on-primary':'#ffffff','on-dark':'#faf9f5','on-dark-soft':'#a09d96','accent-teal':'#5db8a6','accent-amber':'#e8a55a', success:'#5db872', warning:'#d4a017', error:'#c64545' },
-  fontFamily: { display:['"Cormorant Garamond"','"Noto Serif KR"','Garamond','serif'], sans:['Inter','Pretendard','sans-serif'], mono:['"JetBrains Mono"','monospace'] },
+  fontFamily: { display:['"Pretendard Variable"','Pretendard','sans-serif'], sans:['"Pretendard Variable"','Pretendard','sans-serif'], mono:['"Goorm Sans Code"','monospace'] },
   borderRadius: { sm:'6px', md:'8px', lg:'12px', xl:'16px', pill:'9999px' },
   spacing: { section:'96px' }
 }}}
@@ -75,12 +77,12 @@ tailwind.config = { theme: { extend: {
   <section class="mb-14">
     <h2 class="mb-5 font-display text-2xl font-medium tracking-tight">Type Scale</h2>
     <div class="space-y-4 rounded-lg border border-hairline bg-surface-card p-8">
-      <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-hairline-soft pb-4"><span class="font-display text-6xl font-medium tracking-tight text-ink">Display XL</span><span class="font-mono text-xs text-muted">display · 64 / serif 500 / -tracking</span></div>
+      <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-hairline-soft pb-4"><span class="font-display text-6xl font-medium tracking-tight text-ink">Display XL</span><span class="font-mono text-xs text-muted">display · 64 / Pretendard 500 / -tracking</span></div>
       <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-hairline-soft pb-4"><span class="font-display text-4xl font-medium tracking-tight text-ink">Display LG</span><span class="font-mono text-xs text-muted">display · 48</span></div>
       <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-hairline-soft pb-4"><span class="font-display text-3xl font-medium tracking-tight text-ink">Display MD</span><span class="font-mono text-xs text-muted">display · 36</span></div>
-      <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-hairline-soft pb-4"><span class="text-lg font-medium text-body-strong">Title — Inter / Pretendard sans 500</span><span class="font-mono text-xs text-muted">sans · 18 / 500</span></div>
+      <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-hairline-soft pb-4"><span class="text-lg font-medium text-body-strong">Title — Pretendard sans 500</span><span class="font-mono text-xs text-muted">sans · 18 / 500</span></div>
       <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-hairline-soft pb-4"><span class="text-base text-body">Body — 휴머니스트 산세리프 본문, 편안한 행간으로 읽힙니다.</span><span class="font-mono text-xs text-muted">sans · 16 / 400</span></div>
-      <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1"><span class="font-mono text-sm text-body">const claude = code;</span><span class="font-mono text-xs text-muted">mono · JetBrains Mono</span></div>
+      <div class="flex flex-wrap items-baseline gap-x-4 gap-y-1"><span class="font-mono text-sm text-body">const claude = code;</span><span class="font-mono text-xs text-muted">mono · Goorm Sans Code</span></div>
     </div>
   </section>
 

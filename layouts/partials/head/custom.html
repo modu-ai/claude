@@ -1,11 +1,10 @@
 {{- /* Claude warm editorial theme — custom head (supersedes MoAI teal brand, 2026-06-23)
-       Display serif Cormorant Garamond + Noto Serif KR (headings)
-       Body Pretendard(KR) + Inter(latin) + JetBrains Mono(code) */ -}}
+       Typography: Pretendard (display + body) + Goorm Sans Code (code), all via CDN.
+       serif (Cormorant Garamond / Noto Serif KR) + Inter + JetBrains Mono removed 2026-06-23. */ -}}
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Serif+KR:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://statics.goorm.io" crossorigin="anonymous" />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<link rel="stylesheet" href="https://statics.goorm.io/fonts/GoormSansCode/v1.0.1/GoormSansCode.min.css" />
 <link rel="stylesheet" href="{{ "moai-brand.css" | relURL }}" />
 <link rel="stylesheet" href="{{ "moai-design.css" | relURL }}" />
 <link rel="icon" type="image/png" href="{{ "moai-logo.png" | relURL }}" />
