@@ -2163,3 +2163,100 @@ main a:hover {
 .gdoc-markdown blockquote > :first-child { margin-top: 0; }
 .gdoc-markdown blockquote > :last-child { margin-bottom: 0; }
 .gdoc-markdown blockquote p { font-size: 15.5px; line-height: 1.7; color: var(--neutral-800); }
+
+/* ── 문서 아티클: 표 — 디자인 warm 비교표 룩 ──
+   geekdoc 기본 셀렉터(.gdoc-markdown table:not(.lntable):not(.highlight) = specificity 0,3,1)를
+   동일 qualifier로 매칭해야 override 가능(후순위 로드 → 승리). :not()은 코드블록(.highlight/.lntable)
+   table 보호용 — 절대 제거 금지. border-collapse:separate + radius + overflow:hidden로 둥근 모서리. */
+.gdoc-markdown table:not(.lntable):not(.highlight) {
+  display: table; width: 100%; margin: 24px 0;
+  border-collapse: separate; border-spacing: 0;
+  border: 1px solid var(--border-1); border-radius: 14px; overflow: hidden;
+  font-size: 14.5px; text-align: left;
+}
+.gdoc-markdown table:not(.lntable):not(.highlight) thead { border-bottom: 0; }
+.gdoc-markdown table:not(.lntable):not(.highlight) thead th {
+  background: var(--color-surface-card);
+  font-weight: 600; color: var(--neutral-800);
+  padding: 13px 18px; border-bottom: 1px solid var(--border-1);
+}
+.gdoc-markdown table:not(.lntable):not(.highlight) tbody td {
+  padding: 13px 18px; color: var(--fg-2);
+  border-bottom: 1px solid var(--border-2);
+  background: transparent;
+}
+.gdoc-markdown table:not(.lntable):not(.highlight) tr { border-bottom: 0; }
+.gdoc-markdown table:not(.lntable):not(.highlight) tr:nth-child(2n) { background: transparent; }
+.gdoc-markdown table:not(.lntable):not(.highlight) tbody tr:last-child td { border-bottom: 0; }
+.gdoc-markdown table:not(.lntable):not(.highlight) tbody td:first-child { font-weight: 600; color: var(--fg-1); }
+
+/* ── 문서 아티클: 전역 메타행 (page-metadata override) — 디자인 meta row ── */
+.cw-doc-meta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+  margin: 20px 0 28px; padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-1);
+  font-size: 13px; color: var(--neutral-500);
+}
+.cw-doc-meta__item { display: inline-flex; align-items: center; gap: 6px; }
+.cw-doc-meta__sep { color: #dcd5c9; }
+.cw-doc-meta__badge {
+  display: inline-flex; align-items: center; gap: 6px; margin-left: auto;
+  padding: 4px 10px; border: 1px solid var(--border-1); border-radius: 999px; color: var(--fg-3);
+}
+.cw-doc-meta__bdot { width: 6px; height: 6px; border-radius: 999px; background: var(--color-success); }
+
+/* ── 문서 아티클: breadcrumb 현재 항목 코랄 (geekdoc 현재 page = li 직속 span) ── */
+.gdoc-page__header .breadcrumb > li > span[itemprop="name"] { color: var(--color-primary); font-weight: 600; }
+
+/* ── Cowork 소개: 터미널 로고 박스 · 스킬 라우터 다이어그램 · capabilities (디자인 bespoke) ── */
+.cw-termlogo {
+  display: flex; align-items: center; gap: 14px;
+  border-radius: 12px; background: #181715; padding: 18px 20px; margin: 0 0 24px;
+}
+.cw-termlogo__mark {
+  width: 38px; height: 38px; border-radius: 9px; background: #252320;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); color: var(--color-info); font-size: 18px; flex: none;
+}
+.cw-termlogo__name { font-family: var(--font-mono); font-size: 13px; color: #faf9f5; }
+.cw-termlogo__sub { font-size: 12px; color: #a09d96; }
+
+.cw-flow { margin: 0 0 24px; border: 1px solid var(--border-1); border-radius: 16px; background: var(--color-bg); overflow: hidden; }
+.cw-flow__cap {
+  display: flex; align-items: center; gap: 8px; padding: 12px 18px;
+  border-bottom: 1px solid var(--border-2); background: var(--neutral-100);
+  font-family: var(--font-mono); font-size: 12px; color: var(--neutral-500);
+}
+.cw-flow__dots { display: flex; gap: 5px; }
+.cw-flow__dots span { width: 9px; height: 9px; border-radius: 999px; }
+.cw-flow__body { padding: 30px 28px; display: flex; flex-direction: column; align-items: center; }
+.cw-flow__node {
+  display: flex; align-items: center; gap: 9px; padding: 11px 18px; border-radius: 999px;
+  border: 1.5px solid #cbc7bd; background: var(--color-surface-card);
+  font-size: 14px; font-weight: 600; color: var(--neutral-800);
+}
+.cw-flow__node .k { font-family: var(--font-mono); font-size: 11px; color: var(--neutral-500); }
+.cw-flow__line { width: 1.5px; height: 22px; background: #cbc7bd; }
+.cw-flow__router {
+  padding: 12px 22px; border-radius: 12px; border: 1.5px solid var(--color-primary);
+  background: #fff; font-size: 15px; font-weight: 600; color: var(--color-primary-active);
+}
+.cw-flow__fan { display: flex; align-items: flex-start; gap: 18px; margin-top: 18px; width: 100%; justify-content: center; }
+.cw-flow__col { display: flex; flex-direction: column; align-items: center; gap: 10px; flex: 1; max-width: 170px; }
+.cw-flow__col .k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; color: #9a968d; }
+.cw-flow__chip { width: 100%; text-align: center; padding: 12px 10px; border-radius: 11px; font-size: 13.5px; font-weight: 600; }
+.cw-flow__out {
+  text-align: center; padding: 13px 24px; border-radius: 12px;
+  border: 1.5px solid #2a8a7c; background: #d6ebe7; color: #185f55; margin-top: 18px;
+}
+.cw-flow__out .t { font-size: 15px; font-weight: 700; }
+.cw-flow__out .f { margin-top: 3px; font-family: var(--font-mono); font-size: 12px; color: #2a8a7c; }
+
+.cw-caps { margin: 0 0 24px; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.cw-caps li { display: flex; gap: 12px; font-size: 15.5px; line-height: 1.65; color: var(--fg-2); }
+.cw-caps .chk {
+  flex: none; margin-top: 2px; width: 18px; height: 18px; border-radius: 6px;
+  background: #f5e3da; display: flex; align-items: center; justify-content: center;
+  color: var(--color-primary); font-size: 11px; font-weight: 700;
+}
+.cw-caps strong { color: var(--neutral-800); }
