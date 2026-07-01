@@ -1,0 +1,36 @@
+{
+  "name": "moai-claude",
+  "owner": {
+    "name": "modu-ai",
+    "email": "email@mo.ai.kr"
+  },
+  "metadata": {
+    "description": "모두의클로드 통합 마켓플레이스 — 한국 실무 3종 플러그인 패밀리. moai-cowork(사업·이커머스·마케팅·콘텐츠·법률·재무·HR·교육·디자인·미디어 등 실무 도메인 통합 올인원), moai-design(Claude Design 연동·디자인 토큰 DTCG·브랜드 시스템·GAN 품질 루프로 브리프부터 핸드오프까지), moai-code(SPEC plan/run/sync 개발 방법론 무설치·DDD/TDD·품질 게이트·문서 동기화). Claude Code에서 `claude plugin marketplace add modu-ai/claude`로 한 번에 등록하세요.",
+    "version": "0.1.0",
+    "language": "ko",
+    "license": "LicenseRef-MoAI-NC-ND-1.0"
+  },
+  "plugins": [
+    {
+      "name": "moai-cowork",
+      "source": "./plugins/moai-cowork",
+      "description": "모두의 AI 통합 플러그인 — 사업·이커머스·마케팅·콘텐츠·법률·재무·HR·교육·디자인·미디어 등 한국 실무 도메인 전반의 스킬을 한 플러그인에 통합. /project 로 프로젝트 워크플로우를 설계하고, 나머지 스킬은 자연어 요청 시 자동 호출됩니다.",
+      "displayName": "MoAI Cowork",
+      "category": "통합·올인원"
+    },
+    {
+      "name": "moai",
+      "source": "./plugins/moai-code",
+      "description": "MoAI-ADK SPEC plan/run/sync 개발 방법론 무설치 플러그인 — moai CLI 없이 Claude Code/Desktop에서 DDD/TDD·품질 게이트·문서 동기화. 비개발자와 개발자 모두 /moai로 개발.",
+      "displayName": "MoAI Code",
+      "category": "개발·무설치"
+    },
+    {
+      "name": "design",
+      "source": "./plugins/moai-design",
+      "description": "에이전틱 디자인 플러그인 — Claude Design 연동, 디자인 토큰(DTCG)·DESIGN.md·브랜드 시스템·GAN 품질 루프. /design 으로 브리프부터 핸드오프까지.",
+      "displayName": "MoAI Design",
+      "category": "디자인"
+    }
+  ]
+}
