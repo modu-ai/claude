@@ -1,0 +1,9 @@
+{
+  "name": "design",
+  "displayName": "MoAI Design",
+  "version": "0.1.0",
+  "description": "에이전틱 디자인 플러그인 — Claude Design 연동, 디자인 토큰(DTCG)·DESIGN.md·브랜드 시스템·GAN 품질 루프. /design 으로 브리프부터 핸드오프까지.",
+  "author": { "name": "모두의AI", "email": "email@mo.ai.kr" },
+  "keywords": ["moai", "design", "claude-design", "design-tokens", "brand", "디자인"],
+  "license": "LicenseRef-MoAI-NC-ND-1.0"
+}

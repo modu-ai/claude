@@ -1,0 +1,18 @@
+{{- /* 모두의클로드 docs 정합 — geekdoc single.html override.
+       테마 기본 구조 + h1 위 섹션 eyebrow(디자인 .dc.html 문서 뷰 정합). 전 단일 문서 적용. */ -}}
+{{ define "main" }}
+  {{ partial "page-header" . }}
+
+
+  <article
+    class="gdoc-markdown gdoc-markdown__align--{{ default "left" (.Page.Params.geekdocAlign | lower) }}"
+    id="main-content" tabindex="-1"
+  >
+    {{- $sec := "" -}}
+    {{- with .Parent -}}{{- if not .IsHome -}}{{- $sec = .Title -}}{{- end -}}{{- end -}}
+    {{- if $sec -}}<div class="cw-doc-eyebrow">{{ $sec }}</div>{{- end -}}
+    <h1>{{ partial "utils/title" . }}</h1>
+    {{ partial "page-metadata" . }}
+    {{ partial "utils/content" . }}
+  </article>
+{{ end }}

@@ -1,0 +1,81 @@
+# ============================================
+# modu-ai/claude 마켓플레이스 저장소 .gitignore
+# ============================================
+# 이 저장소는 마켓플레이스(plugins/) + 문서(www/)만 추적.
+# MoAI-ADK 개발 환경은 별도 관리되며 아래에서 제외.
+# ============================================
+
+# ── MoAI 개발 환경 (마켓 저장소에서 제외) ──
+.claude/
+.moai/
+CLAUDE.md
+docs/
+scripts/
+Makefile
+.mcp.json
+.claudeignore
+.git.disabled-bak/
+.git_hooks/
+.github/
+.ruff_cache/
+.design-sync/
+.moai-backups/
+
+# ── 제거 대상 디렉토리 (Phase C 정리 전 추적 방지) ──
+cowork-plugins/
+code-plugins/
+
+# ── Hugo 문서 빌드 산물 ──
+www/public/
+www/resources/_gen/
+www/.hugo_build.lock
+www/.vercel/
+www/node_modules/
+
+# ── 일반 빌드 산물 ──
+bin/
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.pyc
+node_modules/
+.vercel/
+.netlify/
+
+# ── OS 파일 ──
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+[Dd]esktop.ini
+.directory
+
+# ── IDE / 에디터 ──
+.vscode/
+.idea/
+.cursor/
+*.swp
+*.swo
+*~
+
+# ── 로그 / 임시 / 백업 ──
+*.log
+logs/
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# ── 시크릿 / 자격증명 (CRITICAL) ──
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.pfx
+*-key.*
+*_key.*
+*-secret.*
+.aws/config
+.aws/credentials

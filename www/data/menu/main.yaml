@@ -1,0 +1,270 @@
+main:
+  - name: 시작하기
+    icon: home
+    defaultOpen: true
+    sub:
+      - name: 모두의 클로드 소개
+        ref: /
+      - name: 시작하기 홈
+        ref: /getting-started
+      - name: Claude Desktop 설치
+        ref: /getting-started/install
+      - name: 처음 실행하기
+        ref: /getting-started/first-task
+
+  - name: Chat
+    icon: chat
+    defaultOpen: true
+    sub:
+      - name: Chat 개요
+        ref: /chat
+      - name: 첫 대화 시작하기
+        ref: /chat/first-chat
+      - name: 프롬프트 작성법
+        ref: /chat/prompts
+      - name: Projects 기능
+        ref: /chat/projects
+      - name: 웹 검색·리서치·확장 사고
+        ref: /chat/search-research
+      - name: 주요 기능 살펴보기
+        ref: /chat/features
+      - name: 스킬과 플러그인
+        ref: /chat/skills-plugins
+      - name: 메모리
+        ref: /chat/memory
+
+  - name: Cowork
+    icon: book
+    defaultOpen: false
+    sub:
+      - name: 개요
+        ref: /cowork
+      - name: Cowork 소개
+        ref: /cowork/intro
+      - name: 공식 빠른 시작
+        ref: /cowork/official-quickstart
+      # ── 1. 입문 ──
+      - name: 설치와 요금제
+        ref: /cowork/install
+      - name: 설정하기
+        ref: /cowork/setup
+      - name: 사용 패턴 가이드
+        ref: /cowork/patterns
+      - name: 첫 작업 실행
+        ref: /cowork/first-task
+      - name: 용어집
+        ref: /cowork/glossary
+      # ── 2. 안전 ──
+      - name: 안전하게 사용
+        ref: /cowork/safety
+      - name: 폴더와 권한
+        ref: /cowork/permissions
+      # ── 3. 활용 ──
+      - name: 프로젝트와 메모리
+        ref: /cowork/projects-memory
+      - name: 스킬 사용법
+        ref: /cowork/skills
+      - name: 플러그인 사용
+        ref: /cowork/plugins
+      # ── 4. 확장 ──
+      - name: 커넥터·MCP
+        ref: /cowork/connectors-mcp
+      - name: 예약 작업
+        ref: /cowork/schedule
+      - name: 컴퓨터 사용
+        ref: /cowork/computer-use
+      # ── 5. 운영 ──
+      - name: 자주 묻는 질문
+        ref: /cowork/faq
+      - name: 트러블슈팅
+        ref: /cowork/troubleshooting
+      - name: 시스템 한도
+        ref: /cowork/constraints
+      - name: Team·Enterprise
+        ref: /cowork/enterprise
+
+  - name: Design
+    icon: palette
+    defaultOpen: false
+    sub:
+      - name: Design 개요
+        ref: /design
+      - name: 시작하기
+        ref: /design/getting-started
+      - name: 디자인 시스템 설정
+        ref: /design/design-system
+        badge: 핵심
+      - name: 리파인먼트
+        ref: /design/refinement
+      - name: 협업과 공유
+        ref: /design/collaboration
+      - name: 내보내기·핸드오프
+        ref: /design/export-handoff
+      - name: 역할별 사용 사례
+        ref: /design/use-cases
+      - name: 베스트 프랙티스
+        ref: /design/best-practices
+      - name: 요금제와 한도
+        ref: /design/pricing-limits
+      - name: 제한 사항·로드맵
+        ref: /design/limitations
+      - name: Claude Design 공식 빠른 시작
+        ref: /design/official-quickstart
+
+  - name: Code
+    icon: code
+    defaultOpen: false
+    sub:
+      - name: Code 개요
+        ref: /code
+      - name: 설치하기
+        ref: /code/install
+      - name: 첫 작업 실행
+        ref: /code/first-task
+
+  - name: 도움말
+    icon: book
+    defaultOpen: false
+    sub:
+      - name: 도움말 홈
+        ref: /help
+      - name: Claude 알아보기
+        ref: /help/about-claude
+      - name: 요금제와 결제
+        ref: /help/plans-billing
+      - name: 계정 관리
+        ref: /help/account
+      - name: 대화 관리
+        ref: /help/conversations
+      - name: 개인화와 설정
+        ref: /help/personalization
+      - name: 사용량과 한도
+        ref: /help/usage-limits
+      - name: 문제 해결
+        ref: /help/troubleshooting
+      - name: 가이드 문서 색인
+        ref: /help/source-index
+
+  - name: Office 통합
+    icon: plug
+    defaultOpen: false
+    sub:
+      - name: Office 통합 개요
+        ref: /office
+      - name: Microsoft 365 연동
+        ref: /office/microsoft-365
+
+  - name: MoAI 플러그인
+    icon: plug
+    sub:
+      - name: 플러그인 허브
+        ref: /plugins
+      - name: MoAI-Cowork (28종)
+        ref: /plugins/cowork
+      - name: MoAI-Code
+        ref: /plugins/code
+        badge: 출시예정
+      - name: MoAI-Design
+        ref: /plugins/design-plugin
+        badge: 출시예정
+
+  - name: 쿡북
+    icon: chef
+    sub:
+      - name: 쿡북 홈
+        ref: /cookbook
+      - name: 스킬 체이닝
+        ref: /cookbook/skill-chaining
+      - name: 베스트 프랙티스
+        ref: /cookbook/best-practices
+      - name: 자동화 레시피
+        ref: /cookbook/automation-recipes
+      - name: 블로그 파이프라인
+        ref: /cookbook/blog-pipeline
+      - name: 보고서 자동화
+        ref: /cookbook/report-automation
+      - name: 마케팅 트랙
+        ref: /cookbook/tracks/track-marketing
+      - name: 문서 트랙
+        ref: /cookbook/tracks/track-documents
+      - name: 데이터 트랙
+        ref: /cookbook/tracks/track-data
+      - name: 사업계획서
+        ref: /cookbook/business-plan
+      - name: NDA 일괄 검토
+        ref: /cookbook/legal-nda-batch
+      - name: IR 덱 제작
+        ref: /cookbook/ir-deck
+      - name: 계약서 검토
+        ref: /cookbook/contract-review
+      - name: 트러블슈팅
+        ref: /cookbook/troubleshooting
+
+  - name: 실전 트랙
+    icon: tag
+    sub:
+      - name: 트랙 홈
+        ref: /cookbook/tracks
+      - name: 데이터 트랙
+        ref: /cookbook/tracks/track-data
+      - name: 문서 트랙
+        ref: /cookbook/tracks/track-documents
+      - name: 재무 트랙
+        ref: /cookbook/tracks/track-finance
+      - name: 법무 트랙
+        ref: /cookbook/tracks/track-legal
+      - name: 마케팅 트랙
+        ref: /cookbook/tracks/track-marketing
+      - name: 제품 트랙
+        ref: /cookbook/tracks/track-product
+
+  - name: 릴리스
+    icon: tag
+    sub:
+      - name: 릴리스 홈
+        ref: /releases
+      - name: v2.27.0
+        ref: /releases/v2.27
+        isNew: true
+      - name: v2.26.0
+        ref: /releases/v2.26
+      - name: v2.25.0
+        ref: /releases/v2.25
+      - name: v2.24.0
+        ref: /releases/v2.24
+      - name: v2.23.0
+        ref: /releases/v2.23
+      - name: v2.22.0
+        ref: /releases/v2.22
+      - name: v2.21.0
+        ref: /releases/v2.21
+      - name: v2.20.0
+        ref: /releases/v2.20
+      - name: v2.19.0
+        ref: /releases/v2.19
+      - name: v2.18.0
+        ref: /releases/v2.18
+      - name: v2.17.0
+        ref: /releases/v2.17
+      - name: v2.16.0
+        ref: /releases/v2.16
+      - name: v2.15.0
+        ref: /releases/v2.15
+      - name: v2.14.0
+        ref: /releases/v2.14
+      - name: v2.13.0
+        ref: /releases/v2.13
+      - name: v2.12.x
+        ref: /releases/v2.12
+      - name: v2.11.x
+        ref: /releases/v2.11
+      - name: v2.10.x
+        ref: /releases/v2.10
+      - name: v2.9.x
+        ref: /releases/v2.9
+      - name: v2.8.x
+        ref: /releases/v2.8
+      - name: v2.1~v2.7
+        ref: /releases/v2.1
+      - name: v1.x
+        ref: /releases/v1.0
