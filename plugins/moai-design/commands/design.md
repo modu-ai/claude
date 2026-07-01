@@ -5,8 +5,16 @@ argument-hint: "[자연어 요청]"
 allowed-tools: Skill
 ---
 
-Route the request into the `/design` hybrid workflow (Path A Claude Design import vs Path B code-based brand design). The orchestrator collects the path choice via AskUserQuestion before entering the pipeline.
+Route the request into the `/design` hybrid workflow (03 §5.2). The orchestrator collects the path choice via AskUserQuestion first, then dispatches `$ARGUMENTS` into the matching pipeline. Obey `design.yaml` (`.moai/config/sections/design.yaml`) parameters — never hardcode thresholds.
 
-Use Skill("moai-workflow-design") with arguments: $ARGUMENTS
+**Path A — Claude Design import** (user has a handoff bundle / URL):
+1. Skill("moai-workflow-design") — README-first bundle import + security scan (reject executables/symlinks/traversal) + `manifest.json` version whitelist → `.moai/design/{tokens,components,copy}.json`
+2. Skill("cd-handoff-reader") — summarize bundle + emit paste-ready Claude Code instruction
+3. Skill("moai-domain-design-handoff") — assemble 5-file handoff package when a handoff is the deliverable
+
+**Path B — Code-based brand design** (no bundle; design from brand directly):
+1. Skill("cd-system-prep") + Skill("moai-domain-brand-design") in parallel — brand assets → DESIGN.md + DTCG tokens (WCAG 2.1 AA)
+2. Skill("moai-domain-copywriting") — brand-aligned copy (anti-AI-slop, generation-time avoidance)
+3. Skill("moai-workflow-gan-loop") — Builder-Evaluator quality loop (max 5, pass_threshold 0.75, Sprint Contract, 4-dimension scoring)
 
 (UX prompt pattern advisor available via Skill("cd-prompt-builder").)
