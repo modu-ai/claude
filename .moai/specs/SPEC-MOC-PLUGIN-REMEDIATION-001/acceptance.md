@@ -3,7 +3,7 @@
 ---
 id: SPEC-MOC-PLUGIN-REMEDIATION-001
 status: in-progress
-updated: 2026-07-02
+updated: 2026-07-03
 ---
 
 > **Verification-integrity contract.** Every AC below is a re-runnable predicate (command + expected output), executed from repo root `/Users/goos/MoAI/claude.mo.ai.kr`. No AC asserts a defect count. Defect predicates expect `0` (the desired end state); required-addition predicates expect `≥1`. All count-sensitive figures are re-baselined at run-phase pre-flight (`plan.md` §C) — a defect claim is a hypothesis until the tool confirms it (`.claude/rules/moai/core/verification-claim-integrity.md`).
@@ -82,7 +82,7 @@ Each row's **GEARS Statement** restates its paired REQ; the **Verification Comma
 | AC-REM-015 | No skill **SHALL** reference a deprecated namespace. | 015 | `grep -rl "moai-office\|moai-content\|moai-media\|moai-finance\|moai-book\|moai-business\|moai-marketing\|moai-education\|moai-legal" plugins/moai-cowork/skills plugins/moai-design/skills \| wc -l` | `0` |
 | AC-REM-016 | **When** `project` routes, it **SHALL** target the single `moai-cowork` architecture, not the 27-plugin topology. | 016 | `grep -c "moai-office:\|moai-content:\|moai-media:\|27\|29개 플러그인\|distributed" plugins/moai-cowork/skills/project/SKILL.md` | `0` (no retired-topology routing) |
 | AC-REM-017 | Broken links, phantom dirs, stale `CLAUDE.local.md`/`CONNECTORS.md` refs **SHALL** be repaired. | 017 | `grep -rc "CLAUDE.local.md\|CONNECTORS.md" plugins/moai-cowork/skills; test ! -d plugins/moai-cowork/skills/design-system-library/moai-content && echo GHOST-GONE \|\| echo GHOST-PRESENT` | stale-ref count `0`; specific ghost `GHOST-GONE` — HEAD pre-state: stale-refs **3** (html-slide/audio-gen/higgsfield-image) → 0; ghost `design-system-library/moai-content/skills/html-slide/{references,samples}` **present** → GHOST-GONE. Iter-3: bare `find … -type d -empty` dropped — it over-reached 7 unrelated empty `references/` dirs (draft-offer, nda-triage, xlsx-creator, variance-analysis, media-production), only 1 is REQ-017's ghost (§D.8.10) |
-| AC-REM-018 | **When** category prefixes are applied, no dangling old-name reference **SHALL** survive. | 018 | run-phase: for each renamed old-name `N` listed in §D.9 Phase A Rename Mapping table, `grep -rl "\bN\b" plugins/moai-cowork plugins/moai-design .claude-plugin/marketplace.json` | `0` per old-name (full-tree integrity). §D.9 (draft, pending user approval) is the rename source-of-truth; the run-phase script MUST NOT invent rename pairs outside that table. |
+| AC-REM-018 | **When** category prefixes are applied, no dangling old-name reference **SHALL** survive. | 018 | run-phase: for each renamed old-name `N` listed in §D.9 Phase A Rename Mapping table, `grep -rl "\bN\b" plugins/moai-cowork plugins/moai-design .claude-plugin/marketplace.json` | `0` per old-name (full-tree integrity). §D.9 (approved 2026-07-03) is the rename source-of-truth; the run-phase script MUST NOT invent rename pairs outside that table. |
 | AC-REM-019 | `design-system-library` **SHALL** be canonical in design; the cowork copy **SHALL** be a pointer. | 019 | `grep -c "moai-design 플러그인의 정본" plugins/moai-cowork/skills/design-system-library/SKILL.md; test ! -d plugins/moai-cowork/skills/design-system-library/systems && echo DEDUP-DONE \|\| echo STILL-FULL; test -f plugins/moai-design/skills/design-system-library/SKILL.md && echo CANONICAL-PRESENT` | HEAD-absent pointer sentence `≥1` AND cowork `systems/` dir removed (`DEDUP-DONE`) AND design canonical present — HEAD pre-state: pointer sentence **0**; cowork `systems/` **present** (78 entries) + full 180-line SKILL.md → `STILL-FULL`. Iter-3: old `moai-design\|pointer\|canonical\|참조`=**6** self-passed on incidental `참조` while design canonical already pre-exists; replaced with a structural dedup signal + HEAD-absent pointer sentence (§D.8.10) |
 | AC-REM-020 | `brand-identity` scope **SHALL** be narrowed to personal-branding; system work points to `moai-domain-brand-design`. | 020 | `grep -c "퍼스널 브랜딩 산출물 전용" plugins/moai-cowork/skills/brand-identity/SKILL.md; grep -c "moai-domain-brand-design" plugins/moai-cowork/skills/brand-identity/SKILL.md` | scope-boundary literal `≥1` AND pointer `moai-domain-brand-design` `≥1` — HEAD pre-state **0 / 0**. Iter-3: old `moai-domain-brand-design\|퍼스널\|personal`=**2** self-passed on the pre-existing `moai-cowork:personal-branding` row (L15/L195); `moai-domain-brand-design` itself is HEAD-absent in this file, and `퍼스널 브랜딩 산출물 전용` is a HEAD-absent scope literal (§D.8.10) |
 | AC-REM-021 | skill-builder/skill-template **SHALL** include Korean example-copy authoring rules. | 021 | `grep -c "대시 대비 헤드라인" plugins/moai-cowork/skills/skill-builder/SKILL.md; grep -c "대시\|조사·체언\|슬롭" plugins/moai-cowork/skills/skill-builder/SKILL.md` | authoring-rules descriptor `대시 대비 헤드라인` `≥1` AND `대시\|조사·체언\|슬롭` `≥1` — HEAD pre-state **0 / 0**. Iter-3: old `…\|에서.*로\|slop`=**5** self-passed (`에서.*로`=3 incidental prose; `slop`=2 ⊂ `ai-slop-reviewer` at L245/251); dropped both, anchored to the HEAD-absent descriptor literal introduced by REQ-001 (§D.8.10) |
@@ -245,9 +245,9 @@ This is the **complete** discrimination proof for every `≥1` addition-predicat
 
 **Verdict**: every `≥1` addition-predicate now shows the pre-remediation / not-yet-done state on HEAD. The 6 iter-2-surviving self-passes (001c/003/014wiring/019/020/021) + AC-024 (newly caught) + 3 over-reach defect predicates (008/017 + AC-002 coverage) are all resolved. Descriptor/heading/pointer literals adopted (`전환 공식`, `대시 대비 헤드라인`, `슬라이드/카피 장르 프로파일`, `moai-design 플러그인의 정본`, `퍼스널 브랜딩 산출물 전용`) were each verified `grep -rl … = 0` across both owned trees before adoption. The AND-semantics (019: pointer AND systems-removed; 020: scope-literal AND pointer; 021: descriptor AND remainder) prevent a single incidental match from re-introducing a self-pass.
 
-### §D.9 Phase A Rename Mapping (draft, pending user approval)
+### §D.9 Phase A Rename Mapping (approved 2026-07-03 — double-prefix collisions resolved via body-rename; 38 remaining REVIEW accepted as default; stub disposition = rename)
 
-**Status**: DRAFT — authored by manager-spec on 2026-07-02 per Option 1 (manager-spec authors draft → user reviews/approves → run-phase re-executes AC-018). NOT YET APPROVED. The run-phase filesystem rename MUST NOT start until the user signs off on this table; once approved, this section becomes the rename source-of-truth that AC-REM-018's grep predicate iterates over.
+**Status**: APPROVED 2026-07-03 — authored by manager-spec on 2026-07-02 per Option 1 (manager-spec authors draft → user reviews/approves → run-phase re-executes AC-018); user approved 2026-07-03 with two decisions: (1) double-prefix collisions resolved via body-rename (cluster 8 — `media-production` → `media-asset-production`, `content-calendar` → `content-editorial-calendar`); (2) remaining 38 REVIEW accepted as default classification. This section is now the rename source-of-truth that AC-REM-018's grep predicate iterates over; the run-phase filesystem rename MAY proceed.
 
 **Live scope**: 176 cowork skills (re-baselanced 2026-07-02 against `plugins/moai-cowork/skills/` via `find … -maxdepth 1 -mindepth 1 -type d -not -name project | wc -l`). Plan-phase baseline was 177 — delta 1 is attributable to the Phase B boundary dedup commits (M5 work in commits `b7ca913`→`665bbb3`) per the task hint, NOT run-phase count drift (EC-1 does not apply). The `project` skill is excluded per EC-7 (shared-file boundary with SPEC-MOC-BOOTSTRAP-DESKTOP-001).
 
@@ -271,16 +271,16 @@ The `project` router's category-routing table uses additional namespace names (`
 
 **Stub-skill handling**: 4 stubs are already-relocated pointers to canonical `public-data-*` skills (`business-real-estate-search`, `data-public-data`, `finance-court-auction-search`, `finance-korean-stock-search`) plus 1 deprecated stub (`social-media` → `sns-content`). All 5 are renamed for prefix consistency in this draft. The user MAY alternatively choose to DELETE the stubs in a Phase-B-style cleanup rather than rename — marked ⚠ REVIEW.
 
-**Already-prefixed no-ops**: 18 of 31 `commerce-*` skills + 8 of 8 `book-*` skills + 1 `content-calendar` skill already carry their target prefix; their rename is a no-op (old name == new name). They are listed explicitly in the table for verification — the run-phase script MUST treat them as no-renames but STILL include them in the dangling-reference grep, since any old-name reference is still a dangling reference.
+**Already-prefixed no-ops**: 18 of 31 `commerce-*` skills + 8 of 8 `book-*` skills already carry their target prefix (total 26); their rename is a no-op (old name == new name). They are listed explicitly in the table for verification — the run-phase script MUST treat them as no-renames but STILL include them in the dangling-reference grep, since any old-name reference is still a dangling reference. (`content-calendar` was originally counted here but moved to body-rename per the 2026-07-03 user decision — see cluster 8.)
 
 #### §D.9.2 Category distribution — count summary
 
 | # | Prefix | Count | Already prefixed (no-op) | Needs prefix added | ⚠ REVIEW count |
 |---|--------|------:|-------------------------:|-------------------:|---------------:|
 | 1 | `commerce-` | 31 | 18 | 13 | 1 |
-| 2 | `content-` | 8 | 1 | 7 | 1 |
+| 2 | `content-` | 8 | 0 | 7 | 0 |
 | 3 | `marketing-` | 11 | 0 | 11 | 2 |
-| 4 | `media-` | 9 | 0 | 9 | 2 |
+| 4 | `media-` | 9 | 0 | 9 | 1 |
 | 5 | `finance-` | 11 | 0 | 11 | 0 |
 | 6 | `book-` | 8 | 8 | 0 | 0 |
 | 7 | `legal-` | 8 | 0 | 8 | 4 |
@@ -288,11 +288,13 @@ The `project` router's category-routing table uses additional namespace names (`
 | 9 | `business-` | 37 | 0 | 37 | 13 |
 | 10 | `office-` | 26 | 0 | 26 | 9 |
 | 11 | `general-` | 16 | 0 | 16 | 4 |
-| **Total** | | **176** | **27** | **149** | **40** |
+| **Total** | | **176** | **26** | **149** | **38** |
 
-#### §D.9.3 REVIEW NEEDED — 7 thematic clusters for user focus
+**Note (added 2026-07-03)**: 2 double-prefix collisions (`media-production`, `content-calendar`) resolved via body-rename — not counted as no-op or simple-prefix-add.
 
-The 40 ⚠ REVIEW markings fall into 7 thematic clusters. The user may accept the default classification or reclassify per cluster:
+#### §D.9.3 REVIEW — 8 thematic clusters (resolved 2026-07-03: 2 via body-rename in cluster 8, 38 accepted as default across clusters 1-7)
+
+The original 40 ⚠ REVIEW markings fell into 8 thematic clusters. Per user review on 2026-07-03, cluster 8 (double-prefix collisions) was resolved via body-rename, and the remaining 38 REVIEW were accepted as default classification. Clusters are listed below for the audit trail:
 
 1. **Academic-research cluster** (4 skills, default `education-`): `grant-writer`, `paper-search`, `paper-writer`, `research-assistant`. The project router mapped these to `moai-research` (not in AC-015's 9). Default `education-` (academia = teaching + research); alternatives: `book-` (publishing-adjacent) or `general-`.
 
@@ -312,7 +314,7 @@ The 40 ⚠ REVIEW markings fall into 7 thematic clusters. The user may accept th
    - `notebooklm-slide-prompt` (default `media-`): alt `office-` (slide/prompt tool)
    - `coupang-ad-optimizer` (default `commerce-`): alt `marketing-` (broader ad tools)
 
-8. **Double-prefix naming collisions** (2 skills): `media-production` → literal `media-media-production`; `content-calendar` → literal `content-content-calendar`. Both read awkwardly. Options per skill: (a) accept the literal double-prefix (default in this draft); (b) drop the existing prefix during rename (becomes a no-op but loses the explicit category signal in the body of the name); (c) rename the skill body more substantially (e.g. `media-production` → `media-asset-production`). The user's preference here is required — ⚠ REVIEW.
+8. **Double-prefix naming collisions** (2 skills, RESOLVED 2026-07-03 via body-rename): `media-production` → `media-asset-production`; `content-calendar` → `content-editorial-calendar`. The user selected option (c) body-rename on 2026-07-03 to avoid the awkward literal double-prefix (`media-media-production`, `content-content-calendar`) while preserving the category signal in the body of the new name. Both skills are now counted as body-renames (neither no-op nor simple-prefix-add); see their §D.9.4 rows.
 
 #### §D.9.4 Full rename mapping table (176 rows)
 
@@ -360,7 +362,7 @@ Each row: `| old skill name | new prefixed name | category | rationale (1 short 
 |----------------|-------------------|----------|-----------|
 | blog | content-blog | content | blog posting |
 | card-news | content-card-news | content | SNS card-news |
-| content-calendar | content-content-calendar | content | ⚠ REVIEW — double-prefix collision; literal default, alt no-op `content-calendar` or rename body |
+| content-calendar | content-editorial-calendar | content | body-rename (approved 2026-07-03): avoids literal double-prefix `content-content-calendar` |
 | copywriting | content-copywriting | content | copywriting |
 | email-sequence | content-email-sequence | content | email drip sequence |
 | newsletter | content-newsletter | content | email newsletter |
@@ -393,7 +395,7 @@ Each row: `| old skill name | new prefixed name | category | rationale (1 short 
 | gpt-image-2-prompt | media-gpt-image-2-prompt | media | GPT image prompt |
 | higgsfield-image | media-higgsfield-image | media | Higgsfield image |
 | higgsfield-video | media-higgsfield-video | media | Higgsfield video |
-| media-production | media-media-production | media | ⚠ REVIEW — double-prefix collision; literal default, alt no-op or rename body |
+| media-production | media-asset-production | media | body-rename (approved 2026-07-03): avoids literal double-prefix `media-media-production` |
 | midjourney-v8-prompt | media-midjourney-v8-prompt | media | Midjourney prompt |
 | notebooklm-slide-prompt | media-notebooklm-slide-prompt | media | ⚠ REVIEW — alt `office-notebooklm-slide-prompt` (slide/prompt tool) |
 
