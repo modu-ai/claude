@@ -2,6 +2,18 @@
 
 `moai` CLI **설치 없이** Claude Code 터미널·데스크탑에서 MoAI-ADK의 SPEC 개발 방법론(PLAN › RUN › SYNC)을 사용하는 플러그인입니다. **비개발자와 개발자 모두** `/moai` 명령으로 개발합니다.
 
+## Desktop Edition 능력 Tier
+
+`moai-code`는 **moai-adk Desktop Edition**으로, 올인원 설치 상태를 유지하면서 **"필요한 것만"은 프로젝트 시점에 스킬 프로파일(`.moai/skill-profile.yaml`)로 조준**되는 구조다. 설치 시점이 아니라 프로젝트 시점의 선택적 활성화가 핵심이다.
+
+| Tier | 구성 요소 | 능력 |
+|------|----------|------|
+| **Tier 1** (플러그인 단독) | moai-code 플러그인만 설치 | `/moai:plan → run → sync` 워크플로우 + SPEC 템플릿 + 13개 명령 ≈ 방법론 90% |
+| **Tier 2** (플러그인 + git) | Tier 1 + git CLI | 브랜치·워크트리 흐름(git CLI 직접 호출) |
+| **Tier 3** (플러그인 + moai 바이너리) | Tier 2 + `moai` CLI 바이너리 | 네이티브 훅 강제(품질 게이트·Stop 훅) + LSP 진단 게이트 + 세션 레지스트리 + cg/glm 비용 모드 |
+
+세션 시작 훅(`hooks/moai/handle-session-start.sh`)이 `moai` 바이너리를 탐지해 Tier 3 승격 안내를 1줄로 표시하고, 바이너리가 없으면 무음 fail-open한다(REQ-BD-009 / REQ-BD-010, AC-BD-005a/b).
+
 ## 설치
 
 ```bash
