@@ -14,7 +14,7 @@ description: |
 version: 0.1.0
 ---
 
-# cd-brief — Claude Design 6요소 브리프 빌더
+# general-cd-brief — Claude Design 6요소 브리프 빌더
 
 ## 개요
 

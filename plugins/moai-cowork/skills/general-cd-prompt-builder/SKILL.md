@@ -14,7 +14,7 @@ description: |
 version: 0.1.0
 ---
 
-# cd-prompt-builder — 시니어 UX 패턴 프롬프트 빌더
+# general-cd-prompt-builder — 시니어 UX 패턴 프롬프트 빌더
 
 ## 개요
 

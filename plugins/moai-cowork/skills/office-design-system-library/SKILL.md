@@ -9,7 +9,7 @@ description: |
 version: 0.1.0
 ---
 
-# design-system-library — moai-design 정본 포인터
+# office-design-system-library — moai-design 정본 포인터
 
 본 스킬(`moai-cowork:office-design-system-library`)은 **moai-design 플러그인의 정본**을 가리키는 포인터입니다.
 

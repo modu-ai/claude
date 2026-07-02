@@ -13,7 +13,7 @@ description: |
 version: 0.1.0
 ---
 
-# cd-handoff-reader — 핸드오프 번들 분석
+# general-cd-handoff-reader — 핸드오프 번들 분석
 
 ## 개요
 
@@ -65,7 +65,7 @@ handoff-bundle/            # 폴더 / URL fetch 결과 / zip 무엇이든
 | 레이아웃 JSON | `layout-hierarchy.json` 반응형 정보 사용 | HTML/CSS 미디어쿼리에서 반응형 패턴 추론 |
 | chat | 디자인 결정 맥락 추출 | 맥락 약화 — 코드만으로 추론임을 명시 |
 
-**(4) 파일명 분열 정규화** — cd-handoff-reader(`design-tokens.json`) ↔ moai-workflow-design(`tokens.json`) 두 이름을 모두 수용하고, `.moai/design/` 출력 시 한 이름으로 정규화합니다.
+**(4) 파일명 분열 정규화** — general-cd-handoff-reader(`design-tokens.json`) ↔ moai-workflow-design(`tokens.json`) 두 이름을 모두 수용하고, `.moai/design/` 출력 시 한 이름으로 정규화합니다.
 
 **(5) version gating 완화** — 알 수 없거나 없는 bundle version은 **best-effort 파싱 + 경고**로 처리하며 hard-reject하지 않습니다. (bundle version "1.0"은 Anthropic 근거가 없는 MoAI placeholder입니다.)
 

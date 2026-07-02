@@ -14,7 +14,7 @@ description: |
 version: 0.1.0
 ---
 
-# cd-slop-check — Claude Design 카피 AI 슬롭 검수
+# general-cd-slop-check — Claude Design 카피 AI 슬롭 검수
 
 ## 개요
 
