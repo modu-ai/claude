@@ -45,6 +45,8 @@ version: 0.1.0
 - 스킬 체이닝 기반 워크플로우 설계 + CLAUDE.md 외부 템플릿화.
 - office/web 스킬 우선 + AI 슬롭 후처리 HARD 규칙 고정.
 - Phase 2 Inventory(Bash + system reminder 교차 검증) + Phase 4 Gap Detection(누락 감지 → 설치 안내 → 재개).
+- **Phase 6.5 폴더 규약 스캐폴드 생성(folder-convention scaffold)** — 인터뷰 산출물 기반 표준 폴더 구조 초안 생성(NET-NEW, REQ-BD-002a).
+- **Phase 6.6 스킬 프로파일 산출물(`.moai/skill-profile.yaml`)** — Phase 3 체인 설계 스킬을 프로젝트 스킬-선택 CONFIG로 지속(NET-NEW, REQ-BD-002c). 글로벌 사용자 프로필(`moai-profile.md`)과 별개(EC6 구분).
 
 ## 트리거 키워드
 
@@ -168,6 +170,19 @@ Phase 6: Generate CLAUDE.md
   - 승인된 스킬 체인을 "워크플로우" 섹션에 명시
   - office/web/ai-slop HARD 규칙 고정 포함
   - 최대 200라인
+
+Phase 6.5: 폴더 규약 스캐폴드 생성 (folder-convention scaffold) — NET-NEW (REQ-BD-002a)
+  - 인터뷰에서 수집한 산출물 형식(DOCX/PPTX/XLSX/HWPX/blog/뉴스레터/...) 기반 표준 폴더 구조 초안을 프로젝트 루트에 생성
+  - 산출물 도메인에 맞춘 규약 폴더 예시: ./docs/ ./drafts/ ./templates/ ./review/ ./published/ (고정이 아닌 산출물 맥락에 따라 조정)
+  - CLAUDE.md "워크플로우" 섹션과 정합 — 각 스킬 체인의 산출물이 어느 폴더로 향하는지 명시
+  - 이미 존재하는 폴더는 건드리지 않음(비파괴 순증)
+
+Phase 6.6: 스킬 프로파일 산출물 (.moai/skill-profile.yaml) — NET-NEW (REQ-BD-002c)
+  - 지정 경로 `.moai/skill-profile.yaml`에 프로젝트 스킬-선택 CONFIG를 지속(persisted) 파일로 기록
+  - Phase 3 체인 설계에서 도출된 스킬 목록 + 각 산출물별 활성 스킬을 명시 열거
+  - 목적: Claude의 스킬 선택을 프로파일된 스킬로 조준(project-level "필요한 것만") — 설치는 올인원 상태 유지
+  - **글로벌 사용자 프로필(moai-profile.md)이 아님** — 프로젝트 스킬-선택 CONFIG (EC6 구분, 아래 주의사항 §2 참조)
+  - 사용자 개인정보는 여전히 프로젝트 CLAUDE.md 한 곳에만 기록(이 파일에는 스킬 이름만)
 
 Phase 7: API Key (필요 시)
   - 선택된 플러그인이 요구하는 API 키만 선택적으로 등록 안내
@@ -379,6 +394,8 @@ Options:
 
 모든 사용자 정보는 **이 프로젝트의 CLAUDE.md 한 곳에만** 기록됩니다.
 
+> **EC6 구분**: Phase 6.6에서 생성하는 `.moai/skill-profile.yaml`은 **프로젝트 스킬-선택 CONFIG**(스킬 이름만 열거)이며, 금지되는 **글로벌 사용자 프로필**(`moai-profile.md`, 이름·회사·역할 등 개인정보)과는 **별개 산출물**입니다. 사용자 개인정보는 여전히 CLAUDE.md 한 곳에만 기록되며, skill-profile.yaml에는 스킬 이름만 기록됩니다.
+
 ### 3. AI 슬롭 후처리 필수
 
 **모든 텍스트 산출물 워크플로우의 마지막 단계**에 `general-ai-slop-reviewer` 스킬을 호출해 AI 패턴을 제거하고 인간적인 톤으로 검수합니다.
@@ -444,6 +461,8 @@ CLAUDE.md는 **최대 200라인**으로 생성합니다.
 ## 저장 위치
 
 - **프로젝트 작업 지침**: `./CLAUDE.md` (≤ 200라인)
+- **프로젝트 스킬-선택 CONFIG**: `./.moai/skill-profile.yaml` (NET-NEW, Phase 6.6 산출물 — 스킬 이름만 기록, 사용자 개인정보는 CLAUDE.md 한 곳에만)
+- **폴더 규약 스캐폴드**: 프로젝트 루트 산출물 도메인 폴더 (NET-NEW, Phase 6.5 산출물)
 - **프로젝트 설정**: `./.moai/config.json`
 - **API 키**: `./.moai/credentials.env` (프로젝트 격리)
 - **템플릿**: `references/templates/CLAUDE.md.tmpl`
