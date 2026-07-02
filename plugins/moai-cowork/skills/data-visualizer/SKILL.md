@@ -123,3 +123,13 @@ Word 보고서 요청 시:
 - **공공데이터 조회** → `moai-cowork:public-data-public-data` 사용
 - **랜딩 페이지 내 차트 섹션** → `moai-cowork:landing-page`에서 Q4 효과 선택 시 통합 산출
 - **상세페이지 내 가격 비교 차트** → `moai-cowork:product-detail`에서 직접 처리
+
+
+## 한국어 카피 품질 게이트 (필수)
+
+본 스킬이 산출하는 한국어 텍스트는 배포 전 의무 게이트를 통과합니다:
+
+1. `moai-cowork:ai-slop-reviewer` — 1차 일반 AI 슬롭 검수 (금지어, 구조 패턴, 리듬)
+2. `moai-cowork:humanize-korean` — 2차 한국어 정밀 윤문 (40+ 패턴 SSOT, 의미 불변)
+
+두 게이트는 대시 대비 헤드라인·조사·체언 종결 조각문·"A에서 B로" 전환 공식 S1 패턴을 잡아냅니다. 게이트 통과 없이 산출물을 바로 배포하지 않습니다.

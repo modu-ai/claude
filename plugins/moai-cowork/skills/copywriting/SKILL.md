@@ -9,7 +9,7 @@ description: |
   - "스타트업 브랜드 슬로건 후보 10가지 만들어줘"
   - "30초 영상 광고 스토리보드 기획해줘"
   - "광고 카피 써줘"
-  AIDA·PAS·FAB 같은 검증된 틀로 작성하고, 공정거래법·표시광고법 금지 표현을 피합니다. 완성 후 moai-cowork:ai-slop-reviewer로 AI 티를 정리하면 좋습니다.
+  AIDA·PAS·FAB 같은 검증된 틀로 작성하고, 공정거래법·표시광고법 금지 표현을 피합니다. 완성 후 moai-cowork:ai-slop-reviewer로 AI 티를 정리합니다(필수 후처리).
   [책임 경계] vs moai-cowork:commerce-channel-message: 이 스킬=범용 카피(블로그·일반 광고·슬로건), 저 스킬=이커머스 운영 카피(광고·톡톡·푸시·이메일·카트 이탈) 전용.
 version: 0.1.0
 ---

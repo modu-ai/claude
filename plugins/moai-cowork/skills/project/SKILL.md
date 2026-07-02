@@ -91,6 +91,7 @@ version: 0.1.0
 - 회고, 목표, 시간, 습관 → `moai-productivity`
 - 직장 커뮤니케이션, 보고, 회의, 피드백 → `moai-comms`
 - 초기화, 라우팅, AI 슬롭 검수, 피드백, MCP 커넥터 → `moai-core`
+- 워크플로우·스킬 체인 시각 설계 → `moai-workflow-design`
 
 ## 워크플로우
 

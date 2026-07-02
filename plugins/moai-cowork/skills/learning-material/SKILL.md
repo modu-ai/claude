@@ -134,3 +134,13 @@ version: 0.1.0
 - **0-JS 단일파일 업무 보고서**(현황·재무·인시던트·PR) → `moai-cowork:html-report`
 - **발표용 슬라이드** → `moai-cowork:pptx-designer`
 - **인쇄·제출용 문서(.docx)** → `moai-cowork:docx-generator`
+
+
+## 한국어 카피 품질 게이트 (필수)
+
+본 스킬이 산출하는 한국어 텍스트는 배포 전 의무 게이트를 통과합니다:
+
+1. `moai-cowork:ai-slop-reviewer` — 1차 일반 AI 슬롭 검수 (금지어, 구조 패턴, 리듬)
+2. `moai-cowork:humanize-korean` — 2차 한국어 정밀 윤문 (40+ 패턴 SSOT, 의미 불변)
+
+두 게이트는 대시 대비 헤드라인·조사·체언 종결 조각문·"A에서 B로" 전환 공식 S1 패턴을 잡아냅니다. 게이트 통과 없이 산출물을 바로 배포하지 않습니다.

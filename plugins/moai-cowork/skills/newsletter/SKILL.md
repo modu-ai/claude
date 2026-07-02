@@ -9,7 +9,7 @@ description: |
   - "먼슬리 뉴스레터 콘텐츠 캘린더 만들어줘"
   - "업계 트렌드 뉴스레터 구성 짜줘"
   - "구독자 늘리는 뉴스레터 기획해줘"
-  완성 후 moai-cowork:ai-slop-reviewer로 AI 티를 정리하면 좋습니다.
+  완성 후 moai-cowork:ai-slop-reviewer로 AI 티를 정리합니다(필수 후처리).
 version: 0.1.0
 ---
 

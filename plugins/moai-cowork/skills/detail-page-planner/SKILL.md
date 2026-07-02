@@ -370,3 +370,13 @@ brief:
 - after: moai-cowork:detail-page-copy → product-detail → moai-cowork:detail-page-image 순차 체이닝
 - alternative: 빠른 단일 카피만 → moai-cowork:detail-page-copy 직접
 - 가이드: `moai-foundation-cc` (Claude Code 스킬 작성), `.claude/rules/moai/development/skill-authoring.md`
+
+
+## 한국어 카피 품질 게이트 (필수)
+
+본 스킬이 산출하는 한국어 텍스트는 배포 전 의무 게이트를 통과합니다:
+
+1. `moai-cowork:ai-slop-reviewer` — 1차 일반 AI 슬롭 검수 (금지어, 구조 패턴, 리듬)
+2. `moai-cowork:humanize-korean` — 2차 한국어 정밀 윤문 (40+ 패턴 SSOT, 의미 불변)
+
+두 게이트는 대시 대비 헤드라인·조사·체언 종결 조각문·"A에서 B로" 전환 공식 S1 패턴을 잡아냅니다. 게이트 통과 없이 산출물을 바로 배포하지 않습니다.

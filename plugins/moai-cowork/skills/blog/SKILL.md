@@ -9,7 +9,7 @@ description: |
   - "검색 상위 노출되는 블로그 포스팅 만들어줘"
   - "GEO 최적화해서 AI 검색에 인용되는 가이드 글 써줘"
   - "제품 리뷰 블로그 포스팅 구성 짜줘"
-  검색 상위 노출과 독자 전환을 함께 노리며, 완성 후 moai-cowork:ai-slop-reviewer로 AI 티를 정리하면 좋습니다.
+  검색 상위 노출과 독자 전환을 함께 노리며, 완성 후 moai-cowork:ai-slop-reviewer로 AI 티를 정리합니다(필수 후처리).
 version: 0.1.0
 ---
 
