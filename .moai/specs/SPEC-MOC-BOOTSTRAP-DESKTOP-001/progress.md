@@ -13,6 +13,16 @@ plan-phase 산출물 세트(spec.md + plan.md + acceptance.md + progress.md) 작
 - **실측 기반**: 3개 트리(cowork/code/template) 직접 조사, 설계 문서 주장 미신뢰. 바이너리 의존 훅 전수 카운트는 추정 주장 없이 CODE-002로 이연(verification-claim-integrity 준수).
 - **미결 결정**: D1(버전 정책), D2(표시명) — 옵션으로 인코딩, run-phase Implementation Kickoff 시 오케스트레이터 확인 필요.
 
+## §E.1b Phase 0.95 Mode Selection (orchestrator, 2026-07-03)
+
+**Decision**: `sub-agent` — Mode 5, 단일 순차(sequential) manager-develop, cycle_type=tdd.
+
+**IGGDA §H predicate (4/4 충족 → auto-proceed 도메인)**: (a) intent 100% ✅ / (b) plan-auditor PASS-WITH-DEBT 0.92 ✅ / (c) Tier M ✅ / (d) dangerous keyword 없음 ✅. Phase 0.5 SKIPPED (verdict fresh 2026-07-03, skip-eligible ≥0.90, 이후 SPEC 산출물 commit 무착지). 사용자 결정 확정: D1=BIND (0.1.0 → 3.0.0) / D2=KEEP (M5 skip). 본 §E.1 "미결 결정" 라인은 Implementation Kickoff(2026-07-03)에서 해소됨.
+
+**입력 파라미터**: tier M · ~6-9 files(M1-M4) · ~5 domains · markdown+shell+JSON(Go 없음) · 동시성 이익 LOW(coding/doc-heavy).
+
+**근거**: coding-heavy + <30 files → Anthropic coding-task 병렬성 경고 → 순차 단일 manager-develop. trivial / background(writes) / agent-team(thorough FAIL) / parallel(research-heavy 아님) / workflow(<30 files·mechanical-uniform 아님) 전부 No → Mode 5 default. team-protocol 1M-vs-200K 노트가 단일 manager-develop 지지.
+
 ## §E.2 Run-phase Evidence
 
 > run-phase 시작: 2026-07-03. cycle_type=tdd (quality.yaml constitution.development_mode).
