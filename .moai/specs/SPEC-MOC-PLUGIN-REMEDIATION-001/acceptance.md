@@ -82,7 +82,7 @@ Each row's **GEARS Statement** restates its paired REQ; the **Verification Comma
 | AC-REM-015 | No skill **SHALL** reference a deprecated namespace. | 015 | `grep -rl "moai-office\|moai-content\|moai-media\|moai-finance\|moai-book\|moai-business\|moai-marketing\|moai-education\|moai-legal" plugins/moai-cowork/skills plugins/moai-design/skills \| wc -l` | `0` |
 | AC-REM-016 | **When** `project` routes, it **SHALL** target the single `moai-cowork` architecture, not the 27-plugin topology. | 016 | `grep -c "moai-office:\|moai-content:\|moai-media:\|27\|29개 플러그인\|distributed" plugins/moai-cowork/skills/project/SKILL.md` | `0` (no retired-topology routing) |
 | AC-REM-017 | Broken links, phantom dirs, stale `CLAUDE.local.md`/`CONNECTORS.md` refs **SHALL** be repaired. | 017 | `grep -rc "CLAUDE.local.md\|CONNECTORS.md" plugins/moai-cowork/skills; test ! -d plugins/moai-cowork/skills/design-system-library/moai-content && echo GHOST-GONE \|\| echo GHOST-PRESENT` | stale-ref count `0`; specific ghost `GHOST-GONE` — HEAD pre-state: stale-refs **3** (html-slide/audio-gen/higgsfield-image) → 0; ghost `design-system-library/moai-content/skills/html-slide/{references,samples}` **present** → GHOST-GONE. Iter-3: bare `find … -type d -empty` dropped — it over-reached 7 unrelated empty `references/` dirs (draft-offer, nda-triage, xlsx-creator, variance-analysis, media-production), only 1 is REQ-017's ghost (§D.8.10) |
-| AC-REM-018 | **When** category prefixes are applied, no dangling old-name reference **SHALL** survive. | 018 | run-phase: for each renamed old-name `N`, `grep -rl "\bN\b" plugins/moai-cowork plugins/moai-design .claude-plugin/marketplace.json` | `0` per old-name (full-tree integrity) |
+| AC-REM-018 | **When** category prefixes are applied, no dangling old-name reference **SHALL** survive. | 018 | run-phase: for each renamed old-name `N` listed in §D.9 Phase A Rename Mapping table, `grep -rl "\bN\b" plugins/moai-cowork plugins/moai-design .claude-plugin/marketplace.json` | `0` per old-name (full-tree integrity). §D.9 (draft, pending user approval) is the rename source-of-truth; the run-phase script MUST NOT invent rename pairs outside that table. |
 | AC-REM-019 | `design-system-library` **SHALL** be canonical in design; the cowork copy **SHALL** be a pointer. | 019 | `grep -c "moai-design 플러그인의 정본" plugins/moai-cowork/skills/design-system-library/SKILL.md; test ! -d plugins/moai-cowork/skills/design-system-library/systems && echo DEDUP-DONE \|\| echo STILL-FULL; test -f plugins/moai-design/skills/design-system-library/SKILL.md && echo CANONICAL-PRESENT` | HEAD-absent pointer sentence `≥1` AND cowork `systems/` dir removed (`DEDUP-DONE`) AND design canonical present — HEAD pre-state: pointer sentence **0**; cowork `systems/` **present** (78 entries) + full 180-line SKILL.md → `STILL-FULL`. Iter-3: old `moai-design\|pointer\|canonical\|참조`=**6** self-passed on incidental `참조` while design canonical already pre-exists; replaced with a structural dedup signal + HEAD-absent pointer sentence (§D.8.10) |
 | AC-REM-020 | `brand-identity` scope **SHALL** be narrowed to personal-branding; system work points to `moai-domain-brand-design`. | 020 | `grep -c "퍼스널 브랜딩 산출물 전용" plugins/moai-cowork/skills/brand-identity/SKILL.md; grep -c "moai-domain-brand-design" plugins/moai-cowork/skills/brand-identity/SKILL.md` | scope-boundary literal `≥1` AND pointer `moai-domain-brand-design` `≥1` — HEAD pre-state **0 / 0**. Iter-3: old `moai-domain-brand-design\|퍼스널\|personal`=**2** self-passed on the pre-existing `moai-cowork:personal-branding` row (L15/L195); `moai-domain-brand-design` itself is HEAD-absent in this file, and `퍼스널 브랜딩 산출물 전용` is a HEAD-absent scope literal (§D.8.10) |
 | AC-REM-021 | skill-builder/skill-template **SHALL** include Korean example-copy authoring rules. | 021 | `grep -c "대시 대비 헤드라인" plugins/moai-cowork/skills/skill-builder/SKILL.md; grep -c "대시\|조사·체언\|슬롭" plugins/moai-cowork/skills/skill-builder/SKILL.md` | authoring-rules descriptor `대시 대비 헤드라인` `≥1` AND `대시\|조사·체언\|슬롭` `≥1` — HEAD pre-state **0 / 0**. Iter-3: old `…\|에서.*로\|slop`=**5** self-passed (`에서.*로`=3 incidental prose; `slop`=2 ⊂ `ai-slop-reviewer` at L245/251); dropped both, anchored to the HEAD-absent descriptor literal introduced by REQ-001 (§D.8.10) |
@@ -244,3 +244,316 @@ This is the **complete** discrimination proof for every `≥1` addition-predicat
 | 017 ghost | `test ! -d …/design-system-library/moai-content` | GHOST-PRESENT | YES — ghost dir present | **FIXED** — was `find -type d -empty` (7 dirs, 1 ghost) |
 
 **Verdict**: every `≥1` addition-predicate now shows the pre-remediation / not-yet-done state on HEAD. The 6 iter-2-surviving self-passes (001c/003/014wiring/019/020/021) + AC-024 (newly caught) + 3 over-reach defect predicates (008/017 + AC-002 coverage) are all resolved. Descriptor/heading/pointer literals adopted (`전환 공식`, `대시 대비 헤드라인`, `슬라이드/카피 장르 프로파일`, `moai-design 플러그인의 정본`, `퍼스널 브랜딩 산출물 전용`) were each verified `grep -rl … = 0` across both owned trees before adoption. The AND-semantics (019: pointer AND systems-removed; 020: scope-literal AND pointer; 021: descriptor AND remainder) prevent a single incidental match from re-introducing a self-pass.
+
+### §D.9 Phase A Rename Mapping (draft, pending user approval)
+
+**Status**: DRAFT — authored by manager-spec on 2026-07-02 per Option 1 (manager-spec authors draft → user reviews/approves → run-phase re-executes AC-018). NOT YET APPROVED. The run-phase filesystem rename MUST NOT start until the user signs off on this table; once approved, this section becomes the rename source-of-truth that AC-REM-018's grep predicate iterates over.
+
+**Live scope**: 176 cowork skills (re-baselanced 2026-07-02 against `plugins/moai-cowork/skills/` via `find … -maxdepth 1 -mindepth 1 -type d -not -name project | wc -l`). Plan-phase baseline was 177 — delta 1 is attributable to the Phase B boundary dedup commits (M5 work in commits `b7ca913`→`665bbb3`) per the task hint, NOT run-phase count drift (EC-1 does not apply). The `project` skill is excluded per EC-7 (shared-file boundary with SPEC-MOC-BOOTSTRAP-DESKTOP-001).
+
+#### §D.9.1 Taxonomy — 11 prefix buckets
+
+The 11 buckets derive from three authoritative sources:
+
+1. **The 9 deprecated AC-015 namespaces** → 9 prefixes: `office-`, `content-`, `media-`, `finance-`, `book-`, `business-`, `marketing-`, `education-`, `legal-` (mirrors `moai-office`, `moai-content`, `moai-media`, `moai-finance`, `moai-book`, `moai-business`, `moai-marketing`, `moai-education`, `moai-legal`)
+2. **REQ-018 explicit example** → 1 prefix: `commerce-`
+3. **Residual bucket** → 1 prefix: `general-` (gates, meta, tooling, cross-domain utilities)
+
+The taxonomy is intentionally aligned with AC-015's namespace set so that Phase A prefix rename and M4 (REQ-015) namespace normalization share the same domain vocabulary — the same prefix that classifies a skill also names the namespace it belongs to once the deprecated `moai-*` references are normalized.
+
+**Residual-bucket policy — what goes to `general-`**:
+- **Gates** (Korean-slop detection infrastructure, not a domain skill): `ai-slop-reviewer`, `humanize-korean`, `cd-slop-check`
+- **Meta / authoring tooling**: `skill-builder`, `skill-template`, `skill-tester`, `mcp-connector-setup`, `feedback`, `ai-diagnostic`
+- **Claude Design integration tooling** (the non-gate `cd-*` family; task hint names "cd-skill-*" as residual): `cd-brief`, `cd-handoff-reader`, `cd-prompt-builder`, `cd-system-prep`
+- **Lifestyle / personal** (no AC-015-aligned domain; project router's `moai-lifestyle` category): `self-care`, `wellness-coach`, `event-planner`, `travel-planner` — marked ⚠ REVIEW (the user MAY prefer an `office-` productivity grouping or a 12th `lifestyle-` prefix)
+
+The `project` router's category-routing table uses additional namespace names (`moai-hr`, `moai-product`, `moai-support`, `moai-research`, `moai-career`, `moai-comms`, `moai-productivity`, `moai-operations`, `moai-data`, `moai-public-data`, `moai-bi`, `moai-pm`, `moai-sales`, `moai-wealth`, `moai-core`, `moai-workflow-design`) — these are NOT in AC-015's deprecated-9 sweep, so they have no natural AC-015-aligned prefix. Skills belonging to these categories collapse into the closest-fitting AC-015 prefix (typically `business-` or `office-`) or into `general-` (cross-domain) with ⚠ REVIEW.
+
+**Stub-skill handling**: 4 stubs are already-relocated pointers to canonical `public-data-*` skills (`business-real-estate-search`, `data-public-data`, `finance-court-auction-search`, `finance-korean-stock-search`) plus 1 deprecated stub (`social-media` → `sns-content`). All 5 are renamed for prefix consistency in this draft. The user MAY alternatively choose to DELETE the stubs in a Phase-B-style cleanup rather than rename — marked ⚠ REVIEW.
+
+**Already-prefixed no-ops**: 18 of 31 `commerce-*` skills + 8 of 8 `book-*` skills + 1 `content-calendar` skill already carry their target prefix; their rename is a no-op (old name == new name). They are listed explicitly in the table for verification — the run-phase script MUST treat them as no-renames but STILL include them in the dangling-reference grep, since any old-name reference is still a dangling reference.
+
+#### §D.9.2 Category distribution — count summary
+
+| # | Prefix | Count | Already prefixed (no-op) | Needs prefix added | ⚠ REVIEW count |
+|---|--------|------:|-------------------------:|-------------------:|---------------:|
+| 1 | `commerce-` | 31 | 18 | 13 | 1 |
+| 2 | `content-` | 8 | 1 | 7 | 1 |
+| 3 | `marketing-` | 11 | 0 | 11 | 2 |
+| 4 | `media-` | 9 | 0 | 9 | 2 |
+| 5 | `finance-` | 11 | 0 | 11 | 0 |
+| 6 | `book-` | 8 | 8 | 0 | 0 |
+| 7 | `legal-` | 8 | 0 | 8 | 4 |
+| 8 | `education-` | 11 | 0 | 11 | 4 |
+| 9 | `business-` | 37 | 0 | 37 | 13 |
+| 10 | `office-` | 26 | 0 | 26 | 9 |
+| 11 | `general-` | 16 | 0 | 16 | 4 |
+| **Total** | | **176** | **27** | **149** | **40** |
+
+#### §D.9.3 REVIEW NEEDED — 7 thematic clusters for user focus
+
+The 40 ⚠ REVIEW markings fall into 7 thematic clusters. The user may accept the default classification or reclassify per cluster:
+
+1. **Academic-research cluster** (4 skills, default `education-`): `grant-writer`, `paper-search`, `paper-writer`, `research-assistant`. The project router mapped these to `moai-research` (not in AC-015's 9). Default `education-` (academia = teaching + research); alternatives: `book-` (publishing-adjacent) or `general-`.
+
+2. **Regulatory / IP cluster** (4 skills, default `legal-`): `mfds-safety` (Korean FDA compliance lookup), `iros-registry-automation` (corporate registry automation), `patent-analyzer`, `patent-search`. Default `legal-` (regulatory/IP-law framing); alternatives: `office-` (data lookup utility) for mfds-safety / iros-registry-automation, `education-` (research tools) for patents.
+
+3. **Public-data lookup cluster** (4 canonical + 4 stubs = 8 skills, default `office-`): `public-data-court-auction-search`, `public-data-korean-stock-search`, `public-data-public-data`, `public-data-real-estate-search` + stubs `business-real-estate-search`, `data-public-data`, `finance-court-auction-search`, `finance-korean-stock-search`. The project router mapped these to `moai-public-data` (not in AC-015's 9). Default `office-` (data utility); alternatives: distribute by domain (court-auction → `legal-`/`finance-`, stock → `finance-`, real-estate → `finance-`). Stubs may alternatively be DELETED rather than renamed (the user's call).
+
+4. **Personal-productivity cluster** (4 skills, default `office-`): `goal-planner`, `habit-routine`, `retro-builder`, `time-system`. The project router mapped these to `moai-productivity` (not in AC-015's 9). Default `office-` (productivity tools); alternative `general-`.
+
+5. **Lifestyle cluster** (4 skills, default `general-`): `event-planner`, `self-care`, `travel-planner`, `wellness-coach`. The project router mapped these to `moai-lifestyle`. Default `general-` (no AC-015-aligned domain); alternatives: introduce a 12th `lifestyle-` prefix, or `office-` (personal productivity), or split (event-planner → `business-`, others → `general-`).
+
+6. **Business-ambiguous cluster** (13 skills, default `business-`): `draft-response`, `escalation-manager`, `feedback-loop`, `kb-article`, `kr-gov-grant`, `meeting-facilitator`, `negotiation-1on1`, `proposal-writer`, `report-speak`, `roadmap-manager`, `sales-playbook`, `sbiz365-analyst`, `spec-writer`, `ticket-triage`, `ux-designer`, `ux-researcher`. The project router split these into `moai-comms` (4), `moai-support` (4), `moai-sales` (2), `moai-product` (4), `moai-wealth` (1). Default `business-` (broadest fit); alternatives: `general-` (cross-domain), or `marketing-` (for sales-ad-adjacent: `sales-playbook`, `proposal-writer`).
+
+7. **Boundary cases** (5 skills):
+   - `personal-branding` (default `marketing-`): alt `business-` (career branding parallels `brand-identity` in business-)
+   - `youtube-podcast-planner` (default `marketing-`): alt `content-` (content planning)
+   - `notebooklm-slide-prompt` (default `media-`): alt `office-` (slide/prompt tool)
+   - `coupang-ad-optimizer` (default `commerce-`): alt `marketing-` (broader ad tools)
+
+8. **Double-prefix naming collisions** (2 skills): `media-production` → literal `media-media-production`; `content-calendar` → literal `content-content-calendar`. Both read awkwardly. Options per skill: (a) accept the literal double-prefix (default in this draft); (b) drop the existing prefix during rename (becomes a no-op but loses the explicit category signal in the body of the name); (c) rename the skill body more substantially (e.g. `media-production` → `media-asset-production`). The user's preference here is required — ⚠ REVIEW.
+
+#### §D.9.4 Full rename mapping table (176 rows)
+
+Each row: `| old skill name | new prefixed name | category | rationale (1 short line) |`. Sorted by category, then alphabetical within category. ⚠ REVIEW marks the 40 skills the user should focus on per §D.9.3.
+
+##### commerce- (31 skills)
+
+| old skill name | new prefixed name | category | rationale |
+|----------------|-------------------|----------|-----------|
+| commerce-automation-audit | commerce-automation-audit | commerce | already prefixed (no-op) |
+| commerce-channel-message | commerce-channel-message | commerce | already prefixed (no-op) |
+| commerce-early-fan-builder | commerce-early-fan-builder | commerce | already prefixed (no-op) |
+| commerce-influencer-collab | commerce-influencer-collab | commerce | already prefixed (no-op) |
+| commerce-integrated-strategy | commerce-integrated-strategy | commerce | already prefixed (no-op) |
+| commerce-jtbd-persona | commerce-jtbd-persona | commerce | already prefixed (no-op) |
+| commerce-ltv-cac-architect | commerce-ltv-cac-architect | commerce | already prefixed (no-op) |
+| commerce-margin-calculator | commerce-margin-calculator | commerce | already prefixed (no-op) |
+| commerce-market-research | commerce-market-research | commerce | already prefixed (no-op) |
+| commerce-marketing-compliance-kr | commerce-marketing-compliance-kr | commerce | already prefixed (no-op) |
+| commerce-morning-brief | commerce-morning-brief | commerce | already prefixed (no-op) |
+| commerce-product-image-pipeline | commerce-product-image-pipeline | commerce | already prefixed (no-op) |
+| commerce-product-naming | commerce-product-naming | commerce | already prefixed (no-op) |
+| commerce-promotion-planner | commerce-promotion-planner | commerce | already prefixed (no-op) |
+| commerce-repurchase-timer | commerce-repurchase-timer | commerce | already prefixed (no-op) |
+| commerce-season-calendar | commerce-season-calendar | commerce | already prefixed (no-op) |
+| commerce-subscription-strategist | commerce-subscription-strategist | commerce | already prefixed (no-op) |
+| commerce-voc-triage | commerce-voc-triage | commerce | already prefixed (no-op) |
+| coupang-ad-optimizer | commerce-coupang-ad-optimizer | commerce | ⚠ REVIEW — alt `marketing-coupang-ad-optimizer` (broader ad tools) |
+| detail-page-copy | commerce-detail-page-copy | commerce | commerce detail-page copy |
+| detail-page-image | commerce-detail-page-image | commerce | commerce detail-page image |
+| detail-page-planner | commerce-detail-page-planner | commerce | commerce detail-page planner |
+| live-commerce | commerce-live-commerce | commerce | live commerce |
+| marketplace-coupang | commerce-marketplace-coupang | commerce | coupang marketplace |
+| marketplace-coupang-ads | commerce-marketplace-coupang-ads | commerce | coupang ads marketplace |
+| marketplace-crowdfunding | commerce-marketplace-crowdfunding | commerce | crowdfunding marketplace |
+| marketplace-curation | commerce-marketplace-curation | commerce | curation marketplace |
+| marketplace-d2c | commerce-marketplace-d2c | commerce | D2C marketplace |
+| marketplace-naver | commerce-marketplace-naver | commerce | naver marketplace |
+| product-detail | commerce-product-detail | commerce | product detail page |
+| product-photo-brief | commerce-product-photo-brief | commerce | product photo brief |
+
+##### content- (8 skills)
+
+| old skill name | new prefixed name | category | rationale |
+|----------------|-------------------|----------|-----------|
+| blog | content-blog | content | blog posting |
+| card-news | content-card-news | content | SNS card-news |
+| content-calendar | content-content-calendar | content | ⚠ REVIEW — double-prefix collision; literal default, alt no-op `content-calendar` or rename body |
+| copywriting | content-copywriting | content | copywriting |
+| email-sequence | content-email-sequence | content | email drip sequence |
+| newsletter | content-newsletter | content | email newsletter |
+| sns-content | content-sns-content | content | SNS content |
+| social-media | content-social-media | content | DEPRECATED stub → points to `content-sns-content` |
+
+##### marketing- (11 skills)
+
+| old skill name | new prefixed name | category | rationale |
+|----------------|-------------------|----------|-----------|
+| campaign-planner | marketing-campaign-planner | marketing | campaign planning |
+| landing-page | marketing-landing-page | marketing | conversion landing page |
+| landing-page-conversion-audit | marketing-landing-page-conversion-audit | marketing | landing audit |
+| meta-ads-analyzer | marketing-meta-ads-analyzer | marketing | Meta ads analysis |
+| meta-ads-manager | marketing-meta-ads-manager | marketing | Meta ads live ops |
+| performance-report | marketing-performance-report | marketing | ROAS/performance report |
+| personal-branding | marketing-personal-branding | marketing | ⚠ REVIEW — alt `business-personal-branding` (parallels brand-identity) |
+| pixel-audit | marketing-pixel-audit | marketing | pixel infra audit |
+| seo-audit | marketing-seo-audit | marketing | SEO/GEO audit |
+| target-script | marketing-target-script | marketing | target messaging |
+| youtube-podcast-planner | marketing-youtube-podcast-planner | marketing | ⚠ REVIEW — alt `content-youtube-podcast-planner` (content planning) |
+
+##### media- (9 skills)
+
+| old skill name | new prefixed name | category | rationale |
+|----------------|-------------------|----------|-----------|
+| audio-gen | media-audio-gen | media | audio generation |
+| codex-image | media-codex-image | media | codex/gpt-image-2 generation |
+| gemini-3-image-prompt | media-gemini-3-image-prompt | media | Gemini image prompt |
+| gpt-image-2-prompt | media-gpt-image-2-prompt | media | GPT image prompt |
+| higgsfield-image | media-higgsfield-image | media | Higgsfield image |
+| higgsfield-video | media-higgsfield-video | media | Higgsfield video |
+| media-production | media-media-production | media | ⚠ REVIEW — double-prefix collision; literal default, alt no-op or rename body |
+| midjourney-v8-prompt | media-midjourney-v8-prompt | media | Midjourney prompt |
+| notebooklm-slide-prompt | media-notebooklm-slide-prompt | media | ⚠ REVIEW — alt `office-notebooklm-slide-prompt` (slide/prompt tool) |
+
+##### finance- (11 skills)
+
+| old skill name | new prefixed name | category | rationale |
+|----------------|-------------------|----------|-----------|
+| close-management | finance-close-management | finance | accounting close |
+| econ-literacy | finance-econ-literacy | finance | economic literacy |
+| financial-statements | finance-financial-statements | finance | financial statements |
+| household-budget | finance-household-budget | finance | household budget |
+| insurance-fit | finance-insurance-fit | finance | insurance fit |
+| invest-primer | finance-invest-primer | finance | investment primer |
+| investor-relations | finance-investor-relations | finance | IR materials |
+| personal-tax-saver | finance-personal-tax-saver | finance | personal tax |
+| tax-helper | finance-tax-helper | finance | tax helper |
+| variance-analysis | finance-variance-analysis | finance | variance analysis |
+| wealth-roadmap | finance-wealth-roadmap | finance | personal wealth |
+
+##### book- (8 skills)
+
+| old skill name | new prefixed name | category | rationale |
+|----------------|-------------------|----------|-----------|
+| book-author-bio | book-author-bio | book | already prefixed (no-op) |
+| book-chapter-writer | book-chapter-writer | book | already prefixed (no-op) |
+| book-concept-planner | book-concept-planner | book | already prefixed (no-op) |
+| book-outline-designer | book-outline-designer | book | already prefixed (no-op) |
+| book-proposal-writer | book-proposal-writer | book | already prefixed (no-op) |
+| book-publisher-matcher | book-publisher-matcher | book | already prefixed (no-op) |
+| book-revision-coach | book-revision-coach | book | already prefixed (no-op) |
+| book-target-reader | book-target-reader | book | already prefixed (no-op) |
+
+##### legal- (8 skills)
+
+| old skill name | new prefixed name | category | rationale |
+|----------------|-------------------|----------|-----------|
+| compliance-check | legal-compliance-check | legal | compliance check |
+| contract-review | legal-contract-review | legal | contract review |
+| iros-registry-automation | legal-iros-registry-automation | legal | ⚠ REVIEW — alt `office-iros-registry-automation` (automation utility) |
+| legal-risk | legal-legal-risk | legal | legal risk (literal double "legal" — accepted) |
+| mfds-safety | legal-mfds-safety | legal | ⚠ REVIEW — alt `office-mfds-safety` (Korean FDA data lookup) |
+| nda-triage | legal-nda-triage | legal | NDA triage |
+| patent-analyzer | legal-patent-analyzer | legal | ⚠ REVIEW — alt `education-patent-analyzer` (research tool) |
+| patent-search | legal-patent-search | legal | ⚠ REVIEW — alt `education-patent-search` (research tool) |
+
+##### education- (11 skills)
+
+| old skill name | new prefixed name | category | rationale |
+|----------------|-------------------|----------|-----------|
+| assessment-creator | education-assessment-creator | education | assessment creation |
+| course-followup-sequence | education-course-followup-sequence | education | course followup |
+| course-operations-manual | education-course-operations-manual | education | course ops |
+| curriculum-designer | education-curriculum-designer | education | curriculum design |
+| grant-writer | education-grant-writer | education | ⚠ REVIEW — alt `book-grant-writer` or `general-grant-writer` (R&D grant, no clean AC-015 fit) |
+| learning-material | education-learning-material | education | learning material |
+| learning-project | education-learning-project | education | learning project |
+| paper-search | education-paper-search | education | ⚠ REVIEW — alt `book-paper-search` or `general-paper-search` (academic research) |
+| paper-writer | education-paper-writer | education | ⚠ REVIEW — alt `book-paper-writer` or `general-paper-writer` (academic research) |
+| research-assistant | education-research-assistant | education | ⚠ REVIEW — alt `book-research-assistant` or `general-research-assistant` (academic research) |
+| tutor-research | education-tutor-research | education | tutor research |
+
+##### business- (37 skills)
+
+| old skill name | new prefixed name | category | rationale |
+|----------------|-------------------|----------|-----------|
+| brand-identity | business-brand-identity | business | corporate brand (post-Phase B deliverable scope) |
+| conflict-handler | business-conflict-handler | business | workplace conflict handling |
+| consulting-brief | business-consulting-brief | business | consulting brief |
+| draft-offer | business-draft-offer | business | offer letter (HR) |
+| draft-response | business-draft-response | business | ⚠ REVIEW — alt `general-draft-response` (CX support) |
+| employment-manager | business-employment-manager | business | hiring (HR) |
+| escalation-manager | business-escalation-manager | business | ⚠ REVIEW — alt `general-escalation-manager` (CX support) |
+| executive-summary | business-executive-summary | business | exec 1-pager (BI) |
+| feedback-loop | business-feedback-loop | business | ⚠ REVIEW — alt `general-feedback-loop` (workplace comms) |
+| interview-coach | business-interview-coach | business | interview prep (career) |
+| job-analyzer | business-job-analyzer | business | JD analysis (career) |
+| kb-article | business-kb-article | business | ⚠ REVIEW — alt `general-kb-article` (CX knowledge base) |
+| kr-gov-grant | business-kr-gov-grant | business | ⚠ REVIEW — alt `finance-kr-gov-grant` (gov financial support) |
+| market-analyst | business-market-analyst | business | market analysis (BI) |
+| meeting-facilitator | business-meeting-facilitator | business | ⚠ REVIEW — alt `general-meeting-facilitator` (workplace comms) |
+| negotiation-1on1 | business-negotiation-1on1 | business | ⚠ REVIEW — alt `general-negotiation-1on1` (workplace comms) |
+| people-operations | business-people-operations | business | HR ops |
+| performance-review | business-performance-review | business | perf review (HR) |
+| pm-weekly-report | business-pm-weekly-report | business | PM weekly report |
+| portfolio-guide | business-portfolio-guide | business | portfolio (career) |
+| process-manager | business-process-manager | business | process ops |
+| productivity-weekly-report | business-productivity-weekly-report | business | weekly status report |
+| proposal-writer | business-proposal-writer | business | ⚠ REVIEW — alt `marketing-proposal-writer` (B2B sales) |
+| report-speak | business-report-speak | business | ⚠ REVIEW — alt `general-report-speak` (workplace comms) |
+| resume-builder | business-resume-builder | business | resume (career) |
+| resume-screener | business-resume-screener | business | resume screening (HR) |
+| roadmap-manager | business-roadmap-manager | business | ⚠ REVIEW — alt `general-roadmap-manager` (product mgmt) |
+| sales-playbook | business-sales-playbook | business | ⚠ REVIEW — alt `marketing-sales-playbook` (B2B sales) |
+| sbiz365-analyst | business-sbiz365-analyst | business | ⚠ REVIEW — alt `finance-sbiz365-analyst` or `commerce-sbiz365-analyst` (commercial-area analysis) |
+| spec-writer | business-spec-writer | business | ⚠ REVIEW — alt `general-spec-writer` (product mgmt) |
+| startup-launchpad | business-startup-launchpad | business | startup strategy |
+| status-reporter | business-status-reporter | business | status reporting |
+| strategy-planner | business-strategy-planner | business | strategy |
+| ticket-triage | business-ticket-triage | business | ⚠ REVIEW — alt `general-ticket-triage` (CX support) |
+| ux-designer | business-ux-designer | business | ⚠ REVIEW — alt `general-ux-designer` (product mgmt) |
+| ux-researcher | business-ux-researcher | business | ⚠ REVIEW — alt `general-ux-researcher` (product mgmt) |
+| vendor-manager | business-vendor-manager | business | vendor management (ops) |
+
+##### office- (26 skills)
+
+| old skill name | new prefixed name | category | rationale |
+|----------------|-------------------|----------|-----------|
+| business-real-estate-search | office-business-real-estate-search | office | RELOCATED stub → points to `office-public-data-real-estate-search`; ⚠ REVIEW — alt delete stub |
+| daily-briefing | office-daily-briefing | office | daily news briefing |
+| data-explorer | office-data-explorer | office | CSV/Excel profiling |
+| data-public-data | office-data-public-data | office | RELOCATED stub → points to `office-public-data-public-data`; ⚠ REVIEW — alt delete stub |
+| data-visualizer | office-data-visualizer | office | data visualization |
+| design-system-library | office-design-system-library | office | post-Phase B pointer to moai-design canonical |
+| docx-generator | office-docx-generator | office | .docx generator |
+| finance-court-auction-search | office-finance-court-auction-search | office | RELOCATED stub → points to `office-public-data-court-auction-search`; ⚠ REVIEW — alt `legal-finance-court-auction-search`, or delete stub |
+| finance-korean-stock-search | office-finance-korean-stock-search | office | RELOCATED stub → points to `office-public-data-korean-stock-search`; ⚠ REVIEW — alt `finance-finance-korean-stock-search`, or delete stub |
+| goal-planner | office-goal-planner | office | ⚠ REVIEW — alt `general-goal-planner` (personal productivity) |
+| habit-routine | office-habit-routine | office | ⚠ REVIEW — alt `general-habit-routine` (personal productivity) |
+| html-report | office-html-report | office | single-file HTML report |
+| html-slide | office-html-slide | office | single-file HTML slide deck |
+| hwpx-writer | office-hwpx-writer | office | .hwpx writer |
+| korean-spell-check | office-korean-spell-check | office | Korean spell check |
+| mcp-connector-setup | office-mcp-connector-setup | office | MCP connector setup (task hint: residual; classified office- as productivity tooling — ⚠ REVIEW alt `general-`) |
+| notion-template-kit | office-notion-template-kit | office | Notion template design |
+| pdf-writer | office-pdf-writer | office | PDF writer |
+| pptx-designer | office-pptx-designer | office | .pptx designer |
+| public-data-court-auction-search | office-public-data-court-auction-search | office | ⚠ REVIEW — alt `legal-public-data-court-auction-search` or `finance-public-data-court-auction-search` |
+| public-data-korean-stock-search | office-public-data-korean-stock-search | office | ⚠ REVIEW — alt `finance-public-data-korean-stock-search` |
+| public-data-public-data | office-public-data-public-data | office | generic public-data lookup |
+| public-data-real-estate-search | office-public-data-real-estate-search | office | ⚠ REVIEW — alt `finance-public-data-real-estate-search` |
+| retro-builder | office-retro-builder | office | ⚠ REVIEW — alt `general-retro-builder` (personal productivity) |
+| time-system | office-time-system | office | ⚠ REVIEW — alt `general-time-system` (personal productivity) |
+| xlsx-creator | office-xlsx-creator | office | .xlsx creator |
+
+##### general- (16 skills)
+
+| old skill name | new prefixed name | category | rationale |
+|----------------|-------------------|----------|-----------|
+| ai-diagnostic | general-ai-diagnostic | general | multi-dimensional AI diagnostic (meta tooling) |
+| ai-slop-reviewer | general-ai-slop-reviewer | general | Korean-slop gate |
+| cd-brief | general-cd-brief | general | Claude Design 6-element brief builder (tooling) |
+| cd-handoff-reader | general-cd-handoff-reader | general | Claude Design handoff reader (tooling) |
+| cd-prompt-builder | general-cd-prompt-builder | general | Claude Design senior UX prompt builder (tooling) |
+| cd-slop-check | general-cd-slop-check | general | Claude Design copy slop gate |
+| cd-system-prep | general-cd-system-prep | general | Claude Design DESIGN.md synthesizer (tooling) |
+| event-planner | general-event-planner | general | ⚠ REVIEW — alt `business-event-planner`, or 12th `lifestyle-` prefix (per §D.9.3 cluster 5) |
+| feedback | general-feedback | general | project feedback / GitHub issue filer (meta) |
+| humanize-korean | general-humanize-korean | general | Korean naturalization gate |
+| self-care | general-self-care | general | ⚠ REVIEW — alt 12th `lifestyle-` prefix (per §D.9.3 cluster 5) |
+| skill-builder | general-skill-builder | general | skill authoring (meta) |
+| skill-template | general-skill-template | general | skill template (meta) |
+| skill-tester | general-skill-tester | general | skill testing (meta) |
+| travel-planner | general-travel-planner | general | ⚠ REVIEW — alt `office-travel-planner`, or 12th `lifestyle-` prefix (per §D.9.3 cluster 5) |
+| wellness-coach | general-wellness-coach | general | ⚠ REVIEW — alt 12th `lifestyle-` prefix (per §D.9.3 cluster 5) |
+
+#### §D.9.5 Verification recipe (informational; the binding predicate is AC-REM-018)
+
+Once the user approves this mapping, the run-phase rename script iterates the table and applies the rename. AC-REM-018 then runs the dangling-reference grep per old-name. For a no-op row (e.g. `commerce-automation-audit` → `commerce-automation-audit`), the grep finds 0 references to the OLD form which equals the NEW form — but the grep is still valid because it would catch a stale reference written before the rename pass (none should exist for no-ops, but the grep is a safety net). For all non-no-op rows, the grep is the primary integrity check.
+
+**Note on EC-7 (`project` router)**: the `project/SKILL.md` skill is EXCLUDED from this rename (it is not listed in any §D.9.4 sub-table). The router's category-routing text mentions skill names; any reference in the router to a renamed skill MUST be updated as part of the rename script's full-tree sweep — AC-REM-018's grep covers `plugins/moai-cowork` which includes `plugins/moai-cowork/skills/project/SKILL.md`.
+
+**Note on canonical design targets**: `design-system-library` (post-Phase B pointer) and the cd-* family reference design-side skills (e.g. `moai-design:design-system-library`). Those cross-plugin references are NOT in scope for the rename (Phase A is cowork-only per REQ-018), but AC-018's grep will surface them — they are legitimate cross-plugin pointers (using `moai-design:` prefix) not dangling references, and the run-phase reviewer MUST distinguish them from real dangling refs.
+

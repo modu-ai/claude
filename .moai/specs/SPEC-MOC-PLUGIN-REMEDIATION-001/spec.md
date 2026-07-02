@@ -152,7 +152,7 @@ The remediation process **SHALL** repair: broken relative links in `codex-image`
 
 #### REQ-REM-018 — Category-prefix rename with reference integrity (Event-driven)
 
-**When** category prefixes (`commerce-`, `legal-`, `content-`, `finance-`, `education-`, `media-`, …) are applied across the live cowork skill set, the remediation process **SHALL** perform the rename via a script and **SHALL** verify — by full-tree grep — that no dangling reference to any old skill name survives (in SKILL.md bodies, `marketplace.json`, `llms.txt`, gate chains, or the `project` router). The rename operates on the run-phase re-measured live skill count, not a frozen number.
+**When** category prefixes (`commerce-`, `legal-`, `content-`, `finance-`, `education-`, `media-`, …) are applied across the live cowork skill set, the remediation process **SHALL** perform the rename via a script and **SHALL** verify — by full-tree grep — that no dangling reference to any old skill name survives (in SKILL.md bodies, `marketplace.json`, `llms.txt`, gate chains, or the `project` router). The rename operates on the run-phase re-measured live skill count, not a frozen number. The per-skill old→new mapping lives in `acceptance.md` §D.9 (Phase A Rename Mapping) — that table is the authoritative rename source; the run-phase script reads §D.9 to determine the rename set, and AC-REM-018's grep predicate runs over every old-name listed there.
 
 ### Group B — Boundary contract + dedup (M5, 3-plugin separation upheld)
 
