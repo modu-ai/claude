@@ -2,7 +2,7 @@
 
 ---
 id: SPEC-MOC-PLUGIN-REMEDIATION-001
-status: in-progress
+status: implemented
 updated: 2026-07-03
 ---
 

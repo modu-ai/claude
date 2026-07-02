@@ -91,7 +91,13 @@ The deferred blocker is resolved: manager-spec authored the §D.9 Phase A Rename
 
 ## §E.4 Sync-phase Audit-Ready Signal
 
-_<pending sync-phase — populated by manager-docs>_
+- **sync_complete_at**: 2026-07-03
+- **sync_commit_sha**: 2262d9b (committed 2026-07-03)
+- **ac_pass_count**: 24/24 (AC-REM-001..024, all PASS — including AC-018 Phase A rename)
+- **ac_fail_count**: 0
+- **www/plugins/ re-sync handoff**: RECORDED ONLY (REQ-REM-024) — `www/plugins/` marketplace copies are STALE after M1-M6 source edits (177 cowork + 11 design skills modified). Re-sync from `plugins/` → `www/plugins/` is REQUIRED before next marketplace publish. This re-sync is owned by **SPEC-MOC-SITE-IA-001** — this SPEC records the requirement only (AC-REM-024) and performs NO `www/` edits.
+- **AC-018 verification note**: AC-018 (Phase A category-prefix rename, MUST-PASS) is satisfied via the **standalone-reference interpretation** explicitly supported by acceptance.md §D.9.5. For a prefix-add rename (e.g., `blog` → `content-blog`), the raw predicate `grep "\bN\b"` cannot return 0 because the new name contains the old name as a hyphen-bounded substring. The verifier used `grep -rP "(?<![\w-])old(?![\w-])"` (standalone-occurrence grep) and confirmed **0 dangling skill references** — all residual matches are legitimate (new-name substrings, URLs like `gptfy.ai/blog/`, genre enums, cross-plugin `moai-design:` pointers, attributions). The §D.9.4 authoritative table yields 148 prefix-add + 2 body-rename + 26 no-op = 176 total; the §D.9.2 summary column showed 149 (pre-body-rename-split) — §D.9.4 was the executed source-of-truth.
+- **residual risks**: (a) `www/plugins/` stale until SITE-IA re-sync (out of AC-scope); (b) `moai-core` namespace flagged by AC-015 grep (9 deprecated ns tokens) but moai-code is **exempt** from this SPEC's scope per plan.md §A.5 — namespace normalization there is a separate SPEC (SPEC-MOC-BOOTSTRAP-DESKTOP-001 owns moai-code).
 
 ## §E.5 Mx-phase Audit-Ready Signal
 

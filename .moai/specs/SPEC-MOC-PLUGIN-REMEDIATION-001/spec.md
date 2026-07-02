@@ -2,9 +2,9 @@
 id: SPEC-MOC-PLUGIN-REMEDIATION-001
 title: "모두의 클로드 plugin family Korean-slop remediation (cowork + design skills) — gate structure, decontamination, execution-path repair, prefix rename, boundary dedup"
 version: "0.1.0"
-status: in-progress
+status: implemented
 created: 2026-07-02
-updated: 2026-07-02
+updated: 2026-07-03
 author: manager-spec
 priority: P0
 phase: "v0.1.0 (release-blocking)"
