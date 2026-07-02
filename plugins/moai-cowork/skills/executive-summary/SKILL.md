@@ -11,7 +11,7 @@ description: |
 version: 0.1.0
 ---
 
-# Executive Summary — 경영진 1페이지 요약
+# Executive Summary: 경영진 1페이지 요약
 
 > moai-bi | What / So What / Now What 3-축 구조
 

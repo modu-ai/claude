@@ -14,7 +14,7 @@ description: |
 version: 0.1.0
 ---
 
-# html-report — 단일 파일 HTML 보고서 렌더러
+# html-report: 단일 파일 HTML 보고서 렌더러
 
 ## 목적과 범위
 

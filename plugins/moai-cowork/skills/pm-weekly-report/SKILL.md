@@ -13,7 +13,7 @@ description: |
 version: 0.1.0
 ---
 
-# Weekly Report — 한국 팀 주간보고(WBR) 자동 생성
+# Weekly Report: 한국 팀 주간보고(WBR) 자동 생성
 
 > moai-pm | 한국 주간보고 문화 + 글로벌 베스트 프랙티스
 

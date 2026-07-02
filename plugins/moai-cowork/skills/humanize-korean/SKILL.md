@@ -19,7 +19,7 @@ description: |
 version: 0.1.0
 ---
 
-# Humanize Korean — 한국어 AI 티 제거 (Fast 모드)
+# Humanize Korean: 한국어 AI 티 제거 (Fast 모드)
 
 ## 개요
 

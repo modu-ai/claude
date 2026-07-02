@@ -14,7 +14,7 @@
       "layout": "title",
       "layout_key": "title",
       "title": "AI 슬라이드 스킬 출시 전략",
-      "subtitle": "단일 HTML + 편집 가능 PPTX — 브라우저에서 바로 발표",
+      "subtitle": "단일 HTML과 편집 가능 PPTX로 브라우저에서 바로 발표합니다",
       "notes": "표지. 발표자 소개와 오늘 다룰 핵심 메시지를 한 문장으로 연다."
     },
     {
@@ -104,7 +104,7 @@
       "layout": "closing",
       "layout_key": "closing",
       "title": "감사합니다",
-      "subtitle": "질문은 moai-team@cowork.example 로 —",
+      "subtitle": "질문은 moai-team@cowork.example로 보내주세요",
       "notes": "마무리. 연락처와 Q&A 시간 안내."
     }
   ]
