@@ -28,6 +28,29 @@ claude plugin marketplace add modu-ai/claude
 
 이 플러그인은 `moai-adk-go`의 배포 템플릿 `internal/template/templates/`를 정본으로 삼아 무설치 완전 패리티로 재패키징합니다. 각 렌더 산출물 상단의 `<!-- parity-source: ... @ <commit> -->` 주석이 정본 커밋을 고정합니다.
 
+## 패리티 계약 (`/moai:project` ↔ `moai init`)
+
+`/moai:project`(무설치)와 `moai init`(바이너리)은 **동일 `.claude/` + `.moai/` 파일 트리**를 생성한다(REQ-BD-005 / AC-BD-002).
+
+**유일한 값 발산 지점**: `.moai/config/sections/system.yaml`의 `version` 필드.
+- `moai init`(바이너리): 템플릿 정본의 `{{.Version}}` 플레이스홀더가 실제 바이너리 버전으로 렌더링된다(예: `3.0.0-rc6`).
+- `/moai:project`(무설치): 바이너리 셸아웃이 없으므로 템플릿 렌더링이 불가하다 → 리터럴 마커 `"plugin-deployed vX.Y.Z"`를 `system.yaml`의 `version` 필드에 기입한다(REQ-BD-006 / AC-BD-003). 이 `plugin-deployed` 마커는 나중에 `moai doctor`가 탐지해 바이너리 관리 트리로의 승격을 제안하는 착지점이 된다(REQ-BD-007 — 본 SPEC 범위 외, 후속 SPEC).
+
+**검증 하네스 (AC-BD-002 RUNTIME)** — 두 진입점의 산출 트리를 빈 디렉터리 A, B에서 각각 실행 후 비교:
+
+```bash
+CNT_A=$(cd A && find .claude .moai -type f | wc -l)
+CNT_B=$(cd B && find .claude .moai -type f | wc -l)
+[ "$CNT_A" -gt 10 ] && [ "$CNT_B" -gt 10 ] || { echo "FAIL: 빈 트리(하네스 미실행)"; exit 1; }
+diff <(cd A && find .claude .moai -type f | sort) \
+     <(cd B && find .claude .moai -type f | sort)   # 출력 없음 = PASS(버전 라인만 유일한 발산)
+# 값 발산 1지점 확인:
+grep '^\s*version:' B/.moai/config/sections/system.yaml   # → "plugin-deployed vX.Y.Z"
+grep '^\s*version:' A/.moai/config/sections/system.yaml   # → 실제 바이너리 버전
+```
+
+`non-empty` 가드(`> 10`)는 빈-vs-빈 거짓 통과를 차단한다. 파일 집합 자체는 동일하며, 유일한 값 발산은 위 한 줄뿐이다.
+
 ## 빌드
 
 ```bash
