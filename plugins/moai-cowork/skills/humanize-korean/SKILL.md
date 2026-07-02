@@ -70,7 +70,7 @@ humanize-korean — fast 모드 / run_id: {YYYY-MM-DD-NNN}
 정량 베이스라인을 먼저 잡습니다. `references/metrics.py`를 호출:
 
 ```bash
-python3 moai-content/skills/humanize-korean/references/metrics.py \
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/humanize-korean/references/metrics.py" \
   --input "_workspace/{run_id}/01_input.txt" \
   --genre {칼럼|리포트|블로그|공적} \
   --output "_workspace/{run_id}/00_metrics.json"
@@ -86,7 +86,7 @@ python3 moai-content/skills/humanize-korean/references/metrics.py \
 **(옵션) post-editese 분석 레이어 — `references/metrics_v2.py`**: 번역투 14개 정량 신호(simplification·normalisation·interference 3축, T1~T8)를 추가로 측정하려면 `metrics_v2.py`를 호출합니다. `metrics.py`를 import해 v1.6 출력의 상위집합을 반환하므로(`v2_metrics`·`v2_interference_index` 키 추가) 기존 Phase 흐름과 호환됩니다. 이 레이어는 **선택적 분석용**으로, Fast 파이프라인의 1차 baseline은 여전히 `metrics.py`입니다. baseline은 placeholder(`baseline_v2.json`, 모든 셀 `_placeholder: true` — calibration 전이므로 z-score는 참고용).
 
 ```bash
-python3 moai-content/skills/humanize-korean/references/metrics_v2.py \
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/humanize-korean/references/metrics_v2.py" \
   --input "_workspace/{run_id}/01_input.txt" \
   --genre {essay|news|blog|qa|dialogue} \
   --output "_workspace/{run_id}/00_metrics_v2.json"
@@ -141,6 +141,18 @@ python3 moai-content/skills/humanize-korean/references/metrics_v2.py \
 
 자세한 처방 레시피는 `references/rewriting-playbook.md` 참조.
 
+### 3-3b. 슬라이드/카피 장르 프로파일 (구조적 슬롭 S1 패턴 3종)
+
+슬라이드 헤드라인·마케팅 카피·CTA는 다른 장르(칼럼·리포트·블로그·공적)와는 다른 규칙이 적용됩니다. **슬라이드/카피 장르 프로파일**은 완전한 명사구 제목(예: "2026년 Q1 사업 보고")은 허용하면서, 아래 3가지 **구조적** AI 슬롭 패턴은 금지합니다. 이 3종은 단어 사전이 아닌 문장 구조 수준에서 탐지되며, 단독 1회 등장으로 AI 저자가 확인되므로 **S1(결정적, 무조건 제거)**입니다.
+
+| # | 패턴 | 탐지 신호 | [나쁜 예] | 수정 |
+|---|------|----------|-----------|------|
+| 1 | **대시 대비 헤드라인** | 대시(`—`)로 문장을 분할하는 "X — Y" 대시 대비 헤드라인 구조 | [나쁜 예] "복붙에서 위임으로 — 목표만 주면" (대시 대비 헤드라인) | 대시 제거, 한 문장 통합 또는 두 문장 분리 |
+| 2 | **조사·체언 종결 조각문** | 조사(~은/에/로)나 체언(명사형)으로 끝나는 조사·체언 종결 조각문 | [나쁜 예] "성공의 열쇠 — 자동화" (조사·체언 종결) | 서술어 포함 완전문으로 재작성 |
+| 3 | **"A에서 B로" 전환 공식** | "X에서 Y로" 전환 공식으로 도입을 여는 상투문 | [나쁜 예] "엑셀에서 노션으로, 바뀐 것" (전환 공식) | 전환 공식 대신 구체적 사례·근거로 시작 |
+
+> **장르 프로파일 요약**: 슬라이드/카피 장르는 (a) 명사구 완결형 제목은 OK, (b) 대시 대비 헤드라인·조사·체언 종결 조각문·"A에서 B로" 전환 공식 3종은 S1 금지. 탐지 원본은 `plugins/moai-code/skills/moai-domain-humanize/modules/korean.md` D/J 카테고리.
+
 ### 3-4. 윤문 실행 (Edit 도구)
 
 탐지된 span별로 Edit 도구로 **수술적** 치환. 탐지되지 않은 구간은 절대 수정하지 않습니다.
@@ -167,7 +179,7 @@ python3 moai-content/skills/humanize-korean/references/metrics_v2.py \
 ### 4-1. 사후 메트릭
 
 ```bash
-python3 moai-content/skills/humanize-korean/references/metrics.py \
+python3 "${CLAUDE_PLUGIN_ROOT}/skills/humanize-korean/references/metrics.py" \
   --input "_workspace/{run_id}/final.md" \
   --genre {장르} \
   --output "_workspace/{run_id}/06_metrics_after.json"

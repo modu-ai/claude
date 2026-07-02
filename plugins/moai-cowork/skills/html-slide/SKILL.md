@@ -92,6 +92,14 @@ design_system 지정 시 `systems/<name>.md` 토큰 → Tailwind Play CDN config
 ### 7. AI 슬롭 후처리 (의무)
 모든 슬라이드 카피·speaker notes 텍스트에 `ai-slop-reviewer` → `humanize-korean` 체인 적용. CLAUDE.local.md §3-2 HARD 규칙.
 
+**슬라이드 카피 QA 체크리스트 — 구조적 슬롭 S1 패턴 3종 (헤드라인·카피 필수 탐지)**: 두 게이트가 반드시 잡아야 할 한국어 구조 패턴. 단어 사전이 아닌 문장 구조 수준에서 탐지합니다.
+
+| # | 패턴 | 탐지 신호 | [나쁜 예] | 수정 |
+|---|------|----------|-----------|------|
+| 1 | **대시 대비 헤드라인** | 대시(`—`)로 문장 분할 "X — Y" (대시 대비 헤드라인) | [나쁜 예] "복붙에서 위임으로 — 목표만 주면" | 대시 제거, 한 문장 통합 또는 두 문장 분리 |
+| 2 | **조사·체언 종결 조각문** | 조사·체언 종결 조각문 (조사/체언으로 끝남) | [나쁜 예] "성공의 열쇠 — 자동화" (조사·체언 종결) | 서술어 포함 완전문으로 재작성 |
+| 3 | **"A에서 B로" 전환 공식** | "X에서 Y로" 전환 공식 도입 | [나쁜 예] "엑셀에서 노션으로, 바뀐 것" (전환 공식) | 전환 공식 대신 구체적 사례로 시작 |
+
 ### 8. PPTX 산출 (선택, export_pptx: true 시)
 `deck.json` 원고를 `pptx-designer`(moai-office)에 전달하며 체이닝. pptx-designer가 pptxgenjs로 편집 가능 OOXML `.pptx` 생성(원고→객체 직접 생성). html-slide 자체는 PPTX 생성 로직을 구현하지 않습니다. 체이닝 규약: [`references/pptx-chaining.md`](references/pptx-chaining.md).
 
