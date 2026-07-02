@@ -120,7 +120,7 @@ sync-phase 완료: CHANGELOG.md 추가 + frontmatter `status: in-progress → im
 
 ```yaml
 sync_complete_at: 2026-07-03
-sync_commit_sha: <commit-after-push>
+sync_commit_sha: 9f1666e
 changelog_entry_added: true
 frontmatter_transition:
   from: in-progress
