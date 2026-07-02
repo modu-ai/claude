@@ -30,7 +30,7 @@ Gap Detection 알고리즘, Re-entry 흐름, inventory.json·init-progress.json 
 `references/templates/CLAUDE.md.tmpl` 변수 치환 규칙, 200라인 예산, HARD 규칙 고정 블록.
 
 ### 5. execution-protocol.md — 스킬 체인 실행 프로토콜
-플러그인 트리거 → 체인 순차 실행 → 단계별 요약 → ai-slop-reviewer 종료.
+플러그인 트리거 → 체인 순차 실행 → 단계별 요약 → general-ai-slop-reviewer 종료.
 
 ### 6. evaluation-protocol.md — 평가 프로토콜
 5개 차원 평가: 정확성, 완전성, 실용성, 톤 적합성, 도메인 적합성.
@@ -71,7 +71,7 @@ router.md → init-protocol.md → context-collector.md
 
 ## 스킬 체이닝 핵심 원칙
 
-1. 텍스트 산출물 체인은 **반드시 `ai-slop-reviewer`로 종료**한다.
+1. 텍스트 산출물 체인은 **반드시 `general-ai-slop-reviewer`로 종료**한다.
 2. 체인은 [기획/분석 → 생성 → 포맷 변환 → 검수] 구조를 기본으로 한다.
 3. 비텍스트 산출물(차트·데이터·숫자·음성)은 ai-slop 단계를 생략한다.
 4. 체인 정의는 `/project init` Phase 3에서 생성되어 CLAUDE.md에 기록된다.

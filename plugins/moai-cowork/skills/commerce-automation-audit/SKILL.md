@@ -5,7 +5,7 @@ description: |
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "자동화 진단해줘", "내 매장 자동화 우선순위", "ROI 자동화 영역 찾아줘", "자동화 로드맵 만들어줘", "Quick Wins Phase 진단", "반복형 판단형 창의형 분류", "RPA 도입 검토", "AI Copilot 적용", "HITL 검수 지점 설계", "조직 규모별 자동화 도구 추천".
   6대 영역 (A 상품운영 / B 가격&프로모션 / C 주문&정산 / D 재고&물류 / E 마케팅&고객 / F 데이터&경영) 진단 + 자동화 3분류 + 우선순위 점수 (빈도×시간×오류비용÷복잡도) + 5대 KPI + 3 Phase 로드맵.
-  ai-slop-reviewer 자동 체이닝 (진단 보고서 텍스트 산출물).
+  general-ai-slop-reviewer 자동 체이닝 (진단 보고서 텍스트 산출물).
   이커머스 운영 자동화 가능성 자가 진단 + 우선순위·로드맵 생성.
 version: 0.1.0
 ---
@@ -82,7 +82,7 @@ version: 0.1.0
 | B 가격 & 프로모션 | 마진율 자동 계산기 (`commerce-margin-calculator` 연계) |
 | **C 주문 & 정산** | **주문 통합 + 송장 자동 등록** (가장 먼저) |
 | D 재고 & 물류 | 실시간 재고 동기화 |
-| E 마케팅 & 고객 | 광고 리포트 자동 집계 (`moai-cowork:marketplace-coupang-ads` 연계) |
+| E 마케팅 & 고객 | 광고 리포트 자동 집계 (`moai-cowork:commerce-marketplace-coupang-ads` 연계) |
 | F 데이터 & 경영 | 일매출 대시보드 자동 갱신 (`commerce-morning-brief` 연계) |
 
 > **Insight**: 100% 자동화를 목표로 하기보다, 이 6개 항목만 자동화해도 업무 효율은 3배 이상 증가.
@@ -200,7 +200,7 @@ version: 0.1.0
 commerce-automation-audit (현황 진단)
        ↓ (Phase 1 식별)
 commerce-margin-calculator (마진 자동 계산)
-marketplace-coupang-ads (광고 자동 최적화)
+commerce-marketplace-coupang-ads (광고 자동 최적화)
        ↓ (Phase 2~3 추진)
 commerce-integrated-strategy (매출 전략 + 자동화 통합)
 ```

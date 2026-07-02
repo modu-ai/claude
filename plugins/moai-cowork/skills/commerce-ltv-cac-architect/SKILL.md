@@ -5,7 +5,7 @@ description: |
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "LTV 계산해줘", "CAC vs LTV 진단", "광고 의존도 진단", "ROAS 의존 탈출", "재구매율 분해", "손익분기 ROAS", "고객 수익 구조 설계", "Payback Period", "LTV/CAC ratio", "공헌이익 LTV 분해", "광고비 11% 만들기".
   6대 지표 통합: CAC·재구매율·구매주기·ARPU·공헌이익·LTV 연결 다이어그램 + 정상/위험 범위 + 한국 D2C 벤치마크. 광고 의존도 진단: 광고비 매출 비율 30%+ → 11-15% 전환 로드맵.
-  ai-slop-reviewer 체이닝 제외 (수치·표·다이어그램 데이터 스킬).
+  general-ai-slop-reviewer 체이닝 제외 (수치·표·다이어그램 데이터 스킬).
 version: 0.1.0
 ---
 
@@ -323,5 +323,5 @@ Payback = 50,000 / (12,000 × 0.33)
 
 - **단품 마진 계산**: `commerce-margin-calculator` 사용
 - **메시지 카피 작성**: `commerce-channel-message` 사용
-- **광고 캠페인 기획**: `campaign-planner` 사용
-- **단순 ROAS 계산 (광고 단위)**: `moai-cowork:marketplace-coupang-ads` 또는 `performance-report` 사용
+- **광고 캠페인 기획**: `marketing-campaign-planner` 사용
+- **단순 ROAS 계산 (광고 단위)**: `moai-cowork:commerce-marketplace-coupang-ads` 또는 `marketing-performance-report` 사용

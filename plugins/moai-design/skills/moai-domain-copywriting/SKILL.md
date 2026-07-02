@@ -1,13 +1,13 @@
 ---
 name: moai-domain-copywriting
 description: |
-  Brand-aligned copywriting specialist for marketing and product text.
+  Brand-aligned content-copywriting specialist for marketing and product text.
   Enforces brand voice, anti-AI-slop rules, concrete numbers, and JSON section
   structure for downstream agent consumption. Covers hero, features,
   social_proof, cta, and footer sections with A/B variant output.
 
   Use for brand-aligned marketing and product copy: headlines, CTAs,
-  microcopy, taglines, value propositions, landing-page and footer copy,
+  microcopy, taglines, value propositions, marketing-landing-page and footer copy,
   with anti-AI-slop rules and concrete-number enforcement.
 user-invocable: false
 version: 0.1.0
@@ -15,7 +15,7 @@ version: 0.1.0
 
 # moai-domain-copywriting
 
-Brand-aligned copywriting skill for marketing and product websites. Absorbed from the retired v2.x `*-copywriting` capability (per the copywriting absorption policy) at v3.2.0. Enforces anti-AI-slop rules, requires brand voice context, and outputs structured JSON per section.
+Brand-aligned content-copywriting skill for marketing and product websites. Absorbed from the retired v2.x `*-copywriting` capability (per the content-copywriting absorption policy) at v3.2.0. Enforces anti-AI-slop rules, requires brand voice context, and outputs structured JSON per section.
 
 ---
 
@@ -145,7 +145,7 @@ If any `_TBD_` markers are present in `brand-voice.md`, stop and request complet
 
 ### Integration with moai-domain-brand-design
 
-When both copywriting and design work are in scope (path B of `/moai design`):
+When both content-copywriting and design work are in scope (path B of `/moai design`):
 
 1. Complete copy sections first and output structured JSON.
 2. Pass the JSON copy output to `moai-domain-brand-design` as the content contract.
@@ -186,7 +186,7 @@ When testimonials or case study data are available in brand context:
 
 This dictionary is the canonical anti-AI-slop reference for the design pipeline. It was
 absorbed from the `cd-slop-check` skill per `docs/plugin-family-design/03-moai-design-processing.md`
-§3.3 — copywriting is the canonical owner (proactive avoidance at generation time), while
+§3.3 — content-copywriting is the canonical owner (proactive avoidance at generation time), while
 `cd-slop-check` remains a downstream QA gate that references this dictionary. Reject or flag
 copy matching these patterns before delivery, and replace with concrete numbers / reader
 outcomes.
@@ -255,6 +255,6 @@ dependency.
 
 ---
 
-Source: Absorbed from the retired v2.x `*-copywriting` capability v3.2.0 per the copywriting absorption policy.
+Source: Absorbed from the retired v2.x `*-copywriting` capability v3.2.0 per the content-copywriting absorption policy.
 REQ coverage: (internal provenance omitted)
 Version: 0.1.0

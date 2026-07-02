@@ -6,7 +6,7 @@ description: |
   "재구매 시점 알려줘", "골든타임 3구간", "리마인드 메시지 시점", "데드라인 메시지", "휴면 진입 90일", "리드 스코어링", "리텐션 차트 cohort", "정기 구매 카테고리", "화장품 재구매 60일", "면도기 30일 재구매", "구매주기 기반 CRM".
   3구간 골든타임: ① 평균 주기 80% 시점 = 리마인드 (감성·정체성) ② 110-120% = 데드라인 (긴급성·할인) ③ 150% = 휴면 진입 (윈백·강한 인센티브).
   화장품·식품·반려동물·렌즈·면도기 등 정기 구매 카테고리 한국 D2C 표준 적용.
-  ai-slop-reviewer 자동 체이닝 (텍스트 메시지 산출물).
+  general-ai-slop-reviewer 자동 체이닝 (텍스트 메시지 산출물).
 version: 0.1.0
 ---
 
@@ -163,9 +163,9 @@ version: 0.1.0
 [Step 6] 리텐션 차트 cohort 분석 가이드 출력
 ```
 
-### ai-slop-reviewer 자동 체이닝
+### general-ai-slop-reviewer 자동 체이닝
 
-골든타임 메시지 산출 후 `moai-cowork:ai-slop-reviewer` 자동 호출:
+골든타임 메시지 산출 후 `moai-cowork:general-ai-slop-reviewer` 자동 호출:
 - AI 클리셰 제거
 - 카테고리별 자연 어체 (화장품 = 감성 / 면도기 = 실용 / 반려동물 = 이모지 + 친근)
 - 인센티브 표현의 진정성 검증
@@ -194,7 +194,7 @@ version: 0.1.0
 - 세그먼트별 차등 (첫구매·2회·단골·VIP)
 - 리드 스코어링 룰 (최소 8개 행동 점수)
 - 리텐션 차트 cohort 분석 가이드 1건
-- ai-slop-reviewer 검수 흔적
+- general-ai-slop-reviewer 검수 흔적
 
 ## 관련 스킬
 
@@ -208,7 +208,7 @@ version: 0.1.0
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **전체 LTV/CAC 분석**: `commerce-ltv-cac-architect` 사용
-- **신규 고객 획득**: 본 스킬은 재구매 전용. 신규는 `campaign-planner` 사용
+- **신규 고객 획득**: 본 스킬은 재구매 전용. 신규는 `marketing-campaign-planner` 사용
 - **단순 메시지 카피 작성**: `commerce-channel-message` 사용 (앱 푸시 기획 모드 포함)
 - **첫 구매 onboarding**: `commerce-channel-message` Activation 단계 사용
 

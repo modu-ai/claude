@@ -417,7 +417,7 @@ IF 실행_중_오류:
 
 ### Office 문서 심층 검증 (moai-cowork 전용)
 
-moai-cowork 스킬(hwpx-writer, docx-generator, pptx-designer, xlsx-creator)이
+moai-cowork 스킬(office-hwpx-writer, office-docx-generator, office-pptx-designer, office-xlsx-creator)이
 파일을 생성한 후, **생성된 파일을 다시 열어서 내용을 검증**한다.
 
 ```
@@ -692,8 +692,8 @@ bare /project 진입 워크플로우의 기본 모드
 ```
 config: {
   chains: [
-    [copywriting, ai-slop-reviewer],
-    [email-crafter, ai-slop-reviewer]
+    [content-copywriting, general-ai-slop-reviewer],
+    [email-crafter, general-ai-slop-reviewer]
   ],
   inputs: [input_001, input_002]
 }

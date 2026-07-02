@@ -101,10 +101,10 @@ version: 0.1.0
 
 ## 후속 체인 (텍스트 산출물 검수)
 
-본 스킬의 1:1 손편지 초안·DM 메시지·비공개 채널 안내·100명 라이브 스크립트 등 모든 진심 메시지 텍스트는 `moai-cowork:ai-slop-reviewer`로 자동 후처리 체이닝됩니다. "잘 만든 충성 고객 100명" 원칙은 진정성에 좌우되므로 AI 패턴(과한 형용사·번역체·hype 어휘) 제거가 특히 중요. 손편지는 ai-slop 검수 후 손글씨로 옮기는 흐름 권장.
+본 스킬의 1:1 손편지 초안·DM 메시지·비공개 채널 안내·100명 라이브 스크립트 등 모든 진심 메시지 텍스트는 `moai-cowork:general-ai-slop-reviewer`로 자동 후처리 체이닝됩니다. "잘 만든 충성 고객 100명" 원칙은 진정성에 좌우되므로 AI 패턴(과한 형용사·번역체·hype 어휘) 제거가 특히 중요. 손편지는 ai-slop 검수 후 손글씨로 옮기는 흐름 권장.
 
 ```text
-commerce-early-fan-builder → ai-slop-reviewer → (수기 옮기기 또는) commerce-channel-message
+commerce-early-fan-builder → general-ai-slop-reviewer → (수기 옮기기 또는) commerce-channel-message
 ```
 
 ## 관련 스킬
@@ -112,4 +112,4 @@ commerce-early-fan-builder → ai-slop-reviewer → (수기 옮기기 또는) co
 - `commerce-promotion-planner` — 100명 충성 부트스트랩 후 프로모션 (페어)
 - `commerce-ltv-cac-architect` — 1,000명 → 1만명 전환 시 LTV/CAC 진단
 - `commerce-influencer-collab` — UGC 협업
-- `ai-slop-reviewer` — 손편지·DM·라이브 스크립트 AI 슬롭 검수 (자동 체인, HARD)
+- `general-ai-slop-reviewer` — 손편지·DM·라이브 스크립트 AI 슬롭 검수 (자동 체인, HARD)

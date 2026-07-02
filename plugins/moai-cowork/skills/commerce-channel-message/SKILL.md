@@ -4,8 +4,8 @@ description: |
   NCM 프레임워크(Need→Channel→Moment→Message→CTA)로 검색·광고·CRM·앱 푸시 채널별 메시지를 자동 생성하는 단일 채널 메시지 엔진입니다 — 채널 분기 메시지 15종 + 채널별 운영 카피(광고·톡톡·푸시·이메일) + 앱 푸시 기획(4원칙·3요소·변형 3안)을 한 곳에서 처리합니다.
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "채널별 메시지 만들어줘", "검색광고 카피 15종", "CRM 메시지 뽑아줘", "스마트스토어 배너 카피", "쿠팡 광고 문구", "카카오 알림톡 문구", "SNS 광고 카피 5종", "광고 헤드라인 만들어줘", "톡톡 응답 템플릿", "카트 이탈 메시지", "이메일 시퀀스 짜줘", "재구매 유도 알림톡", "앱 푸시 문구 만들어줘", "리텐션 푸시 카피 3안", "할인 푸시 알림", "게이미피케이션 푸시"
-  3개 동작 모드(채널 분기 메시지 15종 / 운영 카피 / 앱 푸시 기획)가 자연어로 자동 선택되며, 6 심리 방아쇠 + 채널별 심리 상태 매트릭스 + 인지 편향 9종을 적용하고, 텍스트 산출물 직후 moai-cowork:ai-slop-reviewer를 자동 체이닝합니다.
-  [책임 경계] 페어 moai-domain-copywriting(도메인 비특정 단일 목적 카피)·moai-cowork:copywriting(이커머스 외 범용)과 구분 — 본 스킬은 이커머스 채널 운영 메시지 전용. 상세페이지 카피는 moai-cowork:detail-page-copy, 발송 전 법규 게이트는 moai-cowork:commerce-marketing-compliance-kr.
+  3개 동작 모드(채널 분기 메시지 15종 / 운영 카피 / 앱 푸시 기획)가 자연어로 자동 선택되며, 6 심리 방아쇠 + 채널별 심리 상태 매트릭스 + 인지 편향 9종을 적용하고, 텍스트 산출물 직후 moai-cowork:general-ai-slop-reviewer를 자동 체이닝합니다.
+  [책임 경계] 페어 moai-domain-copywriting(도메인 비특정 단일 목적 카피)·moai-cowork:content-copywriting(이커머스 외 범용)과 구분 — 본 스킬은 이커머스 채널 운영 메시지 전용. 상세페이지 카피는 moai-cowork:commerce-detail-page-copy, 발송 전 법규 게이트는 moai-cowork:commerce-marketing-compliance-kr.
 version: 0.1.0
 ---
 
@@ -34,7 +34,7 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
 | 모드 | 트리거 발화 예 | 산출물 | 상세 참고 |
 |------|---------------|--------|----------|
 | **채널 분기 메시지 모드** (코어) | "채널별 메시지 15종", "NCM 적용" | 검색·광고·CRM 각 5종 = 15종 분기 메시지 | 아래 NCM 프레임워크 본문 |
-| **운영 카피 모드** | "Meta 광고 헤드라인", "톡톡 자동응답", "카트 이탈 이메일 3개", "재구매 알림톡" | 채널·길이·톤 맞춤 카피 + A/B 변형 2-3안 | `references/ad-copy.md` · `talk-copy.md` · `push-copy.md` · `email-sequence.md` |
+| **운영 카피 모드** | "Meta 광고 헤드라인", "톡톡 자동응답", "카트 이탈 이메일 3개", "재구매 알림톡" | 채널·길이·톤 맞춤 카피 + A/B 변형 2-3안 | `references/ad-copy.md` · `talk-copy.md` · `push-copy.md` · `content-email-sequence.md` |
 | **앱 푸시 기획 모드** | "앱 푸시 문구 만들어줘", "리텐션 푸시 3안", "게이미피케이션 푸시" | 4원칙 매칭 + 3요소 점검 + 변형 3안 + 클릭률 예측 | `references/push-planning.md` |
 
 모드는 CLI 플래그가 아니라 발화로 결정됩니다. "앱 푸시 문구 만들어줘"는 푸시 기획 모드, "검색광고 카피"는 운영 카피 모드, "채널별 메시지 15종"은 코어 모드로 진입합니다.
@@ -81,9 +81,9 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
    [CTA] 키워드 성과 데이터 기반 채널별 CTA 최적화
 ```
 
-### ai-slop-reviewer 자동 체이닝 (HARD)
+### general-ai-slop-reviewer 자동 체이닝 (HARD)
 
-메시지 15종 생성 직후 `moai-cowork:ai-slop-reviewer`를 자동 체인합니다.
+메시지 15종 생성 직후 `moai-cowork:general-ai-slop-reviewer`를 자동 체인합니다.
 
 검수 항목:
 - AI 패턴 메시지 ("혁신적인", "놀라운", "최고의" 클리셰) 제거
@@ -99,7 +99,7 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
 → 검색광고 5종: 키워드 기반 헤드라인
    배너광고 5종: 비주얼 후킹 메시지
    CRM 5종: 카카오/이메일/SMS 맞춤 문구
-   → ai-slop-reviewer 자동 검수
+   → general-ai-slop-reviewer 자동 검수
 
 "/commerce-channel-message 반려견 관절 간식, 봄 시즌, 쿠팡 광고 우선"
 → 시즌 키워드 캘린더 반영 + 15종 분기 메시지
@@ -149,7 +149,7 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
   "slop_review": {
     "status": "passed",
     "changes_made": 2,
-    "notes": "ai-slop-reviewer 검수: '놀라운 효과' → '피부과 내원 전에' 수정"
+    "notes": "general-ai-slop-reviewer 검수: '놀라운 효과' → '피부과 내원 전에' 수정"
   }
 }
 ```
@@ -158,7 +158,7 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
 
 - **15종 완성**: 검색·광고·CRM 각 5종씩 총 15종
 - **채널별 다른 표현**: 같은 니즈가 채널별 다른 방식으로 분기
-- **ai-slop-reviewer 검수 흔적**: slop_review 블록 포함
+- **general-ai-slop-reviewer 검수 흔적**: slop_review 블록 포함
 - **CTA 포함**: 각 메시지에 채널 특성에 맞는 행동 유도 문구
 
 ## 관련 스킬
@@ -169,16 +169,16 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
 - `commerce-product-naming` — 확정 상품명 (메시지 내 상품명 활용)
 - `commerce-integrated-strategy` — 채널 메시지 포함 전략 1장 종합 (다음 단계)
 - `commerce-marketing-compliance-kr` — 발송 전 법규 게이트 (푸시·알림톡·이메일 광고)
-- `moai-cowork:sns-content` — SNS 콘텐츠 단독 심화 작업
-- `moai-cowork:ai-slop-reviewer` — AI 패턴 검수 (자동 체이닝)
+- `moai-cowork:content-sns-content` — SNS 콘텐츠 단독 심화 작업
+- `moai-cowork:general-ai-slop-reviewer` — AI 패턴 검수 (자동 체이닝)
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **도메인 비특정 단일 목적 카피**: `moai-domain-copywriting` 사용
-- **이커머스 외 일반 광고 카피**: `moai-cowork:copywriting` 사용
-- **상세페이지 13섹션 카피**: `detail-page-copy` 사용
-- **이메일 뉴스레터 본문**: `moai-cowork:newsletter` 또는 `moai-cowork:email-sequence` 사용
-- **광고 캠페인 전체 기획**: `moai-cowork:campaign-planner` 사용
+- **이커머스 외 일반 광고 카피**: `moai-cowork:content-copywriting` 사용
+- **상세페이지 13섹션 카피**: `commerce-detail-page-copy` 사용
+- **이메일 뉴스레터 본문**: `moai-cowork:content-newsletter` 또는 `moai-cowork:content-email-sequence` 사용
+- **광고 캠페인 전체 기획**: `moai-cowork:marketing-campaign-planner` 사용
 - **광고 실집행·캠페인 운영**: 광고 플랫폼에서 직접 관리
 
 ---
@@ -191,14 +191,14 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
 1. **광고 카피** — 검색(네이버·구글), 디스플레이·소셜(Meta·카카오 모먼트), 동영상(유튜브·릴스) → `references/ad-copy.md`
 2. **톡톡·CS 응답** — 자동응답, FAQ, 1점 후기 사과, 환불·교환 응대 → `references/talk-copy.md`
 3. **푸시 알림** — 신상품, 프로모션 시작/종료, 카트 회복, 재구매 → `references/push-copy.md`
-4. **이메일·알림톡** — 주문 확인, 배송, 후기 요청, 재구매 쿠폰, 뉴스레터, 카트 이탈 회복 → `references/email-sequence.md`
+4. **이메일·알림톡** — 주문 확인, 배송, 후기 요청, 재구매 쿠폰, 뉴스레터, 카트 이탈 회복 → `references/content-email-sequence.md`
 
 ### 워크플로우
 1. 카피 카테고리 + 채널 식별 (채널마다 길이·톤 상이)
 2. 컨텍스트 수집 (상품·타겟·목적·톤·길이 제한)
 3. 채널별 카피 산출 (위 references)
 4. A/B 변형 2-3안 (A: 직설/기능, B: 감성/라이프스타일, C: 긴급/스토리)
-5. `moai-cowork:ai-slop-reviewer` 자동 체이닝
+5. `moai-cowork:general-ai-slop-reviewer` 자동 체이닝
 
 ### 채널별 길이 제약 (cheat sheet)
 
@@ -276,11 +276,11 @@ NCM 메시지 생성 시 매 메시지마다 1-2개 방아쇠를 명시적으로
 | **구글** (검색·유튜브) | 능동적 탐색 | 기능적 필요·핫 타겟 | 키워드 의도별 분류 (정보/탐색/구매) | 광고비 70%+ 구매 의도 키워드. 부정 키워드 ('무료'·'DIY') |
 | **네이버** | 정보 탐색 시작 | 기능적 필요·블로그 후기 | 블로그·리뷰 생태계 + SEO | 광고비보다 블로그·리뷰 먼저. 한국 소비자 검색→블로그→구매 패턴 |
 | **카카오** | 슈퍼 타겟 90%+ 열람 | 정체성·재구매 | 카톡 메시지·알림톡·정체성 | 신규 획득보다 기존 고객 유지에 ROI 압도적 높음 |
-| **쿠팡** | 검색영역 + 비검색영역 동시 | 즉시 구매 | 검색(전환 메시지) vs 비검색(노출 메시지) 분리 | CPM 167배 차이 → 영역별 메시지 다르게. moai-cowork:marketplace-coupang-ads와 연계 |
+| **쿠팡** | 검색영역 + 비검색영역 동시 | 즉시 구매 | 검색(전환 메시지) vs 비검색(노출 메시지) 분리 | CPM 167배 차이 → 영역별 메시지 다르게. moai-cowork:commerce-marketplace-coupang-ads와 연계 |
 
 ### 인지 편향 9종 적용 가이드
 
-페어 스킬 `moai-cowork:campaign-planner`와 동일한 9종 (Kahneman 행동경제학 표준 카탈로그 기반).
+페어 스킬 `moai-cowork:marketing-campaign-planner`와 동일한 9종 (Kahneman 행동경제학 표준 카탈로그 기반).
 
 | 편향 | 메시지 적용 패턴 |
 |------|----------------|

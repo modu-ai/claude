@@ -321,14 +321,14 @@ JTBD와 페인포인트 매트릭스 만들어줘.
 
 ### Alternative
 - `moai-cowork:commerce-jtbd-persona` — 이커머스 상품용 JTBD·페르소나 (도서 외)
-- `moai-cowork:campaign-planner` — 마케팅 캠페인 페르소나
+- `moai-cowork:marketing-campaign-planner` — 마케팅 캠페인 페르소나
 
 ### Post (검수 — 정규 체인)
-- `moai-cowork:korean-spell-check` — 한글 맞춤법
-- `moai-cowork:ai-slop-reviewer` — AI 슬롭 검수 (필수)
-- `moai-cowork:humanize-korean` — AI 티 정밀 윤문 (필수)
+- `moai-cowork:office-korean-spell-check` — 한글 맞춤법
+- `moai-cowork:general-ai-slop-reviewer` — AI 슬롭 검수 (필수)
+- `moai-cowork:general-humanize-korean` — AI 티 정밀 윤문 (필수)
 
-> JTBD·페인포인트 매트릭스 같은 표는 데이터 출력이지만 **페르소나 카드 서술·카피 적용 가이드**는 산문입니다. 페르소나 산문은 정규 체인 **`book-target-reader → moai-cowork:ai-slop-reviewer → moai-cowork:humanize-korean`**으로 마무리합니다.
+> JTBD·페인포인트 매트릭스 같은 표는 데이터 출력이지만 **페르소나 카드 서술·카피 적용 가이드**는 산문입니다. 페르소나 산문은 정규 체인 **`book-target-reader → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean`**으로 마무리합니다.
 
 ## 10. 출처
 

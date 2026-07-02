@@ -5,7 +5,7 @@ description: |
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "프로모션 기획해줘", "이슈화 캠페인", "얼리버드 프로모션", "한정 판매 기획", "신생 브랜드 매출 12배", "스몰 D2C 프로모션", "비플레인 케이스 참고", "노션 프로모션 템플릿", "할인 캠페인 명목 만들어줘", "스토리 혜택 3종 세트".
   3가지 프로모션 타입: ① 이슈화(브랜드 인지도 폭발) ② 얼리버드(충성 고객 확보) ③ 한정(즉각 매출). 한국 스몰 D2C 12배 매출 케이스 실전 매뉴얼.
-  ai-slop-reviewer 자동 체이닝 (기획서 텍스트 산출물).
+  general-ai-slop-reviewer 자동 체이닝 (기획서 텍스트 산출물).
 version: 0.1.0
 ---
 
@@ -192,9 +192,9 @@ version: 0.1.0
 [Step 7] 노션 템플릿 페이지 자동 생성
 ```
 
-### ai-slop-reviewer 자동 체이닝
+### general-ai-slop-reviewer 자동 체이닝
 
-기획서 산출 직후 `moai-cowork:ai-slop-reviewer` 자동 호출:
+기획서 산출 직후 `moai-cowork:general-ai-slop-reviewer` 자동 호출:
 - AI 클리셰 제거 ("혁신적인"·"놀라운"·"특별한")
 - 명목·스토리의 식상함 제거 ("여름맞이 세일" 등)
 - 한국 D2C 자연스러운 표현 조정
@@ -226,7 +226,7 @@ version: 0.1.0
 - 벤치마킹 케이스 3개 (명목·스토리·혜택 각 1개)
 - 실무 체크리스트 6항목 모두 PASS
 - 노션 템플릿 페이지 구조 (1-8 섹션) 자동 생성
-- ai-slop-reviewer 검수 흔적
+- general-ai-slop-reviewer 검수 흔적
 
 ## 관련 스킬
 
@@ -242,8 +242,8 @@ version: 0.1.0
 
 - **거시 매출 전략 (분기·연간)**: `commerce-integrated-strategy` 사용
 - **메시지 카피 작성**: `commerce-channel-message` 사용
-- **광고 캠페인 기획 (광고 운영)**: `campaign-planner` 사용
-- **이메일 시퀀스 자체**: `email-sequence` 사용
+- **광고 캠페인 기획 (광고 운영)**: `marketing-campaign-planner` 사용
+- **이메일 시퀀스 자체**: `content-email-sequence` 사용
 
 ## 참고 자료
 

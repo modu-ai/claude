@@ -150,7 +150,7 @@ done
 
 현재 세션 system reminder에 포함된 "user-invocable skills" 목록을 파싱하되, **cowork-plugins 출처 스킬만** 인벤토리에 등록한다.
 
-- 포함: cowork-plugins 마켓플레이스 출처 `moai-*` 플러그인이 제공하는 스킬 (예: `moai-cowork:blog`, `moai-cowork:docx-generator`)
+- 포함: cowork-plugins 마켓플레이스 출처 `moai-*` 플러그인이 제공하는 스킬 (예: `moai-cowork:content-blog`, `moai-cowork:office-docx-generator`)
 - 제외: 그 외 출처 스킬 (예: `find-skills`, `update-config`, `notion-cli`, 사용자가 별도 설치한 모든 스킬)
 
 `plugin:skill-name` 형태로 추출하되, `plugin`이 cowork 출처 `moai-*` 집합에 없으면 인벤토리에서 제외한다.
@@ -175,11 +175,11 @@ done
   "scanned_at": "2026-05-18T00:00:00+09:00",
   "plugins_installed": ["moai-core", "moai-cowork", "moai-cowork"],
   "skills_available": {
-    "blog": "moai-cowork",
-    "card-news": "moai-cowork",
-    "docx-generator": "moai-cowork",
-    "pptx-designer": "moai-cowork",
-    "ai-slop-reviewer": "moai-core"
+    "content-blog": "moai-cowork",
+    "content-card-news": "moai-cowork",
+    "office-docx-generator": "moai-cowork",
+    "office-pptx-designer": "moai-cowork",
+    "general-ai-slop-reviewer": "moai-core"
   },
   "confidence": {
     "moai-cowork": "HIGH",
@@ -208,7 +208,7 @@ done
 | 생산성·루틴 | moai-productivity |
 | 커뮤니케이션·협업 | moai-comms |
 
-**moai-core는 항상 포함** (라우터·ai-slop-reviewer). 선택 UI에는 표시하지 않는다.
+**moai-core는 항상 포함** (라우터·general-ai-slop-reviewer). 선택 UI에는 표시하지 않는다.
 
 ---
 
@@ -221,11 +221,11 @@ Phase 1-2 결과를 바탕으로 **산출물별 실행 체인**을 설계한다.
 각 산출물 체인은 다음 구조를 따른다:
 
 ```
-[기획/분석 스킬] → [생성 스킬] → [포맷 변환 스킬 or 미디어 스킬] → ai-slop-reviewer
+[기획/분석 스킬] → [생성 스킬] → [포맷 변환 스킬 or 미디어 스킬] → general-ai-slop-reviewer
 ```
 
-- 텍스트 산출물 체인은 **반드시 `moai-cowork:ai-slop-reviewer`로 종료**
-- **한국어 최종본**은 ai-slop-reviewer 직후 `moai-cowork:humanize-korean`을 2차 패스로 추가
+- 텍스트 산출물 체인은 **반드시 `moai-cowork:general-ai-slop-reviewer`로 종료**
+- **한국어 최종본**은 general-ai-slop-reviewer 직후 `moai-cowork:general-humanize-korean`을 2차 패스로 추가
 - 비텍스트(차트·데이터·숫자)는 ai-slop 단계 **생략**
 - 체인이 단순하면 스킬 1-2개만으로도 OK
 - **Inventory에 없는 스킬은 체인에서 제외하거나 Gap Detection으로 넘긴다**
@@ -234,44 +234,44 @@ Phase 1-2 결과를 바탕으로 **산출물별 실행 체인**을 설계한다.
 
 | 산출물 | 권장 체인 |
 |---|---|
-| 사업계획서(Word) | `strategy-planner` → `market-analyst` → `docx-generator` → `ai-slop-reviewer` |
-| 사업계획서(PPT) | `strategy-planner` → `pptx-designer` → `ai-slop-reviewer` |
-| IR 피칭덱 | `investor-relations` → `pptx-designer` → `ai-slop-reviewer` |
-| 시장조사 리포트 | `market-analyst` → `docx-generator` → `ai-slop-reviewer` |
-| 블로그 포스트 | `blog` → `ai-slop-reviewer` |
-| 카드뉴스 | `card-news` → `ai-slop-reviewer` |
-| 뉴스레터 | `newsletter` → `ai-slop-reviewer` |
-| 랜딩 페이지(HTML) | `copywriting` → `landing-page` → `ai-slop-reviewer` |
-| SNS 콘텐츠 세트 | `moai-cowork:sns-content` → `ai-slop-reviewer` |
-| 이메일 시퀀스 | `email-sequence` → `ai-slop-reviewer` |
-| 계약서 초안 | `contract-review` or `nda-triage` → `docx-generator` → `ai-slop-reviewer` |
-| 컴플라이언스 체크 | `compliance-check` → `ai-slop-reviewer` |
-| 부가세 신고 | `tax-helper` (숫자 산출물 — ai-slop 생략) |
-| 재무제표 분석 | `financial-statements` → `xlsx-creator` (숫자 — ai-slop 생략) |
-| 근로계약서 | `employment-manager` → `docx-generator` → `ai-slop-reviewer` |
-| 채용 공고 | `draft-offer` → `ai-slop-reviewer` |
-| 이력서·자기소개서 | `resume-builder` → `ai-slop-reviewer` |
-| 논문 초안 | `paper-writer` → `docx-generator` → `ai-slop-reviewer` |
-| 연구비 제안서 | `grant-writer` → `docx-generator` → `ai-slop-reviewer` |
-| 특허 명세서 | `patent-analyzer` → `docx-generator` → `ai-slop-reviewer` |
-| 한글 공문 | `hwpx-writer` → `ai-slop-reviewer` |
-| 데이터 시각화 | `data-visualizer` (차트 — ai-slop 생략) |
-| 제품 SPEC | `spec-writer` → `ai-slop-reviewer` |
-| 로드맵 | `roadmap-manager` → `pptx-designer` → `ai-slop-reviewer` |
-| 강의 커리큘럼 | `curriculum-designer` → `pptx-designer` → `ai-slop-reviewer` |
-| 상세페이지 | `product-detail` → `ai-slop-reviewer` |
-| 캠페인 플랜 | `campaign-planner` → `pptx-designer` → `ai-slop-reviewer` |
-| SEO 감사 | `seo-audit` → `ai-slop-reviewer` |
-| 출판 원고 | `book-concept-planner` → `book-outline-designer` → `book-chapter-writer` → `ai-slop-reviewer` (moai-cowork 체인) |
-| BI 리포트 | `executive-summary` (숫자·HTML — ai-slop 생략) |
-| 주간보고 | `weekly-report` → `ai-slop-reviewer` |
-| 영업 제안서 | `proposal-writer` → `docx-generator` → `ai-slop-reviewer` |
-| 자산·재무 로드맵 | `wealth-roadmap` → `ai-slop-reviewer` |
-| 커뮤니케이션 스크립트 | `report-speak` → `ai-slop-reviewer` |
-| 영상 | `higgsfield-video` (Higgsfield MCP — ai-slop 생략) |
-| TTS 더빙 | `audio-gen` (ElevenLabs MCP — ai-slop 생략) |
-| 이미지 | `higgsfield-image` (Higgsfield MCP — ai-slop 생략) |
-| 이미지 프롬프트 | `gpt-image-2-prompt` or `gemini-3-image-prompt` or `midjourney-v8-prompt` |
+| 사업계획서(Word) | `business-strategy-planner` → `business-market-analyst` → `office-docx-generator` → `general-ai-slop-reviewer` |
+| 사업계획서(PPT) | `business-strategy-planner` → `office-pptx-designer` → `general-ai-slop-reviewer` |
+| IR 피칭덱 | `finance-investor-relations` → `office-pptx-designer` → `general-ai-slop-reviewer` |
+| 시장조사 리포트 | `business-market-analyst` → `office-docx-generator` → `general-ai-slop-reviewer` |
+| 블로그 포스트 | `content-blog` → `general-ai-slop-reviewer` |
+| 카드뉴스 | `content-card-news` → `general-ai-slop-reviewer` |
+| 뉴스레터 | `content-newsletter` → `general-ai-slop-reviewer` |
+| 랜딩 페이지(HTML) | `content-copywriting` → `marketing-landing-page` → `general-ai-slop-reviewer` |
+| SNS 콘텐츠 세트 | `moai-cowork:content-sns-content` → `general-ai-slop-reviewer` |
+| 이메일 시퀀스 | `content-email-sequence` → `general-ai-slop-reviewer` |
+| 계약서 초안 | `legal-contract-review` or `legal-nda-triage` → `office-docx-generator` → `general-ai-slop-reviewer` |
+| 컴플라이언스 체크 | `legal-compliance-check` → `general-ai-slop-reviewer` |
+| 부가세 신고 | `finance-tax-helper` (숫자 산출물 — ai-slop 생략) |
+| 재무제표 분석 | `finance-financial-statements` → `office-xlsx-creator` (숫자 — ai-slop 생략) |
+| 근로계약서 | `business-employment-manager` → `office-docx-generator` → `general-ai-slop-reviewer` |
+| 채용 공고 | `business-draft-offer` → `general-ai-slop-reviewer` |
+| 이력서·자기소개서 | `business-resume-builder` → `general-ai-slop-reviewer` |
+| 논문 초안 | `education-paper-writer` → `office-docx-generator` → `general-ai-slop-reviewer` |
+| 연구비 제안서 | `education-grant-writer` → `office-docx-generator` → `general-ai-slop-reviewer` |
+| 특허 명세서 | `legal-patent-analyzer` → `office-docx-generator` → `general-ai-slop-reviewer` |
+| 한글 공문 | `office-hwpx-writer` → `general-ai-slop-reviewer` |
+| 데이터 시각화 | `office-data-visualizer` (차트 — ai-slop 생략) |
+| 제품 SPEC | `business-spec-writer` → `general-ai-slop-reviewer` |
+| 로드맵 | `business-roadmap-manager` → `office-pptx-designer` → `general-ai-slop-reviewer` |
+| 강의 커리큘럼 | `education-curriculum-designer` → `office-pptx-designer` → `general-ai-slop-reviewer` |
+| 상세페이지 | `commerce-product-detail` → `general-ai-slop-reviewer` |
+| 캠페인 플랜 | `marketing-campaign-planner` → `office-pptx-designer` → `general-ai-slop-reviewer` |
+| SEO 감사 | `marketing-seo-audit` → `general-ai-slop-reviewer` |
+| 출판 원고 | `book-concept-planner` → `book-outline-designer` → `book-chapter-writer` → `general-ai-slop-reviewer` (moai-cowork 체인) |
+| BI 리포트 | `business-executive-summary` (숫자·HTML — ai-slop 생략) |
+| 주간보고 | `weekly-report` → `general-ai-slop-reviewer` |
+| 영업 제안서 | `business-proposal-writer` → `office-docx-generator` → `general-ai-slop-reviewer` |
+| 자산·재무 로드맵 | `finance-wealth-roadmap` → `general-ai-slop-reviewer` |
+| 커뮤니케이션 스크립트 | `business-report-speak` → `general-ai-slop-reviewer` |
+| 영상 | `media-higgsfield-video` (Higgsfield MCP — ai-slop 생략) |
+| TTS 더빙 | `media-audio-gen` (ElevenLabs MCP — ai-slop 생략) |
+| 이미지 | `media-higgsfield-image` (Higgsfield MCP — ai-slop 생략) |
+| 이미지 프롬프트 | `media-gpt-image-2-prompt` or `media-gemini-3-image-prompt` or `media-midjourney-v8-prompt` |
 
 ### 3-3. 체인 요약 포맷
 
@@ -281,15 +281,15 @@ Phase 5(확인 단계)에서 사용자에게 보여줄 요약:
 이 프로젝트의 실행 체인 설계
 
 [주 산출물 1] 사업계획서(PPT)
-  체인: strategy-planner → pptx-designer → ai-slop-reviewer
+  체인: business-strategy-planner → office-pptx-designer → general-ai-slop-reviewer
   트리거 예시: "사업계획서 만들어줘"
 
 [주 산출물 2] IR 피칭덱
-  체인: investor-relations → pptx-designer → ai-slop-reviewer
+  체인: finance-investor-relations → office-pptx-designer → general-ai-slop-reviewer
   트리거 예시: "IR 자료 써줘"
 
 [보조 산출물 3] 시장조사 리포트
-  체인: market-analyst → docx-generator → ai-slop-reviewer
+  체인: business-market-analyst → office-docx-generator → general-ai-slop-reviewer
   트리거 예시: "시장조사 해줘"
 ```
 
@@ -309,37 +309,37 @@ for each skill in chain_skills:
         missing_plugins.add(missing_plugin)
 ```
 
-`ai-slop-reviewer`는 moai-core 소속이므로 항상 설치됨으로 간주한다.
+`general-ai-slop-reviewer`는 moai-core 소속이므로 항상 설치됨으로 간주한다.
 
 ### 4-2. 스킬 → 플러그인 기본 매핑
 
 | 스킬 | 소속 플러그인 |
 |------|------------|
-| strategy-planner, market-analyst, investor-relations, consulting-brief | moai-cowork |
-| blog, card-news, newsletter, landing-page, copywriting, product-detail, humanize-korean | moai-cowork |
-| docx-generator, pptx-designer, xlsx-creator, hwpx-writer, pdf-writer | moai-cowork |
-| seo-audit, campaign-planner, sns-content, email-sequence, brand-identity | moai-cowork |
-| nda-triage, contract-review, compliance-check | moai-cowork |
-| tax-helper, financial-statements | moai-cowork |
-| employment-manager, draft-offer | moai-hr |
-| resume-builder, portfolio-guide | moai-career |
-| data-visualizer, data-explorer, public-data | moai-data |
-| paper-writer, grant-writer, patent-analyzer | moai-research |
-| spec-writer, roadmap-manager, ux-researcher | moai-product |
-| draft-response, kb-article | moai-support |
-| curriculum-designer, assessment-creator | moai-cowork |
-| travel-planner, event-planner | moai-lifestyle |
-| higgsfield-image, higgsfield-video, gpt-image-2-prompt, gemini-3-image-prompt, midjourney-v8-prompt, audio-gen | moai-cowork |
-| commerce-automation-audit, marketplace-coupang, product-photo-brief | moai-commerce |
+| business-strategy-planner, business-market-analyst, finance-investor-relations, business-consulting-brief | moai-cowork |
+| content-blog, content-card-news, content-newsletter, marketing-landing-page, content-copywriting, commerce-product-detail, general-humanize-korean | moai-cowork |
+| office-docx-generator, office-pptx-designer, office-xlsx-creator, office-hwpx-writer, office-pdf-writer | moai-cowork |
+| marketing-seo-audit, marketing-campaign-planner, content-sns-content, content-email-sequence, business-brand-identity | moai-cowork |
+| legal-nda-triage, legal-contract-review, legal-compliance-check | moai-cowork |
+| finance-tax-helper, finance-financial-statements | moai-cowork |
+| business-employment-manager, business-draft-offer | moai-hr |
+| business-resume-builder, business-portfolio-guide | moai-career |
+| office-data-visualizer, office-data-explorer, public-data | moai-data |
+| education-paper-writer, education-grant-writer, legal-patent-analyzer | moai-research |
+| business-spec-writer, business-roadmap-manager, business-ux-researcher | moai-product |
+| business-draft-response, business-kb-article | moai-support |
+| education-curriculum-designer, education-assessment-creator | moai-cowork |
+| general-travel-planner, general-event-planner | moai-lifestyle |
+| media-higgsfield-image, media-higgsfield-video, media-gpt-image-2-prompt, media-gemini-3-image-prompt, media-midjourney-v8-prompt, media-audio-gen | moai-cowork |
+| commerce-automation-audit, commerce-marketplace-coupang, commerce-product-photo-brief | moai-commerce |
 | book-concept-planner, book-outline-designer, book-chapter-writer | moai-cowork |
-| executive-summary | moai-bi |
+| business-executive-summary | moai-bi |
 | weekly-report | moai-pm |
-| proposal-writer | moai-sales |
+| business-proposal-writer | moai-sales |
 | korean-stock-search, court-auction-search, real-estate-search | moai-public-data |
 | cd-brief, cd-prompt-builder | moai-design |
-| wealth-roadmap, household-budget | moai-wealth |
-| goal-planner, retro-builder | moai-productivity |
-| report-speak, meeting-facilitator | moai-comms |
+| finance-wealth-roadmap, finance-household-budget | moai-wealth |
+| office-goal-planner, office-retro-builder | moai-productivity |
+| business-report-speak, business-meeting-facilitator | moai-comms |
 
 ### 4-3. 누락 발견 시 AskUserQuestion 4 옵션
 
@@ -399,11 +399,11 @@ for each skill in chain_skills:
   "chain_design": [
     {
       "deliverable": "사업계획서(PPT)",
-      "chain": ["strategy-planner", "pptx-designer", "ai-slop-reviewer"],
+      "chain": ["business-strategy-planner", "office-pptx-designer", "general-ai-slop-reviewer"],
       "trigger_example": "사업계획서 만들어줘"
     }
   ],
-  "missing_skills": ["strategy-planner"],
+  "missing_skills": ["business-strategy-planner"],
   "missing_plugins": ["moai-cowork"]
 }
 ```
@@ -417,7 +417,7 @@ for each skill in chain_skills:
 ### 4-7. 옵션 3 선택 시 (대체 스킬 변경)
 
 - `inventory.skills_available`에서 유사 기능 스킬 검색
-- 예: `strategy-planner` 부재 → `market-analyst`로 대체 제안
+- 예: `business-strategy-planner` 부재 → `business-market-analyst`로 대체 제안
 - 대체 스킬로 체인 재설계 후 Phase 5로 진행
 
 ### 4-8. 누락 0건이면
@@ -485,9 +485,9 @@ Phase 2에서 선택된 플러그인이 API 키를 요구하면 등록 안내.
 | 1 | 공공데이터포털 | `DATA_GO_KR_API_KEY` | 공공데이터/KOSIS/KCI | data.go.kr |
 | 2 | KIPRIS Plus | `KIPRIS_API_KEY` | 특허 검색 | plus.kipris.or.kr |
 | 3 | 국가법령정보 | `KOREAN_LAW_OC` | 법령/판례 | law.go.kr |
-| 4 | Google Gemini | `GEMINI_API_KEY` | gemini-3-image-prompt | ai.google.dev |
+| 4 | Google Gemini | `GEMINI_API_KEY` | media-gemini-3-image-prompt | ai.google.dev |
 | 5 | Higgsfield | `HIGGSFIELD_API_KEY` + `HIGGSFIELD_SECRET` | Higgsfield MCP (Soul·DOP·말하는머리·캐릭터 단일 통합) | higgsfield.ai |
-| 6 | ElevenLabs | `ELEVENLABS_API_KEY` | audio-gen (TTS/보이스 클로닝, ElevenLabs MCP) | elevenlabs.io |
+| 6 | ElevenLabs | `ELEVENLABS_API_KEY` | media-audio-gen (TTS/보이스 클로닝, ElevenLabs MCP) | elevenlabs.io |
 
 선택된 플러그인과 무관한 키는 물어보지 않는다.
 **저장 위치**: `./.moai/credentials.env` (프로젝트 격리).
@@ -505,16 +505,16 @@ Phase 3에서 설계된 체인 중 상위 3개를 예시로 제시:
 
 1. 사업계획서 제작
    당신: "초기 스타트업 사업계획서 PPT로 만들어줘"
-   → 체인: strategy-planner → pptx-designer → ai-slop-reviewer
+   → 체인: business-strategy-planner → office-pptx-designer → general-ai-slop-reviewer
    → 결과: .pptx 파일 + 진단·수정 리포트
 
 2. 시장조사 리포트
    당신: "2026 K-뷰티 시장 리포트 써줘"
-   → 체인: market-analyst → docx-generator → ai-slop-reviewer
+   → 체인: business-market-analyst → office-docx-generator → general-ai-slop-reviewer
 
 3. 블로그 발행
    당신: "창업 인사이트 블로그 글 하나 써줘"
-   → 체인: blog → ai-slop-reviewer
+   → 체인: content-blog → general-ai-slop-reviewer
 
 전체 플러그인/스킬 목록: /project catalog
 현재 설정 상태: /project status

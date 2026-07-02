@@ -83,149 +83,149 @@
 
 ## 4. 플러그인 상세 키워드
 
-> 각 키워드는 해당 플러그인의 **실제 스킬명**으로 라우팅된다. 산출물 마무리 단계에서는 `moai-cowork:ai-slop-reviewer`(+ 한국어는 `moai-cowork:humanize-korean`) 체인을 권장한다.
+> 각 키워드는 해당 플러그인의 **실제 스킬명**으로 라우팅된다. 산출물 마무리 단계에서는 `moai-cowork:general-ai-slop-reviewer`(+ 한국어는 `moai-cowork:general-humanize-korean`) 체인을 권장한다.
 
 ### moai-core
 | 키워드 | 스킬 |
 |--------|------|
 | 프로젝트 초기화, project init | project |
-| AI 슬롭 검수, 후처리 | ai-slop-reviewer |
-| 피드백, 이슈 제출 | feedback |
-| MCP 커넥터 등록 | mcp-connector-setup |
-| 스킬 제작·템플릿·테스트 | skill-builder, skill-template, skill-tester |
+| AI 슬롭 검수, 후처리 | general-ai-slop-reviewer |
+| 피드백, 이슈 제출 | general-feedback |
+| MCP 커넥터 등록 | office-mcp-connector-setup |
+| 스킬 제작·템플릿·테스트 | general-skill-builder, general-skill-template, general-skill-tester |
 
 ### moai-cowork
 | 키워드 | 스킬 |
 |--------|------|
-| 사업계획, 창업, MVP | startup-launchpad |
-| 시장조사, TAM/SAM, 경쟁분석 | market-analyst |
-| IR, 투자, 피칭 | investor-relations |
-| 전략, OKR, 컨설팅 | strategy-planner, consulting-brief |
-| 정부지원사업 | kr-gov-grant |
-| 소상공인, 상권분석 | sbiz365-analyst |
-| AI 진단, 점검 | ai-diagnostic |
+| 사업계획, 창업, MVP | business-startup-launchpad |
+| 시장조사, TAM/SAM, 경쟁분석 | business-market-analyst |
+| IR, 투자, 피칭 | finance-investor-relations |
+| 전략, OKR, 컨설팅 | business-strategy-planner, business-consulting-brief |
+| 정부지원사업 | business-kr-gov-grant |
+| 소상공인, 상권분석 | business-sbiz365-analyst |
+| AI 진단, 점검 | general-ai-diagnostic |
 | 부동산 조회 | real-estate-search |
-| 영업 플레이북, 데일리 브리핑 | sales-playbook, daily-briefing |
+| 영업 플레이북, 데일리 브리핑 | business-sales-playbook, office-daily-briefing |
 
 ### moai-cowork
 | 키워드 | 스킬 |
 |--------|------|
-| SNS 콘텐츠 | sns-content |
-| SEO 진단 | seo-audit |
-| 캠페인 기획 | campaign-planner |
-| 이메일 시퀀스 | email-sequence |
-| 랜딩 전환 진단 | landing-page-conversion-audit |
-| 픽셀 점검 | pixel-audit |
-| 메타광고 운영·분석 | meta-ads-manager, meta-ads-analyzer |
-| 브랜딩, 퍼스널 브랜딩 | brand-identity, personal-branding |
-| 성과 리포트, 타겟 스크립트 | performance-report, target-script |
+| SNS 콘텐츠 | content-sns-content |
+| SEO 진단 | marketing-seo-audit |
+| 캠페인 기획 | marketing-campaign-planner |
+| 이메일 시퀀스 | content-email-sequence |
+| 랜딩 전환 진단 | marketing-landing-page-conversion-audit |
+| 픽셀 점검 | marketing-pixel-audit |
+| 메타광고 운영·분석 | marketing-meta-ads-manager, marketing-meta-ads-analyzer |
+| 브랜딩, 퍼스널 브랜딩 | business-brand-identity, marketing-personal-branding |
+| 성과 리포트, 타겟 스크립트 | marketing-performance-report, marketing-target-script |
 
 ### moai-cowork
 | 키워드 | 스킬 |
 |--------|------|
-| 계약서 검토 | contract-review |
-| NDA 검토 | nda-triage |
-| 컴플라이언스 | compliance-check |
-| 법률 리스크 | legal-risk |
-| 법인등기 자동화 | iros-registry-automation |
+| 계약서 검토 | legal-contract-review |
+| NDA 검토 | legal-nda-triage |
+| 컴플라이언스 | legal-compliance-check |
+| 법률 리스크 | legal-legal-risk |
+| 법인등기 자동화 | legal-iros-registry-automation |
 
 ### moai-cowork
 | 키워드 | 스킬 |
 |--------|------|
-| 세금, 부가세, 3.3%, 종소세 | tax-helper |
-| 결산 | close-management |
-| 재무제표 | financial-statements |
-| 변동분석 | variance-analysis |
+| 세금, 부가세, 3.3%, 종소세 | finance-tax-helper |
+| 결산 | finance-close-management |
+| 재무제표 | finance-financial-statements |
+| 변동분석 | finance-variance-analysis |
 | 주식 시세 조회 | korean-stock-search |
 | 법원경매 조회 | court-auction-search |
 
 ### moai-hr
 | 키워드 | 스킬 |
 |--------|------|
-| 근로계약, 4대보험, 퇴직금 | employment-manager |
-| 채용 서류 검토 | resume-screener |
-| 오퍼레터 | draft-offer |
-| 성과평가 | performance-review |
-| 인사 운영 | people-operations |
+| 근로계약, 4대보험, 퇴직금 | business-employment-manager |
+| 채용 서류 검토 | business-resume-screener |
+| 오퍼레터 | business-draft-offer |
+| 성과평가 | business-performance-review |
+| 인사 운영 | business-people-operations |
 
 ### moai-cowork
 | 키워드 | 스킬 |
 |--------|------|
-| 블로그 | blog |
-| 카드뉴스 | card-news |
-| 뉴스레터 | newsletter |
-| 랜딩페이지 | landing-page |
-| 상세페이지 | detail-page-planner, product-detail |
-| 카피 | copywriting |
-| 소셜 미디어 | social-media |
-| 콘텐츠 캘린더 | content-calendar |
-| HTML 리포트 | html-report |
-| 유튜브·팟캐스트 기획 | youtube-podcast-planner |
-| 한국어 윤문·맞춤법 | humanize-korean, korean-spell-check |
-| 미디어 제작 | media-production |
+| 블로그 | content-blog |
+| 카드뉴스 | content-card-news |
+| 뉴스레터 | content-newsletter |
+| 랜딩페이지 | marketing-landing-page |
+| 상세페이지 | commerce-detail-page-planner, commerce-product-detail |
+| 카피 | content-copywriting |
+| 소셜 미디어 | content-social-media |
+| 콘텐츠 캘린더 | content-editorial-calendar |
+| HTML 리포트 | office-html-report |
+| 유튜브·팟캐스트 기획 | marketing-youtube-podcast-planner |
+| 한국어 윤문·맞춤법 | general-humanize-korean, office-korean-spell-check |
+| 미디어 제작 | media-asset-production |
 
 ### moai-operations
 | 키워드 | 스킬 |
 |--------|------|
-| 운영 프로세스, SOP | process-manager |
-| 상태보고 | status-reporter |
-| 벤더·조달 관리 | vendor-manager |
+| 운영 프로세스, SOP | business-process-manager |
+| 상태보고 | business-status-reporter |
+| 벤더·조달 관리 | business-vendor-manager |
 
 ### moai-cowork
 | 키워드 | 스킬 |
 |--------|------|
-| 강의 운영매뉴얼 | course-operations-manual |
-| 후기 시퀀스 | course-followup-sequence |
-| 교육과정 설계 | curriculum-designer |
-| 시험출제, 평가 | assessment-creator |
-| 교육 리서치 | research-assistant |
+| 강의 운영매뉴얼 | education-course-operations-manual |
+| 후기 시퀀스 | education-course-followup-sequence |
+| 교육과정 설계 | education-curriculum-designer |
+| 시험출제, 평가 | education-assessment-creator |
+| 교육 리서치 | education-research-assistant |
 
 ### moai-lifestyle
 | 키워드 | 스킬 |
 |--------|------|
-| 여행 | travel-planner |
-| 건강, 웰니스 | wellness-coach |
-| 이벤트, 웨딩 | event-planner |
+| 여행 | general-travel-planner |
+| 건강, 웰니스 | general-wellness-coach |
+| 이벤트, 웨딩 | general-event-planner |
 
 ### moai-product
 | 키워드 | 스킬 |
 |--------|------|
-| 로드맵 | roadmap-manager |
-| 제품 스펙, PRD | spec-writer |
-| UX 디자인 | ux-designer |
-| UX 리서치 | ux-researcher |
+| 로드맵 | business-roadmap-manager |
+| 제품 스펙, PRD | business-spec-writer |
+| UX 디자인 | business-ux-designer |
+| UX 리서치 | business-ux-researcher |
 
 ### moai-support
 | 키워드 | 스킬 |
 |--------|------|
-| 티켓 분류 | ticket-triage |
-| 응답 초안 | draft-response |
-| KB 문서 | kb-article |
-| 에스컬레이션 | escalation-manager |
+| 티켓 분류 | business-ticket-triage |
+| 응답 초안 | business-draft-response |
+| KB 문서 | business-kb-article |
+| 에스컬레이션 | business-escalation-manager |
 
 ### moai-cowork
 | 키워드 | 스킬 |
 |--------|------|
-| PPT, 발표자료 | pptx-designer |
-| 한글, hwpx | hwpx-writer |
-| Word, docx | docx-generator |
-| Excel, xlsx | xlsx-creator |
-| PDF | pdf-writer |
-| NotebookLM 슬라이드 프롬프트 | notebooklm-slide-prompt |
+| PPT, 발표자료 | office-pptx-designer |
+| 한글, hwpx | office-hwpx-writer |
+| Word, docx | office-docx-generator |
+| Excel, xlsx | office-xlsx-creator |
+| PDF | office-pdf-writer |
+| NotebookLM 슬라이드 프롬프트 | media-notebooklm-slide-prompt |
 
 ### moai-career
 | 키워드 | 스킬 |
 |--------|------|
-| 이력서, 자기소개서 | resume-builder |
-| 면접 코칭 | interview-coach |
-| 채용공고 분석 | job-analyzer |
-| 포트폴리오 | portfolio-guide |
+| 이력서, 자기소개서 | business-resume-builder |
+| 면접 코칭 | business-interview-coach |
+| 채용공고 분석 | business-job-analyzer |
+| 포트폴리오 | business-portfolio-guide |
 
 ### moai-data
 | 키워드 | 스킬 |
 |--------|------|
-| CSV/Excel 탐색 | data-explorer |
-| 차트, 시각화, 대시보드 | data-visualizer |
+| CSV/Excel 탐색 | office-data-explorer |
+| 차트, 시각화, 대시보드 | office-data-visualizer |
 | 공공데이터 | public-data |
 
 ### moai-public-data
@@ -239,39 +239,39 @@
 ### moai-research
 | 키워드 | 스킬 |
 |--------|------|
-| 논문 검색 | paper-search |
-| 논문 작성 | paper-writer |
-| 특허 검색 | patent-search |
-| 특허 분석 | patent-analyzer |
-| 연구비, 과제 신청서 | grant-writer |
+| 논문 검색 | education-paper-search |
+| 논문 작성 | education-paper-writer |
+| 특허 검색 | legal-patent-search |
+| 특허 분석 | legal-patent-analyzer |
+| 연구비, 과제 신청서 | education-grant-writer |
 
 ### moai-cowork
 | 키워드 | 스킬 |
 |--------|------|
-| AI 이미지 생성 | higgsfield-image |
-| AI 영상 생성(Kling 모델 포함) | higgsfield-video |
-| 음성, TTS, 더빙 | audio-gen |
-| 이미지 프롬프트 빌더 | gemini-3-image-prompt, gpt-image-2-prompt, midjourney-v8-prompt |
+| AI 이미지 생성 | media-higgsfield-image |
+| AI 영상 생성(Kling 모델 포함) | media-higgsfield-video |
+| 음성, TTS, 더빙 | media-audio-gen |
+| 이미지 프롬프트 빌더 | media-gemini-3-image-prompt, media-gpt-image-2-prompt, media-midjourney-v8-prompt |
 
 ### moai-commerce
 | 키워드 | 스킬 |
 |--------|------|
-| 상품명, 상세페이지 카피 | commerce-product-naming, detail-page-copy |
-| 상세페이지 이미지·상품 사진 | detail-page-image, product-photo-brief, commerce-product-image-pipeline |
-| 마켓플레이스(네이버·쿠팡·D2C·크라우드펀딩) | marketplace-naver, marketplace-coupang, marketplace-d2c, marketplace-crowdfunding, marketplace-curation |
-| 쿠팡 광고 | coupang-ad-optimizer, marketplace-coupang-ads |
+| 상품명, 상세페이지 카피 | commerce-product-naming, commerce-detail-page-copy |
+| 상세페이지 이미지·상품 사진 | commerce-detail-page-image, commerce-product-photo-brief, commerce-product-image-pipeline |
+| 마켓플레이스(네이버·쿠팡·D2C·크라우드펀딩) | commerce-marketplace-naver, commerce-marketplace-coupang, commerce-marketplace-d2c, commerce-marketplace-crowdfunding, commerce-marketplace-curation |
+| 쿠팡 광고 | commerce-coupang-ad-optimizer, commerce-marketplace-coupang-ads |
 | 시장조사, JTBD 페르소나 | commerce-market-research, commerce-jtbd-persona |
 | 통합 전략, 시즌 캘린더, 프로모션 | commerce-integrated-strategy, commerce-season-calendar, commerce-promotion-planner |
 | 마진·LTV·구독 | commerce-margin-calculator, commerce-ltv-cac-architect, commerce-subscription-strategist, commerce-repurchase-timer |
 | 초기 팬·인플루언서·채널 메시지 | commerce-early-fan-builder, commerce-influencer-collab, commerce-channel-message |
-| 라이브 커머스 | live-commerce |
+| 라이브 커머스 | commerce-live-commerce |
 | VOC, 운영 자동화 진단, 모닝 브리프 | commerce-voc-triage, commerce-automation-audit, commerce-morning-brief |
-| 식약처·마케팅 표시 컴플라이언스 | mfds-safety, commerce-marketing-compliance-kr |
+| 식약처·마케팅 표시 컴플라이언스 | legal-mfds-safety, commerce-marketing-compliance-kr |
 
 ### moai-bi
 | 키워드 | 스킬 |
 |--------|------|
-| 경영진 1pager 요약 | executive-summary |
+| 경영진 1pager 요약 | business-executive-summary |
 
 ### moai-pm
 | 키워드 | 스킬 |
@@ -281,7 +281,7 @@
 ### moai-sales
 | 키워드 | 스킬 |
 |--------|------|
-| B2B 제안서, RFP 대응 | proposal-writer |
+| B2B 제안서, RFP 대응 | business-proposal-writer |
 
 ### moai-cowork
 | 키워드 | 스킬 |
@@ -306,32 +306,32 @@
 ### moai-wealth
 | 키워드 | 스킬 |
 |--------|------|
-| 가계부, 소비관리 | household-budget |
-| 투자 입문 | invest-primer |
-| 재무 로드맵, 종잣돈 | wealth-roadmap |
-| 보험 | insurance-fit |
-| 절세 | personal-tax-saver |
-| 경제 리터러시 | econ-literacy |
+| 가계부, 소비관리 | finance-household-budget |
+| 투자 입문 | finance-invest-primer |
+| 재무 로드맵, 종잣돈 | finance-wealth-roadmap |
+| 보험 | finance-insurance-fit |
+| 절세 | finance-personal-tax-saver |
+| 경제 리터러시 | finance-econ-literacy |
 
 ### moai-productivity
 | 키워드 | 스킬 |
 |--------|------|
-| 회고 | retro-builder |
-| 목표관리, OKR, 만다라트 | goal-planner |
-| 시간관리 | time-system |
-| 습관, 루틴 | habit-routine |
-| 노션 템플릿 | notion-template-kit |
+| 회고 | office-retro-builder |
+| 목표관리, OKR, 만다라트 | office-goal-planner |
+| 시간관리 | office-time-system |
+| 습관, 루틴 | office-habit-routine |
+| 노션 템플릿 | office-notion-template-kit |
 | 주간 회고/계획 | weekly-report |
-| 셀프케어 | self-care |
+| 셀프케어 | general-self-care |
 
 ### moai-comms
 | 키워드 | 스킬 |
 |--------|------|
-| 보고, 발표 화법 | report-speak |
-| 회의 퍼실리테이션, 회의록 | meeting-facilitator |
-| 피드백 | feedback-loop |
-| 갈등 | conflict-handler |
-| 협상, 1on1 | negotiation-1on1 |
+| 보고, 발표 화법 | business-report-speak |
+| 회의 퍼실리테이션, 회의록 | business-meeting-facilitator |
+| 피드백 | business-feedback-loop |
+| 갈등 | business-conflict-handler |
+| 협상, 1on1 | business-negotiation-1on1 |
 
 ---
 
@@ -341,7 +341,7 @@
 
 ### 5.1 자동 해소
 - 산출물 유형이 명시되면 해당 산출물을 만드는 스킬 우선
-- 예: "인스타 카드뉴스 만들어줘" → moai-cowork:card-news
+- 예: "인스타 카드뉴스 만들어줘" → moai-cowork:content-card-news
 
 ### 5.2 사용자 확인
 AskUserQuestion (1질문, 후보 플러그인 최대 4개) ✅
@@ -362,14 +362,14 @@ AskUserQuestion (1질문, 후보 플러그인 최대 4개) ✅
 ### 6.1 순차 처리 (스킬 체인)
 ```
 "사업계획서 쓰고 PPT로 만들어줘"
-→ moai-cowork:startup-launchpad → moai-cowork:pptx-designer → moai-cowork:ai-slop-reviewer
+→ moai-cowork:business-startup-launchpad → moai-cowork:office-pptx-designer → moai-cowork:general-ai-slop-reviewer
 ```
 
 ### 6.2 병렬 처리
 ```
 "인스타 카드뉴스랑 블로그 포스트 만들어줘"
-→ moai-cowork:card-news + moai-cowork:blog
-   (각각 마무리 단계에 ai-slop-reviewer 적용)
+→ moai-cowork:content-card-news + moai-cowork:content-blog
+   (각각 마무리 단계에 general-ai-slop-reviewer 적용)
 ```
 
 ### 6.3 심층 분석 판단

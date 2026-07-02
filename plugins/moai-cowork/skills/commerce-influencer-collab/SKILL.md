@@ -1,7 +1,7 @@
 ---
 name: commerce-influencer-collab
 description: |
-  [책임 경계] 인플루언서·UGC 협업 가이드 전담 — 뒷광고 회피·체험단·UGC 리그램·굿즈 기획법. 페어 스킬 campaign-planner(전체 캠페인 기획)와 명확히 구분 — 본 스킬은 인플루언서 단일 협업 가이드, 페어는 전체 마케팅 캠페인.
+  [책임 경계] 인플루언서·UGC 협업 가이드 전담 — 뒷광고 회피·체험단·UGC 리그램·굿즈 기획법. 페어 스킬 marketing-campaign-planner(전체 캠페인 기획)와 명확히 구분 — 본 스킬은 인플루언서 단일 협업 가이드, 페어는 전체 마케팅 캠페인.
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "인플루언서 협업", "뒷광고 회피", "체험단 운영", "UGC 리그램 가이드", "굿즈 기획법", "메가/매크로/마이크로 인플루언서", "표시광고법 인플루언서".
   표시광고법 + 공정거래위 가이드 준수. 5 인플루언서 티어 차등 협업 전략.
@@ -71,15 +71,15 @@ version: 0.1.0
 
 ## 후속 체인 (텍스트 산출물 검수)
 
-본 스킬의 협업 제안서·뒷광고 회피 안내·UGC 리그램 동의 요청 메시지·굿즈 기획서 텍스트는 `moai-cowork:ai-slop-reviewer`로 자동 후처리 체이닝됩니다. 인플루언서 제안 카피는 외부 발송 텍스트이므로 검수 필수.
+본 스킬의 협업 제안서·뒷광고 회피 안내·UGC 리그램 동의 요청 메시지·굿즈 기획서 텍스트는 `moai-cowork:general-ai-slop-reviewer`로 자동 후처리 체이닝됩니다. 인플루언서 제안 카피는 외부 발송 텍스트이므로 검수 필수.
 
 ```text
-commerce-influencer-collab → ai-slop-reviewer → (선택) sns-content
+commerce-influencer-collab → general-ai-slop-reviewer → (선택) content-sns-content
 ```
 
 ## 관련 스킬
 
-- `campaign-planner` — 전체 캠페인 기획 (페어)
+- `marketing-campaign-planner` — 전체 캠페인 기획 (페어)
 - `commerce-marketing-compliance-kr` — 정통망법 (표시광고법 별개)
-- `sns-content` — 인플루언서용 콘텐츠
-- `ai-slop-reviewer` — 협업 제안 카피 AI 슬롭 검수 (자동 체인, HARD)
+- `content-sns-content` — 인플루언서용 콘텐츠
+- `general-ai-slop-reviewer` — 협업 제안 카피 AI 슬롭 검수 (자동 체인, HARD)

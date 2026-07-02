@@ -1,11 +1,11 @@
 ---
 name: commerce-market-research
 description: |
-  [책임 경계] 카테고리 시장조사 1장 자동 생성 — 거시·경쟁·검색 3축 리포트. 페어 스킬 moai-cowork:grant-writer와 명확히 구분 — 본 스킬은 이커머스 셀러 카테고리 진입 판단, 페어는 정책자금 리서치.
+  [책임 경계] 카테고리 시장조사 1장 자동 생성 — 거시·경쟁·검색 3축 리포트. 페어 스킬 moai-cowork:education-grant-writer와 명확히 구분 — 본 스킬은 이커머스 셀러 카테고리 진입 판단, 페어는 정책자금 리서치.
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "내 카테고리 시장조사 해줘", "경쟁사 동향 알아봐줘", "이 카테고리 진입 검토해줘", "분기 시장 트렌드 뽑아줘", "신상품 카테고리 분석", "쇼핑 트렌드 리서치", "키워드 시장 규모 알아봐줘", "카테고리 기회·위협 분석"
   6대 영역 진단(A-F) + 포지셔닝 5축(품질/가성비/전문성/편의성/가치관) + 새 카테고리 창출 vs 기존 카테고리 경쟁 분석.
-  ai-slop-reviewer 체이닝 제외 (수치·표 데이터 스킬).
+  general-ai-slop-reviewer 체이닝 제외 (수치·표 데이터 스킬).
 version: 0.1.0
 ---
 
@@ -135,7 +135,7 @@ version: 0.1.0
 
 ## 관련 스킬
 
-체이닝 순서: **commerce-market-research** → `commerce-jtbd-persona --mode jtbd` → `commerce-jtbd-persona --mode persona` → `detail-page-copy --mode diagnose/copy` → `commerce-product-naming` → `commerce-channel-message` → `commerce-integrated-strategy`
+체이닝 순서: **commerce-market-research** → `commerce-jtbd-persona --mode jtbd` → `commerce-jtbd-persona --mode persona` → `commerce-detail-page-copy --mode diagnose/copy` → `commerce-product-naming` → `commerce-channel-message` → `commerce-integrated-strategy`
 
 - `commerce-jtbd-persona` — 시장조사 결과를 입력으로 JTBD 9개 도출 (다음 단계)
 - `commerce-product-naming` — 키워드 기반 상품명 3안 생성
@@ -143,8 +143,8 @@ version: 0.1.0
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **정책자금·보조금 리서치**: `moai-cowork:grant-writer` 사용
-- **경쟁사 SNS/콘텐츠 분석**: `moai-cowork:sns-content` 사용
+- **정책자금·보조금 리서치**: `moai-cowork:education-grant-writer` 사용
+- **경쟁사 SNS/콘텐츠 분석**: `moai-cowork:content-sns-content` 사용
 - **특허·기술 동향 리서치**: 별도 전문 리서치 스킬 사용
 - **광고 성과 분석 (ROAS)**: `commerce-integrated-strategy` 사용
 
@@ -260,9 +260,9 @@ USP "100% 비건 + 한국 농가 직거래 + 30일 환불"
 [commerce-channel-message] 검색광고 "비건 세럼 한국 농가 직거래"
                              CRM "지연 회원님, 동물 실험 0건 + 30일 환불"
   ↓
-[detail-page-copy] Hero "비건 인증 + 한국 농가" / Risk "30일 이유 불문 환불"
+[commerce-detail-page-copy] Hero "비건 인증 + 한국 농가" / Risk "30일 이유 불문 환불"
   ↓
-[campaign-planner] AARRR Activation 메시지: 첫 구매 + 30일 환불 보장 강조
+[marketing-campaign-planner] AARRR Activation 메시지: 첫 구매 + 30일 환불 보장 강조
 ```
 
 ### MD 11년차 인사이트
@@ -280,6 +280,6 @@ USP "100% 비건 + 한국 농가 직거래 + 30일 환불"
   ↓
 [4] commerce-jtbd-persona → 페르소나 segment 매칭
   ↓
-[5] commerce-product-naming + commerce-channel-message + detail-page-copy
+[5] commerce-product-naming + commerce-channel-message + commerce-detail-page-copy
     모두 USP 일관성 검증
 ```

@@ -83,7 +83,7 @@ IF 문제_유형 == "지역 규제 무지":
 한 스킬에서의 학습을 다른 스킬에 적용:
 
 Example:
-copywriting에서 "사용자는 짧은 문단 선호" 발견
+content-copywriting에서 "사용자는 짧은 문단 선호" 발견
 → email-crafter에도 동일 규칙 적용
 → sop-writer 결과 설명도 간결화
 
@@ -103,7 +103,7 @@ pattern-database.md (공통) → 모든 스킬에 적용
 
 ## 2026-04-04 (Day 1)
 
-### 작업 1: copywriting — 블로그 글 작성
+### 작업 1: content-copywriting — 블로그 글 작성
 - **결과물**: "디지털 마케팅 트렌드 2026"
 - **소요 시간**: 12분
 - **사용자 평가**: 8점 ⭐⭐⭐⭐☆
@@ -112,7 +112,7 @@ pattern-database.md (공통) → 모든 스킬에 적용
 - **문제점**:
   1. 전략적 조언은 있지만 "실행 스텝"이 구체적이지 않음
   2. 내부 사례 부재 (귀사 사례 추가 필요)
-- **패턴**: copywriting에서 "실행성" 약함
+- **패턴**: content-copywriting에서 "실행성" 약함
 
 ### 작업 2: sop-writer — 이메일 발송 자동화
 - **결과물**: Zapier + Gmail 자동화 설정안
@@ -127,8 +127,8 @@ pattern-database.md (공통) → 모든 스킬에 적용
 - **패턴**: sop-writer에서 "구체성" 강함
 
 ## 진화 전략
-→ copywriting에 "실행 스텝" 템플릿 추가
-→ sop-writer의 "구체성" 방식을 copywriting에 적용
+→ content-copywriting에 "실행 스텝" 템플릿 추가
+→ sop-writer의 "구체성" 방식을 content-copywriting에 적용
 ```
 
 ### 2-2. rule-updates.md
@@ -138,7 +138,7 @@ pattern-database.md (공통) → 모든 스킬에 적용
 
 ## 2026-04-05 (Update 1)
 
-### 변경 대상: 카피라이팅(copywriting) 스킬 패턴
+### 변경 대상: 카피라이팅(content-copywriting) 스킬 패턴
 - **변경 이유**: 사용자 피드백 "실행 아이템 필요"
 - **변경 전**: "솔루션 3가지 제시"
 - **변경 후**: "솔루션 3가지 + 각 솔루션별 실행 스텝 3-5개"
@@ -188,7 +188,7 @@ pattern-database.md (공통) → 모든 스킬에 적용
 
 ## Bad Patterns (제거할 패턴)
 
-### Anti-Pattern 1: 과도하게 이론적 (copywriting)
+### Anti-Pattern 1: 과도하게 이론적 (content-copywriting)
 ```
 증상: 사용자 피드백 "너무 학술적"
 빈도: 5회/월
@@ -220,7 +220,7 @@ IF 규칙_변경_후_평가_점수 < 규칙_변경_전_평가_점수 - 2점:
 ### 3-2. 롤백 프로세스
 ```bash
 # 이전 규칙 버전으로 복원
-/project evolution --rollback --pattern=copywriting --version=v1.2
+/project evolution --rollback --pattern=content-copywriting --version=v1.2
 
 # 또는 특정 커밋으로 복원
 /project evolution --rollback --commit=abc123def456
@@ -272,9 +272,9 @@ IF Day 30 평가 < Day 7 평가:
 .moai/evolution/metrics.csv:
 
 date,skill,feedback_score,completion_time,quality_score,problem_type
-2026-04-04,copywriting,8,12,85,실행성부족
+2026-04-04,content-copywriting,8,12,85,실행성부족
 2026-04-04,sop-writer,9,8,90,none
-2026-04-05,copywriting,8.5,14,88,실행성부족 (개선중)
+2026-04-05,content-copywriting,8.5,14,88,실행성부족 (개선중)
 ...
 ```
 
