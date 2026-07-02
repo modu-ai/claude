@@ -116,7 +116,26 @@ shared_file_boundary_respected: true  # skills/project/SKILL.md routing topology
 
 ## §E.4 Sync-phase Audit-Ready Signal
 
-_<pending sync-phase — manager-docs 소관>_
+sync-phase 완료: CHANGELOG.md 추가 + frontmatter `status: in-progress → implemented` 전환.
+
+```yaml
+sync_complete_at: 2026-07-03
+sync_commit_sha: <commit-after-push>
+changelog_entry_added: true
+frontmatter_transition:
+  from: in-progress
+  to: implemented
+  reason: run-phase M1-M4 PASS(11/12 static AC), M5 SKIPPED(D2=KEEP). V12 RUNTIME AC(002/003-runtime) documented as residual risk.
+residual_risk:
+  - AC-BD-002 (RUNTIME): 하네스 README 문서화 완료, 실제 runtime 검증 필요 (`moai init` vs `/moai:project` 파일 집합 diff + non-empty 가드, binary + clean dirs 환경 필요)
+  - AC-BD-003-runtime: 정적 directive PASS, 런타임 `system.yaml` `plugin-deployed vX.Y.Z` 마커 검증 필요 (`/moai:project` 실행 환경 필요)
+  - 두 RUNTIME AC는 sync-phase 범위 외(실제 `/moai:project` plugin-command 실행 필요). 후속 검증 SPEC으로 별도 처리 가능.
+verification_b12_discipline:
+  - 5 implementation files 읽기 완료 (manager-docs B12 discipline)
+  - CHANGELOG.md grep pre-count = 0 (중복 없음 확인)
+  - AC count match: acceptance.md SSOT 8 AC(001a/b/c, 004, 005a/b, 006a/b/c/d, 008; 007 skipped, 002+003-runtime RUNTIME). 11 static AC PASS.
+  - File path verification: 모든 claimed path 실제 `ls` 확인 완료
+```
 
 ## §E.5 Mx-phase Audit-Ready Signal
 

@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — SPEC-MOC-BOOTSTRAP-DESKTOP-001
+
+Bootstrap architecture + moai-code Desktop Edition capability elevation — defining two-entrypoint parity (`/project init` for non-developers, `/moai:project` for no-install developers) with single canonical source (`internal/template/templates/`). Version stamp SSOT established (4-location release checklist) and version bound from 0.1.0 → 3.0.0 per user decision D1.
+
+**Core deliverables**:
+- **M1** — `/project init` folder-convention scaffold + `.moai/skill-profile.yaml` persisted artifact (AC-BD-001a/b/c NET-NEW gates; skill-profile.yaml directive + Phase 6.5/6.6 workflow)
+- **M2** — Parity contract documentation + `plugin-deployed vX.Y.Z` stamping directive (AC-BD-003 NET-NEW; parity between `/moai:project` and `moai init` documented)
+- **M3** — Desktop Edition Tier 1-3 capability table + session-start binary detection branch + fail-open preservation (AC-BD-004/005a/b; Tier 1/2/3 structure + hook split)
+- **M4** — VERSION-SSOT release checklist sentinel + D1 version bind 0.1.0 → 3.0.0 (AC-BD-006c NET-NEW, AC-BD-006d D1-GATED; 3-location normalized literal match)
+- **M5** — SKIPPED per user decision D2=KEEP (displayName unchanged; AC-BD-007 OPTION not activated)
+
+**Verification**:
+- 11/12 static AC PASS (M1-M4 comprehensive; V12 RUNTIME AC-002/003-runtime documented as residual risk — require `/moai:project` plugin-command execution for full runtime verification, out of sync-phase scope)
+- Preserved 4 invariants (legacy alias 14, CLAUDE.md heading 1, exit 0=1, {{.Version}}=2, parity-source markers=12)
+- Version bind applied: moai-cowork/moai-code plugin.json both `3.0.0` (binds to binary v3.0.x line per REQ-BD-012)
+- Run-phase commits: `e0b7b37` (M1) → `e43674e` (M2) → `22e09d4` (M3) → `570ed6b` (M4)
+
+**Files modified**:
+- `plugins/moai-cowork/skills/project/SKILL.md` (Phase 6.5/6.6 workflow, folder scaffold, skill-profile directive, EC6 distinction)
+- `plugins/moai-code/README.md` (Desktop Edition Tier table, parity contract, VERSION-SSOT section)
+- `plugins/moai-code/hooks/moai/handle-session-start.sh` (binary detection branch, Tier 3 promotion notice)
+- `plugins/moai-cowork/.claude-plugin/plugin.json` (version `3.0.0`)
+- `plugins/moai-code/.claude-plugin/plugin.json` (version `3.0.0`)
+
+**Residual**: V12 RUNTIME AC (AC-BD-002, AC-BD-003-runtime) documented as residual risk — require `/moai:project` plugin-command execution in environment with `moai` binary available for full runtime verification.
+
 ### Added — SPEC-MOC-PLUGIN-REMEDIATION-001
 
 Korean-slop remediation across 177 cowork + 11 design skills (gate structure, decontamination, namespace normalization, boundary dedup, lint CI), plus Phase A category-prefix rename of 150 skills (148 prefix-add + 2 body-rename, 26 no-op) per approved §D.9 mapping.
