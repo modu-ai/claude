@@ -1,65 +1,108 @@
 # ============================================
-# modu-ai/claude 마켓플레이스 저장소 .gitignore
+# MoAI-ADK Package Distribution .gitignore
 # ============================================
-# 이 저장소는 마켓플레이스(plugins/) + 문서(www/)만 추적.
-# MoAI-ADK 개발 환경은 별도 관리되며 아래에서 제외.
+# Version: 0.33.0
+# Updated: 2026-01-10
+# Purpose: Essential patterns for user projects
 # ============================================
 
-# ── MoAI 개발 환경 (마켓 저장소에서 제외) ──
-.claude/
-.moai/
-CLAUDE.md
-docs/
-scripts/
-Makefile
-.mcp.json
-.claudeignore
-.git.disabled-bak/
-.git_hooks/
-.github/
-.ruff_cache/
-.design-sync/
-.moai-backups/
-
-# ── 제거 대상 디렉토리 (Phase C 정리 전 추적 방지) ──
-cowork-plugins/
-code-plugins/
-
-# ── Hugo 문서 빌드 산물 ──
-www/public/
-www/resources/_gen/
-www/.hugo_build.lock
-www/.vercel/
-www/node_modules/
-
-# ── 일반 빌드 산물 ──
+# ===========================================
+# Go Build Artifacts
+# ===========================================
 bin/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+cover.out
+cover.html
+cpu.prof
+mem.prof
+
+# ===========================================
+# Build Artifacts & Distribution
+# ===========================================
 build/
 dist/
 *.egg-info/
-__pycache__/
-*.pyc
-node_modules/
-.vercel/
-.netlify/
+*.egg
 
-# ── OS 파일 ──
+# ===========================================
+# Python Cache & Bytecode
+# ===========================================
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+*.pyd
+.mypy_cache/
+.ruff_cache/
+*.db
+*.sqlite
+*.sqlite3
+*.rdb
+*.dbm
+
+# ===========================================
+# Virtual Environments
+# ===========================================
+venv/
+.venv/
+env/
+.env/
+.uv_cache/
+.uv-cache/
+
+# ===========================================
+# Test Coverage
+# ===========================================
+.coverage
+coverage.json
+htmlcov/
+
+# ===========================================
+# IDE & Editors
+# ===========================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sw?
+*~
+.cursor/
+*.sublime-project
+*.sublime-workspace
+*.njsproj
+*.sln
+*.suo
+.#*
+
+# ===========================================
+# OS Files
+# ===========================================
+# Mac
 .DS_Store
 .AppleDouble
 .LSOverride
-Thumbs.db
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+
+# Windows
 [Dd]esktop.ini
+Thumbs.db
+ehthumbs.db
+
+# Linux
 .directory
 
-# ── IDE / 에디터 ──
-.vscode/
-.idea/
-.cursor/
-*.swp
-*.swo
-*~
-
-# ── 로그 / 임시 / 백업 ──
+# ===========================================
+# Logs & Temporary Files
+# ===========================================
 *.log
 logs/
 *.tmp
@@ -67,15 +110,119 @@ logs/
 *.bak
 *.backup
 
-# ── 시크릿 / 자격증명 (CRITICAL) ──
+# ===========================================
+# Backups
+# ===========================================
+.moai-backups/
+*.backup/
+*-backup/
+*_backup_*/
+
+# ===========================================
+# Secrets and Credentials (CRITICAL)
+# ===========================================
+# Environment files
 .env
 .env.*
 !.env.example
+
+# Certificate files
 *.pem
 *.p12
 *.pfx
+*.jks
+
+# Private keys (specific patterns to avoid false positives)
+# FIXED: Issue #237 - Replaced overly broad *key* and *secret* patterns
 *-key.*
 *_key.*
+*.key.*
+*-secret-key.*
+*-api-key.*
+api-key-*
+secret-key-*
+private-key*
 *-secret.*
+*_secret.*
+*.secret.*
+secret-*.*
+
+# Credential patterns in environment files
+*_secret=*
+*_token=*
+
+# Cloud provider credentials
 .aws/config
 .aws/credentials
+
+# ===========================================
+# Claude Code Configuration
+# ===========================================
+.claude/settings.local.json
+.claude/settings.local.*.json
+.claude/.env.local*
+.claude/local/
+.claude/plans/
+.claude/agent-memory/
+.claude/worktrees/
+
+# Skill-specific credentials
+.claude/skills/*/.env*
+.claude/skills/*/secrets/
+.claude/skills/*/*/*secret*
+.claude/skills/*/*/*key*
+.claude/skills/*/*/*token*
+# Re-include legitimate skill module files containing "token" in their name
+!.claude/skills/*/modules/*token*.md
+
+# ===========================================
+# Local-Only Files (never sync via git pull)
+# ===========================================
+.moai/status_line.sh
+.moai/memory/
+.moai/worktrees/
+.moai/branches/
+
+# ===========================================
+# Update Noise-Suppression Ledgers (per-machine, never tracked)
+# See SPEC-V3R6-UPDATE-NOISE-001
+# ===========================================
+.moai/state/
+.moai/cache/
+
+# ===========================================
+# Plan Audit Reports (local artifacts)
+# See SPEC-WF-AUDIT-GATE-001
+# ===========================================
+.moai/reports/plan-audit/*.md
+!.moai/reports/plan-audit/.gitkeep
+
+# ===========================================
+# Evolution Telemetry (local-only usage data)
+# Learnings and new-skills are git-tracked for team sharing.
+# ===========================================
+.moai/evolution/telemetry/*.jsonl
+!.moai/evolution/telemetry/.gitkeep
+
+# ===========================================
+# Node.js (for docs/Nextra)
+# ===========================================
+node_modules/
+*.tsbuildinfo
+.tscache/
+.next/
+out/
+
+# ===========================================
+# Build Tools & Frameworks
+# ===========================================
+.turbo/
+.nuxt/
+dist-ssr/
+
+# ===========================================
+# Deployment & CI/CD
+# ===========================================
+.vercel/
+.netlify/
+.firebase/
