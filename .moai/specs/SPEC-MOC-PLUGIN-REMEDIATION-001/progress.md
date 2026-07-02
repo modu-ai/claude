@@ -59,7 +59,20 @@ Live counts re-measured at run-phase start, compared against `spec.md` §A.3 pla
 
 ### Milestone progress
 
-_<populated per-milestone below as edits land>_
+- **M1** (AC-001..007, release-blocking): gate structure + P2 immediate path repair — PASS. Commit b7ca913.
+- **M2** (AC-008..012, P1 decontamination): slide/deck sources, commerce/marketplace/detail-page/newsletter copy, deceptive-ad removal, boilerplate naturalization (50 files), gate em-dash reduction — PASS. Commit 9ef11e4.
+- **M3** (AC-013..014, P3 gate wiring): 8 priority copy skills wired to gate chain; project router wired to moai-workflow-design; advisory→required standardized — PASS. Commit b6d6ecb.
+- **M4** (AC-015..017, P2 bulk repair): 9 deprecated namespaces normalized across 70 files; project router rewritten for single-plugin architecture; stale CLAUDE.local.md/CONNECTORS.md refs repaired; ghost dir gone — PASS. Commit c0c80b9.
+- **M5 Phase B** (AC-019..020, boundary dedup): design-system-library cowork copy → pointer (systems/ removed); brand-identity scope narrowed — PASS. **M5 Phase A (AC-018, category-prefix rename) DEFERRED** — see Blocker below.
+- **M6** (AC-021..024, P4 re-occurrence prevention): skill-builder Korean authoring rules; lint CI script (korean-slop-lint.sh) with 4-class self-test; scope discipline; www re-sync note — PASS.
+
+### Blocker — AC-018 (Phase A category-prefix rename) DEFERRED
+
+The SPEC REQ-REM-018 lists category prefixes as an open-ended set (`commerce-, legal-, content-, finance-, education-, media-, …`) with "…" and does not define a deterministic rename mapping (which of the 177 skills get which prefix, and the exact new names). Performing an arbitrary rename on 177 skill directories plus the marketplace.json / llms.txt / cross-skill / project-router references — without a spec-defined mapping — risks reference breakage (dangling routes) exceeding the value, and contradicts EC-4's "rename operates on corrected refs" safety precondition. AC-018 is SHOULD-PASS (not MUST-PASS/blocking); Phase B dedup (AC-019/020) is complete. Re-delegation path: manager-spec authors the rename mapping (old-name → new-name table) as a SPEC body amendment, then run-phase re-executes AC-018 against the defined mapping.
+
+### www/plugins/ re-sync requirement (REQ-REM-024)
+
+`www/plugins/` marketplace copies are STALE after these source edits (M1-M6 changed 177+ skill source files). A re-sync from `plugins/` → `www/plugins/` is REQUIRED before the next marketplace publish. This re-sync is owned by **SPEC-MOC-SITE-IA-001** (the www/docs-site SPEC) — this SPEC records the requirement (REQ-REM-024) and performs NO `www/` edit (AC-023/024). SITE-IA must re-copy the cowork + design plugin trees to `www/plugins/` and regenerate any marketplace manifests.
 
 ## §E.3 Run-phase Audit-Ready Signal
 
