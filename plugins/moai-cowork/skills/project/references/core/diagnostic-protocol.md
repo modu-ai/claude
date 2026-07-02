@@ -123,8 +123,8 @@ FOR each chain in CLAUDE.md "프로젝트 워크플로우":
 
 설치된 플러그인 (27개 중):
   ✓ moai-core (project, ai-slop-reviewer, feedback ...)
-  ✓ moai-content (copywriting, landing-page ...)
-  ✓ moai-office (docx-generator, pptx-designer ...)
+  ✓ moai-cowork (copywriting, landing-page ...)
+  ✓ moai-cowork (docx-generator, pptx-designer ...)
   ... (총 27 플러그인 / 173 스킬)
 
 API 키 / 커넥터:

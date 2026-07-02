@@ -83,7 +83,7 @@ meta-ads-curriculum-builder (강의자료·실습 문제 자동 생성)
 - 강의 진행 순서별 포인트 정리
 - Q&A 예상 문제 및 모범 답안
 
-**연계 가능성**: moai-education 플러그인 (향후) 과 연계.
+**연계 가능성**: moai-cowork 플러그인 (향후) 과 연계.
 
 ---
 

@@ -1,6 +1,6 @@
 # 브런치 스토리 작성 가이드
 
-> moai-content | blog 참조 가이드 | 2026 기준
+> moai-cowork | blog 참조 가이드 | 2026 기준
 
 ## 개요
 

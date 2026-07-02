@@ -184,8 +184,8 @@ version: 0.1.0
 
 ## 관련 스킬
 
-- **moai-education/curriculum-designer**: 커리큘럼 설계, 학습 목표 정의
-- **moai-education/assessment-creator**: 시험·평가 문제 출제
+- **moai-cowork/curriculum-designer**: 커리큘럼 설계, 학습 목표 정의
+- **moai-cowork/assessment-creator**: 시험·평가 문제 출제
 
 ## 이 스킬을 사용하지 말아야 할 때
 

@@ -158,8 +158,8 @@ version: 0.1.0
 
 ## 관련 스킬
 
-- **moai-education/curriculum-designer**: 커리큘럼 설계, 학습 목표 정의
-- **moai-education/research-assistant**: 학술 논문 작성, 데이터 분석
+- **moai-cowork/curriculum-designer**: 커리큘럼 설계, 학습 목표 정의
+- **moai-cowork/research-assistant**: 학술 논문 작성, 데이터 분석
 
 ## 이 스킬을 사용하지 말아야 할 때
 

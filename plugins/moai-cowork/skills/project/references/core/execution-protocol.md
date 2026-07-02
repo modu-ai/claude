@@ -145,7 +145,7 @@ AskUserQuestion (3옵션):
 | 이전 단계 결과가 다음 단계 입력 | **순차** |
 | 독립적인 작업 2개+ | **병렬** (독립 스킬 동시 처리) |
 | 검증/평가 단계 | 생성 후 **순차** |
-| 복수 플러그인 연계 (moai-business → moai-office) | **순차** |
+| 복수 플러그인 연계 (moai-cowork → moai-cowork) | **순차** |
 
 **진행 보고:**
 - 각 단계 시작 시 "⏳ {단계명} 진행 중..." 표시
@@ -415,9 +415,9 @@ IF 실행_중_오류:
 
 > Layer 2.5(근거 검증)는 §6-4 검증 깊이 등급을 따른다 — QUICK은 스킵, NORMAL·DEEP은 활성.
 
-### Office 문서 심층 검증 (moai-office 전용)
+### Office 문서 심층 검증 (moai-cowork 전용)
 
-moai-office 스킬(hwpx-writer, docx-generator, pptx-designer, xlsx-creator)이
+moai-cowork 스킬(hwpx-writer, docx-generator, pptx-designer, xlsx-creator)이
 파일을 생성한 후, **생성된 파일을 다시 열어서 내용을 검증**한다.
 
 ```

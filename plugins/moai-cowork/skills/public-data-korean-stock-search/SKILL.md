@@ -11,13 +11,13 @@ description: |
   - "KOSDAQ 알테오젠 종가/거래량", "코스피 시가총액"
   - "주식 종목 검색", "KRX 상장 종목", "한국 주식 시세"
   - "20260408 종가", "어제 거래량", "전일 등락률"
-  - moai-finance의 DART 공시 분석을 보완하는 KRX 시세 데이터 필요 시
+  - moai-cowork의 DART 공시 분석을 보완하는 KRX 시세 데이터 필요 시
 version: 0.1.0
 ---
 
 # KRX 한국 주식 검색·시세
 
-KRX(한국거래소) 상장 종목 검색, 종목 기본정보, 일별 시세를 조회합니다. moai-business의 DART(공시)를 보완하는 시세 데이터로 활용합니다.
+KRX(한국거래소) 상장 종목 검색, 종목 기본정보, 일별 시세를 조회합니다. moai-cowork의 DART(공시)를 보완하는 시세 데이터로 활용합니다.
 
 > 본 스킬은 NomaDamas k-skill `korean-stock-search` (MIT) 기반이며, upstream 설계 참고는 [`jjlabsio/korea-stock-mcp`](https://github.com/jjlabsio/korea-stock-mcp)입니다. `KRX_API_KEY`는 프록시 서버에서만 관리하므로 사용자 발급 불필요.
 
@@ -137,7 +137,7 @@ curl -fsS --get 'https://k-skill-proxy.nomadamas.org/v1/korean-stock/trade-info'
 ## 관련 스킬 체이닝
 
 - **before**: `moai-cowork:investor-relations` — IR 자료 작성 시 KRX 공식 시세 필요
-- **before**: DART MCP (`moai-business/.mcp.json`) — 공시·재무 분석과 결합
+- **before**: DART MCP (`moai-cowork/.mcp.json`) — 공시·재무 분석과 결합
 - **after**: `moai-cowork:variance-analysis` — 시세 변동 분석
 - **after**: `moai-cowork:xlsx-creator` — 시세 데이터 엑셀화
 - **after**: `moai-cowork:executive-summary` — 경영진 1pager에 시세 요약

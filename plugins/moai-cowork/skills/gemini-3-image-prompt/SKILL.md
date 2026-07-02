@@ -15,7 +15,7 @@ version: 0.1.0
 
 # Gemini 3 Pro Image Prompt Builder — 5-Component + 3-모델 동시 출력
 
-> moai-media | 이미지 프롬프트 빌더 (텍스트 산출 전용)
+> moai-cowork | 이미지 프롬프트 빌더 (텍스트 산출 전용)
 
 ## 개요
 

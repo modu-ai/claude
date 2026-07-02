@@ -302,7 +302,7 @@
   ↓
 통합 프롬프트 생성
   ↓
-moai-media 이미지 프롬프트 빌더로 위임
+moai-cowork 이미지 프롬프트 빌더로 위임
   ↓
 카피 검수 (humanize-korean · ai-slop-reviewer)
   ↓

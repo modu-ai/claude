@@ -265,6 +265,6 @@ DESIGN.md와 함께 **claude.ai/design에 무엇을 어떻게 올릴지** 가이
 |---|---|
 | `moai-design:cd-brief` | 후속: 시스템 셋업 후 첫 시안 작성 |
 | `moai-design:cd-prompt-builder` | 후속: 특정 영역 디자인 |
-| `moai-marketing:brand-identity` | 선행: 브랜드 정체성이 모호할 때 |
-| `moai-content:copywriting` | 보조: voice·copy 패턴 정리 |
-| `moai-office:pptx-designer` | 보조: 잘 만든 자사 PPTX가 없으면 |
+| `moai-cowork:brand-identity` | 선행: 브랜드 정체성이 모호할 때 |
+| `moai-cowork:copywriting` | 보조: voice·copy 패턴 정리 |
+| `moai-cowork:pptx-designer` | 보조: 잘 만든 자사 PPTX가 없으면 |

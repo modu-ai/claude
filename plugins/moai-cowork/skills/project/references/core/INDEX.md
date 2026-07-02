@@ -75,7 +75,7 @@ router.md → init-protocol.md → context-collector.md
 2. 체인은 [기획/분석 → 생성 → 포맷 변환 → 검수] 구조를 기본으로 한다.
 3. 비텍스트 산출물(차트·데이터·숫자·음성)은 ai-slop 단계를 생략한다.
 4. 체인 정의는 `/project init` Phase 3에서 생성되어 CLAUDE.md에 기록된다.
-5. DOCX/PPTX/XLSX/HWPX/HTML 포맷은 Claude 기본 artifacts가 아닌 **moai-office/moai-content 스킬 우선**.
+5. DOCX/PPTX/XLSX/HWPX/HTML 포맷은 Claude 기본 artifacts가 아닌 **moai-cowork/moai-cowork 스킬 우선**.
 6. **Gap Detection**: Phase 4에서 체인의 각 스킬을 Inventory와 대조해 누락 플러그인을 자동 감지하고, 설치 안내 후 Re-entry로 재개한다.
 
 ---
@@ -85,28 +85,28 @@ router.md → init-protocol.md → context-collector.md
 | 플러그인 | 도메인 | 스킬 수 |
 |---------|--------|--------|
 | moai-core | 초기화·라우팅·AI 슬롭 검수·피드백·MCP 커넥터 | 8 |
-| moai-business | 사업계획·시장조사·IR·소상공인·정부지원 | 11 |
-| moai-marketing | SEO·SNS·캠페인·이메일·랜딩진단·메타광고 | 12 |
-| moai-legal | 계약서·개인정보·NDA·법인등기 | 5 |
-| moai-finance | 세무·결산·재무제표·변동분석 | 6 |
+| moai-cowork | 사업계획·시장조사·IR·소상공인·정부지원 | 11 |
+| moai-cowork | SEO·SNS·캠페인·이메일·랜딩진단·메타광고 | 12 |
+| moai-cowork | 계약서·개인정보·NDA·법인등기 | 5 |
+| moai-cowork | 세무·결산·재무제표·변동분석 | 6 |
 | moai-hr | 근로계약·4대보험·채용·성과평가 | 5 |
-| moai-content | 블로그·카드뉴스·랜딩/상세·뉴스레터·카피·HTML·한국어 윤문 | 14 |
+| moai-cowork | 블로그·카드뉴스·랜딩/상세·뉴스레터·카피·HTML·한국어 윤문 | 14 |
 | moai-operations | 운영·SOP·벤더관리 | 3 |
-| moai-education | 강의운영매뉴얼·후기시퀀스·교육과정·평가 | 6 |
+| moai-cowork | 강의운영매뉴얼·후기시퀀스·교육과정·평가 | 6 |
 | moai-lifestyle | 여행·웰니스·이벤트 | 3 |
 | moai-product | PM·UX·로드맵·스펙 | 4 |
 | moai-support | 티켓·응대·KB·에스컬레이션 | 4 |
-| moai-office | PPT·DOCX·XLSX·HWPX·PDF·NotebookLM | 6 |
+| moai-cowork | PPT·DOCX·XLSX·HWPX·PDF·NotebookLM | 6 |
 | moai-career | 이력서·자소서·면접·포트폴리오 | 4 |
 | moai-data | CSV/Excel·시각화·공공데이터 | 3 |
 | moai-public-data | 한국 공공데이터 조회(주식·경매·부동산) | 4 |
 | moai-research | 논문·특허·연구비 | 5 |
-| moai-media | AI 이미지·영상·음성 | 6 |
+| moai-cowork | AI 이미지·영상·음성 | 6 |
 | moai-commerce | 한국 이커머스 풀세트 | 30 |
 | moai-bi | 경영진 1pager 요약 | 1 |
 | moai-pm | 주간 업무보고 | 1 |
 | moai-sales | B2B 제안서·RFP | 1 |
-| moai-book | 한국 출판 원고 풀스택 | 8 |
+| moai-cowork | 한국 출판 원고 풀스택 | 8 |
 | moai-design | Claude Design 보조 | 5 |
 | moai-wealth | 개인 재무·재테크 | 6 |
 | moai-productivity | 회고·목표·시간·습관 | 7 |

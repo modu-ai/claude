@@ -52,28 +52,28 @@
 | 키워드 | 플러그인 |
 |--------|---------|
 | project, 초기화, 라우팅, 슬롭검수, 피드백, 커넥터 | moai-core |
-| 사업계획, 스타트업, 창업, 시장조사, 투자, IR, 피칭, 소상공인, 정부지원사업, 상권분석 | moai-business |
-| 마케팅, SEO, SNS, 광고, 캠페인, 이메일, 랜딩 전환, 픽셀, 메타광고, 네이버, 카카오, 브랜딩 | moai-marketing |
-| 법률, 계약서, NDA, 컴플라이언스, 개인정보, 약관, 법인등기 | moai-legal |
-| 세금, 부가세, 홈택스, 3.3%, 종소세, 결산, 재무제표, 변동분석 | moai-finance |
+| 사업계획, 스타트업, 창업, 시장조사, 투자, IR, 피칭, 소상공인, 정부지원사업, 상권분석 | moai-cowork |
+| 마케팅, SEO, SNS, 광고, 캠페인, 이메일, 랜딩 전환, 픽셀, 메타광고, 네이버, 카카오, 브랜딩 | moai-cowork |
+| 법률, 계약서, NDA, 컴플라이언스, 개인정보, 약관, 법인등기 | moai-cowork |
+| 세금, 부가세, 홈택스, 3.3%, 종소세, 결산, 재무제표, 변동분석 | moai-cowork |
 | 인사, 노무, 채용, 면접, 4대보험, 퇴직금, 근로계약, 성과평가 | moai-hr |
-| 블로그, 카드뉴스, 뉴스레터, 랜딩페이지, 상세페이지, 카피, 콘텐츠, HTML 리포트, 윤문 | moai-content |
+| 블로그, 카드뉴스, 뉴스레터, 랜딩페이지, 상세페이지, 카피, 콘텐츠, HTML 리포트, 윤문 | moai-cowork |
 | 운영, 프로세스, SOP, 상태보고, 벤더, 조달 | moai-operations |
-| 강의, 교육, 커리큘럼, 워크숍, 연수, 시험출제, 교육과정 | moai-education |
+| 강의, 교육, 커리큘럼, 워크숍, 연수, 시험출제, 교육과정 | moai-cowork |
 | 여행, 건강, 웰니스, 이벤트, 웨딩 | moai-lifestyle |
 | 제품, PM, UX, 로드맵, 스펙, PRD | moai-product |
 | 고객지원, CS, 티켓, 응대, VOC, KB, 에스컬레이션 | moai-support |
-| PPT, 한글, hwpx, Word, docx, Excel, xlsx, PDF, 발표자료, 문서 | moai-office |
+| PPT, 한글, hwpx, Word, docx, Excel, xlsx, PDF, 발표자료, 문서 | moai-cowork |
 | 이력서, 자기소개서, 자소서, 면접, 취업, 포트폴리오, 채용공고 | moai-career |
 | 데이터, CSV, 분석, 차트, 시각화, 대시보드, 공공데이터 | moai-data |
 | 주식 시세, KRX, 법원경매, 실거래가, 부동산 조회, 공공데이터 조회 | moai-public-data |
 | 논문, 특허, KIPRIS, 연구비, 선행기술, 학술, 출원 | moai-research |
-| 이미지, 영상, 음성, TTS, 더빙, Higgsfield, 이미지 프롬프트, Soul, Kling | moai-media |
+| 이미지, 영상, 음성, TTS, 더빙, Higgsfield, 이미지 프롬프트, Soul, Kling | moai-cowork |
 | 이커머스, 상세페이지, 쇼핑몰, 스마트스토어, 쿠팡, 네이버 커머스, 런칭, 상품명, 마켓플레이스 | moai-commerce |
 | BI, 임원보고, 경영진 요약, 1pager | moai-bi |
 | 주간보고, WBR, 업무보고, 프로젝트 관리 | moai-pm |
 | 영업, 제안서, RFP, B2B, 견적 | moai-sales |
-| 출판, 원고, 단행본, 책 쓰기, 챕터, 출간, 전자책 | moai-book |
+| 출판, 원고, 단행본, 책 쓰기, 챕터, 출간, 전자책 | moai-cowork |
 | 디자인, Claude Design, 브랜드 비주얼, design-brief | moai-design |
 | 재테크, 가계부, 투자 입문, 종잣돈, 보험, 자산배분, 소비관리 | moai-wealth |
 | 회고, 목표관리, OKR, 시간관리, 습관, 루틴, 만다라트, 노션 템플릿 | moai-productivity |
@@ -94,7 +94,7 @@
 | MCP 커넥터 등록 | mcp-connector-setup |
 | 스킬 제작·템플릿·테스트 | skill-builder, skill-template, skill-tester |
 
-### moai-business
+### moai-cowork
 | 키워드 | 스킬 |
 |--------|------|
 | 사업계획, 창업, MVP | startup-launchpad |
@@ -107,7 +107,7 @@
 | 부동산 조회 | real-estate-search |
 | 영업 플레이북, 데일리 브리핑 | sales-playbook, daily-briefing |
 
-### moai-marketing
+### moai-cowork
 | 키워드 | 스킬 |
 |--------|------|
 | SNS 콘텐츠 | sns-content |
@@ -120,7 +120,7 @@
 | 브랜딩, 퍼스널 브랜딩 | brand-identity, personal-branding |
 | 성과 리포트, 타겟 스크립트 | performance-report, target-script |
 
-### moai-legal
+### moai-cowork
 | 키워드 | 스킬 |
 |--------|------|
 | 계약서 검토 | contract-review |
@@ -129,7 +129,7 @@
 | 법률 리스크 | legal-risk |
 | 법인등기 자동화 | iros-registry-automation |
 
-### moai-finance
+### moai-cowork
 | 키워드 | 스킬 |
 |--------|------|
 | 세금, 부가세, 3.3%, 종소세 | tax-helper |
@@ -148,7 +148,7 @@
 | 성과평가 | performance-review |
 | 인사 운영 | people-operations |
 
-### moai-content
+### moai-cowork
 | 키워드 | 스킬 |
 |--------|------|
 | 블로그 | blog |
@@ -171,7 +171,7 @@
 | 상태보고 | status-reporter |
 | 벤더·조달 관리 | vendor-manager |
 
-### moai-education
+### moai-cowork
 | 키워드 | 스킬 |
 |--------|------|
 | 강의 운영매뉴얼 | course-operations-manual |
@@ -203,7 +203,7 @@
 | KB 문서 | kb-article |
 | 에스컬레이션 | escalation-manager |
 
-### moai-office
+### moai-cowork
 | 키워드 | 스킬 |
 |--------|------|
 | PPT, 발표자료 | pptx-designer |
@@ -245,7 +245,7 @@
 | 특허 분석 | patent-analyzer |
 | 연구비, 과제 신청서 | grant-writer |
 
-### moai-media
+### moai-cowork
 | 키워드 | 스킬 |
 |--------|------|
 | AI 이미지 생성 | higgsfield-image |
@@ -283,7 +283,7 @@
 |--------|------|
 | B2B 제안서, RFP 대응 | proposal-writer |
 
-### moai-book
+### moai-cowork
 | 키워드 | 스킬 |
 |--------|------|
 | 책 컨셉 기획 | book-concept-planner |

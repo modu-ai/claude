@@ -172,8 +172,8 @@ version: 0.1.0
 
 ## 관련 스킬
 
-- **moai-education/assessment-creator**: 시험·평가 문제 출제
-- **moai-education/research-assistant**: 학술 논문 작성, 데이터 분석
+- **moai-cowork/assessment-creator**: 시험·평가 문제 출제
+- **moai-cowork/research-assistant**: 학술 논문 작성, 데이터 분석
 
 ## 이 스킬을 사용하지 말아야 할 때
 

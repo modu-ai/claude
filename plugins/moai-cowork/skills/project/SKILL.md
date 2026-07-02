@@ -2,7 +2,7 @@
 name: project
 description: |
   Cowork 프로젝트 초기화와 작업 지침(CLAUDE.md) 자동 생성 스킬.
-  사용자의 업무 워크플로우를 인터뷰하고, 설치된 27개 moai 플러그인을 기반으로
+  사용자의 업무 워크플로우를 인터뷰하고, 단일 통합 moai-cowork 플러그인(moai-claude 마켓플레이스)을 기반으로
   **스킬 체이닝 워크플로우**가 포함된 CLAUDE.md를 생성합니다.
 
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
@@ -33,7 +33,7 @@ version: 0.1.0
 
 **핵심 기능**:
 - 소크라테스 인터뷰(질문 개수를 고정하지 않고 맥락이 충분해질 때까지 여러 라운드 — 아래 ①~③은 예시 출발 질문일 뿐, 산출물·도메인에 맞춰 필요한 맥락을 모두 수집)로 프로젝트 맥락 수집
-- 설치된 27개 moai 플러그인 자동 감지 (Bash + system reminder 교차 검증)
+- 설치된 moai-claude 마켓플레이스 플러그인(moai-cowork 단일 통합) 자동 감지 (Bash + system reminder 교차 검증)
 - 산출물별 **스킬 체인 설계** (예: 블로그 = blog → ai-slop-reviewer)
 - **Gap Detection**: 누락 플러그인/스킬 자동 감지 → 설치 안내 → 재개
 - CLAUDE.md 템플릿 기반 자동 생성
@@ -63,29 +63,29 @@ version: 0.1.0
 - "/project catalog", "/project status", "/project apikey", "/project doctor", "/project feedback"
 - "설치된 플러그인 목록", "API 키 확인", "환경 진단"
 
-**도메인 라우팅** (자연어 → 플러그인, 27개 전체):
-- 사업계획, 시장조사, IR, 소상공인, 정부지원 → `moai-business`
-- SEO, SNS, 캠페인, 이메일, 랜딩진단, 메타광고 → `moai-marketing`
-- 계약서, 개인정보, NDA, 법인등기 → `moai-legal`
-- 세무, 결산, 재무제표, 변동분석 → `moai-finance`
+**도메인 라우팅** (자연어 → 스킬, 단일 moai-cowork 플러그인 내):
+- 사업계획, 시장조사, IR, 소상공인, 정부지원 → `moai-cowork`
+- SEO, SNS, 캠페인, 이메일, 랜딩진단, 메타광고 → `moai-cowork`
+- 계약서, 개인정보, NDA, 법인등기 → `moai-cowork`
+- 세무, 결산, 재무제표, 변동분석 → `moai-cowork`
 - 근로계약, 4대보험, 채용, 성과평가 → `moai-hr`
-- 블로그, 카드뉴스, 랜딩/상세, 뉴스레터, 카피, HTML, 한국어 윤문 → `moai-content`
+- 블로그, 카드뉴스, 랜딩/상세, 뉴스레터, 카피, HTML, 한국어 윤문 → `moai-cowork`
 - 운영, SOP, 벤더관리 → `moai-operations`
-- 강의운영매뉴얼, 후기시퀀스, 교육과정, 평가 → `moai-education`
+- 강의운영매뉴얼, 후기시퀀스, 교육과정, 평가 → `moai-cowork`
 - 여행, 웰니스, 이벤트 → `moai-lifestyle`
 - PM, UX, 로드맵, 스펙 → `moai-product`
 - 티켓, 응대, KB, 에스컬레이션 → `moai-support`
-- PPT, DOCX, XLSX, HWPX, PDF, NotebookLM → `moai-office`
+- PPT, DOCX, XLSX, HWPX, PDF, NotebookLM → `moai-cowork`
 - 이력서, 자소서, 면접, 포트폴리오 → `moai-career`
 - CSV/Excel, 시각화, 공공데이터 → `moai-data`
 - 한국 공공데이터 조회(주식·경매·부동산) → `moai-public-data`
 - 논문, 특허, 연구비 → `moai-research`
-- AI 이미지, 영상, 음성 → `moai-media`
+- AI 이미지, 영상, 음성 → `moai-cowork`
 - 한국 이커머스 풀세트 → `moai-commerce`
 - 경영진 1pager 요약 → `moai-bi`
 - 주간 업무보고 → `moai-pm`
 - B2B 제안서, RFP → `moai-sales`
-- 한국 출판 원고 풀스택 → `moai-book`
+- 한국 출판 원고 풀스택 → `moai-cowork`
 - Claude Design 보조 → `moai-design`
 - 개인 재무, 재테크 → `moai-wealth`
 - 회고, 목표, 시간, 습관 → `moai-productivity`
@@ -130,13 +130,9 @@ Phase 1: Interview (질문 개수 고정 없이 맥락이 충분해질 때까지
 
 Phase 2: Inventory (cowork-plugins 마켓플레이스 스킬만 인벤토리 구성)
   - 소스 A: Bash로 `~/.claude/plugins/` 안에서 **modu-ai/cowork-plugins 마켓플레이스 출처 플러그인만** 필터링
-    · 필터링 규칙: 디렉토리명이 `moai-*` 패턴이면서, 그 안의 `.claude-plugin/plugin.json`이 cowork-plugins 27 플러그인 화이트리스트에 포함되는 경우만 인정
-    · 27 플러그인 화이트리스트: moai-core, moai-business, moai-marketing, moai-legal, moai-finance,
-      moai-hr, moai-content, moai-operations, moai-education, moai-lifestyle, moai-product,
-      moai-support, moai-office, moai-career, moai-data, moai-public-data, moai-research, moai-media,
-      moai-commerce, moai-bi, moai-pm, moai-sales, moai-book, moai-design, moai-wealth,
-      moai-productivity, moai-comms
-    · 위 27개 외 다른 출처 플러그인(예: 사용자가 별도 마켓플레이스에서 설치한 플러그인)은 인벤토리에서 **완전 제외**
+    · 필터링 규칙: 디렉토리명이 `moai-*` 패턴이면서, 그 안의 `.claude-plugin/plugin.json`이 moai-claude 마켓플레이스 화이트리스트(moai-cowork, moai-design, moai-code)에 포함되는 경우만 인정
+    · 마켓플레이스 화이트리스트: moai-cowork(통합 실무 도메인), moai-design(디자인 시스템), moai-code(개발 방법론)
+    · 이 3종 외 다른 출처 플러그인(예: 사용자가 별도 마켓플레이스에서 설치한 플러그인)은 인벤토리에서 **완전 제외**
   - 필터링된 각 cowork 플러그인 안의 **모든 SKILL.md** 완전 스캔
     · 명령: `find ~/.claude/plugins/<plugin>/skills -maxdepth 2 -name SKILL.md`
     · 각 SKILL.md frontmatter에서 `name` 필드 추출 → 인벤토리에 등록
@@ -393,7 +389,7 @@ Options:
 
 ### 4. office/web 스킬 우선
 
-DOCX/PPTX/XLSX/HWPX/HTML 포맷은 Claude 기본 artifacts가 아닌 **moai-office/moai-content 스킬 우선** 사용합니다.
+DOCX/PPTX/XLSX/HWPX/HTML 포맷은 Claude 기본 artifacts가 아닌 **moai-cowork/moai-cowork 스킬 우선** 사용합니다.
 
 해당 스킬이 설치되어 있으면 기본 artifacts로 직접 생성하지 않습니다.
 
@@ -416,39 +412,17 @@ CLAUDE.md는 **최대 200라인**으로 생성합니다.
 - `moai-cowork:ai-slop-reviewer` — 모든 텍스트 산출물의 필수 마지막 단계
 - `moai-cowork:feedback` — `/project feedback` 커맨드로 GitHub Issues 자동 등록
 
-### 도메인 플러그인 (27개)
+### 마켓플레이스 구성 (단일 통합 아키텍처)
+
+모든 실무 도메인 스킬은 단일 `moai-cowork` 플러그인 안에 통합되어 있습니다(이전 다중 플러그인 분산 토폴로지는 폐기됨).
 
 | 플러그인 | 도메인 | 스킬 수 |
 |---------|--------|--------|
-| moai-core | 초기화·라우팅·AI 슬롭 검수·피드백·MCP 커넥터 | 8 |
-| moai-business | 사업계획·시장조사·IR·소상공인·정부지원 | 11 |
-| moai-marketing | SEO·SNS·캠페인·이메일·랜딩진단·메타광고 | 12 |
-| moai-legal | 계약서·개인정보·NDA·법인등기 | 5 |
-| moai-finance | 세무·결산·재무제표·변동분석 | 6 |
-| moai-hr | 근로계약·4대보험·채용·성과평가 | 5 |
-| moai-content | 블로그·카드뉴스·랜딩/상세·뉴스레터·카피·HTML·한국어 윤문 | 14 |
-| moai-operations | 운영·SOP·벤더관리 | 3 |
-| moai-education | 강의운영매뉴얼·후기시퀀스·교육과정·평가 | 6 |
-| moai-lifestyle | 여행·웰니스·이벤트 | 3 |
-| moai-product | PM·UX·로드맵·스펙 | 4 |
-| moai-support | 티켓·응대·KB·에스컬레이션 | 4 |
-| moai-office | PPT·DOCX·XLSX·HWPX·PDF·NotebookLM | 6 |
-| moai-career | 이력서·자소서·면접·포트폴리오 | 4 |
-| moai-data | CSV/Excel·시각화·공공데이터 | 3 |
-| moai-public-data | 한국 공공데이터 조회(주식·경매·부동산) | 4 |
-| moai-research | 논문·특허·연구비 | 5 |
-| moai-media | AI 이미지·영상·음성 | 6 |
-| moai-commerce | 한국 이커머스 풀세트 | 30 |
-| moai-bi | 경영진 1pager 요약 | 1 |
-| moai-pm | 주간 업무보고 | 1 |
-| moai-sales | B2B 제안서·RFP | 1 |
-| moai-book | 한국 출판 원고 풀스택 | 8 |
-| moai-design | Claude Design 보조 | 5 |
-| moai-wealth | 개인 재무·재테크 | 6 |
-| moai-productivity | 회고·목표·시간·습관 | 7 |
-| moai-comms | 직장 커뮤니케이션·보고·회의·피드백 | 5 |
+| moai-cowork | 사업·이커머스·마케팅·콘텐츠·법률·재무·HR·운영·교육·미디어·캐리어·데이터·연구 통합 (기존 다중 도메인 플러그인 전체 흡수) | 177 |
+| moai-design | Claude Design 연동·디자인 시스템·브랜드·GAN 품질 루프 | 11 |
+| moai-code | SPEC plan/run/sync 개발 방법론·무설치 | (별칭 plugin) |
 
-**합계: 27 플러그인 / 173 스킬**
+**합계: moai-claude 마켓플레이스 3 플러그인 / 188+ 스킬** (기존 다중 플러그인 분산 토폴로지는 단일 moai-cowork로 통합됨)
 
 ### 관련 프로토콜
 

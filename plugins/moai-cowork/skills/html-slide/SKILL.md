@@ -27,7 +27,7 @@ version: 0.1.0
 - 인포그래픽은 LLM이 인라인 SVG로 직접 저작 — 한국어 숫자·라벨 100% 정확, 확대 선명, 재현 가능
 - 실사·일러스트 이미지는 Higgsfield MCP 또는 codex(gpt-image-2)로 생성 — 허용 백엔드만 사용 (`references/image-backend-policy.md`)
 - design-system-library 75개 브랜드 토큰 적용 — 각 토큰별 getdesign.md 상세 페이지 링크 제공
-- 편집 가능 PPTX 산출은 `pptx-designer`(moai-office) 체이닝으로 위임 — 자체 구현하지 않음(중복·책임 모호화 방지)
+- 편집 가능 PPTX 산출은 `pptx-designer`(moai-cowork) 체이닝으로 위임 — 자체 구현하지 않음(중복·책임 모호화 방지)
 
 **원고 SSOT**: 모든 덱은 구조화 원고 `deck.json`(title/bullets/chart-data/image-path/layout-key/notes)을 단일 진실 원천으로 둡니다. HTML 렌더와 (체이닝 시) pptx-designer PPTX 렌더 양쪽이 같은 원고를 소비합니다 — 픽셀→OOXML 역매핑이 아니라 원고→객체 직접 생성이 "편집 가능 PPTX"의 보증 기구입니다.
 
@@ -90,7 +90,7 @@ design_system 지정 시 `systems/<name>.md` 토큰 → Tailwind Play CDN config
 16:9 슬라이드 컨테이너 + 자체 vanilla JS 덱 런타임(키보드 내비·풀스크린·`?print-pdf` 인쇄 모드·speaker notes 토글·progress bar)을 단일 `.html`로 산출. 런타임 구현: [`references/html-runtime.md`](references/html-runtime.md).
 
 ### 7. AI 슬롭 후처리 (의무)
-모든 슬라이드 카피·speaker notes 텍스트에 `ai-slop-reviewer` → `humanize-korean` 체인 적용. CLAUDE.local.md §3-2 HARD 규칙.
+모든 슬라이드 카피·speaker notes 텍스트에 `ai-slop-reviewer` → `humanize-korean` 체인 적용. 본 스킬의 필수 후처리 규칙(배포 전 반드시 통과).
 
 **슬라이드 카피 QA 체크리스트 — 구조적 슬롭 S1 패턴 3종 (헤드라인·카피 필수 탐지)**: 두 게이트가 반드시 잡아야 할 한국어 구조 패턴. 단어 사전이 아닌 문장 구조 수준에서 탐지합니다.
 
@@ -101,7 +101,7 @@ design_system 지정 시 `systems/<name>.md` 토큰 → Tailwind Play CDN config
 | 3 | **"A에서 B로" 전환 공식** | "X에서 Y로" 전환 공식 도입 | [나쁜 예] "엑셀에서 노션으로, 바뀐 것" (전환 공식) | 전환 공식 대신 구체적 사례로 시작 |
 
 ### 8. PPTX 산출 (선택, export_pptx: true 시)
-`deck.json` 원고를 `pptx-designer`(moai-office)에 전달하며 체이닝. pptx-designer가 pptxgenjs로 편집 가능 OOXML `.pptx` 생성(원고→객체 직접 생성). html-slide 자체는 PPTX 생성 로직을 구현하지 않습니다. 체이닝 규약: [`references/pptx-chaining.md`](references/pptx-chaining.md).
+`deck.json` 원고를 `pptx-designer`(moai-cowork)에 전달하며 체이닝. pptx-designer가 pptxgenjs로 편집 가능 OOXML `.pptx` 생성(원고→객체 직접 생성). html-slide 자체는 PPTX 생성 로직을 구현하지 않습니다. 체이닝 규약: [`references/pptx-chaining.md`](references/pptx-chaining.md).
 
 ### 9. 자체 검수
 단일 HTML 열기·`?print-pdf` 인쇄 미리보기·speaker notes 표시·이미지 broken link·한국어 폰트 렌더·이미지 백엔드 정책 준수(허용 백엔드만 사용)를 자체 검수 후 PASS/FAIL 보고. PPTX 체이닝 시 pptx-designer QA 결과 통합 보고.
@@ -186,7 +186,7 @@ AI 슬라이드 스킬 스타트업 사업계획서 10장 슬라이드로 만들
 ## 하지 않는 것
 
 - 연속 스크롤 문서는 `moai-cowork:html-report`가 맡습니다 — 본 스킬은 슬라이드 시퀀스(16:9 페이지) 전용입니다.
-- 편집 가능 .pptx 직접 생성은 하지 않습니다 — `pptx-designer`(moai-office) 체이닝으로 위임합니다.
+- 편집 가능 .pptx 직접 생성은 하지 않습니다 — `pptx-designer`(moai-cowork) 체이닝으로 위임합니다.
 - NotebookLM 입력용 프롬프트는 `moai-cowork:notebooklm-slide-prompt`가 맡습니다.
 - React/Vue/webpack/vite 같은 빌드 단계·런타임 SPA 의존을 도입하지 않습니다 — `file://` 즉시 오픈이 원칙입니다.
 - [`references/image-backend-policy.md`](references/image-backend-policy.md)의 허용 백엔드(Higgsfield MCP + codex)만 사용합니다. 그 외 외부 이미지 백엔드는 사용하지 않습니다.
@@ -210,9 +210,9 @@ AI 슬라이드 스킬 스타트업 사업계획서 10장 슬라이드로 만들
 
 ### 이웃 스킬 (체이닝)
 - [`moai-cowork:design-system-library`](../../../moai-design/skills/design-system-library/SKILL.md) — 75개 브랜드 토큰 SSOT
-- [`moai-cowork:pptx-designer`](../../../moai-office/skills/pptx-designer/SKILL.md) — 편집 가능 .pptx 생성 (체이닝)
-- [`moai-cowork:higgsfield-image`](../../../moai-media/skills/higgsfield-image/SKILL.md) — Higgsfield MCP 이미지 (기본 백엔드)
-- [`moai-cowork:gpt-image-2-prompt`](../../../moai-media/skills/gpt-image-2-prompt/SKILL.md) — 한국어 verbatim 이미지 프롬프트 빌더
+- [`moai-cowork:pptx-designer`](../../../moai-cowork/skills/pptx-designer/SKILL.md) — 편집 가능 .pptx 생성 (체이닝)
+- [`moai-cowork:higgsfield-image`](../../../moai-cowork/skills/higgsfield-image/SKILL.md) — Higgsfield MCP 이미지 (기본 백엔드)
+- [`moai-cowork:gpt-image-2-prompt`](../../../moai-cowork/skills/gpt-image-2-prompt/SKILL.md) — 한국어 verbatim 이미지 프롬프트 빌더
 - [`moai-cowork:ai-slop-reviewer`](../../../moai-core/skills/ai-slop-reviewer/SKILL.md) → [`moai-cowork:humanize-korean`](../humanize-korean/SKILL.md) — 의무 후처리 체인
 
 ## 자체 검수

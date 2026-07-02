@@ -88,11 +88,11 @@ version: 0.1.0
 
 - **moai-wealth/wealth-roadmap**: 연금저축·IRP를 자산 배분에 통합
 - **moai-wealth/household-budget**: 카드 사용 구조를 예산과 연계
-- **moai-finance/tax-helper**: 종합소득세·사업소득 등 세무 절차(사업자 영역)
+- **moai-cowork/tax-helper**: 종합소득세·사업소득 등 세무 절차(사업자 영역)
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **사업자·프리랜서 종합소득세 신고**: `moai-finance/tax-helper`를 사용한다.
+- **사업자·프리랜서 종합소득세 신고**: `moai-cowork/tax-helper`를 사용한다.
 - **실제 신고 대행·세무조사 대응**: 공인 세무사와 진행한다.
 
 ## 출처

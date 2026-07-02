@@ -90,7 +90,7 @@ version: 0.1.0
 
 - **moai-wealth/household-budget**: 보험료를 고정비 다이어트 관점에서 점검
 - **moai-wealth/wealth-roadmap**: 보장·저축·투자 역할 분리
-- **moai-finance/tax-helper**: 보장성 보험료 세액공제 등 세무 처리
+- **moai-cowork/tax-helper**: 보장성 보험료 세액공제 등 세무 처리
 
 ## 이 스킬을 사용하지 말아야 할 때
 

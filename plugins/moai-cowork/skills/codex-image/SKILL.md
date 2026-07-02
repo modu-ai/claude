@@ -16,7 +16,7 @@ version: 0.1.0
 
 # codex-image — codex CLI(gpt-image-2) 이미지 생성기
 
-> moai-media | 로컬 이미지 생성 (codex CLI OAuth, API 키 불필요)
+> moai-cowork | 로컬 이미지 생성 (codex CLI OAuth, API 키 불필요)
 
 ## 개요
 
@@ -153,9 +153,9 @@ codex exec "Use \$imagegen. Text (verbatim, 한글): '2026년 분기 실적'. Ty
 | 비용 | Higgsfield 크레딧 | ChatGPT 구독 한도 |
 | 적합 | 프로덕션·CI·멱등·무인 자동화 | 로컬 개발·구독 한도 재사용·API 키 회피 |
 | 모델 범위 | 11종(Soul·Nano Banana Pro·GPT Image 2·Seedream 등) | gpt-image-2 단일 |
-| MCP 의존 | 필요 (`moai-media/.mcp.json`) | 불필요 (codex CLI 별도 설치) |
+| MCP 의존 | 필요 (`moai-cowork/.mcp.json`) | 불필요 (codex CLI 별도 설치) |
 
-상세 백엔드 정책은 [`moai-cowork:html-slide` references/image-backend-policy.md](../../../moai-content/skills/html-slide/references/image-backend-policy.md) 참조.
+상세 백엔드 정책은 [`moai-cowork:html-slide` references/image-backend-policy.md](../../../moai-cowork/skills/html-slide/references/image-backend-policy.md) 참조.
 
 ## 출력
 
@@ -235,4 +235,4 @@ gpt-image-2는 reasoning-driven 모델로 **art-director 어조의 자연어 단
 - [OpenAI Cookbook — GPT Image Generation Models Prompting Guide](https://developers.openai.com/cookbook/examples/multimodal/image-gen-models-prompting-guide) — 6-Block 프롬프트 구조
 
 참고 스킬 (MIT):
-- [wjb127/codex-image](https://github.com/wjb127/codex-image) — Claude Code 스킬, OAuth 브릿지 패턴·옵션·출력 파일명 규약 참고. 본 스킬은 wjb127의 핵심 인사이트(OAuth→REST 401, codex exec 브릿지)를 채택하고 moai-media 정책(6-Block 체이닝·한국어 verbatim·higgsfield 백엔드 선택)으로 확장했습니다.
+- [wjb127/codex-image](https://github.com/wjb127/codex-image) — Claude Code 스킬, OAuth 브릿지 패턴·옵션·출력 파일명 규약 참고. 본 스킬은 wjb127의 핵심 인사이트(OAuth→REST 401, codex exec 브릿지)를 채택하고 moai-cowork 정책(6-Block 체이닝·한국어 verbatim·higgsfield 백엔드 선택)으로 확장했습니다.

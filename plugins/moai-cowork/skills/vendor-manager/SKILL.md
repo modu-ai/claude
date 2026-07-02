@@ -107,5 +107,5 @@ vendor-manager → moai-cowork:ai-slop-reviewer → moai-cowork:humanize-korean
 
 - **실제 계약서 법적 검토** → moai-cowork:contract-review 스킬을 사용하세요
 - **발주 시스템 직접 입력** → ERP·구매 시스템에 직접 접속해야 합니다
-- **회계·지급 처리** → moai-finance 스킬이 더 적합합니다
+- **회계·지급 처리** → moai-cowork 스킬이 더 적합합니다
 - **채용·인력 아웃소싱 업체 관리** → moai-hr 스킬을 사용하세요

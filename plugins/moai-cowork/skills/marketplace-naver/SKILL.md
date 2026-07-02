@@ -111,7 +111,7 @@ version: 0.1.0
 
 - 쿠팡 가이드: `marketplace-coupang` 사용
 - 자사몰(Cafe24/Shopify): 별도 가이드 필요
-- 카카오쇼핑톡: `moai-marketing` 플러그인
+- 카카오쇼핑톡: `moai-cowork` 플러그인
 
 ## 주의사항
 

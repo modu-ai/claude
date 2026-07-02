@@ -28,7 +28,7 @@ Higgsfield 영상, Sora 2, Google Veo 3, Kling 2.1 Master, Kling 2.5 Turbo, Klin
 
 ## 전제 — MCP 등록
 
-`moai-media` 플러그인 설치 시 `.mcp.json`이 Higgsfield MCP를 자동 등록합니다 (이미지 스킬과 공유). 첫 호출 직전 Cowork에서 OAuth 인증 1회.
+`moai-cowork` 플러그인 설치 시 `.mcp.json`이 Higgsfield MCP를 자동 등록합니다 (이미지 스킬과 공유). 첫 호출 직전 Cowork에서 OAuth 인증 1회.
 
 ## 공식 11개 영상 모델 — 한눈에
 

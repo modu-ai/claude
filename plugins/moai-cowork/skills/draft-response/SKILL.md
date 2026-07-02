@@ -94,4 +94,4 @@ draft-response → moai-cowork:ai-slop-reviewer → moai-cowork:humanize-korean
 - **티켓 분류 및 우선순위 판단** → moai-cowork:ticket-triage 스킬이 더 적합합니다
 - **에스컬레이션 처리** → moai-cowork:escalation-manager 스킬을 사용하세요
 - **지식베이스 문서 작성** → moai-cowork:kb-article 스킬을 사용하세요
-- **법적 공식 답변서 (소송·분쟁 관련)** → moai-legal 스킬과 법무팀 검토를 활용하세요
+- **법적 공식 답변서 (소송·분쟁 관련)** → moai-cowork 스킬과 법무팀 검토를 활용하세요

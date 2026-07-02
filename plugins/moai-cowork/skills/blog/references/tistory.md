@@ -1,6 +1,6 @@
 # 티스토리 SEO 및 애드센스 최적화 가이드
 
-> moai-content | blog 참조 가이드 | 2026 기준
+> moai-cowork | blog 참조 가이드 | 2026 기준
 
 ## 개요
 

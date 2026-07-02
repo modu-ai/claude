@@ -109,7 +109,7 @@ for pattern in md_patterns:
 ### Layer 1.6: AI 작문 패턴 검수
 
 산출물 텍스트에서 AI가 생성한 티가 나는 표현을 검출한다.
-참조: moai-content/skills/card-news/references/card-news/anti-ai-writing.md
+참조: moai-cowork/skills/card-news/references/card-news/anti-ai-writing.md
 
 **AI 슬롭 단어 목록 (한국어):**
 

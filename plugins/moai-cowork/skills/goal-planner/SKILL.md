@@ -97,7 +97,7 @@ version: 0.1.0
 
 - **팀 OKR·로드맵·스프린트 백로그**: 조직 단위 목표 관리는 `moai-product`를 사용한다.
 - **단발성 할 일 정리**: 목표가 아니라 오늘 할 일 정리면 `time-system`이 더 맞다.
-- **사업 KPI·매출 목표**: 사업 단위 지표는 `moai-product`·`moai-finance` 계열로 보낸다.
+- **사업 KPI·매출 목표**: 사업 단위 지표는 `moai-product`·`moai-cowork` 계열로 보낸다.
 
 ## 출처
 

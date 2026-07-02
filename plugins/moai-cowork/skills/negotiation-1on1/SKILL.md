@@ -101,12 +101,12 @@ version: 0.1.0
 - **moai-cowork:conflict-handler**: 면담이 갈등·거절 상황과 얽힐 때
 - **moai-cowork:feedback-loop**: 면담에서 피드백을 주고받을 때
 - **moai-cowork:report-speak**: 면담에서 결론 먼저 설득 구조 적용
-- **moai-business**: 영업 제안·계약 협상 문서가 필요할 때
+- **moai-cowork**: 영업 제안·계약 협상 문서가 필요할 때
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **공식 성과평가·인사 면담 진행**: 평가 면담은 `moai-cowork:performance-review`를 사용한다.
-- **계약서·제안서 등 협상 문서 작성**: 문서 산출물은 `moai-business` / `moai-office`를 쓴다.
+- **계약서·제안서 등 협상 문서 작성**: 문서 산출물은 `moai-cowork` / `moai-cowork`를 쓴다.
 - **법적 분쟁·노사 협상**: 법적 효력이 걸린 협상은 전문가·공식 절차로 다룬다.
 
 ## 출처

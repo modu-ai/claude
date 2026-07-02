@@ -140,7 +140,7 @@ version: 0.1.0
 
 - 네이버 스마트스토어 가이드: `marketplace-naver` 사용
 - 자사몰(Cafe24/Shopify) 등록: 별도 가이드 필요
-- 일반 마케팅 콘텐츠: `moai-marketing` 플러그인
+- 일반 마케팅 콘텐츠: `moai-cowork` 플러그인
 
 ## 주의사항
 

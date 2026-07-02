@@ -184,7 +184,7 @@ Step 4: .md 파일 저장 + 발송 가이드 출력
 ## 후기 자산 활용
 
 - 우수 후기 → 차기 모집 랜딩·블로그·SNS 1순위 자산
-- 영상 후기 → 인스타·릴스·유튜브 쇼츠로 재가공 (`moai-media` 활용)
+- 영상 후기 → 인스타·릴스·유튜브 쇼츠로 재가공 (`moai-cowork` 활용)
 - 심층 인터뷰 → 블로그 사례 기사 (`moai-cowork:blog`) → SEO 누적
 - 정량 후기 → 사업계획서·IR·강의 소개서 신뢰 지표 (`moai-cowork:strategy-planner`)
 
@@ -196,7 +196,7 @@ Step 4: .md 파일 저장 + 발송 가이드 출력
 - `moai-cowork:ai-slop-reviewer` — 체인 2단계: AI 패턴 후처리
 - `moai-cowork:korean-spell-check` — 체인 3단계: 맞춤법 검사
 - `moai-cowork:course-operations-manual` — 강의 운영 매뉴얼 (선행 스킬)
-- `moai-media` — D+30 영상 후기 재가공 (선택)
+- `moai-cowork` — D+30 영상 후기 재가공 (선택)
 - `moai-cowork:blog` — D+30 심층 인터뷰 블로그 사례 기사 (선택)
 
 ---

@@ -114,7 +114,7 @@ gh issue create \
 - 버그 → `bug`
 - 기능 요청 → `enhancement`
 
-플러그인명이 명확하면 추가 레이블: `plugin:{플러그인명}` (예: `plugin:moai-office`)
+플러그인명이 명확하면 추가 레이블: `plugin:{플러그인명}` (예: `plugin:moai-cowork`)
 
 ### 5단계: 완료 보고
 
@@ -132,11 +132,11 @@ gh CLI가 없거나 인증되지 않은 환경에서는:
 ## 사용 예시
 
 ```
-버그 신고: moai-office PPT 생성 시 한글 폰트가 깨져요
+버그 신고: moai-cowork PPT 생성 시 한글 폰트가 깨져요
 ```
 
 ```
-기능 요청: moai-marketing에 유튜브 쇼츠 대본 스킬 추가해주세요
+기능 요청: moai-cowork에 유튜브 쇼츠 대본 스킬 추가해주세요
 ```
 
 ```
@@ -144,7 +144,7 @@ gh CLI가 없거나 인증되지 않은 환경에서는:
 ```
 
 ```
-이슈 등록: moai-content 블로그 스킬에서 이미지 업로드가 안 돼요
+이슈 등록: moai-cowork 블로그 스킬에서 이미지 업로드가 안 돼요
 ```
 
 ## 출력 형식
@@ -153,7 +153,7 @@ gh CLI가 없거나 인증되지 않은 환경에서는:
 ```
 ✅ 피드백이 등록되었습니다.
 
-이슈 #123: [bug] moai-office 한글 폰트 깨짐
+이슈 #123: [bug] moai-cowork 한글 폰트 깨짐
 https://github.com/modu-ai/cowork-plugins/issues/123
 
 감사합니다. 빠른 시일 내에 검토하겠습니다.

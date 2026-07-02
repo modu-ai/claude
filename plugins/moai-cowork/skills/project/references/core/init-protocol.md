@@ -104,14 +104,14 @@ AskUserQuestion (1질문, 4옵션)
 현재 스냅샷 — **27 플러그인 / 173 스킬** (동적 도출 결과의 참고 스냅샷일 뿐, 고정값 아님):
 
 ```
-moai-core          moai-business      moai-marketing
-moai-legal         moai-finance       moai-hr
-moai-content       moai-operations    moai-education
+moai-core          moai-cowork      moai-cowork
+moai-cowork         moai-cowork       moai-hr
+moai-cowork       moai-operations    moai-cowork
 moai-lifestyle     moai-product       moai-support
-moai-office        moai-career        moai-data
-moai-public-data   moai-research      moai-media
+moai-cowork        moai-career        moai-data
+moai-public-data   moai-research      moai-cowork
 moai-commerce      moai-bi            moai-pm
-moai-sales         moai-book          moai-design
+moai-sales         moai-cowork          moai-design
 moai-wealth        moai-productivity  moai-comms
 ```
 
@@ -173,17 +173,17 @@ done
 ```json
 {
   "scanned_at": "2026-05-18T00:00:00+09:00",
-  "plugins_installed": ["moai-core", "moai-content", "moai-office"],
+  "plugins_installed": ["moai-core", "moai-cowork", "moai-cowork"],
   "skills_available": {
-    "blog": "moai-content",
-    "card-news": "moai-content",
-    "docx-generator": "moai-office",
-    "pptx-designer": "moai-office",
+    "blog": "moai-cowork",
+    "card-news": "moai-cowork",
+    "docx-generator": "moai-cowork",
+    "pptx-designer": "moai-cowork",
     "ai-slop-reviewer": "moai-core"
   },
   "confidence": {
-    "moai-content": "HIGH",
-    "moai-office": "HIGH",
+    "moai-cowork": "HIGH",
+    "moai-cowork": "HIGH",
     "moai-core": "HIGH"
   }
 }
@@ -195,12 +195,12 @@ done
 
 | 업무 유형 | 우선 플러그인 |
 |----------|------------|
-| 사업 기획·전략 | moai-business, moai-finance |
-| 콘텐츠 제작 | moai-content, moai-marketing, moai-media |
-| 문서·행정 | moai-office, moai-legal, moai-hr |
+| 사업 기획·전략 | moai-cowork, moai-cowork |
+| 콘텐츠 제작 | moai-cowork, moai-cowork, moai-cowork |
+| 문서·행정 | moai-cowork, moai-cowork, moai-hr |
 | 제품·연구 | moai-product, moai-research, moai-data, moai-public-data |
 | 이커머스 | moai-commerce |
-| 출판·원고 | moai-book |
+| 출판·원고 | moai-cowork |
 | BI·보고 | moai-bi, moai-pm |
 | 영업·제안 | moai-sales |
 | 디자인 핸드오프 | moai-design |
@@ -262,7 +262,7 @@ Phase 1-2 결과를 바탕으로 **산출물별 실행 체인**을 설계한다.
 | 상세페이지 | `product-detail` → `ai-slop-reviewer` |
 | 캠페인 플랜 | `campaign-planner` → `pptx-designer` → `ai-slop-reviewer` |
 | SEO 감사 | `seo-audit` → `ai-slop-reviewer` |
-| 출판 원고 | `book-concept-planner` → `book-outline-designer` → `book-chapter-writer` → `ai-slop-reviewer` (moai-book 체인) |
+| 출판 원고 | `book-concept-planner` → `book-outline-designer` → `book-chapter-writer` → `ai-slop-reviewer` (moai-cowork 체인) |
 | BI 리포트 | `executive-summary` (숫자·HTML — ai-slop 생략) |
 | 주간보고 | `weekly-report` → `ai-slop-reviewer` |
 | 영업 제안서 | `proposal-writer` → `docx-generator` → `ai-slop-reviewer` |
@@ -315,23 +315,23 @@ for each skill in chain_skills:
 
 | 스킬 | 소속 플러그인 |
 |------|------------|
-| strategy-planner, market-analyst, investor-relations, consulting-brief | moai-business |
-| blog, card-news, newsletter, landing-page, copywriting, product-detail, humanize-korean | moai-content |
-| docx-generator, pptx-designer, xlsx-creator, hwpx-writer, pdf-writer | moai-office |
-| seo-audit, campaign-planner, sns-content, email-sequence, brand-identity | moai-marketing |
-| nda-triage, contract-review, compliance-check | moai-legal |
-| tax-helper, financial-statements | moai-finance |
+| strategy-planner, market-analyst, investor-relations, consulting-brief | moai-cowork |
+| blog, card-news, newsletter, landing-page, copywriting, product-detail, humanize-korean | moai-cowork |
+| docx-generator, pptx-designer, xlsx-creator, hwpx-writer, pdf-writer | moai-cowork |
+| seo-audit, campaign-planner, sns-content, email-sequence, brand-identity | moai-cowork |
+| nda-triage, contract-review, compliance-check | moai-cowork |
+| tax-helper, financial-statements | moai-cowork |
 | employment-manager, draft-offer | moai-hr |
 | resume-builder, portfolio-guide | moai-career |
 | data-visualizer, data-explorer, public-data | moai-data |
 | paper-writer, grant-writer, patent-analyzer | moai-research |
 | spec-writer, roadmap-manager, ux-researcher | moai-product |
 | draft-response, kb-article | moai-support |
-| curriculum-designer, assessment-creator | moai-education |
+| curriculum-designer, assessment-creator | moai-cowork |
 | travel-planner, event-planner | moai-lifestyle |
-| higgsfield-image, higgsfield-video, gpt-image-2-prompt, gemini-3-image-prompt, midjourney-v8-prompt, audio-gen | moai-media |
+| higgsfield-image, higgsfield-video, gpt-image-2-prompt, gemini-3-image-prompt, midjourney-v8-prompt, audio-gen | moai-cowork |
 | commerce-automation-audit, marketplace-coupang, product-photo-brief | moai-commerce |
-| book-concept-planner, book-outline-designer, book-chapter-writer | moai-book |
+| book-concept-planner, book-outline-designer, book-chapter-writer | moai-cowork |
 | executive-summary | moai-bi |
 | weekly-report | moai-pm |
 | proposal-writer | moai-sales |
@@ -404,7 +404,7 @@ for each skill in chain_skills:
     }
   ],
   "missing_skills": ["strategy-planner"],
-  "missing_plugins": ["moai-business"]
+  "missing_plugins": ["moai-cowork"]
 }
 ```
 

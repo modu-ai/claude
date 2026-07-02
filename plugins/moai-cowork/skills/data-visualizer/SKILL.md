@@ -51,7 +51,7 @@ HTML·React 대시보드(방식 2)를 산출할 때는 **코드 생성 직전에
 
 > 대시보드 스킬은 Q4 옵션 자체가 차트 스택이므로 랜딩/상세와 달리 multiSelect를 사용하지 않습니다.
 
-상세 질문 payload·Fallback 기본값은 `../../../moai-content/skills/landing-page/references/landing-page/shadcn-theme-interview.md` (공용 레퍼런스) 참조.
+상세 질문 payload·Fallback 기본값은 `../../../moai-cowork/skills/landing-page/references/landing-page/shadcn-theme-interview.md` (공용 레퍼런스) 참조.
 
 Fallback(인터뷰 생략) 기본값: `Neutral + System+Toggle + 0.5rem + Recharts`. 적용 시 응답 상단에 고지합니다.
 

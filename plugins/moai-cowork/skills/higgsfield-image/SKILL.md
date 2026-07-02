@@ -12,7 +12,7 @@ description: |
   - "캐릭터 일관성 있는 시리즈 이미지"
   - "4K 이미지 생성"
   Soul·Soul 2.0·Soul Cinema·Nano Banana·Nano Banana Pro·GPT Image·GPT Image 2·Seedream 4.0·Flux Kontext·Wan 2.2 Image·Wan 2.5 11개 공식 이미지 모델과 캐릭터 일관성(Soul Characters), 스타일 프리셋, 해상도(720p/1080p/2K/4K), 시드 고정, 비동기 잡 폴링까지 처리한 완성 이미지를 산출합니다.
-  실제 이미지 생성 요청 시 Higgsfield MCP가 연결돼 있으면 이 스킬을 사용하세요 (프롬프트만 필요하면 moai-media의 *-prompt 스킬).
+  실제 이미지 생성 요청 시 Higgsfield MCP가 연결돼 있으면 이 스킬을 사용하세요 (프롬프트만 필요하면 moai-cowork의 *-prompt 스킬).
 version: 0.1.0
 ---
 
@@ -28,7 +28,7 @@ Higgsfield 이미지, Soul, Soul 2.0, Soul Cinema, Nano Banana, Nano Banana Pro,
 
 ## 전제 — MCP 등록
 
-`moai-media` 플러그인 설치 시 `.mcp.json`이 Higgsfield MCP를 자동 등록합니다.
+`moai-cowork` 플러그인 설치 시 `.mcp.json`이 Higgsfield MCP를 자동 등록합니다.
 
 ```json
 {
@@ -39,7 +39,7 @@ Higgsfield 이미지, Soul, Soul 2.0, Soul Cinema, Nano Banana, Nano Banana Pro,
 }
 ```
 
-첫 호출 직전 Cowork에서 OAuth 인증을 1회 완료해야 합니다 (`moai-media/CONNECTORS.md` 참고).
+첫 호출 직전 Cowork에서 OAuth 인증을 1회 완료해야 합니다 (프로젝트 `.mcp.json`의 Higgsfield MCP 서버 설정에서 인증).
 
 ## 공식 11개 이미지 모델 — 한눈에
 

@@ -129,4 +129,4 @@ escalation-manager → moai-cowork:ai-slop-reviewer → moai-cowork:humanize-kor
 - **초기 티켓 분류 및 긴급도 판단** → moai-cowork:ticket-triage 스킬이 더 적합합니다
 - **일반 고객 응답 초안 작성** → moai-cowork:draft-response 스킬을 사용하세요
 - **지식베이스 문서 작성** → moai-cowork:kb-article 스킬을 사용하세요
-- **법적 분쟁 소송 대응** → moai-legal 스킬과 법무팀 또는 법률 전문가를 활용하세요
+- **법적 분쟁 소송 대응** → moai-cowork 스킬과 법무팀 또는 법률 전문가를 활용하세요

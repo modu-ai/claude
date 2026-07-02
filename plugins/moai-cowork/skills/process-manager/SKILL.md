@@ -72,4 +72,4 @@ process-manager → moai-cowork:ai-slop-reviewer → moai-cowork:humanize-korean
 - **법적 구속력이 있는 계약서 작성** → 법률 전문가 검토가 필요합니다. moai-cowork:contract-review를 함께 사용하세요
 - **실제 발주 처리 또는 시스템 입력** → ERP나 조달 시스템에 직접 접속해야 합니다
 - **인사·노무 관련 절차** → moai-cowork:people-operations 스킬이 더 적합합니다
-- **재무·예산 승인 절차** → moai-finance 스킬을 사용하세요
+- **재무·예산 승인 절차** → moai-cowork 스킬을 사용하세요

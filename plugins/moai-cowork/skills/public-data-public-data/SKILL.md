@@ -84,4 +84,4 @@ IF DATA_GO_KR_API_KEY 미설정 AND KOSIS_API_KEY 미설정:
 ## 이 스킬을 사용하지 말아야 할 때
 - **CSV/Excel 분석** → moai-cowork:data-explorer 사용
 - **차트 생성** → moai-cowork:data-visualizer 사용
-- **기업 공시** → moai-business 플러그인의 DART 연동 사용
+- **기업 공시** → moai-cowork 플러그인의 DART 연동 사용
