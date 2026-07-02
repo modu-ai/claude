@@ -1,7 +1,7 @@
 {
   "name": "moai-cowork",
   "displayName": "MoAI Cowork",
-  "version": "0.1.0",
+  "version": "3.0.0",
   "description": "모두의 AI 통합 플러그인 — 사업·이커머스·마케팅·콘텐츠·법률·재무·HR·교육·디자인·미디어 등 한국 실무 도메인 전반의 스킬을 한 플러그인에 통합. /project 로 프로젝트 워크플로우를 설계하고, 나머지 스킬은 자연어 요청 시 자동 호출됩니다.",
   "author": { "name": "모두의AI" },
   "keywords": ["moai", "cowork", "korean", "all-in-one", "통합"],
