@@ -142,19 +142,60 @@ main:
         badge: 출시예정
 
   # ============================================================
-  # ⌨️ CLI 축 (CLI axis) — 개발자용 [PLACEHOLDER — 콘텐츠는 M4에서 충전 예정]
+  # ⌨️ CLI 축 (CLI axis) — 개발자용
   # 5개 섹션 (REQ-IA-003): 시작하기 · 핵심 개념 · 일상 사용 · MoAI-ADK · 레퍼런스
-  # /cli/ URL prefix (REQ-IA-012) — M4에서 실제 콘텐츠 생성 시 ref 활성화
+  # /cli/ URL prefix (REQ-IA-012) — M4에서 실제 콘텐츠 충전 완료
   # ============================================================
   - name: CLI (개발자용)
     icon: terminal
+    ref: /cli
     defaultOpen: false
     sub:
-      - name: '[M4 예정] 시작하기'
-      - name: '[M4 예정] 핵심 개념'
-      - name: '[M4 예정] 일상 사용'
-      - name: '[M4 예정] MoAI-ADK'
-      - name: '[M4 예정] 레퍼런스'
+      - name: CLI 축 홈
+        ref: /cli
+      - name: 시작하기
+        ref: /cli/start
+      - name: CLI 설치하기
+        ref: /cli/start/install
+      - name: 첫 SPEC 사이클 실행
+        ref: /cli/start/first-spec
+      - name: 핵심 개념
+        ref: /cli/concepts
+      - name: SPEC 기반 개발
+        ref: /cli/concepts/spec-system
+      - name: DDD와 TDD
+        ref: /cli/concepts/ddd-tdd
+      - name: TRUST 5 품질 게이트
+        ref: /cli/concepts/trust5
+      - name: 하네스 엔지니어링
+        ref: /cli/concepts/harness
+      - name: 일상 사용
+        ref: /cli/daily
+      - name: 일일 작업 흐름
+        ref: /cli/daily/daily-flow
+      - name: 효과적 프롬프트
+        ref: /cli/daily/prompts
+      - name: 토큰과 비용
+        ref: /cli/daily/tokens-cost
+      - name: 문제 해결
+        ref: /cli/daily/debugging
+      - name: MoAI-ADK
+        ref: /cli/moai-adk
+      - name: 데스크탑과 CLI 브리지
+        ref: /cli/moai-adk/bridge
+        badge: 핵심
+      - name: 워크플로우 명령어
+        ref: /cli/moai-adk/workflow-commands
+      - name: 품질 명령어
+        ref: /cli/moai-adk/quality-commands
+      - name: 레퍼런스
+        ref: /cli/reference
+      - name: CLI 명령어 색인
+        ref: /cli/reference/cli-reference
+      - name: 다중 LLM 안내
+        ref: /cli/reference/multi-llm
+      - name: 고급 주제
+        ref: /cli/reference/advanced
 
   # ============================================================
   # 🧩 공통 하단 (shared bottom) — 도움말 (Office 통합 포함) · 쿡북 · 실전 트랙 · 릴리스
