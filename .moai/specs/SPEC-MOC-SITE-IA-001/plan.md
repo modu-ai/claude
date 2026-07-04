@@ -55,7 +55,7 @@ ls www/scripts/ www/tools/ 2>&1
 
 run-phase 완료 시 manager-develop는 다음을 자기검증하여 보고한다:
 
-- **E1. AC Binary PASS/FAIL Matrix** — acceptance.md AC-IA-001..023 각각 검증 명령 + 실제 출력.
+- **E1. AC Binary PASS/FAIL Matrix** — acceptance.md AC-IA-001..024 각각 검증 명령 + 실제 출력.
 - **E2. Hugo Build** — `cd www && hugo --gc --minify` → exit 0 (에러/broken link 0).
 - **E3. 링크 검사** — www/scripts 링크 체커 또는 htmltest → broken internal 0.
 - **E4. 메뉴 2축 grep** — `grep -nE '데스크탑|CLI 축|공통' www/data/menu/main.yaml` → 축 마커 매치.
@@ -135,8 +135,8 @@ flowchart TD
 
 ## §H. Cross-References
 
-- 요구사항 SSOT: `spec.md` §B (REQ-IA-001..023).
-- 수용 기준 SSOT: `acceptance.md` (AC-IA-001..023 + GWT).
+- 요구사항 SSOT: `spec.md` §B (REQ-IA-001..024).
+- 수용 기준 SSOT: `acceptance.md` (AC-IA-001..024 + GWT).
 - 진행 신호: `progress.md` §E.
 - 의존: SPEC-MOC-PLUGIN-REMEDIATION-001(R3 게이트), SPEC-MOC-BOOTSTRAP-DESKTOP-001(Tier 1~3 표).
 - 프론트매터 스키마: `.claude/rules/moai/development/spec-frontmatter-schema.md`.

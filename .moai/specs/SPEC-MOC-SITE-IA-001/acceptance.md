@@ -40,6 +40,33 @@
 
 ## §B. 수용 기준 매트릭스 (AC-IA-001 ~ 024)
 
+**GEARS Behavior Anchors** — 각 AC를 spec.md §B의 해당 REQ-IA-XXX SHALL 문장에 anchor (iter-2 D3 fix). 범주 라벨(Ubiquitous / Event-driven / Where / Unwanted behavior)은 spec.md §B의 REQ 헤더 라벨과 정확히 정렬.
+
+- **AC-IA-001** (REQ-IA-001, Ubiquitous) — **Behavior:** The menu SSOT (`www/data/menu/main.yaml`) **SHALL** organize top-level navigation into exactly two usage-environment axes — a Desktop axis (🖥️) and a Claude Code CLI axis (⌨️) — followed by a shared bottom area containing 도움말 · 쿡북 · 릴리스.
+- **AC-IA-002** (REQ-IA-002, Ubiquitous) — **Behavior:** The Desktop axis **SHALL** present its product sections in ascending learning-difficulty order: 시작하기 → CHAT → COWORK → DESIGN → CODE → 🧩 MoAI 플러그인.
+- **AC-IA-003** (REQ-IA-003, Ubiquitous) — **Behavior:** The CLI axis **SHALL** present exactly these sections in order: 시작하기 → 핵심 개념 → 일상 사용 → MoAI-ADK → 레퍼런스.
+- **AC-IA-004** (REQ-IA-004, Ubiquitous) — **Behavior:** The menu SSOT **SHALL** carry machine-detectable axis-group markers (emoji-prefixed group boundaries and/or YAML comment separators) so that the two axes and the shared bottom area are distinguishable by a grep on `www/data/menu/main.yaml`.
+- **AC-IA-005** (REQ-IA-005, Event-driven) — **Behavior:** **When** the DESIGN section is consolidated, the site **SHALL** merge `content/design/` and `content/claude-design/` into a single DESIGN section positioned under the Desktop axis.
+- **AC-IA-006** (REQ-IA-006, Event-driven) — **Behavior:** **When** a `design/` or `claude-design/` page path is removed or relocated by the merge, the site **SHALL** provide a Hugo `aliases:` redirect entry from each old path to its new canonical path.
+- **AC-IA-007** (REQ-IA-007, Event-driven) — **Behavior:** **When** the `plugins/` section is rewritten, the site **SHALL** replace the obsolete 25-plugin topology with exactly 4 plugin categories aligned to the site product axes: chat, cowork, design, code.
+- **AC-IA-008** (REQ-IA-008, Where) — **Behavior:** **Where** the plugin category is `chat`, the site **SHALL** render it as a "Chat에서 스킬·플러그인 활용" documentation hub promoted from the existing `content/chat/skills-plugins.md`, and **SHALL NOT** describe a built chat plugin.
+- **AC-IA-009** (REQ-IA-009, Ubiquitous) — **Behavior:** Each built-plugin category page (cowork, design, code) **SHALL** follow the common skeleton in this fixed order: intro prose → install diagram → top-5 skills → full skill index → recipe links.
+- **AC-IA-010** (REQ-IA-010, Event-driven) — **Behavior:** **When** the old 33 plugin pages are archived, the site **SHALL** provide an `aliases:` redirect for every removed/relocated old plugin path so that no previously-published `/plugins/...` URL 404s.
+- **AC-IA-011** (REQ-IA-011, Where) — **Behavior:** **Where** the remediated plugin state is available (SPEC-MOC-PLUGIN-REMEDIATION-001 completed), the plugin category pages **SHALL** reflect current marketplace reality as recorded in `.claude-plugin/marketplace.json` (3 plugins: moai-cowork / moai-code / moai-design).
+- **AC-IA-012** (REQ-IA-012, Ubiquitous) — **Behavior:** The CLI axis content **SHALL** live under a new `/cli/` URL prefix, which **SHALL NOT** collide with the existing Desktop `/code` section.
+- **AC-IA-013** (REQ-IA-013, Ubiquitous) — **Behavior:** The CLI axis **SHALL** be produced by porting AND rewriting (not raw port) the `moai-adk-go/docs-site/content/ko` sources into beginner Korean prose per the REQ-IA-013 section mapping.
+- **AC-IA-014** (REQ-IA-014, Ubiquitous) — **Behavior:** The MoAI-ADK CLI section **SHALL** include a mermaid `stateDiagram` depicting the SPEC lifecycle PLAN → RUN → SYNC.
+- **AC-IA-015** (REQ-IA-015, Ubiquitous) — **Behavior:** The CLI axis **SHALL** include a bridge narrative "데스크탑에서 플러그인으로 시작 → CLI에서 바이너리로 심화" that reuses the moai-code Tier 1~3 table to cross-link the Desktop CODE section and the CLI MoAI-ADK section.
+- **AC-IA-016** (REQ-IA-016, Event-driven) — **Behavior:** **When** the help area is consolidated, the site **SHALL** fold `content/office/` (2p) under the shared 도움말 area, **while** keeping `content/cookbook/` (39p) and `content/releases/` (38p) as-is, and **SHALL** provide an `aliases:` redirect for the relocated office paths.
+- **AC-IA-017** (REQ-IA-017, Event-driven) — **Behavior:** **When** the cookbook/tracks menu overlap is de-duplicated, the menu SSOT **SHALL** present each track exactly once.
+- **AC-IA-018** (REQ-IA-018, Ubiquitous) — **Behavior:** Each content page authored or rewritten under this SPEC **SHALL** be prose-first (why → when → how narrative), using tables and lists as support only, not as the primary body.
+- **AC-IA-019** (REQ-IA-019, Ubiquitous) — **Behavior:** Each content page authored or rewritten under this SPEC **SHALL** contain at least one mermaid diagram (flowchart/journey for concepts, sequenceDiagram for procedures, stateDiagram for lifecycles).
+- **AC-IA-020** (REQ-IA-020, Ubiquitous) — **Behavior:** Each content page authored or rewritten under this SPEC **SHALL** end with a source-citation block, and the existing `content/help/source-index.md` index **SHALL** be extended to cover both axes (Desktop + CLI), removing its current "개발자/CLI·SDK 영역은 다루지 않습니다" limitation.
+- **AC-IA-021** (REQ-IA-021, Where) — **Behavior:** **Where** a page belongs to the Desktop axis, its tone **SHALL** use non-developer metaphor vocabulary; **where** a page belongs to the CLI axis, its tone **SHALL** use precise technical terms expressed in friendly prose.
+- **AC-IA-022** (REQ-IA-022, Ubiquitous) — **Behavior:** The site **SHALL** preserve existing section URLs and treat the MENU reorganization (2-axis grouping) as the primary structural change; the only new URL prefix introduced by this SPEC **SHALL** be `/cli/`.
+- **AC-IA-023** (REQ-IA-023, Unwanted behavior) — **Behavior:** The site **SHALL NOT** break any existing internal link; **when** any path is removed or relocated, an `aliases:` redirect **SHALL** preserve the old URL; **when** the site is built, the dedicated internal-link checker (`www/scripts/check-links.mjs`) **SHALL** report zero broken internal links.
+- **AC-IA-024** (REQ-IA-024, Ubiquitous) — **Behavior:** Each content page authored or rewritten under this SPEC **SHALL** carry an `ia_in_scope: true` frontmatter marker so that the in-scope page set is mechanically enumerable via `grep -rl '^ia_in_scope: true'`; the wholly-new `content/cli/**` section **SHALL** be 100% marked.
+
 | AC | REQ | 검증 명령 (기계 검증) | 통과 기준 |
 |----|-----|----------------------|-----------|
 | AC-IA-001 | REQ-IA-001 | `grep -nE '데스크탑|CLI 축|공통|shared' www/data/menu/main.yaml` | 데스크탑 축·CLI 축·공통 하단 3개 그룹 마커 모두 매치 |
