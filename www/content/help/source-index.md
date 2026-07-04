@@ -100,7 +100,7 @@ geekdocBreadcrumb: true
 
 ## Office 통합
 
-### [Microsoft 365 연동](/office/microsoft-365/)
+### [Microsoft 365 연동](/help/office/microsoft-365/)
 - [Use Claude for Excel](https://support.claude.com/en/articles/12650343-use-claude-for-excel)
 - [Use Claude for PowerPoint](https://support.claude.com/en/articles/13521390-use-claude-for-powerpoint)
 - [Use Claude for Word](https://support.claude.com/en/articles/14465370-use-claude-for-word)

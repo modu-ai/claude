@@ -157,8 +157,8 @@ main:
       - name: '[M4 예정] 레퍼런스'
 
   # ============================================================
-  # 🧩 공통 하단 (shared bottom) — 도움말 · Office 통합 · 쿡북 · 실전 트랙 · 릴리스
-  # (두 축이 공유하는 영역 — REQ-IA-001)
+  # 🧩 공통 하단 (shared bottom) — 도움말 (Office 통합 포함) · 쿡북 · 실전 트랙 · 릴리스
+  # (두 축이 공유하는 영역 — REQ-IA-001; Office는 M3에서 도움말 하로 통합 — REQ-IA-016)
   # ============================================================
   - name: 도움말
     icon: book
@@ -180,17 +180,12 @@ main:
         ref: /help/usage-limits
       - name: 문제 해결
         ref: /help/troubleshooting
+      - name: Office 통합 개요
+        ref: /help/office
+      - name: Microsoft 365 연동
+        ref: /help/office/microsoft-365
       - name: 가이드 문서 색인
         ref: /help/source-index
-
-  - name: Office 통합
-    icon: plug
-    defaultOpen: false
-    sub:
-      - name: Office 통합 개요
-        ref: /office
-      - name: Microsoft 365 연동
-        ref: /office/microsoft-365
 
   - name: 쿡북
     icon: chef
@@ -207,12 +202,6 @@ main:
         ref: /cookbook/blog-pipeline
       - name: 보고서 자동화
         ref: /cookbook/report-automation
-      - name: 마케팅 트랙
-        ref: /cookbook/tracks/track-marketing
-      - name: 문서 트랙
-        ref: /cookbook/tracks/track-documents
-      - name: 데이터 트랙
-        ref: /cookbook/tracks/track-data
       - name: 사업계획서
         ref: /cookbook/business-plan
       - name: NDA 일괄 검토
