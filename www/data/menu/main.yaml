@@ -1,4 +1,9 @@
 main:
+  # ============================================================
+  # 🖥️ 데스크탑 축 (Desktop axis) — 비개발자용
+  # 학습 난이도 상승 순서: 시작하기 → Chat → Cowork → Design → Code → MoAI 플러그인
+  # (Chat → Cowork → Design → Code = 학습 난이도 상승 경로)
+  # ============================================================
   - name: 시작하기
     icon: home
     defaultOpen: true
@@ -122,6 +127,39 @@ main:
       - name: 첫 작업 실행
         ref: /code/first-task
 
+  - name: MoAI 플러그인
+    icon: plug
+    sub:
+      - name: 플러그인 허브
+        ref: /plugins
+      - name: MoAI-Cowork (28종)
+        ref: /plugins/cowork
+      - name: MoAI-Code
+        ref: /plugins/code
+        badge: 출시예정
+      - name: MoAI-Design
+        ref: /plugins/design-plugin
+        badge: 출시예정
+
+  # ============================================================
+  # ⌨️ CLI 축 (CLI axis) — 개발자용 [PLACEHOLDER — 콘텐츠는 M4에서 충전 예정]
+  # 5개 섹션 (REQ-IA-003): 시작하기 · 핵심 개념 · 일상 사용 · MoAI-ADK · 레퍼런스
+  # /cli/ URL prefix (REQ-IA-012) — M4에서 실제 콘텐츠 생성 시 ref 활성화
+  # ============================================================
+  - name: CLI (개발자용)
+    icon: terminal
+    defaultOpen: false
+    sub:
+      - name: '[M4 예정] 시작하기'
+      - name: '[M4 예정] 핵심 개념'
+      - name: '[M4 예정] 일상 사용'
+      - name: '[M4 예정] MoAI-ADK'
+      - name: '[M4 예정] 레퍼런스'
+
+  # ============================================================
+  # 🧩 공통 하단 (shared bottom) — 도움말 · Office 통합 · 쿡북 · 실전 트랙 · 릴리스
+  # (두 축이 공유하는 영역 — REQ-IA-001)
+  # ============================================================
   - name: 도움말
     icon: book
     defaultOpen: false
@@ -153,20 +191,6 @@ main:
         ref: /office
       - name: Microsoft 365 연동
         ref: /office/microsoft-365
-
-  - name: MoAI 플러그인
-    icon: plug
-    sub:
-      - name: 플러그인 허브
-        ref: /plugins
-      - name: MoAI-Cowork (28종)
-        ref: /plugins/cowork
-      - name: MoAI-Code
-        ref: /plugins/code
-        badge: 출시예정
-      - name: MoAI-Design
-        ref: /plugins/design-plugin
-        badge: 출시예정
 
   - name: 쿡북
     icon: chef
