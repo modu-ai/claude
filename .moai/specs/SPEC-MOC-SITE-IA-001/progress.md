@@ -2,8 +2,8 @@
 
 - **SPEC ID**: SPEC-MOC-SITE-IA-001
 - **Tier**: L (proposed)
-- **Status**: draft (plan-phase artifacts created)
-- **Phase**: plan-phase AUDITED (iter-2 PASS 0.90 @ e0e31d2, 2026-07-04) + Implementation Kickoff approved (Option 1) → run-phase entry
+- **Status**: implemented (sync-phase complete)
+- **Phase**: plan-phase AUDITED (iter-2 PASS 0.90 @ e0e31d2, 2026-07-04) + Implementation Kickoff approved (Option 1) → run-phase complete → sync-phase complete
 
 ## §E.1 Plan-phase Audit-Ready Signal
 
@@ -346,7 +346,16 @@ manager-develop이 10건 broken으로 4-옵션 blocker 반환. orchestrator inde
 
 ## §E.4 Sync-phase Audit-Ready Signal
 
-_<pending sync-phase — owned by manager-docs>_
+- **sync_complete_at**: 2026-07-05
+- **sync_scope**: CHANGELOG.md entry + spec.md frontmatter transition (status: implemented, updated: 2026-07-05) + progress.md §E.4 completion
+- **sync_commit_sha**: (이 커밋 — sync-phase artifacts)
+- **sync_status**: complete (sync-phase fully closed)
+- **changelog_entry_emitted**: true (CHANGELOG.md [Unreleased] 하단에 SPEC-MOC-SITE-IA-001 entry 추가)
+- **readme_updated**: false (README.md는 마켓플레이스 저장소 설명; www/ 사이트 IA 변경과 무관하여 수정 없음)
+- **frontmatter_status**: implemented (spec.md status 필드 transition 완료)
+- **ac_pass_with_debt_documented**: AC-IA-023 (PASS-WITH-DEBT) — pre-existing out-of-scope broken internal links 10건 (cookbook 본문 5건 + Hugo taxonomy 렌더링 한계 5건, commit 6d78fbf부터 기원; SPEC 산출 콘텐츠 broken 0건). 전용 링크체커(`www/scripts/check-links.mjs`) 정상 작동; 별도 후속 SPEC에서 정비.
+- **codemaps_updated**: false (Go 코드 아키텍처 변경 없음; www/content IA 재편만 수행)
+- **mx_tags_validated**: N/A (run-phase 생성 Node script 1개(`check-links.mjs`) - 단일 목적 스크립트로 MX 태그 불필요)
 
 ## §E.5 Mx-phase Audit-Ready Signal
 

@@ -2,9 +2,9 @@
 id: SPEC-MOC-SITE-IA-001
 title: "모두의 클로드 사이트 정보 구조 2축 재편 (데스크탑/CLI) + DESIGN 병합 + 플러그인 문서 현행화 + CLI 축 신규 콘텐츠"
 version: "0.1.0"
-status: in-progress
+status: implemented
 created: 2026-07-02
-updated: 2026-07-04
+updated: 2026-07-05
 author: manager-spec
 priority: P1
 phase: "v2.28.0"
