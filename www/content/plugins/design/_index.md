@@ -5,8 +5,7 @@ description: "에이전틱 디자인 플러그인 — Claude Design 연동, 디�
 geekdocBreadcrumb: true
 geekdocCollapseSection: false
 ia_in_scope: true
-aliases:
-  - /plugins/design-plugin
+aliases: ["/plugins/design-plugin"]
 ---
 
 ## Claude Design과 한 팀이 되는 플러그인, moai-design
