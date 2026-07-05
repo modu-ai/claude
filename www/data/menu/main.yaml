@@ -130,16 +130,16 @@ main:
   - name: MoAI 플러그인
     icon: plug
     sub:
-      - name: 플러그인 허브
+      - name: 플러그인 카탈로그
         ref: /plugins
-      - name: MoAI-Cowork (28종)
+      - name: Chat — 스킬·플러그인 활용
+        ref: /plugins/chat
+      - name: moai-cowork (한국 실무 177스킬)
         ref: /plugins/cowork
-      - name: MoAI-Code
+      - name: moai-design (에이전틱 디자인)
+        ref: /plugins/design
+      - name: moai-code (무설치 개발 방법론)
         ref: /plugins/code
-        badge: 출시예정
-      - name: MoAI-Design
-        ref: /plugins/design-plugin
-        badge: 출시예정
 
   # ============================================================
   # ⌨️ CLI 축 (CLI axis) — 개발자용
