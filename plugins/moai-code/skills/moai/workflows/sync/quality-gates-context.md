@@ -185,13 +185,9 @@ moai hook db-schema-sync
 - Output: updated `.moai/project/db/schema.md`, `erd.mmd`, `migrations.md`; refresh report
 - Changes are staged for the sync commit — no separate commit is created
 
-<!-- 무설치 NOTE (04 §4.4): 위 `moai hook db-schema-sync` 호출은 `moai` CLI(Go hook)가 설치된 경우에만 동작한다. 무설치(no-install) 에디션에서는 이 서브커맨드가 존재하지 않아 Phase 0.08 자동 갱신이 no-op이 되므로, DB 문서(schema.md/erd.mmd/migrations.md)는 수동으로 작성·갱신한다. 원문은 의미 보존을 위해 유지. -->
-
 On refresh failure (parser error, template conflict): log the error, include in sync report under "DB doc refresh warnings", and continue to Phase 0.1. Non-blocking by contract.
 
 The `/moai db` slash command was retired (Bundle A, 2026-05-16) — sync workflow is now the sole entry point for db doc refresh. Internal `moai hook db-schema-sync` Go subcommand remains for hook event handlers and direct invocation by sync workflow.
-
-<!-- 무설치 NOTE (04 §4.4): 여기서 언급된 내부 `moai hook db-schema-sync` Go 서브커맨드는 바이너리 설치 시에만 존재한다. 무설치 에디션에서는 해당 서브커맨드가 없으므로 sync workflow의 DB 문서 자동 갱신은 수행되지 않고 수동 문서화로 대체된다. 원문은 의미 보존을 위해 유지. -->
 
 #### Step 0.08.4: Advisory Path
 

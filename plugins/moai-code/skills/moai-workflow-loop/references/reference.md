@@ -114,8 +114,6 @@ claude -p "/moai:loop --max-iterations 5"
 
 > Note: The Go edition provides LSP capabilities through compiled hook subcommands in internal/lsp/. The examples below show the conceptual API; actual invocation is via moai hook post-tool-use.
 
-<!-- 무설치 NOTE (04 §4.4 / §6): `moai hook post-tool-use`(Go hook)는 무설치 에디션에 존재하지 않는다. 무설치에서는 LSP 진단을 언어 툴체인 배치(go vet / eslint / ruff / clippy) 실행으로 대체하며, 아래 API는 개념 참고용이다. 원문은 의미 보존을 위해 유지. -->
-
 ### MoAILSPClient
 
 High-level LSP client interface for getting diagnostics, finding references, renaming symbols, and other LSP operations.

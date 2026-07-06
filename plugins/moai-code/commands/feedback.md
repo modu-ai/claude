@@ -1,4 +1,4 @@
-<!-- parity-source: internal/template/templates/.claude/commands/moai/feedback.md.tmpl @ b1ff846c4 -->
+<!-- parity-source: internal/template/templates/.claude/commands/moai/feedback.md.tmpl @ b8354304c -->
 ---
 description: 피드백 수집 및 GitHub 이슈 생성 (버그 리포트, 기능 요청)
 argument-hint: "[\"설명\"]"

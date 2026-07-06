@@ -139,7 +139,7 @@ Typo/format fixes · single-config edit · user's explicit "do it yourself" · n
 
 ### Token-Cost Axis (Skill injection vs Agent spawn)
 
-Once you have decided to delegate, the *mechanism* is also a token-cost decision, not only a capability one. A **Skill** injects its content into the **current** context window — cheap, because the conversation continues and only the skill body's tokens are added. An **Agent** spawns an **isolated** context window — the spawned sub-agent re-establishes its working context from scratch, which the "Dive into Claude Code" paper (arXiv:2604.14228) measures at roughly **~7× the token cost** of a Skill injection for comparable work. (The ~7× figure is the paper's measurement of Claude Code internals, not a moai-adk benchmark.)
+Once you have decided to delegate, the *mechanism* is also a token-cost decision, not only a capability one. A **Skill** injects its content into the **current** context window — cheap, because the conversation continues and only the skill body's tokens are added. An **Agent** spawns an **isolated** context window — the spawned sub-agent re-establishes its working context from scratch, which costs meaningfully more tokens for comparable work. (The "Dive into Claude Code" paper (arXiv:2604.14228) reports that **agent teams in plan mode cost roughly ~7× the tokens of a single session** — a related but distinct comparison, not a skill-vs-agent benchmark. The Skill-over-Agent cost intuition here is a reasonable moai extrapolation of that isolated-context principle, additionally consistent with Anthropic's report that a multi-agent system can consume ~15× the tokens of a single-agent chat — https://www.anthropic.com/engineering/multi-agent-research-system.)
 
 Directive: **prefer Skill injection when shared context is acceptable; spawn an Agent only when isolation is genuinely needed** — independence, bias-prevention, parallel fan-out, or read-only investigation that should not pollute the main context. This token-cost axis is additive to the quality / independence / bias weighing above — it tells you *how* to delegate once the three questions have told you *whether* to delegate.
 
@@ -591,6 +591,7 @@ Header translation table:
 | Next | `Next:` | `다음:` | `次:` | `下一步:` |
 
 Rules:
+- [HARD] Canonical taxonomy anchor (always-loaded): the four canonical terms are Epic / SPEC / Milestone / Constitution; the legacy aliases Sprint / cohort / Round / Wave are RETIRED and MUST NOT appear in banners or orchestrator output. Full taxonomy + migration table: `.claude/rules/moai/development/sprint-round-naming.md` (path-scoped).
 - [HARD] `Epic [N]` token preserved verbatim across all locales — protocol identifier per `.claude/rules/moai/development/sprint-round-naming.md` (Epic = multi-SPEC grouping, distinct from Milestone = within-SPEC ordered step). Korean prose users MAY use parenthetical pairing on first mention: `Epic 8 (에픽 8)` then either form
 - [HARD] `🎯 phase position` MUST classify as one of: `entry` (Epic just started, first SPEC active) / `mid` (multiple SPECs in flight) / `closing` (last SPEC nearing close) — these labels translate per the table
 - [HARD] `📋 Current SPEC` MUST include SPEC-ID + Tier (S/M/L) + phase (plan/run/sync/mx) + milestone position (e.g., `M3/M6` for Tier M, omit if Tier S single-pass)
@@ -679,6 +680,7 @@ Canonical 6-block format **bounded by cut-line markers** (structural skeleton �
 
 ultrathink. <SPEC-ID or Epic N> <phase> entering.
 # /effort ultracode   ← emit ONLY when the next SPEC's plan declares workflow fan-out (dynamic Workflow or Agent Teams); omit otherwise (ultracode is NOT restored by ultrathink.).
+# /goal <completion-condition>   ← emit ONLY when the next SPEC is run-phase AND has a machine-verifiable end-state; omit otherwise (/goal is NOT restored by ultrathink.; does NOT authorize autonomous run-phase entry — Implementation Kickoff Approval still required).
 applied lessons: <memory-file-1>, <memory-file-2>, ..., lessons #N
 source_session_id: <UUID from moai session current>
 
@@ -715,7 +717,7 @@ Header translation table (translate per `conversation_language` setting in `.moa
 
 Before emitting, render-time obligations the orchestrator MUST satisfy — the full specifications live in the SSOT, NOT inline here:
 
-- **Pre-emit self-check (9 items)** — `session-handoff.md` §Pre-emit self-check (session-handoff template completeness). Covers: `ultrathink.` opener; purpose-conditional `/effort ultracode` re-set line (workflow-fan-out only); Block 2 ≥1 memory file + `source_session_id` (with the environment fallback above); Block 4 ≤4 verifiable preconditions; Block 5 single primary action; L3 worktree Block 0 (3 launchers + precondition 0); cut-line markers present (`✂`/`─` verbatim, text translated); Block 6 workflow-context header (`머지 후:` PR-based / `후속:` trunk-based / omit single-SPEC).
+- **Pre-emit self-check (10 items)** — `session-handoff.md` §Pre-emit self-check (session-handoff template completeness). Covers: `ultrathink.` opener; purpose-conditional `/effort ultracode` re-set line (workflow-fan-out only); purpose-conditional `/goal` re-set line (run-phase + machine-verifiable end-state only, does NOT authorize autonomous run-phase entry); Block 2 ≥1 memory file + `source_session_id` (with the environment fallback above); Block 3 Preconditions header present; Block 4 ≤4 verifiable preconditions; Block 5 single primary action; L3 worktree Block 0 (3 launchers + precondition 0); cut-line markers present (`✂`/`─` verbatim, text translated); Block 6 workflow-context header (`머지 후:` PR-based / `후속:` trunk-based / omit single-SPEC).
 - **Auto-memory persistence** (mandatory — survives `/clear`) — `session-handoff.md` §Auto-Memory Integration. Save the verbatim message to `project_<sprint>_<spec>_<status>.md`, update the MEMORY.md index, mark superseded entries.
 - **Output surface order + anti-patterns** — `session-handoff.md` §Output Surface (User-Facing) + §Anti-Patterns. Surface order: fenced ```text``` block (cut-line bounded) → memory file path → one-sentence next-session summary.
 

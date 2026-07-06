@@ -132,7 +132,7 @@ Four criteria cannot be compensated by high scores in other dimensions. ANY sing
 
 **(MP-2) EARS/GEARS Format Compliance**: Every acceptance criterion must match one of the five GEARS patterns (or their legacy EARS equivalents) listed in M3. Informal language, Given/When/Then test scenarios mislabeled as EARS/GEARS, or mixed informal/formal within a single criterion = FAIL. Backward compatibility: SPECs authored before the canonical GEARS migration policy (predecessor migration) using EARS legacy notation remain valid for 6 months from v3.0.0 release; new SPECs SHOULD use GEARS canonical form.
 
-**(MP-3) YAML Frontmatter Validity**: Required fields must all be present with correct types. Required fields are: id (string), version (string), status (string), created_at (ISO date string), priority (string), labels (array or string). Any missing required field = FAIL. Type mismatch = FAIL.
+**(MP-3) YAML Frontmatter Validity**: Required fields must all be present with correct types, matching the canonical 12-field schema in `.claude/rules/moai/development/spec-frontmatter-schema.md` (the SSOT). The 12 required fields are: `id` (string), `title` (string), `version` (quoted semver string), `status` (enum), `created` (ISO date `YYYY-MM-DD`), `updated` (ISO date `YYYY-MM-DD`), `author` (string), `priority` (enum `P0`|`P1`|`P2`|`P3` or `High`|`Medium`|`Low`|`Critical`), `phase` (string), `module` (string), `lifecycle` (enum `spec-anchored`|`spec-lite`|`exploratory`), `tags` (comma-separated string). The snake_case aliases `created_at`, `updated_at`, `labels`, and `spec_id` are REJECTED by the YAML decoder — the canonical names are `created`, `updated`, `tags`, and `id` respectively. A SPEC that uses a rejected alias produces an empty-value `FrontmatterInvalid` finding and FAILS MP-3. Any missing required field = FAIL. Type mismatch = FAIL.
 
 **(MP-4) Section 22 Language Neutrality** (applies when the SPEC targets template-bound or universal content): The SPEC must not hardcode language-specific tool names (e.g., "gopls", "pylsp", "rust-analyzer") unless all 16 supported languages (go, python, typescript, javascript, rust, java, kotlin, csharp, ruby, php, elixir, cpp, scala, r, flutter, swift) are enumerated with equal weight. If the SPEC covers multi-language tooling and enumerates some languages but not others, = FAIL. If the SPEC is clearly scoped to a single-language project, this criterion is N/A and auto-passes.
 
@@ -242,12 +242,20 @@ Execute each check in order. Mark each item PASS, FAIL, or N/A with evidence.
 
 ### Group 1: YAML Frontmatter
 
-- FC-1: `id` field present (string matching SPEC-{DOMAIN}-{NUM} pattern)
-- FC-2: `version` field present (string)
-- FC-3: `status` field present (string: draft, active, implemented, deprecated)
-- FC-4: `created_at` field present (ISO date string format)
-- FC-5: `priority` field present (string: critical, high, medium, low)
-- FC-6: `labels` field present (array or string)
+Verify against the canonical 12-field schema in `.claude/rules/moai/development/spec-frontmatter-schema.md` (the SSOT). The field names, the `status` enum, and the `priority` format below match that schema and the Group A frontmatter grep above.
+
+- FC-1: `id` field present (string matching the `SPEC-{DOMAIN}-{NUM}` pattern)
+- FC-2: `title` field present (non-empty string)
+- FC-3: `version` field present (quoted semver string, e.g. `"0.1.0"`)
+- FC-4: `status` field present — one of the 8 canonical values: `draft`, `planned`, `in-progress`, `implemented`, `completed`, `superseded`, `archived`, `rejected`
+- FC-5: `created` field present (ISO date `YYYY-MM-DD`) — NOT the rejected alias `created_at`
+- FC-6: `updated` field present (ISO date `YYYY-MM-DD`) — NOT the rejected alias `updated_at`
+- FC-7: `author` field present (non-empty string)
+- FC-8: `priority` field present — `P0`|`P1`|`P2`|`P3` or `High`|`Medium`|`Low`|`Critical`
+- FC-9: `phase` field present (non-empty string)
+- FC-10: `module` field present (non-empty, path-like string)
+- FC-11: `lifecycle` field present — `spec-anchored`|`spec-lite`|`exploratory`
+- FC-12: `tags` field present (comma-separated string) — NOT the rejected alias `labels`
 
 ### Group 2: Document Structure
 
@@ -469,48 +477,6 @@ This agent is designed to be invoked by orchestrators (MoAI, plan workflow) afte
 
 The audit boundary is clear: plan-auditor audits, manager-spec creates and revises. These roles must not be merged.
 
-## Deep Reasoning Escalation
+## Model/effort escalation
 
-This agent uses `model: inherit` (default) or `model: haiku` (speed-critical
-exceptions: manager-docs, manager-git) per the canonical Inherit-by-Default
-Convention in `.claude/rules/moai/development/model-policy.md`. The inherit
-default preserves the parent session's 1M context entitlement and avoids the
-spawn-failure bug documented in Anthropic Issues #45847, #51060, #36670 — when
-a `[1m]` parent (e.g., `claude-opus-4-7[1m]`) spawns a subagent that declares
-an explicit `model: sonnet` or `model: opus` in frontmatter, the 1M
-entitlement does NOT propagate and spawn fails with `API Error: Usage credits
-required for 1M context`.
-
-When the current sub-task requires deeper reasoning than the inherited model's
-working memory provides (architectural decisions, multi-step trade-off analysis,
-confirmation of a high-impact design choice, or after 2+ standard attempts have
-failed to converge), spawn an isolated opus sub-agent via the Agent tool's
-`model` parameter and absorb its result:
-
-```text
-Agent(
-  subagent_type: "general-purpose",
-  model: "opus",
-  prompt: "<focused reasoning task with explicit context excerpt>"
-)
-```
-
-Per-spawn `Agent(model: "opus")` does NOT inherit the parent session's 1M
-context — the caller MUST provide a complete context excerpt in the prompt.
-This is acceptable because opus escalation targets focused reasoning, not
-broad context tasks.
-
-Reserve this per-spawn escalation for:
-- Architectural decision points
-- Cross-cutting design conformance check ("consult opus" pattern per Anthropic docs)
-- Independent confirmation of an inherited-model conclusion that affects downstream agents
-
-Do NOT escalate for:
-- Routine code edits or file generation
-- Single-document content updates
-- Mechanical operations (git, file I/O, format-only changes — these run on
-  haiku agents or inherit anyway and do not benefit from opus)
-
-Most MoAI tasks complete on the inherited model without escalation. The
-escalation budget is intended for the 5-10% of tasks where independent deep
-reasoning materially improves outcome quality.
+> **Model/effort escalation**: deep-reasoning escalation is an ORCHESTRATOR decision (this agent cannot spawn sub-agents — no `Agent` tool). See `.claude/rules/moai/development/model-policy.md`.

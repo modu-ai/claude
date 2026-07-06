@@ -94,8 +94,6 @@ Exit code 0 indicates loop complete or inactive. Exit code 1 indicates continue 
 
 The Go LSP client is integrated into the hook system. LSP diagnostics are automatically collected via the post-tool hook (moai hook post-tool-use).
 
-<!-- 무설치 NOTE (04 §4.4 / §6): `moai hook post-tool-use`의 LSP 진단 수집은 Go hook 전용 경로다. 무설치(no-install) 에디션에서는 상주 LSP 대신 언어 툴체인 배치(go vet / eslint / ruff / clippy)를 Bash로 직접 실행해 진단을 수집한다(§6 품질 게이트). 원문은 의미 보존을 위해 유지. -->
-
 To get diagnostics for a file, call the get_diagnostics method asynchronously with the file path.
 
 Process the returned diagnostics by iterating through each diagnostic object. Check the severity property against DiagnosticSeverity.ERROR to identify errors. Access the line number from diag.range.start.line and the message from diag.message.
@@ -153,8 +151,8 @@ Skills:
 Agents:
 
 - manager-develop: DDD implementation
-- manager-quality: Quality validation
-- manager-quality: Complex debugging
+- manager-develop (cycle_type=autofix): complex debugging and fix proposal (former manager-quality debug role)
+- /moai gate skill or sync-phase-quality-gate.sh Stop hook: quality validation (former manager-quality gate role)
 
 Commands:
 

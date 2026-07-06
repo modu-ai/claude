@@ -188,8 +188,6 @@ files. Detected metadata is consumed by sync workflow Phase 0.08 (DB Schema Doc
 Check) to drive automatic refresh via `moai hook db-schema-sync` when
 `db.auto_sync: true` is set in `.moai/config/sections/db.yaml`.
 
-<!-- 무설치 NOTE (04 §4.4): 자동 DB 문서 동기화(`moai hook db-schema-sync`)는 `moai` CLI(Go hook)가 설치된 경우에만 동작하는 기능이다. 무설치(no-install) 에디션에서는 이 경로가 no-op이 되므로 DB 문서(schema.md/erd.mmd/migrations.md)는 수동으로 작성·갱신한다. 원문은 의미 보존을 위해 유지(무분별 치환 금지). -->
-
 [HARD] This phase runs automatically without user interaction. No AskUserQuestion is needed.
 
 Steps:
@@ -206,8 +204,6 @@ When `detected_db=true`, Phase 4.2 (Next Steps) emits a guidance note to enable
 `db.auto_sync: true` in `.moai/config/sections/db.yaml`. The user opts in once,
 and subsequent `/moai sync` runs automatically refresh `.moai/project/db/` derived
 docs (schema.md, erd.mmd, migrations.md) via Phase 0.08 → `moai hook db-schema-sync`.
-
-<!-- 무설치 NOTE (04 §4.4): 위 자동 갱신 경로(`moai hook db-schema-sync`)는 Go hook 전용이다. 무설치 에디션에서는 이 자동 동기화가 실행되지 않으며, `.moai/project/db/` 파생 문서는 수동 문서화로 대체한다. 원문은 의미 보존을 위해 유지. -->
 
 The `/moai db` slash command was retired (Bundle A, 2026-05-16). Initial DB
 documentation scaffolding is now handled by `.moai/project/db/` templates created
@@ -273,9 +269,6 @@ Development Mode: [tdd/ddd] (auto-configured in Phase 3.7)
 ### Step 4.2: Next Steps
 
 [HARD] After displaying the summary, read the `detected_db` flag from `.moai/state/db-detection.json` (written by Phase 4.1a), then use AskUserQuestion to present conditional options based on the three-way branch below.
-
-<!-- 무설치 NOTE (04 §4.4): 아래 옵션 중 자동 DB 문서 동기화 관련 항목("Enable automatic DB doc sync" / "Verify auto-sync enabled")은 `moai hook db-schema-sync`(Go hook 전용)에 의존한다. 무설치 에디션에서는 이 자동 경로가 동작하지 않으므로, 해당 옵션 선택 시 DB 문서를 수동으로 작성·갱신하도록 안내한다. 옵션 텍스트는 의미 보존을 위해 원문 유지. -->
-
 
 **Branch A — DB detected, `.moai/project/db/` does NOT exist (REQ-006, AC-6):**
 
