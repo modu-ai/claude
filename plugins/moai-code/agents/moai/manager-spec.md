@@ -25,12 +25,6 @@ skills:
   - moai-workflow-project
   - moai-workflow-spec
   - moai-workflow-worktree
-hooks:
-  SubagentStop:
-    - hooks:
-        - type: command
-          command: "\"$CLAUDE_PROJECT_DIR/.claude/hooks/moai/handle-agent-hook.sh\" spec-completion"
-          timeout: 10
 ---
 
 # SPEC Builder

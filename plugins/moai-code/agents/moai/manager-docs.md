@@ -24,18 +24,6 @@ skills:
   - moai-workflow-project
   - moai-workflow-spec
   - moai-workflow-worktree
-hooks:
-  PostToolUse:
-    - matcher: "Write|Edit"
-      hooks:
-        - type: command
-          command: "\"$CLAUDE_PROJECT_DIR/.claude/hooks/moai/handle-agent-hook.sh\" docs-verification"
-          timeout: 10
-  SubagentStop:
-    - hooks:
-        - type: command
-          command: "\"$CLAUDE_PROJECT_DIR/.claude/hooks/moai/handle-agent-hook.sh\" docs-completion"
-          timeout: 10
 ---
 
 # Documentation Manager Expert

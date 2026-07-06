@@ -34,24 +34,6 @@ skills:
   - moai-workflow-project
   - moai-workflow-spec
   - moai-workflow-worktree
-hooks:
-  PreToolUse:
-    - matcher: "Write|Edit"
-      hooks:
-        - type: command
-          command: "\"$CLAUDE_PROJECT_DIR/.claude/hooks/moai/handle-agent-hook.sh\" develop-pre-implementation"
-          timeout: 5
-  PostToolUse:
-    - matcher: "Write|Edit"
-      hooks:
-        - type: command
-          command: "\"$CLAUDE_PROJECT_DIR/.claude/hooks/moai/handle-agent-hook.sh\" develop-post-implementation"
-          timeout: 10
-  SubagentStop:
-    - hooks:
-        - type: command
-          command: "\"$CLAUDE_PROJECT_DIR/.claude/hooks/moai/handle-agent-hook.sh\" develop-completion"
-          timeout: 10
 ---
 
 <!-- @MX:ANCHOR: [AUTO] develop-dispatch — unified entry point for all DDD+TDD implementation; fan_in >= 5 (the former manager-ddd / manager-tdd cycles + per-spawn general-purpose security / devops / refactoring specialists all route here) -->

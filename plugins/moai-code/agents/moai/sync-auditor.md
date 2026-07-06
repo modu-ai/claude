@@ -18,12 +18,6 @@ memory: project
 skills:
   - moai-foundation-core
   - moai-foundation-quality
-hooks:
-  SubagentStop:
-    - hooks:
-        - type: command
-          command: "\"$CLAUDE_PROJECT_DIR/.claude/hooks/moai/handle-agent-hook.sh\" evaluator-completion"
-          timeout: 10
 ---
 
 # sync-auditor - Independent Quality Evaluator
