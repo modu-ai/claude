@@ -177,5 +177,7 @@ Claude Design에 올릴 디자인 시스템 자료를 Linear 스타일 기반으
 
 - [`systems/registry.md`](systems/registry.md) — 75개 전체 카탈로그 인덱스
 - [`systems/anthropic-claude.md`](systems/anthropic-claude.md) · [`systems/clickhouse.md`](systems/clickhouse.md) · [`systems/clay.md`](systems/clay.md) — 기본 3테마 상세 토큰 (claude.md는 `CLAUDE.md` 자동 로드 회피를 위해 `anthropic-claude.md`로 명명)
+- [`systems/keynote-editorial-dark.md`](systems/keynote-editorial-dark.md) — 프리미엄 에디토리얼 키노트 레시피(다크, no_box·거대숫자 3단·4모서리·단일 accent). 일반 다크 팔레트가 아닌 슬라이드 구성 계약
+- [`references/korean-design-systems.md`](references/korean-design-systems.md) — 한국 기업 공개 디자인시스템 + 무료 한글 폰트 서베이 (당근 SEED·채널톡 Bezier·KRDS·Pretendard + 토스/브랜드 라이선스 함정 경고)
 - [`mapping/tailwind.md`](mapping/tailwind.md) — YAML 토큰 → Tailwind CDN config 매핑 규칙
 - [`components/`](components/) — shadcn vanilla 컴포넌트 참조 마크업

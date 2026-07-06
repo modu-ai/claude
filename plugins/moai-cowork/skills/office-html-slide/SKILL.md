@@ -203,6 +203,8 @@ AI 슬라이드 스킬 스타트업 사업계획서 10장 슬라이드로 만들
 - [`references/image-backend-policy.md`](references/image-backend-policy.md) — 이미지 백엔드 정책 (Higgsfield + codex 공식, antigravity 비권장, 허용 백엔드만)
 - [`references/pptx-chaining.md`](references/pptx-chaining.md) — office-pptx-designer 체이닝 규약 (편집 가능 PPTX 보증 기구)
 - [`references/design-system-links.md`](references/design-system-links.md) — 75개 시스템 → getdesign.md 링크 매핑표
+- [`references/deck-quality-rubric.md`](references/deck-quality-rubric.md) — 슬라이드 정량 QA 루브릭 (6카테고리 가중합 + hard-fail, HTML/DOM 재해석, office-pptx-designer와 공유)
+- [`references/editorial-deck-doctrine.md`](references/editorial-deck-doctrine.md) — 에디토리얼 덱 독트린 (13-슬롯 레이아웃 어휘 + overflow=0, 마침표 액션타이틀 카피 규칙 — 의무 슬롭 체인 보완)
 
 ### 샘플
 - [`samples/deck-sample.json`](samples/deck-sample.json) — 8장 비즈니스 발표 원고 (deck.json SSOT)

@@ -175,7 +175,7 @@
 포인트: 형광 오렌지 (#ff6b35)
 보조: 라이트 그레이 (#888888)
 텍스트: Light (#faf9f5)
-폰트: Pretendard Bold 헤딩 + JetBrains Mono 또는 D2Coding (코드형 강조 시)
+폰트: Pretendard Bold 헤딩 + 구름 산스 코드 (코드형 강조 시)
 어조: 모던·하이엔드
 권장 주제: 개발자·디자이너·키노트·테크 컨퍼런스
 ```

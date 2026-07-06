@@ -53,7 +53,7 @@ Python `python-docx` 라이브러리 기반 DOCX 생성 + **Claude 브랜드 톤
 | H3 | Pretendard | Inter | 14pt | SemiBold |
 | 본문 | Pretendard | Inter / Lora* | 11pt | Regular |
 | 캡션 | Pretendard | Inter | 9pt | Regular |
-| 코드/모노 | D2Coding | JetBrains Mono | 10pt | Regular |
+| 코드/모노 | 구름 산스 코드 | 구름 산스 코드 (Goorm Sans Code) | 10pt | Regular |
 
 \* Lora는 Anthropic 공식 본문 폰트. 인용·발췌 영역에 권장.
 

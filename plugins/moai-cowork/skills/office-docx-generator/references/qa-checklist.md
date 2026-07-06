@@ -68,7 +68,7 @@ for i, table in enumerate(doc.tables):
 
 ```python
 allowed_fonts = {'Pretendard', '맑은 고딕', '굴림', 'Inter', 'Lora',
-                 'D2Coding', 'JetBrains Mono'}
+                 '구름 산스 코드', 'JetBrains Mono'}
 used_fonts = set()
 for p in doc.paragraphs:
     for run in p.runs:

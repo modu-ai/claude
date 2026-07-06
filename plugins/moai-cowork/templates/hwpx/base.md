@@ -48,8 +48,8 @@
   크기: 각 레벨별 상이
 
 코드_폰트:
-  이름: D2Coding
-  영문: Courier New
+  이름: 구름 산스 코드
+  영문: Goorm Sans Code
   크기: 9pt
 ```
 
@@ -69,7 +69,7 @@
 | `style_caption` | 캡션 | 맑은 고딕 | 9pt | 보통 | 가운데 | 2pt / 4pt |
 | `style_header` | 머리글 | 맑은 고딕 | 9pt | 보통 | 가운데 | 0pt / 0pt |
 | `style_footer` | 바닥글 | 맑은 고딕 | 9pt | 보통 | 가운데 | 0pt / 0pt |
-| `style_code` | 코드 | D2Coding | 9pt | 보통 | 왼쪽 | 0pt / 0pt |
+| `style_code` | 코드 | 구름 산스 코드 | 9pt | 보통 | 왼쪽 | 0pt / 0pt |
 
 ### 3.2 줄 간격
 

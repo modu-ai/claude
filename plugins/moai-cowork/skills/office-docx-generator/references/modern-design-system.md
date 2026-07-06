@@ -52,7 +52,7 @@ Anthropic 공식 브랜드 톤을 기반으로 한 한국 비즈니스 문서용
 | 캡션 | Pretendard | Inter | 9pt | Regular | 1.2 |
 | 표 헤더 | Pretendard | Inter | 10pt | SemiBold | 1.2 |
 | 표 본문 | Pretendard | Inter | 10pt | Regular | 1.3 |
-| 코드/모노 | D2Coding | JetBrains Mono | 10pt | Regular | 1.4 |
+| 코드/모노 | 구름 산스 코드 | 구름 산스 코드 (Goorm Sans Code) | 10pt | Regular | 1.4 |
 
 ### 2-2. 한국 폰트 우선순위
 
@@ -157,7 +157,7 @@ Pull Quote (Lora Italic 16pt, Dark) + Blue 좌측 보더 4pt
     "body_ko": "Pretendard",
     "body_en": "Inter",
     "serif": "Lora",
-    "mono": "D2Coding"
+    "mono": "Goorm Sans Code"
   },
   "size": {
     "h1": 22,

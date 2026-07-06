@@ -2,6 +2,8 @@
 
 PPTX 출력 직전 다음을 점검합니다.
 
+> **정량 6카테고리 루브릭 (공유)**: 아래 pptx 네이티브 검수(EMU 좌표·python-pptx 기준)와 별개로, 슬라이드 품질의 6카테고리 가중합 + hard-fail 티어(구조/타이포/컬러/정렬/데이터시각화/신뢰성)는 [`office-html-slide/references/deck-quality-rubric.md`](../../office-html-slide/references/deck-quality-rubric.md)에 정본이 있습니다. 그쪽은 HTML/DOM 렌더 대상 재해석본이고 본 파일은 pptx 렌더 대상 검수본으로, 두 스킬이 같은 원칙(폰트 하한·출처 라인·명도대비·오버플로)을 공유합니다.
+
 ## 자동 검수 (코드 레벨)
 
 ### 1. 빈 플레이스홀더 잔존
@@ -59,7 +61,7 @@ slides.forEach((slide, i) => {
 ```javascript
 const ALLOWED_FONTS = [
   'Pretendard', '맑은 고딕', 'Inter', 'Lora',
-  'D2Coding', 'JetBrains Mono', 'Poppins', 'Georgia'
+  '구름 산스 코드', 'JetBrains Mono', 'Poppins', 'Georgia'
 ];
 
 slides.forEach((slide, i) => {

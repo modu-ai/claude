@@ -62,7 +62,7 @@ Lora Italic이 인용·발췌에 적합.
 **적합**: 임원 보고·법적·논문·격식 공문서·이사회
 **라이선스**: 맑은 고딕 Windows 기본 · Georgia macOS·Windows 기본
 
-## 5. Tech (Pretendard + JetBrains Mono) — 개발자·테크 컨퍼런스
+## 5. Tech (Pretendard + 구름 산스 코드) — 개발자·테크 컨퍼런스
 
 | 위계 | 한국 | 영문 | 사이즈 | weight |
 |---|---|---|---|---|
@@ -70,11 +70,11 @@ Lora Italic이 인용·발췌에 적합.
 | H1 | Pretendard | Inter | 36pt | Bold |
 | H2 | Pretendard | Inter | 24pt | SemiBold |
 | 본문 | Pretendard | Inter | 16-18pt | Regular |
-| **코드/모노** | D2Coding | **JetBrains Mono** | 14-16pt | Regular |
+| **코드/모노** | 구름 산스 코드 | **구름 산스 코드 (Goorm Sans Code)** | 14-16pt | Regular |
 | 캡션 | Pretendard | Inter | 12pt | Regular |
 
 **적합**: 개발자 발표·테크 컨퍼런스·API 문서·코드 데모
-**라이선스**: D2Coding 오픈소스 · JetBrains Mono 오픈소스
+**라이선스**: 구름 산스 코드 SIL OFL (© goorm, 상업 사용 자유)
 
 ---
 
@@ -141,7 +141,7 @@ Lora Italic이 인용·발췌에 적합.
 | Inter | SIL OFL | ✅ 자유 |
 | Lora | SIL OFL (Google Fonts) | ✅ 자유 |
 | Poppins | SIL OFL (Google Fonts) | ✅ 자유 |
-| D2Coding | SIL OFL | ✅ 자유 |
+| 구름 산스 코드 (Goorm Sans Code) | SIL OFL | ✅ 자유 |
 | JetBrains Mono | Apache 2.0 | ✅ 자유 |
 | 맑은 고딕 | Microsoft | ⚠️ Windows 사용자 한정 |
 | Georgia | Microsoft·Apple | ⚠️ Windows·Mac 한정 |
