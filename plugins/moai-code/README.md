@@ -40,6 +40,16 @@ claude plugin marketplace add modu-ai/claude
 
 이 플러그인은 `moai-adk-go`의 배포 템플릿 `internal/template/templates/`를 정본으로 삼아 무설치 완전 패리티로 재패키징합니다. 각 렌더 산출물 상단의 `<!-- parity-source: ... @ <commit> -->` 주석이 정본 커밋을 고정합니다.
 
+### 무설치 적응 (SPEC-MOC-PLUGIN-CODE-001 P1)
+
+정본을 그대로 복사하되, `moai` 바이너리에 의존하는 지점을 무설치 등가물로 치환합니다:
+
+- **워크트리 셸아웃 → git 직접**: 라우터 워크플로우의 `moai worktree new/done`을 `git worktree add`/`git worktree remove` + 브랜치 setup으로 치환(분기 옵션 `--base`/`--from-current`/`--tmux`/`--delete-branch` 의미 보존).
+- **바이너리 게이트 기능 이연 표기**: `moai hook db-schema-sync`·`moai harness <verb>`처럼 바이너리 없이는 비기능인 참조는 `[무설치-이연]` 마커로 문서화(동작을 바꾸는 placeholder로 조용히 대체하지 않음).
+- **SKILL.md frontmatter 정제**: 28개 스킬을 4-필드(`name`/`description`/`user-invocable`/`version`)로 정제, 버전 SSOT `3.0.0` 단일화.
+- **에이전트 `hooks:` 필드 제거**: `handle-agent-hook.sh` 셸아웃에 의존하는 4개 에이전트 프론트매터 `hooks:` 블록 제거.
+- **MCP 서버**: `.mcp.json`에 `context7`(최신 라이브러리 문서 조회) 1개를 정적 선언(플랫폼 조건은 non-Windows 기본 분기로 해소, Windows 대체는 주석 문서화).
+
 ## 패리티 계약 (`/moai:project` ↔ `moai init`)
 
 `/moai:project`(무설치)와 `moai init`(바이너리)은 **동일 `.claude/` + `.moai/` 파일 트리**를 생성한다(REQ-BD-005 / AC-BD-002).
