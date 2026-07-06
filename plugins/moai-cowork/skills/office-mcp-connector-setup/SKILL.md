@@ -11,10 +11,14 @@ version: 0.1.0
 
 ## 개요
 
-Drive·Notion·Higgsfield 3커넥터를 Cowork에 연결하는 단계별 가이드를 제공합니다. 인증 흐름, API 키 입력, 1회 호출 검증, 트러블슈팅까지 셋업 전 과정을 다룹니다.
+Drive·Notion·Higgsfield 3커넥터 + 한국 공공데이터·문서 4 MCP(kordoc·dart·korean-stats·archhub)를 Cowork에 연결하는 단계별 가이드를 제공합니다. 인증 흐름, API 키 입력, 1회 호출 검증, 트러블슈팅까지 셋업 전 과정을 다룹니다.
 
 **셋업 완료 체크리스트**
-Drive·Notion·Higgsfield — 인증 성공 + 1회 호출 성공 (Drive: 폴더 list / Notion: 공유 페이지 read / Higgsfield: 모델 list)
+- Drive·Notion·Higgsfield — 인증 성공 + 1회 호출 성공 (Drive: 폴더 list / Notion: 공유 페이지 read / Higgsfield: 모델 list)
+- kordoc — Node.js 18+ 확인 + 1회 문서 파싱 성공 (키 불필요)
+- dart(korean-dart-mcp) — Node.js 20.19+ + OpenDART 키 + 1회 공시 검색 성공
+- korean-stats — 1회 자연어 통계 조회 성공 (키 불필요, 공용키 hosted)
+- archhub — 1회 건축물 종합카드 조회 성공 (키 불필요, 공용키 hosted)
 
 ---
 
@@ -93,6 +97,85 @@ MCP 커넥터 연결, Drive 인증, Notion Integration Token, Higgsfield API 키
 
 ---
 
+## 한국 공공데이터·문서 MCP (4종)
+
+Cowork 플러그인은 한국 공공데이터·공문서 처리를 위한 4개 MCP를 추가로 지원합니다. 각 MCP의 사전 준비와 1회 호출 검증을 다룹니다. chrisryugj 제작 4개 MCP는 모두 MIT 라이선스입니다.
+
+### Connector D — kordoc (한국 공문서 파서)
+
+**목적**: HWP 3.0/5.x·HWPX·HWPML·PDF·XLSX·DOCX → 마크다운 변환. 표 완벽 재현, 신구대조표, 양식 자동 채우기, DRM 배포용 복호화, OCR 연동. `moai-cowork:office-document-reader` 스킬이 호출.
+
+**사전 준비물**: **API 키 불필요**. Node.js 18+만 필요.
+
+**설치 단계**
+1. Node.js 18+ 설치 확인: `node --version` (v18 이상이어야 함)
+2. `.mcp.json`에 이미 등록됨(`command: npx`, `args: ["-y", "kordoc", "mcp"]`)
+3. 첫 호출 시 npm이 kordoc 패키지를 다운로드(약 10-30초), 이후 캐시 적중
+
+**1회 호출 검증**: 임의 HWP/PDF 파일로 `parse_document` 호출 → 마크다운 응답이 오면 성공
+
+> Windows 환경에서 한컴 오피스가 설치된 경우 DRM 배포용 HWP/HWPX COM fallback이 추가로 동작합니다(선택).
+
+---
+
+### Connector E — dart / korean-dart-mcp (OpenDART 전자공시)
+
+**목적**: OpenDART 83개 API를 15 도구로 압축. 공시·재무·지분·XBRL(`markdown_full` 전체 계정 + 계산 검증) + 버핏급 애널리스트 프레임(`insider_signal`·`disclosure_anomaly`·`buffett_quality_snapshot`) + HWP/PDF 첨부 마크다운화(kordoc 엔진) + 90일 자동분할. 회사명/종목코드/corp_code 자동 해결(SQLite FTS, 첫 기동 시 11.6만건 덤프 약 5-10초).
+
+**사전 준비물**
+- **Node.js 20.19+** (LTS 권장) — `node --version`으로 확인
+- **OpenDART 인증키**(40자, 무료, 일 20,000건)
+
+**인증 키 발급 절차**
+1. https://opendart.fss.or.kr 접속 → 회원가입
+2. 로그인 후 인증키 신청 → 이메일로 40자 인증키 즉시 수신
+3. 환경변수 `DART_API_KEY`에 등록
+
+**인증 단계**
+1. 발급받은 40자 키를 `${CLAUDE_PLUGIN_DATA}/moai-credentials.env`의 `DART_API_KEY` 항목에 입력
+2. 첫 기동 시 corp_code 덤프(11.6만건, 약 5-10초) 대기
+3. 1회 호출 검증으로 `resolve_corp_code("삼성전자")` → corp_code 반환 확인
+
+**1회 호출 검증**: 회사명으로 corp_code가 반환되면 성공
+
+> **대안 — setup 마법사**: `npx -y korean-dart-mcp setup` 실행 시 대화형 마법사가 키 입력부터 클라이언트 설정 파일 자동 패치까지 처리(macOS/Linux/Windows 공용). Windows는 `cmd /c npx` 래핑 자동 적용.
+
+> **주의**: 첫 기동에 5-10초가 걸리는 corp_code 덤프 다운로드 중이므로 timeout 여유를 두세요. `MODULE_NOT_FOUND` 에러 시 `npm uninstall -g korean-dart-mcp` 후 `npx -y korean-dart-mcp@latest setup`으로 재시도.
+
+---
+
+### Connector F — korean-stats (KOSIS 국가데이터처 통계)
+
+**목적**: KOSIS 통계를 자연어 한 줄로 조회. 14도구, 92 키워드 + 100+ 자연어 별칭, 17 시도 + 230+ 자치구·시군 라우팅, 시계열 추세/순위, 출처(통계표 ID) 자동 인용, 추계/잠정치 구분. `moai-cowork:office-public-data-public-data`가 자연어 조회 우선 라우팅.
+
+**사전 준비물**: **API 키 불필요**. 공용키가 탑재된 remote 커넥터(URL만 등록).
+
+**설치 단계**
+1. `.mcp.json`에 이미 등록됨(`type: http`, `url: https://mcp.gomdori.app/stats`)
+2. 인터넷 연결만 있으면 바로 사용
+
+**1회 호출 검증**: `quick_stats("광진구 고용률")` → 통계 수치 + 출처(통계표 ID) 응답 시 성공
+
+> 자치구 단위 데이터가 KOSIS에 없으면 임의로 광역시도 값을 자치구 값인 척 답하지 않고 명시적으로 "광역시도 데이터로 대체했다"고 안내합니다. 동명 중복(부산 중구 vs 서울 중구)은 광역시를 같이 말해야 정확히 구분됩니다.
+
+---
+
+### Connector G — archhub (국토교통부 건축HUB)
+
+**목적**: 건축물대장·건축인허가·주택인허가 + 법정동코드 + 한 필지 종합카드·층별 구성·동 단위 통계·노후건축물·철거멸실(석면)·인허가 파이프라인·공시가격 시계열. 11도구. `moai-cowork:office-building-ledger-search` 스킬이 호출.
+
+**사전 준비물**: **API 키 불필요**. 공용키가 탑재된 remote 커넥터(URL만 등록).
+
+**설치 단계**
+1. `.mcp.json`에 이미 등록됨(`type: http`, `url: https://archhub-mcp.fly.dev/mcp`)
+2. 인터넷 연결만 있으면 바로 사용
+
+**1회 호출 검증**: `find_region("광진구 자양동")` → sigungu_code/bdong_code 반환 후 `building_profile` 호출 → 종합카드 응답 시 성공
+
+> archhub는 `[NOT_FOUND]`(데이터 없음)·`[EXTERNAL_API_ERROR]`(upstream 오류) 프리픽스로 환각을 차단합니다. data.go.kr 공식 API 실측값만 제공하며, 소유자 정보(개인정보)·위반건축물 조회는 범위 밖입니다.
+
+---
+
 ## 트러블슈팅
 
 ### T1 — Windows MAX_PATH 260자 초과 오류
@@ -162,7 +245,7 @@ MCP 커넥터 연결, Drive 인증, Notion Integration Token, Higgsfield API 키
 
 ## 사전 점검 체크리스트 (`--check` 옵션)
 
-사전 준비물 기준으로 3커넥터 가입·인증 상태를 체크하는 옵션입니다.
+사전 준비물 기준으로 3커넥터 + 4 MCP 가입·인증·사전준비 상태를 체크하는 옵션입니다.
 
 ```
 /office-mcp-connector-setup --check
@@ -173,6 +256,11 @@ MCP 커넥터 연결, Drive 인증, Notion Integration Token, Higgsfield API 키
 [✅] Google Drive — 계정 확인 완료
 [✅] Notion — 계정 확인 완료
 [⚠️] Higgsfield — 워크스페이스 크레딧 충전 미확인 (충전 후 재시도)
+[✅] kordoc — Node.js 18+ 확인 (키 불필요)
+[⚠️] dart — OpenDART 키 미등록 (opendart.fss.or.kr 발급 필요)
+[⚠️] dart — Node.js 20.19+ 미충족 (현재 v18.x)
+[✅] korean-stats — 공용키 hosted (키 불필요)
+[✅] archhub — 공용키 hosted (키 불필요)
 ```
 
 ---
@@ -201,13 +289,17 @@ MCP 커넥터 연결, Drive 인증, Notion Integration Token, Higgsfield API 키
 
 ## 셋업 완료 체크리스트
 
-| 커넥터 | 인증 방법 | 1회 호출 검증 |
+| 커넥터 / MCP | 인증 방법 | 1회 호출 검증 |
 |--------|-----------|---------------|
 | Google Drive | OAuth (drive.readonly, drive.file) | 폴더 list 응답 |
 | Notion | OAuth (워크스페이스 연결) | 공유 페이지 read 응답 |
 | Higgsfield | API Key | 모델 list 응답 |
+| kordoc | 키 불필요 (Node.js 18+) | parse_document 마크다운 응답 |
+| dart (korean-dart-mcp) | OpenDART 키 (40자, 무료/일 20,000건) | resolve_corp_code 응답 |
+| korean-stats | 공용키 hosted (키 불필요) | quick_stats 통계 수치 응답 |
+| archhub | 공용키 hosted (키 불필요) | find_region + building_profile 응답 |
 
-3커넥터 모두 인증 성공 + 1회 호출 성공이면 셋업이 완료된 것입니다.
+3커넥터 + 4 MCP 모두 인증 성공 + 1회 호출 성공이면 셋업이 완료된 것입니다.
 
 ---
 
@@ -215,6 +307,9 @@ MCP 커넥터 연결, Drive 인증, Notion Integration Token, Higgsfield API 키
 
 - `moai-cowork:commerce-morning-brief` — 인증 완료 후 매장 데이터 아침 브리핑 + 신규 주문 통합 요약 (주문 요약 모드)
 - `moai-cowork:media-higgsfield-image` / `moai-cowork:media-higgsfield-video` — Higgsfield 커넥터 인증 완료 후 이미지·영상 생성
+- `moai-cowork:office-document-reader` — kordoc MCP 인증 완료 후 HWP/HWPX/PDF/XLSX/DOCX 파싱
+- `moai-cowork:office-public-data-public-data` — korean-stats MCP 자연어 KOSIS 통계 우선 라우팅 + dart MCP 연계
+- `moai-cowork:office-building-ledger-search` — archhub MCP 건축물대장·인허가 실체 데이터 조회
 
 ---
 
