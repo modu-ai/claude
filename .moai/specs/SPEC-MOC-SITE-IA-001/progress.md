@@ -2,8 +2,8 @@
 
 - **SPEC ID**: SPEC-MOC-SITE-IA-001
 - **Tier**: L (proposed)
-- **Status**: implemented (sync-phase complete)
-- **Phase**: plan-phase AUDITED (iter-2 PASS 0.90 @ e0e31d2, 2026-07-04) + Implementation Kickoff approved (Option 1) → run-phase complete → sync-phase complete
+- **Status**: completed (4-phase lifecycle close: plan + run + sync + mx)
+- **Phase**: plan-phase AUDITED (iter-2 PASS 0.90 @ e0e31d2, 2026-07-04) + Implementation Kickoff approved (Option 1) → run-phase complete → sync-phase complete → mx-phase complete
 
 ## §E.1 Plan-phase Audit-Ready Signal
 
@@ -359,7 +359,13 @@ manager-develop이 10건 broken으로 4-옵션 blocker 반환. orchestrator inde
 
 ## §E.5 Mx-phase Audit-Ready Signal
 
-_<pending Mx-phase — owned by manager-docs / orchestrator>_
+- **mx_complete_at**: 2026-07-06
+- **mx_scope**: frontmatter implemented→completed + §E.5 Mx-phase audit-ready signal + 4-phase lifecycle close
+- **mx_commit_sha**: <commit SHA to be filled after commit>
+- **mx_status**: complete
+- **frontmatter_status**: completed (spec.md status 필드 transition implemented→completed 완료)
+- **mx_tags_validated**: not-required (www/content/** markdown-only + 단일 목적 Node script `check-links.mjs` — Go 코드 surface 없음; @MX annotation per sync-auditor D3 assessment 불필요. @MX 태그는 고 fan_in Go 코드 대상으로 적용, 마크다운 콘텐츠와 단일 스크립트는 제외)
+- **lifecycle_close**: plan-phase AUDITED (PASS 0.90) → run-phase (D₁-D₄ M1-M6 fully complete, AC-IA-023 PASS-WITH-DEBT 10건 pre-existing broken) → sync-phase (manager-docs + sync-auditor PASS-WITH-DEBT 88, 2 SHOULD-FIX + 2 MINOR findings → correction commit 정정 완료) → mx-phase (이 커밋) — 4-phase lifecycle closed.
 
 ## §E.6 Phase 0.95 Mode Selection
 
