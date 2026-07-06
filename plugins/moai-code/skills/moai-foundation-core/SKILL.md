@@ -1,35 +1,13 @@
 ---
 name: moai-foundation-core
-description: >
-  Provides MoAI-ADK foundational principles including TRUST 5 quality framework,
-  SPEC-First DDD methodology, delegation patterns, progressive disclosure,
-  agent catalog reference, and token budget management (absorbed from moai-foundation-context).
-  Use when referencing TRUST 5 gates, SPEC workflow, or context window optimization.
+description: 'Provides MoAI-ADK foundational principles including TRUST 5 quality framework, SPEC-First
+  DDD methodology, delegation patterns, progressive disclosure, agent catalog reference, and token budget
+  management (absorbed from moai-foundation-context). Use when referencing TRUST 5 gates, SPEC workflow,
+  or context window optimization.
 
-when_to_use: >
-  Use for MoAI-ADK foundations: the TRUST 5 quality framework, SPEC-First
-  DDD methodology, delegation patterns, progressive disclosure,
-  token/context-window budget management, GEARS/EARS formats, and session
-  handoff.
-
-license: Apache-2.0
-compatibility: Designed for Claude Code
-allowed-tools: Read, Grep, Glob, mcp__context7__resolve-library-id, mcp__context7__get-library-docs
+  '
 user-invocable: false
-metadata:
-  version: "3.0.0"
-  category: "foundation"
-  status: "active"
-  updated: "2026-04-25"
-  modularized: "true"
-  tags: "foundation, core, orchestration, agents, commands, trust-5, spec-first-ddd, token-budget, context-window, session-state"
-  related-skills: "moai-foundation-context"
-
-# MoAI Extension: Progressive Disclosure
-progressive_disclosure:
-  enabled: true
-  level1_tokens: 100
-  level2_tokens: 5000
+version: "3.0.0"
 ---
 
 # MoAI Foundation Core

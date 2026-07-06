@@ -1,31 +1,13 @@
 ---
 name: moai-ref-react-patterns
-description: >
-  React/Next.js component design patterns, state management strategies, and project
-  structure reference for frontend development. Agent-extending skill that amplifies
-  frontend domain work (spawned via Agent(general-purpose) with frontend instructions)
-  with production-grade React patterns.
-  NOT for: backend API design, database modeling, DevOps, mobile apps.
+description: 'React/Next.js component design patterns, state management strategies, and project structure
+  reference for frontend development. Agent-extending skill that amplifies frontend domain work (spawned
+  via Agent(general-purpose) with frontend instructions) with production-grade React patterns. NOT for:
+  backend API design, database modeling, DevOps, mobile apps.
 
-when_to_use: >
-  Use for React/Next.js component design patterns: state-management
-  strategies, hooks, component composition, and project structure.
-  Amplifies frontend domain work (Agent(general-purpose) with frontend
-  instructions) with production-grade React patterns.
-
+  '
 user-invocable: false
-metadata:
-  version: "1.0.0"
-  category: "domain"
-  status: "active"
-  updated: "2026-03-30"
-  tags: "react, nextjs, component, patterns, frontend, reference"
-
-# MoAI Extension: Progressive Disclosure
-progressive_disclosure:
-  enabled: true
-  level1_tokens: 100
-  level2_tokens: 3000
+version: "3.0.0"
 ---
 
 # React Patterns Reference

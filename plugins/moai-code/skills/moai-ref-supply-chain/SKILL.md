@@ -1,39 +1,17 @@
 ---
 name: moai-ref-supply-chain
-description: >
-  Software supply-chain defensive security reference: SBOM generation and
-  verification (SPDX / CycloneDX), dependency-confusion defense, malicious-package
-  triage playbook, SLSA provenance levels, Sigstore / cosign signing and
-  verification, package-registry hardening, typosquatting defense, and
-  transitive-dependency auditing. Agent-extending skill that amplifies backend,
-  security, and release-engineering work with production-grade defensive patterns
-  for the software supply chain.
-  NOT for: offensive techniques (dependency-confusion attack execution, malicious
-  package authoring, registry exploitation), LLM/AI-specific security (see
-  moai-ref-llm-security), web-app OWASP Top 10 (see moai-ref-owasp-checklist), or
-  general API design (see moai-ref-api-patterns).
+description: 'Software supply-chain defensive security reference: SBOM generation and verification (SPDX
+  / CycloneDX), dependency-confusion defense, malicious-package triage playbook, SLSA provenance levels,
+  Sigstore / cosign signing and verification, package-registry hardening, typosquatting defense, and transitive-dependency
+  auditing. Agent-extending skill that amplifies backend, security, and release-engineering work with
+  production-grade defensive patterns for the software supply chain. NOT for: offensive techniques (dependency-confusion
+  attack execution, malicious package authoring, registry exploitation), LLM/AI-specific security (see
+  moai-ref-llm-security), web-app OWASP Top 10 (see moai-ref-owasp-checklist), or general API design (see
+  moai-ref-api-patterns).
 
-when_to_use: >
-  Use when generating or verifying an SBOM, defending against dependency confusion
-  or typosquatting, triaging a suspicious package before adoption, raising a build
-  to a SLSA provenance level, signing or verifying artifacts with Sigstore, hardening
-  a package registry, or auditing transitive dependencies for vulnerabilities and
-  license risk. Loads as background knowledge for release-engineering, dependency-
-  hygiene, and supply-chain-hardening tasks across any language ecosystem.
-
+  '
 user-invocable: false
-metadata:
-  version: "1.0.0"
-  category: "domain"
-  status: "active"
-  updated: "2026-06-24"
-  tags: "supply-chain, sbom, slsa, sigstore, cosign, dependency-confusion, typosquatting, provenance, transitive-dependencies, reference"
-
-# MoAI Extension: Progressive Disclosure
-progressive_disclosure:
-  enabled: true
-  level1_tokens: 100
-  level2_tokens: 3000
+version: "3.0.0"
 ---
 
 # Software Supply-Chain Defensive Security Reference

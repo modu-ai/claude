@@ -1,34 +1,11 @@
 ---
 name: moai-foundation-quality
-description: >
-  Code quality orchestrator enforcing TRUST 5 validation, proactive code analysis,
-  linting standards, and automated best practices. Use for code review, quality
-  gate checks, or TRUST 5 compliance.
+description: 'Code quality orchestrator enforcing TRUST 5 validation, proactive code analysis, linting
+  standards, and automated best practices. Use for code review, quality gate checks, or TRUST 5 compliance.
 
-when_to_use: >
-  Use for code-quality orchestration: TRUST 5 validation, proactive code
-  analysis, linting standards, coverage targets, pytest, security checks,
-  CI/CD quality gates, code-smell detection, and technical-debt
-  refactoring.
-
-license: Apache-2.0
-compatibility: Designed for Claude Code
-allowed-tools: Read, Grep, Glob, mcp__context7__resolve-library-id, mcp__context7__get-library-docs
+  '
 user-invocable: false
-metadata:
-  version: "2.2.0"
-  category: "foundation"
-  status: "active"
-  updated: "2026-01-11"
-  modularized: "true"
-  tags: "foundation, quality, testing, validation, trust-5, best-practices, code-review"
-  aliases: "moai-foundation-quality"
-
-# MoAI Extension: Progressive Disclosure
-progressive_disclosure:
-  enabled: true
-  level1_tokens: 100
-  level2_tokens: 5000
+version: "3.0.0"
 ---
 
 # Enterprise Code Quality Orchestrator

@@ -1,30 +1,13 @@
 ---
 name: moai-ref-owasp-checklist
-description: >
-  OWASP Top 10 security checklist, authentication patterns, input validation,
-  and HTTP security headers reference. Agent-extending skill that amplifies
-  backend-implementation and security-audit workflows with production-grade security patterns.
-  NOT for: frontend UI, DevOps deployment, performance optimization, testing strategy.
+description: 'OWASP Top 10 security checklist, authentication patterns, input validation, and HTTP security
+  headers reference. Agent-extending skill that amplifies backend-implementation and security-audit workflows
+  with production-grade security patterns. NOT for: frontend UI, DevOps deployment, performance optimization,
+  testing strategy.
 
-when_to_use: >
-  Use for security reference: OWASP Top 10 vulnerabilities (injection,
-  XSS, CSRF), authentication patterns, input validation, and HTTP security
-  headers. Amplifies backend-implementation and security-audit workflows with
-  production-grade security patterns.
-
+  '
 user-invocable: false
-metadata:
-  version: "1.0.0"
-  category: "domain"
-  status: "active"
-  updated: "2026-03-30"
-  tags: "owasp, security, checklist, authentication, validation, reference"
-
-# MoAI Extension: Progressive Disclosure
-progressive_disclosure:
-  enabled: true
-  level1_tokens: 100
-  level2_tokens: 3000
+version: "3.0.0"
 ---
 
 # OWASP Security Checklist Reference

@@ -1,38 +1,16 @@
 ---
 name: moai-ref-llm-security
-description: >
-  AI/LLM defensive security reference: prompt-injection defense, OWASP LLM Top 10
-  defensive mapping, MCP and agentic tool-call hardening, training-data poisoning
-  detection, model-output validation and guardrails, MITRE ATLAS defensive
-  correlation, and NIST AI RMF governance. Agent-extending skill that amplifies
-  backend, security, and AI-application engineering with production-grade
-  defensive patterns for LLM-backed systems.
-  NOT for: offensive techniques (jailbreak authoring, attack-payload crafting,
-  red-team exploitation), model training or fine-tuning methodology, prompt
-  optimization for capability, web-app OWASP Top 10 (see moai-ref-owasp-checklist),
-  or general API design (see moai-ref-api-patterns).
+description: 'AI/LLM defensive security reference: prompt-injection defense, OWASP LLM Top 10 defensive
+  mapping, MCP and agentic tool-call hardening, training-data poisoning detection, model-output validation
+  and guardrails, MITRE ATLAS defensive correlation, and NIST AI RMF governance. Agent-extending skill
+  that amplifies backend, security, and AI-application engineering with production-grade defensive patterns
+  for LLM-backed systems. NOT for: offensive techniques (jailbreak authoring, attack-payload crafting,
+  red-team exploitation), model training or fine-tuning methodology, prompt optimization for capability,
+  web-app OWASP Top 10 (see moai-ref-owasp-checklist), or general API design (see moai-ref-api-patterns).
 
-when_to_use: >
-  Use when hardening an LLM-backed application or agent against prompt injection,
-  designing guardrails or output validation, scoping MCP/tool permissions,
-  detecting training-data or model poisoning, mapping a design against the OWASP
-  LLM Top 10 or NIST AI RMF, or correlating defenses to MITRE ATLAS techniques.
-  Loads as background knowledge for AI-security review, agentic-system design, and
-  LLM-application hardening tasks.
-
+  '
 user-invocable: false
-metadata:
-  version: "1.0.0"
-  category: "domain"
-  status: "active"
-  updated: "2026-06-24"
-  tags: "llm, ai-security, prompt-injection, guardrails, mcp, agentic, owasp-llm, mitre-atlas, nist-ai-rmf, reference"
-
-# MoAI Extension: Progressive Disclosure
-progressive_disclosure:
-  enabled: true
-  level1_tokens: 100
-  level2_tokens: 3000
+version: "3.0.0"
 ---
 
 # LLM / AI Defensive Security Reference

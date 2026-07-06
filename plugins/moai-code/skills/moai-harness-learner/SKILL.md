@@ -1,15 +1,15 @@
 ---
 name: moai-harness-learner
-description: Harness learning subsystem coordinator. Produces Tier 4 auto-update proposal payloads consumed by the orchestrator (which surfaces them via AskUserQuestion) and orchestrates Apply/Rollback flows. Triggers when harness learning proposals are pending or learning lifecycle management is needed.
-when_to_use: >
-  Use for harness learning lifecycle management: producing Tier 4 auto-update
-  proposal payloads for the orchestrator (surfaced via AskUserQuestion), and
-  coordinating Apply/Rollback flows when learning proposals are pending.
-allowed-tools: Bash,Read,Write,Edit
+description: Harness learning subsystem coordinator. Produces Tier 4 auto-update proposal payloads consumed
+  by the orchestrator (which surfaces them via AskUserQuestion) and orchestrates Apply/Rollback flows.
+  Triggers when harness learning proposals are pending or learning lifecycle management is needed.
 user-invocable: false
+version: "3.0.0"
 ---
 
 # moai-harness-learner
+
+> **[무설치-이연] 무설치 에디션 caveat**: 이 스킬이 조율하는 harness 학습 라이프사이클(`moai harness status`/`apply`/`rollback` `[무설치-이연]`)은 `moai` Go 바이너리 게이트 기능이므로 **무설치 에디션에서는 비기능(deferred)**이다 — non-functional in the no-install edition. 학습 제안 payload 산출·Apply/Rollback은 `moai` 바이너리가 설치된 환경에서만 동작한다.
 
 <!-- @MX:NOTE: [AUTO] V3R4 contract — this skill body is preserved unchanged per the harness foundation policy §10 exclusion #10 (text annotation only, no behavioral change). The 4-tier observation/heuristic/rule/auto_update ladder defined here is preserved verbatim under REQ-HRN-FND-011. The orchestrator-only AskUserQuestion contract is asserted by REQ-HRN-FND-015 (cross-reference: .claude/rules/moai/core/agent-common-protocol.md § User Interaction Boundary). The downstream replacement of the frequency-count classifier with an embedding-cluster algorithm is deferred to the harness classifier-upgrade policy. -->
 

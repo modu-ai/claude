@@ -1,33 +1,12 @@
 ---
 name: moai-foundation-cc
-description: >
-  Canonical Claude Code authoring kit covering Skills, sub-agents, plugins, slash commands,
-  hooks, memory, settings, sandboxing, headless mode, and advanced agent patterns.
-  Use when creating Claude Code extensions or configuring Claude Code features.
+description: 'Canonical Claude Code authoring kit covering Skills, sub-agents, plugins, slash commands,
+  hooks, memory, settings, sandboxing, headless mode, and advanced agent patterns. Use when creating Claude
+  Code extensions or configuring Claude Code features.
 
-when_to_use: >
-  Use for Claude Code authoring and extension: Skills, sub-agents,
-  plugins, slash commands, hooks, memory, settings, sandboxing, headless
-  mode, orchestration, and delegation/agent-pattern authoring.
-
-license: Apache-2.0
-compatibility: Designed for Claude Code
-allowed-tools: Read, Write, Edit, Grep, Glob, mcp__context7__resolve-library-id, mcp__context7__get-library-docs
+  '
 user-invocable: false
-metadata:
-  version: "5.0.0"
-  category: "foundation"
-  status: "active"
-  updated: "2026-01-11"
-  modularized: "false"
-  tags: "foundation, claude-code, skills, sub-agents, plugins, slash-commands, hooks, memory, settings, sandboxing, headless, agent-patterns"
-  aliases: "moai-foundation-cc"
-
-# MoAI Extension: Progressive Disclosure
-progressive_disclosure:
-  enabled: true
-  level1_tokens: 100
-  level2_tokens: 5000
+version: "3.0.0"
 ---
 
 # Claude Code Authoring Kit

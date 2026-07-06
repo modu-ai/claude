@@ -1,43 +1,19 @@
 ---
 name: moai-meta-harness
-description: >
-  DEPRECATED — legacy 7-Phase meta-harness. Redirects to the v4 harness Builder
-  (/moai:harness <natural-language request>) which replaces the static 7-Phase
-  workflow with an orchestrator-direct 4-phase Builder (ANALYZE / PLAN /
-  GENERATE / ACTIVATE) + a manifest-driven dynamic-workflow Runner. Retained as
-  the redirect source for backward-compat invocation paths; the 7-Phase body
-  below is preserved as historical reference, NOT for new harness creation.
+description: 'DEPRECATED — legacy 7-Phase meta-harness. Redirects to the v4 harness Builder (/moai:harness
+  <natural-language request>) which replaces the static 7-Phase workflow with an orchestrator-direct 4-phase
+  Builder (ANALYZE / PLAN / GENERATE / ACTIVATE) + a manifest-driven dynamic-workflow Runner. Retained
+  as the redirect source for backward-compat invocation paths; the 7-Phase body below is preserved as
+  historical reference, NOT for new harness creation.
 
-when_to_use: >
-  Use the v4 Builder instead: issue /moai:harness <natural-language request> to
-  enter Context-First Discovery (domain / goal / constraints / scope extraction)
-  then the orchestrator-direct Builder. This legacy skill fires ONLY on
-  backward-compat invocation paths that still reference the 7-Phase workflow; on
-  any such invocation it surfaces a deprecation notice and redirects to v4.
-
-license: Apache-2.0
-compatibility: Designed for Claude Code (v2.1.111+)
-allowed-tools: Read, Write, Edit, Grep, Glob, Bash
+  '
 user-invocable: false
-metadata:
-  version: "0.2.0"
-  category: "meta"
-  status: "deprecated"
-  updated: "2026-06-20"
-  modularized: "false"
-  tags: "meta-skill, harness, deprecated, v4-redirect, agent-team-architect, apache-2-0-attribution"
-  upstream_source: "revfactory/harness"
-  generated_by: "moai-adk"
-  superseded_by: "/moai:harness v4 Builder"
-
-# MoAI Extension: Progressive Disclosure
-progressive_disclosure:
-  enabled: true
-  level1_tokens: 100
-  level2_tokens: 5000
+version: "3.0.0"
 ---
 
 # moai-meta-harness (DEPRECATED — redirect to v4)
+
+> **[무설치-이연] 무설치 에디션 caveat**: 이 legacy 7-Phase 워크플로우와 v4 harness Builder가 의존하는 `moai harness <verb>` lifecycle 게이트(`moai harness status`/`apply`/`rollback` `[무설치-이연]`)는 `moai` Go 바이너리 기능이므로 **무설치 에디션에서는 비기능(deferred)**이다 — non-functional in the no-install edition.
 
 > **DEPRECATION NOTICE** — This legacy 7-Phase meta-harness is
 > **superseded by the v4 harness Builder** (`/moai:harness <natural-language

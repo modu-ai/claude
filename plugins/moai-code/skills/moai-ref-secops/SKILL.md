@@ -1,41 +1,18 @@
 ---
 name: moai-ref-secops
-description: >
-  DevSecOps, container, and API operational defensive security reference: CI/CD
-  pipeline hardening, secret scanning, IaC misconfiguration detection, SAST/DAST
-  integration, container image scanning, Kubernetes RBAC hardening, container-escape
-  defense, runtime threat detection, OWASP API Top 10 operational defense, WAF rule
-  tuning, and GraphQL/REST depth and rate limiting. Agent-extending skill that
-  amplifies backend, security, and platform-engineering work with production-grade
-  defensive patterns for pipelines, containers, and running APIs.
-  NOT for: offensive techniques (exploit execution, container-escape attack steps,
-  privilege-escalation procedures, attack tooling), dev-time web-app OWASP Top 10
-  (see moai-ref-owasp-checklist), LLM/AI security (see moai-ref-llm-security),
-  supply-chain provenance and signing (see moai-ref-supply-chain), or general API
-  design (see moai-ref-api-patterns).
+description: 'DevSecOps, container, and API operational defensive security reference: CI/CD pipeline hardening,
+  secret scanning, IaC misconfiguration detection, SAST/DAST integration, container image scanning, Kubernetes
+  RBAC hardening, container-escape defense, runtime threat detection, OWASP API Top 10 operational defense,
+  WAF rule tuning, and GraphQL/REST depth and rate limiting. Agent-extending skill that amplifies backend,
+  security, and platform-engineering work with production-grade defensive patterns for pipelines, containers,
+  and running APIs. NOT for: offensive techniques (exploit execution, container-escape attack steps, privilege-escalation
+  procedures, attack tooling), dev-time web-app OWASP Top 10 (see moai-ref-owasp-checklist), LLM/AI security
+  (see moai-ref-llm-security), supply-chain provenance and signing (see moai-ref-supply-chain), or general
+  API design (see moai-ref-api-patterns).
 
-when_to_use: >
-  Use when hardening a CI/CD pipeline, scanning infrastructure-as-code for
-  misconfiguration, hardening a container image or Kubernetes cluster, defending
-  against container escape, writing runtime-detection rules, enforcing operational
-  API defenses (BOLA detection in production, rate-limit enforcement, server-side
-  authorization, WAF tuning), or limiting GraphQL/REST query depth and complexity.
-  Loads as background knowledge for DevSecOps review, container-security hardening,
-  and API operational-defense tasks across any language ecosystem.
-
+  '
 user-invocable: false
-metadata:
-  version: "1.0.0"
-  category: "domain"
-  status: "active"
-  updated: "2026-06-24"
-  tags: "devsecops, container, kubernetes, rbac, api-security, owasp-api, cicd, iac-scanning, runtime-detection, waf, reference"
-
-# MoAI Extension: Progressive Disclosure
-progressive_disclosure:
-  enabled: true
-  level1_tokens: 100
-  level2_tokens: 3000
+version: "3.0.0"
 ---
 
 # DevSecOps, Container, and API Operational Security Reference

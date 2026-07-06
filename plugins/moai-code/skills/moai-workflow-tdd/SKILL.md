@@ -1,35 +1,12 @@
 ---
 name: moai-workflow-tdd
-description: >
-  Test-Driven Development workflow specialist using RED-GREEN-REFACTOR
-  cycle for test-first software development. Use when developing new
-  features from scratch or when behavior specification drives
+description: 'Test-Driven Development workflow specialist using RED-GREEN-REFACTOR cycle for test-first
+  software development. Use when developing new features from scratch or when behavior specification drives
   implementation.
 
-when_to_use: >
-  Use for Test-Driven Development: the RED-GREEN-REFACTOR cycle for
-  test-first software development, new-feature implementation from
-  scratch, and behavior-specification-driven implementation.
-
-license: Apache-2.0
-compatibility: Designed for Claude Code
-allowed-tools: Read, Write, Edit, Bash(pytest:*), Bash(ruff:*), Bash(npm:*), Bash(npx:*), Bash(node:*), Bash(jest:*), Bash(vitest:*), Bash(go:*), Bash(cargo:*), Bash(mix:*), Bash(uv:*), Bash(bundle:*), Bash(php:*), Bash(phpunit:*), Grep, Glob, mcp__context7__resolve-library-id, mcp__context7__get-library-docs
+  '
 user-invocable: false
-metadata:
-  version: "1.0.0"
-  category: "workflow"
-  status: "active"
-  updated: "2026-02-03"
-  modularized: "true"
-  tags: "workflow, tdd, test-driven, red-green-refactor, test-first"
-  author: "MoAI-ADK Team"
-  related-skills: "moai-workflow-ddd, moai-workflow-testing, moai-foundation-quality"
-
-# MoAI Extension: Progressive Disclosure
-progressive_disclosure:
-  enabled: true
-  level1_tokens: 100
-  level2_tokens: 5000
+version: "3.0.0"
 ---
 
 # Test-Driven Development (TDD) Workflow

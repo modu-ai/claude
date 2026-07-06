@@ -1,22 +1,11 @@
 ---
 name: moai-workflow-ddd
-description: >
-  Domain-Driven Development workflow specialist using ANALYZE-PRESERVE-IMPROVE
-  cycle for behavior-preserving code transformation. Use when refactoring
-  legacy code or reducing technical debt safely.
-license: Apache-2.0
-compatibility: Designed for Claude Code
-allowed-tools: Read, Write, Edit, Bash(git:*), Bash(pytest:*), Bash(ruff:*), Bash(npm:*), Bash(npx:*), Bash(node:*), Bash(uv:*), Bash(make:*), Bash(cargo:*), Bash(go:*), Bash(mix:*), Bash(bundle:*), Grep, Glob, mcp__context7__resolve-library-id, mcp__context7__get-library-docs
+description: 'Domain-Driven Development workflow specialist using ANALYZE-PRESERVE-IMPROVE cycle for behavior-preserving
+  code transformation. Use when refactoring legacy code or reducing technical debt safely.
+
+  '
 user-invocable: false
-metadata:
-  version: "1.0.0"
-  category: "workflow"
-  status: "active"
-  updated: "2026-01-16"
-  modularized: "true"
-  tags: "workflow, refactoring, ddd, domain-driven, behavior-preservation, ast-grep, characterization-tests"
-  author: "MoAI-ADK Team"
-  related-skills: "moai-tool-ast-grep, moai-workflow-testing, moai-foundation-quality"
+version: "3.0.0"
 ---
 
 # Domain-Driven Development (DDD) Workflow

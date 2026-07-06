@@ -1,28 +1,12 @@
 ---
 name: moai-domain-backend
-description: >
-  Backend development specialist covering API design, database integration,
-  microservices architecture, and modern backend patterns. Use when designing
-  APIs, implementing server logic, authentication, or authorization.
+description: 'Backend development specialist covering API design, database integration, microservices
+  architecture, and modern backend patterns. Use when designing APIs, implementing server logic, authentication,
+  or authorization.
 
-when_to_use: >
-  Use for backend work: API design (REST, GraphQL, gRPC), server logic,
-  authentication and authorization, microservices, middleware, caching,
-  and frameworks (FastAPI, Express, Django, Flask). Covers serverless,
-  PostgreSQL, MongoDB, and Redis integration.
-
-license: Apache-2.0
-compatibility: Designed for Claude Code
-allowed-tools: Read, Write, Edit, Bash(npm:*), Bash(npx:*), Bash(node:*), Bash(uv:*), Bash(pip:*), Bash(pytest:*), Bash(ruff:*), Bash(docker:*), Bash(curl:*), Bash(go:*), Bash(cargo:*), Grep, Glob, mcp__context7__resolve-library-id, mcp__context7__get-library-docs
+  '
 user-invocable: false
-metadata:
-  version: "1.0.0"
-  category: "domain"
-  status: "active"
-  updated: "2026-01-11"
-  modularized: "false"
-  tags: "backend, api, database, microservices, architecture"
-  author: "MoAI-ADK Team"
+version: "3.0.0"
 ---
 
 # Backend Development Specialist

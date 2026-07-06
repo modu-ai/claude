@@ -1,27 +1,13 @@
 ---
 name: moai-domain-html-report
-description: >
-  Markdown-to-single-file-HTML report renderer. Six modes (status, incident,
-  plan, explainer, financial, pr) selected automatically by report type.
-  Zero external JS/CSS framework dependencies — inline SVG charts, single
-  font-CDN exception for Korean readability. Self-contained output for
-  email attachment, print, and offline viewing.
+description: 'Markdown-to-single-file-HTML report renderer. Six modes (status, incident, plan, explainer,
+  financial, pr) selected automatically by report type. Zero external JS/CSS framework dependencies —
+  inline SVG charts, single font-CDN exception for Korean readability. Self-contained output for email
+  attachment, print, and offline viewing.
 
-when_to_use: >
-  Use when a markdown report must be rendered into a single self-contained
-  HTML file. Trigger phrases include "render this report as HTML", "weekly
-  status report as one HTML file", "convert the financial statements to an
-  HTML report", "incident report as HTML", "printable business plan HTML",
-  and "email-ready HTML report".
-
-license: Apache-2.0
-compatibility: Designed for Claude Code
-allowed-tools: Read, Write, Edit, Grep, Glob, Bash
+  '
 user-invocable: true
-metadata:
-  version: "1.0.0"
-  category: "domain"
-  status: "active"
+version: "3.0.0"
 ---
 
 # html-report — Single-File HTML Report Renderer

@@ -1,21 +1,12 @@
 ---
 name: moai-workflow-loop
-description: >
-  Ralph Engine - Automated feedback loop with LSP diagnostics and AST-grep
-  integration for continuous code quality improvement. Use when implementing
-  error-driven development, automated fixing, or continuous quality validation
-  workflows.
-license: Apache-2.0
-compatibility: Designed for Claude Code
-allowed-tools: Read, Write, Edit, Bash, Grep, Glob, mcp__context7__resolve-library-id, mcp__context7__get-library-docs
-effort: low
+description: 'Ralph Engine - Automated feedback loop with LSP diagnostics and AST-grep integration for
+  continuous code quality improvement. Use when implementing error-driven development, automated fixing,
+  or continuous quality validation workflows.
+
+  '
 user-invocable: false
-metadata:
-  version: "1.2.0"
-  category: "workflow"
-  status: "active"
-  updated: "2026-01-11"
-  tags: "lsp, ast-grep, feedback-loop, code-quality, automation, diagnostics, ralph"
+version: "3.0.0"
 ---
 
 # Ralph Engine

@@ -1,34 +1,13 @@
 ---
 name: moai-domain-humanize
-description: >
-  AI text humanization and 윤문 (post-editing) specialist that detects and removes
-  AI tells while preserving meaning, facts, and figures. Covers Korean, English,
-  Japanese, and Chinese with a shared severity model (S1/S2/S3), quality grades
-  (A/B/C/D), and 30%/50% over-editing guardrails. Use to make AI-generated text
-  read as human-authored without changing what it says (de-ai, naturalness pass).
+description: 'AI text humanization and 윤문 (post-editing) specialist that detects and removes AI tells
+  while preserving meaning, facts, and figures. Covers Korean, English, Japanese, and Chinese with a shared
+  severity model (S1/S2/S3), quality grades (A/B/C/D), and 30%/50% over-editing guardrails. Use to make
+  AI-generated text read as human-authored without changing what it says (de-ai, naturalness pass).
 
-when_to_use: >
-  Use for AI-text humanization and post-editing (윤문): detecting and
-  removing AI tells across Korean, English, Japanese, and Chinese,
-  applying the S1/S2/S3 severity model and quality grades while preserving
-  meaning, facts, and figures.
-
-license: Apache-2.0
-compatibility: Designed for Claude Code
-allowed-tools: Read, Write, Edit, Grep, Glob
+  '
 user-invocable: false
-metadata:
-  version: "1.0.0"
-  category: "domain"
-  status: "active"
-  updated: "2026-06-15"
-  tags: "humanize, ai-tell, 윤문, post-edit, naturalness, multilingual"
-
-# MoAI Extension: Progressive Disclosure
-progressive_disclosure:
-  enabled: true
-  level1_tokens: 100
-  level2_tokens: 5000
+version: "3.0.0"
 ---
 
 # moai-domain-humanize

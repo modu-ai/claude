@@ -1,32 +1,13 @@
 ---
 name: moai-workflow-ci-loop
-description: >
-  Unified CI watch + auto-fix loop skill. Polls gh pr checks after /moai sync PR creation,
-  classifies required vs auxiliary failures, attempts safe automated patches (max 3 iterations),
-  and escalates semantic failures to the user. Use for CI loop workflow — NOT for general
-  loop iteration patterns (see moai-workflow-loop).
+description: 'Unified CI watch + auto-fix loop skill. Polls gh pr checks after /moai sync PR creation,
+  classifies required vs auxiliary failures, attempts safe automated patches (max 3 iterations), and escalates
+  semantic failures to the user. Use for CI loop workflow — NOT for general loop iteration patterns (see
+  moai-workflow-loop).
 
-when_to_use: >
-  Use for the CI watch and auto-fix loop after /moai sync PR creation:
-  polling gh pr checks, classifying required vs auxiliary failures, safe
-  automated patch attempts (max 3 iterations), and escalation of semantic
-  failures.
-
-license: Apache-2.0
-compatibility: Designed for Claude Code
-allowed-tools: Bash, Read
+  '
 user-invocable: false
-metadata:
-  version: "0.1.0"
-  category: "workflow"
-  status: "active"
-  updated: "2026-05-22"
-  tags: "ci, watch, autofix, polling, github-actions, required-checks, force-push-prohibited"
-
-progressive_disclosure:
-  enabled: true
-  level1_tokens: 120
-  level2_tokens: 5000
+version: "3.0.0"
 ---
 
 # CI Loop (`moai-workflow-ci-loop`)

@@ -1,36 +1,13 @@
 ---
 name: moai-foundation-thinking
-description: >
-  Unified thinking toolkit: Creative frameworks (Critical Evaluation, Diverge-Converge,
-  Deep Questioning), First Principles reasoning (absorbed from moai-foundation-philosopher),
-  and Adaptive Thinking via the `ultrathink` keyword. Use for ideation, strategic
-  analysis, architecture decisions, and deep reasoning on complex problems.
+description: 'Unified thinking toolkit: Creative frameworks (Critical Evaluation, Diverge-Converge, Deep
+  Questioning), First Principles reasoning (absorbed from moai-foundation-philosopher), and Adaptive Thinking
+  via the `ultrathink` keyword. Use for ideation, strategic analysis, architecture decisions, and deep
+  reasoning on complex problems.
 
-when_to_use: >
-  Use for thinking and ideation: creative frameworks (critical evaluation,
-  diverge-converge), first-principles reasoning, five-whys root-cause
-  analysis, trade-off and architecture decisions,
-  technology/library/database selection, and Adaptive Thinking via the
-  ultrathink keyword.
-
-license: Apache-2.0
-compatibility: Designed for Claude Code
-allowed-tools: Read, Grep, Glob
+  '
 user-invocable: false
-metadata:
-  version: "2.0.0"
-  category: "foundation"
-  status: "active"
-  updated: "2026-04-25"
-  modularized: "true"
-  tags: "foundation, critical-thinking, brainstorming, ideation, evaluation, creative-thinking, diverge-converge, first-principles, adaptive-thinking, philosophy, architecture-decision"
-  related-skills: "moai-foundation-philosopher, moai-workflow-thinking"
-
-# MoAI Extension: Progressive Disclosure
-progressive_disclosure:
-  enabled: true
-  level1_tokens: 100
-  level2_tokens: 5000
+version: "3.0.0"
 ---
 
 # MoAI Foundation Thinking

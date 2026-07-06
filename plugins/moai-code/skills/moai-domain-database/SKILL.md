@@ -1,36 +1,12 @@
 ---
 name: moai-domain-database
-description: >
-  Database specialist covering PostgreSQL, MongoDB, Redis, Oracle, and cloud database
-  platforms (Neon, Supabase, Firestore). Use for schema design, query optimization,
-  indexing strategies, data modeling, or cloud database selection.
-  Cloud vendor guide absorbed from moai-platform-database-cloud.
+description: 'Database specialist covering PostgreSQL, MongoDB, Redis, Oracle, and cloud database platforms
+  (Neon, Supabase, Firestore). Use for schema design, query optimization, indexing strategies, data modeling,
+  or cloud database selection. Cloud vendor guide absorbed from moai-platform-database-cloud.
 
-when_to_use: >
-  Use for schema design, query optimization, indexing strategies, and
-  ORMs/ODMs (Prisma, Mongoose, SQLAlchemy, Drizzle). Covers PostgreSQL,
-  MongoDB, Redis, Oracle, and cloud databases (Neon, Supabase, Firestore).
-
-license: Apache-2.0
-compatibility: Designed for Claude Code
-allowed-tools: Read, Write, Edit, Bash(psql:*), Bash(mysql:*), Bash(sqlite3:*), Bash(mongosh:*), Bash(redis-cli:*), Bash(npm:*), Bash(npx:*), Bash(prisma:*), Bash(neonctl:*), Bash(firebase:*), Bash(supabase:*), Grep, Glob, mcp__context7__resolve-library-id, mcp__context7__get-library-docs
+  '
 user-invocable: false
-metadata:
-  version: "2.0.0"
-  category: "domain"
-  status: "active"
-  updated: "2026-04-25"
-  modularized: "true"
-  tags: "database, postgresql, mongodb, redis, oracle, data-patterns, performance, neon, supabase, firestore, cloud-database, serverless"
-  author: "MoAI-ADK Team"
-  context7-libraries: "/neondatabase/neon, /supabase/supabase, /firebase/firebase-docs"
-  related-skills: "moai-platform-database-cloud"
-
-# MoAI Extension: Progressive Disclosure
-progressive_disclosure:
-  enabled: true
-  level1_tokens: 100
-  level2_tokens: 5000
+version: "3.0.0"
 ---
 
 # Database Domain Specialist

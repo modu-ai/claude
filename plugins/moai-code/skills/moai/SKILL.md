@@ -1,12 +1,12 @@
 ---
 name: moai
-description: >
-  MoAI unified orchestrator for autonomous development. Routes natural
-  language or subcommands (plan, run, sync, project, fix, loop, mx,
-  feedback, review, clean, codemaps, gate, harness) to specialized
+description: 'MoAI unified orchestrator for autonomous development. Routes natural language or subcommands
+  (plan, run, sync, project, fix, loop, mx, feedback, review, clean, codemaps, gate, harness) to specialized
   agents.
-allowed-tools: Agent, AskUserQuestion, Skill, TaskCreate, TaskUpdate, TaskList, TaskGet, Bash, Read, Write, Edit, Glob, Grep
-argument-hint: "[subcommand] [args] | \"natural language task\""
+
+  '
+user-invocable: true
+version: "3.0.0"
 ---
 
 ## Pre-execution Context

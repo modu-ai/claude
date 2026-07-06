@@ -1,30 +1,12 @@
 ---
 name: moai-ref-git-workflow
-description: >
-  Git workflow patterns, branch strategies, conventional commits, and PR templates
-  reference for git operations. Agent-extending skill that amplifies manager-git
-  expertise with production-grade git workflow patterns.
-  NOT for: code implementation, testing, architecture design, documentation content.
+description: 'Git workflow patterns, branch strategies, conventional commits, and PR templates reference
+  for git operations. Agent-extending skill that amplifies manager-git expertise with production-grade
+  git workflow patterns. NOT for: code implementation, testing, architecture design, documentation content.
 
-when_to_use: >
-  Use for git workflow reference: branch strategies, conventional commits,
-  PR templates, merge and rebase flows, and commit/branch/release
-  conventions. Amplifies manager-git expertise with production-grade git
-  workflow patterns.
-
+  '
 user-invocable: false
-metadata:
-  version: "1.0.0"
-  category: "workflow"
-  status: "active"
-  updated: "2026-03-30"
-  tags: "git, branch, commit, pr, workflow, reference"
-
-# MoAI Extension: Progressive Disclosure
-progressive_disclosure:
-  enabled: true
-  level1_tokens: 100
-  level2_tokens: 3000
+version: "3.0.0"
 ---
 
 # Git Workflow Reference

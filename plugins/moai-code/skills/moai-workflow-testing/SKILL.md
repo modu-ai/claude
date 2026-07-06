@@ -1,33 +1,11 @@
 ---
 name: moai-workflow-testing
-description: >
-  Comprehensive testing and development workflow specialist combining DDD
-  testing, characterization tests, performance profiling, and quality
-  assurance. Use when writing tests or measuring coverage.
+description: 'Comprehensive testing and development workflow specialist combining DDD testing, characterization
+  tests, performance profiling, and quality assurance. Use when writing tests or measuring coverage.
 
-when_to_use: >
-  Use for comprehensive testing and QA: DDD domain-driven testing,
-  characterization tests, behavior preservation, performance profiling,
-  code and PR review, CI/CD, and TRUST 5 quality-assurance validation.
-
-license: Apache-2.0
-compatibility: Designed for Claude Code
-allowed-tools: Read, Write, Edit, Bash(pytest:*), Bash(ruff:*), Bash(npm:*), Bash(npx:*), Bash(node:*), Bash(jest:*), Bash(vitest:*), Bash(go:*), Bash(cargo:*), Bash(mix:*), Bash(uv:*), Bash(bundle:*), Bash(php:*), Bash(phpunit:*), Grep, Glob, mcp__context7__resolve-library-id, mcp__context7__get-library-docs
+  '
 user-invocable: false
-metadata:
-  version: "2.4.0"
-  category: "workflow"
-  status: "active"
-  updated: "2026-01-21"
-  modularized: "true"
-  tags: "workflow, ddd, testing, debugging, performance, quality, review, pr-review"
-  author: "MoAI-ADK Team"
-
-# MoAI Extension: Progressive Disclosure
-progressive_disclosure:
-  enabled: true
-  level1_tokens: 100
-  level2_tokens: 5000
+version: "3.0.0"
 ---
 
 # Development Workflow Specialist

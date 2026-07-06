@@ -1,35 +1,12 @@
 ---
 name: moai-workflow-project
-description: >
-  Integrated project management system covering documentation, language initialization,
-  template optimization, docs generation, and JIT document loading. Absorbed from
-  moai-workflow-templates, moai-docs-generation, and moai-workflow-jit-docs.
+description: 'Integrated project management system covering documentation, language initialization, template
+  optimization, docs generation, and JIT document loading. Absorbed from moai-workflow-templates, moai-docs-generation,
+  and moai-workflow-jit-docs.
 
-when_to_use: >
-  Use for integrated project management: documentation scaffolding
-  (product/structure/tech.md), multilingual language initialization,
-  template and boilerplate optimization, docs generation (Sphinx, MkDocs,
-  TypeDoc, OpenAPI), and JIT document loading.
-
-license: Apache-2.0
-compatibility: Designed for Claude Code
-allowed-tools: Read, Write, Edit, Bash(git:*), Bash(npm:*), Bash(npx:*), Bash(uv:*), Bash(pip:*), Bash(ls:*), Bash(mkdir:*), Grep, Glob, WebFetch, WebSearch, mcp__context7__resolve-library-id, mcp__context7__get-library-docs
+  '
 user-invocable: false
-metadata:
-  version: "3.0.0"
-  category: "workflow"
-  status: "active"
-  updated: "2026-04-25"
-  modularized: "true"
-  tags: "workflow, project, documentation, initialization, templates, boilerplate, scaffolding, jit-docs, docs-generation"
-  aliases: "moai-workflow-project"
-  related-skills: "moai-workflow-templates, moai-docs-generation, moai-workflow-jit-docs"
-
-# MoAI Extension: Progressive Disclosure
-progressive_disclosure:
-  enabled: true
-  level1_tokens: 100
-  level2_tokens: 5000
+version: "3.0.0"
 ---
 
 # MoAI Workflow Project - Integrated Project Management System
