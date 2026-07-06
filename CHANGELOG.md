@@ -69,7 +69,7 @@ Korean-slop remediation across 177 cowork + 11 design skills (gate structure, de
 **Verification**:
 - 23/24 AC PASS (AC-IA-001..022, 024 — structural delta + per-page alias + Hugo build exit 0)
 - AC-IA-023 PASS-WITH-DEBT — 전용 링크체커가 pre-existing broken internal links 10건 발견(cookbook 본문 상대경로 오타 5건 + Hugo taxonomy 렌더링 한계 5건, commit 6d78fbf부터 기원). **SPEC 산출 콘텐츠(cli/**, plugins/{chat,cowork,design,code}/**, help/source-index.md)에서 broken 0건** — 전부 out-of-scope PRESERVE 대상. 별도 후속 SPEC에서 정비.
-- Hugo build: exit 0, 302 pages, 65 aliases, 392 ms (M6 finalization rebuild)
+- Hugo build: exit 0, 228 pages, 65 aliases, 392 ms (M6 finalization rebuild)
 - 전용 링크체커: `node www/scripts/check-links.mjs www/public` → exit 1, `broken internal links: 10` (전부 pre-existing; SPEC-produced content 0건)
 
 **Files modified**:
