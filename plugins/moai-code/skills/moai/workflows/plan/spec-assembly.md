@@ -325,7 +325,7 @@ Steps:
 
 3. **Audit Trail Write** — Call `internal/bodp.WriteDecision()` with EntryPoint matching the path (`EntryPlanBranch` or `EntryPlanWorktree`), `UserChoice` from the AskUserQuestion answer, and `ExecutedCmd` describing the upcoming git operation. Failure is non-fatal.
 
-4. **Path-Specific Delegation** — Branch Path: pass `base=<chosenBase>` parameter to `manager-git`. Worktree Path: invoke `moai worktree new <SPEC-ID> --base <chosenBase>` (or `--from-current` when chosenBase is `HEAD`).
+4. **Path-Specific Delegation** — Branch Path: pass `base=<chosenBase>` parameter to `manager-git`. Worktree Path: create the worktree directly with `git worktree add -b feat/<SPEC-ID> ~/.moai/worktrees/<project>/<SPEC-ID> <chosenBase>` (use `HEAD` as the base branch when chosenBase is `HEAD`).
 
 Out of Scope (BODP Gate):
 - "Other" free-form base interpretation: orchestrator parses input as a base branch name; invalid input falls back to `origin/main` with a warning.
@@ -337,7 +337,7 @@ Prerequisite: SPEC files MUST be committed before worktree creation.
 - Run **Phase 3.0: BODP Gate** above (EntryPoint = `EntryPlanWorktree`).
 - Stage SPEC files: git add .moai/specs/SPEC-{ID}/
 - Create commit: feat(spec): Add SPEC-{ID} - {title}
-- Create worktree: `moai worktree new SPEC-{ID} --base <chosenBase>` (or `--from-current` when the user chose to continue on the current HEAD).
+- Create worktree: `git worktree add -b feat/SPEC-{ID} ~/.moai/worktrees/<project>/SPEC-{ID} <chosenBase>` (use `HEAD` as the base branch when the user chose to continue on the current HEAD).
 - Display worktree path and navigation instructions
 
 ##### Worktree-Anchored Resume Output [HARD]
@@ -479,7 +479,7 @@ When tmux is NOT available: AskUserQuestion with 2 options:
 - Option 2: Team Mode (in-process): Use Agent Teams for parallel implementation within current session.
 
 **Step 4: Execute selected mode**
-- **Worktree mode**: Execute `moai worktree new SPEC-{ID} --tmux` to create worktree with tmux session. The tmux session will:
+- **Worktree mode**: Create the worktree with `git worktree add -b feat/SPEC-{ID} ~/.moai/worktrees/<project>/SPEC-{ID} <chosenBase>`, then open a tmux session bound to it with `tmux new-session -s moai-{ProjectName}-SPEC-{ID} -c ~/.moai/worktrees/<project>/SPEC-{ID}`. The tmux session will:
   - CC mode: Create session, cd to worktree, run `/moai run SPEC-{ID}`
   - GLM mode: Create session, inject GLM env, cd to worktree, run `/moai run SPEC-{ID}`
   - CG mode: Create session, inject GLM env to session, clear GLM from settings.local.json, cd to worktree, run `/moai run SPEC-{ID}`

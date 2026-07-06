@@ -132,7 +132,7 @@ Before executing any verb, verify:
 
 Operations:
 
-0. **Invoke classifier** (per the harness classifier wiring policy): run `moai hook harness-classify 2>&1` and capture stderr + exit code:
+0. **Invoke classifier** (per the harness classifier wiring policy): run `moai hook harness-classify 2>&1` and capture stderr + exit code — `[무설치-이연]` 무설치 에디션에서는 이 `moai` 바이너리 게이트 분류기가 비기능이므로 이 단계를 건너뛰고 기본 harness 레벨(standard)로 진행한다:
    - On exit 0 (success): render the classifier summary line (e.g., `harness-classify: N patterns → M promotions written`) above the tier distribution table.
    - On exit 1 (classifier error): render an error annotation block (`> ⚠ classifier error: <stderr>`) above the tier distribution table, then CONTINUE rendering the remaining sections (fail-open per the relevant requirement — do NOT abort the status command).
    - The classifier is gated by `learning.enabled` in `.moai/config/sections/harness.yaml`; when disabled, it is a complete no-op and tier-promotions.jsonl is left untouched.

@@ -181,13 +181,13 @@ moai hook db-schema-sync
 ```
 
 - Input (stdin JSON): filtered migration file list, project language, `db.yaml` config — read from current working directory by the Go handler
-- Implementation: the DB-schema-sync hook handler, registered as the `moai hook db-schema-sync` subcommand
+- Implementation: the DB-schema-sync hook handler, registered as the `moai hook db-schema-sync` `[무설치-이연]` subcommand
 - Output: updated `.moai/project/db/schema.md`, `erd.mmd`, `migrations.md`; refresh report
 - Changes are staged for the sync commit — no separate commit is created
 
 On refresh failure (parser error, template conflict): log the error, include in sync report under "DB doc refresh warnings", and continue to Phase 0.1. Non-blocking by contract.
 
-The `/moai db` slash command was retired (Bundle A, 2026-05-16) — sync workflow is now the sole entry point for db doc refresh. Internal `moai hook db-schema-sync` Go subcommand remains for hook event handlers and direct invocation by sync workflow.
+The `/moai db` slash command was retired (Bundle A, 2026-05-16) — sync workflow is now the sole entry point for db doc refresh. Internal `moai hook db-schema-sync` `[무설치-이연]` Go subcommand remains for hook event handlers and direct invocation by sync workflow.
 
 #### Step 0.08.4: Advisory Path
 

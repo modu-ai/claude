@@ -339,16 +339,16 @@ Condition: Auto-merge succeeded AND `workflow.worktree.auto_cleanup == true`
 
 Steps:
 1. Detect worktree path for current SPEC-ID from registry
-2. Execute cleanup equivalent to `moai worktree done SPEC-{ID} --auto --delete-branch`:
-   - Remove worktree directory
-   - Remove feature branch (already deleted by --delete-branch in merge)
-   - Update worktree registry
+2. Execute cleanup with `git worktree remove ~/.moai/worktrees/<project>/SPEC-{ID}` followed by `git branch -d feat/SPEC-{ID}`:
+   - Remove worktree directory (`git worktree remove`)
+   - Remove feature branch (`git branch -d`; already deleted if the merge used `--delete-branch`)
+   - Prune stale worktree metadata (`git worktree prune`)
 3. Log cleanup result
 
 Error handling:
 - Cleanup failure does NOT block or affect merge result
 - On failure: Log warning with manual cleanup command
-- Message: "Worktree cleanup warning: {error}. Manual: `moai worktree done SPEC-{ID}`"
+- Message: "Worktree cleanup warning: {error}. Manual: `git worktree remove ~/.moai/worktrees/<project>/SPEC-{ID}`"
 
 ### Phase 4: Completion and Next Steps
 
