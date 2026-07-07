@@ -1,73 +1,101 @@
-# moai-design — 에이전틱 디자인 플러그인
+# moai-designer (디자이너) — 흩어진 브랜드를 Claude Design으로 합성하는 동료
 
-Claude Code 터미널·데스크탑에서 **Claude Design 연동**부터 **코드 기반 브랜드 디자인**까지 하나의 `/design` 표면으로 처리하는 플러그인입니다. 디자인 토큰(DTCG)·DESIGN.md·75종 브랜드 시스템·GAN 품질 루프를 포함합니다.
+> **디자이너**는 로고·색·타이포 같은 흩어진 브랜드 자산을 모아 Claude Design에 올릴 **DESIGN.md**로 합성하고, 코드 기반 브랜드 디자인과 Claude Design 시안 핸드오프까지 처리하는 동료입니다.
+
+---
+
+## 무엇을 하나요 (11스킬)
+
+| 역할 | 언제 | 무엇을 하나요 |
+|------|------|---------------|
+| 🎨 **브랜드 시스템 합성** | 브랜드 자산(로고·색·타이포·기존 사이트·PPT)이 흩어져 있을 때 | 자산 수집 → Claude Design용 **DESIGN.md** + 디자인 토큰(DTCG) 생성 |
+| 📥 **Claude Design 핸드오프** | claude.ai/design에서 만든 시안을 코드로 받을 때 | 핸드오프 번들(.zip·URL) 분석 → 토큰·컴포넌트 추출 |
+| ✍️ **디자인 카피 검수** | 랜딩 페이지·카드뉴스 카피의 AI 맛을 뺄 때 | AI 슬롭 감사 → 검수 보고서 + 자연스러운 대안 |
+| 🛠️ **코드 기반 브랜드 디자인** | 브랜드 컨텍스트에서 카피+비주얼 토큰을 코드로 만들 때 | 카피·비주얼 토큰 병렬 생성 → GAN 품질 루프 |
+
+> 실무 문서·카피·글쓰기는 **코워커**가, 개발 환경은 **코더**가 담당합니다.
+
+---
+
+## 사용법
+
+### 그냥 말걸기
+
+```
+"우리 브랜드 자산 정리해서 Claude Design에 올릴 수 있게 만들어줘"
+→ 브랜드 자산 수집 → DESIGN.md + 디자인 토큰 합성
+
+"claude.ai/design에서 만든 시안 핸드오프 받아줘"
+→ 핸드오프 번들 분석 → 토큰·컴포넌트 추출
+
+"랜딩 페이지 카피 AI 맛 좀 빼줘"
+→ 디자인 카피 AI 슬롭 감사 → 자연스러운 대안
+```
+
+### `/design` 명령 (6개)
+
+| 명령 | 무슨 일 |
+|------|--------|
+| `/design` | 브리프부터 핸드오프까지 (Path A/B 자동 선택) |
+| `/design:brief` | 6요소 브리프(Project·Audience·Pages·Tone·Reference·Constraints) |
+| `/design:tokens` | 브랜드 자산 → DESIGN.md + DTCG 토큰(색·타이포·spacing·radii·shadows) |
+| `/design:import` | Claude Design 핸드오프 번들(.zip·URL) import·분석 |
+| `/design:check` | 디자인 카피 AI 슬롭 감사 → 검수 보고서 + 대안 |
+| `/design:system` | 75종 브랜드 디자인 시스템 라이브러리 + Tailwind CDN 매핑 |
+
+---
+
+## 프로젝트 시작하기
+
+처음 브랜드 컨텍스트를 셋업할 때는 **PM** 플러그인의 `/project --designer`가 안내합니다.
+
+```
+/project --designer
+"러닝 브랜드라 색상·타이포 정리하고 싶어"
+→ PM이 디자이너 브랜드 셋업으로 연결
+```
+
+자세한 건 [moai-pm README](../moai-pm/README.md)를 참고하세요.
+
+---
 
 ## 설치
 
-```bash
-claude plugin marketplace add modu-ai/claude
-/plugin install design
+```
+/plugin install moai-designer
 ```
 
-플러그인 명령은 `플러그인명:명령` 콜론 네임스페이스로 노출됩니다. 이 플러그인의 `name`은 `design`이므로 명령은 **`/design:<name>`** 형태입니다(예: `/design:brief`).
+`modu-ai/claude` 마켓플레이스. 브랜드·디자인 시스템 작업이 필요할 때 설치하세요.
 
-## 두 갈래 경로 (Path A / Path B)
+---
 
-`/design`(bare)은 AskUserQuestion 1라운드로 경로를 선택한 뒤 해당 파이프라인으로 진입합니다.
+## 다른 AI 직원과 함께 쓰기
 
-- **Path A — Claude Design import**: claude.ai/design에서 만든 시안을 **핸드오프 번들**(.zip 또는 붙여넣기 프롬프트 + 번들 URL)로 받아 `moai-workflow-design`이 import하고 `cd-handoff-reader`가 분석합니다. README를 source of truth로 먼저 파싱하고 토큰/컴포넌트는 있으면 사용·없으면 코드(HTML/CSS)에서 유도하는 방어적 방식입니다.
-- **Path B — 코드 기반 브랜드 디자인**: 브랜드 컨텍스트에서 출발해 `moai-domain-copywriting`(카피)과 `moai-domain-brand-design`(비주얼 토큰)을 **병렬**로 생성한 뒤, `moai-workflow-gan-loop`으로 품질을 반복 개선합니다.
+디자이너는 4명의 AI 직원 중 한 명입니다.
 
-## 파이프라인
+| AI 직원 | 언제 |
+|---------|------|
+| 🧑‍💼 코워커 | 실무·콘텐츠·작가 |
+| 🎨 **디자이너**(본 플러그인) | 브랜드·디자인 시스템·Claude Design |
+| 💻 코더 | 개발·SPEC·품질 게이트 |
+| 📋 PM | 프로젝트 시작 허브 (`/project`) |
 
-```
-manager-spec (BRIEF)
-      │
-      ▼
-[ moai-domain-copywriting  ‖  moai-domain-brand-design ]   ← 병렬
-      │
-      ▼
-frontend role (구현)        ← 디자인 헌법의 expert-frontend ROLE.
-      │                        런타임에 Agent(general-purpose) + frontend whitelist로 해소
-      ▼
-sync-auditor (+ GAN 루프)   ← 4차원 회의적 채점 · pass_threshold 게이팅
-```
+실무 문서·카피는 코워커가, 개발은 코더가, 프로젝트 셋업은 PM이 담당합니다.
 
-- **BRIEF 최초**: `manager-spec`이 브랜드 인터뷰 → BRIEF를 작성합니다(디자인 헌법 "Always" 페이즈).
-- **병렬 생성**: 카피와 비주얼 토큰은 별도 스킬로 병렬 실행됩니다(병렬성 계약 보존).
-- **GAN 최종**: `sync-auditor`가 Design Quality(30%)·Originality(25%)·Completeness(25%)·Functionality(20%) 4차원을 채점하고, `moai-workflow-gan-loop`이 `design.yaml`의 `max_iterations`/`pass_threshold`/`escalation_after`로 반복을 제어합니다.
+---
 
-## 명령 (6개)
+## 더 알아보기 (개발자·디자이너 기술)
 
-| 명령 | 동작 | 위임 스킬 |
-|------|------|-----------|
-| `/design:` (bare) | Path A/B 경로 선택 인터뷰 → 파이프라인 진입 | `moai-workflow-design` (+ `cd-prompt-builder`) |
-| `/design:brief` | 6요소 브리프(Project·Audience·Pages·Tone·Reference·Constraints) → 붙여넣기 프롬프트 | `cd-brief` |
-| `/design:tokens` | 브랜드 자산 → DESIGN.md + DTCG 토큰(색·타이포·spacing·radii·shadows) | `cd-system-prep` + `moai-domain-brand-design` |
-| `/design:import` | Claude Design 핸드오프 번들(.zip 또는 URL) import·분석 | `moai-workflow-design` + `cd-handoff-reader` |
-| `/design:check` | 디자인 카피 AI 슬롭 감사 → 검수 보고서 + 대안 | `cd-slop-check` + `moai-domain-copywriting` |
-| `/design:system` | 75종 브랜드 디자인 시스템 라이브러리 + Tailwind CDN 매핑 | `design-system-library` |
+- **두 갈래 경로** — `/design`(bare)이 Path A(Claude Design import)와 Path B(코드 기반 브랜드 디자인)를 1라운드 인터뷰로 선택
+- **GAN 품질 루프** — Design Quality(30%)·Originality(25%)·Completeness(25%)·Functionality(20%) 4차원 회의적 채점 + `config/design.yaml`의 `max_iterations`/`pass_threshold`/`escalation_after`로 반복 제어
+- **파이프라인** — `manager-spec`(BRIEF) → 카피·비주얼 토큰 병렬 생성 → frontend 구현 → `sync-auditor`(GAN 루프)
+- **스킬 11종** — 도메인/워크플로우 5종(`moai-domain-brand-design`, `moai-domain-copywriting`, `moai-workflow-design`, `moai-workflow-gan-loop`, `moai-domain-design-handoff`) + Claude Design 전처리·라이브러리 6종(`cd-brief`, `cd-system-prep`, `cd-prompt-builder`, `cd-handoff-reader`, `cd-slop-check`, `design-system-library`)
+- **에이전트 3종** — `manager-spec`(BRIEF), `sync-auditor`(GAN 4차원 평가), `builder-harness`(Path B 동적 생성). 조사는 Anthropic 내장 `Explore`
+- **anti-slop 정본** — 디자인 카피 AI 슬롭 사전(영문·한국어 Tier 1/2)은 `moai-domain-copywriting`이 정본, `cd-slop-check`는 다운스트림 QA 게이트
+- **디자인 헌법** — `rules/moai/design/constitution.md` (파이프라인 순서·5 안전 계층·GAN 루프 계약·평가자 관대성 방지, FROZEN)
+- **설정** — `config/design.yaml` (GAN 컨트롤·브랜드 컨텍스트·Claude Design 통합·design_docs 자동 로드)
+- **런타임 산출물 경로** — `.moai/design/`(토큰·컴포넌트·브리프), `.moai/project/brand/`(브랜드 컨텍스트). 플러그인은 참조만, 스캐폴드하지 않음
 
-## 구성 요소
+---
 
-- **스킬 11종**: 디자인 도메인/워크플로우 5종(`moai-domain-brand-design`, `moai-domain-copywriting`, `moai-workflow-design`, `moai-workflow-gan-loop`, `moai-domain-design-handoff`) + Claude Design 전처리·라이브러리 6종(`cd-brief`, `cd-system-prep`, `cd-prompt-builder`, `cd-handoff-reader`, `cd-slop-check`, `design-system-library`).
-- **에이전트 3종**: `manager-spec`(BRIEF 작성), `sync-auditor`(GAN 4차원 평가), `builder-harness`(Path B1 figma-extractor 동적 생성). read-only 참조 조사는 Anthropic 내장 `Explore` 사용.
-- **디자인 헌법**: `rules/moai/design/constitution.md` — 파이프라인 순서·5 안전 계층·GAN 루프 계약·평가자 관대성 방지(FROZEN).
-- **설정**: `config/design.yaml` — GAN 컨트롤·브랜드 컨텍스트·Claude Design 통합·design_docs 자동 로드.
-
-## anti-slop 정본
-
-디자인 카피의 AI 슬롭 패턴 사전(영문·한국어 Tier 1/2 + 구조 안티패턴)의 정본은 `moai-domain-copywriting`이며, 생성 단계에서 선제적으로 준수됩니다. `cd-slop-check`는 그 사전을 참조하는 **다운스트림 QA 게이트**입니다.
-
-## 예약 경로 (런타임 산출물)
-
-`.moai/design/`(토큰·컴포넌트·브리프), `.moai/project/brand/`(브랜드 컨텍스트), `.moai/sprints/`(Sprint Contract 아티팩트)는 **사용자 프로젝트 런타임 산출물 경로**입니다. 플러그인은 이 경로를 참조하되 스캐폴드하지 않습니다.
-
-## 설계 문서
-
-- 아키텍처: `docs/plugin-family-design/01-moai-design.md`
-- 구축 스펙: `docs/plugin-family-design/03-moai-design-processing.md`
-
-## 라이선스
-
-LicenseRef-MoAI-NC-ND-1.0
+**라이선스**: LicenseRef-MoAI-NC-ND-1.0 · **작성자**: 모두의AI · **버전**: 0.2.0
