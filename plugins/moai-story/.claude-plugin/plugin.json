@@ -3,9 +3,20 @@
   "displayName": "MoAI Story",
   "version": "0.1.0",
   "description": "작가와 콘텐츠 비즈니스를 위한 플러그인 — 출판 기획·집필부터 웹툰·웹소설·드라마/영화 시나리오·광고/영상 콘티까지. Higgsfield 최신 모델로 캐릭터 일관성 작화·콘티·프리비즈를 생성.",
-  "author": "modu-ai",
+  "author": {
+    "name": "modu-ai"
+  },
   "category": "작가·콘텐츠",
-  "keywords": ["moai", "story", "writer", "webtoon", "webnovel", "screenplay", "higgsfield", "작가"],
+  "keywords": [
+    "moai",
+    "story",
+    "writer",
+    "webtoon",
+    "webnovel",
+    "screenplay",
+    "higgsfield",
+    "작가"
+  ],
   "license": "LicenseRef-MoAI-NC-ND-1.0",
   "mcpServers": "./.mcp.json"
 }
