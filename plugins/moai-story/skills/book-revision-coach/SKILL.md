@@ -13,7 +13,7 @@ version: 0.1.0
 
 # book-revision-coach
 
-> 도서 본문 초고를 **출판 직전 수준**으로 다듬는 7 단계 퇴고 코치. book-chapter-writer로 작성한 초고를 받아 어법·문체·논리·인용·분량·시각자료·일관성을 차례로 점검합니다. **office-korean-spell-check(맞춤법) → book-revision-coach(퇴고) → general-humanize-korean(AI 티) → general-ai-slop-reviewer(최종)** 4 체인의 첫 단계. 본 스킬 완료 후 곧바로 출판사 편집자에게 보낼 수 있는 수준이 됩니다.
+> 도서 본문 초고를 **출판 직전 수준**으로 다듬는 7 단계 퇴고 코치. book-chapter-writer로 작성한 초고를 받아 어법·문체·논리·인용·분량·시각자료·일관성을 차례로 점검합니다. **office-korean-spell-check(맞춤법) → book-revision-coach(퇴고) → general-humanize-korean(AI 티) → general-ai-slop-reviewer(최종)** 4 체인의 첫 단계. 본 스킬 완료 후 곧바로 출판사 편집자에게 보낼 수 있는 수준이 됩니다. **무엇을** 고쳐야 할지(어법·문체·논리·인용·분량)를 7단계로 점검하고 **언제** 다음 체인으로 넘길지 판단한다.
 
 ## 1. 개요
 
