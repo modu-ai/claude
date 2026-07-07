@@ -1,0 +1,9 @@
+{
+  "name": "moai-pm",
+  "displayName": "PM",
+  "version": "0.1.0",
+  "description": "프로젝트 초기화 허브 플러그인 — /project --cowork(코워커 체인 init)·--designer(디자이너 브랜드 셋업)·--code(코더 개발환경 셋업) 플래그로 4개 AI 직원 플러그인의 진입을 라우팅합니다. 비개발자도 자연어 한마디로 프로젝트를 시작할 수 있는 진입점 역할을 합니다. (project 라우터 스킬을 moai-coworker에서 이관.)",
+  "author": { "name": "모두의AI", "email": "email@mo.ai.kr" },
+  "keywords": ["moai", "pm", "project", "허브", "라우터", "초기화"],
+  "license": "LicenseRef-MoAI-NC-ND-1.0"
+}

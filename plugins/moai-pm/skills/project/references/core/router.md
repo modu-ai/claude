@@ -283,10 +283,10 @@
 |--------|------|
 | B2B 제안서, RFP 대응 | business-proposal-writer |
 
-### moai-story (v4.0.0 이관)
+### moai-coworker (v4.0.0 이관)
 | 키워드 | 스킬 |
 |--------|------|
-| 출판 기획·집필·퇴고·제안 | moai-story 플러그인으로 이관 (v4.0.0) — /plugin install story |
+| 출판 기획·집필·퇴고·제안 | moai-coworker 플러그인으로 이관 (v4.0.0) — /plugin install story |
 
 ### moai-design
 | 키워드 | 스킬 |
