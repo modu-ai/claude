@@ -12,8 +12,9 @@ description: |
   - "슬라이드 이미지 프롬프트", "나노바나나 슬라이드", "Nano Banana 슬라이드"
   - "본문 MD를 NotebookLM 프롬프트로 변환", "강연용 슬라이드 자료 만들어줘"
   - "PPT 발표 자료 프롬프트", "발표 슬라이드 통째로 생성"
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # media-notebooklm-slide-prompt — NotebookLM 슬라이드 데크 + 나노바나나 이미지 프롬프트 빌더
 

@@ -4,8 +4,9 @@ description: >
   성과평가 체계를 설계하고 실행을 도와주는 스킬입니다. "OKR 설정해줘", "성과 리뷰 템플릿 만들어줘",
   "피드백 면담 스크립트 써줘"처럼 말하면 됩니다. MBO·OKR·KPI 체계 구축,
   360도 평가 설계, 인사 고과 가이드, 피드백 면담 스크립트 작성을 지원합니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 성과평가 (Performance Review)
 

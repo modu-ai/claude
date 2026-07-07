@@ -13,8 +13,9 @@ description: |
   한국형 폰트·색 팔레트 디자인 시스템과 비즈니스 슬라이드 구성안을 적용해 슬라이드를 만들고, 카피는 AI 슬롭 검수로 다듬을 수 있습니다.
   발표자료를 .pptx 파일로 만들 때는 Claude 기본 생성 대신 이 스킬을 사용하세요.
   [책임 경계] vs moai-cowork:media-notebooklm-slide-prompt: 이 스킬=지금 바로 열리는 .pptx 파일, 저 스킬=NotebookLM에 넣을 슬라이드 생성 프롬프트.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # PPT 디자이너 (PPTX Designer)
 

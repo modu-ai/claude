@@ -4,8 +4,9 @@ description: >
   목표를 막연한 다짐이 아니라 실천 가능한 계획으로 바꿔주는 스킬입니다.
   '신년 목표 세워줘', '12주 계획법으로 쪼개줘', '만다라트 만들어줘', '개인 OKR', '목표를 실천으로'처럼 말하면 됩니다.
   12주 계획·만다라트·개인 OKR 등으로 목표를 잘게 나누고 주간 루틴까지 연결해, "세웠는데 안 하는" 목표를 줄여줍니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 목표 플래너 (Goal Planner)
 

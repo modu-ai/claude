@@ -6,8 +6,9 @@ description: >
   "상품 사진 분석해줘", "촬영 브리프 만들어줘", "부족한 컷 알려줘", "어떤 사진이 더 필요해?"처럼 말하면 됩니다.
   형태·소재·색상·시그니처 앵글·포지셔닝(mass/premium_indie/luxury)을 추출하고,
   13섹션별 사용 가능한 컷 매핑 + 추가 촬영 권장 리스트를 산출합니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 상품 사진 사전 브리프 (Product Photo Brief)
 

@@ -10,8 +10,9 @@ description: |
   - "/media-gemini-3-image-prompt" (직접 호출)
 
   이미지 자동 생성은 페어 스킬 media-higgsfield-image(Higgsfield MCP, Nano Banana Pro 포함)를 사용하세요. 본 스킬은 프롬프트 텍스트 산출 전용입니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # Gemini 3 Pro Image Prompt Builder — 5-Component + 3-모델 동시 출력
 

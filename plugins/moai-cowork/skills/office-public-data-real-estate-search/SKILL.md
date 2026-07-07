@@ -11,8 +11,9 @@ description: |
   - "전세 보증금 추이 알려줘"
   - "이 단지 평형별 시세 비교해줘"
   지역·단지·거래년월로 실거래를 조회해 중위값·최소·최대와 대표 거래를 요약하고, 입지 분석이나 투자 검토로 이어집니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 한국 부동산 실거래가 조회
 

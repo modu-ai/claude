@@ -7,8 +7,9 @@ description: |
   3구간 골든타임: ① 평균 주기 80% 시점 = 리마인드 (감성·정체성) ② 110-120% = 데드라인 (긴급성·할인) ③ 150% = 휴면 진입 (윈백·강한 인센티브).
   화장품·식품·반려동물·렌즈·면도기 등 정기 구매 카테고리 한국 D2C 표준 적용.
   general-ai-slop-reviewer 자동 체이닝 (텍스트 메시지 산출물).
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 재구매 타이밍 엔진 (Commerce Repurchase Timer)
 

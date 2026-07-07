@@ -11,8 +11,9 @@ description: |
   - "이 연구 결과로 Results 섹션 써줘"
   - "국문·영문 초록 200자로 작성해줘"
   국문·영문 초록과 본문 전체 섹션을 구성하고, 작성 후 ai-slop 검수 체인으로 마무리합니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 학술 논문 작성 (Paper Writer)
 

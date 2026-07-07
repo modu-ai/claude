@@ -14,8 +14,9 @@ description: |
   - "면접 대상자 선별 보조" (개별 후보 평가)
 
   주의: **per-candidate 평가**에 한정됩니다. 채용 프로세스 설계(JD 작성·면접 구조·온보딩)는 `moai-cowork:business-employment-manager`를 사용하세요.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # Resume Screener — NCS 기반 이력서 스크리닝 (의사결정 보조)
 

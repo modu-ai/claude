@@ -11,8 +11,9 @@ description: |
   - "접근성 디자인 프롬프트"
   - "디자인 시스템 프롬프트"
   - "프롬프트 빌더"
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # general-cd-prompt-builder — 시니어 UX 패턴 프롬프트 빌더
 

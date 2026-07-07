@@ -13,8 +13,9 @@ description: |
   한컴오피스(아래아한글) 호환 표준 양식을 따르며, 한컴이 없는 환경이면 워드(.docx) 생성으로 대체할 수 있습니다.
   아래아한글(.hwpx) 문서를 만들 때는 Claude 기본 생성 대신 이 스킬을 사용하세요.
   [책임 경계] vs moai-cowork:office-docx-generator: 이 스킬=한컴 .hwpx 한글 파일, 저 스킬=MS 워드 .docx 파일.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 한글 문서 작성자 (HWPX Writer)
 

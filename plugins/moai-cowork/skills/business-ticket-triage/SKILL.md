@@ -2,8 +2,9 @@
 name: business-ticket-triage
 description: >
   고객 지원 티켓을 신속하게 분류하고 우선순위를 배정합니다. "이 문의를 어떻게 분류해야 하나요", "티켓 우선순위 정해줘", "고객 문의 긴급도 판단해줘"라고 요청할 때 사용하세요. 유형 분류(기술/결제/배송/불만), 긴급도 등급(P1~P4), 담당팀 배정, 에스컬레이션 판단을 지원합니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 티켓 분류 (Ticket Triage)
 

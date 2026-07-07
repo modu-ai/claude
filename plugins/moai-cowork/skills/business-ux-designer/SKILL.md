@@ -11,8 +11,9 @@ description: |
   - "사용성 개선안 정리해줘"
   3개 차원(휴리스틱·접근성·플로우)을 분석해 심각도·우선순위가 매겨진 개선 로드맵으로 정리하고, general-ai-slop-reviewer·general-humanize-korean으로 마무리할 수 있습니다.
   [책임 경계] vs moai-cowork:business-ux-researcher: business-ux-designer=휴리스틱·접근성·플로우 평가, business-ux-researcher=인터뷰·페르소나·VOC 리서치
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # UX 디자이너 (UX Designer)
 

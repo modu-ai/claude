@@ -11,8 +11,9 @@ description: |
   - "OKR 설정해줘"
   - "해외 진출 전략 짜줘"
   현황 분석·전략 프레임워크·전략 방향·실행 로드맵 구조로 작성하며, PPT 변환이나 AI 표현 다듬기로 이어집니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 전략 플래너 (Strategy Planner)
 

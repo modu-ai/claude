@@ -12,8 +12,9 @@ description: |
 
   주의: 정부 지원사업 신청서는 `moai-cowork:business-kr-gov-grant`를 사용하세요. 본 스킬은 **B2B 영업 고객 대상** 제안서만 다룹니다.
   투자자 IR 자료는 `moai-cowork:finance-investor-relations`를 사용하세요.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # Proposal Writer — B2B 영업 제안서 자동 생성
 

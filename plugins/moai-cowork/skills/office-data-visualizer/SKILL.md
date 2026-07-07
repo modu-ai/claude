@@ -8,8 +8,9 @@ description: |
   - "시각화해줘"
   - "대시보드 만들어줘"
   Mermaid·Recharts·Chart.js·Tremor·ECharts 중 적합한 스택으로 인터랙티브 대시보드를 제작하고, moai-cowork:office-pptx-designer / moai-cowork:office-docx-generator로 PPT·Word 변환까지 이어집니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 데이터 시각화 (Data Visualizer)
 

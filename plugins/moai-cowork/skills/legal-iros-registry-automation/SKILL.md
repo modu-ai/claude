@@ -13,8 +13,9 @@ description: |
   - "부동산 등기부등본 100건", "주소 목록으로 부동산 등기 한꺼번에"
   - "TouchEn nxKey", "공동인증서 등기 발급", "법인 결제 페이지당 10건"
   - 사업자등록번호 → 법인등기 매핑, 다운로드한 등기 PDF로 종합 리포트 만들기
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 인터넷등기소 등기부등본 자동화
 

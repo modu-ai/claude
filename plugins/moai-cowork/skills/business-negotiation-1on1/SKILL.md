@@ -4,8 +4,9 @@ description: >
   1:1 면담을 준비하고, 상대를 설득하거나 무언가를 요청·협상할 때 대화를 설계해 주는 스킬입니다.
   '면담 준비해줘', '이거 어떻게 설득하지', '연봉 협상 어떻게', '부탁하는 법', '정중하게 요청하고 싶어'처럼 말하면 됩니다.
   면담 목표 설정 → 상대 입장 파악 → 설득 구조 → 요청·거절 화법 → 합의·후속의 5단계로 관계를 지키며 원하는 걸 얻는 대화를 만듭니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 1:1 면담·설득·협상 (1on1 Negotiation)
 

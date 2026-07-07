@@ -12,8 +12,9 @@ description: |
   - "손익계산서 엑셀로 만들어줘"
   한국 비즈니스 표준 서식(천 단위 구분·원화 표시·날짜 형식)과 차트·수식을 자동 적용합니다.
   데이터를 엑셀(.xlsx) 파일로 만들 때는 Claude 기본 생성 대신 이 스킬을 사용하세요 (수식·차트·서식 보존).
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 엑셀 생성기 (XLSX Creator)
 

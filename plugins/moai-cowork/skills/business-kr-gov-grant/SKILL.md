@@ -14,8 +14,9 @@ description: |
   - "지원금 어떻게 쓰는지 모르겠어"
   지원사업 탐색·신청서 작성·서류 검토·일정 관리까지 도와주며, 마지막에 AI 표현 다듬기로 이어집니다.
   [책임 경계] vs moai-cowork:education-grant-writer: 이 스킬=범용 정부 지원사업(창업·소상공인·중기·공모전), 저 스킬=학술/R&D 연구비 특화(NRF·IITP·KIAT).
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 대한민국 정부지원사업 통합 분석·신청 스킬
 

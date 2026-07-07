@@ -13,8 +13,9 @@ description: |
   - "피어 리뷰 대비해서 연구 방법 타당성 점검해줘"
   RISS·DBpia 등 국내외 학술 DB 검색 전략부터 정량·정성 분석, 인용 관리, 피어 리뷰 대비까지 지원합니다.
   [책임 경계] vs moai-cowork:business-market-analyst: 이 스킬=학술 논문과 연구 리서치, 저 스킬=시장 조사와 비즈니스 리서치.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 리서치 어시스턴트 (Research Assistant)
 

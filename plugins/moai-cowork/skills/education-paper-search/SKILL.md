@@ -11,8 +11,9 @@ description: |
   - "이 분야 연구 동향 파악해줘"
   - "참고문헌 BibTeX로 정리해줘"
   핵심 논문 요약·연도별 연구 동향·참고문헌(BibTeX/RIS/텍스트)을 만들고, 논문 작성이 필요하면 moai-cowork:education-paper-writer로 이어집니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 논문 검색 (Paper Search)
 

@@ -11,8 +11,9 @@ description: |
   - "접근 전략 수립해줘"
   - "영업 성공 지표 설정해줘"
   타겟 분석·접근 전략·이의처리·성공 지표를 한 문서로 묶고, PPT 변환이나 AI 표현 다듬기로 이어집니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 영업 플레이북 (Sales Playbook)
 

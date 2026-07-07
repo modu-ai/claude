@@ -262,7 +262,7 @@ Phase 1-2 결과를 바탕으로 **산출물별 실행 체인**을 설계한다.
 | 상세페이지 | `commerce-product-detail` → `general-ai-slop-reviewer` |
 | 캠페인 플랜 | `marketing-campaign-planner` → `office-pptx-designer` → `general-ai-slop-reviewer` |
 | SEO 감사 | `marketing-seo-audit` → `general-ai-slop-reviewer` |
-| 출판 원고 | `book-concept-planner` → `book-outline-designer` → `book-chapter-writer` → `general-ai-slop-reviewer` (moai-cowork 체인) |
+| 출판 원고 | moai-story 플러그인으로 이관 (v4.0.0) — /plugin install story; 동일 체인이 moai-story에서 동작 |
 | BI 리포트 | `business-executive-summary` (숫자·HTML — ai-slop 생략) |
 | 주간보고 | `weekly-report` → `general-ai-slop-reviewer` |
 | 영업 제안서 | `business-proposal-writer` → `office-docx-generator` → `general-ai-slop-reviewer` |
@@ -331,7 +331,7 @@ for each skill in chain_skills:
 | general-travel-planner, general-event-planner | moai-lifestyle |
 | media-higgsfield-image, media-higgsfield-video, media-gpt-image-2-prompt, media-gemini-3-image-prompt, media-midjourney-v8-prompt, media-audio-gen | moai-cowork |
 | commerce-automation-audit, commerce-marketplace-coupang, commerce-product-photo-brief | moai-commerce |
-| book-concept-planner, book-outline-designer, book-chapter-writer | moai-cowork |
+| (출판 스킬 — moai-story 플러그인으로 이관, v4.0.0) | moai-story |
 | business-executive-summary | moai-bi |
 | weekly-report | moai-pm |
 | business-proposal-writer | moai-sales |

@@ -5,8 +5,9 @@ description: >
   "스마트스토어 등록", "네이버 쇼핑 SEO", "11번가 가이드", "옥션 등록", "오픈마켓 가이드"처럼 말하면 됩니다.
   commerce-detail-page-copy/commerce-detail-page-image 출력물을 4개 오픈마켓(네이버 스마트스토어 + 11번가 + G마켓 + 옥션) 정책에 맞게 검토하고,
   채널별 이미지 규격·검색태그·금지문구·톡톡 카피·후기 운영 가이드를 제공합니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 네이버 스마트스토어 + 오픈마켓 가이드
 

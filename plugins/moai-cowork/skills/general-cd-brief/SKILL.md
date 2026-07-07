@@ -11,8 +11,9 @@ description: |
   - "디자인 브리프 6요소"
   - "claude.ai/design에 넣을 프롬프트"
   - "디자인 요청 정리"
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # general-cd-brief — Claude Design 6요소 브리프 빌더
 

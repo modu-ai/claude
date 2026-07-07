@@ -12,8 +12,9 @@ description: |
   - "혼자 떠나는 국내 힐링 여행지 추천해줘"
   여행 일정표·예산표를 산출합니다.
   [책임 경계] 개인 재무는 moai-cowork:finance-household-budget, 부동산 조회·분석은 moai-cowork:office-public-data-real-estate-search, 사이드 프로젝트·부업은 moai-cowork:business-startup-launchpad
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 여행 플래너 (Travel Planner)
 

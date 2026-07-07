@@ -10,8 +10,9 @@ description: |
   - "판결문 HWP 텍스트 추출", "엑셀 양식 파싱", "워드 문서 읽어줘"
   - "배포용 HWP 잠금 해제", "DRM 문서 읽기", "스캔 PDF 텍스트화(OCR)"
   본 스킬은 "읽기(파싱)" 전담입니다. 문서 "생성(쓰기)"은 office-pdf-writer·office-hwpx-writer·office-docx-generator·office-xlsx-creator를 사용하세요.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 한국 공문서 파서 (office-document-reader)
 

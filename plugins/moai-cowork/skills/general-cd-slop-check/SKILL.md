@@ -11,8 +11,9 @@ description: |
   - "AI 티 나는 카피 확인"
   - "디자인 카피 후처리"
   - "humanize 직전 검수"
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # general-cd-slop-check — Claude Design 카피 AI 슬롭 검수
 

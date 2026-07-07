@@ -10,8 +10,9 @@ description: |
   - "3개월 편집 캘린더 설계해줘"
   - "블로그·유튜브·SNS 발행 스케줄 정리해줘"
   산출물은 발행 캘린더 표(데이터)와 콘텐츠 전략 문서이며, 전략·캠페인 설명 같은 산문 텍스트는 moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean 체인으로 마무리하세요.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 콘텐츠 발행 캘린더 (Content Calendar)
 

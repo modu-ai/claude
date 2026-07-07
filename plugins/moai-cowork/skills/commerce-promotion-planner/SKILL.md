@@ -6,8 +6,9 @@ description: |
   "프로모션 기획해줘", "이슈화 캠페인", "얼리버드 프로모션", "한정 판매 기획", "신생 브랜드 매출 12배", "스몰 D2C 프로모션", "비플레인 케이스 참고", "노션 프로모션 템플릿", "할인 캠페인 명목 만들어줘", "스토리 혜택 3종 세트".
   3가지 프로모션 타입: ① 이슈화(브랜드 인지도 폭발) ② 얼리버드(충성 고객 확보) ③ 한정(즉각 매출). 한국 스몰 D2C 12배 매출 케이스 실전 매뉴얼.
   general-ai-slop-reviewer 자동 체이닝 (기획서 텍스트 산출물).
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 3대 프로모션 기획법 (Commerce Promotion Planner)
 

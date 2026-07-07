@@ -12,8 +12,9 @@ description: |
   - "AI 교정보다 규칙 기반 한국어 검사기로 한 번 더 확인"
   - "부산대 맞춤법", "바른한글 검사", "국립국어원 규칙"
   - 블로그·뉴스레터·카피·계약서 등 텍스트 산출물의 최종 교정 단계
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 한국어 맞춤법·문법 검수
 

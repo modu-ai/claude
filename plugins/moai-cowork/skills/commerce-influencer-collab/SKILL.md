@@ -5,8 +5,9 @@ description: |
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "인플루언서 협업", "뒷광고 회피", "체험단 운영", "UGC 리그램 가이드", "굿즈 기획법", "메가/매크로/마이크로 인플루언서", "표시광고법 인플루언서".
   표시광고법 + 공정거래위 가이드 준수. 5 인플루언서 티어 차등 협업 전략.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 인플루언서·UGC 협업 가이드 (Commerce Influencer Collaboration)
 

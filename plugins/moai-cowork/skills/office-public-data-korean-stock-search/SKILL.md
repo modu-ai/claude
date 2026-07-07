@@ -12,8 +12,9 @@ description: |
   - "주식 종목 검색", "KRX 상장 종목", "한국 주식 시세"
   - "20260408 종가", "어제 거래량", "전일 등락률"
   - moai-cowork의 DART 공시 분석을 보완하는 KRX 시세 데이터 필요 시
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # KRX 한국 주식 검색·시세
 

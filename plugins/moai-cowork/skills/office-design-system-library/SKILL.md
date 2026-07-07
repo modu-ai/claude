@@ -6,8 +6,9 @@ description: |
   다음과 같은 요청 시 사용하세요:
   - "Claude 스타일로 HTML 보고서 만들어줘" / "브랜드 디자인 시스템 골라서 HTML로"
   - "Claude Design에 올릴 디자인 시스템 자료 정리"
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # office-design-system-library — moai-design 정본 포인터
 

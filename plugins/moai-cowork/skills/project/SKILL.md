@@ -20,8 +20,9 @@ description: |
   스킬 체인(예: business-strategy-planner → office-docx-generator → general-ai-slop-reviewer)을 설계하고
   누락 플러그인을 자동 감지해 설치 안내 후 사용자 확인을 받은 뒤 CLAUDE.md를 최적화합니다.
 user-invocable: true
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # project — Cowork 프로젝트 초기화 & 스킬 체이닝 워크플로우 설계
 

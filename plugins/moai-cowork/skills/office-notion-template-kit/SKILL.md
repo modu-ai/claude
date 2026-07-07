@@ -4,8 +4,9 @@ description: >
   노션 올인원 업무관리·목표·회고 템플릿의 구조를 설계해주는 스킬입니다.
   '노션 템플릿 만들어줘', '올인원 업무관리 대시보드', '노션 목표 관리', '노션 회고 템플릿', '노션 구조 짜줘'처럼 말하면 됩니다.
   데이터베이스·뷰·속성 구조를 설계해, 흩어진 메모를 한곳에 모으는 노션 대시보드의 뼈대를 만들어줍니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 노션 템플릿 키트 (Notion Template Kit)
 

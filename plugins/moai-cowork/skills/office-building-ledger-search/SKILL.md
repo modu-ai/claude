@@ -13,8 +13,9 @@ description: |
   - "건축물대장 원본 보여줘", "건축인허가 이력"
   건축사·시공·중개·감정평가·디벨로퍼·공무원이 실무에서 바로 쓰는 건축물 실체 데이터입니다.
   본 스킬은 "건축물 실체(용도·구조·규모·규제·인허가·노후·철거)" 전담입니다. "실거래가/전월세 시세"는 office-public-data-real-estate-search를 사용하세요.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 국토교통부 건축HUB 조회 (office-building-ledger-search)
 

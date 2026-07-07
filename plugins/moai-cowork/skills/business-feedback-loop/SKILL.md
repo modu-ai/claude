@@ -4,8 +4,9 @@ description: >
   피드백을 건설적으로 주고, 받은 피드백을 감정 상하지 않게 소화하도록 도와주는 스킬입니다.
   '피드백 어떻게 줘야 해', '부정적 피드백 받았는데 속상해', '피드백 전달하는 법', '중간 점검 요청하고 싶어'처럼 말하면 됩니다.
   SBI 구조로 건설적 피드백을 설계하고, 받은 피드백을 사실과 감정으로 분리해 소화하며, 먼저 피드백을 요청하는 법까지 다룹니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 피드백 주고받기 (Feedback Loop)
 

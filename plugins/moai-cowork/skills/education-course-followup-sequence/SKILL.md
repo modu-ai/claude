@@ -13,8 +13,9 @@ description: |
   - "수업 후기 자산화 30일 플랜 만들어줘"
   감사 인사부터 적용 인증, 성과 수치, 영상 후기, 심층 인터뷰까지 시점별 톤에 맞춰 후기를 회수하고, moai-cowork:content-copywriting → moai-cowork:general-ai-slop-reviewer → moai-cowork:office-korean-spell-check 체인으로 자연스럽게 다듬어 드립니다.
   [책임 경계] vs moai-cowork:content-copywriting: 이 스킬=강의 수강생 후기 30일 회수 시퀀스, 저 스킬=범용 마케팅 카피.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 강의 종료 후 30일 Follow-up 시퀀스
 

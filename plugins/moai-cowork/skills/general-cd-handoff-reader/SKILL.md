@@ -10,8 +10,9 @@ description: |
   - "핸드오프 번들 읽어 줘"
   - "디자인 토큰 추출"
   - "Claude Code 핸드오프 준비"
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # general-cd-handoff-reader — 핸드오프 번들 분석
 

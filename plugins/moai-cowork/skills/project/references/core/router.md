@@ -283,16 +283,10 @@
 |--------|------|
 | B2B 제안서, RFP 대응 | business-proposal-writer |
 
-### moai-cowork
+### moai-story (v4.0.0 이관)
 | 키워드 | 스킬 |
 |--------|------|
-| 책 컨셉 기획 | book-concept-planner |
-| 목차 설계 | book-outline-designer |
-| 챕터 집필 | book-chapter-writer |
-| 퇴고 코칭 | book-revision-coach |
-| 출간 제안서 | book-proposal-writer |
-| 저자 소개, 타깃 독자 | book-author-bio, book-target-reader |
-| 출판사 매칭 | book-publisher-matcher |
+| 출판 기획·집필·퇴고·제안 | moai-story 플러그인으로 이관 (v4.0.0) — /plugin install story |
 
 ### moai-design
 | 키워드 | 스킬 |

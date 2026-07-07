@@ -4,8 +4,9 @@ description: >
   까다로운 동료·소통빌런과 부딪힐 때 감정 상하지 않게 대응하고 거리를 지키도록 도와주는 스킬입니다.
   '이 사람 어떻게 대하지', '자꾸 떠넘기는 동료', '거절하는 법', '직장 인간관계 스트레스', '갈등 대응'처럼 말하면 됩니다.
   유형별 대응 전략, 감정과 사안 분리, 정중한 거절, 관계 거리 두기로 직장 갈등을 소모전이 아니라 관리 가능한 문제로 바꿉니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 갈등·소통빌런 대응 (Conflict Handler)
 

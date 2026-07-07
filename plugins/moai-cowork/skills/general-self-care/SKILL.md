@@ -4,8 +4,9 @@ description: >
   번아웃과 지친 마음을 점검하고 회복하도록 돕는 자기돌봄 스킬입니다.
   '번아웃인 것 같아', '쉬어도 쉰 것 같지 않아', '마음이 지쳤어', '회복하고 싶어', '제대로 쉬는 법'처럼 말하면 됩니다.
   마음 기초체력 점검·회복 루틴·생활력 관리로, 무작정 버티기 대신 자신을 돌보며 다시 일어설 힘을 설계합니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 자기돌봄 (Self Care)
 

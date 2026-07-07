@@ -12,8 +12,9 @@ description: |
   - "내 유튜브 강의를 인스타·블로그·뉴스레터로 리퍼포징해줘"
   채널별 심리와 알고리즘에 맞춰 게시글을 만들고 콘텐츠를 여러 채널로 재활용하며, 텍스트 산출물은 moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean으로 다듬습니다.
   [책임 경계] vs 형제 스킬: 범용 광고 카피는 moai-cowork:content-copywriting, 이커머스 광고·톡톡·푸시 카피는 moai-cowork:commerce-channel-message, 기업 브랜드 전략은 moai-cowork:business-brand-identity, 개인 브랜드 전략은 moai-cowork:marketing-personal-branding.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # SNS 콘텐츠 제작 (SNS Content) — 한국 + 글로벌 통합
 

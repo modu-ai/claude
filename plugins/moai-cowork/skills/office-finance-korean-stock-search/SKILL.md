@@ -3,8 +3,9 @@ name: office-finance-korean-stock-search
 description: |
   이 스킬은 `moai-cowork:office-public-data-korean-stock-search`로 이전되었습니다.
   KRX 상장 종목 검색·기본정보·일별 시세 조회는 moai-public-data 플러그인을 사용하세요.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # korean-stock-search — 이전됨
 

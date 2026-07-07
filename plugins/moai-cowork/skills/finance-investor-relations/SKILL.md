@@ -11,8 +11,9 @@ description: |
   - "시리즈 A 투자 유치 자료 준비해줘"
   - "투자자 보고서 정리해줘"
   투자 단계(Pre-Seed~Series B)에 맞춘 12슬라이드 피치덱·재무 모델·예상 질문 Q&A를 만들고, PPT/엑셀 변환으로 이어집니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 투자자 관계 (Investor Relations)
 

@@ -5,8 +5,9 @@ description: >
   "포트폴리오 만들어줘", "프로젝트 정리해줘", "노션 포트폴리오 1시간 만에"처럼 말하면 됩니다.
   개발(GitHub·기술 블로그)/디자인(Figma·Behance)/마케팅/기획 분야별 + 검색되는 노션
   포트폴리오 + 채용공고 맞춤형 1page 셀링 + 877건 노하우 기반 비중 배분을 지원합니다.
-version: 0.1.0
+version: "4.0.0"
 ---
+<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 포트폴리오 가이드 (business-portfolio-guide)
 
