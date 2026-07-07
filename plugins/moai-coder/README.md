@@ -56,11 +56,19 @@
 
 ## 설치
 
-```
-/plugin install moai-coder
-```
+모두의클로드는 `modu-ai/claude` 마켓플레이스 하나에서 4명의 AI 직원을 설치합니다.
 
-`modu-ai/claude` 마켓플레이스. 개발 프로젝트를 시작할 때 설치하세요.
+**① 마켓 등록 (최초 1회)**
+
+    /plugin marketplace add modu-ai/claude
+
+**② 이 직원 추가**
+
+    /plugin install moai-coder@moai-claude
+
+또는 `/plugin` 입력 → **"Browse Plugins"** → moai-coder 선택.
+
+> 개발 프로젝트를 시작할 때 설치하세요.
 
 ---
 

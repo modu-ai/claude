@@ -61,11 +61,19 @@
 
 ## 설치
 
-```
-/plugin install moai-designer
-```
+모두의클로드는 `modu-ai/claude` 마켓플레이스 하나에서 4명의 AI 직원을 설치합니다.
 
-`modu-ai/claude` 마켓플레이스. 브랜드·디자인 시스템 작업이 필요할 때 설치하세요.
+**① 마켓 등록 (최초 1회)**
+
+    /plugin marketplace add modu-ai/claude
+
+**② 이 직원 추가**
+
+    /plugin install moai-designer@moai-claude
+
+또는 `/plugin` 입력 → **"Browse Plugins"** → moai-designer 선택.
+
+> 브랜드·디자인 시스템 작업이 필요할 때 설치하세요.
 
 ---
 

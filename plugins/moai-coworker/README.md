@@ -78,11 +78,19 @@
 
 ## 설치
 
-```
-/plugin install moai-coworker
-```
+모두의클로드는 `modu-ai/claude` 마켓플레이스 하나에서 4명의 AI 직원을 설치합니다.
 
-`modu-ai/claude` 마켓플레이스. 코워커 하나로 실무 + 글쓰기 전 영역이 커버됩니다.
+**① 마켓 등록 (최초 1회)**
+
+    /plugin marketplace add modu-ai/claude
+
+**② 이 직원 추가**
+
+    /plugin install moai-coworker@moai-claude
+
+또는 `/plugin` 입력 → **"Browse Plugins"** → moai-coworker 선택.
+
+> 코워커 하나로 실무 + 글쓰기 전 영역이 커버됩니다. 대다수 사용자에게 추천합니다.
 
 ---
 
