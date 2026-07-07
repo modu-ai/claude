@@ -12,7 +12,7 @@ version: "4.0.0"
 
 ## 개요
 
-Drive·Notion·Higgsfield 3커넥터 + 한국 공공데이터·문서 4 MCP(kordoc·dart·korean-stats·archhub)를 Cowork에 연결하는 단계별 가이드를 제공합니다. 인증 흐름, API 키 입력, 1회 호출 검증, 트러블슈팅까지 셋업 전 과정을 다룹니다.
+Drive·Notion·Higgsfield 3커넥터 + 한국 공공데이터·문서·법령 **5 MCP**(kordoc·dart·korean-stats·archhub·**korean-law**)를 Cowork에 연결하는 단계별 가이드를 제공합니다. 인증 흐름, API 키 입력, 1회 호출 검증, 트러블슈팅까지 셋업 전 과정을 다룹니다.
 
 **셋업 완료 체크리스트**
 - Drive·Notion·Higgsfield — 인증 성공 + 1회 호출 성공 (Drive: 폴더 list / Notion: 공유 페이지 read / Higgsfield: 모델 list)
@@ -20,6 +20,7 @@ Drive·Notion·Higgsfield 3커넥터 + 한국 공공데이터·문서 4 MCP(kord
 - dart(korean-dart-mcp) — Node.js 20.19+ + OpenDART 키 + 1회 공시 검색 성공
 - korean-stats — 1회 자연어 통계 조회 성공 (키 불필요, 공용키 hosted)
 - archhub — 1회 건축물 종합카드 조회 성공 (키 불필요, 공용키 hosted)
+- korean-law — 법제처 OC 키 + 1회 법령 검색 성공 (law.go.kr 무료 발급, 사용자마다 키 필요)
 
 ---
 
@@ -98,9 +99,9 @@ MCP 커넥터 연결, Drive 인증, Notion Integration Token, Higgsfield API 키
 
 ---
 
-## 한국 공공데이터·문서 MCP (4종)
+## 한국 공공데이터·문서·법령 MCP (5종)
 
-Cowork 플러그인은 한국 공공데이터·공문서 처리를 위한 4개 MCP를 추가로 지원합니다. 각 MCP의 사전 준비와 1회 호출 검증을 다룹니다. chrisryugj 제작 4개 MCP는 모두 MIT 라이선스입니다.
+Cowork 플러그인은 한국 공공데이터·공문서·법령 처리를 위한 5개 MCP를 추가로 지원합니다. 각 MCP의 사전 준비와 1회 호출 검증을 다룹니다. chrisryugj 제작 5개 MCP는 모두 MIT 라이선스입니다.
 
 ### Connector D — kordoc (한국 공문서 파서)
 
@@ -177,6 +178,25 @@ Cowork 플러그인은 한국 공공데이터·공문서 처리를 위한 4개 M
 
 ---
 
+### Connector H — korean-law (법제처 국가법령정보)
+
+**목적**: 국가법령정보(법제처) 법령·판례·행정규칙·자치법규·조약·해석례(국세청) 원문 조회 + LLM 환각방지 인용검증(`verify_citations`) + 판례 생사(`cite_check`) + 행위시법(`applicable_law`) + 조문 영향그래프(`impact_map`). 42개 API → 9 도구. `moai-cowork:legal-law-research` 스킬이 호출.
+
+**사전 준비물**: **법제처 Open API OC 키(사용자마다 발급 필수, 공용키 아님 — stats/archhub와 상이)**. Node.js 불필요(hosted).
+
+**발급 절차**
+1. law.go.kr(또는 법제처 Open API 신청 페이지) 접속 → 회원가입·로그인
+2. Open API 사용 신청 → 신청서 작성
+3. OC 키 즉시 발급(무료)
+
+**인증**: 환경변수 `KOREAN_LAW_OC` 등록(`.mcp.json`의 `url: https://mcp.gomdori.app/law?oc=${KOREAN_LAW_OC}`에 보간). 또는 `${CLAUDE_PLUGIN_DATA}/moai-credentials.env`의 `KOREAN_LAW_OC` 항목에 입력.
+
+**1회 호출 검증**: `search_law(query="근로기준법")` → 법령 검색 응답 시 성공
+
+> **주의**: 공용키 모덜이 아님(사용자마다 OC 키). 사내망·폐쇄망에서 법제처 API 인증서 검증 이슈 시 `LAW_API_PROTOCOL=http` fallback. 라이브 스킬: `moai-cowork:legal-law-research`.
+
+---
+
 ## 트러블슈팅
 
 ### T1 — Windows MAX_PATH 260자 초과 오류
@@ -246,7 +266,7 @@ Cowork 플러그인은 한국 공공데이터·공문서 처리를 위한 4개 M
 
 ## 사전 점검 체크리스트 (`--check` 옵션)
 
-사전 준비물 기준으로 3커넥터 + 4 MCP 가입·인증·사전준비 상태를 체크하는 옵션입니다.
+사전 준비물 기준으로 3커넥터 + 5 MCP 가입·인증·사전준비 상태를 체크하는 옵션입니다.
 
 ```
 /office-mcp-connector-setup --check
@@ -262,6 +282,7 @@ Cowork 플러그인은 한국 공공데이터·공문서 처리를 위한 4개 M
 [⚠️] dart — Node.js 20.19+ 미충족 (현재 v18.x)
 [✅] korean-stats — 공용키 hosted (키 불필요)
 [✅] archhub — 공용키 hosted (키 불필요)
+[⚠️] korean-law — 법제처 OC 키 미등록 (law.go.kr 무료 발급, 사용자마다 키 필요)
 ```
 
 ---
@@ -299,8 +320,9 @@ Cowork 플러그인은 한국 공공데이터·공문서 처리를 위한 4개 M
 | dart (korean-dart-mcp) | OpenDART 키 (40자, 무료/일 20,000건) | resolve_corp_code 응답 |
 | korean-stats | 공용키 hosted (키 불필요) | quick_stats 통계 수치 응답 |
 | archhub | 공용키 hosted (키 불필요) | find_region + building_profile 응답 |
+| korean-law | 법제처 OC 키 (무료, 사용자마다 발급) | search_law 법령 검색 응답 |
 
-3커넥터 + 4 MCP 모두 인증 성공 + 1회 호출 성공이면 셋업이 완료된 것입니다.
+3커넥터 + 5 MCP 모두 인증 성공 + 1회 호출 성공이면 셋업이 완료된 것입니다.
 
 ---
 
@@ -311,6 +333,7 @@ Cowork 플러그인은 한국 공공데이터·공문서 처리를 위한 4개 M
 - `moai-cowork:office-document-reader` — kordoc MCP 인증 완료 후 HWP/HWPX/PDF/XLSX/DOCX 파싱
 - `moai-cowork:office-public-data-public-data` — korean-stats MCP 자연어 KOSIS 통계 우선 라우팅 + dart MCP 연계
 - `moai-cowork:office-building-ledger-search` — archhub MCP 건축물대장·인허가 실체 데이터 조회
+- `moai-cowork:legal-law-research` — korean-law MCP 법령·판례·인용검증·행위시법 조회
 
 ---
 

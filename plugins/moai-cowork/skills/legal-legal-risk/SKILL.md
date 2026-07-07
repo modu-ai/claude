@@ -148,6 +148,7 @@ version: "4.0.0"
 - **moai-cowork:legal-contract-review**: 계약서 검토, 이용약관 작성
 - **moai-cowork:legal-nda-triage**: NDA 비밀유지계약 검토
 - **moai-cowork:legal-compliance-check**: 규제 준수 점검, ESG 보고
+- **moai-cowork:legal-law-research** (korean-law MCP): 2026년 법령 변화의 현행 원문·개정 추적·행위시법 판단은 연계
 - **moai-cowork:general-ai-slop-reviewer**: 리스크 분석 보고서 AI 패턴 검수
 
 ### 후처리 체인 (텍스트 산출물)

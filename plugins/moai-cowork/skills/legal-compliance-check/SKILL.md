@@ -147,6 +147,7 @@ version: "4.0.0"
 - **moai-cowork:legal-contract-review**: 계약서 검토, 이용약관 작성
 - **moai-cowork:legal-nda-triage**: NDA 비밀유지계약 검토
 - **moai-cowork:legal-legal-risk**: 법적 리스크 분석, 지적재산권 전략
+- **moai-cowork:legal-law-research** (korean-law MCP): 현행 법령 원문 조회·인용검증이 필요하면 연계
 - **moai-cowork:finance-tax-helper**: 세금 신고, 홈택스 안내
 - **moai-cowork:general-ai-slop-reviewer**: 텍스트 산출물(감사 보고서·체크리스트) AI 패턴 검수
 
