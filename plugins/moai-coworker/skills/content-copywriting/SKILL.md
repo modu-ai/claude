@@ -9,11 +9,11 @@ description: |
   - "스타트업 브랜드 슬로건 후보 10가지 만들어줘"
   - "30초 영상 광고 스토리보드 기획해줘"
   - "광고 카피 써줘"
-  AIDA·PAS·FAB 같은 검증된 틀로 작성하고, 공정거래법·표시광고법 금지 표현을 피합니다. 완성 후 moai-cowork:general-ai-slop-reviewer로 AI 티를 정리합니다(필수 후처리).
-  [책임 경계] vs moai-cowork:commerce-channel-message: 이 스킬=범용 카피(블로그·일반 광고·슬로건), 저 스킬=이커머스 운영 카피(광고·톡톡·푸시·이메일·카트 이탈) 전용.
-version: "4.0.0"
+  AIDA·PAS·FAB 같은 검증된 틀로 작성하고, 공정거래법·표시광고법 금지 표현을 피합니다. 완성 후 moai-coworker:general-ai-slop-reviewer로 AI 티를 정리합니다(필수 후처리).
+  [책임 경계] vs moai-coworker:commerce-channel-message: 이 스킬=범용 카피(블로그·일반 광고·슬로건), 저 스킬=이커머스 운영 카피(광고·톡톡·푸시·이메일·카트 이탈) 전용.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 카피라이팅 (Copywriting)
 
@@ -197,15 +197,18 @@ version: "4.0.0"
 
 > **핵심**: 비유·과장·의인화를 *지우기만* 하면 밋밋해진다. 반드시 **구체 사실·장면·수치로 채운다**(humanize K-1 정서 온도). 예: "압도적 효율" → "40분 걸리던 일이 12분으로". 상세 패턴 분류는 `moai-coworker:general-humanize-korean` references/ai-tell-taxonomy.md A-20~A-23 · I-7 · D-4/D-5 · K-1~K-4 참조.
 
-**카피 톤 가이드 (펀치 있는 카피를 위한 5원칙)** — 자연화(4원칙)를 넘어 카피에 펀치를 넣는 확장 원칙:
+**카피 톤 가이드 — 윤문 단계 8조 (펀치 + 정보성 보존)** — 자연화(생성 4원칙)를 넘어 카피에 펀치를 넣고 정보성을 보존하는 교정 원칙. 출처: 사용자 스펙 `references/ai-tell-ko-copy-spec.md` §2 교정 원칙 8조.
 
-1. **2인칭 직접 호회** — 3인칭 "자동화가 ~합니다" → 2인칭 "여러분이/여러분의 AI 직원이" (독자와 거리 좁히기)
-2. **강렬·구체 비유로 교체** — 추상 "자동화" → 구체 "AI 직원/AI 자동화 머신"
-3. **구체 혜택 명시** — 추상 혜택 → 측정·체감 가능 ("프롬프트 1도 몰라도 ~위임")
-4. **행동·결과 중심 끝맺음** — 평서 "~합니다" → 행동 유도 "위임하세요/만듭니다"
-5. **비유 일관성** — 한 번 정한 비유("AI 직원")를 전 페이지 일관 적용, 혼용 금지
+1. **2인칭 직접 호회** — 3인칭 "자동화가 ~합니다" → 2인칭 "여러분이/여러분의 AI 직원이" (독자와 거리 좁히기, A-25 인칭 호회 부재 처방)
+2. **강렬·구체 비유로 교체** — 추상 "자동화" → 구체 "AI 직원/AI 자동화 머신" (A-23 직역 비유 제거 + 구체화)
+3. **구체 혜택 명시** — 추상 혜택 → 측정·체감 가능 ("프롬프트 1도 몰라도 ~위임", K-1 정서 온도)
+4. **구어 허용** — "~수 있습니다", "~됩니다", 강조 허용 (지나친 정제 오탈려 AI 틱 — K-3 구어 호흡)
+5. **행동·결과 중심 끝맺음** — 평서 "~합니다" → 행동 유도 "위임하세요/만듭니다", "24/7 쉬지 않고 일을 처리합니다"
+6. **정보성 카피는 건드리지 않음** — 날짜·가격·세션명·FAQ 사실·사업자 정보는 톤 변경 금지 (SEO/신뢰성 보존)
+7. **헤드라인은 강한 끝맺음** — "네 가지" 같은 추상 명사로 끝내지 않음 ("~위임합니다", "~만듭니다")
+8. **비유 일관성** — 한 번 정한 비유("AI 직원")를 전 페이지에 일관 적용, "자동화/AI 팀/AI 직원" 혼용 금지
 
-> **HTML/웹 카피 윤문 + 직역 부사 "더는→이제는"(A-24) + before/after 예시 뱅크**: 상세는 `references/ai-tell-ko-copy-spec.md` (사용자 제공 스펙, 패턴 카탈로그 8종·교정 원칙 8조·HTML 작업 절차·주의사항). 다음 세션에서 정식 본문화 예정.
+> **HTML/웹 카피 윤문 절차 (정식화 완료)** — `references/copywriting.md` §4(작업 절차 6단계: 추출→매칭→맥락분석→개선안→일괄적용→검증) + §5(주의사항: head 메타·HTML 문법·정규식 lookahead·minmax(0,1fr))에 정식 본문화. 직역 부사 A-24·인칭 호회 A-25·before/after 8행 뱅크는 `moai-coworker:general-humanize-korean` references/rewriting-playbook.md 카피 레시피에 통합. 패턴 카탈로그 8종·교정 원칙 8조 원문은 `references/ai-tell-ko-copy-spec.md` (설계 노트 SSOT).
 
 **공정거래법/표시광고법 금지 표현:**
 - **허위 표시**: 실제와 다른 성능/효과 주장 (과태료 최대 5천만원)
@@ -220,7 +223,7 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- `moai-cowork:content-blog` — SEO 블로그 포스팅 작성
-- `moai-cowork:content-card-news` — 인스타그램 카드뉴스 제작
-- `moai-cowork:content-newsletter` — 이메일 뉴스레터 기획
-- `moai-cowork:general-ai-slop-reviewer` — AI 생성 텍스트 패턴 검수
+- `moai-coworker:content-blog` — SEO 블로그 포스팅 작성
+- `moai-coworker:content-card-news` — 인스타그램 카드뉴스 제작
+- `moai-coworker:content-newsletter` — 이메일 뉴스레터 기획
+- `moai-coworker:general-ai-slop-reviewer` — AI 생성 텍스트 패턴 검수
