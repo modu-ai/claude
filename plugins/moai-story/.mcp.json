@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "higgsfield": {
+      "type": "url",
+      "url": "https://mcp.higgsfield.ai/mcp",
+      "timeout": 120000,
+      "headers": { "User-Agent": "MoAI-Story/0.1.0" }
+    }
+  }
+}
