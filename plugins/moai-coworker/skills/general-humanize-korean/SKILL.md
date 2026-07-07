@@ -16,9 +16,9 @@ description: |
   적용 제외 — 단순 맞춤법·오탈자 교정(직접 처리), 번역(번역 스킬), 내용 추가·삭제 동반 재작성(별도 집필 스킬), 코드·JSON·CSV·차트·표.
 
   한국 번역학계 8유형 번역투 계보를 통합한 10대 카테고리 분류 + 신규 패턴 A-16/A-18/A-19/E-7 + post-editese 14메트릭 기반 한국어 정밀 윤문 스킬입니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # Humanize Korean: 한국어 AI 티 제거 (Fast 모드)
 
@@ -246,14 +246,14 @@ before/after 비교로 카테고리별 개선율(%)을 계산합니다.
 
 ## general-ai-slop-reviewer와의 관계
 
-이 스킬은 `moai-cowork:general-ai-slop-reviewer`의 **2차 한국어 정밀 윤문** 단계로 설계되었습니다. 권장 체인:
+이 스킬은 `moai-coworker:general-ai-slop-reviewer`의 **2차 한국어 정밀 윤문** 단계로 설계되었습니다. 권장 체인:
 
 ```
 한국어 텍스트 산출물(블로그·뉴스레터·카피 등)
   ↓
-moai-cowork:general-ai-slop-reviewer  ── 1차 일반 AI 슬롭 후처리(영어 표현 정리, 일반 패턴)
+moai-coworker:general-ai-slop-reviewer  ── 1차 일반 AI 슬롭 후처리(영어 표현 정리, 일반 패턴)
   ↓
-moai-cowork:general-humanize-korean ── 2차 한국어 정밀 윤문(40+ 패턴 SSOT, 등급)
+moai-coworker:general-humanize-korean ── 2차 한국어 정밀 윤문(40+ 패턴 SSOT, 등급)
   ↓
 최종 산출물
 ```
