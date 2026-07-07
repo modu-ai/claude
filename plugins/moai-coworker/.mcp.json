@@ -77,6 +77,13 @@
       "$comment": "국토교통부 건축HUB MCP (chrisryugj/archhub-mcp, MIT) — 11도구. 건축물대장·건축인허가·주택인허가 + 법정동코드 + 한 필지 종합카드(building_profile)·층별 구성·동 단위 통계·노후건축물·철거멸실(석면)·인허가 파이프라인·공시가격 시계열. 공용키 탑재 remote 커넥터(URL만 등록). data.go.kr 공식 API 실측값, 출처 명시, [NOT_FOUND] 환각방지. 라이브 스킬: moai-cowork:office-building-ledger-search. ⚠️ 엔드포인트 상태(2026-07-07 실측): https://archhub-mcp.fly.dev SSL 접속 실패(SSL_ERROR_SYSCALL, 4회 재시도 실패) — fly.io 머신 콜드스탠바이/일시장애 가능. hosted 복구 시 자동 동작. 미복구 시 로컬 실행 대체: uvx --from git+https://github.com/chrisryugj/archhub-mcp archhub-mcp (ARCHHUB_SERVICE_KEY=data.go.kr 디코딩 인증키 필요, 건축HUB 서비스 활용신청).",
       "type": "http",
       "url": "https://archhub-mcp.fly.dev/mcp"
+    },
+    "higgsfield": {
+      "$comment": "Higgsfield AI 영상·이미지 생성 MCP — moai-story 플러그인에서 이관(2026-07-07 M1.1). 캐릭터 일관성 작화·콘티·프리비즈 생성. story-cover-art·story-previz·story-webtoon-art·story-character-sheet 등 story-* 스킬이 사용. 인증: Higgsfield 계정 토큰(mcp.higgsfield.ai).",
+      "type": "url",
+      "url": "https://mcp.higgsfield.ai/mcp",
+      "timeout": 120000,
+      "headers": { "User-Agent": "MoAI-Story/0.1.0" }
     }
   }
 }
