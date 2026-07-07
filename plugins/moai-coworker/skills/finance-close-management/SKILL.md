@@ -5,9 +5,9 @@ description: >
   '결산 체크리스트 만들어줘', '4대보험 정산해줘', '급여 마감해줘'처럼 말하면 됩니다.
   K-IFRS 기준 계정 마감, 급여 정산, 세무 일정 관리, 결산 보고서 자동 생성을 지원합니다.
   2026년 최신 4대보험 요율과 노동법 변경사항을 반영합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 결산 관리 (Close Management)
 
@@ -34,7 +34,7 @@ version: "4.0.0"
 
 **2026년 최저임금 및 4대보험 요율**
 
-> 2026년 최저임금·4대보험 요율표는 `moai-cowork:finance-tax-helper` references/2026-rates.md 단일 SSOT를 참조한다.
+> 2026년 최저임금·4대보험 요율표는 `moai-coworker:finance-tax-helper` references/2026-rates.md 단일 SSOT를 참조한다.
 
 **2026년 주요 변경사항:**
 - 국민연금: 1998년 이후 최초 요율 인상 (9% → 9.5%)
@@ -149,26 +149,26 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:finance-financial-statements**: K-IFRS 재무제표 작성
-- **moai-cowork:finance-variance-analysis**: 예산 대비 실적 분석
-- **moai-cowork:finance-tax-helper**: 세금 신고, 홈택스 안내
+- **moai-coworker:finance-financial-statements**: K-IFRS 재무제표 작성
+- **moai-coworker:finance-variance-analysis**: 예산 대비 실적 분석
+- **moai-coworker:finance-tax-helper**: 세금 신고, 홈택스 안내
 
 ### 후처리 체인 (결산 보고서·경영진 요약 등 서술형 산출물)
 
 결산 보고서, 경영진 요약, 비용 분석 코멘트처럼 문장 산출물을 작성한 뒤에는 반드시 아래 체인으로 마무리한다.
 
 ```
-finance-close-management → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean
+finance-close-management → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
 ```
 
-- **moai-cowork:general-ai-slop-reviewer**: AI 티 나는 표현·과장·상투구 검수 및 수정
-- **moai-cowork:general-humanize-korean**: 한국어 자연스러움 보정 (서술 산출물 한정)
+- **moai-coworker:general-ai-slop-reviewer**: AI 티 나는 표현·과장·상투구 검수 및 수정
+- **moai-coworker:general-humanize-korean**: 한국어 자연스러움 보정 (서술 산출물 한정)
 
-> 급여 대장·4대보험 계산 내역·세무 일정 캘린더 같은 표·숫자 산출물은 체인 대상이 아니며, 엑셀화가 필요하면 `moai-cowork:office-xlsx-creator`로 라우팅한다.
+> 급여 대장·4대보험 계산 내역·세무 일정 캘린더 같은 표·숫자 산출물은 체인 대상이 아니며, 엑셀화가 필요하면 `moai-coworker:office-xlsx-creator`로 라우팅한다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **실제 세금 신고·납부**: AI가 작성한 결산 초안을 그대로 세무서에 제출하지 마세요. 세무사에게 검토를 의뢰하세요.
-- **재무제표 공식 작성**: 외부 감사 또는 공시용 재무제표가 필요하면 `moai-cowork:finance-financial-statements` 스킬과 공인회계사 검토를 함께 활용하세요.
-- **예산 대비 실적 분석**: 전략적 원가·수익 분산 분석은 `moai-cowork:finance-variance-analysis` 스킬이 더 적합합니다.
-- **세무 상담**: 종합소득세·부가가치세 신고 방법 상담은 `moai-cowork:finance-tax-helper` 스킬을 사용하세요.
+- **재무제표 공식 작성**: 외부 감사 또는 공시용 재무제표가 필요하면 `moai-coworker:finance-financial-statements` 스킬과 공인회계사 검토를 함께 활용하세요.
+- **예산 대비 실적 분석**: 전략적 원가·수익 분산 분석은 `moai-coworker:finance-variance-analysis` 스킬이 더 적합합니다.
+- **세무 상담**: 종합소득세·부가가치세 신고 방법 상담은 `moai-coworker:finance-tax-helper` 스킬을 사용하세요.

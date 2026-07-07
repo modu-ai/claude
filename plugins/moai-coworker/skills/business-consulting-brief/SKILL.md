@@ -11,9 +11,9 @@ description: |
   - "비즈니스 진단 리포트 써줘"
   - "현황 분석하고 권고안까지 정리해줘"
   Executive Summary·현황 분석·문제 정의·권고사항·실행 로드맵 구조로 작성하며, PPT 변환이나 AI 표현 다듬기로 이어집니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 컨설팅 브리프 (Consulting Brief)
 
@@ -307,7 +307,7 @@ OPL 75%, 재고 회전율 3.2회/년, 불량률 2.1%로 업계 평균 미달.
 
 ## 관련 스킬
 
-- **moai-cowork:business-strategy-planner**: 전략 기획서 작성 시 활용
-- **moai-cowork:business-market-analyst**: 시장 분석이 필요한 경우 먼저 실행
-- **moai-cowork:office-pptx-designer**: 브리프를 PPT로 변환
-- **moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean**: 최종 산출물 AI 패턴 검수 후 한국어 표현을 자연스럽게 다듬습니다 (필수)
+- **moai-coworker:business-strategy-planner**: 전략 기획서 작성 시 활용
+- **moai-coworker:business-market-analyst**: 시장 분석이 필요한 경우 먼저 실행
+- **moai-coworker:office-pptx-designer**: 브리프를 PPT로 변환
+- **moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean**: 최종 산출물 AI 패턴 검수 후 한국어 표현을 자연스럽게 다듬습니다 (필수)

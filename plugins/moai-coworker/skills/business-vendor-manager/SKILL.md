@@ -2,9 +2,9 @@
 name: business-vendor-manager
 description: >
   공급업체를 평가·선정하고 계약 및 리스크를 관리합니다. "벤더 평가 기준 만들어줘", "공급업체 리스크 레지스터 작성해줘", "계약 관리 체계를 잡아줘"라고 요청할 때 사용하세요. 벤더 선정 기준, 공급업체 평가표, 계약 관리 워크플로우, 리스크 식별 및 대응 계획을 지원합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 벤더 관리자 (business-vendor-manager)
 
@@ -96,17 +96,17 @@ version: "4.0.0"
 리스크 대응 계획, 벤더 위험 요소 설명, 계약 관리 절차 설명 등 **서술형 보고 본문**은 다음 체인으로 마무리합니다.
 
 ```
-business-vendor-manager → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean
+business-vendor-manager → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
 ```
 
-- `moai-cowork:general-ai-slop-reviewer` — 서술형 본문의 AI 티 패턴을 검수·수정합니다.
-- `moai-cowork:general-humanize-korean` — 검수된 본문을 자연스러운 한국어 보고체로 다듬습니다.
+- `moai-coworker:general-ai-slop-reviewer` — 서술형 본문의 AI 티 패턴을 검수·수정합니다.
+- `moai-coworker:general-humanize-korean` — 검수된 본문을 자연스러운 한국어 보고체로 다듬습니다.
 
-벤더 평가표, 리스크 평가 매트릭스 등 **점수·표 산출물**은 산문 후처리 대상이 아니며 `moai-cowork:office-xlsx-creator` 또는 `moai-cowork:office-data-visualizer`로 라우팅합니다.
+벤더 평가표, 리스크 평가 매트릭스 등 **점수·표 산출물**은 산문 후처리 대상이 아니며 `moai-coworker:office-xlsx-creator` 또는 `moai-coworker:office-data-visualizer`로 라우팅합니다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **실제 계약서 법적 검토** → moai-cowork:legal-contract-review 스킬을 사용하세요
+- **실제 계약서 법적 검토** → moai-coworker:legal-contract-review 스킬을 사용하세요
 - **발주 시스템 직접 입력** → ERP·구매 시스템에 직접 접속해야 합니다
-- **회계·지급 처리** → moai-cowork 스킬이 더 적합합니다
+- **회계·지급 처리** → moai-coworker 스킬이 더 적합합니다
 - **채용·인력 아웃소싱 업체 관리** → moai-hr 스킬을 사용하세요

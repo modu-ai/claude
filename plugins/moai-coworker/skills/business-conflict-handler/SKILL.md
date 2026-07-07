@@ -4,9 +4,9 @@ description: >
   까다로운 동료·소통빌런과 부딪힐 때 감정 상하지 않게 대응하고 거리를 지키도록 도와주는 스킬입니다.
   '이 사람 어떻게 대하지', '자꾸 떠넘기는 동료', '거절하는 법', '직장 인간관계 스트레스', '갈등 대응'처럼 말하면 됩니다.
   유형별 대응 전략, 감정과 사안 분리, 정중한 거절, 관계 거리 두기로 직장 갈등을 소모전이 아니라 관리 가능한 문제로 바꿉니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 갈등·소통빌런 대응 (Conflict Handler)
 
@@ -95,10 +95,10 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:business-negotiation-1on1**: 갈등을 면담·요청·협상으로 풀 때
-- **moai-cowork:business-feedback-loop**: 행동 변화가 필요할 때 건설적 피드백 전달
-- **moai-cowork:business-report-speak**: 까다로운 상사에게 보고할 때 화법 설계
-- **moai-cowork:office-goal-planner**: 관계 스트레스 관리·경계 설정 루틴
+- **moai-coworker:business-negotiation-1on1**: 갈등을 면담·요청·협상으로 풀 때
+- **moai-coworker:business-feedback-loop**: 행동 변화가 필요할 때 건설적 피드백 전달
+- **moai-coworker:business-report-speak**: 까다로운 상사에게 보고할 때 화법 설계
+- **moai-coworker:office-goal-planner**: 관계 스트레스 관리·경계 설정 루틴
 
 ## 이 스킬을 사용하지 말아야 할 때
 

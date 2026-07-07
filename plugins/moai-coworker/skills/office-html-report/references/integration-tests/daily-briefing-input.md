@@ -66,5 +66,5 @@
 
 ---
 
-*생성: moai-cowork:office-daily-briefing | 기준일: 2026-05-09 07:30*
+*생성: moai-coworker:office-daily-briefing | 기준일: 2026-05-09 07:30*
 *정보 출처: 파이낸셜뉴스, 한국경제, 정책브리핑, 블로터, ZDNet*

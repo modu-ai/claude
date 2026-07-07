@@ -11,9 +11,9 @@ description: |
   - "AI 패턴 검사해줘", "기계적인 느낌 없애줘"
   - Cowork/다른 AI 도구로 생성한 문서의 후처리 검수 요청 시
   - 글쓰기 결과물을 인간적인 톤으로 개선하고 싶을 때
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # AI 슬롭 검수 및 인간화 스킬
 
@@ -275,15 +275,15 @@ Most productivity tools promise to save you time. Most of them don't. But after 
 ## 관련 스킬
 
 ### 선행 스킬 (입력 생성)
-- `moai-cowork:content-blog` — 블로그 포스트 생성
-- `moai-cowork:marketing-landing-page` — 랜딩 페이지 카피라이팅
-- `moai-cowork:content-newsletter` — 뉴스레터 작성
-- `moai-cowork:content-copywriting` — 마케팅 카피 작성
-- `moai-cowork:office-docx-generator` — DOCX 문서 생성
-- `moai-cowork:office-pptx-designer` — PPTX 발표자료 생성
+- `moai-coworker:content-blog` — 블로그 포스트 생성
+- `moai-coworker:marketing-landing-page` — 랜딩 페이지 카피라이팅
+- `moai-coworker:content-newsletter` — 뉴스레터 작성
+- `moai-coworker:content-copywriting` — 마케팅 카피 작성
+- `moai-coworker:office-docx-generator` — DOCX 문서 생성
+- `moai-coworker:office-pptx-designer` — PPTX 발표자료 생성
 
 ### 후속 스킬 (선택적)
-- `moai-cowork:media-higgsfield-image` — (선택) 블로그 발행 체인의 이미지 생성 단계
+- `moai-coworker:media-higgsfield-image` — (선택) 블로그 발행 체인의 이미지 생성 단계
 
 ### 통합 워크플로우
 이 스킬은 다음 체인의 **마지막 단계**로 호출됩니다:

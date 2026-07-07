@@ -137,6 +137,6 @@ brief:
 
 ## 페어 스킬 매핑
 
-- 코드: `moai-cowork:commerce-product-detail` (성분표 시각화·급여 가이드 컴포넌트)
-- 카피: `moai-cowork:commerce-detail-page-copy` (보호자 페르소나 + 반려동물 반응)
+- 코드: `moai-coworker:commerce-product-detail` (성분표 시각화·급여 가이드 컴포넌트)
+- 카피: `moai-coworker:commerce-detail-page-copy` (보호자 페르소나 + 반려동물 반응)
 - 구독 모드: `references/category-subscription.md` (정기 배송 시)

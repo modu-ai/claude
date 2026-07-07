@@ -5,9 +5,9 @@ description: >
   "자소서 써줘", "이력서 만들어줘", "경력기술서 정리해줘", "1page 셀링 시트 만들어줘"처럼
   말하면 됩니다. KKK-STAR 자소서, USP+CAR 이력서, ATS·블라인드·NCS 모드, 2026 AI 진정성
   검증 회피 가드, 500/1000/1500자 분량 자동, 영문 CV·LinkedIn 헤드라인을 지원합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 이력서/자소서 빌더 (business-resume-builder)
 
@@ -74,11 +74,11 @@ CAR (Challenge - Action - Result)
 채용 담당자가 AI 텍스트를 구분하는 시대에는, 초안을 직접 손보는 자체 체크리스트보다 검증된 후처리 체인에 맡기는 편이 일관됩니다. 자소서·이력서·경력기술서 초안을 완성한 뒤 다음 체인을 반드시 거칩니다.
 
 ```
-business-resume-builder → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean
+business-resume-builder → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
 ```
 
-- `moai-cowork:general-ai-slop-reviewer` — "~한 경험이 있습니다", "성장했습니다" 같은 범용 표현, 클리셰 결론, 형용사 남발 등 AI 패턴을 1차 검수·교정합니다.
-- `moai-cowork:general-humanize-korean` — 균일한 문장 길이·동일 접속사 패턴을 사람이 쓴 듯한 리듬(단문+장문 혼합, 구어 표현)으로 2차 다듬습니다.
+- `moai-coworker:general-ai-slop-reviewer` — "~한 경험이 있습니다", "성장했습니다" 같은 범용 표현, 클리셰 결론, 형용사 남발 등 AI 패턴을 1차 검수·교정합니다.
+- `moai-coworker:general-humanize-korean` — 균일한 문장 길이·동일 접속사 패턴을 사람이 쓴 듯한 리듬(단문+장문 혼합, 구어 표현)으로 2차 다듬습니다.
 
 체인 산출 후에도 본인만의 고유 에피소드(시간·장소·인물 구체), 결정 동기, 회사 사업·문화에 대한 구체 언급은 직접 보강해야 진정성이 완성됩니다.
 
@@ -127,7 +127,7 @@ business-resume-builder → moai-cowork:general-ai-slop-reviewer → moai-cowork
 
 ## 2026 AI 진정성 검증 회피 가드
 
-원티드 HR 트렌드 리포트 2026에 따르면 **AI로 포장된 지원자의 진정성 및 표절 검증(41%)**이 면접관의 주요 숙제로 떠올랐습니다. 아래 표는 챗GPT/제미나이 흔적이 남는 패턴과 재작성 방향이며, 실제 교정은 `moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean` 체인이 일관되게 수행합니다.
+원티드 HR 트렌드 리포트 2026에 따르면 **AI로 포장된 지원자의 진정성 및 표절 검증(41%)**이 면접관의 주요 숙제로 떠올랐습니다. 아래 표는 챗GPT/제미나이 흔적이 남는 패턴과 재작성 방향이며, 실제 교정은 `moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean` 체인이 일관되게 수행합니다.
 
 | 자동 감지 패턴 | 재작성 방향 |
 |---|---|
@@ -206,17 +206,17 @@ business-resume-builder → moai-cowork:general-ai-slop-reviewer → moai-cowork
 자소서·이력서·경력기술서·CV·LinkedIn 텍스트는 모두 사람이 읽는 산출물입니다. 초안 완성 후 다음 체인을 반드시 거쳐 AI 패턴을 제거하고 자연스러운 한국어로 다듬습니다.
 
 ```
-moai-cowork:business-resume-builder → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean
+moai-coworker:business-resume-builder → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
 ```
 
-- `moai-cowork:general-ai-slop-reviewer` — AI 생성 패턴(범용 표현·클리셰·형용사 남발) 1차 검수·교정
-- `moai-cowork:general-humanize-korean` — 문장 리듬·구어 표현으로 2차 휴머나이즈
+- `moai-coworker:general-ai-slop-reviewer` — AI 생성 패턴(범용 표현·클리셰·형용사 남발) 1차 검수·교정
+- `moai-coworker:general-humanize-korean` — 문장 리듬·구어 표현으로 2차 휴머나이즈
 
-JD 분석은 `moai-cowork:business-job-analyzer`, 면접 준비는 `moai-cowork:business-interview-coach`, 포트폴리오는 `moai-cowork:business-portfolio-guide`와 함께 사용하세요.
+JD 분석은 `moai-coworker:business-job-analyzer`, 면접 준비는 `moai-coworker:business-interview-coach`, 포트폴리오는 `moai-coworker:business-portfolio-guide`와 함께 사용하세요.
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **채용공고(JD) 분석**: 공고를 분석하여 역량을 추출하려면 `moai-cowork:business-job-analyzer` 스킬을 사용하세요.
-- **면접 준비**: 면접 예상 질문이나 모의 면접은 `moai-cowork:business-interview-coach` 스킬이 적합합니다.
-- **포트폴리오 구성**: 프로젝트 정리나 포트폴리오 전략은 `moai-cowork:business-portfolio-guide` 스킬을 사용하세요.
-- **채용 담당자용 JD 작성**: 기업 인사 담당자가 JD를 작성하려면 `moai-cowork:business-employment-manager` 스킬을 사용하세요.
+- **채용공고(JD) 분석**: 공고를 분석하여 역량을 추출하려면 `moai-coworker:business-job-analyzer` 스킬을 사용하세요.
+- **면접 준비**: 면접 예상 질문이나 모의 면접은 `moai-coworker:business-interview-coach` 스킬이 적합합니다.
+- **포트폴리오 구성**: 프로젝트 정리나 포트폴리오 전략은 `moai-coworker:business-portfolio-guide` 스킬을 사용하세요.
+- **채용 담당자용 JD 작성**: 기업 인사 담당자가 JD를 작성하려면 `moai-coworker:business-employment-manager` 스킬을 사용하세요.

@@ -10,10 +10,10 @@ description: |
   - "RISS에서 학위논문 찾아줘"
   - "이 분야 연구 동향 파악해줘"
   - "참고문헌 BibTeX로 정리해줘"
-  핵심 논문 요약·연도별 연구 동향·참고문헌(BibTeX/RIS/텍스트)을 만들고, 논문 작성이 필요하면 moai-cowork:education-paper-writer로 이어집니다.
-version: "4.0.0"
+  핵심 논문 요약·연도별 연구 동향·참고문헌(BibTeX/RIS/텍스트)을 만들고, 논문 작성이 필요하면 moai-coworker:education-paper-writer로 이어집니다.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 논문 검색 (Paper Search)
 
@@ -84,7 +84,7 @@ GET https://open.kci.go.kr/po/openapi/openApiSearch.kci
 
 ### 5단계: 후속 작업 제안
 
-- "논문 작성" → moai-cowork:education-paper-writer 스킬 연계
+- "논문 작성" → moai-coworker:education-paper-writer 스킬 연계
 - "참고문헌 포맷 변환" → APA/KCI/IEEE 포맷 자동 생성
 
 ## 사용 예시
@@ -108,13 +108,13 @@ GET https://open.kci.go.kr/po/openapi/openApiSearch.kci
 - KCI API 키가 없는 경우, 웹검색으로 대체합니다. 웹검색은 API에 비해 결과 수와 정확도가 낮을 수 있습니다.
 - KCI API 키는 data.go.kr에서 무료로 발급받을 수 있습니다 (활용신청 후 자동승인).
 - 학술 DB 접근 권한에 따라 일부 논문의 전문 텍스트를 확인하지 못할 수 있습니다. 이 경우 서지정보만 제공됩니다.
-- 논문 작성이 필요한 경우 moai-cowork:education-paper-writer 스킬로 연계하여 참고문헌 인용 포맷을 자동 생성할 수 있습니다.
+- 논문 작성이 필요한 경우 moai-coworker:education-paper-writer 스킬로 연계하여 참고문헌 인용 포맷을 자동 생성할 수 있습니다.
 
 ## 관련 스킬
 
-- **moai-cowork:education-paper-writer** - 논문 작성 및 참고문헌 포맷팅
-- **moai-cowork:education-grant-writer** - 연구비 신청서 선행연구 조사 섹션 작성
-- **moai-cowork:office-data-visualizer** - 연구 동향 시각화 (연도별 추세 차트)
+- **moai-coworker:education-paper-writer** - 논문 작성 및 참고문헌 포맷팅
+- **moai-coworker:education-grant-writer** - 연구비 신청서 선행연구 조사 섹션 작성
+- **moai-coworker:office-data-visualizer** - 연구 동향 시각화 (연도별 추세 차트)
 
 ## API 발급 안내
 

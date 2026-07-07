@@ -185,6 +185,6 @@ brief:
 
 ## 페어 스킬 매핑
 
-- 코드: `moai-cowork:commerce-product-detail` (구독 가입 폼 + 결제 흐름)
-- 카피: `moai-cowork:commerce-detail-page-copy` (13섹션 → 구독 관점으로)
-- 후속 권장: `moai-cowork:content-newsletter` (가입 후 onboarding 이메일)
+- 코드: `moai-coworker:commerce-product-detail` (구독 가입 폼 + 결제 흐름)
+- 카피: `moai-coworker:commerce-detail-page-copy` (13섹션 → 구독 관점으로)
+- 후속 권장: `moai-coworker:content-newsletter` (가입 후 onboarding 이메일)

@@ -2,9 +2,9 @@
 name: business-ticket-triage
 description: >
   고객 지원 티켓을 신속하게 분류하고 우선순위를 배정합니다. "이 문의를 어떻게 분류해야 하나요", "티켓 우선순위 정해줘", "고객 문의 긴급도 판단해줘"라고 요청할 때 사용하세요. 유형 분류(기술/결제/배송/불만), 긴급도 등급(P1~P4), 담당팀 배정, 에스컬레이션 판단을 지원합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 티켓 분류 (Ticket Triage)
 
@@ -88,11 +88,11 @@ Zendesk 2026 CX 트렌드 보고서 기반:
 | 분류 기준 내부 규정과 충돌 | 내부 분류 체계를 공유해 주시면 그에 맞춰 조정합니다 |
 | 멀티채널 통합 필요 | 채널별 우선순위 매핑표를 함께 설계해 드립니다 |
 
-> 티켓 분류는 분류·우선순위 판정 작업으로, 별도 서술형 산출물을 생성하지 않습니다. 분류 결과를 바탕으로 **고객 응답 초안**을 작성할 때는 `moai-cowork:business-draft-response`를 호출하며, 해당 스킬이 `moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean` 후처리 체인을 담당합니다.
+> 티켓 분류는 분류·우선순위 판정 작업으로, 별도 서술형 산출물을 생성하지 않습니다. 분류 결과를 바탕으로 **고객 응답 초안**을 작성할 때는 `moai-coworker:business-draft-response`를 호출하며, 해당 스킬이 `moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean` 후처리 체인을 담당합니다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **고객 응답 초안 작성** → moai-cowork:business-draft-response 스킬이 더 적합합니다
-- **에스컬레이션 처리 및 VIP 대응** → moai-cowork:business-escalation-manager 스킬을 사용하세요
-- **지식베이스 문서 작성** → moai-cowork:business-kb-article 스킬을 사용하세요
+- **고객 응답 초안 작성** → moai-coworker:business-draft-response 스킬이 더 적합합니다
+- **에스컬레이션 처리 및 VIP 대응** → moai-coworker:business-escalation-manager 스킬을 사용하세요
+- **지식베이스 문서 작성** → moai-coworker:business-kb-article 스킬을 사용하세요
 - **실제 티켓 시스템(Zendesk, Freshdesk) 조작** → 해당 시스템에 직접 접속해야 합니다

@@ -10,9 +10,9 @@ description: |
   - "핸드오프 번들 읽어 줘"
   - "디자인 토큰 추출"
   - "Claude Code 핸드오프 준비"
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # general-cd-handoff-reader — 핸드오프 번들 분석
 
@@ -304,7 +304,7 @@ Page
 
 | 스킬 | 사용 시점 |
 |---|---|
-| `moai-cowork:general-cd-brief` | 선행: 핸드오프할 시안 자체를 만들 때 |
-| `moai-cowork:general-cd-system-prep` | 선행: 디자인 시스템 셋업 |
-| `moai-cowork:project` | 후속: Claude Code 작업 폴더 초기화 |
-| `moai-cowork:business-spec-writer` | 보조: 핸드오프 후 코드 SPEC 작성 |
+| `moai-coworker:general-cd-brief` | 선행: 핸드오프할 시안 자체를 만들 때 |
+| `moai-coworker:general-cd-system-prep` | 선행: 디자인 시스템 셋업 |
+| `moai-coworker:project` | 후속: Claude Code 작업 폴더 초기화 |
+| `moai-coworker:business-spec-writer` | 보조: 핸드오프 후 코드 SPEC 작성 |

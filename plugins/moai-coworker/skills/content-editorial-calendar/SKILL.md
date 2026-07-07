@@ -9,10 +9,10 @@ description: |
   - "콘텐츠 발행 계획표 만들어줘"
   - "3개월 편집 캘린더 설계해줘"
   - "블로그·유튜브·SNS 발행 스케줄 정리해줘"
-  산출물은 발행 캘린더 표(데이터)와 콘텐츠 전략 문서이며, 전략·캠페인 설명 같은 산문 텍스트는 moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean 체인으로 마무리하세요.
-version: "4.0.0"
+  산출물은 발행 캘린더 표(데이터)와 콘텐츠 전략 문서이며, 전략·캠페인 설명 같은 산문 텍스트는 moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean 체인으로 마무리하세요.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 콘텐츠 발행 캘린더 (Content Calendar)
 
@@ -116,15 +116,15 @@ SNS: 주 3~5회 (영상 클립, 인사이트, 커뮤니티 참여)
 ## 관련 스킬
 
 - `marketing-youtube-podcast-planner` — 유튜브·팟캐스트 에피소드 기획
-- `moai-cowork:content-sns-content` — 소셜미디어 콘텐츠
+- `moai-coworker:content-sns-content` — 소셜미디어 콘텐츠
 - `content-blog` — 블로그 포스팅
 - `content-newsletter` — 이메일 뉴스레터
-- `moai-cowork:general-ai-slop-reviewer` — 텍스트 산출물 AI 패턴 검수 (1차)
-- `moai-cowork:general-humanize-korean` — 한국어 자연스러움 보정 (2차)
+- `moai-coworker:general-ai-slop-reviewer` — 텍스트 산출물 AI 패턴 검수 (1차)
+- `moai-coworker:general-humanize-korean` — 한국어 자연스러움 보정 (2차)
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - 유튜브 영상·팟캐스트 에피소드 기획: `marketing-youtube-podcast-planner` 스킬 사용
-- SNS 텍스트 포스팅 자체: `moai-cowork:content-sns-content` 스킬 사용
+- SNS 텍스트 포스팅 자체: `moai-coworker:content-sns-content` 스킬 사용
 - 블로그 본문 작성: `content-blog` 스킬 사용
 - 광고 카피: `content-copywriting` 스킬 사용

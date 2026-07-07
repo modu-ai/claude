@@ -4,11 +4,11 @@ description: |
   쿠팡 광고 풀세트를 자연어로 분석·최적화합니다 — 3 캠페인 유형(AI스마트/매출최적화/수동키워드) 자동 분류 + 검색영역 vs 비검색영역 매출 분리 + 엔드 ROAS 계산 + 자동규칙 3종 + 상품별 의사결정 분기(ROAS·CTR·CVR).
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "쿠팡 광고 분석해줘", "쿠팡 AI스마트광고 세팅", "쿠팡 매출최적화 캠페인", "쿠팡 수동키워드 광고", "쿠팡 검색영역 비검색영역", "쿠팡 골든타임 자동규칙", "목표 ROAS 설정", "키워드 제외 500개", "오디언스 플러스 끄기", "쿠팡 캠페인 분리"
-  쿠팡 광고보고서·마진계산기 결과 엑셀을 입력받아 상품별 의사결정·캠페인 분리안을 산출하며, 수치·표·의사결정 데이터 스킬이라 general-ai-slop-reviewer 체이닝은 제외합니다. end-ROAS 공식은 moai-cowork:commerce-margin-calculator references/end-roas.md를 참조합니다.
-  [책임 경계] 페어 moai-cowork:marketing-performance-report(GA4·메타·네이버 다채널 ROAS 종합)와 구분 — 본 스킬은 쿠팡 단일 채널 광고관리 전담. 마진·엔드 ROAS 계산은 moai-cowork:commerce-margin-calculator, 채널 등록·운영은 moai-cowork:commerce-marketplace-coupang.
-version: "4.0.0"
+  쿠팡 광고보고서·마진계산기 결과 엑셀을 입력받아 상품별 의사결정·캠페인 분리안을 산출하며, 수치·표·의사결정 데이터 스킬이라 general-ai-slop-reviewer 체이닝은 제외합니다. end-ROAS 공식은 moai-coworker:commerce-margin-calculator references/end-roas.md를 참조합니다.
+  [책임 경계] 페어 moai-coworker:marketing-performance-report(GA4·메타·네이버 다채널 ROAS 종합)와 구분 — 본 스킬은 쿠팡 단일 채널 광고관리 전담. 마진·엔드 ROAS 계산은 moai-coworker:commerce-margin-calculator, 채널 등록·운영은 moai-coworker:commerce-marketplace-coupang.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 쿠팡 광고 풀세트 최적화 (Marketplace Coupang Ads)
 
@@ -69,11 +69,11 @@ version: "4.0.0"
 
 ## 엔드 ROAS (본전 ROAS) 계산
 
-적자가 나지 않는 최소 광고수익률. end-ROAS 공식은 moai-cowork:commerce-margin-calculator references/end-roas.md 참조.
+적자가 나지 않는 최소 광고수익률. end-ROAS 공식은 moai-coworker:commerce-margin-calculator references/end-roas.md 참조.
 
 요약: `엔드 ROAS = (판매가 ÷ 마진) × 100`. 예시(1만원 상품, 원가+배송비 8천원 → 마진 2천원)면 엔드 ROAS 500%.
 
-> **쿠팡 ROAS 보정**: 쿠팡 화면 ROAS는 부가세 빠진 금액 → 실제는 **10% 더 낮음**. ROAS 200% 표기 = 실제 180%. (보정 상세는 moai-cowork:commerce-margin-calculator references/end-roas.md)
+> **쿠팡 ROAS 보정**: 쿠팡 화면 ROAS는 부가세 빠진 금액 → 실제는 **10% 더 낮음**. ROAS 200% 표기 = 실제 180%. (보정 상세는 moai-coworker:commerce-margin-calculator references/end-roas.md)
 
 ## 광고 효율 = CPC × 전환율 × 객단가
 
@@ -164,11 +164,11 @@ version: "4.0.0"
 
 | 페어 스킬 | 차이 |
 |----------|------|
-| `moai-cowork:marketing-performance-report` | GA4·메타·네이버·카카오 다채널 ROAS 종합 (본 스킬은 쿠팡 단일 채널 특화) |
+| `moai-coworker:marketing-performance-report` | GA4·메타·네이버·카카오 다채널 ROAS 종합 (본 스킬은 쿠팡 단일 채널 특화) |
 | `commerce-integrated-strategy` | 매출 향상 전략 1장 (본 스킬은 광고 운영 의사결정 분기) |
 | `commerce-margin-calculator` | 마진·엔드 ROAS 계산 전담 (본 스킬은 캠페인 분류·의사결정 전담) |
 
 ## 참고 자료
 
 - 쿠팡 광고 운영 실전 노하우 (한국 셀러 6개월 운영 사례 기반)
-- commerce-margin-calculator 엔드 ROAS 공식 (`moai-cowork:commerce-margin-calculator references/end-roas.md`)
+- commerce-margin-calculator 엔드 ROAS 공식 (`moai-coworker:commerce-margin-calculator references/end-roas.md`)

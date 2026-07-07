@@ -6,11 +6,11 @@ description: |
   - "임원 보고용 1페이지 요약 만들어줘" / "이사회 보고서 요약해줘" / "경영진 브리핑 1장으로 정리해줘"
   - "이 리포트 핵심만 요약해줘" / "긴 보고서 1페이지로 줄여줘" / "C레벨 요약 작성해줘"
   - "What/So What/Now What 구조로 정리해줘" / "카톡·이메일로 보낼 단일 HTML 1pager 만들어줘"
-  기본 출력은 moai-cowork:office-html-report로 단일 HTML(이미지·CSS·JS 인라인, 카톡·이메일 바로 공유)이며, pdf/docx/pptx/hwpx 변환은 옵션 체이닝. 입력 가능: moai-cowork:marketing-performance-report 출력 · moai-cowork:finance-financial-statements · moai-cowork:finance-variance-analysis · moai-cowork:business-pm-weekly-report · 외부 보고서. 한국 임원/이사회 표준 What/So What/Now What + K-IFRS 재무 지표 우선.
-  [책임 경계] vs moai-cowork:marketing-performance-report: business-executive-summary=임원 압축 요약(≤500단어), marketing-performance-report=마케팅 풀 리포트(전체).
-version: "4.0.0"
+  기본 출력은 moai-coworker:office-html-report로 단일 HTML(이미지·CSS·JS 인라인, 카톡·이메일 바로 공유)이며, pdf/docx/pptx/hwpx 변환은 옵션 체이닝. 입력 가능: moai-coworker:marketing-performance-report 출력 · moai-coworker:finance-financial-statements · moai-coworker:finance-variance-analysis · moai-coworker:business-pm-weekly-report · 외부 보고서. 한국 임원/이사회 표준 What/So What/Now What + K-IFRS 재무 지표 우선.
+  [책임 경계] vs moai-coworker:marketing-performance-report: business-executive-summary=임원 압축 요약(≤500단어), marketing-performance-report=마케팅 풀 리포트(전체).
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # Executive Summary: 경영진 1페이지 요약
 
@@ -18,13 +18,13 @@ version: "4.0.0"
 
 ## 개요
 
-10-50페이지짜리 분석·재무·운영 보고서를 C-level이 5분 안에 의사결정할 수 있는 1페이지로 변환합니다. moai-cowork(finance-financial-statements, finance-variance-analysis), moai-pm(weekly-report), 외부 보고서 모두 입력 가능합니다.
+10-50페이지짜리 분석·재무·운영 보고서를 C-level이 5분 안에 의사결정할 수 있는 1페이지로 변환합니다. moai-coworker(finance-financial-statements, finance-variance-analysis), moai-pm(weekly-report), 외부 보고서 모두 입력 가능합니다.
 
 핵심 원칙: **결론부터** (McKinsey Pyramid). 근거는 그 다음, 데이터는 부록.
 
 ## 기본 출력 = 단일 HTML 파일 (카톡 즉시 공유)
 
-본 스킬의 **기본 출력은 마크다운 + `moai-cowork:office-html-report` 렌더링한 단일 HTML 파일**입니다.
+본 스킬의 **기본 출력은 마크다운 + `moai-coworker:office-html-report` 렌더링한 단일 HTML 파일**입니다.
 
 - **1개 HTML 파일**: 이미지(base64/SVG)·CSS(`<style>`)·JS(`<script>`) 전부 인라인
 - **외부 의존성 0**: 폰트 CDN 1건 제외(한국어 가독성 단일 예외)
@@ -49,7 +49,7 @@ business-executive-summary → office-html-report (mode=status, 기본)
 
 다음 중 하나 이상:
 - 원본 보고서 (PDF/Markdown/DOCX) — 10-50p
-- 재무제표 + 변동분석 결과 (`moai-cowork` 출력)
+- 재무제표 + 변동분석 결과 (`moai-coworker` 출력)
 - 주간/월간 운영 보고 (`moai-pm/weekly-report` 출력)
 - 외부 분석 (시장조사·컨설팅 보고서)
 
@@ -145,9 +145,9 @@ business-executive-summary → office-html-report (mode=status, 기본)
 **예시 1 — 변동분석 → 카톡 공유용 단일 HTML (기본 경로)**
 ```
 사용자: "이번 분기 변동분석 보고서를 임원 1pager 만들어서 카톡으로 보낼 수 있게 해줘."
-→ moai-cowork/finance-variance-analysis 결과 입력
+→ moai-coworker/finance-variance-analysis 결과 입력
 → business-executive-summary가 K-IFRS 지표 우선 + What/So What/Now What 마크다운 생성
-→ moai-cowork:office-html-report (mode=status)로 단일 HTML 렌더링
+→ moai-coworker:office-html-report (mode=status)로 단일 HTML 렌더링
 → 결과: 1개 .html 파일 (이미지·CSS·JS 인라인) → 카톡 첨부 가능
 ```
 
@@ -176,27 +176,27 @@ business-executive-summary → office-html-report (mode=status, 기본)
 ## 관련 스킬
 
 **Before (입력 prep)**:
-- `moai-cowork/finance-financial-statements` — 재무제표
-- `moai-cowork/finance-variance-analysis` — 변동분석
+- `moai-coworker/finance-financial-statements` — 재무제표
+- `moai-coworker/finance-variance-analysis` — 변동분석
 - `moai-pm/weekly-report` — 주간보고
 - (외부 보고서)
 
 **Renderer (기본 출력 = 단일 HTML)**:
-- `moai-cowork/office-html-report` — **기본 렌더러**, mode=status (이미지·CSS·JS 인라인, 카톡 공유 가능)
+- `moai-coworker/office-html-report` — **기본 렌더러**, mode=status (이미지·CSS·JS 인라인, 카톡 공유 가능)
 
 **Converter (선택 변환 분기)**:
-- `moai-cowork/office-pdf-writer` — 인쇄·결재용 PDF
-- `moai-cowork/office-docx-generator` — 편집 가능한 .docx
-- `moai-cowork/office-pptx-designer` — 이사회 슬라이드 1매
-- `moai-cowork/office-hwpx-writer` — 한국 공공기관 .hwpx
+- `moai-coworker/office-pdf-writer` — 인쇄·결재용 PDF
+- `moai-coworker/office-docx-generator` — 편집 가능한 .docx
+- `moai-coworker/office-pptx-designer` — 이사회 슬라이드 1매
+- `moai-coworker/office-hwpx-writer` — 한국 공공기관 .hwpx
 
 **Post-process**:
 - `moai-core/general-ai-slop-reviewer` — 격식체·정량 출처 검수
-- `moai-cowork/general-humanize-korean` — 한국어 자연스러움 보강
+- `moai-coworker/general-humanize-korean` — 한국어 자연스러움 보강
 
 **Alternative**:
 - `moai-pm/weekly-report` — 팀 단위 주간 (1pager 아닌 6섹션)
-- `moai-cowork/business-strategy-planner` — 전략 문서 (요약 아닌 본문)
+- `moai-coworker/business-strategy-planner` — 전략 문서 (요약 아닌 본문)
 
 ## 관련 커맨드
 

@@ -12,9 +12,9 @@ description: |
   - "슬라이드 이미지 프롬프트", "나노바나나 슬라이드", "Nano Banana 슬라이드"
   - "본문 MD를 NotebookLM 프롬프트로 변환", "강연용 슬라이드 자료 만들어줘"
   - "PPT 발표 자료 프롬프트", "발표 슬라이드 통째로 생성"
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # media-notebooklm-slide-prompt — NotebookLM 슬라이드 데크 + 나노바나나 이미지 프롬프트 빌더
 
@@ -33,7 +33,7 @@ version: "4.0.0"
 | 입력 | 강연·강의 본문 MD | 보고서·기획 내용 + 디자인 요구 |
 | 언제 쓰나 | "NotebookLM으로 발표자료 만들 프롬프트가 필요" | "지금 바로 열리는 PPT 파일이 필요" |
 
-요약: **NotebookLM에 넣을 준비물(소스·대본·구조·이미지 프롬프트)을 만드는 빌더**가 이 스킬입니다. 실제 `.pptx` 파일이 필요하면 `moai-cowork:office-pptx-designer`를 호출하세요. "PPT 파일로 뽑아줘"는 `moai-cowork:office-pptx-designer`, "NotebookLM 슬라이드 프롬프트 만들어줘"는 이 스킬입니다.
+요약: **NotebookLM에 넣을 준비물(소스·대본·구조·이미지 프롬프트)을 만드는 빌더**가 이 스킬입니다. 실제 `.pptx` 파일이 필요하면 `moai-coworker:office-pptx-designer`를 호출하세요. "PPT 파일로 뽑아줘"는 `moai-coworker:office-pptx-designer`, "NotebookLM 슬라이드 프롬프트 만들어줘"는 이 스킬입니다.
 
 ## 트리거 키워드
 
@@ -211,7 +211,7 @@ Consistency tag: series="harness-lecture", palette="teal-amber-dim", lighting="v
   3. **Part B — 슬라이드별 나노바나나 이미지 프롬프트 (5~8슬라이드)**
   4. 사용 절차 (NotebookLM에 본문 업로드 → Prompt 붙여넣기 → 생성 → 표지·핵심 슬라이드 이미지는 별도 Gemini/Nano Banana Pro로 생성 후 NotebookLM에서 revise로 교체)
 
-체인 종료 직전 `moai-cowork:general-ai-slop-reviewer`를 호출해 클리셰·번역투를 제거한다.
+체인 종료 직전 `moai-coworker:general-ai-slop-reviewer`를 호출해 클리셰·번역투를 제거한다.
 
 ## 사용 예시
 
@@ -257,17 +257,17 @@ Consistency tag: series="harness-lecture", palette="teal-amber-dim", lighting="v
 ```
 media-notebooklm-slide-prompt
   ↓
-moai-cowork:general-ai-slop-reviewer
+moai-coworker:general-ai-slop-reviewer
 ```
 
-본 스킬은 텍스트 산출물이므로 체인 종료 직전 `moai-cowork:general-ai-slop-reviewer`로 후처리한다.
+본 스킬은 텍스트 산출물이므로 체인 종료 직전 `moai-coworker:general-ai-slop-reviewer`로 후처리한다.
 
 실제 이미지 생성은 별도 단계로 분리되어 있다. 사용자는 산출된 5-Component 프롬프트를 다음 도구 중 하나로 실행한다:
 
 - Gemini 앱 (모바일·웹)
 - Google AI Studio
 - Vertex AI
-- (MoAI 사용자) `moai-cowork:media-higgsfield-image` 스킬에 그대로 전달
+- (MoAI 사용자) `moai-coworker:media-higgsfield-image` 스킬에 그대로 전달
 
 ## 안티패턴 (하지 말 것)
 

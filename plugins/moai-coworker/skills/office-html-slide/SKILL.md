@@ -11,24 +11,24 @@ description: |
   - "투자 피칭 덱 인터랙티브 HTML로"
   - "발표 자료를 HTML 슬라이드 + 편집 가능 PPTX 둘 다"
   design-system-library 75개 브랜드 토큰 중 테마를 골라 적용하고, 각 토큰별 getdesign.md 상세 페이지 링크로 미리보기를 제공합니다.
-  PDF 배포본이 필요하면 브라우저 `?print-pdf` 인쇄 모드를 쓰거나, 생성한 HTML을 moai-cowork:office-pdf-writer로 넘겨 변환하세요 (weasyprint를 직접 설치·호출하지 말 것).
-  [책임 경계] vs moai-cowork:office-pptx-designer: 이 스킬=브라우저에서 바로 열리는 단일 .html 슬라이드 덱(편집 가능 .pptx는 office-pptx-designer 체이닝으로 산출). vs moai-cowork:media-notebooklm-slide-prompt: 저 스킬=NotebookLM 입력용 프롬프트(파일 생성 없음). vs moai-cowork:office-html-report: 저 스킬=연속 스크롤 문서/보고서(슬라이드 덱이 아님).
-version: "4.0.0"
+  PDF 배포본이 필요하면 브라우저 `?print-pdf` 인쇄 모드를 쓰거나, 생성한 HTML을 moai-coworker:office-pdf-writer로 넘겨 변환하세요 (weasyprint를 직접 설치·호출하지 말 것).
+  [책임 경계] vs moai-coworker:office-pptx-designer: 이 스킬=브라우저에서 바로 열리는 단일 .html 슬라이드 덱(편집 가능 .pptx는 office-pptx-designer 체이닝으로 산출). vs moai-coworker:media-notebooklm-slide-prompt: 저 스킬=NotebookLM 입력용 프롬프트(파일 생성 없음). vs moai-coworker:office-html-report: 저 스킬=연속 스크롤 문서/보고서(슬라이드 덱이 아님).
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # office-html-slide — 단일 파일 HTML 슬라이드 덱 생성기
 
 ## 목적과 범위
 
-`moai-cowork:office-html-slide`는 발표용 슬라이드 덱을 **단일 파일·자체 완결형 HTML**로 만듭니다. 이웃 스킬 `office-html-report`의 "0의존·인라인 SVG·design-system-library 토큰 계약" 아키텍처를 계승하되, 연속 스크롤 문서가 아닌 **16:9 슬라이드 시퀀스 + 자체 vanilla JS 덱 런타임**(키보드 내비게이션·풀스크린·`?print-pdf` 인쇄 모드·speaker notes 토글)을 제공합니다.
+`moai-coworker:office-html-slide`는 발표용 슬라이드 덱을 **단일 파일·자체 완결형 HTML**로 만듭니다. 이웃 스킬 `office-html-report`의 "0의존·인라인 SVG·design-system-library 토큰 계약" 아키텍처를 계승하되, 연속 스크롤 문서가 아닌 **16:9 슬라이드 시퀀스 + 자체 vanilla JS 덱 런타임**(키보드 내비게이션·풀스크린·`?print-pdf` 인쇄 모드·speaker notes 토글)을 제공합니다.
 
 **핵심 원칙**:
 - 단일 `.html` 파일 — 외부 빌드 단계·런타임 SPA 의존 없이 `file://`로 즉시 오픈
 - 인포그래픽은 LLM이 인라인 SVG로 직접 저작 — 한국어 숫자·라벨 100% 정확, 확대 선명, 재현 가능
 - 실사·일러스트 이미지는 Higgsfield MCP 또는 codex(gpt-image-2)로 생성 — 허용 백엔드만 사용 (`references/image-backend-policy.md`)
 - design-system-library 75개 브랜드 토큰 적용 — 각 토큰별 getdesign.md 상세 페이지 링크 제공
-- 편집 가능 PPTX 산출은 `office-pptx-designer`(moai-cowork) 체이닝으로 위임 — 자체 구현하지 않음(중복·책임 모호화 방지)
+- 편집 가능 PPTX 산출은 `office-pptx-designer`(moai-coworker) 체이닝으로 위임 — 자체 구현하지 않음(중복·책임 모호화 방지)
 
 **원고 SSOT**: 모든 덱은 구조화 원고 `deck.json`(title/bullets/chart-data/image-path/layout-key/notes)을 단일 진실 원천으로 둡니다. HTML 렌더와 (체이닝 시) office-pptx-designer PPTX 렌더 양쪽이 같은 원고를 소비합니다 — 픽셀→OOXML 역매핑이 아니라 원고→객체 직접 생성이 "편집 가능 PPTX"의 보증 기구입니다.
 
@@ -82,7 +82,7 @@ version: "4.0.0"
 
 > 위 4개 백엔드만 허용됩니다. 그 외 외부 이미지 백엔드(MCP·API·게이트웨이)는 사용하지 않습니다 — [`references/image-backend-policy.md`](references/image-backend-policy.md).
 
-한국어 텍스트가 이미지에 들어가면 `moai-cowork:media-gpt-image-2-prompt`(6-Block 프롬프트 빌더)로 verbatim 지시 후 선택 백엔드로 생성합니다.
+한국어 텍스트가 이미지에 들어가면 `moai-coworker:media-gpt-image-2-prompt`(6-Block 프롬프트 빌더)로 verbatim 지시 후 선택 백엔드로 생성합니다.
 
 ### 5. design-system-library 토큰 적용
 design_system 지정 시 `systems/<name>.md` 토큰 → Tailwind Play CDN config + shadcn vanilla 컴포넌트로 렌더. 미지정 시 0의존 기본 템플릿. office-html-report와 동일 계약 재사용. 사용자가 getdesign.md 링크로 토큰을 미리 확인한 뒤 선택할 수 있습니다.
@@ -102,7 +102,7 @@ design_system 지정 시 `systems/<name>.md` 토큰 → Tailwind Play CDN config
 | 3 | **"A에서 B로" 전환 공식** | "X에서 Y로" 전환 공식 도입 | [나쁜 예] "엑셀에서 노션으로, 바뀐 것" (전환 공식) | 전환 공식 대신 구체적 사례로 시작 |
 
 ### 8. PPTX 산출 (선택, export_pptx: true 시)
-`deck.json` 원고를 `office-pptx-designer`(moai-cowork)에 전달하며 체이닝. office-pptx-designer가 pptxgenjs로 편집 가능 OOXML `.pptx` 생성(원고→객체 직접 생성). office-html-slide 자체는 PPTX 생성 로직을 구현하지 않습니다. 체이닝 규약: [`references/pptx-chaining.md`](references/pptx-chaining.md).
+`deck.json` 원고를 `office-pptx-designer`(moai-coworker)에 전달하며 체이닝. office-pptx-designer가 pptxgenjs로 편집 가능 OOXML `.pptx` 생성(원고→객체 직접 생성). office-html-slide 자체는 PPTX 생성 로직을 구현하지 않습니다. 체이닝 규약: [`references/pptx-chaining.md`](references/pptx-chaining.md).
 
 ### 9. 자체 검수
 단일 HTML 열기·`?print-pdf` 인쇄 미리보기·speaker notes 표시·이미지 broken link·한국어 폰트 렌더·이미지 백엔드 정책 준수(허용 백엔드만 사용)를 자체 검수 후 PASS/FAIL 보고. PPTX 체이닝 시 office-pptx-designer QA 결과 통합 보고.
@@ -111,7 +111,7 @@ design_system 지정 시 `systems/<name>.md` 토큰 → Tailwind Play CDN config
 
 ## 디자인 시스템 적용 (`design_system` 파라미터)
 
-`design_system` 입력으로 [`moai-cowork:office-design-system-library`](../../../moai-design/skills/design-system-library/SKILL.md)에서 브랜드 토큰을 로드해 **Tailwind Play CDN + shadcn vanilla 컴포넌트**로 렌더합니다. office-html-report와 동일한 두 렌더 엔진을 제공합니다.
+`design_system` 입력으로 [`moai-coworker:office-design-system-library`](../../../moai-design/skills/design-system-library/SKILL.md)에서 브랜드 토큰을 로드해 **Tailwind Play CDN + shadcn vanilla 컴포넌트**로 렌더합니다. office-html-report와 동일한 두 렌더 엔진을 제공합니다.
 
 | `design_system` | 엔진 | 외부 의존 | 산출물 특성 |
 |-----------------|------|-----------|-------------|
@@ -139,15 +139,15 @@ design_system 지정 시 `systems/<name>.md` 토큰 → Tailwind Play CDN config
 ## 체인 통합
 
 ```
-[원고/콘텐츠 스킬] → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean → moai-cowork:office-html-slide
+[원고/콘텐츠 스킬] → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean → moai-coworker:office-html-slide
                                                                             ↓ (export_pptx: true)
-                                                                moai-cowork:office-pptx-designer
+                                                                moai-coworker:office-pptx-designer
 ```
 
 이미지 필요 시 분기:
 ```
-office-html-slide → moai-cowork:media-higgsfield-image (Higgsfield MCP, 기본)
-           → moai-cowork:media-gpt-image-2-prompt (한국어 verbatim 프롬프트 빌더) → media-higgsfield-image
+office-html-slide → moai-coworker:media-higgsfield-image (Higgsfield MCP, 기본)
+           → moai-coworker:media-gpt-image-2-prompt (한국어 verbatim 프롬프트 빌더) → media-higgsfield-image
            → codex exec "$imagegen ..." (image_backend: codex 시, 로컬)
 ```
 
@@ -186,9 +186,9 @@ AI 슬라이드 스킬 스타트업 사업계획서 10장 슬라이드로 만들
 
 ## 하지 않는 것
 
-- 연속 스크롤 문서는 `moai-cowork:office-html-report`가 맡습니다 — 본 스킬은 슬라이드 시퀀스(16:9 페이지) 전용입니다.
-- 편집 가능 .pptx 직접 생성은 하지 않습니다 — `office-pptx-designer`(moai-cowork) 체이닝으로 위임합니다.
-- NotebookLM 입력용 프롬프트는 `moai-cowork:media-notebooklm-slide-prompt`가 맡습니다.
+- 연속 스크롤 문서는 `moai-coworker:office-html-report`가 맡습니다 — 본 스킬은 슬라이드 시퀀스(16:9 페이지) 전용입니다.
+- 편집 가능 .pptx 직접 생성은 하지 않습니다 — `office-pptx-designer`(moai-coworker) 체이닝으로 위임합니다.
+- NotebookLM 입력용 프롬프트는 `moai-coworker:media-notebooklm-slide-prompt`가 맡습니다.
 - React/Vue/webpack/vite 같은 빌드 단계·런타임 SPA 의존을 도입하지 않습니다 — `file://` 즉시 오픈이 원칙입니다.
 - [`references/image-backend-policy.md`](references/image-backend-policy.md)의 허용 백엔드(Higgsfield MCP + codex)만 사용합니다. 그 외 외부 이미지 백엔드는 사용하지 않습니다.
 - 여러 파일로 나누지 않습니다 — HTML 산출물은 단일 `.html` 파일입니다.
@@ -212,11 +212,11 @@ AI 슬라이드 스킬 스타트업 사업계획서 10장 슬라이드로 만들
 - [`samples/deck-sample.html`](samples/deck-sample.html) — 완성 단일 파일 HTML 덱 (design_system: claude 적용)
 
 ### 이웃 스킬 (체이닝)
-- [`moai-cowork:office-design-system-library`](../../../moai-design/skills/design-system-library/SKILL.md) — 75개 브랜드 토큰 SSOT
-- [`moai-cowork:office-pptx-designer`](../../../moai-cowork/skills/office-pptx-designer/SKILL.md) — 편집 가능 .pptx 생성 (체이닝)
-- [`moai-cowork:media-higgsfield-image`](../../../moai-cowork/skills/media-higgsfield-image/SKILL.md) — Higgsfield MCP 이미지 (기본 백엔드)
-- [`moai-cowork:media-gpt-image-2-prompt`](../../../moai-cowork/skills/media-gpt-image-2-prompt/SKILL.md) — 한국어 verbatim 이미지 프롬프트 빌더
-- [`moai-cowork:general-ai-slop-reviewer`](../../../moai-core/skills/general-ai-slop-reviewer/SKILL.md) → [`moai-cowork:general-humanize-korean`](../general-humanize-korean/SKILL.md) — 의무 후처리 체인
+- [`moai-coworker:office-design-system-library`](../../../moai-design/skills/design-system-library/SKILL.md) — 75개 브랜드 토큰 SSOT
+- [`moai-coworker:office-pptx-designer`](../../../moai-coworker/skills/office-pptx-designer/SKILL.md) — 편집 가능 .pptx 생성 (체이닝)
+- [`moai-coworker:media-higgsfield-image`](../../../moai-coworker/skills/media-higgsfield-image/SKILL.md) — Higgsfield MCP 이미지 (기본 백엔드)
+- [`moai-coworker:media-gpt-image-2-prompt`](../../../moai-coworker/skills/media-gpt-image-2-prompt/SKILL.md) — 한국어 verbatim 이미지 프롬프트 빌더
+- [`moai-coworker:general-ai-slop-reviewer`](../../../moai-core/skills/general-ai-slop-reviewer/SKILL.md) → [`moai-coworker:general-humanize-korean`](../general-humanize-korean/SKILL.md) — 의무 후처리 체인
 
 ## 자체 검수
 

@@ -12,10 +12,10 @@ description: |
   - "신입 교육 과정 차시별 내용이랑 평가 방법 정해줘"
   - "직무 역량 갭 분석하고 개발 계획 만들어줘"
   학습 목표 명세서, 주차별 커리큘럼 표, 강사 가이드 초안까지 한 번에 정리해 드립니다.
-  [책임 경계] vs moai-cowork:education-assessment-creator: 이 스킬=커리큘럼과 학습 목표 설계, 저 스킬=실제 시험 문제 출제와 채점.
-version: "4.0.0"
+  [책임 경계] vs moai-coworker:education-assessment-creator: 이 스킬=커리큘럼과 학습 목표 설계, 저 스킬=실제 시험 문제 출제와 채점.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 커리큘럼 디자이너 (Curriculum Designer)
 
@@ -173,12 +173,12 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork/education-assessment-creator**: 시험·평가 문제 출제
-- **moai-cowork/education-research-assistant**: 학술 논문 작성, 데이터 분석
+- **moai-coworker/education-assessment-creator**: 시험·평가 문제 출제
+- **moai-coworker/education-research-assistant**: 학술 논문 작성, 데이터 분석
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **실제 시험 문제 출제 및 채점** → moai-cowork:education-assessment-creator 스킬이 더 적합합니다
-- **논문 작성이나 학술 리서치** → moai-cowork:education-research-assistant 스킬을 사용하세요
-- **기업 인사 평가 기준 설계** → moai-cowork:business-performance-review 스킬이 더 적합합니다
+- **실제 시험 문제 출제 및 채점** → moai-coworker:education-assessment-creator 스킬이 더 적합합니다
+- **논문 작성이나 학술 리서치** → moai-coworker:education-research-assistant 스킬을 사용하세요
+- **기업 인사 평가 기준 설계** → moai-coworker:business-performance-review 스킬이 더 적합합니다
 - **교육 관련 법적 인허가 사항** → 교육부·한국직업능력연구원 등 공식 기관에 문의하세요

@@ -11,10 +11,10 @@ description: |
   - "업계 뉴스 요약해줘"
   - "오늘 업무 시작 전에 챙길 거 정리해줘"
   국내외 뉴스·규제·시장 지표·경쟁사 동향을 시사점과 액션 아이템으로 묶어 5분 만에 읽히는 리포트를 만듭니다.
-  [책임 경계] vs moai-cowork:commerce-morning-brief: 이 스킬=외부 뉴스·웹 정보 기반 일반 사업 브리핑, 저 스킬=MCP 매장 운영 데이터(어제 주문·신규 문의·ROAS) 기반 이커머스 셀러 브리핑.
-version: "4.0.0"
+  [책임 경계] vs moai-coworker:commerce-morning-brief: 이 스킬=외부 뉴스·웹 정보 기반 일반 사업 브리핑, 저 스킬=MCP 매장 운영 데이터(어제 주문·신규 문의·ROAS) 기반 이커머스 셀러 브리핑.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 데일리 브리핑 (Daily Briefing)
 
@@ -355,7 +355,7 @@ version: "4.0.0"
 
 - `.moai/config.json`에 `industry`, `competitors`, `keywords` 설정 시 맞춤 브리핑 자동화
 - 사용자가 "매일 아침 브리핑" 요청 시 이전 브리핑과 비교하여 변화 포인트를 강조
-- TAM·SAM·SOM 기반 시장 동향 분석 가능 (moai-cowork:business-market-analyst 스킬과 연동)
+- TAM·SAM·SOM 기반 시장 동향 분석 가능 (moai-coworker:business-market-analyst 스킬과 연동)
 
 ### TAM·SAM·SOM 시장 규모 분석 (투자자 브리핑 모드)
 
@@ -366,7 +366,7 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:business-market-analyst**: 심층 시장 분석이나 TAM/SAM/SOM 산출
-- **moai-cowork:finance-investor-relations**: 투자자 보고서나 IR 덱 작성
-- **moai-cowork:business-consulting-brief**: 경쟁사 분석 포함 컨설팅 제안서
-- **moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean**: 생성된 브리핑 AI 패턴 검수 후 한국어 표현을 자연스럽게 다듬습니다 (필수)
+- **moai-coworker:business-market-analyst**: 심층 시장 분석이나 TAM/SAM/SOM 산출
+- **moai-coworker:finance-investor-relations**: 투자자 보고서나 IR 덱 작성
+- **moai-coworker:business-consulting-brief**: 경쟁사 분석 포함 컨설팅 제안서
+- **moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean**: 생성된 브리핑 AI 패턴 검수 후 한국어 표현을 자연스럽게 다듬습니다 (필수)

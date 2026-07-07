@@ -10,9 +10,9 @@ description: |
   - 특정 플러그인/스킬의 문제점 보고
 
   단순 불만 표출이나 일반 대화, 플러그인 사용법 질문에는 사용하지 마세요.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # Feedback — 피드백 수집 및 GitHub Issues 등록
 
@@ -115,7 +115,7 @@ gh issue create \
 - 버그 → `bug`
 - 기능 요청 → `enhancement`
 
-플러그인명이 명확하면 추가 레이블: `plugin:{플러그인명}` (예: `plugin:moai-cowork`)
+플러그인명이 명확하면 추가 레이블: `plugin:{플러그인명}` (예: `plugin:moai-coworker`)
 
 ### 5단계: 완료 보고
 
@@ -133,11 +133,11 @@ gh CLI가 없거나 인증되지 않은 환경에서는:
 ## 사용 예시
 
 ```
-버그 신고: moai-cowork PPT 생성 시 한글 폰트가 깨져요
+버그 신고: moai-coworker PPT 생성 시 한글 폰트가 깨져요
 ```
 
 ```
-기능 요청: moai-cowork에 유튜브 쇼츠 대본 스킬 추가해주세요
+기능 요청: moai-coworker에 유튜브 쇼츠 대본 스킬 추가해주세요
 ```
 
 ```
@@ -145,7 +145,7 @@ gh CLI가 없거나 인증되지 않은 환경에서는:
 ```
 
 ```
-이슈 등록: moai-cowork 블로그 스킬에서 이미지 업로드가 안 돼요
+이슈 등록: moai-coworker 블로그 스킬에서 이미지 업로드가 안 돼요
 ```
 
 ## 출력 형식
@@ -154,7 +154,7 @@ gh CLI가 없거나 인증되지 않은 환경에서는:
 ```
 ✅ 피드백이 등록되었습니다.
 
-이슈 #123: [bug] moai-cowork 한글 폰트 깨짐
+이슈 #123: [bug] moai-coworker 한글 폰트 깨짐
 https://github.com/modu-ai/cowork-plugins/issues/123
 
 감사합니다. 빠른 시일 내에 검토하겠습니다.
@@ -180,5 +180,5 @@ GitHub Issues: https://github.com/modu-ai/cowork-plugins/issues/new
 ## 관련 스킬
 
 - **moai:project** — 프로젝트 문서 생성 및 카탈로그 관리
-- **moai-cowork:general-ai-slop-reviewer** — 텍스트 산출물 품질 검수
+- **moai-coworker:general-ai-slop-reviewer** — 텍스트 산출물 품질 검수
 - **moai-foundation-cc** — 스킬 제작 가이드라인

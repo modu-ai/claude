@@ -1,6 +1,6 @@
 # Design Tokens — office-html-report
 
-`moai-cowork:office-html-report`의 CSS 변수 계약 단일 진실(SSOT).
+`moai-coworker:office-html-report`의 CSS 변수 계약 단일 진실(SSOT).
 모든 모드 템플릿은 이 문서의 토큰을 그대로 사용해야 합니다.
 
 ---

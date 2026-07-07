@@ -5,9 +5,9 @@ description: >
   "라이브 커머스 가이드", "쇼핑라이브 스크립트", "그립 방송", "라이브 방송 카피"처럼 말하면 됩니다.
   채널별 정책·노출·수수료를 정리하고, 30분/60분 라이브 방송용 진행 스크립트(오프닝→상품 소개→실시간 응대→마감 CTA)를 산출합니다.
   라이브는 한국 이커머스에서 가장 빠르게 성장 중인 채널입니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 라이브 커머스 가이드 + 스크립트 작성
 
@@ -132,17 +132,17 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- `moai-cowork:commerce-detail-page-copy` — 상세페이지 카피
-- `moai-cowork:commerce-channel-message` — 광고·이메일 카피
-- `moai-cowork:commerce-integrated-strategy` — 전체 채널 전략
-- `moai-cowork:content-sns-content` — SNS 콘텐츠 (라이브 클립 재가공)
+- `moai-coworker:commerce-detail-page-copy` — 상세페이지 카피
+- `moai-coworker:commerce-channel-message` — 광고·이메일 카피
+- `moai-coworker:commerce-integrated-strategy` — 전체 채널 전략
+- `moai-coworker:content-sns-content` — SNS 콘텐츠 (라이브 클립 재가공)
 - 라이브 후 짧은 영상 콘텐츠 — **Higgsfield MCP**(DOP·Soul) 직접 호출
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - 일반 마켓 등록: `commerce-marketplace-coupang/naver`
 - 자사몰 라이브 (Vimeo·자체 스트리밍): 별도 가이드 필요
-- 인스타·유튜브 라이브 (커머스 X): `moai-cowork:content-sns-content`
+- 인스타·유튜브 라이브 (커머스 X): `moai-coworker:content-sns-content`
 
 ## 주의사항
 
@@ -156,7 +156,7 @@ version: "4.0.0"
 
 본 스킬이 산출하는 한국어 텍스트는 배포 전 의무 게이트를 통과합니다:
 
-1. `moai-cowork:general-ai-slop-reviewer` — 1차 일반 AI 슬롭 검수 (금지어, 구조 패턴, 리듬)
-2. `moai-cowork:general-humanize-korean` — 2차 한국어 정밀 윤문 (40+ 패턴 SSOT, 의미 불변)
+1. `moai-coworker:general-ai-slop-reviewer` — 1차 일반 AI 슬롭 검수 (금지어, 구조 패턴, 리듬)
+2. `moai-coworker:general-humanize-korean` — 2차 한국어 정밀 윤문 (40+ 패턴 SSOT, 의미 불변)
 
 두 게이트는 대시 대비 헤드라인·조사·체언 종결 조각문·"A에서 B로" 전환 공식 S1 패턴을 잡아냅니다. 게이트 통과 없이 산출물을 바로 배포하지 않습니다.

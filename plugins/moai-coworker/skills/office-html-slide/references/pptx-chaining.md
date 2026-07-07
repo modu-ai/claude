@@ -1,6 +1,6 @@
 # office-pptx-designer 체이닝 규약 — 편집 가능 PPTX 산출
 
-office-html-slide는 편집 가능 `.pptx`를 **직접 생성하지 않습니다**. `moai-cowork:office-pptx-designer` 체이닝으로 위임합니다. office-pptx-designer가 이미 pptxgenjs + HTML-First + 9 아키타입 + QA 파이프라인을 보유하고 있어, office-html-slide가 자체 구현하면 중복·책임 모호화가 발생하기 때문입니다.
+office-html-slide는 편집 가능 `.pptx`를 **직접 생성하지 않습니다**. `moai-coworker:office-pptx-designer` 체이닝으로 위임합니다. office-pptx-designer가 이미 pptxgenjs + HTML-First + 9 아키타입 + QA 파이프라인을 보유하고 있어, office-html-slide가 자체 구현하면 중복·책임 모호화가 발생하기 때문입니다.
 
 ## 핵심 기구: 원고 → OOXML 객체 직접 생성
 
@@ -19,8 +19,8 @@ deck.json 원고 ─┬─→ HTML 렌더 (office-html-slide)
 
 ## 의존성 안내 (중요)
 
-office-pptx-designer는 `moai-cowork` 플러그인에 있습니다. **office-html-slide 단독 설치 사용자가 `export_pptx: true`를 요청하면**:
-- moai-cowork 미설치 시 → PPTX 산출은 **blocker**로 보고, 설치 안내 (`/plugin install moai-cowork` 또는 마켓플레이스에서 moai-cowork 플러그인 추가)
+office-pptx-designer는 `moai-coworker` 플러그인에 있습니다. **office-html-slide 단독 설치 사용자가 `export_pptx: true`를 요청하면**:
+- moai-coworker 미설치 시 → PPTX 산출은 **blocker**로 보고, 설치 안내 (`/plugin install moai-coworker` 또는 마켓플레이스에서 moai-coworker 플러그인 추가)
 - office-html-slide는 HTML만 산출하고 PPTX는 차후 안내
 
 SKILL.md "입력" 섹션의 `export_pptx` 설명과 1단계 AskUserQuestion에서 이 의존성을 사전 안내합니다.

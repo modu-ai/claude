@@ -1,14 +1,14 @@
 ---
 name: commerce-margin-calculator
 description: |
-  [책임 경계] 상품별 마진·엔드 ROAS(본전 ROAS)·손익분기 광고비 자동 계산 전담. 부가세·플랫폼 수수료·쿠폰·할인 모두 반영한 정확한 마진 산출. 페어 스킬 moai-cowork:commerce-marketplace-coupang-ads(쿠팡 광고 운영 의사결정)와 명확히 구분 — 본 스킬은 마진·ROAS 계산 전담, 페어는 캠페인 분류·의사결정.
+  [책임 경계] 상품별 마진·엔드 ROAS(본전 ROAS)·손익분기 광고비 자동 계산 전담. 부가세·플랫폼 수수료·쿠폰·할인 모두 반영한 정확한 마진 산출. 페어 스킬 moai-coworker:commerce-marketplace-coupang-ads(쿠팡 광고 운영 의사결정)와 명확히 구분 — 본 스킬은 마진·ROAS 계산 전담, 페어는 캠페인 분류·의사결정.
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "마진 계산해줘", "엔드 ROAS 계산", "본전 ROAS 알려줘", "광고비 손익분기", "이 가격 팔아도 본전인가", "쿠팡 수수료 반영 마진", "스마트스토어 수수료 빼고", "역마진 체크", "최소 광고수익률", "마진율 자동 계산기".
   자연어 한 줄 입력으로 엑셀 없이 즉시 계산. 모든 채널 수수료 자동 반영(스마트스토어 5.94% / 쿠팡 10-12% / 카페24 2-3% / 아임웹 0-2.5%).
   general-ai-slop-reviewer 체이닝 제외 (수치·표 데이터 스킬).
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 마진·엔드 ROAS 자동 계산기 (Commerce Margin Calculator)
 
@@ -142,7 +142,7 @@ commerce-integrated-strategy (1장 전략 + 자동화 통합)
 
 | 페어 스킬 | 차이 |
 |----------|------|
-| `moai-cowork:commerce-marketplace-coupang-ads` | 쿠팡 광고 캠페인 분류·의사결정 (본 스킬: 마진·ROAS 계산만) |
+| `moai-coworker:commerce-marketplace-coupang-ads` | 쿠팡 광고 캠페인 분류·의사결정 (본 스킬: 마진·ROAS 계산만) |
 | `commerce-integrated-strategy` | 채널 믹스·가격·프로모션 통합 전략 (본 스킬: 단일 상품 마진) |
 | `commerce-product-naming` | 상품명 검증 (본 스킬: 가격 검증) |
 
@@ -154,6 +154,6 @@ commerce-integrated-strategy (1장 전략 + 자동화 통합)
 | AI 통합 | ❌ | ✅ AI 챗봇으로 즉답 |
 | 결제 수수료 | 미반영 | ✅ 토스·카카오페이 등 |
 | 채널 자동 인식 | 수동 입력 | 자연어 자동 인식 |
-| 광고 운영 연계 | 별도 | `moai-cowork:commerce-marketplace-coupang-ads`와 자동 체인 |
+| 광고 운영 연계 | 별도 | `moai-coworker:commerce-marketplace-coupang-ads`와 자동 체인 |
 
 > **참고**: 표준 이커머스 마진 회계 공식(판매가·수수료·원가·배송비·부가세 차감)을 따르므로, 동일 입력값에 대해 일반 마진계산기와 산출물이 일치합니다.

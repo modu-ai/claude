@@ -9,11 +9,11 @@ description: |
   - "와디즈 펀딩 상세페이지 전략 세워줘"
   - "스마트스토어 상세페이지 사진 체크리스트 만들어줘"
   - "화장품 상세페이지 어떻게 구성할지 기획해줘"
-  완성한 기획안은 moai-cowork:commerce-detail-page-copy(카피) → moai-cowork:commerce-product-detail(코드) → moai-cowork:commerce-detail-page-image(이미지)로 이어집니다.
-  [책임 경계] vs 페어 스킬: 이 스킬=기획·전략, moai-cowork:commerce-detail-page-copy=13섹션 카피, moai-cowork:commerce-product-detail=코드, moai-cowork:marketing-landing-page=단독 랜딩 1페이지.
-version: "4.0.0"
+  완성한 기획안은 moai-coworker:commerce-detail-page-copy(카피) → moai-coworker:commerce-product-detail(코드) → moai-coworker:commerce-detail-page-image(이미지)로 이어집니다.
+  [책임 경계] vs 페어 스킬: 이 스킬=기획·전략, moai-coworker:commerce-detail-page-copy=13섹션 카피, moai-coworker:commerce-product-detail=코드, moai-coworker:marketing-landing-page=단독 랜딩 1페이지.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 상세페이지 기획자 (Detail Page Planner)
 
@@ -21,10 +21,10 @@ version: "4.0.0"
 
 | 단계 | 스킬 | 산출물 |
 |------|------|--------|
-| 1. 기획·전략 (★ **본 스킬**) | `moai-cowork:commerce-detail-page-planner` | **Brief** (원 메시지·오프닝·본문 뼈대·채널·이미지 체크리스트) |
-| 2. 카피 | `moai-cowork:commerce-detail-page-copy` | 13섹션 감정여정 JSON |
-| 3. 코드 | `moai-cowork:commerce-product-detail` | shadcn/ui React 또는 HTML |
-| 4. 이미지 | `moai-cowork:commerce-detail-page-image` | 1080×12720 합성 PNG |
+| 1. 기획·전략 (★ **본 스킬**) | `moai-coworker:commerce-detail-page-planner` | **Brief** (원 메시지·오프닝·본문 뼈대·채널·이미지 체크리스트) |
+| 2. 카피 | `moai-coworker:commerce-detail-page-copy` | 13섹션 감정여정 JSON |
+| 3. 코드 | `moai-coworker:commerce-product-detail` | shadcn/ui React 또는 HTML |
+| 4. 이미지 | `moai-coworker:commerce-detail-page-image` | 1080×12720 합성 PNG |
 
 **본 스킬은 1번만 담당** — 카피·코드·이미지는 위임. Brief가 후속 3개 스킬의 입력.
 
@@ -278,9 +278,9 @@ brief:
 
 후속 스킬 호출:
 ```
-1. brief 산출 후 → moai-cowork:commerce-detail-page-copy "Brief: <yaml>"
-2. 카피 JSON 산출 후 → moai-cowork:commerce-product-detail "Brief + Copy"
-3. 코드 산출 후 → moai-cowork:commerce-detail-page-image "Brief + Copy + Code"
+1. brief 산출 후 → moai-coworker:commerce-detail-page-copy "Brief: <yaml>"
+2. 카피 JSON 산출 후 → moai-coworker:commerce-product-detail "Brief + Copy"
+3. 코드 산출 후 → moai-coworker:commerce-detail-page-image "Brief + Copy + Code"
 ```
 
 ## 사용 예시
@@ -317,16 +317,16 @@ brief:
 ```
 
 → Step 0: Brief 검증 (모듈 1-5 항목 누락 확인)
-→ Brief 완성 후: moai-cowork:commerce-detail-page-copy → commerce-product-detail → moai-cowork:commerce-detail-page-image 순차 위임
+→ Brief 완성 후: moai-coworker:commerce-detail-page-copy → commerce-product-detail → moai-coworker:commerce-detail-page-image 순차 위임
 
 ## 페어 스킬과의 관계
 
 ### 본 스킬을 사용하지 않는 경우 (페어 위임)
 
-- "상세페이지 카피 만들어줘" → `moai-cowork:commerce-detail-page-copy` (13섹션 JSON)
-- "상세페이지 코드 만들어줘" → `moai-cowork:commerce-product-detail` (shadcn/ui 컴포넌트)
-- "상세페이지 이미지 합성해줘" → `moai-cowork:commerce-detail-page-image` (1080×12720 PNG)
-- "랜딩 페이지 만들어줘" → `moai-cowork:marketing-landing-page` (단독 전환 1페이지)
+- "상세페이지 카피 만들어줘" → `moai-coworker:commerce-detail-page-copy` (13섹션 JSON)
+- "상세페이지 코드 만들어줘" → `moai-coworker:commerce-product-detail` (shadcn/ui 컴포넌트)
+- "상세페이지 이미지 합성해줘" → `moai-coworker:commerce-detail-page-image` (1080×12720 PNG)
+- "랜딩 페이지 만들어줘" → `moai-coworker:marketing-landing-page` (단독 전환 1페이지)
 
 ### 본 스킬을 사용하는 경우
 
@@ -368,8 +368,8 @@ brief:
 ## 관련
 
 - before: 사용자 자연어 발화 → 본 스킬 자동 호출
-- after: moai-cowork:commerce-detail-page-copy → commerce-product-detail → moai-cowork:commerce-detail-page-image 순차 체이닝
-- alternative: 빠른 단일 카피만 → moai-cowork:commerce-detail-page-copy 직접
+- after: moai-coworker:commerce-detail-page-copy → commerce-product-detail → moai-coworker:commerce-detail-page-image 순차 체이닝
+- alternative: 빠른 단일 카피만 → moai-coworker:commerce-detail-page-copy 직접
 - 가이드: `moai-foundation-cc` (Claude Code 스킬 작성), `.claude/rules/moai/development/skill-authoring.md`
 
 
@@ -377,7 +377,7 @@ brief:
 
 본 스킬이 산출하는 한국어 텍스트는 배포 전 의무 게이트를 통과합니다:
 
-1. `moai-cowork:general-ai-slop-reviewer` — 1차 일반 AI 슬롭 검수 (금지어, 구조 패턴, 리듬)
-2. `moai-cowork:general-humanize-korean` — 2차 한국어 정밀 윤문 (40+ 패턴 SSOT, 의미 불변)
+1. `moai-coworker:general-ai-slop-reviewer` — 1차 일반 AI 슬롭 검수 (금지어, 구조 패턴, 리듬)
+2. `moai-coworker:general-humanize-korean` — 2차 한국어 정밀 윤문 (40+ 패턴 SSOT, 의미 불변)
 
 두 게이트는 대시 대비 헤드라인·조사·체언 종결 조각문·"A에서 B로" 전환 공식 S1 패턴을 잡아냅니다. 게이트 통과 없이 산출물을 바로 배포하지 않습니다.

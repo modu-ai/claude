@@ -13,9 +13,9 @@ description: |
   - "건축물대장 원본 보여줘", "건축인허가 이력"
   건축사·시공·중개·감정평가·디벨로퍼·공무원이 실무에서 바로 쓰는 건축물 실체 데이터입니다.
   본 스킬은 "건축물 실체(용도·구조·규모·규제·인허가·노후·철거)" 전담입니다. "실거래가/전월세 시세"는 office-public-data-real-estate-search를 사용하세요.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 국토교통부 건축HUB 조회 (office-building-ledger-search)
 
@@ -100,16 +100,16 @@ version: "4.0.0"
 
 | 작업 | 스킬 | 데이터 소스 |
 | --- | --- | --- |
-| 실거래가·전월세 시세 | `moai-cowork:office-public-data-real-estate-search` | 국토교통부 실거래가 신고 |
-| **건축물 실체(용도·구조·규모·규제·인허가·노후·철거)** | **`moai-cowork:office-building-ledger-search` (본 스킬)** | 국토교통부 건축HUB |
-| 인구·가구 통계 | `moai-cowork:office-public-data-public-data` | KOSIS |
-| 법원 경매 매각공고 | `moai-cowork:office-public-data-court-auction-search` | 대법원 경매정보 |
+| 실거래가·전월세 시세 | `moai-coworker:office-public-data-real-estate-search` | 국토교통부 실거래가 신고 |
+| **건축물 실체(용도·구조·규모·규제·인허가·노후·철거)** | **`moai-coworker:office-building-ledger-search` (본 스킬)** | 국토교통부 건축HUB |
+| 인구·가구 통계 | `moai-coworker:office-public-data-public-data` | KOSIS |
+| 법원 경매 매각공고 | `moai-coworker:office-public-data-court-auction-search` | 대법원 경매정보 |
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **실거래가·전월세 시세** → `moai-cowork:office-public-data-real-estate-search`
-- **인구·고용·물가 등 통계** → `moai-cowork:office-public-data-public-data` (KOSIS 자연어 우선)
-- **법원 경매 매각공고·감정평가액·최저매각가** → `moai-cowork:office-public-data-court-auction-search`
+- **실거래가·전월세 시세** → `moai-coworker:office-public-data-real-estate-search`
+- **인구·고용·물가 등 통계** → `moai-coworker:office-public-data-public-data` (KOSIS 자연어 우선)
+- **법원 경매 매각공고·감정평가액·최저매각가** → `moai-coworker:office-public-data-court-auction-search`
 - **소유자·소유정보(개인정보)** → 건축HUB API에 소유자 필드가 없으므로 본 스킬 범위 밖(등기부등본 조회 권장)
 - **위반건축물 조회** → 표제부/기본개요/총괄표제부 어디에도 위반건축물 필드가 없음(API 실측 확인) → 조회 불가
 - **부동산 세금·법률 자문** → 세무사·법무사 전문가 안내
@@ -131,12 +131,12 @@ version: "4.0.0"
 
 ## 관련 스킬 체이닝
 
-- **before**: `moai-cowork:office-public-data-real-estate-search` — 실거래가 시세로 입지 검토 선행
-- **after**: `moai-cowork:business-market-analyst` — 건축물 + 시세 데이터 기반 시장 분석
-- **after**: `moai-cowork:office-public-data-court-auction-search` — 경매 매각공고와 건축물대장 교차 검토
-- **after**: `moai-cowork:office-pdf-writer` — 건축물 종합카드·통계 PDF 보고서 생성
-- **after**: `moai-cowork:office-xlsx-creator` — 노후건물·인허카 파이프라인 엑셀 정리
-- **pair**: `moai-cowork:office-mcp-connector-setup` — archhub MCP 사전 준비 가이드
+- **before**: `moai-coworker:office-public-data-real-estate-search` — 실거래가 시세로 입지 검토 선행
+- **after**: `moai-coworker:business-market-analyst` — 건축물 + 시세 데이터 기반 시장 분석
+- **after**: `moai-coworker:office-public-data-court-auction-search` — 경매 매각공고와 건축물대장 교차 검토
+- **after**: `moai-coworker:office-pdf-writer` — 건축물 종합카드·통계 PDF 보고서 생성
+- **after**: `moai-coworker:office-xlsx-creator` — 노후건물·인허카 파이프라인 엑셀 정리
+- **pair**: `moai-coworker:office-mcp-connector-setup` — archhub MCP 사전 준비 가이드
 
 ## Done when
 

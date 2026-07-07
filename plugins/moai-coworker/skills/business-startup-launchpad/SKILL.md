@@ -11,9 +11,9 @@ description: |
   - "시장 분석부터 재무 모델까지 전체 플랜 만들어줘"
   - "투자자 피치 자료 준비해줘"
   6단계로 아이디어 검증·시장 분석·BM 설계·피치덱·재무 모델·로드맵을 만들고, PPT 변환이나 AI 표현 다듬기로 이어집니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 스타트업 런치패드 (Startup Launchpad)
 
@@ -323,7 +323,7 @@ version: "4.0.0"
 
 ### AI 슬롭 후처리
 
-생성된 종합 계획서의 **서술(narrative) 본문**은 반드시 `moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean` 체인을 통해 후처리해야 합니다. `moai-cowork:general-ai-slop-reviewer`로 AI 패턴(반복적 표현, 과장된 어조, 추상적 문장)을 제거한 뒤 `moai-cowork:general-humanize-korean`으로 한국어 표현을 자연스럽게 다듬습니다. 3개년 재무 모델·손익 추정 등 **표·수치 산출물은 후처리 대상이 아닙니다** — `moai-cowork:office-xlsx-creator`로 라우팅하세요.
+생성된 종합 계획서의 **서술(narrative) 본문**은 반드시 `moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean` 체인을 통해 후처리해야 합니다. `moai-coworker:general-ai-slop-reviewer`로 AI 패턴(반복적 표현, 과장된 어조, 추상적 문장)을 제거한 뒤 `moai-coworker:general-humanize-korean`으로 한국어 표현을 자연스럽게 다듬습니다. 3개년 재무 모델·손익 추정 등 **표·수치 산출물은 후처리 대상이 아닙니다** — `moai-coworker:office-xlsx-creator`로 라우팅하세요.
 
 **후처리 체크포인트:**
 - [ ] 반복적 표현 제거 ("혁신적인", "게임 체인저" 등 남용 방지)
@@ -335,15 +335,15 @@ version: "4.0.0"
 
 ### 선행 체이닝 (먼저 실행 권장)
 
-1. **moai-cowork:business-market-analyst**: 스타트업 계획 수립 전, 심층 시장 조사가 필요한 경우 먼저 실행
+1. **moai-coworker:business-market-analyst**: 스타트업 계획 수립 전, 심층 시장 조사가 필요한 경우 먼저 실행
 
 ### 사후 체이닝 (순서대로 실행 권장)
 
-2. **moai-cowork:business-strategy-planner**: 생성된 종합 계획서를 바탕으로 구체적인 전략 수립이 필요한 경우
-3. **moai-cowork:office-pptx-designer**: 생성된 피치덱 구조를 실제 PPT로 변환
-4. **moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean**: 생성된 종합 계획서의 AI 패턴을 검수·수정한 뒤 한국어 표현을 자연스럽게 다듬습니다 (필수)
+2. **moai-coworker:business-strategy-planner**: 생성된 종합 계획서를 바탕으로 구체적인 전략 수립이 필요한 경우
+3. **moai-coworker:office-pptx-designer**: 생성된 피치덱 구조를 실제 PPT로 변환
+4. **moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean**: 생성된 종합 계획서의 AI 패턴을 검수·수정한 뒤 한국어 표현을 자연스럽게 다듬습니다 (필수)
 
 ### 대안 스킬
 
-- **moai-cowork:business-sales-playbook**: 제품/서비스가 이미 있고 영업 전략만 필요한 경우
-- **moai-cowork:education-grant-writer**: 정부 R&D 과제 제안서가 필요한 경우
+- **moai-coworker:business-sales-playbook**: 제품/서비스가 이미 있고 영업 전략만 필요한 경우
+- **moai-coworker:education-grant-writer**: 정부 R&D 과제 제안서가 필요한 경우

@@ -1,6 +1,6 @@
 # 엔드 ROAS (본전 ROAS) 공식 — SSOT
 
-엔드 ROAS(본전 ROAS)는 **적자가 나지 않는 최소 광고수익률**이다. 이 문서가 엔드 ROAS 공식의 단일 진실 소스(SSOT)이며, `moai-cowork:commerce-margin-calculator`와 `moai-cowork:commerce-marketplace-coupang-ads`가 동일하게 참조한다.
+엔드 ROAS(본전 ROAS)는 **적자가 나지 않는 최소 광고수익률**이다. 이 문서가 엔드 ROAS 공식의 단일 진실 소스(SSOT)이며, `moai-coworker:commerce-margin-calculator`와 `moai-coworker:commerce-marketplace-coupang-ads`가 동일하게 참조한다.
 
 ## 공식
 

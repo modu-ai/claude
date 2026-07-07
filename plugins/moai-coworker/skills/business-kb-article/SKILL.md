@@ -2,9 +2,9 @@
 name: business-kb-article
 description: >
   고객지원 지식베이스 문서를 작성합니다. "FAQ 만들어줘", "트러블슈팅 가이드 작성해줘", "헬프센터 아티클 써줘"라고 요청할 때 사용하세요. FAQ, 사용자 가이드, 트러블슈팅 문서, 정책 안내문을 Zendesk·Freshdesk·카카오비즈니스 형식에 맞게 생성합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 지식베이스 문서 작성 (KB Article)
 
@@ -116,15 +116,15 @@ version: "4.0.0"
 KB 아티클(FAQ·가이드·트러블슈팅) 본문을 작성한 뒤에는 다음 체인으로 마무리합니다:
 
 ```
-business-kb-article → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean
+business-kb-article → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
 ```
 
-- `moai-cowork:general-ai-slop-reviewer` — AI 티 나는 표현·과잉 수식·기계적 문장 패턴을 검수·수정
-- `moai-cowork:general-humanize-korean` — 한국어 경어 자연스러움과 사람이 쓴 듯한 어조로 다듬기
+- `moai-coworker:general-ai-slop-reviewer` — AI 티 나는 표현·과잉 수식·기계적 문장 패턴을 검수·수정
+- `moai-coworker:general-humanize-korean` — 한국어 경어 자연스러움과 사람이 쓴 듯한 어조로 다듬기
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **고객 문의 직접 응답** → moai-cowork:business-draft-response 스킬이 더 적합합니다
-- **티켓 분류 및 우선순위 판단** → moai-cowork:business-ticket-triage 스킬을 사용하세요
-- **에스컬레이션 처리** → moai-cowork:business-escalation-manager 스킬을 사용하세요
+- **고객 문의 직접 응답** → moai-coworker:business-draft-response 스킬이 더 적합합니다
+- **티켓 분류 및 우선순위 판단** → moai-coworker:business-ticket-triage 스킬을 사용하세요
+- **에스컬레이션 처리** → moai-coworker:business-escalation-manager 스킬을 사용하세요
 - **실제 Zendesk·Freshdesk 시스템에 문서 업로드** → 해당 헬프데스크 플랫폼에 직접 접속해야 합니다

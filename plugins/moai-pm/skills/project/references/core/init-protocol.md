@@ -104,14 +104,14 @@ AskUserQuestion (1질문, 4옵션)
 현재 스냅샷 — **27 플러그인 / 173 스킬** (동적 도출 결과의 참고 스냅샷일 뿐, 고정값 아님):
 
 ```
-moai-core          moai-cowork      moai-cowork
-moai-cowork         moai-cowork       moai-hr
-moai-cowork       moai-operations    moai-cowork
+moai-core          moai-coworker      moai-coworker
+moai-coworker         moai-coworker       moai-hr
+moai-coworker       moai-operations    moai-coworker
 moai-lifestyle     moai-product       moai-support
-moai-cowork        moai-career        moai-data
-moai-public-data   moai-research      moai-cowork
+moai-coworker        moai-career        moai-data
+moai-public-data   moai-research      moai-coworker
 moai-commerce      moai-bi            moai-pm
-moai-sales         moai-cowork          moai-design
+moai-sales         moai-coworker          moai-design
 moai-wealth        moai-productivity  moai-comms
 ```
 
@@ -150,7 +150,7 @@ done
 
 현재 세션 system reminder에 포함된 "user-invocable skills" 목록을 파싱하되, **cowork-plugins 출처 스킬만** 인벤토리에 등록한다.
 
-- 포함: cowork-plugins 마켓플레이스 출처 `moai-*` 플러그인이 제공하는 스킬 (예: `moai-cowork:content-blog`, `moai-cowork:office-docx-generator`)
+- 포함: cowork-plugins 마켓플레이스 출처 `moai-*` 플러그인이 제공하는 스킬 (예: `moai-coworker:content-blog`, `moai-coworker:office-docx-generator`)
 - 제외: 그 외 출처 스킬 (예: `find-skills`, `update-config`, `notion-cli`, 사용자가 별도 설치한 모든 스킬)
 
 `plugin:skill-name` 형태로 추출하되, `plugin`이 cowork 출처 `moai-*` 집합에 없으면 인벤토리에서 제외한다.
@@ -173,17 +173,17 @@ done
 ```json
 {
   "scanned_at": "2026-05-18T00:00:00+09:00",
-  "plugins_installed": ["moai-core", "moai-cowork", "moai-cowork"],
+  "plugins_installed": ["moai-core", "moai-coworker", "moai-coworker"],
   "skills_available": {
-    "content-blog": "moai-cowork",
-    "content-card-news": "moai-cowork",
-    "office-docx-generator": "moai-cowork",
-    "office-pptx-designer": "moai-cowork",
+    "content-blog": "moai-coworker",
+    "content-card-news": "moai-coworker",
+    "office-docx-generator": "moai-coworker",
+    "office-pptx-designer": "moai-coworker",
     "general-ai-slop-reviewer": "moai-core"
   },
   "confidence": {
-    "moai-cowork": "HIGH",
-    "moai-cowork": "HIGH",
+    "moai-coworker": "HIGH",
+    "moai-coworker": "HIGH",
     "moai-core": "HIGH"
   }
 }
@@ -195,12 +195,12 @@ done
 
 | 업무 유형 | 우선 플러그인 |
 |----------|------------|
-| 사업 기획·전략 | moai-cowork, moai-cowork |
-| 콘텐츠 제작 | moai-cowork, moai-cowork, moai-cowork |
-| 문서·행정 | moai-cowork, moai-cowork, moai-hr |
+| 사업 기획·전략 | moai-coworker, moai-coworker |
+| 콘텐츠 제작 | moai-coworker, moai-coworker, moai-coworker |
+| 문서·행정 | moai-coworker, moai-coworker, moai-hr |
 | 제품·연구 | moai-product, moai-research, moai-data, moai-public-data |
 | 이커머스 | moai-commerce |
-| 출판·원고 | moai-cowork |
+| 출판·원고 | moai-coworker |
 | BI·보고 | moai-bi, moai-pm |
 | 영업·제안 | moai-sales |
 | 디자인 핸드오프 | moai-design |
@@ -224,8 +224,8 @@ Phase 1-2 결과를 바탕으로 **산출물별 실행 체인**을 설계한다.
 [기획/분석 스킬] → [생성 스킬] → [포맷 변환 스킬 or 미디어 스킬] → general-ai-slop-reviewer
 ```
 
-- 텍스트 산출물 체인은 **반드시 `moai-cowork:general-ai-slop-reviewer`로 종료**
-- **한국어 최종본**은 general-ai-slop-reviewer 직후 `moai-cowork:general-humanize-korean`을 2차 패스로 추가
+- 텍스트 산출물 체인은 **반드시 `moai-coworker:general-ai-slop-reviewer`로 종료**
+- **한국어 최종본**은 general-ai-slop-reviewer 직후 `moai-coworker:general-humanize-korean`을 2차 패스로 추가
 - 비텍스트(차트·데이터·숫자)는 ai-slop 단계 **생략**
 - 체인이 단순하면 스킬 1-2개만으로도 OK
 - **Inventory에 없는 스킬은 체인에서 제외하거나 Gap Detection으로 넘긴다**
@@ -242,7 +242,7 @@ Phase 1-2 결과를 바탕으로 **산출물별 실행 체인**을 설계한다.
 | 카드뉴스 | `content-card-news` → `general-ai-slop-reviewer` |
 | 뉴스레터 | `content-newsletter` → `general-ai-slop-reviewer` |
 | 랜딩 페이지(HTML) | `content-copywriting` → `marketing-landing-page` → `general-ai-slop-reviewer` |
-| SNS 콘텐츠 세트 | `moai-cowork:content-sns-content` → `general-ai-slop-reviewer` |
+| SNS 콘텐츠 세트 | `moai-coworker:content-sns-content` → `general-ai-slop-reviewer` |
 | 이메일 시퀀스 | `content-email-sequence` → `general-ai-slop-reviewer` |
 | 계약서 초안 | `legal-contract-review` or `legal-nda-triage` → `office-docx-generator` → `general-ai-slop-reviewer` |
 | 컴플라이언스 체크 | `legal-compliance-check` → `general-ai-slop-reviewer` |
@@ -315,21 +315,21 @@ for each skill in chain_skills:
 
 | 스킬 | 소속 플러그인 |
 |------|------------|
-| business-strategy-planner, business-market-analyst, finance-investor-relations, business-consulting-brief | moai-cowork |
-| content-blog, content-card-news, content-newsletter, marketing-landing-page, content-copywriting, commerce-product-detail, general-humanize-korean | moai-cowork |
-| office-docx-generator, office-pptx-designer, office-xlsx-creator, office-hwpx-writer, office-pdf-writer | moai-cowork |
-| marketing-seo-audit, marketing-campaign-planner, content-sns-content, content-email-sequence, business-brand-identity | moai-cowork |
-| legal-nda-triage, legal-contract-review, legal-compliance-check | moai-cowork |
-| finance-tax-helper, finance-financial-statements | moai-cowork |
+| business-strategy-planner, business-market-analyst, finance-investor-relations, business-consulting-brief | moai-coworker |
+| content-blog, content-card-news, content-newsletter, marketing-landing-page, content-copywriting, commerce-product-detail, general-humanize-korean | moai-coworker |
+| office-docx-generator, office-pptx-designer, office-xlsx-creator, office-hwpx-writer, office-pdf-writer | moai-coworker |
+| marketing-seo-audit, marketing-campaign-planner, content-sns-content, content-email-sequence, business-brand-identity | moai-coworker |
+| legal-nda-triage, legal-contract-review, legal-compliance-check | moai-coworker |
+| finance-tax-helper, finance-financial-statements | moai-coworker |
 | business-employment-manager, business-draft-offer | moai-hr |
 | business-resume-builder, business-portfolio-guide | moai-career |
 | office-data-visualizer, office-data-explorer, public-data | moai-data |
 | education-paper-writer, education-grant-writer, legal-patent-analyzer | moai-research |
 | business-spec-writer, business-roadmap-manager, business-ux-researcher | moai-product |
 | business-draft-response, business-kb-article | moai-support |
-| education-curriculum-designer, education-assessment-creator | moai-cowork |
+| education-curriculum-designer, education-assessment-creator | moai-coworker |
 | general-travel-planner, general-event-planner | moai-lifestyle |
-| media-higgsfield-image, media-higgsfield-video, media-gpt-image-2-prompt, media-gemini-3-image-prompt, media-midjourney-v8-prompt, media-audio-gen | moai-cowork |
+| media-higgsfield-image, media-higgsfield-video, media-gpt-image-2-prompt, media-gemini-3-image-prompt, media-midjourney-v8-prompt, media-audio-gen | moai-coworker |
 | commerce-automation-audit, commerce-marketplace-coupang, commerce-product-photo-brief | moai-commerce |
 | (출판 스킬 — moai-coworker 플러그인으로 이관, v4.0.0) | moai-coworker |
 | business-executive-summary | moai-bi |
@@ -404,7 +404,7 @@ for each skill in chain_skills:
     }
   ],
   "missing_skills": ["business-strategy-planner"],
-  "missing_plugins": ["moai-cowork"]
+  "missing_plugins": ["moai-coworker"]
 }
 ```
 
@@ -566,8 +566,8 @@ Phase 3에서 설계된 체인 중 상위 3개를 예시로 제시:
 - 체인 설계: 3개
 
 설치 확인:
-- moai-cowork: ✓ 설치됨
-- moai-cowork: ✓ 설치됨
+- moai-coworker: ✓ 설치됨
+- moai-coworker: ✓ 설치됨
 
 모든 필요 플러그인이 설치되었습니다. 체인 설계를 확인하세요.
 ```

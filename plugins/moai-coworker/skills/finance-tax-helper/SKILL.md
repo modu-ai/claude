@@ -4,9 +4,9 @@ description: >
   세금 관련 질문에 답해주는 스킬입니다.
   '3.3% 원천징수 계산해줘', '종합소득세 신고 방법 알려줘', '부가세 신고 어떻게 해줘'처럼 말하면 됩니다.
   프리랜서 3.3% 원천징수, 종합소득세, 부가가치세, 홈택스 신고 절차를 한국 세법 기준으로 안내합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 세무 도우미 (Tax Helper)
 
@@ -147,26 +147,26 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:finance-close-management**: 월말 결산, 급여 정산
-- **moai-cowork:finance-financial-statements**: K-IFRS 재무제표 작성
-- **moai-cowork:finance-variance-analysis**: 예산 대비 실적 분석
+- **moai-coworker:finance-close-management**: 월말 결산, 급여 정산
+- **moai-coworker:finance-financial-statements**: K-IFRS 재무제표 작성
+- **moai-coworker:finance-variance-analysis**: 예산 대비 실적 분석
 
 ### 후처리 체인 (세무 안내문·신고 절차 설명·절세 가이드 등 서술형 산출물)
 
 세무 안내문, 신고 절차 설명, 절세 가이드, 고객 회신문처럼 문장 산출물을 작성한 뒤에는 아래 체인으로 마무리한다.
 
 ```
-finance-tax-helper → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean
+finance-tax-helper → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
 ```
 
-- **moai-cowork:general-ai-slop-reviewer**: AI 티 나는 표현·과장·상투구 검수 및 수정
-- **moai-cowork:general-humanize-korean**: 한국어 자연스러움 보정 (서술 산출물 한정)
+- **moai-coworker:general-ai-slop-reviewer**: AI 티 나는 표현·과장·상투구 검수 및 수정
+- **moai-coworker:general-humanize-korean**: 한국어 자연스러움 보정 (서술 산출물 한정)
 
-> 원천징수 계산 내역·세율표·신고 일정 캘린더 같은 표·숫자 산출물은 체인 대상이 아니며, 엑셀화가 필요하면 `moai-cowork:office-xlsx-creator`로 라우팅한다.
+> 원천징수 계산 내역·세율표·신고 일정 캘린더 같은 표·숫자 산출물은 체인 대상이 아니며, 엑셀화가 필요하면 `moai-coworker:office-xlsx-creator`로 라우팅한다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **실제 세금 신고·납부**: 홈택스 신고 대행은 공인 세무사에게 의뢰하세요. AI가 작성한 내용은 참고용입니다.
-- **법인세 신고**: 법인 결산 및 법인세 신고는 `moai-cowork:finance-close-management` 스킬과 세무사를 활용하세요.
-- **재무제표 작성**: K-IFRS 기준 재무제표 작성은 `moai-cowork:finance-financial-statements` 스킬을 사용하세요.
+- **법인세 신고**: 법인 결산 및 법인세 신고는 `moai-coworker:finance-close-management` 스킬과 세무사를 활용하세요.
+- **재무제표 작성**: K-IFRS 기준 재무제표 작성은 `moai-coworker:finance-financial-statements` 스킬을 사용하세요.
 - **세무 조사 대응**: 세무조사 대응은 반드시 세무사·변호사와 함께 진행하세요.

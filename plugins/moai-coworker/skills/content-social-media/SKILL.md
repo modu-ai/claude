@@ -1,19 +1,19 @@
 ---
 name: content-social-media
 description: |
-  [DEPRECATED v2.3.0] 본 스킬은 moai-cowork:content-sns-content로 흡수되었습니다. 신규 호출은 /content-sns-content를 사용하세요.
+  [DEPRECATED v2.3.0] 본 스킬은 moai-coworker:content-sns-content로 흡수되었습니다. 신규 호출은 /content-sns-content를 사용하세요.
   글로벌 4채널(스레드·X·링크드인·유튜브쇼츠)과 한국 3채널(인스타·네이버 블로그·카카오)을 모두 content-sns-content에서 지원합니다.
   본 스텁은 v2.5.0까지 외부 참조 호환성 보존용으로 유지됩니다.
 user-invocable: false
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # content-social-media — RELOCATED
 
 ## REDIRECT
 
-본 스킬은 **v2.3.0부터 `moai-cowork:content-sns-content`로 흡수**되었습니다.
+본 스킬은 **v2.3.0부터 `moai-coworker:content-sns-content`로 흡수**되었습니다.
 
 ## 마이그레이션
 
@@ -38,7 +38,7 @@ version: "4.0.0"
 
 ## 통합 사유
 
-`moai-cowork:content-social-media`와 `moai-cowork:content-sns-content`가 SNS 콘텐츠 영역에서 책임 경계가 모호하여 셀러·마케터가 어디로 호출할지 혼동되는 문제를 해결하기 위해 단일 스킬로 통합했습니다 (SPEC-CATALOG-CLEANUP-007 REQ-CLEANUP-003).
+`moai-coworker:content-social-media`와 `moai-coworker:content-sns-content`가 SNS 콘텐츠 영역에서 책임 경계가 모호하여 셀러·마케터가 어디로 호출할지 혼동되는 문제를 해결하기 위해 단일 스킬로 통합했습니다 (SPEC-CATALOG-CLEANUP-007 REQ-CLEANUP-003).
 
 ## 제거 일정
 
@@ -47,5 +47,5 @@ version: "4.0.0"
 ---
 
 Version: 2.3.0
-Classification: DEPRECATED → moai-cowork:content-sns-content
+Classification: DEPRECATED → moai-coworker:content-sns-content
 Relocated: v2.3.0 (SPEC-CATALOG-CLEANUP-007)

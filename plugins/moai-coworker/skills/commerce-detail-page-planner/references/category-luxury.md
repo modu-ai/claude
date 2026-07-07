@@ -188,6 +188,6 @@ brief:
 
 ## 페어 스킬 매핑
 
-- 코드: `moai-cowork:commerce-product-detail` (시네마틱 갤러리·VIP 예약 폼)
-- 카피: `moai-cowork:commerce-detail-page-copy` (격식·간결 모드)
-- 후속: `moai-cowork:content-newsletter` (VIP 이메일·초대장)
+- 코드: `moai-coworker:commerce-product-detail` (시네마틱 갤러리·VIP 예약 폼)
+- 카피: `moai-coworker:commerce-detail-page-copy` (격식·간결 모드)
+- 후속: `moai-coworker:content-newsletter` (VIP 이메일·초대장)

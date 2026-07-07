@@ -317,15 +317,15 @@ book-concept-planner와 book-target-reader 결과 입력.
 - `book-chapter-writer` — 본문 챕터 집필 (꼭지 단위 반복)
 
 ### Alternative
-- `moai-cowork:business-strategy-planner` — 사업·서비스 구조 설계 (책 아님)
-- `moai-cowork:content-blog` — 블로그 시리즈 구조 (책 분량 미만)
+- `moai-coworker:business-strategy-planner` — 사업·서비스 구조 설계 (책 아님)
+- `moai-coworker:content-blog` — 블로그 시리즈 구조 (책 분량 미만)
 
 ### Post (검수 — 정규 체인)
-- `moai-cowork:office-korean-spell-check` — 한국어 맞춤법
-- `moai-cowork:general-ai-slop-reviewer` — AI 슬롭 검수 (필수)
-- `moai-cowork:general-humanize-korean` — AI 티 정밀 윤문 (필수)
+- `moai-coworker:office-korean-spell-check` — 한국어 맞춤법
+- `moai-coworker:general-ai-slop-reviewer` — AI 슬롭 검수 (필수)
+- `moai-coworker:general-humanize-korean` — AI 티 정밀 윤문 (필수)
 
-> 목차 트리·분량 배분은 데이터 출력이지만 **챕터 시놉시스(5요소 서술)**는 산문입니다. 시놉시스 산문은 정규 체인 **`book-outline-designer → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean`**으로 마무리합니다.
+> 목차 트리·분량 배분은 데이터 출력이지만 **챕터 시놉시스(5요소 서술)**는 산문입니다. 시놉시스 산문은 정규 체인 **`book-outline-designer → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean`**으로 마무리합니다.
 
 ## 10. 출처
 
@@ -347,4 +347,4 @@ GOOS Obsidian vault에서 "목차·구성·서사 흐름·MECE" 관련 인사이
 
 **버전 히스토리**
 
-- v2.9.0 (2026-05-17): 신규 스킬 도입. moai-cowork 플러그인 3번 워크플로우. 3 레벨 트리(부·장·꼭지) + 분량 배분 + 4단계 검증 + 4 장르 프리셋.
+- v2.9.0 (2026-05-17): 신규 스킬 도입. moai-coworker 플러그인 3번 워크플로우. 3 레벨 트리(부·장·꼭지) + 분량 배분 + 4단계 검증 + 4 장르 프리셋.

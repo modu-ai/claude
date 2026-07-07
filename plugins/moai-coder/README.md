@@ -79,14 +79,14 @@ grep '^\s*version:' A/.moai/config/sections/system.yaml   # → 실제 바이너
 
 1. `pkg/version/version.go` — 바이너리 정본 (`Version = "vX.Y.Z"`)
 2. `internal/template/templates/.moai/config/sections/system.yaml.tmpl` — `{{.Version}}` 플레이스홀더 (정본 주입, 리터럴 아님 — AC-BD-006b PRESERVE)
-3. `plugins/moai-cowork/.claude-plugin/plugin.json` — `"version": "X.Y.Z"`
+3. `plugins/moai-coworker/.claude-plugin/plugin.json` — `"version": "X.Y.Z"`
 4. `plugins/moai-code/.claude-plugin/plugin.json` — `"version": "X.Y.Z"`
 
 **릴리스 체크리스트**: 위 4개 위치를 동일 버전으로 일괄 bump 후 배포한다. 플러그인 버전은 바이너리 v3.0.x 라인에 바인딩(REQ-BD-012, `3.0.x ↔ 3.0.x`).
 
 **정규화 비교 (AC-BD-006d D1-GATED)** — `v` 접두·`-rcN` pre-release 접미사 제거 후 concrete 리터럴 3곳 일치:
 - `pkg/version/version.go`: `v3.0.0-rc6` → 정규화 `3.0.0`
-- `plugins/moai-cowork/.claude-plugin/plugin.json`: `3.0.0` → `3.0.0`
+- `plugins/moai-coworker/.claude-plugin/plugin.json`: `3.0.0` → `3.0.0`
 - `plugins/moai-code/.claude-plugin/plugin.json`: `3.0.0` → `3.0.0`
 
 참고: `www/hugo.toml` L50-54의 ⚠️SSOT 주석 블록이 이 패턴의 원천이며, 마켓플레이스 메타데이터(`.claude-plugin/marketplace.json`)는 본 4-location 열거 밖이므로 별도 릴리스 단계에서 다룬다.

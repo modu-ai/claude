@@ -10,17 +10,17 @@ description: |
   - "프린트 가능한 사업계획서 HTML로 만들어줘"
   - "이메일에 붙일 수 있는 HTML 리포트 만들어줘"
   현황·인시던트·사업계획·설명서·재무·PR 6종 서식을 갖췄고, 보고서 종류에 맞춰 자동으로 골라 줍니다.
-  PDF 파일이 필요하면 생성한 HTML을 moai-cowork:office-pdf-writer로 넘겨 디자인 그대로 PDF로 변환하세요 (weasyprint를 직접 설치·호출하지 말 것).
-version: "4.0.0"
+  PDF 파일이 필요하면 생성한 HTML을 moai-coworker:office-pdf-writer로 넘겨 디자인 그대로 PDF로 변환하세요 (weasyprint를 직접 설치·호출하지 말 것).
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # office-html-report: 단일 파일 HTML 보고서 렌더러
 
 ## 목적과 범위
 
-`moai-cowork:office-html-report`는 cowork 텍스트 산출 파이프라인의 **터미널 렌더러**입니다.
-`moai-cowork:business-executive-summary`, `moai-cowork:finance-financial-statements`, `moai-cowork:business-sbiz365-analyst` 등이 생성한 마크다운 보고서를 **단일 파일·자체 완결형(self-contained) HTML**로 변환합니다.
+`moai-coworker:office-html-report`는 cowork 텍스트 산출 파이프라인의 **터미널 렌더러**입니다.
+`moai-coworker:business-executive-summary`, `moai-coworker:finance-financial-statements`, `moai-coworker:business-sbiz365-analyst` 등이 생성한 마크다운 보고서를 **단일 파일·자체 완결형(self-contained) HTML**로 변환합니다.
 
 **핵심 원칙**:
 - 외부 JS 라이브러리(Chart.js, D3, htmx) 0 의존
@@ -60,12 +60,12 @@ version: "4.0.0"
 
 | 모드 | 구조 섹션 | 대상 스킬 |
 |------|-----------|-----------|
-| **`status`** | 메트릭 카드 4개 · 하이라이트 · 완료 테이블 · Velocity SVG 막대 차트 · Carryover | `moai-cowork:business-executive-summary`, `moai-cowork:office-daily-briefing` |
-| **`incident`** | TL;DR 다크 배너 · 타임라인 · 로그 발췌 `<details>` · 코드 diff 패널 · 영향 테이블 · 액션 체크리스트 | `moai-cowork:legal-compliance-check` |
-| **`plan`** | 요약 KPI 스트립 · 마일스톤 수직 타임라인 · 데이터 플로우 SVG · 슬라이스 테이블 · 리스크 그리드 · 성공 지표 | `moai-cowork:business-sbiz365-analyst` |
-| **`explainer`** | 사이드 네비 · `<details>` 접이식 단계 · 탭 코드 블록(vanilla JS) · FAQ 아코디언 · 콜아웃 박스 | `moai-cowork:*`, `moai-cowork:*` |
-| **`financial`** | KPI 카드 4개 · 손익계산서 테이블(항목/당기/전기/증감/증감률) · Variance SVG 수평 막대 차트 · 주석 패널 | `moai-cowork:finance-financial-statements` |
-| **`pr`** | TL;DR · PR 메타 행(파일수·+/−·브랜치) · Before/After 2단 카드 · 파일 투어 `<details>` · 핵심 포인트 · 테스트 체크리스트 · 롤아웃 단계 | `moai-cowork:finance-investor-relations` |
+| **`status`** | 메트릭 카드 4개 · 하이라이트 · 완료 테이블 · Velocity SVG 막대 차트 · Carryover | `moai-coworker:business-executive-summary`, `moai-coworker:office-daily-briefing` |
+| **`incident`** | TL;DR 다크 배너 · 타임라인 · 로그 발췌 `<details>` · 코드 diff 패널 · 영향 테이블 · 액션 체크리스트 | `moai-coworker:legal-compliance-check` |
+| **`plan`** | 요약 KPI 스트립 · 마일스톤 수직 타임라인 · 데이터 플로우 SVG · 슬라이스 테이블 · 리스크 그리드 · 성공 지표 | `moai-coworker:business-sbiz365-analyst` |
+| **`explainer`** | 사이드 네비 · `<details>` 접이식 단계 · 탭 코드 블록(vanilla JS) · FAQ 아코디언 · 콜아웃 박스 | `moai-coworker:*`, `moai-coworker:*` |
+| **`financial`** | KPI 카드 4개 · 손익계산서 테이블(항목/당기/전기/증감/증감률) · Variance SVG 수평 막대 차트 · 주석 패널 | `moai-coworker:finance-financial-statements` |
+| **`pr`** | TL;DR · PR 메타 행(파일수·+/−·브랜치) · Before/After 2단 카드 · 파일 투어 `<details>` · 핵심 포인트 · 테스트 체크리스트 · 롤아웃 단계 | `moai-coworker:finance-investor-relations` |
 
 #### 모드별 입력 항목 요약
 
@@ -139,7 +139,7 @@ version: "4.0.0"
 
 ## 디자인 시스템 적용 (`design_system` 파라미터)
 
-`design_system` 입력을 지정하면 [`moai-cowork:office-design-system-library`](../../moai-design/skills/design-system-library/SKILL.md)에서 브랜드 토큰을 로드해 **Tailwind Play CDN + shadcn vanilla 컴포넌트**로 렌더합니다.
+`design_system` 입력을 지정하면 [`moai-coworker:office-design-system-library`](../../moai-design/skills/design-system-library/SKILL.md)에서 브랜드 토큰을 로드해 **Tailwind Play CDN + shadcn vanilla 컴포넌트**로 렌더합니다.
 
 **두 가지 렌더 엔진** (하위 호환 유지):
 
@@ -171,12 +171,12 @@ version: "4.0.0"
 ## 체인 통합 권장
 
 ```
-[텍스트 스킬] → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean → moai-cowork:office-html-report (서식 선택)
+[텍스트 스킬] → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean → moai-coworker:office-html-report (서식 선택)
 ```
 
 최소 체인 (빠른 렌더링):
 ```
-[텍스트 스킬] → moai-cowork:office-html-report (서식 선택)
+[텍스트 스킬] → moai-coworker:office-html-report (서식 선택)
 ```
 
 브랜드 디자인 시스템 적용 체인:
@@ -184,7 +184,7 @@ version: "4.0.0"
 [텍스트 스킬] → general-ai-slop-reviewer → office-html-report (design_system: clickhouse)
 ```
 
-> `design_system` 지정 시 `moai-cowork:office-design-system-library`에서 토큰을 자동 로드합니다 — 별도 선행 스킬 호출 불필요.
+> `design_system` 지정 시 `moai-coworker:office-design-system-library`에서 토큰을 자동 로드합니다 — 별도 선행 스킬 호출 불필요.
 
 ---
 
@@ -217,7 +217,7 @@ PR #312 실시간 알림 채널 통합 내용을 HTML 리뷰 문서로 만들어
 - 마크다운 기본 출력을 대체하지 않습니다 — HTML은 추가 렌더링 분기입니다.
 - React / Vue / Tailwind CDN / Chart.js / D3 같은 외부 라이브러리를 쓰지 않습니다.
 - 빌드 단계(webpack, vite, esbuild)를 도입하지 않습니다.
-- 슬라이드는 `moai-cowork:office-pptx-designer`, 독립 차트는 `moai-cowork:office-data-visualizer`가 맡습니다.
+- 슬라이드는 `moai-coworker:office-pptx-designer`, 독립 차트는 `moai-coworker:office-data-visualizer`가 맡습니다.
 - 여러 파일로 나누지 않습니다 — 모든 산출물은 단일 `.html` 파일입니다.
 
 ---
@@ -254,9 +254,9 @@ PR #312 실시간 알림 채널 통합 내용을 HTML 리뷰 문서로 만들어
 
 | 컨슈머 스킬 | 적합 모드 | 입력 파일 | 렌더링 출력 | 호환성 |
 |-------------|-----------|-----------|-------------|--------|
-| `moai-cowork:business-executive-summary` | `status` | [`references/integration-tests/executive-summary-input.md`](references/integration-tests/executive-summary-input.md) | [`references/integration-tests/executive-summary-rendered.html`](references/integration-tests/executive-summary-rendered.html) | ★★★★☆ (4/5) |
-| `moai-cowork:finance-financial-statements` | `financial` | [`references/integration-tests/financial-statements-input.md`](references/integration-tests/financial-statements-input.md) | [`references/integration-tests/financial-statements-rendered.html`](references/integration-tests/financial-statements-rendered.html) | ★★★★☆ (4/5) |
-| `moai-cowork:business-sbiz365-analyst` | `plan` | [`references/integration-tests/sbiz365-analyst-input.md`](references/integration-tests/sbiz365-analyst-input.md) | [`references/integration-tests/sbiz365-analyst-rendered.html`](references/integration-tests/sbiz365-analyst-rendered.html) | ★★★★☆ (4/5) |
-| `moai-cowork:office-daily-briefing` | `status` (daily variant) | [`references/integration-tests/daily-briefing-input.md`](references/integration-tests/daily-briefing-input.md) | [`references/integration-tests/daily-briefing-rendered.html`](references/integration-tests/daily-briefing-rendered.html) | ★★★★☆ (4/5) |
+| `moai-coworker:business-executive-summary` | `status` | [`references/integration-tests/executive-summary-input.md`](references/integration-tests/executive-summary-input.md) | [`references/integration-tests/executive-summary-rendered.html`](references/integration-tests/executive-summary-rendered.html) | ★★★★☆ (4/5) |
+| `moai-coworker:finance-financial-statements` | `financial` | [`references/integration-tests/financial-statements-input.md`](references/integration-tests/financial-statements-input.md) | [`references/integration-tests/financial-statements-rendered.html`](references/integration-tests/financial-statements-rendered.html) | ★★★★☆ (4/5) |
+| `moai-coworker:business-sbiz365-analyst` | `plan` | [`references/integration-tests/sbiz365-analyst-input.md`](references/integration-tests/sbiz365-analyst-input.md) | [`references/integration-tests/sbiz365-analyst-rendered.html`](references/integration-tests/sbiz365-analyst-rendered.html) | ★★★★☆ (4/5) |
+| `moai-coworker:office-daily-briefing` | `status` (daily variant) | [`references/integration-tests/daily-briefing-input.md`](references/integration-tests/daily-briefing-input.md) | [`references/integration-tests/daily-briefing-rendered.html`](references/integration-tests/daily-briefing-rendered.html) | ★★★★☆ (4/5) |
 
 상세 호환성 분석: [`references/integration-tests/COMPATIBILITY.md`](references/integration-tests/COMPATIBILITY.md)

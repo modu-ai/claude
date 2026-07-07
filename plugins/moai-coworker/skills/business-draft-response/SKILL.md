@@ -2,9 +2,9 @@
 name: business-draft-response
 description: >
   고객 문의에 대한 응답 초안을 작성합니다. "이 문의에 답변 초안 써줘", "환불 요청 이메일 답변 만들어줘", "카카오채널 응답 초안 작성해줘"라고 요청할 때 사용하세요. 한국어 경어 기반 이메일·채팅·공식 답변서 초안을 채널별 어조에 맞게 생성합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 응답 초안 작성 (Draft Response)
 
@@ -82,17 +82,17 @@ version: "4.0.0"
 응답 초안을 작성한 뒤에는 다음 체인으로 마무리합니다:
 
 ```
-business-draft-response → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean
+business-draft-response → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
 ```
 
-- `moai-cowork:general-ai-slop-reviewer` — AI 티 나는 표현·과잉 수식·기계적 문장 패턴을 검수·수정
-- `moai-cowork:general-humanize-korean` — 한국어 경어 자연스러움과 사람이 쓴 듯한 어조로 다듬기
+- `moai-coworker:general-ai-slop-reviewer` — AI 티 나는 표현·과잉 수식·기계적 문장 패턴을 검수·수정
+- `moai-coworker:general-humanize-korean` — 한국어 경어 자연스러움과 사람이 쓴 듯한 어조로 다듬기
 
 채널별 어조 기준 및 금지 표현 목록: `references/tone-guide.md`
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **티켓 분류 및 우선순위 판단** → moai-cowork:business-ticket-triage 스킬이 더 적합합니다
-- **에스컬레이션 처리** → moai-cowork:business-escalation-manager 스킬을 사용하세요
-- **지식베이스 문서 작성** → moai-cowork:business-kb-article 스킬을 사용하세요
-- **법적 공식 답변서 (소송·분쟁 관련)** → moai-cowork 스킬과 법무팀 검토를 활용하세요
+- **티켓 분류 및 우선순위 판단** → moai-coworker:business-ticket-triage 스킬이 더 적합합니다
+- **에스컬레이션 처리** → moai-coworker:business-escalation-manager 스킬을 사용하세요
+- **지식베이스 문서 작성** → moai-coworker:business-kb-article 스킬을 사용하세요
+- **법적 공식 답변서 (소송·분쟁 관련)** → moai-coworker 스킬과 법무팀 검토를 활용하세요

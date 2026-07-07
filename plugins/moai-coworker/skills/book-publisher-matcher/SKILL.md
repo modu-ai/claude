@@ -404,12 +404,12 @@ Top 5에 대해 다음 정보 정리:
 - `book-chapter-writer` — 본문 챕터 집필 (출판사 통과 후)
 
 ### Alternative
-- `moai-cowork:business-kr-gov-grant` — 한국출판문화산업진흥원 지원사업 (출판 자금 지원)
-- `moai-cowork:finance-investor-relations` — 출판 펀딩 (텀블벅 등)
+- `moai-coworker:business-kr-gov-grant` — 한국출판문화산업진흥원 지원사업 (출판 자금 지원)
+- `moai-coworker:finance-investor-relations` — 출판 펀딩 (텀블벅 등)
 
 ### 산출물 라우팅 (데이터 출력)
-- 본 스킬의 핵심 산출물은 **Top 5 출판사 점수 매트릭스**(4 차원 가중 점수 표)로, 산문이 아닌 **데이터·표 출력**입니다. 따라서 AI 슬롭 검수(`moai-cowork:general-ai-slop-reviewer`)·윤문(`moai-cowork:general-humanize-korean`) 체인 대상이 아닙니다.
-- 점수표·비교표를 엑셀로 정리하려면 `moai-cowork:office-xlsx-creator`로 라우팅하세요.
+- 본 스킬의 핵심 산출물은 **Top 5 출판사 점수 매트릭스**(4 차원 가중 점수 표)로, 산문이 아닌 **데이터·표 출력**입니다. 따라서 AI 슬롭 검수(`moai-coworker:general-ai-slop-reviewer`)·윤문(`moai-coworker:general-humanize-korean`) 체인 대상이 아닙니다.
+- 점수표·비교표를 엑셀로 정리하려면 `moai-coworker:office-xlsx-creator`로 라우팅하세요.
 
 ## 10. 출처
 
@@ -435,4 +435,4 @@ GOOS Obsidian vault에서 "출판 시장·계약·인세·자비 출판" 관련 
 
 **버전 히스토리**
 
-- v2.9.0 (2026-05-17): 신규 스킬 도입. moai-cowork 플러그인 6번 워크플로우. 4 차원 평가(장르·규모·계약·채널) + Top 5 우선순위 + 거절 후 시나리오 + 30+ 출판사 라이브러리 + 자비 출판 대안 5종.
+- v2.9.0 (2026-05-17): 신규 스킬 도입. moai-coworker 플러그인 6번 워크플로우. 4 차원 평가(장르·규모·계약·채널) + Top 5 우선순위 + 거절 후 시나리오 + 30+ 출판사 라이브러리 + 자비 출판 대안 5종.

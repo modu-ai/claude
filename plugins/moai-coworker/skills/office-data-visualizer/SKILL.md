@@ -7,10 +7,10 @@ description: |
   - "그래프 그려줘"
   - "시각화해줘"
   - "대시보드 만들어줘"
-  Mermaid·Recharts·Chart.js·Tremor·ECharts 중 적합한 스택으로 인터랙티브 대시보드를 제작하고, moai-cowork:office-pptx-designer / moai-cowork:office-docx-generator로 PPT·Word 변환까지 이어집니다.
-version: "4.0.0"
+  Mermaid·Recharts·Chart.js·Tremor·ECharts 중 적합한 스택으로 인터랙티브 대시보드를 제작하고, moai-coworker:office-pptx-designer / moai-coworker:office-docx-generator로 PPT·Word 변환까지 이어집니다.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 데이터 시각화 (Data Visualizer)
 
@@ -52,7 +52,7 @@ HTML·React 대시보드(방식 2)를 산출할 때는 **코드 생성 직전에
 
 > 대시보드 스킬은 Q4 옵션 자체가 차트 스택이므로 랜딩/상세와 달리 multiSelect를 사용하지 않습니다.
 
-상세 질문 payload·Fallback 기본값은 `../../../moai-cowork/skills/marketing-landing-page/references/marketing-landing-page/shadcn-theme-interview.md` (공용 레퍼런스) 참조.
+상세 질문 payload·Fallback 기본값은 `../../../moai-coworker/skills/marketing-landing-page/references/marketing-landing-page/shadcn-theme-interview.md` (공용 레퍼런스) 참조.
 
 Fallback(인터뷰 생략) 기본값: `Neutral + System+Toggle + 0.5rem + Recharts`. 적용 시 응답 상단에 고지합니다.
 
@@ -86,11 +86,11 @@ Fallback(인터뷰 생략) 기본값: `Neutral + System+Toggle + 0.5rem + Rechar
 
 사용자가 "PPT로 만들어줘" 요청 시:
 1. HTML·React 차트 → 스크린샷/이미지 추출
-2. 데이터 테이블 + 차트 이미지 → `moai-cowork:office-pptx-designer`로 전달
+2. 데이터 테이블 + 차트 이미지 → `moai-coworker:office-pptx-designer`로 전달
 3. PPT 슬라이드 생성
 
 Word 보고서 요청 시:
-1. 차트 이미지 + 분석 텍스트 → `moai-cowork:office-docx-generator`로 전달
+1. 차트 이미지 + 분석 텍스트 → `moai-coworker:office-docx-generator`로 전달
 2. Word 문서 생성 (차트 임베드)
 
 ---
@@ -116,21 +116,21 @@ Word 보고서 요청 시:
 
 1. 사용자 요청 수신 → 시각화 방식 자동 판단
 2. **방식 2(HTML·React) 선택 시 shadcn 테마 인터뷰 실행** (HARD)
-3. 데이터 구조 확인 → 부적합 시 `moai-cowork:office-data-explorer` 권유
+3. 데이터 구조 확인 → 부적합 시 `moai-coworker:office-data-explorer` 권유
 4. 차트 산출 후 사용자 검토 요청
 
 ## 이 스킬을 사용하지 말아야 할 때
-- **데이터 탐색/프로파일링** → `moai-cowork:office-data-explorer` 사용
-- **공공데이터 조회** → `moai-cowork:office-public-data-public-data` 사용
-- **랜딩 페이지 내 차트 섹션** → `moai-cowork:marketing-landing-page`에서 Q4 효과 선택 시 통합 산출
-- **상세페이지 내 가격 비교 차트** → `moai-cowork:commerce-product-detail`에서 직접 처리
+- **데이터 탐색/프로파일링** → `moai-coworker:office-data-explorer` 사용
+- **공공데이터 조회** → `moai-coworker:office-public-data-public-data` 사용
+- **랜딩 페이지 내 차트 섹션** → `moai-coworker:marketing-landing-page`에서 Q4 효과 선택 시 통합 산출
+- **상세페이지 내 가격 비교 차트** → `moai-coworker:commerce-product-detail`에서 직접 처리
 
 
 ## 한국어 카피 품질 게이트 (필수)
 
 본 스킬이 산출하는 한국어 텍스트는 배포 전 의무 게이트를 통과합니다:
 
-1. `moai-cowork:general-ai-slop-reviewer` — 1차 일반 AI 슬롭 검수 (금지어, 구조 패턴, 리듬)
-2. `moai-cowork:general-humanize-korean` — 2차 한국어 정밀 윤문 (40+ 패턴 SSOT, 의미 불변)
+1. `moai-coworker:general-ai-slop-reviewer` — 1차 일반 AI 슬롭 검수 (금지어, 구조 패턴, 리듬)
+2. `moai-coworker:general-humanize-korean` — 2차 한국어 정밀 윤문 (40+ 패턴 SSOT, 의미 불변)
 
 두 게이트는 대시 대비 헤드라인·조사·체언 종결 조각문·"A에서 B로" 전환 공식 S1 패턴을 잡아냅니다. 게이트 통과 없이 산출물을 바로 배포하지 않습니다.

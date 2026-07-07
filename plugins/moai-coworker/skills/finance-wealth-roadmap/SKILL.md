@@ -4,9 +4,9 @@ description: >
   재테크를 어디서부터 시작할지 막막할 때 나만의 자산 관리 로드맵을 짜주는 스킬입니다.
   '재테크 어떻게 시작해', '종잣돈 모으는 법', '내 자산 관리 계획 세워줘', '월급으로 1억 모으기'처럼 말하면 됩니다.
   재무 현황 진단 → 목표 설정 → 종잣돈 단계 → 자산 배분 → 자동화·점검의 5단계로 개인 맞춤 재테크 로드맵을 설계합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 재테크 로드맵 (Wealth Roadmap)
 
@@ -103,7 +103,7 @@ version: "4.0.0"
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **개별 종목·상품 추천**: 본 스킬은 자문이 아니다. 구체적 투자는 본인 판단·전문가 상담.
-- **법인·사업자 자금 운용**: `moai-cowork` 계열을 사용한다.
+- **법인·사업자 자금 운용**: `moai-coworker` 계열을 사용한다.
 - **부채 과다·연체 상황**: 신용회복·채무조정은 신용회복위원회 등 공식 기관과 상담한다.
 
 ## 출처

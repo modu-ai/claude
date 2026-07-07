@@ -5,9 +5,9 @@ description: >
   'NDA 검토해줘', '비밀유지계약서 분석해줘', '기밀유지 조항 확인해줘',
   'NDA 위험 조항 찾아줘', '비밀유지계약 수정 권고해줘'라고 요청하세요.
   한국 민법·영업비밀보호법 기준 조항별 위험도 평가, 수정 권고안을 제공합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # NDA 트리아지 (NDA Triage)
 
@@ -143,25 +143,25 @@ NDA, 비밀유지계약, 기밀유지계약, 비밀유지협약, NDA 검토, 계
 
 ## 관련 스킬
 
-- **moai-cowork:legal-contract-review**: 일반 용역·공급 계약서 검토
-- **moai-cowork:legal-compliance-check**: 규제 준수 점검, ESG 보고
-- **moai-cowork:legal-legal-risk**: 법적 리스크 전반 분석, IP 전략
-- **moai-cowork:general-ai-slop-reviewer**: NDA 평가 보고서 AI 패턴 검수
+- **moai-coworker:legal-contract-review**: 일반 용역·공급 계약서 검토
+- **moai-coworker:legal-compliance-check**: 규제 준수 점검, ESG 보고
+- **moai-coworker:legal-legal-risk**: 법적 리스크 전반 분석, IP 전략
+- **moai-coworker:general-ai-slop-reviewer**: NDA 평가 보고서 AI 패턴 검수
 
 ### 후처리 체인 (텍스트 산출물)
 
 NDA 트리아지 평가서·조항별 수정 권고안·표준 NDA 초안 등 서술형 산출물은 작성 후 반드시 다음 체인으로 마무리합니다.
 
 ```
-legal-nda-triage → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean
+legal-nda-triage → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
 ```
 
-- **moai-cowork:general-ai-slop-reviewer**: AI 글쓰기 패턴(과장·상투구·획일적 구조) 검수
-- **moai-cowork:general-humanize-korean**: 한국어 자연스러움 보정으로 사람이 쓴 듯한 문장으로 다듬기
+- **moai-coworker:general-ai-slop-reviewer**: AI 글쓰기 패턴(과장·상투구·획일적 구조) 검수
+- **moai-coworker:general-humanize-korean**: 한국어 자연스러움 보정으로 사람이 쓴 듯한 문장으로 다듬기
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **일반 용역·공급 계약서 검토** → moai-cowork:legal-contract-review 사용
-- **컴플라이언스 점검이나 감사 보고서** → moai-cowork:legal-compliance-check 사용
-- **법적 리스크 전반 분석이나 IP 전략** → moai-cowork:legal-legal-risk 사용
+- **일반 용역·공급 계약서 검토** → moai-coworker:legal-contract-review 사용
+- **컴플라이언스 점검이나 감사 보고서** → moai-coworker:legal-compliance-check 사용
+- **법적 리스크 전반 분석이나 IP 전략** → moai-coworker:legal-legal-risk 사용
 - **실제 법적 분쟁이나 소송 대응** → 반드시 전문 변호사에게 의뢰하세요

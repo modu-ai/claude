@@ -10,11 +10,11 @@ description: |
   - "광고 문구랑 랜딩 첫 줄이 맞는지 점검해줘"
   - "히어로 섹션이랑 CTA 개선점 알려줘"
   - "결제 단계가 너무 복잡한 것 같아"
-  히어로·공감·증명·사회증거·CTA·FAQ 6섹션을 점수화하고, 광고/랜딩/결제 중 어디가 문제인지 짚어 빠른 개선안을 제시합니다. 진단 보고서 서술 부분은 moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean으로 다듬습니다.
-  [책임 경계] vs moai-cowork:marketing-landing-page: 이 스킬=기존 랜딩 진단·개선 처방, 저 스킬=신규 랜딩 코드 생성.
-version: "4.0.0"
+  히어로·공감·증명·사회증거·CTA·FAQ 6섹션을 점수화하고, 광고/랜딩/결제 중 어디가 문제인지 짚어 빠른 개선안을 제시합니다. 진단 보고서 서술 부분은 moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean으로 다듬습니다.
+  [책임 경계] vs moai-coworker:marketing-landing-page: 이 스킬=기존 랜딩 진단·개선 처방, 저 스킬=신규 랜딩 코드 생성.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 랜딩페이지 전환율 진단 (Landing Page Conversion Audit)
 
@@ -127,7 +127,7 @@ version: "4.0.0"
   "next_actions": [
     "Phase 1 (1일): 불안해소 문구 + 메시지 일치",
     "Phase 2 (1주): 사회적 증거 + 히어로 비주얼 교체",
-    "Phase 3 (1개월): 6섹션 전면 리뉴얼 (moai-cowork:marketing-landing-page 호출)"
+    "Phase 3 (1개월): 6섹션 전면 리뉴얼 (moai-coworker:marketing-landing-page 호출)"
   ]
 }
 ```
@@ -137,17 +137,17 @@ version: "4.0.0"
 ```
 marketing-landing-page-conversion-audit (진단)
        ↓ Phase 1·2 빠른 처방
-moai-cowork:content-copywriting (헤드라인·CTA 카피)
+moai-coworker:content-copywriting (헤드라인·CTA 카피)
        ↓ Phase 3 전면 리뉴얼 필요 시
-moai-cowork:marketing-landing-page (shadcn/ui 신규 랜딩 코드 생성)
+moai-coworker:marketing-landing-page (shadcn/ui 신규 랜딩 코드 생성)
 ```
 
-> 진단 보고서의 서술형 텍스트는 발행 전 `moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean`으로 후처리합니다. 점수·체크리스트 표는 대상이 아닙니다.
+> 진단 보고서의 서술형 텍스트는 발행 전 `moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean`으로 후처리합니다. 점수·체크리스트 표는 대상이 아닙니다.
 
 ## 페어 분리
 
 | 페어 스킬 | 차이 |
 |----------|------|
-| `moai-cowork:marketing-landing-page` | 신규 랜딩 코드 생성 (shadcn/ui) — 본 스킬은 기존 랜딩 진단·개선 |
-| `moai-cowork:marketing-campaign-planner` | 캠페인 전체 기획 (본 스킬은 랜딩 단일 진단) |
-| `moai-cowork:commerce-detail-page-copy` | 이커머스 13섹션 상세페이지 (본 스킬은 캠페인 랜딩) |
+| `moai-coworker:marketing-landing-page` | 신규 랜딩 코드 생성 (shadcn/ui) — 본 스킬은 기존 랜딩 진단·개선 |
+| `moai-coworker:marketing-campaign-planner` | 캠페인 전체 기획 (본 스킬은 랜딩 단일 진단) |
+| `moai-coworker:commerce-detail-page-copy` | 이커머스 13섹션 상세페이지 (본 스킬은 캠페인 랜딩) |

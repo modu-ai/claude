@@ -156,4 +156,4 @@ copy_strategy:
   cta_type: "{즉시형|혜택강조형|결핍해소형|체험약속형|수량한정형}"
 ```
 
-이걸 `moai-cowork:commerce-detail-page-copy`에 인자로 넘기면 13섹션 카피 JSON에 반영됨.
+이걸 `moai-coworker:commerce-detail-page-copy`에 인자로 넘기면 13섹션 카피 JSON에 반영됨.

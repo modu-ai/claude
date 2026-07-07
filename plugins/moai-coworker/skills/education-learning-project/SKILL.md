@@ -10,10 +10,10 @@ description: |
   - "내 학습 진도 추적할 수 있게 세팅해줘"
   - "지금 수준 진단하고 단계별 학습 단계 만들어줘"
   학습자(수강생) 본인이 쓰는 도구입니다. 주제·수준·가용 시간을 받아 마일스톤 로드맵과 프로젝트 폴더를 만들고, education-tutor-research·education-learning-material 체인으로 연결합니다.
-  [책임 경계] vs moai-cowork:education-curriculum-designer: 이 스킬=배우는 사람 본인의 자기주도 학습 프로젝트, 저 스킬=강사가 남을 가르치려고 만드는 강의 커리큘럼.
-version: "4.0.0"
+  [책임 경계] vs moai-coworker:education-curriculum-designer: 이 스킬=배우는 사람 본인의 자기주도 학습 프로젝트, 저 스킬=강사가 남을 가르치려고 만드는 강의 커리큘럼.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 학습 프로젝트 (Learning Project)
 
@@ -71,8 +71,8 @@ version: "4.0.0"
 - 주제 / 현재 수준 / 도달 목표 / 가용 시간
 
 ## 학습 워크플로우 (HARD)
-1. 막히는 개념은 `moai-cowork:education-tutor-research`로 최신 정보 병렬 조사
-2. 조사 결과는 `moai-cowork:education-learning-material`로 도식·예제 HTML 학습자료 생성
+1. 막히는 개념은 `moai-coworker:education-tutor-research`로 최신 정보 병렬 조사
+2. 조사 결과는 `moai-coworker:education-learning-material`로 도식·예제 HTML 학습자료 생성
 3. 자료는 materials/ 에 저장하고 progress.md 진도 갱신
 
 ## 현재 마일스톤
@@ -114,11 +114,11 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:education-tutor-research**: 마일스톤 핵심 질문을 최신 정보로 병렬 조사
-- **moai-cowork:education-learning-material**: 조사 결과를 도식·예제 HTML 학습자료로 생성
+- **moai-coworker:education-tutor-research**: 마일스톤 핵심 질문을 최신 정보로 병렬 조사
+- **moai-coworker:education-learning-material**: 조사 결과를 도식·예제 HTML 학습자료로 생성
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **남을 가르치는 강의 커리큘럼 설계** → `moai-cowork:education-curriculum-designer`
-- **시험·평가 문제 출제** → `moai-cowork:education-assessment-creator`
-- **학술 논문·문헌 검토** → `moai-cowork:education-research-assistant`
+- **남을 가르치는 강의 커리큘럼 설계** → `moai-coworker:education-curriculum-designer`
+- **시험·평가 문제 출제** → `moai-coworker:education-assessment-creator`
+- **학술 논문·문헌 검토** → `moai-coworker:education-research-assistant`

@@ -10,11 +10,11 @@ description: |
   - "Lookalike 씨앗 품질 봐줘", "VIP 구매자로 유사 타겟 만들어도 되나"
   - "이메일 리스트 광고에 잘 쓰고 있는지 진단해줘"
   - "광고비 새는 픽셀 실수 있는지 찾아줘"
-  자주 하는 픽셀 실수(구매자 미제외·이벤트 정보 누락·CAPI 미설치)와 고객 데이터·유사 타겟 활용도를 점수화해 개선 우선순위를 제시합니다. 진단 보고서 서술 부분은 moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean으로 다듬습니다.
-  [책임 경계] vs moai-cowork:marketing-performance-report: 이 스킬=픽셀·데이터 인프라 검증, 저 스킬=광고 성과(ROAS) 분석.
-version: "4.0.0"
+  자주 하는 픽셀 실수(구매자 미제외·이벤트 정보 누락·CAPI 미설치)와 고객 데이터·유사 타겟 활용도를 점수화해 개선 우선순위를 제시합니다. 진단 보고서 서술 부분은 moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean으로 다듬습니다.
+  [책임 경계] vs moai-coworker:marketing-performance-report: 이 스킬=픽셀·데이터 인프라 검증, 저 스킬=광고 성과(ROAS) 분석.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 픽셀·1st Party 데이터 진단 (Pixel Audit)
 
@@ -97,7 +97,7 @@ Lookalike의 품질 한계 = 씨앗 데이터의 품질 한계.
    ↓
 [Step 4] Phase 1 (즉시) / Phase 2 (단계적) / Phase 3 (최적화) 우선순위 자동 분류
    ↓
-[Step 5] 진단 보고서 출력 + (선택) moai-cowork:marketing-campaign-planner·moai-cowork:commerce-marketplace-coupang-ads 체이닝
+[Step 5] 진단 보고서 출력 + (선택) moai-coworker:marketing-campaign-planner·moai-coworker:commerce-marketplace-coupang-ads 체이닝
 ```
 
 ### A. 메타 픽셀
@@ -175,19 +175,19 @@ Lookalike의 품질 한계 = 씨앗 데이터의 품질 한계.
 ```
 marketing-pixel-audit (본 스킬, 픽셀·1st Party 인프라 진단)
        ↓ Phase 1 즉시 수정 후
-moai-cowork:marketing-campaign-planner (인프라 기반 캠페인 기획 + 9 인지 편향 적용)
+moai-coworker:marketing-campaign-planner (인프라 기반 캠페인 기획 + 9 인지 편향 적용)
        ↓ 메타·구글 광고 운영 시
-moai-cowork:content-sns-content (채널별 심리 상태 매트릭스 + CAPI 검증)
+moai-coworker:content-sns-content (채널별 심리 상태 매트릭스 + CAPI 검증)
        ↓ 쿠팡 광고는 별도로
-moai-cowork:commerce-marketplace-coupang-ads (메타·구글 픽셀 아닌 쿠팡 전용 자동규칙)
+moai-coworker:commerce-marketplace-coupang-ads (메타·구글 픽셀 아닌 쿠팡 전용 자동규칙)
 ```
 
-> 진단 보고서의 서술형 텍스트는 발행 전 `moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean`으로 후처리합니다. 점수·체크리스트 표는 대상이 아닙니다.
+> 진단 보고서의 서술형 텍스트는 발행 전 `moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean`으로 후처리합니다. 점수·체크리스트 표는 대상이 아닙니다.
 
 ## 페어 분리
 
 | 페어 스킬 | 차이 |
 |----------|------|
-| `moai-cowork:marketing-performance-report` | GA4·메타·네이버 ROAS 종합 분석 (본 스킬은 픽셀·데이터 인프라 검증) |
-| `moai-cowork:marketing-campaign-planner` | 캠페인 기획·운영 (본 스킬은 데이터 인프라 진단) |
-| `moai-cowork:commerce-marketplace-coupang-ads` | 쿠팡 광고 (본 스킬은 메타·구글 픽셀) |
+| `moai-coworker:marketing-performance-report` | GA4·메타·네이버 ROAS 종합 분석 (본 스킬은 픽셀·데이터 인프라 검증) |
+| `moai-coworker:marketing-campaign-planner` | 캠페인 기획·운영 (본 스킬은 데이터 인프라 진단) |
+| `moai-coworker:commerce-marketplace-coupang-ads` | 쿠팡 광고 (본 스킬은 메타·구글 픽셀) |

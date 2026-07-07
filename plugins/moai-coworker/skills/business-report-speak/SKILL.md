@@ -4,9 +4,9 @@ description: >
   상사에게 보고하거나 누군가에게 무언가를 설명할 때 결론부터 명확하게 전달하도록 도와주는 스킬입니다.
   '이거 어떻게 보고하지', '결론부터 말하는 법', '팀장님한테 보고할 내용 정리해줘', '설명을 쉽게 하고 싶어'처럼 말하면 됩니다.
   결론 먼저(두괄식) 구조, 상사 유형별 보고 방식, 상대 머리에 꽂히는 설명 순서로 30초 안에 전달되는 보고·설명을 설계합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 보고·설명의 기술 (Report & Speak)
 
@@ -97,16 +97,16 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:business-meeting-facilitator**: 보고가 회의로 이어질 때 진행 설계
-- **moai-cowork:business-feedback-loop**: 진행 중 중간 보고·피드백 요청
-- **moai-cowork:business-conflict-handler**: 까다로운 상사·반응에 대한 대응
-- **moai-cowork:office-docx-generator**: 구두 보고를 문서 보고서로 정리
+- **moai-coworker:business-meeting-facilitator**: 보고가 회의로 이어질 때 진행 설계
+- **moai-coworker:business-feedback-loop**: 진행 중 중간 보고·피드백 요청
+- **moai-coworker:business-conflict-handler**: 까다로운 상사·반응에 대한 대응
+- **moai-coworker:office-docx-generator**: 구두 보고를 문서 보고서로 정리
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **문서·보고서 자체를 작성**: 글로 된 산출물은 `moai-cowork` / `moai-cowork`를 쓴다. 이 스킬은 말과 구조에 집중한다.
-- **공식 성과평가 면담**: 평가·고과 피드백은 `moai-cowork:business-performance-review`를 사용한다.
-- **마케팅 카피·설득 문구 작성**: 외부 대상 카피는 `moai-cowork` 계열을 쓴다.
+- **문서·보고서 자체를 작성**: 글로 된 산출물은 `moai-coworker` / `moai-coworker`를 쓴다. 이 스킬은 말과 구조에 집중한다.
+- **공식 성과평가 면담**: 평가·고과 피드백은 `moai-coworker:business-performance-review`를 사용한다.
+- **마케팅 카피·설득 문구 작성**: 외부 대상 카피는 `moai-coworker` 계열을 쓴다.
 
 ## 출처
 

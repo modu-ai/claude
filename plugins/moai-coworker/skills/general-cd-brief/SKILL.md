@@ -11,9 +11,9 @@ description: |
   - "디자인 브리프 6요소"
   - "claude.ai/design에 넣을 프롬프트"
   - "디자인 요청 정리"
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # general-cd-brief — Claude Design 6요소 브리프 빌더
 
@@ -151,10 +151,10 @@ Claude Design 브리프, 클로드 디자인 프롬프트, 디자인 브리프 6
 
 ```
 다음 단계 추천:
-- 디자인 시스템 셋업이 안 됐다면 → moai-cowork:general-cd-system-prep
-- 특정 영역(IA·접근성·온보딩)에 집중 → moai-cowork:general-cd-prompt-builder
-- 결과 카피 검수 → moai-cowork:general-cd-slop-check
-- 핸드오프 번들 분석 → moai-cowork:general-cd-handoff-reader
+- 디자인 시스템 셋업이 안 됐다면 → moai-coworker:general-cd-system-prep
+- 특정 영역(IA·접근성·온보딩)에 집중 → moai-coworker:general-cd-prompt-builder
+- 결과 카피 검수 → moai-coworker:general-cd-slop-check
+- 핸드오프 번들 분석 → moai-coworker:general-cd-handoff-reader
 ```
 
 ## 출력 형식
@@ -229,9 +229,9 @@ Claude Design 브리프, 클로드 디자인 프롬프트, 디자인 브리프 6
 
 | 스킬 | 사용 시점 |
 |---|---|
-| `moai-cowork:general-cd-system-prep` | 선행: 디자인 시스템이 아직 셋업 안 됐을 때 |
-| `moai-cowork:general-cd-prompt-builder` | 대안: 특정 UX 영역(IA·접근성·온보딩 등)에 집중하고 싶을 때 |
-| `moai-cowork:general-cd-slop-check` | 후속: 시안 결과 카피 검수 |
-| `moai-cowork:general-cd-handoff-reader` | 후속: Claude Code 핸드오프 번들 분석 |
-| `moai-cowork:marketing-landing-page` | 대안: 코드 기반 랜딩 페이지 직접 제작 |
-| `moai-cowork:business-brand-identity` | 보조: 브랜드 정체성이 모호할 때 먼저 정리 |
+| `moai-coworker:general-cd-system-prep` | 선행: 디자인 시스템이 아직 셋업 안 됐을 때 |
+| `moai-coworker:general-cd-prompt-builder` | 대안: 특정 UX 영역(IA·접근성·온보딩 등)에 집중하고 싶을 때 |
+| `moai-coworker:general-cd-slop-check` | 후속: 시안 결과 카피 검수 |
+| `moai-coworker:general-cd-handoff-reader` | 후속: Claude Code 핸드오프 번들 분석 |
+| `moai-coworker:marketing-landing-page` | 대안: 코드 기반 랜딩 페이지 직접 제작 |
+| `moai-coworker:business-brand-identity` | 보조: 브랜드 정체성이 모호할 때 먼저 정리 |

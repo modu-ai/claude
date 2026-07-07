@@ -4,9 +4,9 @@ description: >
   하루·한 주의 시간을 주도적으로 설계하도록 도와주는 시간관리 스킬입니다.
   '시간관리 어떻게 해', '야근 줄이고 싶어', '블록식스로 일정 짜줘', '덩어리 시간 만들기', '우선순위 정해줘'처럼 말하면 됩니다.
   블록식스·덩어리 시간·우선순위 매트릭스로 일정을 구조화해, 끌려다니던 하루를 내가 짠 하루로 바꾸고 야근을 줄입니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 시간 시스템 (Time System)
 
@@ -96,10 +96,10 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:office-goal-planner**: 목표의 주간 행동을 시간 블록에 배치
-- **moai-cowork:office-habit-routine**: 블록 안에 들어가는 반복 행동을 습관화
-- **moai-cowork:general-self-care**: 과도한 업무량으로 인한 번아웃 점검·조정
-- **moai-cowork:office-retro-builder**: 주간 시간 사용을 가볍게 복기
+- **moai-coworker:office-goal-planner**: 목표의 주간 행동을 시간 블록에 배치
+- **moai-coworker:office-habit-routine**: 블록 안에 들어가는 반복 행동을 습관화
+- **moai-coworker:general-self-care**: 과도한 업무량으로 인한 번아웃 점검·조정
+- **moai-coworker:office-retro-builder**: 주간 시간 사용을 가볍게 복기
 
 ## 이 스킬을 사용하지 말아야 할 때
 

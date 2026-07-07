@@ -4,9 +4,9 @@ description: >
   목표를 막연한 다짐이 아니라 실천 가능한 계획으로 바꿔주는 스킬입니다.
   '신년 목표 세워줘', '12주 계획법으로 쪼개줘', '만다라트 만들어줘', '개인 OKR', '목표를 실천으로'처럼 말하면 됩니다.
   12주 계획·만다라트·개인 OKR 등으로 목표를 잘게 나누고 주간 루틴까지 연결해, "세웠는데 안 하는" 목표를 줄여줍니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 목표 플래너 (Goal Planner)
 
@@ -89,16 +89,16 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:office-habit-routine**: 주간 행동을 습관으로 정착
-- **moai-cowork:office-retro-builder**: 12주 종료 시 회고로 다음 목표 도출
-- **moai-cowork:office-notion-template-kit**: 목표·진척을 노션 대시보드로 관리
-- **moai-cowork:finance-wealth-roadmap**: 재무 목표를 분기 실행 계획으로 연결
+- **moai-coworker:office-habit-routine**: 주간 행동을 습관으로 정착
+- **moai-coworker:office-retro-builder**: 12주 종료 시 회고로 다음 목표 도출
+- **moai-coworker:office-notion-template-kit**: 목표·진척을 노션 대시보드로 관리
+- **moai-coworker:finance-wealth-roadmap**: 재무 목표를 분기 실행 계획으로 연결
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **팀 OKR·로드맵·스프린트 백로그**: 조직 단위 목표 관리는 `moai-product`를 사용한다.
 - **단발성 할 일 정리**: 목표가 아니라 오늘 할 일 정리면 `office-time-system`이 더 맞다.
-- **사업 KPI·매출 목표**: 사업 단위 지표는 `moai-product`·`moai-cowork` 계열로 보낸다.
+- **사업 KPI·매출 목표**: 사업 단위 지표는 `moai-product`·`moai-coworker` 계열로 보낸다.
 
 ## 출처
 

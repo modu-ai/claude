@@ -186,6 +186,6 @@ brief:
 
 ## 페어 스킬 매핑
 
-- 코드 산출: `moai-cowork:commerce-product-detail` (SaaS 가격 페이지 / 데모 신청 폼)
-- 카피: `moai-cowork:commerce-detail-page-copy` (13섹션 → SaaS용 재해석 필요)
-- 후속 권장: 별도 `moai-cowork:marketing-landing-page` (캠페인 단독 페이지)
+- 코드 산출: `moai-coworker:commerce-product-detail` (SaaS 가격 페이지 / 데모 신청 폼)
+- 카피: `moai-coworker:commerce-detail-page-copy` (13섹션 → SaaS용 재해석 필요)
+- 후속 권장: 별도 `moai-coworker:marketing-landing-page` (캠페인 단독 페이지)

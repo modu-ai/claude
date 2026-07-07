@@ -1,6 +1,6 @@
 # 학습자료 CDN 라이브러리 스택 (2026 큐레이션 SSOT)
 
-`moai-cowork:education-learning-material`이 생성하는 HTML 학습자료에서 사용하는 CDN 라이브러리의 **단일 진실(SSOT)**. 영역별 최고 수준 라이브러리를 선정하고, CDN URL·초기화 스니펫·조건부 로딩 규칙을 정의한다.
+`moai-coworker:education-learning-material`이 생성하는 HTML 학습자료에서 사용하는 CDN 라이브러리의 **단일 진실(SSOT)**. 영역별 최고 수준 라이브러리를 선정하고, CDN URL·초기화 스니펫·조건부 로딩 규칙을 정의한다.
 
 ---
 
@@ -29,7 +29,7 @@
 
 ## 폰트 (항상 로드)
 
-explainer 매핑 — 한국어 학습 가독성 우선. `moai-cowork:office-html-report` `references/fonts.md`와 동일 정책.
+explainer 매핑 — 한국어 학습 가독성 우선. `moai-coworker:office-html-report` `references/fonts.md`와 동일 정책.
 
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>

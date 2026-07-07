@@ -9,16 +9,16 @@ description: |
   - "재택근무 도구 비교 카드뉴스 만들어줘"
   - "스타트업 시드 라운드 체크리스트 카드뉴스 써줘"
   - "프롬프트 엔지니어링 FAQ 카드뉴스 기획해줘"
-  주제에 맞는 구성 패턴을 자동으로 골라 4장을 채우고, 이미지 생성은 moai-cowork 이미지 스킬로, 한국어 자연화는 moai-cowork:general-humanize-korean으로 이어집니다.
-version: "4.0.0"
+  주제에 맞는 구성 패턴을 자동으로 골라 4장을 채우고, 이미지 생성은 moai-coworker 이미지 스킬로, 한국어 자연화는 moai-coworker:general-humanize-korean으로 이어집니다.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 카드뉴스 (Card News)
 
 ## 개요
 
-한국 SNS 환경(인스타·스레드·카카오 채널)을 위한 4장 카드뉴스 풀스택 기획 스킬입니다. **10가지 구성 패턴** 중 주제에 가장 적합한 것을 자동 선택하고, **본문 카피·디자인 가이드·이미지 프롬프트·SNS 캡션**을 묶어서 출력합니다. 실제 이미지 렌더링은 `moai-cowork`의 이미지 프롬프트 빌더가 담당합니다.
+한국 SNS 환경(인스타·스레드·카카오 채널)을 위한 4장 카드뉴스 풀스택 기획 스킬입니다. **10가지 구성 패턴** 중 주제에 가장 적합한 것을 자동 선택하고, **본문 카피·디자인 가이드·이미지 프롬프트·SNS 캡션**을 묶어서 출력합니다. 실제 이미지 렌더링은 `moai-coworker`의 이미지 프롬프트 빌더가 담당합니다.
 
 ## 트리거 키워드
 
@@ -90,22 +90,22 @@ version: "4.0.0"
 
 ### 6단계 — 이미지 생성 위임
 
-`moai-cowork` 플러그인의 이미지 프롬프트 빌더에 통합 프롬프트를 전달합니다.
+`moai-coworker` 플러그인의 이미지 프롬프트 빌더에 통합 프롬프트를 전달합니다.
 
 | 위임 스킬 | 모델 | 추천 시점 |
 |---|---|---|
-| **`moai-cowork:media-higgsfield-image`** | **GPT Image 2** (1순위) | **텍스트가 정확히 들어가는 카드뉴스 ★ 권장** — MCP 자동 호출 |
-| `moai-cowork:media-higgsfield-image` | Nano Banana Pro | 보조·fallback |
-| `moai-cowork:media-higgsfield-image` | Soul Cinema | 시네마틱 카드 (글자 비중 낮을 때) |
-| `moai-cowork:media-gpt-image-2-prompt` | OpenAI GPT-image-2 | ChatGPT 외부 도구로 복붙 (MCP 미사용 환경) |
-| `moai-cowork:media-gemini-3-image-prompt` | Google Gemini 3 Image | Google AI Studio 외부 도구로 복붙 |
-| `moai-cowork:media-midjourney-v8-prompt` | Midjourney v8.1 | Discord MJ 사용 (비주얼 임팩트) |
+| **`moai-coworker:media-higgsfield-image`** | **GPT Image 2** (1순위) | **텍스트가 정확히 들어가는 카드뉴스 ★ 권장** — MCP 자동 호출 |
+| `moai-coworker:media-higgsfield-image` | Nano Banana Pro | 보조·fallback |
+| `moai-coworker:media-higgsfield-image` | Soul Cinema | 시네마틱 카드 (글자 비중 낮을 때) |
+| `moai-coworker:media-gpt-image-2-prompt` | OpenAI GPT-image-2 | ChatGPT 외부 도구로 복붙 (MCP 미사용 환경) |
+| `moai-coworker:media-gemini-3-image-prompt` | Google Gemini 3 Image | Google AI Studio 외부 도구로 복붙 |
+| `moai-coworker:media-midjourney-v8-prompt` | Midjourney v8.1 | Discord MJ 사용 (비주얼 임팩트) |
 
 해상도·비율 미지정 시 사용자 확인. 인스타는 1:1 (1080×1080) 권장.
 
 ### 7단계 — 카피 검수 체이닝
 
-- AI 슬롭 표현 회피: `moai-cowork:general-ai-slop-reviewer` 또는 `moai-cowork:general-humanize-korean`
+- AI 슬롭 표현 회피: `moai-coworker:general-ai-slop-reviewer` 또는 `moai-coworker:general-humanize-korean`
 - 사실 확인: 통계·수치·인물 정보는 원출처 검증 필수
 - 한국어 가독성: 한 줄 24자 이내·줄간격 1.5배
 
@@ -225,7 +225,7 @@ CTA: [저장/공유/팔로우/링크/댓글/DM 중 1개]
 
 - AI가 만든 통계·수치·인물·인용 정보는 **반드시 원출처 검증** 후 게시
 - 출처가 불확실한 내용은 "예시", "가설" 등으로 명시
-- AI 슬롭 표현 (혁신적인·차세대·재정의하는 등) 회피 → `moai-cowork:general-humanize-korean` 체이닝 권장
+- AI 슬롭 표현 (혁신적인·차세대·재정의하는 등) 회피 → `moai-coworker:general-humanize-korean` 체이닝 권장
 
 ### 분량 초과 시
 
@@ -258,17 +258,17 @@ CTA: [저장/공유/팔로우/링크/댓글/DM 중 1개]
 
 | 스킬 | 사용 시점 |
 |---|---|
-| `moai-cowork:media-higgsfield-image` | 텍스트 정확 렌더링 카드뉴스 (★ 권장) — GPT Image 2, MCP 자동 호출 |
-| `moai-cowork:media-gpt-image-2-prompt` | 일러스트·캐릭터 강조 |
-| `moai-cowork:media-gemini-3-image-prompt` | Google Gemini 3 Image 외부 도구 복붙 |
-| `moai-cowork:media-midjourney-v8-prompt` | 비주얼 임팩트 중심 |
-| `moai-cowork:media-audio-gen` | 카드뉴스 영상화 시 보이스오버 |
-| `moai-cowork:content-copywriting` | 마케팅 카피·헤드라인 |
-| `moai-cowork:general-humanize-korean` | 한국어 AI 티 정밀 자연화 |
-| `moai-cowork:content-sns-content` | 인스타·스레드·페북 채널별 콘텐츠 |
-| `moai-cowork:marketing-campaign-planner` | 캠페인 단위 시리즈 카드뉴스 |
-| `moai-cowork:general-ai-slop-reviewer` | 텍스트 AI 슬롭 검수 |
-| `moai-cowork:general-cd-slop-check` | 디자인 카피 슬롭 검수 |
+| `moai-coworker:media-higgsfield-image` | 텍스트 정확 렌더링 카드뉴스 (★ 권장) — GPT Image 2, MCP 자동 호출 |
+| `moai-coworker:media-gpt-image-2-prompt` | 일러스트·캐릭터 강조 |
+| `moai-coworker:media-gemini-3-image-prompt` | Google Gemini 3 Image 외부 도구 복붙 |
+| `moai-coworker:media-midjourney-v8-prompt` | 비주얼 임팩트 중심 |
+| `moai-coworker:media-audio-gen` | 카드뉴스 영상화 시 보이스오버 |
+| `moai-coworker:content-copywriting` | 마케팅 카피·헤드라인 |
+| `moai-coworker:general-humanize-korean` | 한국어 AI 티 정밀 자연화 |
+| `moai-coworker:content-sns-content` | 인스타·스레드·페북 채널별 콘텐츠 |
+| `moai-coworker:marketing-campaign-planner` | 캠페인 단위 시리즈 카드뉴스 |
+| `moai-coworker:general-ai-slop-reviewer` | 텍스트 AI 슬롭 검수 |
+| `moai-coworker:general-cd-slop-check` | 디자인 카피 슬롭 검수 |
 
 ## References
 

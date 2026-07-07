@@ -4,19 +4,19 @@ description: >
   한국 이커머스 상세페이지 13섹션 이미지를 자동 생성하고 1080×12720 단일 PNG로 합성하는 스킬입니다.
   "상세페이지 이미지 만들어줘", "13섹션 합성 이미지", "상폐 이미지", "1080 12720 합성"처럼 말하면 됩니다.
   commerce-detail-page-copy의 13섹션 카피와 사용자 상품 사진을 받아 섹션별 이미지 프롬프트를 작성하고,
-  moai-cowork:media-higgsfield-image(Nano Banana Pro 등 11개 모델)로 13장의 이미지를 생성한 뒤
+  moai-coworker:media-higgsfield-image(Nano Banana Pro 등 11개 모델)로 13장의 이미지를 생성한 뒤
   Pillow 기반 자체 합성 스크립트(scripts/compose.py)로 1080×12720 세로 합성 PNG를 만듭니다.
   외부 패키지 설치 불필요 — 합성 로직은 cowork에 자체 구현되어 있습니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 상세페이지 이미지 합성 (Detail Page Image Composer)
 
 ## 개요
 
 13섹션 감정여정 상세페이지 이미지를 생성하고 세로 합성 PNG로 만드는 스킬입니다.
-moai-cowork:media-higgsfield-image를 백엔드로 사용하여 카테고리별 비주얼 톤이 일관된 13장의 섹션 이미지를 만들고,
+moai-coworker:media-higgsfield-image를 백엔드로 사용하여 카테고리별 비주얼 톤이 일관된 13장의 섹션 이미지를 만들고,
 Pillow 단일 의존성으로 1080×12720 단일 합성 이미지를 산출합니다.
 
 ## 트리거 키워드
@@ -30,7 +30,7 @@ combined.png, 상폐 합성본, 이커머스 이미지 합성
    - Python 3.10+ 환경
    - 다른 의존성 없음 (NumPy 불필요)
 
-2. **moai-cowork 플러그인 활성화**: 13섹션 이미지 생성에 media-higgsfield-image 사용
+2. **moai-coworker 플러그인 활성화**: 13섹션 이미지 생성에 media-higgsfield-image 사용
    - 또는 사용자가 별도로 13장의 섹션 이미지를 준비해서 폴더 경로 제공
 
 3. **상품 사진 1-14장**: 실제 상품 레퍼런스 (옵션이지만 권장)
@@ -66,7 +66,7 @@ combined.png, 상폐 합성본, 이커머스 이미지 합성
 - **Filter**: checklist_visual — 체크리스트 시각화
 - **CTA**: urgent_product_reveal — 긴급성 + 가격 강조
 
-### 3단계: 이미지 생성 (moai-cowork:media-higgsfield-image)
+### 3단계: 이미지 생성 (moai-coworker:media-higgsfield-image)
 
 생성 전략:
 - 각 섹션 너비: **1080px**
@@ -154,17 +154,17 @@ python scripts/compose.py \
 
 ## 관련 스킬
 
-- `moai-cowork:commerce-detail-page-copy` — 13섹션 카피 생성 (이 스킬 입력)
-- `moai-cowork:commerce-product-photo-brief` — 상품 사진 사전 분석
+- `moai-coworker:commerce-detail-page-copy` — 13섹션 카피 생성 (이 스킬 입력)
+- `moai-coworker:commerce-product-photo-brief` — 상품 사진 사전 분석
 - 13섹션 이미지 생성 — **Higgsfield MCP**(Soul·시네마틱 이미지·캐릭터) 직접 호출
-- `moai-cowork:commerce-marketplace-coupang` — 채널별 이미지 규격 가이드
+- `moai-coworker:commerce-marketplace-coupang` — 채널별 이미지 규격 가이드
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - 카피만 필요할 때: `commerce-detail-page-copy` 단독 사용
 - 단일 상품 컷만 필요할 때: **Higgsfield MCP** 직접 호출
 - 영상 생성: **Higgsfield MCP**(DOP·Soul) 직접 호출
-- shadcn/ui 기반 웹 상세페이지: `moai-cowork:commerce-product-detail`
+- shadcn/ui 기반 웹 상세페이지: `moai-coworker:commerce-product-detail`
 
 ## 라이선스
 

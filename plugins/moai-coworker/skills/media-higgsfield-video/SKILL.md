@@ -13,9 +13,9 @@ description: |
   - "캐릭터 일관성 있는 아바타 영상"
   Seedance 2.0·Seedance Pro·Cinema Studio 3.5·Kling 2.1 Master·Kling 2.5 Turbo·Kling 3.0·Kling Avatars 2.0·MiniMax Hailuo 02·Google Veo 3·Sora 2·Wan 2.5 11개 공식 영상 모델과 6가지 비디오 프리셋(UGC·Unboxing·Product review·Hyper motion·TV spot·Wild Card), 캐릭터 일관성(Kling Avatars 2.0), 비동기 잡 폴링까지 처리한 완성 영상을 산출합니다.
   실제 영상 생성 요청 시 Higgsfield MCP가 연결돼 있으면 이 스킬을 사용하세요.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # Higgsfield 영상 생성 (media-higgsfield-video)
 
@@ -29,7 +29,7 @@ Higgsfield 영상, Sora 2, Google Veo 3, Kling 2.1 Master, Kling 2.5 Turbo, Klin
 
 ## 전제 — MCP 등록
 
-`moai-cowork` 플러그인 설치 시 `.mcp.json`이 Higgsfield MCP를 자동 등록합니다 (이미지 스킬과 공유). 첫 호출 직전 Cowork에서 OAuth 인증 1회.
+`moai-coworker` 플러그인 설치 시 `.mcp.json`이 Higgsfield MCP를 자동 등록합니다 (이미지 스킬과 공유). 첫 호출 직전 Cowork에서 OAuth 인증 1회.
 
 ## 공식 11개 영상 모델 — 한눈에
 
@@ -333,12 +333,12 @@ duration: 6s
 
 | 스킬 | 시점 |
 |---|---|
-| `moai-cowork:media-higgsfield-image` | 선행: 시작 이미지·캐릭터 reference 생성 |
-| `moai-cowork:media-audio-gen` | 보조: 영상에 추가할 음성·BGM 생성 |
-| `moai-cowork:marketing-landing-page` | 후속: 영상을 랜딩에 배치 |
-| `moai-cowork:marketing-campaign-planner` | 보조: 캠페인 단위 영상 시리즈 |
-| `moai-cowork:commerce-detail-page-image` | 보조: 상세페이지 영상 |
-| `moai-cowork:commerce-live-commerce` | 보조: 라이브 커머스 |
+| `moai-coworker:media-higgsfield-image` | 선행: 시작 이미지·캐릭터 reference 생성 |
+| `moai-coworker:media-audio-gen` | 보조: 영상에 추가할 음성·BGM 생성 |
+| `moai-coworker:marketing-landing-page` | 후속: 영상을 랜딩에 배치 |
+| `moai-coworker:marketing-campaign-planner` | 보조: 캠페인 단위 영상 시리즈 |
+| `moai-coworker:commerce-detail-page-image` | 보조: 상세페이지 영상 |
+| `moai-coworker:commerce-live-commerce` | 보조: 라이브 커머스 |
 
 ## References
 

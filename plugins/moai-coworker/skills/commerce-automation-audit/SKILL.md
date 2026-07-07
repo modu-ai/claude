@@ -7,9 +7,9 @@ description: |
   6대 영역 (A 상품운영 / B 가격&프로모션 / C 주문&정산 / D 재고&물류 / E 마케팅&고객 / F 데이터&경영) 진단 + 자동화 3분류 + 우선순위 점수 (빈도×시간×오류비용÷복잡도) + 5대 KPI + 3 Phase 로드맵.
   general-ai-slop-reviewer 자동 체이닝 (진단 보고서 텍스트 산출물).
   이커머스 운영 자동화 가능성 자가 진단 + 우선순위·로드맵 생성.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 커머스 자동화 진단·로드맵 (Commerce Automation Audit)
 
@@ -83,7 +83,7 @@ version: "4.0.0"
 | B 가격 & 프로모션 | 마진율 자동 계산기 (`commerce-margin-calculator` 연계) |
 | **C 주문 & 정산** | **주문 통합 + 송장 자동 등록** (가장 먼저) |
 | D 재고 & 물류 | 실시간 재고 동기화 |
-| E 마케팅 & 고객 | 광고 리포트 자동 집계 (`moai-cowork:commerce-marketplace-coupang-ads` 연계) |
+| E 마케팅 & 고객 | 광고 리포트 자동 집계 (`moai-coworker:commerce-marketplace-coupang-ads` 연계) |
 | F 데이터 & 경영 | 일매출 대시보드 자동 갱신 (`commerce-morning-brief` 연계) |
 
 > **Insight**: 100% 자동화를 목표로 하기보다, 이 6개 항목만 자동화해도 업무 효율은 3배 이상 증가.

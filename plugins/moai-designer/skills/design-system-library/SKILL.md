@@ -113,9 +113,9 @@ version: 0.1.0
 
 ## 소비자 연동
 
-### office-html-report (moai-cowork)
+### office-html-report (moai-coworker)
 
-`moai-cowork:office-html-report`에 `design_system` 입력 파라미터 추가:
+`moai-coworker:office-html-report`에 `design_system` 입력 파라미터 추가:
 - 미지정 → 기존 0의존 템플릿 (Anthropic 영감 ivory/slate/clay, 하위 호환)
 - `design_system: claude|clickhouse|clay|<75개 중>` → 본 라이브러리에서 토큰 로드 → Tailwind Play CDN + shadcn vanilla 렌더
 

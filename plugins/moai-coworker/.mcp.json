@@ -29,7 +29,7 @@
       "url": "https://mcp.gomdori.app/law?oc=${KOREAN_LAW_OC}"
     },
     "meta-ads": {
-      "$comment": "Meta 공식 Ads AI Connectors (2026-04-29 오픈 베타, hosted at https://mcp.facebook.com/ads). 인증: Meta Business OAuth 2.0 커넥터 흐름 (RFC 9728 protected-resource discovery + RFC 6750 Bearer). Claude 원격 MCP 커넥터로 URL 등록 시 브라우저 OAuth 로그인·광고계정 선택으로 토큰 자동 발급 — 정적 토큰 불필요. scope: ads_management ads_read catalog_management business_management pages_show_list. 개발자/시스템 사용자 정적 토큰은 fallback 전용 (./CONNECTORS.md §Meta Ads). 라이브 운영 스킬: moai-cowork:marketing-meta-ads-manager (Layer 3).",
+      "$comment": "Meta 공식 Ads AI Connectors (2026-04-29 오픈 베타, hosted at https://mcp.facebook.com/ads). 인증: Meta Business OAuth 2.0 커넥터 흐름 (RFC 9728 protected-resource discovery + RFC 6750 Bearer). Claude 원격 MCP 커넥터로 URL 등록 시 브라우저 OAuth 로그인·광고계정 선택으로 토큰 자동 발급 — 정적 토큰 불필요. scope: ads_management ads_read catalog_management business_management pages_show_list. 개발자/시스템 사용자 정적 토큰은 fallback 전용 (./CONNECTORS.md §Meta Ads). 라이브 운영 스킬: moai-coworker:marketing-meta-ads-manager (Layer 3).",
       "type": "http",
       "url": "https://mcp.facebook.com/ads"
     },
@@ -60,7 +60,7 @@
       }
     },
     "kordoc": {
-      "$comment": "한국 공문서 파서 MCP (chrisryugj/kordoc, MIT, 949★) — HWP 3.0/5.x·HWPX·HWPML·PDF·XLSX·DOCX → Markdown. 8도구(parse_document·parse_table·parse_form·fill_form 등). DRM 배포용 복호화, 표 완벽 재현, 신구대조표, 양식 자동 채우기, OCR 연동. 사전 설치: Node.js 18+. 키 불필요. 라이브 스킬: moai-cowork:office-document-reader. 포함 OSS: rhwp(MIT)·OpenDataLoader(Apache-2.0)·pdfjs(Apache-2.0)·cfb(Apache-2.0)·JSZip(MIT).",
+      "$comment": "한국 공문서 파서 MCP (chrisryugj/kordoc, MIT, 949★) — HWP 3.0/5.x·HWPX·HWPML·PDF·XLSX·DOCX → Markdown. 8도구(parse_document·parse_table·parse_form·fill_form 등). DRM 배포용 복호화, 표 완벽 재현, 신구대조표, 양식 자동 채우기, OCR 연동. 사전 설치: Node.js 18+. 키 불필요. 라이브 스킬: moai-coworker:office-document-reader. 포함 OSS: rhwp(MIT)·OpenDataLoader(Apache-2.0)·pdfjs(Apache-2.0)·cfb(Apache-2.0)·JSZip(MIT).",
       "command": "npx",
       "args": [
         "-y",
@@ -69,12 +69,12 @@
       ]
     },
     "korean-stats": {
-      "$comment": "KOSIS 국가데이터처 통계 MCP (chrisryugj/korean-stats-mcp, MIT) — 14도구. 92 키워드 + 100+ 자연어 별칭, 17 시도 + 230+ 자치구 시군 라우팅, 시계열 추세/순위, 출처(통계표 ID) 자동 인용, 추계/잠정치 구분. 공용키 탑재 remote 커넥터(URL만 등록, 사용자 API 키 발급 불필요). 라이브 스킬: moai-cowork:office-public-data-public-data(KOSIS 자연어 조회 우선 라우팅).",
+      "$comment": "KOSIS 국가데이터처 통계 MCP (chrisryugj/korean-stats-mcp, MIT) — 14도구. 92 키워드 + 100+ 자연어 별칭, 17 시도 + 230+ 자치구 시군 라우팅, 시계열 추세/순위, 출처(통계표 ID) 자동 인용, 추계/잠정치 구분. 공용키 탑재 remote 커넥터(URL만 등록, 사용자 API 키 발급 불필요). 라이브 스킬: moai-coworker:office-public-data-public-data(KOSIS 자연어 조회 우선 라우팅).",
       "type": "http",
       "url": "https://mcp.gomdori.app/stats"
     },
     "archhub": {
-      "$comment": "국토교통부 건축HUB MCP (chrisryugj/archhub-mcp, MIT) — 11도구. 건축물대장·건축인허가·주택인허가 + 법정동코드 + 한 필지 종합카드(building_profile)·층별 구성·동 단위 통계·노후건축물·철거멸실(석면)·인허가 파이프라인·공시가격 시계열. 공용키 탑재 remote 커넥터(URL만 등록). data.go.kr 공식 API 실측값, 출처 명시, [NOT_FOUND] 환각방지. 라이브 스킬: moai-cowork:office-building-ledger-search. ⚠️ 엔드포인트 상태(2026-07-07 실측): https://archhub-mcp.fly.dev SSL 접속 실패(SSL_ERROR_SYSCALL, 4회 재시도 실패) — fly.io 머신 콜드스탠바이/일시장애 가능. hosted 복구 시 자동 동작. 미복구 시 로컬 실행 대체: uvx --from git+https://github.com/chrisryugj/archhub-mcp archhub-mcp (ARCHHUB_SERVICE_KEY=data.go.kr 디코딩 인증키 필요, 건축HUB 서비스 활용신청).",
+      "$comment": "국토교통부 건축HUB MCP (chrisryugj/archhub-mcp, MIT) — 11도구. 건축물대장·건축인허가·주택인허가 + 법정동코드 + 한 필지 종합카드(building_profile)·층별 구성·동 단위 통계·노후건축물·철거멸실(석면)·인허가 파이프라인·공시가격 시계열. 공용키 탑재 remote 커넥터(URL만 등록). data.go.kr 공식 API 실측값, 출처 명시, [NOT_FOUND] 환각방지. 라이브 스킬: moai-coworker:office-building-ledger-search. ⚠️ 엔드포인트 상태(2026-07-07 실측): https://archhub-mcp.fly.dev SSL 접속 실패(SSL_ERROR_SYSCALL, 4회 재시도 실패) — fly.io 머신 콜드스탠바이/일시장애 가능. hosted 복구 시 자동 동작. 미복구 시 로컬 실행 대체: uvx --from git+https://github.com/chrisryugj/archhub-mcp archhub-mcp (ARCHHUB_SERVICE_KEY=data.go.kr 디코딩 인증키 필요, 건축HUB 서비스 활용신청).",
       "type": "http",
       "url": "https://archhub-mcp.fly.dev/mcp"
     },

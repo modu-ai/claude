@@ -11,9 +11,9 @@ description: |
   - "접근 전략 수립해줘"
   - "영업 성공 지표 설정해줘"
   타겟 분석·접근 전략·이의처리·성공 지표를 한 문서로 묶고, PPT 변환이나 AI 표현 다듬기로 이어집니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 영업 플레이북 (Sales Playbook)
 
@@ -305,7 +305,7 @@ Gartner: 2026 말 기업 앱의 40%가 AI 에이전트 포함. McKinsey: B2B 영
 
 ### AI 슬롭 후처리
 
-생성된 영업 플레이북은 반드시 `moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean` 체인을 통해 후처리해야 합니다. `moai-cowork:general-ai-slop-reviewer`로 AI 패턴(반복적 표현, 과도한 형용사, 추상적 문장)을 제거하고 `moai-cowork:general-humanize-korean`으로 한국어 표현을 자연스럽게 다듬어 실전 즉시 활용 가능한 구체적이고 명확한 문서로 변환합니다.
+생성된 영업 플레이북은 반드시 `moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean` 체인을 통해 후처리해야 합니다. `moai-coworker:general-ai-slop-reviewer`로 AI 패턴(반복적 표현, 과도한 형용사, 추상적 문장)을 제거하고 `moai-coworker:general-humanize-korean`으로 한국어 표현을 자연스럽게 다듬어 실전 즉시 활용 가능한 구체적이고 명확한 문서로 변환합니다.
 
 **후처리 체크포인트:**
 - [ ] 반복적 표현 제거 ("혁신적인", "최첨단" 등 남용 방지)
@@ -317,11 +317,11 @@ Gartner: 2026 말 기업 앱의 40%가 AI 에이전트 포함. McKinsey: B2B 영
 
 ### 사후 체이닝 (순서대로 실행 권장)
 
-1. **moai-cowork:business-strategy-planner**: 영업 플레이북 생성 전, 제품/서비스의 전략적 포지셔닝을 먼저 수립
-2. **moai-cowork:office-pptx-designer**: 생성된 영업 플레이북 Markdown 문서를 피치덱 형식의 PPT로 변환
-3. **moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean**: 생성된 플레이북 문서의 AI 패턴을 검수·수정한 뒤 한국어 표현을 자연스럽게 다듬습니다 (필수)
+1. **moai-coworker:business-strategy-planner**: 영업 플레이북 생성 전, 제품/서비스의 전략적 포지셔닝을 먼저 수립
+2. **moai-coworker:office-pptx-designer**: 생성된 영업 플레이북 Markdown 문서를 피치덱 형식의 PPT로 변환
+3. **moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean**: 생성된 플레이북 문서의 AI 패턴을 검수·수정한 뒤 한국어 표현을 자연스럽게 다듬습니다 (필수)
 
 ### 대안 스킬
 
-- **moai-cowork:education-grant-writer**: 정부 R&D 과제 제안서가 필요한 경우 사용. 영업 플레이북과 포맷이 다름.
-- **moai-cowork:business-proposal-writer**: 전체 플레이북 대신 단일 영업 제안서만 필요한 경우 사용. 표준 제안서 구조로 단건 제안서를 생성합니다.
+- **moai-coworker:education-grant-writer**: 정부 R&D 과제 제안서가 필요한 경우 사용. 영업 플레이북과 포맷이 다름.
+- **moai-coworker:business-proposal-writer**: 전체 플레이북 대신 단일 영업 제안서만 필요한 경우 사용. 표준 제안서 구조로 단건 제안서를 생성합니다.

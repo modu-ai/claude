@@ -9,10 +9,10 @@ description: |
   - "유튜브 대본 아웃라인 짜줘"
   - "유튜브 채널 기획서 만들어줘"
   - "팟캐스트 포맷 설계해줘"
-  산출물은 에피소드 기획서·스크립트·쇼노트이며, 대본·쇼노트 같은 산문 텍스트는 moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean 체인으로 마무리하세요.
-version: "4.0.0"
+  산출물은 에피소드 기획서·스크립트·쇼노트이며, 대본·쇼노트 같은 산문 텍스트는 moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean 체인으로 마무리하세요.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 유튜브·팟캐스트 기획 (YouTube & Podcast Planner)
 
@@ -190,15 +190,15 @@ AI가 생성한 기획안과 스크립트는 사실 확인 후 사용하세요.
 ## 관련 스킬
 
 - `content-editorial-calendar` — 콘텐츠 발행 캘린더·일정 기획
-- `moai-cowork:content-sns-content` — 소셜미디어 콘텐츠
+- `moai-coworker:content-sns-content` — 소셜미디어 콘텐츠
 - `content-copywriting` — 카피라이팅
-- `moai-cowork:general-ai-slop-reviewer` — 텍스트 산출물 AI 패턴 검수 (1차)
-- `moai-cowork:general-humanize-korean` — 한국어 자연스러움 보정 (2차)
+- `moai-coworker:general-ai-slop-reviewer` — 텍스트 산출물 AI 패턴 검수 (1차)
+- `moai-coworker:general-humanize-korean` — 한국어 자연스러움 보정 (2차)
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - 콘텐츠 발행 일정·캘린더 수립: `content-editorial-calendar` 스킬 사용
-- SNS 텍스트 포스팅: `moai-cowork:content-sns-content` 스킬 사용
+- SNS 텍스트 포스팅: `moai-coworker:content-sns-content` 스킬 사용
 - 블로그 포스팅: `content-blog` 스킬 사용
 - 카드뉴스: `content-card-news` 스킬 사용
 - 광고 카피: `content-copywriting` 스킬 사용

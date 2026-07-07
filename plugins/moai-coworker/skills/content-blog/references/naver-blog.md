@@ -1,6 +1,6 @@
 # 네이버 블로그 최적화 가이드
 
-> moai-cowork | content-blog 참조 가이드 | 2026 기준
+> moai-coworker | content-blog 참조 가이드 | 2026 기준
 
 ## 개요
 

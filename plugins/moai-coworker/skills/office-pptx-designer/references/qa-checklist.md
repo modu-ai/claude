@@ -115,7 +115,7 @@ unoconv -f pdf output.pptx
 
 ### 8. AI 슬롭 카피 검출
 
-`moai-cowork:general-cd-slop-check` 또는 `moai-cowork:general-humanize-korean` 체이닝.
+`moai-coworker:general-cd-slop-check` 또는 `moai-coworker:general-humanize-korean` 체이닝.
 
 영문 Tier 1 슬롭 — 발견 시 수정 권장:
 - "Reimagine your X"

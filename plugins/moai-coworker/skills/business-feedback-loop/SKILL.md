@@ -4,9 +4,9 @@ description: >
   피드백을 건설적으로 주고, 받은 피드백을 감정 상하지 않게 소화하도록 도와주는 스킬입니다.
   '피드백 어떻게 줘야 해', '부정적 피드백 받았는데 속상해', '피드백 전달하는 법', '중간 점검 요청하고 싶어'처럼 말하면 됩니다.
   SBI 구조로 건설적 피드백을 설계하고, 받은 피드백을 사실과 감정으로 분리해 소화하며, 먼저 피드백을 요청하는 법까지 다룹니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 피드백 주고받기 (Feedback Loop)
 
@@ -93,14 +93,14 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:business-negotiation-1on1**: 피드백이 면담·요청으로 이어질 때 대화 설계
-- **moai-cowork:business-report-speak**: 중간 보고로 피드백을 미리 받기
-- **moai-cowork:business-conflict-handler**: 피드백이 갈등으로 번질 때 대응
-- **moai-cowork:business-performance-review**: 공식 성과평가 피드백 면담
+- **moai-coworker:business-negotiation-1on1**: 피드백이 면담·요청으로 이어질 때 대화 설계
+- **moai-coworker:business-report-speak**: 중간 보고로 피드백을 미리 받기
+- **moai-coworker:business-conflict-handler**: 피드백이 갈등으로 번질 때 대응
+- **moai-coworker:business-performance-review**: 공식 성과평가 피드백 면담
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **공식 인사평가·고과 피드백**: 평가 면담은 `moai-cowork:business-performance-review`를 사용한다.
+- **공식 인사평가·고과 피드백**: 평가 면담은 `moai-coworker:business-performance-review`를 사용한다.
 - **개인 회고·자기 점검**: 나 혼자 돌아보는 회고는 `moai-productivity`를 쓴다.
 - **괴롭힘·차별 상황**: 단순 피드백이 아니라 직장 내 괴롭힘이면 인사·고충 채널과 공식 절차로 다룬다.
 

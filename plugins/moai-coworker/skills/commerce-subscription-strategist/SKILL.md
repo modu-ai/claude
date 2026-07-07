@@ -1,13 +1,13 @@
 ---
 name: commerce-subscription-strategist
 description: |
-  [책임 경계] 구독 비즈니스 모델 설계 전담 — 5가지 질문 자기진단 + 구독 모델 분류(소비재·경험·관계·맞춤) + 한국 시장 적합성 진단 + 락인 vs 이탈 방지 메시지. 페어 스킬 moai-cowork:commerce-integrated-strategy(거시 채널·사업 전략)와 명확히 구분 — 본 스킬은 단일 구독 모델 설계, 페어는 전체 채널·사업 전략.
+  [책임 경계] 구독 비즈니스 모델 설계 전담 — 5가지 질문 자기진단 + 구독 모델 분류(소비재·경험·관계·맞춤) + 한국 시장 적합성 진단 + 락인 vs 이탈 방지 메시지. 페어 스킬 moai-coworker:commerce-integrated-strategy(거시 채널·사업 전략)와 명확히 구분 — 본 스킬은 단일 구독 모델 설계, 페어는 전체 채널·사업 전략.
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "구독 모델 설계", "구독 비즈니스 5가지 질문", "오이식스 구독", "VIPS 구독", "맞춤 구독 모델", "락인 vs 이탈 방지", "한국 구독 시장 적합성".
   4 구독 모델: ① 소비재 (오이식스·롯데 새벽배송) ② 경험 (VIPS·CGM) ③ 관계 (배송 멤버십) ④ 맞춤 (영양제·화장품).
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 구독 비즈니스 모델 설계 (Commerce Subscription Strategist)
 
@@ -87,7 +87,7 @@ version: "4.0.0"
 
 ## 후속 체인 (텍스트 산출물 검수)
 
-본 스킬의 가입·온보딩·유지·휴면·이탈 메시지 매트릭스 6단계 카피는 `moai-cowork:general-ai-slop-reviewer`로 자동 후처리 체이닝됩니다. 구독 메시지는 신규 가입·이탈 방지·윈백 등 사용자 의사결정에 직접 영향을 주므로 AI 슬롭 제거가 필수.
+본 스킬의 가입·온보딩·유지·휴면·이탈 메시지 매트릭스 6단계 카피는 `moai-coworker:general-ai-slop-reviewer`로 자동 후처리 체이닝됩니다. 구독 메시지는 신규 가입·이탈 방지·윈백 등 사용자 의사결정에 직접 영향을 주므로 AI 슬롭 제거가 필수.
 
 ```text
 commerce-subscription-strategist → general-ai-slop-reviewer → (선택) commerce-channel-message

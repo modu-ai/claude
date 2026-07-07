@@ -4,9 +4,9 @@ description: >
   한 주나 한 해를 가볍게 돌아보는 회고를 도와주는 스킬입니다.
   '이번 주 회고하고 싶어', 'KPT로 정리해줘', '연말 회고 템플릿', '한 줄 회고', '올해 돌아보기'처럼 말하면 됩니다.
   KPT·한 줄 회고·키워드 회고 등 부담 없는 템플릿으로, 반성·자책이 아니라 가볍게 돌아보고 다음을 정하는 회고를 설계합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 회고 빌더 (Retro Builder)
 
@@ -92,10 +92,10 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:office-goal-planner**: 회고에서 나온 다음 행동을 목표·계획으로 전환
-- **moai-cowork:office-habit-routine**: 회고 루틴 자체를 습관으로 정착
-- **moai-cowork:business-productivity-weekly-report**: 업무 주간보고와 한 주 회고를 함께 운영
-- **moai-cowork:finance-household-budget**: 소비 회고를 개인 회고 루틴에 통합
+- **moai-coworker:office-goal-planner**: 회고에서 나온 다음 행동을 목표·계획으로 전환
+- **moai-coworker:office-habit-routine**: 회고 루틴 자체를 습관으로 정착
+- **moai-coworker:business-productivity-weekly-report**: 업무 주간보고와 한 주 회고를 함께 운영
+- **moai-coworker:finance-household-budget**: 소비 회고를 개인 회고 루틴에 통합
 
 ## 이 스킬을 사용하지 말아야 할 때
 

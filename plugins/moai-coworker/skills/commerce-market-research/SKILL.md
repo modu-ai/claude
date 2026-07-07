@@ -1,14 +1,14 @@
 ---
 name: commerce-market-research
 description: |
-  [책임 경계] 카테고리 시장조사 1장 자동 생성 — 거시·경쟁·검색 3축 리포트. 페어 스킬 moai-cowork:education-grant-writer와 명확히 구분 — 본 스킬은 이커머스 셀러 카테고리 진입 판단, 페어는 정책자금 리서치.
+  [책임 경계] 카테고리 시장조사 1장 자동 생성 — 거시·경쟁·검색 3축 리포트. 페어 스킬 moai-coworker:education-grant-writer와 명확히 구분 — 본 스킬은 이커머스 셀러 카테고리 진입 판단, 페어는 정책자금 리서치.
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "내 카테고리 시장조사 해줘", "경쟁사 동향 알아봐줘", "이 카테고리 진입 검토해줘", "분기 시장 트렌드 뽑아줘", "신상품 카테고리 분석", "쇼핑 트렌드 리서치", "키워드 시장 규모 알아봐줘", "카테고리 기회·위협 분석"
   6대 영역 진단(A-F) + 포지셔닝 5축(품질/가성비/전문성/편의성/가치관) + 새 카테고리 창출 vs 기존 카테고리 경쟁 분석.
   general-ai-slop-reviewer 체이닝 제외 (수치·표 데이터 스킬).
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 카테고리 시장조사 (Commerce Market Research)
 
@@ -144,8 +144,8 @@ version: "4.0.0"
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **정책자금·보조금 리서치**: `moai-cowork:education-grant-writer` 사용
-- **경쟁사 SNS/콘텐츠 분석**: `moai-cowork:content-sns-content` 사용
+- **정책자금·보조금 리서치**: `moai-coworker:education-grant-writer` 사용
+- **경쟁사 SNS/콘텐츠 분석**: `moai-coworker:content-sns-content` 사용
 - **특허·기술 동향 리서치**: 별도 전문 리서치 스킬 사용
 - **광고 성과 분석 (ROAS)**: `commerce-integrated-strategy` 사용
 

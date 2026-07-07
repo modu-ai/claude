@@ -4,9 +4,9 @@ description: >
   작심3일을 꾸준함으로 바꾸도록 습관과 루틴을 설계해주는 스킬입니다.
   '습관 만들고 싶어', '작심3일 극복', '모닝 루틴 짜줘', '습관 트래커', '꾸준히 하는 법'처럼 말하면 됩니다.
   습관 쌓기·트리거 연결·트래커·회복 규칙으로, 의지에 기대지 않고 구조로 반복하게 만드는 루틴을 설계합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 습관·루틴 (Habit & Routine)
 
@@ -93,10 +93,10 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:office-goal-planner**: 목표의 주간 행동을 습관으로 정착
-- **moai-cowork:office-time-system**: 습관을 시간 블록에 배치해 실행 보장
-- **moai-cowork:office-retro-builder**: 끊긴 습관을 가볍게 점검·재설계
-- **moai-cowork:general-self-care**: 무리한 루틴이 번아웃으로 가지 않게 점검
+- **moai-coworker:office-goal-planner**: 목표의 주간 행동을 습관으로 정착
+- **moai-coworker:office-time-system**: 습관을 시간 블록에 배치해 실행 보장
+- **moai-coworker:office-retro-builder**: 끊긴 습관을 가볍게 점검·재설계
+- **moai-coworker:general-self-care**: 무리한 루틴이 번아웃으로 가지 않게 점검
 
 ## 이 스킬을 사용하지 말아야 할 때
 

@@ -4,9 +4,9 @@ description: >
   회의가 산으로 가지 않게 아젠다를 짜고 결론까지 끌고 가는 진행을 도와주는 스킬입니다.
   '회의 아젠다 짜줘', '이 회의 어떻게 진행하지', '회의가 자꾸 산으로 가', '의사결정 회의 준비', '회의록 정리'처럼 말하면 됩니다.
   목적 정의 → 아젠다 설계 → 진행 규칙 → 의사결정 → 회의록·후속 액션의 5단계로 결론이 남는 회의를 설계합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 회의 진행·퍼실리테이션 (Meeting Facilitator)
 
@@ -96,14 +96,14 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:business-report-speak**: 회의에서 결론 먼저 발제·보고
-- **moai-cowork:business-negotiation-1on1**: 회의 전 핵심 인물과 사전 정렬·설득
-- **moai-cowork:business-conflict-handler**: 회의 중 충돌·발언 독점 대응
-- **moai-cowork:office-docx-generator**: 회의록을 정식 문서로 정리
+- **moai-coworker:business-report-speak**: 회의에서 결론 먼저 발제·보고
+- **moai-coworker:business-negotiation-1on1**: 회의 전 핵심 인물과 사전 정렬·설득
+- **moai-coworker:business-conflict-handler**: 회의 중 충돌·발언 독점 대응
+- **moai-coworker:office-docx-generator**: 회의록을 정식 문서로 정리
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **회의록·기획서 문서 작성**: 글 산출물은 `moai-cowork`를 쓴다. 이 스킬은 진행 설계에 집중한다.
+- **회의록·기획서 문서 작성**: 글 산출물은 `moai-coworker`를 쓴다. 이 스킬은 진행 설계에 집중한다.
 - **개인 일정·할 일 관리**: 내 작업 계획은 `moai-productivity`를 사용한다.
 - **워크숍·교육 프로그램 설계**: 장시간 퍼실리테이션 커리큘럼은 별도 설계가 필요하다.
 

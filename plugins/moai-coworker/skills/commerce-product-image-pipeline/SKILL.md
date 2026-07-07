@@ -7,9 +7,9 @@ description: |
   4단계 체인: ① 캐릭터 등록 (선택, Higgsfield Soul Characters 브랜드 캐릭터 일관성) → ② media-higgsfield-image (상품 이미지 5-10장) → ③ media-higgsfield-video (시네마틱 영상 5-10초) → ④ 채널 규격 변환 (메타·네이버·카카오, Pillow 자체 처리).
   페어 스킬 commerce-detail-page-image(13섹션 합성 PNG)와 명확히 구분 — 본 스킬은 모델 체인 오케스트레이션, 페어는 단일 합성.
   general-ai-slop-reviewer 체이닝 제외 (이미지·영상 산출물).
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 상품 이미지·영상 풀스택 파이프라인 (Product Image Pipeline)
 
@@ -205,9 +205,9 @@ version: "4.0.0"
 ## 관련 스킬
 
 체이닝 (본 스킬이 오케스트레이션):
-- Higgsfield Soul Characters 캐릭터 등록 — Step 1 (선택, `moai-cowork:media-higgsfield-image` 캐릭터 일관성 기능)
-- `moai-cowork:media-higgsfield-image` — Step 2 (Soul)
-- `moai-cowork:media-higgsfield-video` — Step 3 (DOP)
+- Higgsfield Soul Characters 캐릭터 등록 — Step 1 (선택, `moai-coworker:media-higgsfield-image` 캐릭터 일관성 기능)
+- `moai-coworker:media-higgsfield-image` — Step 2 (Soul)
+- `moai-coworker:media-higgsfield-video` — Step 3 (DOP)
 - 채널 규격 변환 + AI 생성 표기 — Step 4 (Pillow 자체 처리)
 
 연계 (사용자가 별도 호출):
@@ -218,8 +218,8 @@ version: "4.0.0"
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **13섹션 합성 PNG 1장**: `commerce-detail-page-image` 사용
-- **단일 이미지 생성**: `moai-cowork:media-higgsfield-image` 직접 호출
-- **단일 영상 생성**: `moai-cowork:media-higgsfield-video` 직접 호출
+- **단일 이미지 생성**: `moai-coworker:media-higgsfield-image` 직접 호출
+- **단일 영상 생성**: `moai-coworker:media-higgsfield-video` 직접 호출
 - **광고 영상 카테고리 라우팅**: **Higgsfield MCP**(DOP) 직접 호출
 
 ## 참고 자료

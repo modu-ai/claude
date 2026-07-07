@@ -28,7 +28,7 @@ marketing-meta-ads-analyzer (소재 노후화 감지 + 방향 제시)
        ↓ 모듈 6 결과 전달
 meta-ads-creative-generator (신규 소재 카피 생성)
        ↓
-moai-cowork:general-ai-slop-reviewer (AI 슬롭 검수)
+moai-coworker:general-ai-slop-reviewer (AI 슬롭 검수)
 ```
 
 **포함될 기능 (계획)**:
@@ -83,7 +83,7 @@ meta-ads-curriculum-builder (강의자료·실습 문제 자동 생성)
 - 강의 진행 순서별 포인트 정리
 - Q&A 예상 문제 및 모범 답안
 
-**연계 가능성**: moai-cowork 플러그인 (향후) 과 연계.
+**연계 가능성**: moai-coworker 플러그인 (향후) 과 연계.
 
 ---
 

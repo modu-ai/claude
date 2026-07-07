@@ -1,6 +1,6 @@
 # SEO vs GEO: 검색 엔진 최적화와 생성형 AI 검색 최적화
 
-> moai-cowork | content-blog 참조 가이드 | 2026 기준
+> moai-coworker | content-blog 참조 가이드 | 2026 기준
 
 ## 개요
 

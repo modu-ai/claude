@@ -4,9 +4,9 @@ description: >
   노션 올인원 업무관리·목표·회고 템플릿의 구조를 설계해주는 스킬입니다.
   '노션 템플릿 만들어줘', '올인원 업무관리 대시보드', '노션 목표 관리', '노션 회고 템플릿', '노션 구조 짜줘'처럼 말하면 됩니다.
   데이터베이스·뷰·속성 구조를 설계해, 흩어진 메모를 한곳에 모으는 노션 대시보드의 뼈대를 만들어줍니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 노션 템플릿 키트 (Notion Template Kit)
 
@@ -95,15 +95,15 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:office-goal-planner**: 목표·핵심 결과를 노션 DB로 관리
-- **moai-cowork:office-retro-builder**: 회고 양식을 노션 회고 DB로 구조화
-- **moai-cowork:office-habit-routine**: 습관 트래커를 노션 뷰로 시각화
-- **moai-cowork:business-productivity-weekly-report**: 업무일지 DB를 주간보고 작성에 활용
+- **moai-coworker:office-goal-planner**: 목표·핵심 결과를 노션 DB로 관리
+- **moai-coworker:office-retro-builder**: 회고 양식을 노션 회고 DB로 구조화
+- **moai-coworker:office-habit-routine**: 습관 트래커를 노션 뷰로 시각화
+- **moai-coworker:business-productivity-weekly-report**: 업무일지 DB를 주간보고 작성에 활용
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **팀 협업 워크스페이스·권한 설계**: 조직 단위 노션은 `moai-product`를 사용한다.
-- **노션 외 도구(엑셀·구글시트) 표 생성**: 문서 산출물은 `moai-cowork` 계열로 보낸다.
+- **노션 외 도구(엑셀·구글시트) 표 생성**: 문서 산출물은 `moai-coworker` 계열로 보낸다.
 - **코드·DB 스키마 설계**: 소프트웨어 데이터 모델은 `moai-core`/백엔드 도메인이 맞다.
 
 ## 출처

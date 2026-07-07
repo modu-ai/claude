@@ -6,9 +6,9 @@ description: >
   "상품 사진 분석해줘", "촬영 브리프 만들어줘", "부족한 컷 알려줘", "어떤 사진이 더 필요해?"처럼 말하면 됩니다.
   형태·소재·색상·시그니처 앵글·포지셔닝(mass/premium_indie/luxury)을 추출하고,
   13섹션별 사용 가능한 컷 매핑 + 추가 촬영 권장 리스트를 산출합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 상품 사진 사전 브리프 (Product Photo Brief)
 
@@ -173,15 +173,15 @@ ProductDNA, 사진 점검, 추가 촬영, 어떤 사진이 더 필요
 
 ## 관련 스킬
 
-- `moai-cowork:commerce-detail-page-copy` — 13섹션 카피 (이 스킬의 ProductDNA 활용)
-- `moai-cowork:commerce-detail-page-image` — 이미지 생성·합성
-- `moai-cowork:media-higgsfield-image` — 부족한 컷을 AI로 생성하고 싶을 때 (실사 촬영 대체)
-- `moai-cowork:marketing-landing-page` — 웹용 상세페이지
+- `moai-coworker:commerce-detail-page-copy` — 13섹션 카피 (이 스킬의 ProductDNA 활용)
+- `moai-coworker:commerce-detail-page-image` — 이미지 생성·합성
+- `moai-coworker:media-higgsfield-image` — 부족한 컷을 AI로 생성하고 싶을 때 (실사 촬영 대체)
+- `moai-coworker:marketing-landing-page` — 웹용 상세페이지
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - 카피만 필요할 때: `commerce-detail-page-copy` 사용
-- 이미지 생성: `moai-cowork:media-higgsfield-image` 사용
+- 이미지 생성: `moai-coworker:media-higgsfield-image` 사용
 - 마켓 등록 가이드: `commerce-marketplace-coupang` 또는 `commerce-marketplace-naver`
 
 ## 주의사항

@@ -4,9 +4,9 @@ description: |
   [책임 경계] 신생 브랜드의 충성 100명 부트스트랩 전담 — '잘 만든 충성 고객 100명, 1만 고객 부럽지 않다' 원칙 + 블랭크 사례 + 강아지 가방 케이스 분석 + 100명→1만 전환 로드맵. 페어 스킬 commerce-promotion-planner(전체 프로모션 기획)와 명확히 구분 — 본 스킬은 신생 부트스트랩 전용.
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "충성 100명 만들기", "신생 브랜드 부트스트랩", "블랭크 사례", "강아지 가방 케이스", "얼리어답터 100명", "초기 팬 구축", "100명에서 1만명으로".
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 충성 100명 부트스트랩 (Commerce Early Fan Builder)
 
@@ -102,7 +102,7 @@ version: "4.0.0"
 
 ## 후속 체인 (텍스트 산출물 검수)
 
-본 스킬의 1:1 손편지 초안·DM 메시지·비공개 채널 안내·100명 라이브 스크립트 등 모든 진심 메시지 텍스트는 `moai-cowork:general-ai-slop-reviewer`로 자동 후처리 체이닝됩니다. "잘 만든 충성 고객 100명" 원칙은 진정성에 좌우되므로 AI 패턴(과한 형용사·번역체·hype 어휘) 제거가 특히 중요. 손편지는 ai-slop 검수 후 손글씨로 옮기는 흐름 권장.
+본 스킬의 1:1 손편지 초안·DM 메시지·비공개 채널 안내·100명 라이브 스크립트 등 모든 진심 메시지 텍스트는 `moai-coworker:general-ai-slop-reviewer`로 자동 후처리 체이닝됩니다. "잘 만든 충성 고객 100명" 원칙은 진정성에 좌우되므로 AI 패턴(과한 형용사·번역체·hype 어휘) 제거가 특히 중요. 손편지는 ai-slop 검수 후 손글씨로 옮기는 흐름 권장.
 
 ```text
 commerce-early-fan-builder → general-ai-slop-reviewer → (수기 옮기기 또는) commerce-channel-message

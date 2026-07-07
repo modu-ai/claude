@@ -12,9 +12,9 @@ description: |
   - "분기 보고서를 깔끔한 톤으로 워드로 뽑아줘"
   Claude 브랜드 톤 기반 모던 디자인 시스템과 한국 공문서 표준 양식을 함께 지원하며, 텍스트가 끝나면 AI 슬롭 검수로 자연스럽게 다듬을 수 있습니다.
   보고서·문서를 워드(.docx) 파일로 만들 때는 Claude 기본 생성 대신 이 스킬을 사용하세요 (서식·디자인 보존).
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 워드 문서 생성기 (DOCX Generator)
 
@@ -152,7 +152,7 @@ for run in title.runs:
 7. 이미지 캡션 일관 (위치·형식)
 8. 단락 간 여백 일관 (수동 빈 줄 사용 금지)
 9. 표 셀 텍스트 줄바꿈 정상 (overflow 없음)
-10. AI 슬롭 표현 없음 (혁신적인·차세대·재정의하는 등 — `moai-cowork:general-cd-slop-check` 체이닝 권장)
+10. AI 슬롭 표현 없음 (혁신적인·차세대·재정의하는 등 — `moai-coworker:general-cd-slop-check` 체이닝 권장)
 
 ## 모던 디자인 패턴 6종
 
@@ -243,7 +243,7 @@ Orange 작은 도형 + Mid Gray 가로선 + 섹션 번호.
 
 ### HWPX 대안 사용
 
-한컴오피스 없는 환경에서 공문서가 필요한 경우 DOCX로 대체 가능합니다. 한컴 변환이 필요한 경우 `moai-cowork:office-hwpx-writer` 스킬 참조.
+한컴오피스 없는 환경에서 공문서가 필요한 경우 DOCX로 대체 가능합니다. 한컴 변환이 필요한 경우 `moai-coworker:office-hwpx-writer` 스킬 참조.
 
 ### 공문서 규정 준수
 
@@ -281,13 +281,13 @@ Orange 작은 도형 + Mid Gray 가로선 + 섹션 번호.
 
 | 스킬 | 사용 시점 |
 |---|---|
-| `moai-cowork:office-pptx-designer` | 발표용 슬라이드 생성 (같은 Claude 톤 디자인 시스템 공유) |
-| `moai-cowork:office-hwpx-writer` | 한컴 한글 문서 생성 (HWPX) |
-| `moai-cowork:office-xlsx-creator` | 엑셀 데이터 시트 |
-| `moai-cowork:office-pdf-writer` | PDF 변환·다국어 PDF |
-| `moai-cowork:general-humanize-korean` | 카피 AI 슬롭 자연화 |
-| `moai-cowork:general-ai-slop-reviewer` | 텍스트 산출물 슬롭 검수 |
-| `moai-cowork:general-cd-slop-check` | Claude Design 톤과 일관성 검수 |
+| `moai-coworker:office-pptx-designer` | 발표용 슬라이드 생성 (같은 Claude 톤 디자인 시스템 공유) |
+| `moai-coworker:office-hwpx-writer` | 한컴 한글 문서 생성 (HWPX) |
+| `moai-coworker:office-xlsx-creator` | 엑셀 데이터 시트 |
+| `moai-coworker:office-pdf-writer` | PDF 변환·다국어 PDF |
+| `moai-coworker:general-humanize-korean` | 카피 AI 슬롭 자연화 |
+| `moai-coworker:general-ai-slop-reviewer` | 텍스트 산출물 슬롭 검수 |
+| `moai-coworker:general-cd-slop-check` | Claude Design 톤과 일관성 검수 |
 
 ## 기술 참조
 

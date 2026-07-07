@@ -4,9 +4,9 @@ description: >
   나에게 꼭 필요한 보험만 남기고 과보험·중복을 정리하도록 돕는 스킬입니다.
   '보험 점검해줘', '실손 꼭 들어야 해', '암보험 필요할까', '보험료가 너무 많아', '보험 리모델링'처럼 말하면 됩니다.
   필요한 보험 진단(실손·암·종신·연금), 과보험·중복 점검, 생애주기별 우선순위, 보험 리모델링을 한국 보험 기준으로 안내합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 보험 설계 (Insurance Fit)
 
@@ -91,7 +91,7 @@ version: "4.0.0"
 
 - **moai-wealth/finance-household-budget**: 보험료를 고정비 다이어트 관점에서 점검
 - **moai-wealth/finance-wealth-roadmap**: 보장·저축·투자 역할 분리
-- **moai-cowork/finance-tax-helper**: 보장성 보험료 세액공제 등 세무 처리
+- **moai-coworker/finance-tax-helper**: 보장성 보험료 세액공제 등 세무 처리
 
 ## 이 스킬을 사용하지 말아야 할 때
 

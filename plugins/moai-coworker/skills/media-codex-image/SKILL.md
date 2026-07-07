@@ -10,14 +10,14 @@ description: |
   - "로컬에서 이미지 생성", "ChatGPT 구독 한도로 이미지"
   - "/media-codex-image" (직접 호출)
 
-  프롬프트가 복잡하거나 한국어 텍스트가 들어가면 `moai-cowork:media-gpt-image-2-prompt`(6-Block 프롬프트 빌더)로 먼저 프롬프트를 빌드한 뒤 이 스킬로 생성하세요. Higgsfield MCP가 연결돼 있지 않거나 로컬 개발·ChatGPT 구독 한도 재사용이 목적이면 이 스킬을 사용합니다 (프로덕션·CI·멱등은 `media-higgsfield-image` 권장).
-version: "4.0.0"
+  프롬프트가 복잡하거나 한국어 텍스트가 들어가면 `moai-coworker:media-gpt-image-2-prompt`(6-Block 프롬프트 빌더)로 먼저 프롬프트를 빌드한 뒤 이 스킬로 생성하세요. Higgsfield MCP가 연결돼 있지 않거나 로컬 개발·ChatGPT 구독 한도 재사용이 목적이면 이 스킬을 사용합니다 (프로덕션·CI·멱등은 `media-higgsfield-image` 권장).
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # media-codex-image — codex CLI(gpt-image-2) 이미지 생성기
 
-> moai-cowork | 로컬 이미지 생성 (codex CLI OAuth, API 키 불필요)
+> moai-coworker | 로컬 이미지 생성 (codex CLI OAuth, API 키 불필요)
 
 ## 개요
 
@@ -130,16 +130,16 @@ gpt-image-2의 한국어 렌더링 정확도를 극대화하려면 **따옴표 +
 codex exec "Use \$imagegen. Text (verbatim, 한글): '2026년 분기 실적'. Typography: bold sans 한글, 검정, 상단 중앙. Require verbatim rendering, no extra characters. quality high, size 1536x1024, save to ./slide-q1.png"
 ```
 
-> 한국어 텍스트 정확도 규칙은 `moai-cowork:media-gpt-image-2-prompt`의 `references/text-rendering.md`와 동일한 원칙을 따릅니다.
+> 한국어 텍스트 정확도 규칙은 `moai-coworker:media-gpt-image-2-prompt`의 `references/text-rendering.md`와 동일한 원칙을 따릅니다.
 
 ## 6-Block 프롬프트 체이닝 (권장)
 
 복잡한 장면이나 에디토리얼 품질이 필요하면 `media-gpt-image-2-prompt`로 먼저 프롬프트를 빌드하세요:
 
 ```
-사용자 자연어 → moai-cowork:media-gpt-image-2-prompt (6-Block 프롬프트 빌드)
+사용자 자연어 → moai-coworker:media-gpt-image-2-prompt (6-Block 프롬프트 빌드)
                     ↓ 산출: 6-Block 자연어 단락
-              moai-cowork:media-codex-image (해당 프롬프트로 codex exec 호출 → gpt-image-2 생성)
+              moai-coworker:media-codex-image (해당 프롬프트로 codex exec 호출 → gpt-image-2 생성)
 ```
 
 이 흐름은 `media-higgsfield-image` 경로와 동일한 프롬프트 SSOT를 공유합니다 — 같은 프롬프트로 Higgsfield(GPT Image 2) 또는 codex(gpt-image-2) 백엔드를 선택해 생성할 수 있습니다.
@@ -154,9 +154,9 @@ codex exec "Use \$imagegen. Text (verbatim, 한글): '2026년 분기 실적'. Ty
 | 비용 | Higgsfield 크레딧 | ChatGPT 구독 한도 |
 | 적합 | 프로덕션·CI·멱등·무인 자동화 | 로컬 개발·구독 한도 재사용·API 키 회피 |
 | 모델 범위 | 11종(Soul·Nano Banana Pro·GPT Image 2·Seedream 등) | gpt-image-2 단일 |
-| MCP 의존 | 필요 (`moai-cowork/.mcp.json`) | 불필요 (codex CLI 별도 설치) |
+| MCP 의존 | 필요 (`moai-coworker/.mcp.json`) | 불필요 (codex CLI 별도 설치) |
 
-상세 백엔드 정책은 [`moai-cowork:office-html-slide` references/image-backend-policy.md](../../../moai-cowork/skills/office-html-slide/references/image-backend-policy.md) 참조.
+상세 백엔드 정책은 [`moai-coworker:office-html-slide` references/image-backend-policy.md](../../../moai-coworker/skills/office-html-slide/references/image-backend-policy.md) 참조.
 
 ## 출력
 
@@ -236,4 +236,4 @@ gpt-image-2는 reasoning-driven 모델로 **art-director 어조의 자연어 단
 - [OpenAI Cookbook — GPT Image Generation Models Prompting Guide](https://developers.openai.com/cookbook/examples/multimodal/image-gen-models-prompting-guide) — 6-Block 프롬프트 구조
 
 참고 스킬 (MIT):
-- [wjb127/codex-image](https://github.com/wjb127/codex-image) — Claude Code 스킬, OAuth 브릿지 패턴·옵션·출력 파일명 규약 참고. 본 스킬은 wjb127의 핵심 인사이트(OAuth→REST 401, codex exec 브릿지)를 채택하고 moai-cowork 정책(6-Block 체이닝·한국어 verbatim·higgsfield 백엔드 선택)으로 확장했습니다.
+- [wjb127/codex-image](https://github.com/wjb127/codex-image) — Claude Code 스킬, OAuth 브릿지 패턴·옵션·출력 파일명 규약 참고. 본 스킬은 wjb127의 핵심 인사이트(OAuth→REST 401, codex exec 브릿지)를 채택하고 moai-coworker 정책(6-Block 체이닝·한국어 verbatim·higgsfield 백엔드 선택)으로 확장했습니다.

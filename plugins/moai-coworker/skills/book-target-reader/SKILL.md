@@ -320,15 +320,15 @@ JTBD와 페인포인트 매트릭스 만들어줘.
 - `book-proposal-writer` — 출판사 투고용 제안서 (페르소나·JTBD 인용)
 
 ### Alternative
-- `moai-cowork:commerce-jtbd-persona` — 이커머스 상품용 JTBD·페르소나 (도서 외)
-- `moai-cowork:marketing-campaign-planner` — 마케팅 캠페인 페르소나
+- `moai-coworker:commerce-jtbd-persona` — 이커머스 상품용 JTBD·페르소나 (도서 외)
+- `moai-coworker:marketing-campaign-planner` — 마케팅 캠페인 페르소나
 
 ### Post (검수 — 정규 체인)
-- `moai-cowork:office-korean-spell-check` — 한글 맞춤법
-- `moai-cowork:general-ai-slop-reviewer` — AI 슬롭 검수 (필수)
-- `moai-cowork:general-humanize-korean` — AI 티 정밀 윤문 (필수)
+- `moai-coworker:office-korean-spell-check` — 한글 맞춤법
+- `moai-coworker:general-ai-slop-reviewer` — AI 슬롭 검수 (필수)
+- `moai-coworker:general-humanize-korean` — AI 티 정밀 윤문 (필수)
 
-> JTBD·페인포인트 매트릭스 같은 표는 데이터 출력이지만 **페르소나 카드 서술·카피 적용 가이드**는 산문입니다. 페르소나 산문은 정규 체인 **`book-target-reader → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean`**으로 마무리합니다.
+> JTBD·페인포인트 매트릭스 같은 표는 데이터 출력이지만 **페르소나 카드 서술·카피 적용 가이드**는 산문입니다. 페르소나 산문은 정규 체인 **`book-target-reader → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean`**으로 마무리합니다.
 
 ## 10. 출처
 
@@ -350,4 +350,4 @@ GOOS Obsidian vault의 "타깃·페르소나·JTBD·독자 분석" 영역에서 
 
 **버전 히스토리**
 
-- v2.9.0 (2026-05-17): 신규 스킬 도입. moai-cowork 플러그인 2번 워크플로우. JTBD 3 차원 + 페인포인트 매트릭스 + 4 장르 프리셋 + 한국 2026 독자 컨텍스트.
+- v2.9.0 (2026-05-17): 신규 스킬 도입. moai-coworker 플러그인 2번 워크플로우. JTBD 3 차원 + 페인포인트 매트릭스 + 4 장르 프리셋 + 한국 2026 독자 컨텍스트.

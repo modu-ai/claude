@@ -10,10 +10,10 @@ description: |
   - "이 주제 시각적으로 풍부하게 설명 자료 만들어줘"
   - "브라우저에서 바로 보는 학습 노트 HTML로 만들어줘"
   학습 전용 렌더러로, office-html-report design-token·폰트를 공유해 시각 일관성을 유지하되 mermaid·ECharts·KaTeX·highlight.js·AOS를 콘텐츠가 쓸 때만 조건부 로딩합니다.
-  [책임 경계] vs moai-cowork:office-html-report: 이 스킬=도식·차트·코드가 풍부한 학습자료(JS 라이브러리 허용), 저 스킬=0-JS 단일파일 업무 보고서.
-version: "4.0.0"
+  [책임 경계] vs moai-coworker:office-html-report: 이 스킬=도식·차트·코드가 풍부한 학습자료(JS 라이브러리 허용), 저 스킬=0-JS 단일파일 업무 보고서.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 학습자료 렌더러 (Learning Material)
 
@@ -54,7 +54,7 @@ version: "4.0.0"
 ### 자체 완결 단일 파일
 
 - 외부 의존: 폰트 CDN + (콘텐츠가 쓸 때만) 라이브러리 CDN. 그 외 자산 인라인.
-- `:root` 디자인 토큰은 `moai-cowork:office-html-report`의 `references/design-tokens.md`를 그대로 사용(Anthropic 영감 팔레트).
+- `:root` 디자인 토큰은 `moai-coworker:office-html-report`의 `references/design-tokens.md`를 그대로 사용(Anthropic 영감 팔레트).
 - 폰트는 explainer 매핑: 본문 Noto Sans KR · 제목 Noto Serif KR · 코드 JetBrains Mono (`references/cdn-libraries.md` 폰트 절 참조).
 - `@media print` 블록 포함(인쇄·PDF 저장 대비).
 
@@ -126,22 +126,22 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:education-tutor-research**: 이 스킬의 입력 종합본을 만든다
-- **moai-cowork:education-learning-project**: 생성된 자료를 materials/에 보관하고 진도를 갱신한다
+- **moai-coworker:education-tutor-research**: 이 스킬의 입력 종합본을 만든다
+- **moai-coworker:education-learning-project**: 생성된 자료를 materials/에 보관하고 진도를 갱신한다
 - **참고**: `references/cdn-libraries.md` — CDN 라이브러리 스택 SSOT
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **0-JS 단일파일 업무 보고서**(현황·재무·인시던트·PR) → `moai-cowork:office-html-report`
-- **발표용 슬라이드** → `moai-cowork:office-pptx-designer`
-- **인쇄·제출용 문서(.docx)** → `moai-cowork:office-docx-generator`
+- **0-JS 단일파일 업무 보고서**(현황·재무·인시던트·PR) → `moai-coworker:office-html-report`
+- **발표용 슬라이드** → `moai-coworker:office-pptx-designer`
+- **인쇄·제출용 문서(.docx)** → `moai-coworker:office-docx-generator`
 
 
 ## 한국어 카피 품질 게이트 (필수)
 
 본 스킬이 산출하는 한국어 텍스트는 배포 전 의무 게이트를 통과합니다:
 
-1. `moai-cowork:general-ai-slop-reviewer` — 1차 일반 AI 슬롭 검수 (금지어, 구조 패턴, 리듬)
-2. `moai-cowork:general-humanize-korean` — 2차 한국어 정밀 윤문 (40+ 패턴 SSOT, 의미 불변)
+1. `moai-coworker:general-ai-slop-reviewer` — 1차 일반 AI 슬롭 검수 (금지어, 구조 패턴, 리듬)
+2. `moai-coworker:general-humanize-korean` — 2차 한국어 정밀 윤문 (40+ 패턴 SSOT, 의미 불변)
 
 두 게이트는 대시 대비 헤드라인·조사·체언 종결 조각문·"A에서 B로" 전환 공식 S1 패턴을 잡아냅니다. 게이트 통과 없이 산출물을 바로 배포하지 않습니다.

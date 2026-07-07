@@ -208,6 +208,6 @@ brief:
 
 ## 페어 스킬 매핑
 
-- 코드: `moai-cowork:commerce-product-detail` (일정 표·지도 컴포넌트)
-- 카피: `moai-cowork:commerce-detail-page-copy` (감각·시간 묘사 강조)
-- 후속 권장: `moai-cowork:content-newsletter` (예약 후 안내·체크리스트 이메일)
+- 코드: `moai-coworker:commerce-product-detail` (일정 표·지도 컴포넌트)
+- 카피: `moai-coworker:commerce-detail-page-copy` (감각·시간 묘사 강조)
+- 후속 권장: `moai-coworker:content-newsletter` (예약 후 안내·체크리스트 이메일)

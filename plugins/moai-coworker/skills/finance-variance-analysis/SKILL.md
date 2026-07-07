@@ -4,9 +4,9 @@ description: >
   예산과 실적 차이를 분석해주는 스킬입니다.
   '예산 대비 실적 분석해줘', '매출 미달 원인 찾아줘', '비용 초과 분석해줘'처럼 말하면 됩니다.
   매출·비용·이익 항목별 분산 원인 분석, KPI 추적, 수익성 개선 권고안 도출을 지원합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 분산 분석 (Variance Analysis)
 
@@ -157,26 +157,26 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:finance-financial-statements**: K-IFRS 재무제표 작성
-- **moai-cowork:finance-close-management**: 월말·급여 결산 업무
-- **moai-cowork:finance-tax-helper**: 세금 신고, 홈택스 안내
+- **moai-coworker:finance-financial-statements**: K-IFRS 재무제표 작성
+- **moai-coworker:finance-close-management**: 월말·급여 결산 업무
+- **moai-coworker:finance-tax-helper**: 세금 신고, 홈택스 안내
 
 ### 후처리 체인 (분산 분석 보고서·경영진 요약·개선 권고안 등 서술형 산출물)
 
 경영진 요약, 원인 분석 코멘트, 개선 권고안, 수정 전망 설명문처럼 문장 산출물을 작성한 뒤에는 아래 체인으로 마무리한다.
 
 ```
-finance-variance-analysis (보고서 서술 부분) → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean
+finance-variance-analysis (보고서 서술 부분) → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
 ```
 
-- **moai-cowork:general-ai-slop-reviewer**: AI 티 나는 표현·과장·상투구 검수 및 수정
-- **moai-cowork:general-humanize-korean**: 한국어 자연스러움 보정 (서술 산출물 한정)
+- **moai-coworker:general-ai-slop-reviewer**: AI 티 나는 표현·과장·상투구 검수 및 수정
+- **moai-coworker:general-humanize-korean**: 한국어 자연스러움 보정 (서술 산출물 한정)
 
-> 분산 분석 요약표·KPI 대시보드 같은 표·숫자 산출물 자체는 체인 대상이 아니며, 엑셀화가 필요하면 `moai-cowork:office-xlsx-creator`, 시각화가 필요하면 `moai-cowork:office-data-visualizer`로 라우팅한다. 체인은 표를 둘러싼 해설·권고·요약 문장에만 적용한다.
+> 분산 분석 요약표·KPI 대시보드 같은 표·숫자 산출물 자체는 체인 대상이 아니며, 엑셀화가 필요하면 `moai-coworker:office-xlsx-creator`, 시각화가 필요하면 `moai-coworker:office-data-visualizer`로 라우팅한다. 체인은 표를 둘러싼 해설·권고·요약 문장에만 적용한다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **재무제표 공식 작성**: K-IFRS 기준 재무제표 작성은 `moai-cowork:finance-financial-statements` 스킬을 사용하세요.
-- **월말 결산·급여 정산**: 회계 마감 업무는 `moai-cowork:finance-close-management` 스킬이 더 적합합니다.
-- **세금 계산**: 세무 관련 문의는 `moai-cowork:finance-tax-helper` 스킬을 사용하세요.
+- **재무제표 공식 작성**: K-IFRS 기준 재무제표 작성은 `moai-coworker:finance-financial-statements` 스킬을 사용하세요.
+- **월말 결산·급여 정산**: 회계 마감 업무는 `moai-coworker:finance-close-management` 스킬이 더 적합합니다.
+- **세금 계산**: 세무 관련 문의는 `moai-coworker:finance-tax-helper` 스킬을 사용하세요.
 - **투자 타당성 분석**: IRR, NPV 등 투자 의사결정 분석은 별도 재무 모델링이 필요합니다.

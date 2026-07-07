@@ -10,11 +10,11 @@ description: |
   - "브랜드 보이스 가이드 만들어줘"
   - "한 달치 콘텐츠 달력 짜줘"
   - "내 유튜브 강의를 인스타·블로그·뉴스레터로 리퍼포징해줘"
-  채널별 심리와 알고리즘에 맞춰 게시글을 만들고 콘텐츠를 여러 채널로 재활용하며, 텍스트 산출물은 moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean으로 다듬습니다.
-  [책임 경계] vs 형제 스킬: 범용 광고 카피는 moai-cowork:content-copywriting, 이커머스 광고·톡톡·푸시 카피는 moai-cowork:commerce-channel-message, 기업 브랜드 전략은 moai-cowork:business-brand-identity, 개인 브랜드 전략은 moai-cowork:marketing-personal-branding.
-version: "4.0.0"
+  채널별 심리와 알고리즘에 맞춰 게시글을 만들고 콘텐츠를 여러 채널로 재활용하며, 텍스트 산출물은 moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean으로 다듬습니다.
+  [책임 경계] vs 형제 스킬: 범용 광고 카피는 moai-coworker:content-copywriting, 이커머스 광고·톡톡·푸시 카피는 moai-coworker:commerce-channel-message, 기업 브랜드 전략은 moai-coworker:business-brand-identity, 개인 브랜드 전략은 moai-coworker:marketing-personal-branding.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # SNS 콘텐츠 제작 (SNS Content) — 한국 + 글로벌 통합
 
@@ -106,7 +106,7 @@ CTA: 의견을 댓글로 남겨주세요 / 공감하시면 리포스트
 
 브랜드 보이스 가이드(톤, 키워드, 금지어), 콘텐츠 달력(주제별 월간 계획), 퍼스널 브랜딩(개인 포지셔닝 + 콘텐츠 방향성)을 수립합니다.
 
-> 본격적인 기업·제품 브랜드 전략은 `moai-cowork:business-brand-identity`, 개인 단독 전략은 `moai-cowork:marketing-personal-branding`을 사용하세요.
+> 본격적인 기업·제품 브랜드 전략은 `moai-coworker:business-brand-identity`, 개인 단독 전략은 `moai-coworker:marketing-personal-branding`을 사용하세요.
 
 ### 4단계: 리퍼포징 (선택)
 
@@ -161,33 +161,33 @@ CTA: 의견을 댓글로 남겨주세요 / 공감하시면 리포스트
 
 인스타 캡션·블로그 본문·카카오 메시지·링크드인 포스트·쇼츠 스크립트 등 **텍스트 산출물**은 발행 전 반드시 후처리 체인을 거칩니다. 해시태그 표·콘텐츠 달력 등 표 산출물은 대상이 아닙니다.
 
-**권장 체인**: `content-sns-content → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean`
+**권장 체인**: `content-sns-content → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean`
 
 ## 관련 스킬
 
 | 스킬 | 사용 시점 |
 |------|----------|
-| `moai-cowork:marketing-campaign-planner` | 마케팅 캠페인 전체 기획·광고 집행 전략 |
-| `moai-cowork:marketing-seo-audit` | SEO 검색 최적화·키워드 분석 |
-| `moai-cowork:content-email-sequence` | 이메일 시퀀스·드립 캠페인 |
-| `moai-cowork:marketing-personal-branding` | 개인 브랜딩 단독 전략 (전문가·창업자) |
-| `moai-cowork:business-brand-identity` | 기업·제품 브랜드 전략 |
-| `moai-cowork:general-ai-slop-reviewer` | 사후 체이닝(필수): SNS 텍스트 산출물의 AI 패턴 검수 |
-| `moai-cowork:general-humanize-korean` | 사후 체이닝(필수): general-ai-slop-reviewer 다음 단계로 한국어 AI 티 제거 |
-| `moai-cowork:content-blog` | 블로그 포스팅 단건 작성 |
-| `moai-cowork:content-card-news` | 카드뉴스·슬라이드 |
-| `moai-cowork:content-newsletter` | 이메일 뉴스레터 |
-| `moai-cowork:content-copywriting` | 범용 광고 카피·헤드라인·CTA |
-| `moai-cowork:commerce-channel-message` | 이커머스 광고·톡톡·푸시·이메일 카피 |
-| `moai-cowork:marketing-youtube-podcast-planner` | 유튜브 장편 영상·팟캐스트 |
+| `moai-coworker:marketing-campaign-planner` | 마케팅 캠페인 전체 기획·광고 집행 전략 |
+| `moai-coworker:marketing-seo-audit` | SEO 검색 최적화·키워드 분석 |
+| `moai-coworker:content-email-sequence` | 이메일 시퀀스·드립 캠페인 |
+| `moai-coworker:marketing-personal-branding` | 개인 브랜딩 단독 전략 (전문가·창업자) |
+| `moai-coworker:business-brand-identity` | 기업·제품 브랜드 전략 |
+| `moai-coworker:general-ai-slop-reviewer` | 사후 체이닝(필수): SNS 텍스트 산출물의 AI 패턴 검수 |
+| `moai-coworker:general-humanize-korean` | 사후 체이닝(필수): general-ai-slop-reviewer 다음 단계로 한국어 AI 티 제거 |
+| `moai-coworker:content-blog` | 블로그 포스팅 단건 작성 |
+| `moai-coworker:content-card-news` | 카드뉴스·슬라이드 |
+| `moai-coworker:content-newsletter` | 이메일 뉴스레터 |
+| `moai-coworker:content-copywriting` | 범용 광고 카피·헤드라인·CTA |
+| `moai-coworker:commerce-channel-message` | 이커머스 광고·톡톡·푸시·이메일 카피 |
+| `moai-coworker:marketing-youtube-podcast-planner` | 유튜브 장편 영상·팟캐스트 |
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- 범용 광고 카피·헤드라인: `moai-cowork:content-copywriting` 스킬 사용
-- 이커머스 광고·톡톡·푸시·이메일 카피: `moai-cowork:commerce-channel-message` 사용
-- 유튜브 장편 영상 기획: `moai-cowork:marketing-youtube-podcast-planner` 스킬 사용
-- 기업·제품 브랜드 전체 전략: `moai-cowork:business-brand-identity` 사용
-- 카드뉴스·슬라이드: `moai-cowork:content-card-news` 사용
+- 범용 광고 카피·헤드라인: `moai-coworker:content-copywriting` 스킬 사용
+- 이커머스 광고·톡톡·푸시·이메일 카피: `moai-coworker:commerce-channel-message` 사용
+- 유튜브 장편 영상 기획: `moai-coworker:marketing-youtube-podcast-planner` 스킬 사용
+- 기업·제품 브랜드 전체 전략: `moai-coworker:business-brand-identity` 사용
+- 카드뉴스·슬라이드: `moai-coworker:content-card-news` 사용
 
 ---
 
@@ -205,7 +205,7 @@ CTA: 의견을 댓글로 남겨주세요 / 공감하시면 리포스트
 | **스레드 (Threads)** | 캐주얼 대화 | 심리적·정체성 | 4-5개 연속 포스트, 500자 단위 대화체 |
 | **X (Twitter)** | 빠른 의견 | 정체성·뉴스 | 280자 헤드라인 + 스레드(threadcrop) |
 | **LinkedIn** | 전문 정체성 | 기능적+정체성 | 1300자 인사이트 + Hook + CTA, B2B 정체성 |
-| **쿠팡** (참고) | 즉시 구매 의도 | 기능적 | `moai-cowork:commerce-marketplace-coupang-ads`로 연계 |
+| **쿠팡** (참고) | 즉시 구매 의도 | 기능적 | `moai-coworker:commerce-marketplace-coupang-ads`로 연계 |
 
 ## 메타 학습 기간 가이드
 

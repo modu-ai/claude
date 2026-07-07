@@ -4,9 +4,9 @@ description: >
   번아웃과 지친 마음을 점검하고 회복하도록 돕는 자기돌봄 스킬입니다.
   '번아웃인 것 같아', '쉬어도 쉰 것 같지 않아', '마음이 지쳤어', '회복하고 싶어', '제대로 쉬는 법'처럼 말하면 됩니다.
   마음 기초체력 점검·회복 루틴·생활력 관리로, 무작정 버티기 대신 자신을 돌보며 다시 일어설 힘을 설계합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 자기돌봄 (Self Care)
 
@@ -94,9 +94,9 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:office-time-system**: 과도한 업무량을 줄여 회복 여지 확보
-- **moai-cowork:office-habit-routine**: 작은 회복 루틴을 부담 없이 정착
-- **moai-cowork:office-retro-builder**: 번아웃 패턴을 가볍게 점검
+- **moai-coworker:office-time-system**: 과도한 업무량을 줄여 회복 여지 확보
+- **moai-coworker:office-habit-routine**: 작은 회복 루틴을 부담 없이 정착
+- **moai-coworker:office-retro-builder**: 번아웃 패턴을 가볍게 점검
 - **moai-comms**: 직장 내 거절·요청 등 대인 커뮤니케이션이 필요할 때
 
 ## 이 스킬을 사용하지 말아야 할 때

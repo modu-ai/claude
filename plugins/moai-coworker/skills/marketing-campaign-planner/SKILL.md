@@ -10,11 +10,11 @@ description: |
   - "CRM 전략이랑 자동화 시퀀스 짜줘"
   - "퍼널이랑 채널별 예산 배분 해줘"
   - "광고 후크랑 카피 방향 잡아줘"
-  소비자 심리(구매 동기·심리 방아쇠·인지 편향)와 광고 카피 공식을 적용해 캠페인 전략 문서를 만들고, 서술 부분은 moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean으로 다듬습니다.
-  [책임 경계] vs moai-cowork:business-strategy-planner: 이 스킬=캠페인 단위 전술(1-3개월), 저 스킬=사업·전략 단위(1-5년). 상세페이지 카피·이미지·AI 영상은 moai-cowork:*·moai-cowork:* 사용.
-version: "4.0.0"
+  소비자 심리(구매 동기·심리 방아쇠·인지 편향)와 광고 카피 공식을 적용해 캠페인 전략 문서를 만들고, 서술 부분은 moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean으로 다듬습니다.
+  [책임 경계] vs moai-coworker:business-strategy-planner: 이 스킬=캠페인 단위 전술(1-3개월), 저 스킬=사업·전략 단위(1-5년). 상세페이지 카피·이미지·AI 영상은 moai-coworker:*·moai-coworker:* 사용.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 캠페인 플래너 (Campaign Planner)
 
@@ -72,39 +72,39 @@ version: "4.0.0"
 | 상황 | 대응 |
 |------|------|
 | 예산이나 채널 정보가 없는 경우 | 업종·목표 기반 추천 예산 배분 제안 후 확인 |
-| 사업·OKR·BMC 단위 전략이 필요한 경우 | 본 스킬 범위 밖. `moai-cowork:business-strategy-planner`로 안내 |
+| 사업·OKR·BMC 단위 전략이 필요한 경우 | 본 스킬 범위 밖. `moai-coworker:business-strategy-planner`로 안내 |
 | 상세페이지·이미지 생성 요청 | 본 스킬 범위 밖. 아래 "관련 스킬" 표 참고 |
 
 ## 후처리 (필수 체인 — 서술 부분만)
 
 캠페인 전략 문서·인플루언서 협찬 제안서·고객 여정 맵 설명·CRM 전략 등 **서술형(prose) 산출물**은 발행 전 후처리 체인을 거칩니다. A/B 테스트 설계표·예산 배분표·매트릭스 등 **수치·표 산출물은 대상이 아닙니다**.
 
-**권장 체인(서술 부분)**: `marketing-campaign-planner(서술) → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean`
+**권장 체인(서술 부분)**: `marketing-campaign-planner(서술) → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean`
 
 ## 관련 스킬
 
 | 스킬 | 사용 시점 |
 |------|----------|
-| `moai-cowork:business-strategy-planner` | 사업·OKR·BMC·Lean Canvas·SWOT 등 전략 단위 기획 (페어 분리) |
-| `moai-cowork:content-sns-content` | SNS 콘텐츠 단건 작성, 브랜드 보이스 설정 |
-| `moai-cowork:marketing-seo-audit` | SEO 검색 최적화 분석 |
-| `moai-cowork:marketing-performance-report` | 마케팅 성과 분석 보고서 |
-| `moai-cowork:content-email-sequence` | 이메일 시퀀스·드립 캠페인 카피 |
-| `moai-cowork:marketing-target-script` | 타겟별 핵심 메시지 분석 (페인포인트→메시지) |
-| `moai-cowork:general-ai-slop-reviewer` | 사후 체이닝(필수, 서술 부분): 캠페인 전략 문서의 AI 패턴 검수 |
-| `moai-cowork:general-humanize-korean` | 사후 체이닝(필수, 서술 부분): general-ai-slop-reviewer 다음 단계로 한국어 AI 티 제거 |
-| `moai-cowork:commerce-detail-page-copy` | 이커머스 상세페이지 카피 (13섹션 감정여정) |
-| `moai-cowork:commerce-detail-page-image` | 이커머스 상세페이지 합성 이미지 (1080×12720 PNG) |
-| `moai-cowork:media-higgsfield-image` | AI 이미지 생성 |
-| `moai-cowork:media-higgsfield-video` | AI 영상 생성 |
+| `moai-coworker:business-strategy-planner` | 사업·OKR·BMC·Lean Canvas·SWOT 등 전략 단위 기획 (페어 분리) |
+| `moai-coworker:content-sns-content` | SNS 콘텐츠 단건 작성, 브랜드 보이스 설정 |
+| `moai-coworker:marketing-seo-audit` | SEO 검색 최적화 분석 |
+| `moai-coworker:marketing-performance-report` | 마케팅 성과 분석 보고서 |
+| `moai-coworker:content-email-sequence` | 이메일 시퀀스·드립 캠페인 카피 |
+| `moai-coworker:marketing-target-script` | 타겟별 핵심 메시지 분석 (페인포인트→메시지) |
+| `moai-coworker:general-ai-slop-reviewer` | 사후 체이닝(필수, 서술 부분): 캠페인 전략 문서의 AI 패턴 검수 |
+| `moai-coworker:general-humanize-korean` | 사후 체이닝(필수, 서술 부분): general-ai-slop-reviewer 다음 단계로 한국어 AI 티 제거 |
+| `moai-coworker:commerce-detail-page-copy` | 이커머스 상세페이지 카피 (13섹션 감정여정) |
+| `moai-coworker:commerce-detail-page-image` | 이커머스 상세페이지 합성 이미지 (1080×12720 PNG) |
+| `moai-coworker:media-higgsfield-image` | AI 이미지 생성 |
+| `moai-coworker:media-higgsfield-video` | AI 영상 생성 |
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- 사업 단위 전략(OKR·BMC·SWOT·Lean Canvas): `moai-cowork:business-strategy-planner` 사용
-- 이커머스 상세페이지 카피: `moai-cowork:commerce-detail-page-copy` 사용
-- 이커머스 상세페이지 합성 이미지: `moai-cowork:commerce-detail-page-image` 사용
-- AI 이미지·영상 생성: `moai-cowork:*` 스킬 사용
-- SNS 단건 콘텐츠 작성: `moai-cowork:content-sns-content` 사용
+- 사업 단위 전략(OKR·BMC·SWOT·Lean Canvas): `moai-coworker:business-strategy-planner` 사용
+- 이커머스 상세페이지 카피: `moai-coworker:commerce-detail-page-copy` 사용
+- 이커머스 상세페이지 합성 이미지: `moai-coworker:commerce-detail-page-image` 사용
+- AI 이미지·영상 생성: `moai-coworker:*` 스킬 사용
+- SNS 단건 콘텐츠 작성: `moai-coworker:content-sns-content` 사용
 
 ---
 
@@ -141,7 +141,7 @@ version: "4.0.0"
 ### 9 인지 편향
 프레이밍·후광·타협·현재·매몰비용·제로 리스크·선택 과부하·디폴트·단순 노출
 
-> 페어 스킬 `moai-cowork:commerce-channel-message`의 9종 표와 동일 항목. Kahneman 행동경제학 표준 카탈로그 기반.
+> 페어 스킬 `moai-coworker:commerce-channel-message`의 9종 표와 동일 항목. Kahneman 행동경제학 표준 카탈로그 기반.
 
 ### PAS 카피 공식 + 혜택 언어 3단계
 

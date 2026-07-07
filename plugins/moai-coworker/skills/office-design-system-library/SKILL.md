@@ -6,13 +6,13 @@ description: |
   다음과 같은 요청 시 사용하세요:
   - "Claude 스타일로 HTML 보고서 만들어줘" / "브랜드 디자인 시스템 골라서 HTML로"
   - "Claude Design에 올릴 디자인 시스템 자료 정리"
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # office-design-system-library — moai-design 정본 포인터
 
-본 스킬(`moai-cowork:office-design-system-library`)은 **moai-design 플러그인의 정본**을 가리키는 포인터입니다.
+본 스킬(`moai-coworker:office-design-system-library`)은 **moai-design 플러그인의 정본**을 가리키는 포인터입니다.
 
 ## 왜 포인터인가
 
@@ -25,5 +25,5 @@ design_system 토큰이 필요하면 **`moai-design:design-system-library`** 스
 ## 연결
 
 - 정본: `moai-design:design-system-library` (75개 시스템 토큰 SSOT)
-- 적용처: `moai-cowork:office-html-report` · `moai-cowork:office-html-slide` (design_system 파라미터로 토큰 로드)
+- 적용처: `moai-coworker:office-html-report` · `moai-coworker:office-html-slide` (design_system 파라미터로 토큰 로드)
 - Claude Design 핸드오프: DESIGN.md 지침 소스는 정본에서 제공

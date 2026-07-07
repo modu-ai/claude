@@ -11,10 +11,10 @@ description: |
   - "제주 겨울 여행 예산 얼마나 들까"
   - "혼자 떠나는 국내 힐링 여행지 추천해줘"
   여행 일정표·예산표를 산출합니다.
-  [책임 경계] 개인 재무는 moai-cowork:finance-household-budget, 부동산 조회·분석은 moai-cowork:office-public-data-real-estate-search, 사이드 프로젝트·부업은 moai-cowork:business-startup-launchpad
-version: "4.0.0"
+  [책임 경계] 개인 재무는 moai-coworker:finance-household-budget, 부동산 조회·분석은 moai-coworker:office-public-data-real-estate-search, 사이드 프로젝트·부업은 moai-coworker:business-startup-launchpad
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 여행 플래너 (Travel Planner)
 
@@ -84,18 +84,18 @@ version: "4.0.0"
 이 스킬은 여행 일정 설명 같은 **글(텍스트) 산출물**을 만듭니다. 글 산출물은 발행 전 다음 체인으로 후처리하세요.
 
 ```
-general-travel-planner → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean
+general-travel-planner → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
 ```
 
-- **moai-cowork:general-ai-slop-reviewer**: AI 티 나는 표현·과장 어조를 검수하고 다듬습니다
-- **moai-cowork:general-humanize-korean**: 자연스러운 한국어 문장으로 마무리합니다
+- **moai-coworker:general-ai-slop-reviewer**: AI 티 나는 표현·과장 어조를 검수하고 다듬습니다
+- **moai-coworker:general-humanize-korean**: 자연스러운 한국어 문장으로 마무리합니다
 
-여행 예산표 같은 **숫자·표 산출물**은 위 글 체인 대신 **moai-cowork:office-xlsx-creator**로 정리하세요. (혼합 산출물은 글 부분만 체인에 태우고, 표는 그대로 xlsx로 보냅니다.)
+여행 예산표 같은 **숫자·표 산출물**은 위 글 체인 대신 **moai-coworker:office-xlsx-creator**로 정리하세요. (혼합 산출물은 글 부분만 체인에 태우고, 표는 그대로 xlsx로 보냅니다.)
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **항공권·숙소 실제 예약** → 해당 예약 플랫폼에서 직접 진행해야 합니다
-- **개인 재무·가계부·저축 계획** → moai-cowork:finance-household-budget 스킬이 더 적합합니다
-- **부동산 시세 조회·투자 분석** → moai-cowork:office-public-data-real-estate-search 스킬을 활용하세요
-- **사이드 프로젝트·부업 기획** → moai-cowork:business-startup-launchpad 스킬이 더 적합합니다
-- **웨딩·대규모 이벤트 기획** → moai-cowork:general-event-planner 스킬이 더 적합합니다
+- **개인 재무·가계부·저축 계획** → moai-coworker:finance-household-budget 스킬이 더 적합합니다
+- **부동산 시세 조회·투자 분석** → moai-coworker:office-public-data-real-estate-search 스킬을 활용하세요
+- **사이드 프로젝트·부업 기획** → moai-coworker:business-startup-launchpad 스킬이 더 적합합니다
+- **웨딩·대규모 이벤트 기획** → moai-coworker:general-event-planner 스킬이 더 적합합니다

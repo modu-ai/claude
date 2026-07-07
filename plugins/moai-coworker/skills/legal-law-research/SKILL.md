@@ -13,7 +13,7 @@ description: |
   - "주택임대차보호법 5단계 안내" (legal_research action_plan)
   - "근로기준법 최근 개정 신구대조표" (amendment_track)
   법무팀·로펌·법률 연구자·공무원·계약서 검토자·학생 대상. 사전 준비: 법제처 OC 키(law.go.kr 무료), 환경변수 KOREAN_LAW_OC.
-version: "4.0.0"
+version: "5.0.0"
 ---
 
 # 법령 리서치 (Law Research)
@@ -165,22 +165,22 @@ IF KOREAN_LAW_OC 미설정 (또는 .mcp.json URL 의 ?oc= 이 빈 값):
 
 ## 관련 스킬
 
-- **moai-cowork:legal-compliance-check**: 규제 준수 점검·ESG 보고 (현행 법령 근거는 본 스킬에서 조회 후 연계)
-- **moai-cowork:legal-legal-risk**: 법적 리스크 분석·IP 전략·법령 변화 영향 분석 (현행 원문·개정 추적·행위시법은 본 스킬에서 연계)
-- **moai-cowork:legal-contract-review**: 계약서 검토·이용약관 작성 (계약서에 인용된 조문 검증은 본 스킬 `verify_citations`)
-- **moai-cowork:legal-patent-search** / **moai-cowork:legal-patent-analyzer**: 특허·상표·디자인 (KIPRIS, 본 스킬과 데이터 소스 상이)
-- **moai-cowork:legal-iros-registry-automation**: 대법원 등기부등본 (iros, 본 스킬과 데이터 소스 상이)
-- **moai-cowork:legal-mfds-safety**: 식약처 규제 (식약처 소스, 본 스킬과 데이터 소스 상이)
-- **moai-cowork:legal-nda-triage**: NDA 비밀유지계약 전문 검토
-- **moai-cowork:general-ai-slop-reviewer** / **moai-cowork:general-humanize-korean**: 서술형 산출물 후처리 체인 (법령 본문·표는 제외)
+- **moai-coworker:legal-compliance-check**: 규제 준수 점검·ESG 보고 (현행 법령 근거는 본 스킬에서 조회 후 연계)
+- **moai-coworker:legal-legal-risk**: 법적 리스크 분석·IP 전략·법령 변화 영향 분석 (현행 원문·개정 추적·행위시법은 본 스킬에서 연계)
+- **moai-coworker:legal-contract-review**: 계약서 검토·이용약관 작성 (계약서에 인용된 조문 검증은 본 스킬 `verify_citations`)
+- **moai-coworker:legal-patent-search** / **moai-coworker:legal-patent-analyzer**: 특허·상표·디자인 (KIPRIS, 본 스킬과 데이터 소스 상이)
+- **moai-coworker:legal-iros-registry-automation**: 대법원 등기부등본 (iros, 본 스킬과 데이터 소스 상이)
+- **moai-coworker:legal-mfds-safety**: 식약처 규제 (식약처 소스, 본 스킬과 데이터 소스 상이)
+- **moai-coworker:legal-nda-triage**: NDA 비밀유지계약 전문 검토
+- **moai-coworker:general-ai-slop-reviewer** / **moai-coworker:general-humanize-korean**: 서술형 산출물 후처리 체인 (법령 본문·표는 제외)
 
 ## 이 스킬을 사용하지 말아야 할 때 (책임 분담)
 
-- **특허·상표·디자인 검색·분석** → `moai-cowork:legal-patent-search` / `moai-cowork:legal-patent-analyzer` (KIPRIS 소스)
-- **계약서·이용약관·개인정보처리방침 작성·검토** → `moai-cowork:legal-contract-review` (다만 계약서 인용 조문 검증은 본 스킬)
-- **규제 준수·내부 감사·ESG 보고** → `moai-cowork:legal-compliance-check` (현행 법령 근거 조회만 본 스킬 연계)
-- **법적 리스크 평가·IP 포트폴리오 전략·법령 변화 영향 분석** → `moai-cowork:legal-legal-risk` (현행 원문·개정 추적·행위시법은 본 스킬 연계)
-- **대법원 등기부등본 발급·조회** → `moai-cowork:legal-iros-registry-automation`
-- **식약처 규제·안전 검사** → `moai-cowork:legal-mfds-safety`
-- **NDA 비밀유지계약 검토** → `moai-cowork:legal-nda-triage`
+- **특허·상표·디자인 검색·분석** → `moai-coworker:legal-patent-search` / `moai-coworker:legal-patent-analyzer` (KIPRIS 소스)
+- **계약서·이용약관·개인정보처리방침 작성·검토** → `moai-coworker:legal-contract-review` (다만 계약서 인용 조문 검증은 본 스킬)
+- **규제 준수·내부 감사·ESG 보고** → `moai-coworker:legal-compliance-check` (현행 법령 근거 조회만 본 스킬 연계)
+- **법적 리스크 평가·IP 포트폴리오 전략·법령 변화 영향 분석** → `moai-coworker:legal-legal-risk` (현행 원문·개정 추적·행위시법은 본 스킬 연계)
+- **대법원 등기부등본 발급·조회** → `moai-coworker:legal-iros-registry-automation`
+- **식약처 규제·안전 검사** → `moai-coworker:legal-mfds-safety`
+- **NDA 비밀유지계약 검토** → `moai-coworker:legal-nda-triage`
 - **실제 법적 분쟁·소송 대응** → 반드시 전문 변호사에게 의뢰

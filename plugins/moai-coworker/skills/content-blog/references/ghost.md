@@ -1,6 +1,6 @@
 # Ghost CMS 퍼블리싱 및 뉴스레터 가이드
 
-> moai-cowork | content-blog 참조 가이드 | 2026 기준
+> moai-coworker | content-blog 참조 가이드 | 2026 기준
 
 ## 개요
 

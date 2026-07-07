@@ -11,9 +11,9 @@ description: |
   - general-skill-template으로 시작한 스킬의 체계적 생성이 필요할 때
   - /harness 커맨드의 new 단계로 진입할 때
 user-invocable: false
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # Skill Builder — 6-Phase 스킬 생성 워크플로우
 
@@ -52,7 +52,7 @@ Phase 6: Review         → 품질 게이트 통과 확인, 파일 배치
 | 항목 | 질문 | 예시 |
 |------|------|------|
 | 목적 | "이 스킬이 해결할 문제는?" | "영업 제안서를 자동 생성하고 싶다" |
-| 타겟 플러그인 | "어느 플러그인에 배치할까?" | moai-cowork |
+| 타겟 플러그인 | "어느 플러그인에 배치할까?" | moai-coworker |
 | 입력 | "사용자가 무엇을 입력하나?" | 회사명, 타겟 산업, 제품 정보 |
 | 출력 | "어떤 산출물을 기대하나?" | 제안서 DOCX 파일 |
 | 복잡도 | "스킬이 얼마나 복잡한가?" | Standard (50-150줄) |
@@ -124,7 +124,7 @@ Phase 6: Review         → 품질 게이트 통과 확인, 파일 배치
 | Fan-out/Fan-in | 병렬 분석 후 결과 통합 | business-ux-designer, market-analysis |
 | Expert Pool | 다 도메인 전문 지식 결합 | business-consulting-brief, business-startup-launchpad |
 | Producer-Reviewer | 생성 + 품질 검토 순환 | business-sales-playbook, content-copywriting |
-| Supervisor | 다수 전문 스킬 오케스트레이션 | moai-cowork:general-ai-diagnostic, project |
+| Supervisor | 다수 전문 스킬 오케스트레이션 | moai-coworker:general-ai-diagnostic, project |
 | Hierarchical Delegation | 복잡 작업 계층적 분해 | business-startup-launchpad |
 
 **선택 기준:** 스킬의 워크플로우 단계 수, 병렬성 여부, 품질 검증 필요성을 기준으로 판단합니다.
@@ -217,7 +217,7 @@ tests:
 ## 사용 예시
 
 **예시 1: 신규 스킬 생성**
-> "moai-cowork에 영업 제안서 자동 생성 스킬을 만들어줘. 회사명과 타겟 기업 입력하면 제안서 DOCX가 나오게"
+> "moai-coworker에 영업 제안서 자동 생성 스킬을 만들어줘. 회사명과 타겟 기업 입력하면 제안서 DOCX가 나오게"
 
 **예시 2: Vibe 갭 스킬 생성**
 > "general-skill-builder로 moai-product에 UX 디자인 분석 스킬을 만들어줘. Vibe Designing 기능 참고해서"

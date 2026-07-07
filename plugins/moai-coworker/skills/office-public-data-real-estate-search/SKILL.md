@@ -11,9 +11,9 @@ description: |
   - "전세 보증금 추이 알려줘"
   - "이 단지 평형별 시세 비교해줘"
   지역·단지·거래년월로 실거래를 조회해 중위값·최소·최대와 대표 거래를 요약하고, 입지 분석이나 투자 검토로 이어집니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 한국 부동산 실거래가 조회
 
@@ -140,10 +140,10 @@ curl -fsS --get 'https://k-skill-proxy.nomadamas.org/v1/real-estate/officetel/re
 
 ## 관련 스킬 체이닝
 
-- **before**: `moai-cowork:office-public-data-public-data` — 인구·가구 통계로 입지 분석 보조
-- **after**: `moai-cowork:business-market-analyst` — 시세 데이터 기반 시장 분석
-- **after**: `moai-cowork:finance-investor-relations` → `moai-cowork:office-pptx-designer` — 투자 IR 자료
-- **after**: `moai-cowork:marketing-landing-page` — 부동산 마케팅 페이지 데이터 입력
+- **before**: `moai-coworker:office-public-data-public-data` — 인구·가구 통계로 입지 분석 보조
+- **after**: `moai-coworker:business-market-analyst` — 시세 데이터 기반 시장 분석
+- **after**: `moai-coworker:finance-investor-relations` → `moai-coworker:office-pptx-designer` — 투자 IR 자료
+- **after**: `moai-coworker:marketing-landing-page` — 부동산 마케팅 페이지 데이터 입력
 
 ## Done when
 

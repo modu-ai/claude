@@ -13,9 +13,9 @@ description: |
   - "법원 경매 매각공고", "courtauction.go.kr", "경매 사건 검색"
   - "감정평가액 최저매각가", "매각기일별 결과", "유찰 횟수"
   - 자산 처분·경매 투자·실사 검토 시
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 법원경매 매각공고 조회
 
@@ -119,10 +119,10 @@ node scripts/court_auction_example.js
 
 ## 관련 스킬 체이닝
 
-- **before**: `moai-cowork:office-public-data-real-estate-search` — 매물 시세 비교 (인근 실거래가)
-- **after**: `moai-cowork:finance-financial-statements` — 경매 투자 타당성 분석
-- **after**: `moai-cowork:business-executive-summary` — 경매 후보 1pager
-- **after**: `moai-cowork:office-xlsx-creator` — 매각공고 일괄 엑셀화
+- **before**: `moai-coworker:office-public-data-real-estate-search` — 매물 시세 비교 (인근 실거래가)
+- **after**: `moai-coworker:finance-financial-statements` — 경매 투자 타당성 분석
+- **after**: `moai-coworker:business-executive-summary` — 경매 후보 1pager
+- **after**: `moai-coworker:office-xlsx-creator` — 매각공고 일괄 엑셀화
 
 ## Done when
 

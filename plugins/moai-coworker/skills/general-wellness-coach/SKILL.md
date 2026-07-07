@@ -2,9 +2,9 @@
 name: general-wellness-coach
 description: >
   운동·식단·건강·육아·시니어 케어를 종합적으로 코칭합니다. "운동 루틴 만들어줘", "다이어트 식단 짜줘", "아이 발달 단계 알려줘", "부모님 노인 복지 서비스 알려줘"라고 요청할 때 사용하세요. 운동 계획, 영양 균형 식단, 육아 전략, 시니어 케어 계획을 지원합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 웰니스 코치 (Wellness Coach)
 
@@ -94,13 +94,13 @@ version: "4.0.0"
 이 스킬은 운동 코칭 계획·육아 활동 안내·시니어 케어 계획·건강 가이드 같은 **글(텍스트) 산출물**을 만듭니다. 글 산출물은 발행 전 다음 체인으로 후처리하세요.
 
 ```
-general-wellness-coach → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean
+general-wellness-coach → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
 ```
 
-- **moai-cowork:general-ai-slop-reviewer**: AI 티 나는 표현·과장 어조를 검수하고 다듬습니다
-- **moai-cowork:general-humanize-korean**: 자연스러운 한국어 문장으로 마무리합니다
+- **moai-coworker:general-ai-slop-reviewer**: AI 티 나는 표현·과장 어조를 검수하고 다듬습니다
+- **moai-coworker:general-humanize-korean**: 자연스러운 한국어 문장으로 마무리합니다
 
-식단표·장보기 목록·주간 루틴 표 같은 **숫자·표 산출물**은 위 글 체인 대신 **moai-cowork:office-xlsx-creator**로 정리하세요. (혼합 산출물은 코칭 설명 글 부분만 체인에 태우고, 표는 그대로 xlsx로 보냅니다.)
+식단표·장보기 목록·주간 루틴 표 같은 **숫자·표 산출물**은 위 글 체인 대신 **moai-coworker:office-xlsx-creator**로 정리하세요. (혼합 산출물은 코칭 설명 글 부분만 체인에 태우고, 표는 그대로 xlsx로 보냅니다.)
 
 ## 이 스킬을 사용하지 말아야 할 때
 

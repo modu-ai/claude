@@ -4,9 +4,9 @@ description: >
   채용 프로세스 전반을 관리해주는 스킬입니다. "JD 작성해줘", "면접 질문 만들어줘",
   "신입 온보딩 계획 짜줘"처럼 말하면 됩니다. 채용 공고 작성, 면접 설계,
   평가 기준 수립, 온보딩 체크리스트, 멘토링 프로그램 설계를 지원합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 채용 관리자 (business-employment-manager)
 
@@ -104,13 +104,13 @@ JD·면접 질문·온보딩 계획·멘토링 커리큘럼 본문은 사람이 
 **텍스트 후처리 체인 (JD·면접 질문·온보딩 계획 등 산문 산출물)**:
 
 ```
-business-employment-manager → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean
+business-employment-manager → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
 ```
 
-- `moai-cowork:general-ai-slop-reviewer` — AI 티 패턴(기계적 어투, 상투적 채용 표현) 검수·수정
-- `moai-cowork:general-humanize-korean` — 자연스러운 한국어 문장으로 다듬기 (의미 100% 보존)
+- `moai-coworker:general-ai-slop-reviewer` — AI 티 패턴(기계적 어투, 상투적 채용 표현) 검수·수정
+- `moai-coworker:general-humanize-korean` — 자연스러운 한국어 문장으로 다듬기 (의미 100% 보존)
 
-> 평가 루브릭 점수표·온보딩 체크리스트 표 같은 **표 산출물**은 위 텍스트 체인 대상이 아닙니다. 표가 필요하면 `moai-cowork:office-xlsx-creator`로 라우팅하세요.
+> 평가 루브릭 점수표·온보딩 체크리스트 표 같은 **표 산출물**은 위 텍스트 체인 대상이 아닙니다. 표가 필요하면 `moai-coworker:office-xlsx-creator`로 라우팅하세요.
 
 ## 문제 해결
 
@@ -122,6 +122,6 @@ business-employment-manager → moai-cowork:general-ai-slop-reviewer → moai-co
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **법적 노동 분쟁 대응**: 해고, 임금 체불, 직장 내 괴롭힘 등 실제 분쟁은 노무사에게 의뢰하세요.
-- **오퍼 레터·근로계약서 작성**: 계약 문서는 `moai-cowork:business-draft-offer` 스킬을 사용하세요.
-- **성과평가 체계 설계**: OKR/KPI 설정 및 평가 면담은 `moai-cowork:business-performance-review` 스킬이 더 적합합니다.
-- **원격 근무 정책 수립**: 재택 정책, 협업 도구 선택은 `moai-cowork:business-people-operations` 스킬을 사용하세요.
+- **오퍼 레터·근로계약서 작성**: 계약 문서는 `moai-coworker:business-draft-offer` 스킬을 사용하세요.
+- **성과평가 체계 설계**: OKR/KPI 설정 및 평가 면담은 `moai-coworker:business-performance-review` 스킬이 더 적합합니다.
+- **원격 근무 정책 수립**: 재택 정책, 협업 도구 선택은 `moai-coworker:business-people-operations` 스킬을 사용하세요.

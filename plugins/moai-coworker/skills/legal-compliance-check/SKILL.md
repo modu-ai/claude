@@ -5,9 +5,9 @@ description: >
   '컴플라이언스 점검해줘', '내부 감사 보고서 작성해줘', 'ESG 보고서 만들어줘',
   '규제 갭 분석해줘', '인허가 서류 준비해줘'라고 요청하세요.
   한국 주요 규제 기준 적용, 갭 분석, 시정 계획, ESG 지표 보고서를 제공합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 컴플라이언스 점검 (Compliance Check)
 
@@ -144,30 +144,30 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:legal-contract-review**: 계약서 검토, 이용약관 작성
-- **moai-cowork:legal-nda-triage**: NDA 비밀유지계약 검토
-- **moai-cowork:legal-legal-risk**: 법적 리스크 분석, 지적재산권 전략
-- **moai-cowork:legal-law-research** (korean-law MCP): 현행 법령 원문 조회·인용검증이 필요하면 연계
-- **moai-cowork:finance-tax-helper**: 세금 신고, 홈택스 안내
-- **moai-cowork:general-ai-slop-reviewer**: 텍스트 산출물(감사 보고서·체크리스트) AI 패턴 검수
+- **moai-coworker:legal-contract-review**: 계약서 검토, 이용약관 작성
+- **moai-coworker:legal-nda-triage**: NDA 비밀유지계약 검토
+- **moai-coworker:legal-legal-risk**: 법적 리스크 분석, 지적재산권 전략
+- **moai-coworker:legal-law-research** (korean-law MCP): 현행 법령 원문 조회·인용검증이 필요하면 연계
+- **moai-coworker:finance-tax-helper**: 세금 신고, 홈택스 안내
+- **moai-coworker:general-ai-slop-reviewer**: 텍스트 산출물(감사 보고서·체크리스트) AI 패턴 검수
 
 ### 후처리 체인 (텍스트 산출물)
 
 감사 보고서·갭 분석·ESG 보고서 등 서술형 산출물은 작성 후 반드시 다음 체인으로 마무리합니다.
 
 ```
-legal-compliance-check → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean
+legal-compliance-check → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
 ```
 
-- **moai-cowork:general-ai-slop-reviewer**: AI 글쓰기 패턴(과장·상투구·획일적 구조) 검수
-- **moai-cowork:general-humanize-korean**: 한국어 자연스러움 보정으로 사람이 쓴 듯한 문장으로 다듬기
+- **moai-coworker:general-ai-slop-reviewer**: AI 글쓰기 패턴(과장·상투구·획일적 구조) 검수
+- **moai-coworker:general-humanize-korean**: 한국어 자연스러움 보정으로 사람이 쓴 듯한 문장으로 다듬기
 
-표·점수 매트릭스 등 데이터 산출물은 이 체인 대상이 아니며, 별도로 **moai-cowork:office-xlsx-creator**로 정리합니다.
+표·점수 매트릭스 등 데이터 산출물은 이 체인 대상이 아니며, 별도로 **moai-coworker:office-xlsx-creator**로 정리합니다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **계약서 검토나 이용약관 작성** → moai-cowork:legal-contract-review 사용
-- **NDA 비밀유지계약 전문 검토** → moai-cowork:legal-nda-triage 사용
-- **법적 리스크 분석이나 지적재산 전략** → moai-cowork:legal-legal-risk 사용
+- **계약서 검토나 이용약관 작성** → moai-coworker:legal-contract-review 사용
+- **NDA 비밀유지계약 전문 검토** → moai-coworker:legal-nda-triage 사용
+- **법적 리스크 분석이나 지적재산 전략** → moai-coworker:legal-legal-risk 사용
 - **실제 법적 분쟁이나 소송 대응** → 반드시 전문 변호사에게 의뢰하세요
 - **실제 세금 신고나 세무 조정** → 세무사에게 의뢰하세요

@@ -5,9 +5,9 @@ description: >
   "채용공고 분석해줘", "JD 분석", "이 회사 어때?", "헤드헌터 오퍼 검토"처럼 말하면 됩니다.
   JD에서 필수/우대 역량 추출 + 본인 경험 매칭 + DART·잡플래닛·블라인드·사람인 공고 이력
   종합 분석 + 2026 핀셋 채용 시대의 회사 현재 우선순위 추출까지 지원합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 채용공고 분석기 (business-job-analyzer)
 
@@ -217,17 +217,17 @@ Python       | 상           | 중           | ▲   | 프로젝트 X 경험
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **자소서/이력서 작성**: JD 분석 결과를 바탕으로 문서를 작성하려면 `moai-cowork:business-resume-builder` 스킬을 사용하세요.
-- **면접 준비**: 분석된 역량 기반으로 면접을 준비하려면 `moai-cowork:business-interview-coach` 스킬이 적합합니다.
-- **포트폴리오 구성**: 프로젝트 정리는 `moai-cowork:business-portfolio-guide` 스킬을 사용하세요.
-- **시장조사/경쟁 분석**: 투자 목적의 기업 분석은 `moai-cowork:business-market-analyst` 스킬이 적합합니다.
+- **자소서/이력서 작성**: JD 분석 결과를 바탕으로 문서를 작성하려면 `moai-coworker:business-resume-builder` 스킬을 사용하세요.
+- **면접 준비**: 분석된 역량 기반으로 면접을 준비하려면 `moai-coworker:business-interview-coach` 스킬이 적합합니다.
+- **포트폴리오 구성**: 프로젝트 정리는 `moai-coworker:business-portfolio-guide` 스킬을 사용하세요.
+- **시장조사/경쟁 분석**: 투자 목적의 기업 분석은 `moai-coworker:business-market-analyst` 스킬이 적합합니다.
 
 
 ## 한국어 카피 품질 게이트 (필수)
 
 본 스킬이 산출하는 한국어 텍스트는 배포 전 의무 게이트를 통과합니다:
 
-1. `moai-cowork:general-ai-slop-reviewer` — 1차 일반 AI 슬롭 검수 (금지어, 구조 패턴, 리듬)
-2. `moai-cowork:general-humanize-korean` — 2차 한국어 정밀 윤문 (40+ 패턴 SSOT, 의미 불변)
+1. `moai-coworker:general-ai-slop-reviewer` — 1차 일반 AI 슬롭 검수 (금지어, 구조 패턴, 리듬)
+2. `moai-coworker:general-humanize-korean` — 2차 한국어 정밀 윤문 (40+ 패턴 SSOT, 의미 불변)
 
 두 게이트는 대시 대비 헤드라인·조사·체언 종결 조각문·"A에서 B로" 전환 공식 S1 패턴을 잡아냅니다. 게이트 통과 없이 산출물을 바로 배포하지 않습니다.

@@ -10,10 +10,10 @@ description: |
   - "B2B 서비스 리드 수집 랜딩 설계해줘"
   - "깔끔한 원페이지 만들어줘"
   코드 생성 전에 디자인 톤(색·모드·모서리·효과)을 먼저 물은 뒤, 최신 웹 스택으로 랜딩 페이지 전체 구성과 디자인 토큰·인터랙션을 산출합니다.
-  [책임 경계] vs moai-cowork:commerce-product-detail: 이 스킬=단독 전환 랜딩 1페이지(캠페인·이벤트·리드 수집), 저 스킬=카탈로그 제품 상세 페이지(스마트스토어·쿠팡·카카오 규격, 옵션·비교).
-version: "4.0.0"
+  [책임 경계] vs moai-coworker:commerce-product-detail: 이 스킬=단독 전환 랜딩 1페이지(캠페인·이벤트·리드 수집), 저 스킬=카탈로그 제품 상세 페이지(스마트스토어·쿠팡·카카오 규격, 옵션·비교).
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 랜딩 페이지 (Landing Page)
 
@@ -269,18 +269,18 @@ AI가 생성한 랜딩 페이지 카피는 사실 확인 후 사용하세요.
 
 ## 관련 스킬
 
-- `moai-cowork:commerce-product-detail` — 제품 상세 페이지 (이커머스)
-- `moai-cowork:content-sns-content` — 소셜미디어 콘텐츠
-- `moai-cowork:content-copywriting` — 광고 카피 단독 작성
-- `moai-cowork:content-blog` — SEO 블로그 포스팅
+- `moai-coworker:commerce-product-detail` — 제품 상세 페이지 (이커머스)
+- `moai-coworker:content-sns-content` — 소셜미디어 콘텐츠
+- `moai-coworker:content-copywriting` — 광고 카피 단독 작성
+- `moai-coworker:content-blog` — SEO 블로그 포스팅
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- 블로그 포스팅: `moai-cowork:content-blog` 스킬 사용
-- SNS 포스팅: `moai-cowork:content-sns-content` 스킬 사용
-- 이메일 뉴스레터: `moai-cowork:content-newsletter` 스킬 사용
-- 제품 상세페이지: `moai-cowork:commerce-product-detail` 스킬 사용
-- 데이터 대시보드: `moai-cowork:office-data-visualizer` 스킬 사용
+- 블로그 포스팅: `moai-coworker:content-blog` 스킬 사용
+- SNS 포스팅: `moai-coworker:content-sns-content` 스킬 사용
+- 이메일 뉴스레터: `moai-coworker:content-newsletter` 스킬 사용
+- 제품 상세페이지: `moai-coworker:commerce-product-detail` 스킬 사용
+- 데이터 대시보드: `moai-coworker:office-data-visualizer` 스킬 사용
 - 멀티 페이지 웹사이트: 별도 웹 에이전트 필요
 
 
@@ -288,7 +288,7 @@ AI가 생성한 랜딩 페이지 카피는 사실 확인 후 사용하세요.
 
 본 스킬이 산출하는 한국어 텍스트는 배포 전 의무 게이트를 통과합니다:
 
-1. `moai-cowork:general-ai-slop-reviewer` — 1차 일반 AI 슬롭 검수 (금지어, 구조 패턴, 리듬)
-2. `moai-cowork:general-humanize-korean` — 2차 한국어 정밀 윤문 (40+ 패턴 SSOT, 의미 불변)
+1. `moai-coworker:general-ai-slop-reviewer` — 1차 일반 AI 슬롭 검수 (금지어, 구조 패턴, 리듬)
+2. `moai-coworker:general-humanize-korean` — 2차 한국어 정밀 윤문 (40+ 패턴 SSOT, 의미 불변)
 
 두 게이트는 대시 대비 헤드라인·조사·체언 종결 조각문·"A에서 B로" 전환 공식 S1 패턴을 잡아냅니다. 게이트 통과 없이 산출물을 바로 배포하지 않습니다.

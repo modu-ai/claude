@@ -11,9 +11,9 @@ description: |
   - "이 연구 결과로 Results 섹션 써줘"
   - "국문·영문 초록 200자로 작성해줘"
   국문·영문 초록과 본문 전체 섹션을 구성하고, 작성 후 ai-slop 검수 체인으로 마무리합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 학술 논문 작성 (Paper Writer)
 
@@ -62,7 +62,7 @@ AskUserQuestion으로 다음 정보를 수집합니다:
 - 연구의 필요성 및 기여 예상 부분
 
 **이론적 배경 (Literature Review)**
-- 선행연구 검토 (선행연구 조사 필요시 moai-cowork:education-paper-search 스킬 연계)
+- 선행연구 검토 (선행연구 조사 필요시 moai-coworker:education-paper-search 스킬 연계)
 - 이론적 틀 (Theoretical Framework)
 - 연구 가설 (Hypotheses)
 
@@ -120,25 +120,25 @@ AskUserQuestion으로 다음 정보를 수집합니다:
 ## 주의사항
 
 - 본 스킬은 논문 초안을 생성합니다. 실제 학술지 투고 전 반드시 해당 학술지의 가이드라인을 확인해야 합니다.
-- 선행연구 조사가 필요한 경우 moai-cowork:education-paper-search 스킬을 먼저 실행하여 관련 논문을 수집한 뒤 연계 작성하는 것을 권장합니다.
+- 선행연구 조사가 필요한 경우 moai-coworker:education-paper-search 스킬을 먼저 실행하여 관련 논문을 수집한 뒤 연계 작성하는 것을 권장합니다.
 - 참고문헌 인용 정보가 부정확할 수 있으므로, 반드시 원문을 확인하여 정확성을 검증해야 합니다.
 - 데이터 분석 결과가 있는 경우, 해당 결과를 바탕으로 Results 섹션을 작성합니다.
 
 ## 관련 스킬
 
-- **moai-cowork:education-paper-search** - 선행연구 조사 및 논문 검색
-- **moai-cowork:office-data-visualizer** - 결과 섹션 차트 및 테이블 시각화
+- **moai-coworker:education-paper-search** - 선행연구 조사 및 논문 검색
+- **moai-coworker:office-data-visualizer** - 결과 섹션 차트 및 테이블 시각화
 
 ### 후처리 체인 (본문/서술 산출물)
 
 논문 초안 등 서술형 텍스트를 작성한 뒤에는 다음 체인으로 마무리합니다:
 
-`education-paper-writer → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean`
+`education-paper-writer → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean`
 
-- **moai-cowork:general-ai-slop-reviewer** - 작성된 논문 AI 패턴 검수 및 후처리
-- **moai-cowork:general-humanize-korean** - 한국어 문장 자연화(AI 티 제거, 의미 보존)
+- **moai-coworker:general-ai-slop-reviewer** - 작성된 논문 AI 패턴 검수 및 후처리
+- **moai-coworker:general-humanize-korean** - 한국어 문장 자연화(AI 티 제거, 의미 보존)
 
-> 참고문헌 리스트·통계 테이블 등 데이터/표 산출물은 본 체인 대상이 아니며, 시각화가 필요하면 **moai-cowork:office-data-visualizer**로 라우팅합니다.
+> 참고문헌 리스트·통계 테이블 등 데이터/표 산출물은 본 체인 대상이 아니며, 시각화가 필요하면 **moai-coworker:office-data-visualizer**로 라우팅합니다.
 
 ## 인용 포맷 참조
 

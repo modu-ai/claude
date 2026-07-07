@@ -4,9 +4,9 @@ description: >
   투자를 처음 시작하는 사람에게 기본 원칙과 자산군, 초보 포트폴리오를 안내하는 스킬입니다.
   '투자 어떻게 시작해', '주식 초보', 'ETF가 뭐야', '분산투자 방법', '초보 포트폴리오 짜줘'처럼 말하면 됩니다.
   분산·장기·리스크 관리 원칙, 자산군(주식/ETF/채권/부동산/예적금) 비교, 초보 포트폴리오, 투자 사기 회피를 한국 투자자 관점에서 설명합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 투자 입문 (Investment Primer)
 
@@ -96,7 +96,7 @@ version: "4.0.0"
 - **moai-wealth/finance-wealth-roadmap**: 투자 시드 확보·자산 배분 맥락
 - **moai-wealth/finance-personal-tax-saver**: 연금·ISA로 절세하며 투자
 - **moai-wealth/finance-econ-literacy**: 금리·환율이 자산에 미치는 영향 이해
-- **moai-cowork:office-public-data-korean-stock-search**: KRX 종목·시세 조회(참고용 데이터)
+- **moai-coworker:office-public-data-korean-stock-search**: KRX 종목·시세 조회(참고용 데이터)
 
 ## 이 스킬을 사용하지 말아야 할 때
 

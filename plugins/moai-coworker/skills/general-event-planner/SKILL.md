@@ -2,9 +2,9 @@
 name: general-event-planner
 description: >
   행사·이벤트·웨딩을 기획하고 준비 계획을 수립합니다. "결혼 준비 체크리스트 만들어줘", "사내 세미나 기획해줘", "워크샵 진행 방식 설계해줘"라고 요청할 때 사용하세요. 행사 기획, 예산 계획, 일정 관리, 웨딩 준비(스드메·예산·타임라인)를 지원합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 이벤트 플래너 (Event Planner)
 
@@ -87,17 +87,17 @@ version: "4.0.0"
 이 스킬은 기획서·진행 순서표·MC 스크립트·품의서 같은 **글(텍스트) 산출물**을 만듭니다. 글 산출물은 발행 전 다음 체인으로 후처리하세요.
 
 ```
-general-event-planner → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean
+general-event-planner → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
 ```
 
-- **moai-cowork:general-ai-slop-reviewer**: AI 티 나는 표현·과장 어조를 검수하고 다듬습니다
-- **moai-cowork:general-humanize-korean**: 자연스러운 한국어 문장으로 마무리합니다
+- **moai-coworker:general-ai-slop-reviewer**: AI 티 나는 표현·과장 어조를 검수하고 다듬습니다
+- **moai-coworker:general-humanize-korean**: 자연스러운 한국어 문장으로 마무리합니다
 
-예산 시트·비용 배분표 같은 **숫자·표 산출물**은 위 글 체인 대신 **moai-cowork:office-xlsx-creator**로 정리하세요. (혼합 산출물은 글 부분만 체인에 태우고, 표는 그대로 xlsx로 보냅니다.)
+예산 시트·비용 배분표 같은 **숫자·표 산출물**은 위 글 체인 대신 **moai-coworker:office-xlsx-creator**로 정리하세요. (혼합 산출물은 글 부분만 체인에 태우고, 표는 그대로 xlsx로 보냅니다.)
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **웨딩홀·업체 실제 예약** → 해당 업체에 직접 문의·계약해야 합니다. 예약 대행은 불가합니다
-- **계약서 법적 검토** → moai-cowork:legal-contract-review 스킬 또는 소비자원(1372)을 활용하세요
-- **여행·허니문 일정 기획** → moai-cowork:general-travel-planner 스킬이 더 적합합니다
+- **계약서 법적 검토** → moai-coworker:legal-contract-review 스킬 또는 소비자원(1372)을 활용하세요
+- **여행·허니문 일정 기획** → moai-coworker:general-travel-planner 스킬이 더 적합합니다
 - **기업 대규모 컨퍼런스 전문 운영** → 전문 PCO(Professional Conference Organizer) 업체와 협력하세요

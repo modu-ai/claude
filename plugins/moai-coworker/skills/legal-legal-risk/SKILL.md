@@ -5,9 +5,9 @@ description: >
   '법적 리스크 평가해줘', '특허 침해 위험 분석해줘', '개인정보 위반 리스크 체크해줘',
   'IP 포트폴리오 분석해줘', '2026년 법령 변화 영향 분석해줘'라고 요청하세요.
   판례·법령 리서치, IP 포트폴리오, 리스크 매트릭스, 대응 액션 플랜을 제공합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 법적 리스크 분석 (Legal Risk)
 
@@ -38,7 +38,7 @@ version: "4.0.0"
 
 ### 2단계: 2026년 최신 법령 변화 체크
 
-> 2026년 개정 법령 변화 목록(개인정보보호법·노동 관련·K-IFRS 제1118호)은 `moai-cowork:legal-compliance-check` references/2026-law-changes.md 단일 SSOT를 참조한다.
+> 2026년 개정 법령 변화 목록(개인정보보호법·노동 관련·K-IFRS 제1118호)은 `moai-coworker:legal-compliance-check` references/2026-law-changes.md 단일 SSOT를 참조한다.
 
 ### 3단계: 리스크 매핑 및 평가
 
@@ -145,28 +145,28 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:legal-contract-review**: 계약서 검토, 이용약관 작성
-- **moai-cowork:legal-nda-triage**: NDA 비밀유지계약 검토
-- **moai-cowork:legal-compliance-check**: 규제 준수 점검, ESG 보고
-- **moai-cowork:legal-law-research** (korean-law MCP): 2026년 법령 변화의 현행 원문·개정 추적·행위시법 판단은 연계
-- **moai-cowork:general-ai-slop-reviewer**: 리스크 분석 보고서 AI 패턴 검수
+- **moai-coworker:legal-contract-review**: 계약서 검토, 이용약관 작성
+- **moai-coworker:legal-nda-triage**: NDA 비밀유지계약 검토
+- **moai-coworker:legal-compliance-check**: 규제 준수 점검, ESG 보고
+- **moai-coworker:legal-law-research** (korean-law MCP): 2026년 법령 변화의 현행 원문·개정 추적·행위시법 판단은 연계
+- **moai-coworker:general-ai-slop-reviewer**: 리스크 분석 보고서 AI 패턴 검수
 
 ### 후처리 체인 (텍스트 산출물)
 
 법적 리스크 평가 보고서·법령 변화 영향 분석·대응 액션 플랜 등 서술형 산출물은 작성 후 반드시 다음 체인으로 마무리합니다.
 
 ```
-legal-legal-risk → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean
+legal-legal-risk → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
 ```
 
-- **moai-cowork:general-ai-slop-reviewer**: AI 글쓰기 패턴(과장·상투구·획일적 구조) 검수
-- **moai-cowork:general-humanize-korean**: 한국어 자연스러움 보정으로 사람이 쓴 듯한 문장으로 다듬기
+- **moai-coworker:general-ai-slop-reviewer**: AI 글쓰기 패턴(과장·상투구·획일적 구조) 검수
+- **moai-coworker:general-humanize-korean**: 한국어 자연스러움 보정으로 사람이 쓴 듯한 문장으로 다듬기
 
-리스크 매트릭스 표 등 데이터 산출물은 이 체인 대상이 아니며, 별도로 **moai-cowork:office-xlsx-creator**로 정리합니다.
+리스크 매트릭스 표 등 데이터 산출물은 이 체인 대상이 아니며, 별도로 **moai-coworker:office-xlsx-creator**로 정리합니다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **계약서 검토나 이용약관 작성** → moai-cowork:legal-contract-review 사용
-- **NDA 비밀유지계약 전문 검토** → moai-cowork:legal-nda-triage 사용
-- **컴플라이언스 점검이나 ESG 보고** → moai-cowork:legal-compliance-check 사용
+- **계약서 검토나 이용약관 작성** → moai-coworker:legal-contract-review 사용
+- **NDA 비밀유지계약 전문 검토** → moai-coworker:legal-nda-triage 사용
+- **컴플라이언스 점검이나 ESG 보고** → moai-coworker:legal-compliance-check 사용
 - **실제 법적 분쟁이나 소송 대응** → 반드시 전문 변호사에게 의뢰하세요

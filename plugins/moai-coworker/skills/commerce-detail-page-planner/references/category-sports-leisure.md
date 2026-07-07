@@ -178,5 +178,5 @@ brief:
 
 ## 페어 스킬 매핑
 
-- 코드: `moai-cowork:commerce-product-detail` (사양 표·사이즈 가이드 컴포넌트)
-- 카피: `moai-cowork:commerce-detail-page-copy` (시나리오·기능 사양 강조)
+- 코드: `moai-coworker:commerce-product-detail` (사양 표·사이즈 가이드 컴포넌트)
+- 카피: `moai-coworker:commerce-detail-page-copy` (시나리오·기능 사양 강조)

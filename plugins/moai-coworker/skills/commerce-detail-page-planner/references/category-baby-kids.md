@@ -159,5 +159,5 @@ brief:
 
 ## 페어 스킬 매핑
 
-- 코드: `moai-cowork:commerce-product-detail` (연령 필터·안전 인증 배지 컴포넌트)
-- 카피: `moai-cowork:commerce-detail-page-copy` (부모 페르소나 모드 권장)
+- 코드: `moai-coworker:commerce-product-detail` (연령 필터·안전 인증 배지 컴포넌트)
+- 카피: `moai-coworker:commerce-detail-page-copy` (부모 페르소나 모드 권장)

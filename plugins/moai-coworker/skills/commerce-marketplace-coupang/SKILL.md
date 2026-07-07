@@ -6,9 +6,9 @@ description: >
   commerce-detail-page-copy/commerce-detail-page-image 출력물을 쿠팡 정책에 맞게 검토하고,
   이미지 규격, 금지문구 체크, 검색 키워드 추천, 우수상품 기준 적용,
   로켓배송 vs 판매자배송 분기 가이드를 제공합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 쿠팡 상세페이지 가이드 (Coupang Marketplace)
 
@@ -132,16 +132,16 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- `moai-cowork:commerce-detail-page-copy` — 카피 생성
-- `moai-cowork:commerce-detail-page-image` — 이미지 합성
-- `moai-cowork:commerce-marketplace-naver` — 네이버/오픈마켓 비교
-- `moai-cowork:marketing-seo-audit` — 채널 SEO 일반
+- `moai-coworker:commerce-detail-page-copy` — 카피 생성
+- `moai-coworker:commerce-detail-page-image` — 이미지 합성
+- `moai-coworker:commerce-marketplace-naver` — 네이버/오픈마켓 비교
+- `moai-coworker:marketing-seo-audit` — 채널 SEO 일반
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - 네이버 스마트스토어 가이드: `commerce-marketplace-naver` 사용
 - 자사몰(Cafe24/Shopify) 등록: 별도 가이드 필요
-- 일반 마케팅 콘텐츠: `moai-cowork` 플러그인
+- 일반 마케팅 콘텐츠: `moai-coworker` 플러그인
 
 ## 주의사항
 

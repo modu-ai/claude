@@ -10,10 +10,10 @@ description: |
   - "유저빌리티 테스트 시나리오 만들어줘"
   - "고객 설문 인사이트 정리해줘"
   정성·정량 리서치 결과를 의사결정에 쓸 수 있는 인사이트로 정리하고, general-ai-slop-reviewer·general-humanize-korean으로 마무리할 수 있습니다.
-  [책임 경계] vs moai-cowork:business-ux-designer: business-ux-researcher=정성/정량 리서치(인터뷰·페르소나·VOC), business-ux-designer=디자인 평가(휴리스틱·접근성·플로우)
-version: "4.0.0"
+  [책임 경계] vs moai-coworker:business-ux-designer: business-ux-researcher=정성/정량 리서치(인터뷰·페르소나·VOC), business-ux-designer=디자인 평가(휴리스틱·접근성·플로우)
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # UX 리서처 (UX Researcher)
 
@@ -89,15 +89,15 @@ UX, UX 리서치, 사용자 인터뷰, 유저빌리티, 페르소나, VOC, NPS, 
 
 | 스킬 | 사용 시점 |
 |------|----------|
-| `moai-cowork:business-spec-writer` | PRD·기능 명세 작성 |
-| `moai-cowork:business-draft-response` | 고객 CS 응답 초안 작성 |
-| `moai-cowork:marketing-performance-report` | 마케팅 데이터 분석 |
+| `moai-coworker:business-spec-writer` | PRD·기능 명세 작성 |
+| `moai-coworker:business-draft-response` | 고객 CS 응답 초안 작성 |
+| `moai-coworker:marketing-performance-report` | 마케팅 데이터 분석 |
 
 ## 후처리 체인
 
 VOC 분석 보고서·페르소나 문서·인터뷰 가이드·NPS 개선 제안 같은 서술형 결과물을 완성한 뒤에는 다음 체인으로 마무리합니다(설문 응답 표·정량 수치는 제외, 본문 서술 부분에만 적용):
 
-`moai-cowork:business-ux-researcher → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean`
+`moai-coworker:business-ux-researcher → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean`
 
-- `moai-cowork:general-ai-slop-reviewer`: AI 특유의 상투적 표현·과장·군더더기를 점검하고 다듬습니다.
-- `moai-cowork:general-humanize-korean`: 자연스러운 한국어 문장으로 최종 정제합니다.
+- `moai-coworker:general-ai-slop-reviewer`: AI 특유의 상투적 표현·과장·군더더기를 점검하고 다듬습니다.
+- `moai-coworker:general-humanize-korean`: 자연스러운 한국어 문장으로 최종 정제합니다.

@@ -12,9 +12,9 @@ description: |
   - general-skill-builder Phase 5 이후 검증이 필요할 때
   - /harness 커맨드의 test 단계로 진입할 때
 user-invocable: false
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # Skill Tester — 스킬 품질 검증 도구 (루브릭 + 체인 내장)
 
@@ -100,14 +100,14 @@ chain:
   name: "blog-publishing"
   description: "Blog post creation → AI slop review → optional media generation"
   steps:
-    - skill: "moai-cowork:content-blog"
+    - skill: "moai-coworker:content-blog"
       output_type: "markdown"
       provides: ["blog_draft"]
-    - skill: "moai-cowork:general-ai-slop-reviewer"
+    - skill: "moai-coworker:general-ai-slop-reviewer"
       input_from: ["blog_draft"]
       output_type: "markdown"
       provides: ["reviewed_draft"]
-    - skill: "moai-cowork:media-higgsfield-image"
+    - skill: "moai-coworker:media-higgsfield-image"
       input_from: ["reviewed_draft"]
       output_type: "image_url"
       optional: true

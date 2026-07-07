@@ -4,11 +4,11 @@ description: |
   선행 스킬 산출물(commerce-market-research·commerce-jtbd-persona·commerce-product-naming·commerce-channel-message·commerce-detail-page-copy 결과)과 매장 운영 데이터를 종합해 매출 향상 통합 전략 1장 + 실행 우선순위 Top 3을 자동 생성하고, 채널 믹스·가격·프로모션 캘린더·리텐션·KPI까지 단계별(런칭/성장/안정)로 설계합니다.
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "오늘 배운 것 종합 전략으로 정리해줘", "통합 전략 뽑아줘", "실행 우선순위 정해줘", "매출 올리는 전략 1장", "지금 당장 해야 할 것 Top3", "ROAS 개선 전략", "채널별 매출 비교 분석", "커머스 전략 짜줘", "채널 믹스 추천해줘", "가격 전략 세워줘", "프로모션 캘린더 만들어줘", "리텐션 전략 추천", "이커머스 KPI 대시보드 설계"
-  매크로 전략 모드(채널 믹스·3단계 가격·시즌 프로모션 캘린더·재구매 자동화·KPI 대시보드 references 제공) + 통합 1장 모드(선행 산출물 종합) 2계층으로 동작하며, 전략 1장 직후 moai-cowork:general-ai-slop-reviewer를 자동 체이닝합니다.
-  [책임 경계] 본 스킬은 이커머스 셀러 즉시 실행 전술 + 채널 전략. 중장기 사업 전략은 moai-cowork:business-strategy-planner, 운영 자동화 진단은 moai-cowork:commerce-automation-audit 사용.
-version: "4.0.0"
+  매크로 전략 모드(채널 믹스·3단계 가격·시즌 프로모션 캘린더·재구매 자동화·KPI 대시보드 references 제공) + 통합 1장 모드(선행 산출물 종합) 2계층으로 동작하며, 전략 1장 직후 moai-coworker:general-ai-slop-reviewer를 자동 체이닝합니다.
+  [책임 경계] 본 스킬은 이커머스 셀러 즉시 실행 전술 + 채널 전략. 중장기 사업 전략은 moai-coworker:business-strategy-planner, 운영 자동화 진단은 moai-coworker:commerce-automation-audit 사용.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 통합 전략 자동 생성 (Commerce Integrated Strategy)
 
@@ -65,7 +65,7 @@ version: "4.0.0"
 
 ### general-ai-slop-reviewer 자동 체이닝 (HARD)
 
-전략 1장 생성 직후 `moai-cowork:general-ai-slop-reviewer`를 자동 체인합니다.
+전략 1장 생성 직후 `moai-coworker:general-ai-slop-reviewer`를 자동 체인합니다.
 
 검수 항목:
 - 전략 문서 AI 패턴 제거 ("시너지", "혁신적 접근" 등 클리셰)
@@ -174,14 +174,14 @@ version: "4.0.0"
 - `commerce-margin-calculator` — 단일 상품 마진·가격 검증 (매크로 가격 전략 입력)
 - `commerce-marketplace-coupang/naver/d2c/curation/crowdfunding` — 채널별 운영 실행
 - `commerce-automation-audit` — 운영 자동화 진단 (풀세트)
-- `moai-cowork:general-ai-slop-reviewer` — 전략 문서 AI 검수 (자동 체인)
-- `moai-cowork:business-strategy-planner` — 중장기 사업 전략 (페어, 상위 레벨)
+- `moai-coworker:general-ai-slop-reviewer` — 전략 문서 AI 검수 (자동 체인)
+- `moai-coworker:business-strategy-planner` — 중장기 사업 전략 (페어, 상위 레벨)
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **중장기 사업 전략 (분기·연간)**: `moai-cowork:business-strategy-planner` 사용
-- **운영 자동화 진단 풀세트**: `moai-cowork:commerce-automation-audit` 사용
-- **IR 덱·투자 유치 전략**: `moai-cowork:office-pptx-designer` + 별도 사업기획 스킬 사용
+- **중장기 사업 전략 (분기·연간)**: `moai-coworker:business-strategy-planner` 사용
+- **운영 자동화 진단 풀세트**: `moai-coworker:commerce-automation-audit` 사용
+- **IR 덱·투자 유치 전략**: `moai-coworker:office-pptx-designer` + 별도 사업기획 스킬 사용
 - **광고 캠페인 집행 계획**: 광고 플랫폼에서 직접 관리
 - **단일 채널 등록 가이드**: `marketplace-*` 스킬 직접 호출
 - **특정 스킬 단독 산출물만 필요**: 해당 스킬 직접 호출 (통합 불필요)
@@ -210,7 +210,7 @@ version: "4.0.0"
 
 ### 4단계: 프로모션 캘린더
 
-한국 이커머스 시즌(설·가정의달·추석·빼빼로·블프·연말), 프로모션 유형, 시즌별 채널 우선순위, 광고 집중 시점은 `references/promotion.md` 참조. 프로모션 카피는 `moai-cowork:commerce-channel-message`로 작성.
+한국 이커머스 시즌(설·가정의달·추석·빼빼로·블프·연말), 프로모션 유형, 시즌별 채널 우선순위, 광고 집중 시점은 `references/promotion.md` 참조. 프로모션 카피는 `moai-coworker:commerce-channel-message`로 작성.
 
 ### 5단계: 리텐션 자동화
 
@@ -284,4 +284,4 @@ version: "4.0.0"
 - 자동 롤백 및 재시도: API 실패 시 즉시 복구, 3회 재시도
 - 감사 로그 (Audit Log): 모든 자동화·개입·수정 이력 영구 보존
 
-> [책임 경계] 자동화 진단은 `moai-cowork:commerce-automation-audit`가 SSOT로 풀세트 진행. 본 스킬은 매출/채널 전략에 자동화 측면을 요약 통합할 때만 사용 — 상세 자동화 설계는 commerce-automation-audit로 위임.
+> [책임 경계] 자동화 진단은 `moai-coworker:commerce-automation-audit`가 SSOT로 풀세트 진행. 본 스킬은 매출/채널 전략에 자동화 측면을 요약 통합할 때만 사용 — 상세 자동화 설계는 commerce-automation-audit로 위임.

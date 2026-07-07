@@ -11,11 +11,11 @@ description: |
   - "D+30 심층 인터뷰 제안 메시지 만들어줘"
   - "사내 AI 연수 follow-up 시퀀스 짜줘"
   - "수업 후기 자산화 30일 플랜 만들어줘"
-  감사 인사부터 적용 인증, 성과 수치, 영상 후기, 심층 인터뷰까지 시점별 톤에 맞춰 후기를 회수하고, moai-cowork:content-copywriting → moai-cowork:general-ai-slop-reviewer → moai-cowork:office-korean-spell-check 체인으로 자연스럽게 다듬어 드립니다.
-  [책임 경계] vs moai-cowork:content-copywriting: 이 스킬=강의 수강생 후기 30일 회수 시퀀스, 저 스킬=범용 마케팅 카피.
-version: "4.0.0"
+  감사 인사부터 적용 인증, 성과 수치, 영상 후기, 심층 인터뷰까지 시점별 톤에 맞춰 후기를 회수하고, moai-coworker:content-copywriting → moai-coworker:general-ai-slop-reviewer → moai-coworker:office-korean-spell-check 체인으로 자연스럽게 다듬어 드립니다.
+  [책임 경계] vs moai-coworker:content-copywriting: 이 스킬=강의 수강생 후기 30일 회수 시퀀스, 저 스킬=범용 마케팅 카피.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 강의 종료 후 30일 Follow-up 시퀀스
 
@@ -31,7 +31,7 @@ version: "4.0.0"
 - 대학·대학원 수업, 평생교육원·HRD 과정
 
 **체인**
-후기 카피 5종 생성 시: `moai-cowork:content-copywriting → moai-cowork:general-ai-slop-reviewer → moai-cowork:office-korean-spell-check`
+후기 카피 5종 생성 시: `moai-coworker:content-copywriting → moai-coworker:general-ai-slop-reviewer → moai-coworker:office-korean-spell-check`
 
 세 단계를 모두 거쳐야 후기 카피를 출력합니다.
 
@@ -101,9 +101,9 @@ version: "4.0.0"
 ### 처리 체인
 
 ```
-Step 1: moai-cowork:content-copywriting → 시점별 톤·목적·길이 기준 후기 카피 초안 생성
-Step 2: moai-cowork:general-ai-slop-reviewer → AI 패턴 제거, 자연스러운 사람 문체 검수
-Step 3: moai-cowork:office-korean-spell-check → 맞춤법 검사
+Step 1: moai-coworker:content-copywriting → 시점별 톤·목적·길이 기준 후기 카피 초안 생성
+Step 2: moai-coworker:general-ai-slop-reviewer → AI 패턴 제거, 자연스러운 사람 문체 검수
+Step 3: moai-coworker:office-korean-spell-check → 맞춤법 검사
 Step 4: .md 파일 저장 + 발송 가이드 출력
 ```
 
@@ -185,26 +185,26 @@ Step 4: .md 파일 저장 + 발송 가이드 출력
 ## 후기 자산 활용
 
 - 우수 후기 → 차기 모집 랜딩·블로그·SNS 1순위 자산
-- 영상 후기 → 인스타·릴스·유튜브 쇼츠로 재가공 (`moai-cowork` 활용)
-- 심층 인터뷰 → 블로그 사례 기사 (`moai-cowork:content-blog`) → SEO 누적
-- 정량 후기 → 사업계획서·IR·강의 소개서 신뢰 지표 (`moai-cowork:business-strategy-planner`)
+- 영상 후기 → 인스타·릴스·유튜브 쇼츠로 재가공 (`moai-coworker` 활용)
+- 심층 인터뷰 → 블로그 사례 기사 (`moai-coworker:content-blog`) → SEO 누적
+- 정량 후기 → 사업계획서·IR·강의 소개서 신뢰 지표 (`moai-coworker:business-strategy-planner`)
 
 ---
 
 ## 관련 스킬
 
-- `moai-cowork:content-copywriting` — 체인 1단계: 후기 카피 초안 생성
-- `moai-cowork:general-ai-slop-reviewer` — 체인 2단계: AI 패턴 후처리
-- `moai-cowork:office-korean-spell-check` — 체인 3단계: 맞춤법 검사
-- `moai-cowork:education-course-operations-manual` — 강의 운영 매뉴얼 (선행 스킬)
-- `moai-cowork` — D+30 영상 후기 재가공 (선택)
-- `moai-cowork:content-blog` — D+30 심층 인터뷰 블로그 사례 기사 (선택)
+- `moai-coworker:content-copywriting` — 체인 1단계: 후기 카피 초안 생성
+- `moai-coworker:general-ai-slop-reviewer` — 체인 2단계: AI 패턴 후처리
+- `moai-coworker:office-korean-spell-check` — 체인 3단계: 맞춤법 검사
+- `moai-coworker:education-course-operations-manual` — 강의 운영 매뉴얼 (선행 스킬)
+- `moai-coworker` — D+30 영상 후기 재가공 (선택)
+- `moai-coworker:content-blog` — D+30 심층 인터뷰 블로그 사례 기사 (선택)
 
 ---
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- 강의와 무관한 일반 마케팅 후기·리뷰 카피 → `moai-cowork:content-copywriting` 직접 사용
-- 강의 운영 매뉴얼·시간표·동선 설계 → `moai-cowork:education-course-operations-manual` 사용
+- 강의와 무관한 일반 마케팅 후기·리뷰 카피 → `moai-coworker:content-copywriting` 직접 사용
+- 강의 운영 매뉴얼·시간표·동선 설계 → `moai-coworker:education-course-operations-manual` 사용
 - 카톡·알림톡·이메일 자동 발송 인프라 설정 → 외부 발송 도구 사용 (본 스킬은 카피·가이드 생성만)
-- 학습 평가·시험 채점 → `moai-cowork:education-assessment-creator` 사용
+- 학습 평가·시험 채점 → `moai-coworker:education-assessment-creator` 사용

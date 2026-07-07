@@ -12,10 +12,10 @@ description: |
   - "캐릭터 일관성 있는 시리즈 이미지"
   - "4K 이미지 생성"
   Soul·Soul 2.0·Soul Cinema·Nano Banana·Nano Banana Pro·GPT Image·GPT Image 2·Seedream 4.0·Flux Kontext·Wan 2.2 Image·Wan 2.5 11개 공식 이미지 모델과 캐릭터 일관성(Soul Characters), 스타일 프리셋, 해상도(720p/1080p/2K/4K), 시드 고정, 비동기 잡 폴링까지 처리한 완성 이미지를 산출합니다.
-  실제 이미지 생성 요청 시 Higgsfield MCP가 연결돼 있으면 이 스킬을 사용하세요 (프롬프트만 필요하면 moai-cowork의 *-prompt 스킬).
-version: "4.0.0"
+  실제 이미지 생성 요청 시 Higgsfield MCP가 연결돼 있으면 이 스킬을 사용하세요 (프롬프트만 필요하면 moai-coworker의 *-prompt 스킬).
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # Higgsfield 이미지 생성 (media-higgsfield-image)
 
@@ -29,7 +29,7 @@ Higgsfield 이미지, Soul, Soul 2.0, Soul Cinema, Nano Banana, Nano Banana Pro,
 
 ## 전제 — MCP 등록
 
-`moai-cowork` 플러그인 설치 시 `.mcp.json`이 Higgsfield MCP를 자동 등록합니다.
+`moai-coworker` 플러그인 설치 시 `.mcp.json`이 Higgsfield MCP를 자동 등록합니다.
 
 ```json
 {
@@ -311,14 +311,14 @@ quality: 1080p
 
 | 스킬 | 시점 |
 |---|---|
-| `moai-cowork:media-higgsfield-video` | 후속: 이미지를 영상으로 |
-| `moai-cowork:media-gemini-3-image-prompt` | 대안: 프롬프트만 산출 (외부 도구) |
-| `moai-cowork:media-gpt-image-2-prompt` | 대안: 외부 ChatGPT 사용 |
-| `moai-cowork:media-codex-image` | 대안: codex CLI gpt-image-2 (OAuth, API 키 불필요·로컬) |
-| `moai-cowork:content-card-news` | 후속: 이미지를 카드뉴스에 배치 |
-| `moai-cowork:general-cd-system-prep` | 보조: 브랜드 톤 확정 |
-| `moai-cowork:marketing-campaign-planner` | 보조: 캠페인 시리즈 이미지 |
-| `moai-cowork:commerce-product-image-pipeline` | 보조: 이커머스 일괄 |
+| `moai-coworker:media-higgsfield-video` | 후속: 이미지를 영상으로 |
+| `moai-coworker:media-gemini-3-image-prompt` | 대안: 프롬프트만 산출 (외부 도구) |
+| `moai-coworker:media-gpt-image-2-prompt` | 대안: 외부 ChatGPT 사용 |
+| `moai-coworker:media-codex-image` | 대안: codex CLI gpt-image-2 (OAuth, API 키 불필요·로컬) |
+| `moai-coworker:content-card-news` | 후속: 이미지를 카드뉴스에 배치 |
+| `moai-coworker:general-cd-system-prep` | 보조: 브랜드 톤 확정 |
+| `moai-coworker:marketing-campaign-planner` | 보조: 캠페인 시리즈 이미지 |
+| `moai-coworker:commerce-product-image-pipeline` | 보조: 이커머스 일괄 |
 
 ## References
 

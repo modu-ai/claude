@@ -12,10 +12,10 @@ description: |
   - "이 문제의 오답 분석표랑 보충 학습 방향 정리해줘"
   - "자격증 시험 대비 퀴즈랑 해설 같이 만들어줘"
   난이도 배분과 정답·해설을 갖춘 평가 문항을 만들고, 오답 분석표로 보충 학습 방향까지 짚어 드립니다.
-  [책임 경계] vs moai-cowork:education-curriculum-designer: 이 스킬=시험 문제 출제와 채점, 저 스킬=강의 커리큘럼과 학습 목표 설계.
-version: "4.0.0"
+  [책임 경계] vs moai-coworker:education-curriculum-designer: 이 스킬=시험 문제 출제와 채점, 저 스킬=강의 커리큘럼과 학습 목표 설계.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 평가 도구 제작 (Assessment Creator)
 
@@ -159,11 +159,11 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork/education-curriculum-designer**: 커리큘럼 설계, 학습 목표 정의
-- **moai-cowork/education-research-assistant**: 학술 논문 작성, 데이터 분석
+- **moai-coworker/education-curriculum-designer**: 커리큘럼 설계, 학습 목표 정의
+- **moai-coworker/education-research-assistant**: 학술 논문 작성, 데이터 분석
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **커리큘럼 및 강의 계획 설계** → moai-cowork:education-curriculum-designer 스킬이 더 적합합니다
-- **학술 논문·보고서 작성** → moai-cowork:education-research-assistant 스킬을 사용하세요
+- **커리큘럼 및 강의 계획 설계** → moai-coworker:education-curriculum-designer 스킬이 더 적합합니다
+- **학술 논문·보고서 작성** → moai-coworker:education-research-assistant 스킬을 사용하세요
 - **실제 시험 응시 대행** → 자격증 시험은 해당 기관에서 직접 응시해야 합니다

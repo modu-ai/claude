@@ -2,9 +2,9 @@
 name: business-escalation-manager
 description: >
   고객 불만 에스컬레이션을 처리하고 VOC를 분석합니다. "불만 고객 대응 전략 세워줘", "VIP 고객 특별 응대 방법 알려줘", "주간 CS 요약 보고서 만들어줘"라고 요청할 때 사용하세요. 에스컬레이션 레벨 배정, VIP 응대, VOC 분석, 주간 CS 요약 보고서 생성을 지원합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 에스컬레이션 관리자 (Escalation Manager)
 
@@ -117,17 +117,17 @@ Zendesk·Medallia 2026 CX 연구 반영:
 서술형 산출물(에스컬레이션 대응 계획서, VIP 응대 스크립트, 개선 권고안, VOC 인사이트 서술)은 다음 체인으로 마무리합니다:
 
 ```
-business-escalation-manager → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean
+business-escalation-manager → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
 ```
 
-- `moai-cowork:general-ai-slop-reviewer` — AI 티 나는 표현·과잉 수식·기계적 문장 패턴을 검수·수정
-- `moai-cowork:general-humanize-korean` — 한국어 경어 자연스러움과 사람이 쓴 듯한 어조로 다듬기
+- `moai-coworker:general-ai-slop-reviewer` — AI 티 나는 표현·과잉 수식·기계적 문장 패턴을 검수·수정
+- `moai-coworker:general-humanize-korean` — 한국어 경어 자연스러움과 사람이 쓴 듯한 어조로 다듬기
 
-> 주간 CS 요약 보고서의 **수치·KPI 표**(핵심 지표·유형별 현황표 등)는 후처리 체인 대상이 아닙니다. 표·대시보드 형태가 필요하면 `moai-cowork:office-xlsx-creator` 또는 `moai-cowork:office-data-visualizer`로 라우팅하고, 보고서의 **서술 부분(Top 3 이슈·인사이트·액션 권고)만** 위 체인으로 다듬습니다.
+> 주간 CS 요약 보고서의 **수치·KPI 표**(핵심 지표·유형별 현황표 등)는 후처리 체인 대상이 아닙니다. 표·대시보드 형태가 필요하면 `moai-coworker:office-xlsx-creator` 또는 `moai-coworker:office-data-visualizer`로 라우팅하고, 보고서의 **서술 부분(Top 3 이슈·인사이트·액션 권고)만** 위 체인으로 다듬습니다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **초기 티켓 분류 및 긴급도 판단** → moai-cowork:business-ticket-triage 스킬이 더 적합합니다
-- **일반 고객 응답 초안 작성** → moai-cowork:business-draft-response 스킬을 사용하세요
-- **지식베이스 문서 작성** → moai-cowork:business-kb-article 스킬을 사용하세요
-- **법적 분쟁 소송 대응** → moai-cowork 스킬과 법무팀 또는 법률 전문가를 활용하세요
+- **초기 티켓 분류 및 긴급도 판단** → moai-coworker:business-ticket-triage 스킬이 더 적합합니다
+- **일반 고객 응답 초안 작성** → moai-coworker:business-draft-response 스킬을 사용하세요
+- **지식베이스 문서 작성** → moai-coworker:business-kb-article 스킬을 사용하세요
+- **법적 분쟁 소송 대응** → moai-coworker 스킬과 법무팀 또는 법률 전문가를 활용하세요

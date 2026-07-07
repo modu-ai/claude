@@ -302,7 +302,7 @@
   ↓
 통합 프롬프트 생성
   ↓
-moai-cowork 이미지 프롬프트 빌더로 위임
+moai-coworker 이미지 프롬프트 빌더로 위임
   ↓
 카피 검수 (general-humanize-korean · general-ai-slop-reviewer)
   ↓
@@ -329,11 +329,11 @@ moai-cowork 이미지 프롬프트 빌더로 위임
 
 | 스킬 | 시점 |
 |---|---|
-| `moai-cowork:media-gemini-3-image-prompt` | 통합 프롬프트 → 실제 이미지 생성 (★ 권장) |
-| `moai-cowork:media-gpt-image-2-prompt` | 일러스트 강조 시 |
-| `moai-cowork:media-midjourney-v8-prompt` | 비주얼 임팩트 중심 |
-| `moai-cowork:general-humanize-korean` | 한국어 카피 AI 티 자연화 (검수 단계) |
-| `moai-cowork:general-ai-slop-reviewer` | 전반 AI 슬롭 표현 검수 |
-| `moai-cowork:content-sns-content` | 채널 단위 운영 전략 |
-| `moai-cowork:marketing-campaign-planner` | 캠페인 시리즈 카드뉴스 |
-| `moai-cowork:general-cd-slop-check` | 디자인 카피 슬롭 검수 |
+| `moai-coworker:media-gemini-3-image-prompt` | 통합 프롬프트 → 실제 이미지 생성 (★ 권장) |
+| `moai-coworker:media-gpt-image-2-prompt` | 일러스트 강조 시 |
+| `moai-coworker:media-midjourney-v8-prompt` | 비주얼 임팩트 중심 |
+| `moai-coworker:general-humanize-korean` | 한국어 카피 AI 티 자연화 (검수 단계) |
+| `moai-coworker:general-ai-slop-reviewer` | 전반 AI 슬롭 표현 검수 |
+| `moai-coworker:content-sns-content` | 채널 단위 운영 전략 |
+| `moai-coworker:marketing-campaign-planner` | 캠페인 시리즈 카드뉴스 |
+| `moai-coworker:general-cd-slop-check` | 디자인 카피 슬롭 검수 |

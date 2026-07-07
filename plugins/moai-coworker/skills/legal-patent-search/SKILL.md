@@ -10,10 +10,10 @@ description: |
   - "이 키워드로 특허 출원 추이 알려줘"
   - "KIPRIS에서 상표 검색해줘"
   - "이 분야 출원인별 경쟁 현황 정리해줘"
-  특허 목록·핵심 청구항 요약·IPC 분류별 분포를 정리하고, 선행기술 조사·FTO·출원서가 필요하면 moai-cowork:legal-patent-analyzer로 이어집니다.
-version: "4.0.0"
+  특허 목록·핵심 청구항 요약·IPC 분류별 분포를 정리하고, 선행기술 조사·FTO·출원서가 필요하면 moai-coworker:legal-patent-analyzer로 이어집니다.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 특허 검색 (Patent Search)
 
@@ -94,10 +94,10 @@ GET https://plus.kipris.or.kr/openapi/rest/patentSearchInfo
 
 ### 5단계: 후속 작업 제안
 
-- "선행기술 조사" → moai-cowork:legal-patent-analyzer 스킬 연계
-- "특허 맵 분석" → moai-cowork:legal-patent-analyzer 스킬 연계
-- "출원서 작성" → moai-cowork:legal-patent-analyzer 스킬 연계
-- "FTO 분석" → moai-cowork:legal-patent-analyzer 스킬 연계
+- "선행기술 조사" → moai-coworker:legal-patent-analyzer 스킬 연계
+- "특허 맵 분석" → moai-coworker:legal-patent-analyzer 스킬 연계
+- "출원서 작성" → moai-coworker:legal-patent-analyzer 스킬 연계
+- "FTO 분석" → moai-coworker:legal-patent-analyzer 스킬 연계
 
 ## 사용 예시
 
@@ -121,13 +121,13 @@ GET https://plus.kipris.or.kr/openapi/rest/patentSearchInfo
 - KIPRIS Plus API 키가 없는 경우 검색을 진행할 수 없습니다. API 키는 KIPRIS 또는 data.go.kr에서 무료로 발급받을 수 있습니다.
 - KIPRIS API는 1,000회/월 무료 호출이 가능합니다. 초과 시 유료 요금제가 적용됩니다.
 - 일부 특허는 전문 텍스트를 확인하지 못할 수 있습니다. 이 경우 서지정보와 청구항 요약만 제공됩니다.
-- 선행기술 조사, FTO 분석, 출원서 작성이 필요한 경우 moai-cowork:legal-patent-analyzer 스킬로 연계합니다.
+- 선행기술 조사, FTO 분석, 출원서 작성이 필요한 경우 moai-coworker:legal-patent-analyzer 스킬로 연계합니다.
 
 ## 관련 스킬
 
-- **moai-cowork:legal-patent-analyzer** - 선행기술 조사, FTO 분석, 출원서 작성
-- **moai-cowork:education-grant-writer** - 연구비 신청서 선행기술 섹션 작성
-- **moai-cowork:office-data-visualizer** - 특허 동향 시각화 (연도별 추이, IPC 분포 차트)
+- **moai-coworker:legal-patent-analyzer** - 선행기술 조사, FTO 분석, 출원서 작성
+- **moai-coworker:education-grant-writer** - 연구비 신청서 선행기술 섹션 작성
+- **moai-coworker:office-data-visualizer** - 특허 동향 시각화 (연도별 추이, IPC 분포 차트)
 
 ## KIPRIS Plus API 안내
 

@@ -4,15 +4,15 @@ description: >
   직장에서 제출하는 주간업무보고를 빠르게 작성해주는 스킬입니다.
   '주간보고 작성해줘', '이번 주 한 일 정리', '주간업무보고', '팀장님께 보낼 보고', '한 주 업무 리뷰'처럼 말하면 됩니다.
   한 주 성과·진행 중 일·이슈·다음 주 계획을 정해진 틀로 정리하고, 격식체/구어체 톤까지 맞춰 보고서 초안을 만들어줍니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 주간업무보고 (Weekly Report)
 
 ## 개요
 
-매주 돌아오는 주간보고를 "뭐 했더라" 하며 매번 처음부터 쓰는 부담을 줄인다. 한 주 동안 한 일을 성과·진행·이슈·다음 주 계획의 정해진 틀로 정리하고, 받는 사람(팀장·임원·동료)과 조직 톤에 맞춰 문장을 다듬어 제출용 초안을 만든다. 이 스킬은 기존 `moai-cowork:business-pm-weekly-report`를 흡수·대체한다.
+매주 돌아오는 주간보고를 "뭐 했더라" 하며 매번 처음부터 쓰는 부담을 줄인다. 한 주 동안 한 일을 성과·진행·이슈·다음 주 계획의 정해진 틀로 정리하고, 받는 사람(팀장·임원·동료)과 조직 톤에 맞춰 문장을 다듬어 제출용 초안을 만든다. 이 스킬은 기존 `moai-coworker:business-pm-weekly-report`를 흡수·대체한다.
 
 ## 트리거 키워드
 
@@ -64,7 +64,7 @@ version: "4.0.0"
 
 - **이슈에 요청 붙이기**: 막힌 점은 "무엇을 도와달라"까지 명시
 - **차주 계획 우선순위**: 3개로 좁히고 `office-time-system`으로 블록 배치
-- **AI 티 다듬기**: 어색한 번역 투·과한 미사여구 제거 → `moai-cowork:general-ai-slop-reviewer` 후처리 권장
+- **AI 티 다듬기**: 어색한 번역 투·과한 미사여구 제거 → `moai-coworker:general-ai-slop-reviewer` 후처리 권장
 - → 한 주 회고가 필요하면 `office-retro-builder`로 가볍게 이어간다
 
 ## 사용 예시
@@ -94,18 +94,18 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- **moai-cowork:office-retro-builder**: 주간보고와 한 주 회고를 함께 운영
-- **moai-cowork:office-notion-template-kit**: 업무일지 DB로 보고 작성 자동화
-- **moai-cowork:office-time-system**: 차주 계획을 시간 블록에 배치
+- **moai-coworker:office-retro-builder**: 주간보고와 한 주 회고를 함께 운영
+- **moai-coworker:office-notion-template-kit**: 업무일지 DB로 보고 작성 자동화
+- **moai-coworker:office-time-system**: 차주 계획을 시간 블록에 배치
 - **moai-comms**: 보고 대화·구두 보고·피드백 등 대인 커뮤니케이션
-- **moai-cowork:general-ai-slop-reviewer**: 보고서 초안의 AI 티 후처리
+- **moai-coworker:general-ai-slop-reviewer**: 보고서 초안의 AI 티 후처리
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **팀 전체 스프린트 리포트·프로젝트 진척 보고**: 조직 단위 보고는 `moai-product`를 사용한다.
 - **구두 보고·회의 발언 스크립트**: 말로 하는 보고·피드백은 `moai-comms`로 보낸다.
-- **공식 문서(품의서·기획서·제안서)**: 정식 문서 양식은 `moai-cowork` 계열이 맞다.
+- **공식 문서(품의서·기획서·제안서)**: 정식 문서 양식은 `moai-coworker` 계열이 맞다.
 
 ## 출처
 
-직장 주간업무보고 일반 작성 프레임워크(성과 중심 4블록·톤 맞춤) + 사용자 vault 업무일지 노트 참고. 표현·예시는 2026년 한국 기준 자체 구성. 기존 moai-cowork:business-pm-weekly-report 흡수·대체.
+직장 주간업무보고 일반 작성 프레임워크(성과 중심 4블록·톤 맞춤) + 사용자 vault 업무일지 노트 참고. 표현·예시는 2026년 한국 기준 자체 구성. 기존 moai-coworker:business-pm-weekly-report 흡수·대체.

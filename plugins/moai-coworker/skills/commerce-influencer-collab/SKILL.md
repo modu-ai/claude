@@ -5,9 +5,9 @@ description: |
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "인플루언서 협업", "뒷광고 회피", "체험단 운영", "UGC 리그램 가이드", "굿즈 기획법", "메가/매크로/마이크로 인플루언서", "표시광고법 인플루언서".
   표시광고법 + 공정거래위 가이드 준수. 5 인플루언서 티어 차등 협업 전략.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 인플루언서·UGC 협업 가이드 (Commerce Influencer Collaboration)
 
@@ -72,7 +72,7 @@ version: "4.0.0"
 
 ## 후속 체인 (텍스트 산출물 검수)
 
-본 스킬의 협업 제안서·뒷광고 회피 안내·UGC 리그램 동의 요청 메시지·굿즈 기획서 텍스트는 `moai-cowork:general-ai-slop-reviewer`로 자동 후처리 체이닝됩니다. 인플루언서 제안 카피는 외부 발송 텍스트이므로 검수 필수.
+본 스킬의 협업 제안서·뒷광고 회피 안내·UGC 리그램 동의 요청 메시지·굿즈 기획서 텍스트는 `moai-coworker:general-ai-slop-reviewer`로 자동 후처리 체이닝됩니다. 인플루언서 제안 카피는 외부 발송 텍스트이므로 검수 필수.
 
 ```text
 commerce-influencer-collab → general-ai-slop-reviewer → (선택) content-sns-content

@@ -23,7 +23,7 @@ set -u
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/../../.." && pwd)"
-COWORK_SKILLS="$REPO_ROOT/plugins/moai-cowork/skills"
+COWORK_SKILLS="$REPO_ROOT/plugins/moai-coworker/skills"
 DESIGN_SKILLS="$REPO_ROOT/plugins/moai-design/skills"
 
 # Pattern class 2: Korean marketing clichés (Tier-1 slop phrases)

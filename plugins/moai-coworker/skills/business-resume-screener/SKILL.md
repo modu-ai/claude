@@ -13,10 +13,10 @@ description: |
   - "NCS 직무 적합도 평가", "채용 서류 검토", "이력서 점수"
   - "면접 대상자 선별 보조" (개별 후보 평가)
 
-  주의: **per-candidate 평가**에 한정됩니다. 채용 프로세스 설계(JD 작성·면접 구조·온보딩)는 `moai-cowork:business-employment-manager`를 사용하세요.
-version: "4.0.0"
+  주의: **per-candidate 평가**에 한정됩니다. 채용 프로세스 설계(JD 작성·면접 구조·온보딩)는 `moai-coworker:business-employment-manager`를 사용하세요.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # Resume Screener — NCS 기반 이력서 스크리닝 (의사결정 보조)
 
@@ -44,7 +44,7 @@ version: "4.0.0"
 
 ### 1단계: 입력 수집
 
-- **직무기술서 (필수)**: NCS 분류체계 기반 권장 (없으면 `moai-cowork:business-employment-manager`로 직무기술서를 먼저 작성하도록 안내)
+- **직무기술서 (필수)**: NCS 분류체계 기반 권장 (없으면 `moai-coworker:business-employment-manager`로 직무기술서를 먼저 작성하도록 안내)
 - **이력서 (필수)**: 텍스트/PDF
 - **자기소개서 (선택)**
 - **평가 가중치 (선택)**: 능력단위별 가중치 0-3 범위
@@ -173,11 +173,11 @@ NCS 분류체계에서 해당 직무의 능력단위(Unit of Competence) 추출 
 ## 관련 스킬
 
 **Before (평가 전)**:
-- `moai-cowork:business-employment-manager` — NCS 직무기술서(JD) 우선 작성. 평가 기준이 될 직무 요건을 먼저 정의합니다.
+- `moai-coworker:business-employment-manager` — NCS 직무기술서(JD) 우선 작성. 평가 기준이 될 직무 요건을 먼저 정의합니다.
 
 **After (평가 후)**:
-- `moai-cowork:business-employment-manager` — 본 스킬이 출력한 점수·확인 필요 사항을 바탕으로 면접 질문과 면접 설계(직무 역량·문화 적합성 비중 포함)를 구성합니다.
-- 문화 적합성·자기소개서 심화 분석은 별도 스킬 없이 본 스킬의 자기소개서 평가 단계(2-4단계)에서 다루며, 면접 단계의 문화 적합성 검증은 `moai-cowork:business-employment-manager`의 면접 설계로 이어집니다.
+- `moai-coworker:business-employment-manager` — 본 스킬이 출력한 점수·확인 필요 사항을 바탕으로 면접 질문과 면접 설계(직무 역량·문화 적합성 비중 포함)를 구성합니다.
+- 문화 적합성·자기소개서 심화 분석은 별도 스킬 없이 본 스킬의 자기소개서 평가 단계(2-4단계)에서 다루며, 면접 단계의 문화 적합성 검증은 `moai-coworker:business-employment-manager`의 면접 설계로 이어집니다.
 
 **Alternative**:
 - 외부 ATS (Greenhouse, Lever, Workday) — 본 스킬은 ATS 대체가 아닌 보조

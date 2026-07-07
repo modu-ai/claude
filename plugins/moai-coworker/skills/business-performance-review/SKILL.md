@@ -4,9 +4,9 @@ description: >
   성과평가 체계를 설계하고 실행을 도와주는 스킬입니다. "OKR 설정해줘", "성과 리뷰 템플릿 만들어줘",
   "피드백 면담 스크립트 써줘"처럼 말하면 됩니다. MBO·OKR·KPI 체계 구축,
   360도 평가 설계, 인사 고과 가이드, 피드백 면담 스크립트 작성을 지원합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 성과평가 (Performance Review)
 
@@ -154,13 +154,13 @@ version: "4.0.0"
 **텍스트 후처리 체인 (면담 스크립트·평가 보고서 서술 부분 등 산문 산출물)**:
 
 ```
-business-performance-review → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean
+business-performance-review → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
 ```
 
-- `moai-cowork:general-ai-slop-reviewer` — AI 티 패턴(기계적 어투, 상투적 피드백 표현) 검수·수정
-- `moai-cowork:general-humanize-korean` — 자연스러운 한국어 문장으로 다듬기 (의미 100% 보존)
+- `moai-coworker:general-ai-slop-reviewer` — AI 티 패턴(기계적 어투, 상투적 피드백 표현) 검수·수정
+- `moai-coworker:general-humanize-korean` — 자연스러운 한국어 문장으로 다듬기 (의미 100% 보존)
 
-> KPI/OKR 달성률 표·평가 등급 매트릭스·성과 대시보드 같은 **숫자·표 산출물**은 위 텍스트 체인 대상이 아닙니다. 표·대시보드가 필요하면 `moai-cowork:office-xlsx-creator` 또는 `moai-cowork:office-data-visualizer`로 라우팅하세요. 혼합 산출물은 **서술 부분만** 체인을 적용하고 표는 데이터 라우팅을 유지합니다.
+> KPI/OKR 달성률 표·평가 등급 매트릭스·성과 대시보드 같은 **숫자·표 산출물**은 위 텍스트 체인 대상이 아닙니다. 표·대시보드가 필요하면 `moai-coworker:office-xlsx-creator` 또는 `moai-coworker:office-data-visualizer`로 라우팅하세요. 혼합 산출물은 **서술 부분만** 체인을 적용하고 표는 데이터 라우팅을 유지합니다.
 
 ## 참고 사항
 
@@ -186,6 +186,6 @@ business-performance-review → moai-cowork:general-ai-slop-reviewer → moai-co
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **법적 노동 분쟁 대응**: 평가 결과로 인한 해고, 징계, 임금 분쟁은 노무사에게 의뢰하세요.
-- **채용·온보딩 프로세스**: JD 작성, 면접 설계, 신입 온보딩은 `moai-cowork:business-employment-manager` 스킬이 더 적합합니다.
-- **오퍼 레터·연봉 협상 문서**: `moai-cowork:business-draft-offer` 스킬을 사용하세요.
-- **원격 근무 정책 수립**: 재택 정책, 협업 도구 선택은 `moai-cowork:business-people-operations` 스킬을 사용하세요.
+- **채용·온보딩 프로세스**: JD 작성, 면접 설계, 신입 온보딩은 `moai-coworker:business-employment-manager` 스킬이 더 적합합니다.
+- **오퍼 레터·연봉 협상 문서**: `moai-coworker:business-draft-offer` 스킬을 사용하세요.
+- **원격 근무 정책 수립**: 재택 정책, 협업 도구 선택은 `moai-coworker:business-people-operations` 스킬을 사용하세요.

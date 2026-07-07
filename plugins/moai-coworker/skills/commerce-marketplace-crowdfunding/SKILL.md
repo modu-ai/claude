@@ -6,9 +6,9 @@ description: >
   신상품 출시 또는 한정판을 사전판매·검증 형식으로 런칭하고 싶을 때 유용합니다.
   와디즈(리워드·투자), 텀블벅(창작·문화), 해피빈펀딩(공익) 채널별 차이를 정리하고,
   프로젝트 페이지 카피, 영상 시놉시스, 리워드 가격 구성, 메이커 등록 절차를 안내합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 크라우드펀딩 가이드 (와디즈·텀블벅)
 
@@ -179,11 +179,11 @@ version: "4.0.0"
 
 ## 관련 스킬
 
-- `moai-cowork:commerce-detail-page-copy` — 펀딩 페이지 본문 카피 작성
-- `moai-cowork:commerce-detail-page-image` — 시각 콘텐츠 합성
-- `moai-cowork:commerce-integrated-strategy` — 펀딩 후 채널 확장 전략
-- `moai-cowork:commerce-product-photo-brief` — 시연 영상·사진 컷 기획
-- `moai-cowork:marketing-campaign-planner` — 펀딩 외부 캠페인
+- `moai-coworker:commerce-detail-page-copy` — 펀딩 페이지 본문 카피 작성
+- `moai-coworker:commerce-detail-page-image` — 시각 콘텐츠 합성
+- `moai-coworker:commerce-integrated-strategy` — 펀딩 후 채널 확장 전략
+- `moai-coworker:commerce-product-photo-brief` — 시연 영상·사진 컷 기획
+- `moai-coworker:marketing-campaign-planner` — 펀딩 외부 캠페인
 
 ## 이 스킬을 사용하지 말아야 할 때
 

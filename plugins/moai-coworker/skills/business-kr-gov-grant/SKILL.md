@@ -13,16 +13,16 @@ description: |
   - "예비창업패키지 신청서 만들어줘"
   - "지원금 어떻게 쓰는지 모르겠어"
   지원사업 탐색·신청서 작성·서류 검토·일정 관리까지 도와주며, 마지막에 AI 표현 다듬기로 이어집니다.
-  [책임 경계] vs moai-cowork:education-grant-writer: 이 스킬=범용 정부 지원사업(창업·소상공인·중기·공모전), 저 스킬=학술/R&D 연구비 특화(NRF·IITP·KIAT).
-version: "4.0.0"
+  [책임 경계] vs moai-coworker:education-grant-writer: 이 스킬=범용 정부 지원사업(창업·소상공인·중기·공모전), 저 스킬=학술/R&D 연구비 특화(NRF·IITP·KIAT).
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 대한민국 정부지원사업 통합 분석·신청 스킬
 
 누구든 정부 지원을 받을 수 있도록 돕는 통합 도우미입니다. 창업자부터 소상공인, 연구자, 비영리단체까지 — 신청자 유형과 상황에 맞춰 가장 적합한 지원사업을 찾고, 고득점 신청서를 함께 만들어드립니다.
 
-> 이 스킬은 범용 지원사업 전반을 다룹니다. **연구비 특화(NRF·IITP·KIAT 등 학술/R&D 과제)** 는 `moai-cowork:education-grant-writer` 를 사용하세요.
+> 이 스킬은 범용 지원사업 전반을 다룹니다. **연구비 특화(NRF·IITP·KIAT 등 학술/R&D 과제)** 는 `moai-coworker:education-grant-writer` 를 사용하세요.
 
 ---
 
@@ -103,7 +103,7 @@ version: "4.0.0"
 
 **연구자·연구기관**
 NRF 기초·응용연구, IITP 정보통신방송기술, KIAT 산업기술혁신, 농진청 농식품 R&D
-(학술/R&D 중심은 `moai-cowork:education-grant-writer` 병용 권장)
+(학술/R&D 중심은 `moai-coworker:education-grant-writer` 병용 권장)
 
 **비영리·사회적경제**
 사회적기업 육성, 협동조합 활성화, 마을기업, 자활기업 지원
@@ -201,11 +201,11 @@ NRF 기초·응용연구, IITP 정보통신방송기술, KIAT 산업기술혁신
 ### 문서 파일 출력
 
 신청서 초안 작성 후 파일로 원하면 아래 스킬을 체인합니다.
-우선순위: Anthropic 공식 스킬 > `moai-cowork:*`.
+우선순위: Anthropic 공식 스킬 > `moai-coworker:*`.
 
-- **Word(.docx)**: `anthropic-skills:docx` 우선, 없으면 `moai-cowork:office-docx-generator`
-- **한글(.hwpx)**: `moai-cowork:office-hwpx-writer` (Anthropic 공식 미제공)
-- **Excel(.xlsx)** (일정표·예산표): `anthropic-skills:xlsx` 우선, 없으면 `moai-cowork:office-xlsx-creator`
+- **Word(.docx)**: `anthropic-skills:docx` 우선, 없으면 `moai-coworker:office-docx-generator`
+- **한글(.hwpx)**: `moai-coworker:office-hwpx-writer` (Anthropic 공식 미제공)
+- **Excel(.xlsx)** (일정표·예산표): `anthropic-skills:xlsx` 우선, 없으면 `moai-coworker:office-xlsx-creator`
 
 ---
 
@@ -296,11 +296,11 @@ NRF 기초·응용연구, IITP 정보통신방송기술, KIAT 산업기술혁신
 
 ## 마지막 단계 — AI 슬롭 검수 + 한국어 다듬기
 
-사용자에게 전달되는 **사업계획서·신청서·검토 피드백 본문**은 마지막에 체인 `moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean`을 거칩니다.
-우선순위: `anthropic-skills:general-ai-slop-reviewer` > `moai-cowork:general-ai-slop-reviewer`.
+사용자에게 전달되는 **사업계획서·신청서·검토 피드백 본문**은 마지막에 체인 `moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean`을 거칩니다.
+우선순위: `anthropic-skills:general-ai-slop-reviewer` > `moai-coworker:general-ai-slop-reviewer`.
 
-- `moai-cowork:general-ai-slop-reviewer`: AI 패턴 검수·수정
-- `moai-cowork:general-humanize-korean`: AI 티가 남은 한국어 표현을 자연스럽게 다듬기
+- `moai-coworker:general-ai-slop-reviewer`: AI 패턴 검수·수정
+- `moai-coworker:general-humanize-korean`: AI 티가 남은 한국어 표현을 자연스럽게 다듬기
 - 대상: 사업계획서 본문, 신청서 초안, 검토 피드백 내러티브
 - 제외: 공통 서류 체크리스트, 일정표, 평가 기준 표, 공고 링크 목록 (표·수치 산출물)
 - 출력: 진단 요약 → 수정 텍스트 → 주요 변경사항 3블록
@@ -329,4 +329,4 @@ NRF 기초·응용연구, IITP 정보통신방송기술, KIAT 산업기술혁신
 - 금융 투자 상품 추천 (주식·펀드 제외)
 - 종료된 공고의 신청서 작성 (먼저 현재 공고 여부 확인 권장)
 - 신청 대행·실제 제출 행위 (정보 제공 및 초안 작성만 지원)
-- 학술·연구 중심 과제 작성은 `moai-cowork:education-grant-writer` 로 이관
+- 학술·연구 중심 과제 작성은 `moai-coworker:education-grant-writer` 로 이관

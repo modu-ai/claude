@@ -11,11 +11,11 @@ description: |
   - "브랜드 포지셔닝이랑 전략 정리해줘"
   - "브랜드 가이드라인 문서로 만들어줘"
   - "기업 브랜딩 처음부터 도와줘"
-  네이밍 후보 평가, 슬로건, 브랜드 스토리, 색상 시스템, 채널별 적용 가이드를 문서로 묶어 줍니다. 텍스트 산출물은 moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean으로 다듬습니다.
-  [책임 경계] vs moai-cowork:marketing-personal-branding: 이 스킬=기업·제품 브랜드, 저 스킬=개인·전문가 브랜드.
-version: "4.0.0"
+  네이밍 후보 평가, 슬로건, 브랜드 스토리, 색상 시스템, 채널별 적용 가이드를 문서로 묶어 줍니다. 텍스트 산출물은 moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean으로 다듬습니다.
+  [책임 경계] vs moai-coworker:marketing-personal-branding: 이 스킬=기업·제품 브랜드, 저 스킬=개인·전문가 브랜드.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 브랜드 아이덴티티 (Brand Identity)
 
@@ -191,15 +191,15 @@ version: "4.0.0"
 
 슬로건·태그라인·브랜드 스토리·매니페스토·톤앤매너 가이드 등 **텍스트 산출물**은 발행 전 반드시 후처리 체인을 거칩니다. 색상 시스템·SMILE 평가표 등 표·수치 산출물은 대상이 아닙니다.
 
-**권장 체인**: `business-brand-identity → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean`
+**권장 체인**: `business-brand-identity → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean`
 
 ## 관련 스킬
 
 | 스킬 | 사용 시점 |
 |------|----------|
-| `moai-cowork:marketing-personal-branding` | 개인 브랜딩, 퍼스널 브랜딩 |
-| `moai-cowork:marketing-campaign-planner` | 광고 캠페인 기획, 미디어 플래닝 |
-| `moai-cowork:content-sns-content` | SNS 콘텐츠 제작 |
-| `moai-cowork:general-ai-slop-reviewer` | 사후 체이닝(필수): 브랜드 텍스트 산출물의 AI 패턴 검수 |
-| `moai-cowork:general-humanize-korean` | 사후 체이닝(필수): general-ai-slop-reviewer 다음 단계로 한국어 AI 티 제거 |
+| `moai-coworker:marketing-personal-branding` | 개인 브랜딩, 퍼스널 브랜딩 |
+| `moai-coworker:marketing-campaign-planner` | 광고 캠페인 기획, 미디어 플래닝 |
+| `moai-coworker:content-sns-content` | SNS 콘텐츠 제작 |
+| `moai-coworker:general-ai-slop-reviewer` | 사후 체이닝(필수): 브랜드 텍스트 산출물의 AI 패턴 검수 |
+| `moai-coworker:general-humanize-korean` | 사후 체이닝(필수): general-ai-slop-reviewer 다음 단계로 한국어 AI 티 제거 |
 | `moai-design-system` | 디자인 시스템/컴포넌트 구축 |

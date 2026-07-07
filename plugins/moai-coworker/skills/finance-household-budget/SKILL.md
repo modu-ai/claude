@@ -4,9 +4,9 @@ description: >
   월급 관리와 가계부, 예산 배분, 소비 회고를 도와주는 스킬입니다.
   '통장 쪼개기 해줘', '월급 관리법', '가계부 어떻게 써', '돈이 자꾸 새', '예산 짜줘'처럼 말하면 됩니다.
   통장 쪼개기, 50/30/20 예산, 가계부 분류, 소비 회고 루틴으로 매달 저축 가능액을 확보하는 돈 관리 시스템을 설계합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 가계부·소비관리 (Household Budget)
 
@@ -97,7 +97,7 @@ version: "4.0.0"
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **부채 과다·연체**: 단순 예산이 아니라 채무조정이 필요할 수 있다. 신용회복위원회 등 상담.
-- **사업자 경비·장부**: 사업 회계는 `moai-cowork` 계열을 사용한다.
+- **사업자 경비·장부**: 사업 회계는 `moai-coworker` 계열을 사용한다.
 
 ## 출처
 

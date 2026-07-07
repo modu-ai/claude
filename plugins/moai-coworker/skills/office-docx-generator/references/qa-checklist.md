@@ -157,7 +157,7 @@ for p in doc.paragraphs:
             print(f"⚠️ AI 슬롭 의심: '{re.search(pat, text).group()}' in '{text[:50]}...'")
 ```
 
-권장: 후속으로 `moai-cowork:general-cd-slop-check` 또는 `moai-cowork:general-humanize-korean` 스킬 호출.
+권장: 후속으로 `moai-coworker:general-cd-slop-check` 또는 `moai-coworker:general-humanize-korean` 스킬 호출.
 
 ---
 

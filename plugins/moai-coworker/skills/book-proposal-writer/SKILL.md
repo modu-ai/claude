@@ -463,15 +463,15 @@ version: 0.1.0
 - `book-chapter-writer` — 본문 챕터 집필 (제안서 통과 후)
 
 ### Alternative
-- `moai-cowork:business-strategy-planner` — 사업 제안서 (책 아님)
-- `moai-cowork:education-grant-writer` — 정부지원사업 신청
+- `moai-coworker:business-strategy-planner` — 사업 제안서 (책 아님)
+- `moai-coworker:education-grant-writer` — 정부지원사업 신청
 
 ### Post (검수 — 정규 체인)
-- `moai-cowork:office-korean-spell-check` — 한국어 맞춤법
-- `moai-cowork:general-ai-slop-reviewer` — AI 슬롭 검수 (필수)
-- `moai-cowork:general-humanize-korean` — AI 티 정밀 윤문 (필수)
+- `moai-coworker:office-korean-spell-check` — 한국어 맞춤법
+- `moai-coworker:general-ai-slop-reviewer` — AI 슬롭 검수 (필수)
+- `moai-coworker:general-humanize-korean` — AI 티 정밀 윤문 (필수)
 
-> 제안서 산문(개요·시장 분석·샘플 챕터·마케팅 플랜 서술)은 정규 체인 **`book-proposal-writer → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean`**으로 마무리. 신뢰 신호 매트릭스·경쟁작 매트릭스 같은 표는 데이터 출력이므로 체인 대상이 아닙니다.
+> 제안서 산문(개요·시장 분석·샘플 챕터·마케팅 플랜 서술)은 정규 체인 **`book-proposal-writer → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean`**으로 마무리. 신뢰 신호 매트릭스·경쟁작 매트릭스 같은 표는 데이터 출력이므로 체인 대상이 아닙니다.
 
 ## 10. 출처
 
@@ -495,4 +495,4 @@ GOOS Obsidian vault에서 "출판 제안서·기획서·시장 분석·마케팅
 
 **버전 히스토리**
 
-- v2.9.0 (2026-05-17): 신규 스킬 도입. moai-cowork 플러그인 5번 워크플로우. 3 패키지(기획서·샘플·마케팅) + 5 섹션 기획서 + 4 장르 + 거절 신호 검출 + 10개 한국 출판사 양식 가이드.
+- v2.9.0 (2026-05-17): 신규 스킬 도입. moai-coworker 플러그인 5번 워크플로우. 3 패키지(기획서·샘플·마케팅) + 5 섹션 기획서 + 4 장르 + 거절 신호 검출 + 10개 한국 출판사 양식 가이드.

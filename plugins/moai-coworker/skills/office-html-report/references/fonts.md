@@ -1,6 +1,6 @@
 # 한국어 폰트 정책 — office-html-report
 
-`moai-cowork:office-html-report`의 한국어 웹폰트 CDN URL, 라이선스, preconnect 패턴 SSOT.
+`moai-coworker:office-html-report`의 한국어 웹폰트 CDN URL, 라이선스, preconnect 패턴 SSOT.
 
 ---
 

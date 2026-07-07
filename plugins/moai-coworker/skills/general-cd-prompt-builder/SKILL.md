@@ -11,9 +11,9 @@ description: |
   - "접근성 디자인 프롬프트"
   - "디자인 시스템 프롬프트"
   - "프롬프트 빌더"
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # general-cd-prompt-builder — 시니어 UX 패턴 프롬프트 빌더
 
@@ -153,7 +153,7 @@ Anthropic 공식 발표(2026-04-17)에서 강조한 **코드 기반 프로토타
 
 - 결과를 PDF·PPTX·HTML 중 어느 것으로 내보낼지
 - 코드로 빌드하려면 → Claude Code 핸드오프
-- 카피 검수 필요 → moai-cowork:general-cd-slop-check
+- 카피 검수 필요 → moai-coworker:general-cd-slop-check
 ```
 
 ## 패턴별 템플릿 상세
@@ -324,8 +324,8 @@ Anthropic 공식 발표(2026-04-17)에서 강조한 **코드 기반 프로토타
 
 | 스킬 | 사용 시점 |
 |---|---|
-| `moai-cowork:general-cd-brief` | 대안: 일반적 6요소 브리프 (시니어 패턴이 필요 없을 때) |
-| `moai-cowork:general-cd-system-prep` | 선행: 디자인 시스템 자산 합성 |
-| `moai-cowork:general-cd-slop-check` | 후속: 결과 카피 검수 |
-| `moai-cowork:business-ux-designer` | 보조: Claude Design 외 UX 분석 |
-| `moai-cowork:business-ux-researcher` | 보조: 사용자 리서치 단계 |
+| `moai-coworker:general-cd-brief` | 대안: 일반적 6요소 브리프 (시니어 패턴이 필요 없을 때) |
+| `moai-coworker:general-cd-system-prep` | 선행: 디자인 시스템 자산 합성 |
+| `moai-coworker:general-cd-slop-check` | 후속: 결과 카피 검수 |
+| `moai-coworker:business-ux-designer` | 보조: Claude Design 외 UX 분석 |
+| `moai-coworker:business-ux-researcher` | 보조: 사용자 리서치 단계 |

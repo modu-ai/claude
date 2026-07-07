@@ -4,9 +4,9 @@ description: >
   원격 근무와 팀 운영 정책을 설계해주는 스킬입니다. "재택근무 정책 만들어줘", "협업 도구 추천해줘",
   "비동기 커뮤니케이션 가이드 만들어줘"처럼 말하면 됩니다. 원격·하이브리드 근무 정책,
   협업 도구 선정 기준, 생산성 관리 프레임워크, 직원 경험 설계를 지원합니다.
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 피플 오퍼레이션 (business-people-operations)
 
@@ -144,13 +144,13 @@ version: "4.0.0"
 **텍스트 후처리 체인 (정책 문서·가이드라인 등 산문 산출물)**:
 
 ```
-business-people-operations → moai-cowork:general-ai-slop-reviewer → moai-cowork:general-humanize-korean
+business-people-operations → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
 ```
 
-- `moai-cowork:general-ai-slop-reviewer` — AI 티 패턴(기계적 어투, 상투적 정책 표현) 검수·수정
-- `moai-cowork:general-humanize-korean` — 자연스러운 한국어 문장으로 다듬기 (의미 100% 보존)
+- `moai-coworker:general-ai-slop-reviewer` — AI 티 패턴(기계적 어투, 상투적 정책 표현) 검수·수정
+- `moai-coworker:general-humanize-korean` — 자연스러운 한국어 문장으로 다듬기 (의미 100% 보존)
 
-> 협업 도구 비교표·생산성 지표 표 같은 **표 산출물**은 위 텍스트 체인 대상이 아닙니다. 표가 필요하면 `moai-cowork:office-xlsx-creator`로 라우팅하세요.
+> 협업 도구 비교표·생산성 지표 표 같은 **표 산출물**은 위 텍스트 체인 대상이 아닙니다. 표가 필요하면 `moai-coworker:office-xlsx-creator`로 라우팅하세요.
 
 ## 문제 해결
 
@@ -162,6 +162,6 @@ business-people-operations → moai-cowork:general-ai-slop-reviewer → moai-cow
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **법적 노동 분쟁 대응**: 재택근무 중 발생한 산재, 임금 분쟁은 노무사에게 의뢰하세요.
-- **채용·온보딩 프로세스 설계**: 채용 파이프라인과 신입 온보딩 계획은 `moai-cowork:business-employment-manager` 스킬이 더 적합합니다.
-- **성과평가 체계 설계**: OKR/KPI 설정 및 평가 면담은 `moai-cowork:business-performance-review` 스킬을 사용하세요.
-- **오퍼 레터·근로계약서 작성**: 계약 문서는 `moai-cowork:business-draft-offer` 스킬을 사용하세요.
+- **채용·온보딩 프로세스 설계**: 채용 파이프라인과 신입 온보딩 계획은 `moai-coworker:business-employment-manager` 스킬이 더 적합합니다.
+- **성과평가 체계 설계**: OKR/KPI 설정 및 평가 면담은 `moai-coworker:business-performance-review` 스킬을 사용하세요.
+- **오퍼 레터·근로계약서 작성**: 계약 문서는 `moai-coworker:business-draft-offer` 스킬을 사용하세요.

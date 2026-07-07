@@ -4,11 +4,11 @@ description: |
   NCM 프레임워크(Need→Channel→Moment→Message→CTA)로 검색·광고·CRM·앱 푸시 채널별 메시지를 자동 생성하는 단일 채널 메시지 엔진입니다 — 채널 분기 메시지 15종 + 채널별 운영 카피(광고·톡톡·푸시·이메일) + 앱 푸시 기획(4원칙·3요소·변형 3안)을 한 곳에서 처리합니다.
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "채널별 메시지 만들어줘", "검색광고 카피 15종", "CRM 메시지 뽑아줘", "스마트스토어 배너 카피", "쿠팡 광고 문구", "카카오 알림톡 문구", "SNS 광고 카피 5종", "광고 헤드라인 만들어줘", "톡톡 응답 템플릿", "카트 이탈 메시지", "이메일 시퀀스 짜줘", "재구매 유도 알림톡", "앱 푸시 문구 만들어줘", "리텐션 푸시 카피 3안", "할인 푸시 알림", "게이미피케이션 푸시"
-  3개 동작 모드(채널 분기 메시지 15종 / 운영 카피 / 앱 푸시 기획)가 자연어로 자동 선택되며, 6 심리 방아쇠 + 채널별 심리 상태 매트릭스 + 인지 편향 9종을 적용하고, 텍스트 산출물 직후 moai-cowork:general-ai-slop-reviewer를 자동 체이닝합니다.
-  [책임 경계] 페어 moai-domain-copywriting(도메인 비특정 단일 목적 카피)·moai-cowork:content-copywriting(이커머스 외 범용)과 구분 — 본 스킬은 이커머스 채널 운영 메시지 전용. 상세페이지 카피는 moai-cowork:commerce-detail-page-copy, 발송 전 법규 게이트는 moai-cowork:commerce-marketing-compliance-kr.
-version: "4.0.0"
+  3개 동작 모드(채널 분기 메시지 15종 / 운영 카피 / 앱 푸시 기획)가 자연어로 자동 선택되며, 6 심리 방아쇠 + 채널별 심리 상태 매트릭스 + 인지 편향 9종을 적용하고, 텍스트 산출물 직후 moai-coworker:general-ai-slop-reviewer를 자동 체이닝합니다.
+  [책임 경계] 페어 moai-domain-copywriting(도메인 비특정 단일 목적 카피)·moai-coworker:content-copywriting(이커머스 외 범용)과 구분 — 본 스킬은 이커머스 채널 운영 메시지 전용. 상세페이지 카피는 moai-coworker:commerce-detail-page-copy, 발송 전 법규 게이트는 moai-coworker:commerce-marketing-compliance-kr.
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 채널별 메시지 자동 생성 (Commerce Channel Message)
 
@@ -84,7 +84,7 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
 
 ### general-ai-slop-reviewer 자동 체이닝 (HARD)
 
-메시지 15종 생성 직후 `moai-cowork:general-ai-slop-reviewer`를 자동 체인합니다.
+메시지 15종 생성 직후 `moai-coworker:general-ai-slop-reviewer`를 자동 체인합니다.
 
 검수 항목:
 - AI 패턴 메시지 ("혁신적인", "놀라운", "최고의" 클리셰) 제거
@@ -170,16 +170,16 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
 - `commerce-product-naming` — 확정 상품명 (메시지 내 상품명 활용)
 - `commerce-integrated-strategy` — 채널 메시지 포함 전략 1장 종합 (다음 단계)
 - `commerce-marketing-compliance-kr` — 발송 전 법규 게이트 (푸시·알림톡·이메일 광고)
-- `moai-cowork:content-sns-content` — SNS 콘텐츠 단독 심화 작업
-- `moai-cowork:general-ai-slop-reviewer` — AI 패턴 검수 (자동 체이닝)
+- `moai-coworker:content-sns-content` — SNS 콘텐츠 단독 심화 작업
+- `moai-coworker:general-ai-slop-reviewer` — AI 패턴 검수 (자동 체이닝)
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **도메인 비특정 단일 목적 카피**: `moai-domain-copywriting` 사용
-- **이커머스 외 일반 광고 카피**: `moai-cowork:content-copywriting` 사용
+- **이커머스 외 일반 광고 카피**: `moai-coworker:content-copywriting` 사용
 - **상세페이지 13섹션 카피**: `commerce-detail-page-copy` 사용
-- **이메일 뉴스레터 본문**: `moai-cowork:content-newsletter` 또는 `moai-cowork:content-email-sequence` 사용
-- **광고 캠페인 전체 기획**: `moai-cowork:marketing-campaign-planner` 사용
+- **이메일 뉴스레터 본문**: `moai-coworker:content-newsletter` 또는 `moai-coworker:content-email-sequence` 사용
+- **광고 캠페인 전체 기획**: `moai-coworker:marketing-campaign-planner` 사용
 - **광고 실집행·캠페인 운영**: 광고 플랫폼에서 직접 관리
 
 ---
@@ -199,7 +199,7 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
 2. 컨텍스트 수집 (상품·타겟·목적·톤·길이 제한)
 3. 채널별 카피 산출 (위 references)
 4. A/B 변형 2-3안 (A: 직설/기능, B: 감성/라이프스타일, C: 긴급/스토리)
-5. `moai-cowork:general-ai-slop-reviewer` 자동 체이닝
+5. `moai-coworker:general-ai-slop-reviewer` 자동 체이닝
 
 ### 채널별 길이 제약 (cheat sheet)
 
@@ -246,7 +246,7 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
 | 핵심 혜택·콘텐츠 | 필수 | 비건 세럼 20% 할인 |
 | 톤앤매너 선호 | 권장 | 숫자 / 게이미피케이션 / 브랜딩 |
 
-푸시 기획 후속: 발송 직전 `moai-cowork:commerce-marketing-compliance-kr`로 정통망법 게이트(야간 21:00-08:00 광고 발송 금지·수신거부·발신자 정보)를 통과시킵니다.
+푸시 기획 후속: 발송 직전 `moai-coworker:commerce-marketing-compliance-kr`로 정통망법 게이트(야간 21:00-08:00 광고 발송 금지·수신거부·발신자 정보)를 통과시킵니다.
 
 ---
 
@@ -277,11 +277,11 @@ NCM 메시지 생성 시 매 메시지마다 1-2개 방아쇠를 명시적으로
 | **구글** (검색·유튜브) | 능동적 탐색 | 기능적 필요·핫 타겟 | 키워드 의도별 분류 (정보/탐색/구매) | 광고비 70%+ 구매 의도 키워드. 부정 키워드 ('무료'·'DIY') |
 | **네이버** | 정보 탐색 시작 | 기능적 필요·블로그 후기 | 블로그·리뷰 생태계 + SEO | 광고비보다 블로그·리뷰 먼저. 한국 소비자 검색→블로그→구매 패턴 |
 | **카카오** | 슈퍼 타겟 90%+ 열람 | 정체성·재구매 | 카톡 메시지·알림톡·정체성 | 신규 획득보다 기존 고객 유지에 ROI 압도적 높음 |
-| **쿠팡** | 검색영역 + 비검색영역 동시 | 즉시 구매 | 검색(전환 메시지) vs 비검색(노출 메시지) 분리 | CPM 167배 차이 → 영역별 메시지 다르게. moai-cowork:commerce-marketplace-coupang-ads와 연계 |
+| **쿠팡** | 검색영역 + 비검색영역 동시 | 즉시 구매 | 검색(전환 메시지) vs 비검색(노출 메시지) 분리 | CPM 167배 차이 → 영역별 메시지 다르게. moai-coworker:commerce-marketplace-coupang-ads와 연계 |
 
 ### 인지 편향 9종 적용 가이드
 
-페어 스킬 `moai-cowork:marketing-campaign-planner`와 동일한 9종 (Kahneman 행동경제학 표준 카탈로그 기반).
+페어 스킬 `moai-coworker:marketing-campaign-planner`와 동일한 9종 (Kahneman 행동경제학 표준 카탈로그 기반).
 
 | 편향 | 메시지 적용 패턴 |
 |------|----------------|

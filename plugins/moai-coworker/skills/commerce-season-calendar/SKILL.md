@@ -4,9 +4,9 @@ description: |
   [책임 경계] 연간 시즌 캘린더 전담 — 한국·글로벌 이커머스 시즌 이벤트 30+개 매핑(블프·솽스이·발렌타인·명절·여름·겨울 등) + 카테고리별 매출 피크 분석 + 분기 캠페인 계획 자동 생성.
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "연간 시즌 캘린더", "블프 솽스이 일정", "한국 시즌 이벤트", "분기 캠페인 계획", "시즌별 매출 피크", "명절 마케팅", "발렌타인 이벤트".
-version: "4.0.0"
+version: "5.0.0"
 ---
-<!-- moai-cowork v4.0.0 · 3-point sync: plugin.json "version":"4.0.0" = SKILL.md version 4.0.0 = marketplace metadata.version 4.0.0 (REQ-STORY-006/NFR-STORY-003) -->
+<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 연간 시즌 캘린더 (Commerce Season Calendar)
 
@@ -106,7 +106,7 @@ version: "4.0.0"
 
 ## 후속 체인 (텍스트 산출물 검수)
 
-본 스킬의 분기 캠페인 사전 준비 계획·시즌별 매출 피크 해설·카테고리별 권장 메시지 텍스트는 `moai-cowork:general-ai-slop-reviewer`로 자동 후처리 체이닝됩니다. 캘린더 표 자체는 데이터지만, 캠페인 계획 안내문·시즌 마케팅 권장사항 텍스트는 외부 보고서나 미팅 자료로 산출되는 경우가 많아 검수 필수.
+본 스킬의 분기 캠페인 사전 준비 계획·시즌별 매출 피크 해설·카테고리별 권장 메시지 텍스트는 `moai-coworker:general-ai-slop-reviewer`로 자동 후처리 체이닝됩니다. 캘린더 표 자체는 데이터지만, 캠페인 계획 안내문·시즌 마케팅 권장사항 텍스트는 외부 보고서나 미팅 자료로 산출되는 경우가 많아 검수 필수.
 
 ```text
 commerce-season-calendar → general-ai-slop-reviewer → (선택) commerce-promotion-planner (시즌별 프로모션 상세 기획)
