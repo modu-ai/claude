@@ -1,0 +1,156 @@
+# cowork-setup.md — `/project --cowork` 분기 (코워커 체인 init)
+
+> **4-plugin 허브 라우터의 코워커 분기 정본.** 실무(business·content·office·법무·세무·이커머스·미디어)와 글쓰기 작가(story·book·웹툰·웹소설·시나리오) 두 역할을 자동 감지해, `moai-coworker` 플러그인의 스킬 체인으로 CLAUDE.md를 생성한다.
+
+---
+
+## 0. 이 분기가 담당하는 것
+
+사용자가 "새 프로젝트 시작", "프로젝트 설정 도와줘", "CLAUDE.md 만들어줘"처럼 **실무·콘텐츠·작업 자동화** 맥락으로 진입할 때(`--cowork` 플래그 명시 또는 자연어 감지) 이 분기가 동작한다. 디자인은 `--designer`, 개발은 `--code` 분기로 라우팅된다(SKILL.md 허브 참조).
+
+**담당 역할 2종** (Phase 3 역할 라벨 — coworker 내부 모자 교체):
+- **실무 동료** — 사업·마케팅·콘텐츠·문서·법무·세무·이커머스·운영·교육·미디어·HR
+- **글쓰기 작가** — 출판 원고·웹툰·웹소설·시나리오·콘티·광고 콘티·캐릭터·표지·프리비즈·IP 사업화
+
+두 역할 모두 `moai-coworker` 단일 플러그인 안에서 스킬 체인으로 처리된다. 별도 플러그인 설치 불필요.
+
+---
+
+## 1. 역할 자동 감지 (진입 직후)
+
+Phase 1 인터뷰 첫 질문 전, 사용자 발화에서 역할 힌트를 빠르게 분류한다. 분류가 모호하면 첫 인터뷰 질문으로 자연스럽게 확인한다.
+
+| 발화 힌트 | 감지 역할 | 주요 체인 진입 스킬 |
+|---|---|---|
+| 사업계획·IR·시장조사·전략·창업·정부지원 | 실무 | `business-strategy-planner` → `office-pptx-designer` |
+| 블로그·카드뉴스·뉴스레터·카피·SNS·랜딩 | 실무 | `content-blog` / `content-card-news` / `marketing-landing-page` |
+| PPT·한글·Word·Excel·공문·계약서·부가세 | 실무 | `office-*` / `legal-*` / `finance-tax-helper` |
+| 상세페이지·스마트스토어·쿠팡·이커머스 | 실무 | `commerce-product-detail` → `commerce-marketplace-*` |
+| 소설·웹툰·웹소설·시나리오·콘티·출판·원고 | **글쓰기 작가** | `book-concept-planner` / `story-webtoon-planner` / `story-webnovel-writer` |
+| 캐릭터 시트·표지 일러스트·프리비즈·IP 피칭 | **글쓰기 작가** | `story-character-sheet` / `story-cover-art` / `story-ip-pitch` |
+
+감지된 역할은 CLAUDE.md 페르소나에 `[실무 동료 모자]` / `[글쓰기 작가 모자]` 라벨로 기록되어, 실행 시점에 coworker가 모자를 자동 교체한다(Phase 3 역할 라벨 상세는 SKILL.md §역할 라벨).
+
+---
+
+## 2. 8-Phase 워크플로우 요약
+
+```
+Phase 1 인터뷰 → Phase 2 인벤토리 → Phase 3 체인 설계 → Phase 4 Gap Detection
+  → Phase 5 확인 → Phase 6 CLAUDE.md 생성 → Phase 7 API 키 → Phase 8 첫 실행 안내
+```
+
+| Phase | 핵심 | 산출물 |
+|-------|------|--------|
+| **1 인터뷰** | 업무 유형·주 산출물·톤 제약 수집(이름·회사 등 글로벌 프로필은 묻지 않음) | interview 답변 |
+| **2 인벤토리** | `~/.claude/plugins/` 에서 `moai-coworker` 설치 여부 + 활성 스킬 스캔(Bash + system reminder 교차 검증) | `.moai/cache/inventory.json` |
+| **3 체인 설계** | 산출물별 스킬 체인 설계(아래 §3 프리셋). 텍스트 체인은 `general-ai-slop-reviewer` 종료 | chain_design |
+| **4 Gap Detection** | 체인 스킬 ↔ 인벤토리 대조 → 누락 시 설치 안내 + `/project resume` 재개 | init-progress.json |
+| **5 확인** | 설계된 체인 AskUserQuestion 승인 | 승인/수정/취소 |
+| **6 CLAUDE.md 생성** | `references/templates/CLAUDE.md.tmpl` 치환, ≤200라인, office/ai-slop HARD 규칙 고정 | `./CLAUDE.md` |
+| **7 API 키** | 체인이 요구하는 키만 선택적 등록 안내 | `.moai/credentials.env` |
+| **8 첫 실행 안내** | 상위 체인 3개 예시 제시 | 안내 메시지 |
+
+각 Phase의 AskUserQuestion 스키마·inventory.json/init-progress.json 상세·Re-entry 흐름은 `references/core/init-protocol.md`(Phase별 상세 레퍼런스) 참조.
+
+---
+
+## 3. 코워커 스킬 체인 프리셋 (주요 산출물)
+
+모든 스킬은 **`moai-coworker` 단일 플러그인** 소속이다(이전 다중 플러그인 분산 토폴로지는 폐기됨). 텍스트 산출물 체인은 **반드시 `general-ai-slop-reviewer`로 종료**하며, 한국어 최종본은 직후 `general-humanize-korean` 2차 패스를 추가한다. 비텍스트(차트·데이터·숫자·미디어)는 ai-slop 단계를 생략한다.
+
+### 3-1. 실무 체인
+
+| 산출물 | 권장 체인 |
+|---|---|
+| 사업계획서(PPT) | `business-strategy-planner` → `office-pptx-designer` → `general-ai-slop-reviewer` |
+| 사업계획서(Word) | `business-strategy-planner` → `business-market-analyst` → `office-docx-generator` → `general-ai-slop-reviewer` |
+| IR 피칭덱 | `finance-investor-relations` → `office-pptx-designer` → `general-ai-slop-reviewer` |
+| 시장조사 리포트 | `business-market-analyst` → `office-docx-generator` → `general-ai-slop-reviewer` |
+| 블로그 | `content-blog` → `general-ai-slop-reviewer` → `general-humanize-korean` |
+| 카드뉴스 | `content-card-news` → `general-ai-slop-reviewer` |
+| 뉴스레터 | `content-newsletter` → `general-ai-slop-reviewer` |
+| 랜딩(HTML) | `content-copywriting` → `marketing-landing-page` → `general-ai-slop-reviewer` |
+| SNS 콘텐츠 | `content-sns-content` → `general-ai-slop-reviewer` |
+| 이메일 시퀀스 | `content-email-sequence` → `general-ai-slop-reviewer` |
+| 계약서 초안 | `legal-contract-review` / `legal-nda-triage` → `office-docx-generator` → `general-ai-slop-reviewer` |
+| 부가세 신고 | `finance-tax-helper` (숫자 — ai-slop 생략) |
+| 재무제표 | `finance-financial-statements` → `office-xlsx-creator` (숫자 — ai-slop 생략) |
+| 한글 공문 | `office-hwpx-writer` → `general-ai-slop-reviewer` |
+| 상세페이지 | `commerce-product-detail` → `general-ai-slop-reviewer` |
+| 캠페인 플랜 | `marketing-campaign-planner` → `office-pptx-designer` → `general-ai-slop-reviewer` |
+| 주간보고 | `business-pm-weekly-report` → `general-ai-slop-reviewer` |
+| 강의 커리큘럼 | `education-curriculum-designer` → `office-pptx-designer` → `general-ai-slop-reviewer` |
+
+### 3-2. 글쓰기 작가 체인 (story·book)
+
+| 산출물 | 권장 체인 |
+|---|---|
+| 출판 도서 | `book-concept-planner` → `book-outline-designer` → `book-chapter-writer` → `book-revision-coach` |
+| 웹툰 기획 | `story-webtoon-planner` → `story-webtoon-episode` → `story-webtoon-art` |
+| 웹소설 연재 | `story-webnovel-writer` (단일 순환) |
+| 드라마/영화 시놉 | `story-synopsis` → `story-screenplay` |
+| 콘티·스토리보드 | `story-conti` (Higgsfield 생성) |
+| 광고 콘티 | `story-ad-conti` (Higgsfield 생성) |
+| 캐릭터 시트 | `story-character-sheet` (Higgsfield 생성) |
+| 표지·일러스트 | `story-cover-art` (Higgsfield 생성) |
+| 시네마틱 프리비즈 | `story-previz` (Higgsfield 생성) |
+| IP 사업화·판권 | `story-ip-pitch` (단일) |
+
+> 작가 분기의 진입 분류는 coworker의 `story-project` 스킬이 담당한다. CLAUDE.md 생성 시 `story-project` 라우팅 규칙을 워크플로우 섹션에 명시하여, 실행 시점에 `moai-coworker:story-project`가 장르 파이프라인으로 자동 분기한다.
+
+### 3-3. 미디어 체인 (Higgsfield / ElevenLabs MCP)
+
+| 산출물 | 스킬 | 비고 |
+|---|---|---|
+| 이미지 | `media-higgsfield-image` | Higgsfield MCP — ai-slop 생략 |
+| 영상 | `media-higgsfield-video` | Higgsfield MCP — ai-slop 생략 |
+| 음성·TTS·더빙 | `media-audio-gen` | ElevenLabs MCP — ai-slop 생략 |
+| 이미지 프롬프트 빌더 | `media-gpt-image-2-prompt` / `media-gemini-3-image-prompt` / `media-midjourney-v8-prompt` | 외부 렌더링용 |
+
+---
+
+## 4. Gap Detection (코워커 설치 확인)
+
+Phase 3 체인의 스킬이 인벤토리에 없으면 누락으로 간주한다. 코워커 분기에서 누락은 곧 **`moai-coworker` 플러그인 미설치**를 의미한다(모든 스킬이 단일 플러그인 소속이므로).
+
+```
+체인 스킬 중 인벤토리에 없는 것이 1개+
+  → 누락 스킬 → 소속 플러그인(= moai-coworker) 매핑
+  → AskUserQuestion 4옵션:
+      1. (권장) 설치 안내 + 완료 후 /project resume 재개
+      2. 누락 스킬 제외하고 진행
+      3. 대체 스킬로 변경
+      4. 중단
+```
+
+설치 명령: `/plugin install moai-coworker` (modu-ai/claude 마켓플레이스). 상세 흐름·스키마는 `init-protocol.md` §4 참조.
+
+---
+
+## 5. CLAUDE.md 생성 규칙 (코워커 분기)
+
+`references/templates/CLAUDE.md.tmpl` 변수 치환. 코워커 분기 특화 규칙:
+
+1. **≤ 200라인**, 스킬 체인은 최대 10개(나머지는 catalog 참조)
+2. **역할 라벨** — 감지된 역할(실무/글쓰기 작가)을 페르소나에 명시
+3. **HARD 규칙 고정** — office 스킬 우선(DOCX/PPTX/XLSX/HWPX/HTML은 Claude 기본 artifacts 대신 `moai-coworker:office-*` 사용) + 텍스트 산출물 `general-ai-slop-reviewer` 종료
+4. **스킬 참조 정합** — 모든 스킬 참조는 `moai-coworker:` 접두어 사용
+5. **작가 분기 시** — `story-project` 라우팅 규칙을 워크플로우에 명시
+
+상세 변수 치환 테이블·HARD 규칙 블록은 `references/core/claudemd-generator.md` 참조.
+
+---
+
+## 6. 상세 레퍼런스
+
+| 주제 | 파일 |
+|------|------|
+| 8-Phase 각 단계 AskUserQuestion 스키마·inventory.json·Re-entry 상세 | `init-protocol.md` |
+| 맥락 수집 등급(A/B/C)·심화 인터뷰 기준 | `context-collector.md` |
+| CLAUDE.md 변수 치환·200라인 예산·HARD 규칙 블록 | `claudemd-generator.md` |
+| 스킬 체인 순차 실행·단계별 요약 | `execution-protocol.md` |
+| 5차원 평가(정확성·완전성·실용성·톤·도메인) | `evaluation-protocol.md` |
+| 환경 진단(`/project doctor`) | `diagnostic-protocol.md` |
+
+전체 인덱스: `references/core/INDEX.md`
