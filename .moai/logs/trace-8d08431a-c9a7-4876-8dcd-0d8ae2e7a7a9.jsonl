@@ -1,0 +1,4 @@
+{"ts":"2026-07-08T13:43:15.179836709+09:00","event":"PostToolUse","handler":"*hook.postToolHandler","tool":"Write","duration_ms":12,"session_id":"8d08431a-c9a7-4876-8dcd-0d8ae2e7a7a9"}
+{"ts":"2026-07-08T14:28:09.674042667+09:00","event":"PostToolUse","handler":"*hook.postToolHandler","tool":"Edit","duration_ms":13,"session_id":"8d08431a-c9a7-4876-8dcd-0d8ae2e7a7a9"}
+{"ts":"2026-07-08T14:28:17.762444625+09:00","event":"PostToolUse","handler":"*hook.postToolHandler","tool":"Edit","duration_ms":11,"session_id":"8d08431a-c9a7-4876-8dcd-0d8ae2e7a7a9"}
+{"ts":"2026-07-08T14:59:15.26252525+09:00","event":"PreToolUse","handler":"*hook.preToolHandler","tool":"Bash","duration_ms":1,"decision":"allow","session_id":"8d08431a-c9a7-4876-8dcd-0d8ae2e7a7a9"}

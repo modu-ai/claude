@@ -1,0 +1,2 @@
+{"ts":"2026-07-04T17:17:23.904915584+09:00","event":"PreToolUse","handler":"*hook.preToolHandler","tool":"Bash","duration_ms":0,"decision":"allow","session_id":"17ab2f44-7b0c-4165-a97b-5f9921ecd24f"}
+{"ts":"2026-07-04T18:46:18.08003175+09:00","event":"Stop","handler":"*hook.stopHandler","duration_ms":2,"session_id":"17ab2f44-7b0c-4165-a97b-5f9921ecd24f"}

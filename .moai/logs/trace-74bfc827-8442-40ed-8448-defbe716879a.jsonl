@@ -1,0 +1,9 @@
+{"ts":"2026-06-24T01:37:42.258663041+09:00","event":"SessionStart","handler":"*hook.sessionStartHandler","duration_ms":0,"session_id":"74bfc827-8442-40ed-8448-defbe716879a"}
+{"ts":"2026-06-24T01:37:42.258684709+09:00","event":"SessionStart","handler":"*hook.autoUpdateHandler","duration_ms":0,"session_id":"74bfc827-8442-40ed-8448-defbe716879a"}
+{"ts":"2026-06-24T01:40:58.240890208+09:00","event":"InstructionsLoaded","handler":"*hook.instructionsLoadedHandler","duration_ms":0,"session_id":"74bfc827-8442-40ed-8448-defbe716879a"}
+{"ts":"2026-06-24T01:45:42.68181375+09:00","event":"PostToolUse","handler":"*hook.postToolHandler","tool":"Edit","duration_ms":9,"session_id":"74bfc827-8442-40ed-8448-defbe716879a"}
+{"ts":"2026-06-24T01:47:56.513859458+09:00","event":"SessionStart","handler":"*hook.sessionStartHandler","duration_ms":0,"session_id":"74bfc827-8442-40ed-8448-defbe716879a"}
+{"ts":"2026-06-24T01:47:56.513890708+09:00","event":"SessionStart","handler":"*hook.autoUpdateHandler","duration_ms":0,"session_id":"74bfc827-8442-40ed-8448-defbe716879a"}
+{"ts":"2026-06-24T01:48:38.713674791+09:00","event":"SessionStart","handler":"*hook.sessionStartHandler","duration_ms":0,"session_id":"74bfc827-8442-40ed-8448-defbe716879a"}
+{"ts":"2026-06-24T01:49:42.72488525+09:00","event":"SessionStart","handler":"*hook.sessionStartHandler","duration_ms":0,"session_id":"74bfc827-8442-40ed-8448-defbe716879a"}
+{"ts":"2026-06-24T01:49:42.724913959+09:00","event":"SessionStart","handler":"*hook.autoUpdateHandler","duration_ms":0,"session_id":"74bfc827-8442-40ed-8448-defbe716879a"}
