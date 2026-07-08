@@ -192,7 +192,7 @@ JTBD와 페르소나를 기반으로 NCM 프레임워크(Need → Channel → Mo
 1. **광고 카피** — 검색(네이버·구글), 디스플레이·소셜(Meta·카카오 모먼트), 동영상(유튜브·릴스) → `references/ad-copy.md`
 2. **톡톡·CS 응답** — 자동응답, FAQ, 1점 후기 사과, 환불·교환 응대 → `references/talk-copy.md`
 3. **푸시 알림** — 신상품, 프로모션 시작/종료, 카트 회복, 재구매 → `references/push-copy.md`
-4. **이메일·알림톡** — 주문 확인, 배송, 후기 요청, 재구매 쿠폰, 뉴스레터, 카트 이탈 회복 → `references/content-email-sequence.md`
+4. **이메일·알림톡** — 주문 확인, 배송, 후기 요청, 재구매 쿠폰, 뉴스레터, 카트 이탈 회복 → `references/email-sequence.md`
 
 ### 워크플로우
 1. 카피 카테고리 + 채널 식별 (채널마다 길이·톤 상이)
