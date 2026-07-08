@@ -1,6 +1,6 @@
 ---
-name: harness-plugin-intent-parser-specialist
-description: Parse a natural-language directive into a structured intent (target plugin + skill topic + keywords + constraints) for the /harness:plugin harness.
+name: harness-builder-intent-parser-specialist
+description: Parse a natural-language directive into a structured intent (target plugin + skill topic + keywords + constraints) for the /harness:builder harness.
 tools: Read, Grep, Glob
 model: sonnet
 permissionMode: plan

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# harness-plugin / sync.sh — qmd incremental update (run before search)
+# harness-builder / sync.sh — qmd incremental update (run before search)
 # Usage: sync.sh [--quiet]
 set -euo pipefail
 

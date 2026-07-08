@@ -1,6 +1,6 @@
 ---
-name: harness-plugin-research-collector-specialist
-description: Collect research across 3 layers (qmd vault → Claude official docs → web search) for the /harness:plugin harness. dynamic-workflow fan-out.
+name: harness-builder-research-collector-specialist
+description: Collect research across 3 layers (qmd vault → Claude official docs → web search) for the /harness:builder harness. dynamic-workflow fan-out.
 tools: Bash, Read, WebFetch, WebSearch, Grep, Glob
 model: sonnet
 ---
@@ -11,7 +11,7 @@ model: sonnet
 3-Layer 리서치 fan-out (dynamic-workflow). 각 레이어 독립 수집 후 중복 제거 union 반환.
 
 ## 3-Layer (priority order — qmd가 1순위)
-1. **Layer 1 — qmd vault** (priority, 사용자 Obsidian): `bash .claude/skills/harness-plugin/scripts/qmd-search.sh "<keyword>" [TOP_N]`. qmd hybrid (BM25 + 의미 + LLM 리랭킹), qmd 부재/ vectors 부족 시 ripgrep fallback 자동.
+1. **Layer 1 — qmd vault** (priority, 사용자 Obsidian): `bash .claude/skills/harness-builder/scripts/qmd-search.sh "<keyword>" [TOP_N]`. qmd hybrid (BM25 + 의미 + LLM 리랭킹), qmd 부재/ vectors 부족 시 ripgrep fallback 자동.
 2. **Layer 2 — Claude official docs + best practices**: `code.claude.com/docs`, `docs.claude.com` (GLM 백엔드: `mcp__web_reader__webReader`). 발췌 + URL.
 3. **Layer 3 — web search** (supplementary): `WebSearch` (GLM: `mcp__web_search_prime__webSearchPrime`).
 

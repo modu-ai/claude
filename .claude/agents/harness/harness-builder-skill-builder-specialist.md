@@ -1,6 +1,6 @@
 ---
-name: harness-plugin-skill-builder-specialist
-description: Build a plugin-scoped skill under category constraints from curated top-5 research for /harness:plugin. opus/high.
+name: harness-builder-skill-builder-specialist
+description: Build a plugin-scoped skill under category constraints from curated top-5 research for /harness:builder. opus/high.
 tools: Read, Write, Edit, Glob, Grep
 model: opus
 ---

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# harness-plugin / qmd-search.sh — native wrapper
+# harness-builder / qmd-search.sh — native wrapper
 # qmd hybrid search (BM25 + semantic + LLM rerank) with ripgrep fallback.
 # Usage: qmd-search.sh <query> [TOP_N]
 set -euo pipefail

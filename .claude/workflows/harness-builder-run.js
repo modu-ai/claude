@@ -1,20 +1,21 @@
-// harness-plugin-run.js — Runner for /harness:plugin
-// Reads manifest.json (SSOT) and dispatches 4 specialists across the 6-Phase pipeline.
+// harness-builder-run.js — Runner for /harness:builder
+// Reads manifest.json (SSOT) and dispatches 5 specialists across the 7-Phase pipeline.
 // Patterns: Pipeline (stage N feeds N+1) + Producer-Reviewer (curator evaluates).
 //
-// This is the generated dynamic-workflow Runner that executes INSIDE /harness:plugin.
+// This is the generated dynamic-workflow Runner that executes INSIDE /harness:builder.
 // The Builder (creation) was orchestrator-direct; execution runs here.
 
 export const meta = {
-  name: 'harness-plugin-run',
-  description: 'Runner for /harness:plugin — 6-Phase desktop plugin (cowork/code) skill generator with 3-Layer research',
+  name: 'harness-builder-run',
+  description: 'Runner for /harness:builder — 7-Phase desktop plugin (cowork/code) skill generator with 3-Layer research + audit',
   phases: [
     { title: 'Discovery', detail: 'intent-parser: natural-language → plugin + topic + intent' },
     { title: '3-Layer Research', detail: 'research-collector: qmd vault → Claude docs → web' },
     { title: 'Curation', detail: 'plugin-curator: 4-dimension rubric, top-5' },
     { title: 'Selection', detail: 'orchestrator AskUserQuestion gate' },
     { title: 'Build', detail: 'skill-builder: plugin skill under category constraints' },
-    { title: 'Report', detail: 'test + final summary' },
+    { title: 'Audit', detail: 'auditor: Claude official doc criteria gate (PASS/violations)' },
+    { title: 'Report', detail: 'final summary with audit verdict' },
   ],
 }
 
@@ -57,11 +58,31 @@ const CURATION_SCHEMA = {
   },
 }
 
+const AUDIT_SCHEMA = {
+  type: 'object',
+  properties: {
+    pass: { type: 'boolean' },
+    violations: {
+      type: 'array',
+      items: {
+        type: 'object',
+        properties: {
+          criterion: { type: 'string' },
+          file: { type: 'string' },
+          detail: { type: 'string' },
+          severity: { type: 'string', enum: ['critical', 'major', 'minor'] },
+        },
+      },
+    },
+  },
+  required: ['pass'],
+}
+
 // Phase 1 — Discovery
 phase('Discovery')
 const intent = await agent(
   [
-    'You are the intent-parser specialist for /harness:plugin.',
+    'You are the intent-parser specialist for /harness:builder.',
     'Parse the natural-language directive into a structured intent: target plugin (cowork or code), skill topic, intent, research keywords, and any constraints.',
     'The directive is NOT positional — it is free-form natural language. Infer target_plugin from domain cues (cowork = copy/content/business/non-dev; code = coding/dev/agentic).',
     'Return the structured object only.',
@@ -77,7 +98,7 @@ const research = await parallel([
   () => agent(
     [
       'You are the research-collector (Layer 1: qmd vault).',
-      `Run: bash .claude/skills/harness-plugin/scripts/qmd-search.sh "${intent.keywords.join(' ')}" 10`,
+      `Run: bash .claude/skills/harness-builder/scripts/qmd-search.sh "${intent.keywords.join(' ')}" 10`,
       'Return the raw qmd output (markdown matches). If qmd is unavailable the script falls back to ripgrep automatically.',
     ].join(' '),
     { label: 'research:qmd', phase: '3-Layer Research', effort: 'medium' }
@@ -134,11 +155,32 @@ const skill = await agent(
   { label: 'skill-builder', phase: 'Build', effort: 'high', model: 'opus' }
 )
 
-// Phase 6 — Report
+// Phase 6 — Audit (Claude 공식 문서 기준 감사)
+phase('Audit')
+const audit = await agent(
+  [
+    'You are the harness-builder auditor specialist.',
+    'Audit the skill-builder output against Claude official doc criteria:',
+    '1. SKILL.md frontmatter (name kebab ≤64, description ≤1536 folded scalar, metadata)',
+    '2. Category constraint (cowork=skills/ only; code=commands+skills+agents only) — critical severity',
+    '3. Claude official doc fidelity (prompting best practices, literal scope, source URLs)',
+    '4. No duplication with existing plugin skills (Glob check)',
+    `Skill target: ${intent.target_plugin}. Skill paths: ${JSON.stringify(skill)}.`,
+    'Return AUDIT_SCHEMA: pass boolean + violations array (empty if pass).',
+  ].join(' '),
+  { label: 'auditor', phase: 'Audit', schema: AUDIT_SCHEMA, effort: 'medium' }
+)
+if (audit && !audit.pass) {
+  log(`audit FAIL — ${audit.violations?.length || 0} violations; orchestrator re-delegates skill-builder with violations`)
+}
+
+// Phase 7 — Report
 phase('Report')
 return {
   intent,
   layers_collected: layerResults.length,
   top5: curation?.top5?.length || 0,
   skill_built: skill,
+  audit_pass: audit?.pass ?? false,
+  audit_violations: audit?.violations ?? [],
 }

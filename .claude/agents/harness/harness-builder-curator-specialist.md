@@ -1,6 +1,6 @@
 ---
-name: harness-plugin-curator-specialist
-description: Score and curate 3-Layer research on a 4-dimension rubric (Relevance/Specificity/Practicality/Reusability), select top-5 for /harness:plugin. Producer-Reviewer evaluator.
+name: harness-builder-curator-specialist
+description: Score and curate 3-Layer research on a 4-dimension rubric (Relevance/Specificity/Practicality/Reusability), select top-5 for /harness:builder. Producer-Reviewer evaluator.
 tools: Read, Grep, Glob
 model: sonnet
 permissionMode: plan
