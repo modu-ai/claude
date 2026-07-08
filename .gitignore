@@ -188,6 +188,10 @@ secret-*.*
 .moai/worktrees/
 .moai/branches/
 
+# Skill runtime .moai state directories (any plugins/**/.moai)
+plugins/**/.moai/
+**/.moai/state/
+
 # ===========================================
 # Update Noise-Suppression Ledgers (per-machine, never tracked)
 # Per-machine state + cache ledgers used to suppress redundant update noise.
