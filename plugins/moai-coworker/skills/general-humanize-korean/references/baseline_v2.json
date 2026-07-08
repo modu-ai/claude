@@ -1,7 +1,7 @@
 {
-  "version": "v2.0-baseline-diff-2026-05-07",
-  "source": "Placeholder. Toral 2019 (arXiv:1907.00900) simplification·normalisation·interference 정의 + 한국 번역학계 T1~T8 직역체 유형의 한국어 표면 추정치. 원전 직접 인용. 비번역 한국어(세종 코퍼스·국립국어원 모두의 말뭉치 등) 정밀 측정은 별도 calibration 회차에서 수행한다.",
-  "notes": "모든 셀에 _placeholder: true 플래그가 붙어 있다(추정치). 이후 calibration으로 본진 baseline.json에 병합할 때 placeholder 플래그를 보존하고, 측정이 끝난 셀만 플래그를 해제한다.",
+  "version": "v2.1-baseline-diff-2026-07-08",
+  "source": "Placeholder. Toral 2019 (arXiv:1907.00900) simplification·normalisation·interference 정의 + 한국 번역학계 T1~T8 직역체 유형의 한국어 표면 추정치. copy 장르 셀(A-20~A-25·I-7 신호 포함)은 ai-tell-taxonomy.md v2.2~v2.5 카피 클러스터 실전 관찰 기반 추정치. 원전 직접 인용. 비번역 한국어(세종 코퍼스·국립국어원 모두의 말뭉치 등) 정밀 측정은 별도 calibration 회차에서 수행한다.",
+  "notes": "모든 셀에 _placeholder: true 플래그가 붙어 있다(추정치). 이후 calibration으로 본진 baseline.json에 병합할 때 placeholder 플래그를 보존하고, 측정이 끝난 셀만 플래그를 해제한다. v2.1에서 copy 장르 셀 세트가 추가됐다 — 신규 카피 신호 5종(mechanical_verb_calque_count 등)은 미보정 placeholder이며 z-score 산출에 쓰이지 않는다.",
   "calibration_due": true,
   "genres": {
     "essay": {
@@ -83,6 +83,27 @@
       "have_make_literal_count": {"mean": 0.2, "stdev": 0.5, "_placeholder": true, "calibration_due": true, "axis": "interference", "type": "T6", "unit": "per_doc"},
       "double_particle_count": {"mean": 0.1, "stdev": 0.3, "_placeholder": true, "calibration_due": true, "axis": "interference", "type": "T7", "unit": "per_doc"},
       "progressive_aspect_rate": {"mean": 0.15, "stdev": 0.10, "_placeholder": true, "calibration_due": true, "axis": "interference", "type": "T8b"}
+    },
+    "copy": {
+      "lexical_diversity_ttr": {"mean": 0.70, "stdev": 0.10, "_placeholder": true, "calibration_due": true, "axis": "simplification", "note": "카피는 문서가 짧아 TTR 자연 높음"},
+      "lexical_density": {"mean": 0.28, "stdev": 0.08, "_placeholder": true, "calibration_due": true, "axis": "simplification"},
+      "ending_diversity": {"mean": 0.60, "stdev": 0.15, "_placeholder": true, "calibration_due": true, "axis": "simplification"},
+      "normalisation_score": {"mean": 0.20, "stdev": 0.15, "_placeholder": true, "calibration_due": true, "axis": "normalisation", "note": "카피는 -합니다체 위주, -한다/-이다 평서 드묾"},
+      "da_streak_rate": {"mean": 0.1, "stdev": 0.3, "_placeholder": true, "calibration_due": true, "axis": "normalisation", "unit": "streaks_per_doc"},
+      "inanimate_subject_rate": {"mean": 0.12, "stdev": 0.08, "_placeholder": true, "calibration_due": true, "axis": "interference", "type": "T1", "note": "제품·서비스 주어가 장르 특성상 잦음"},
+      "by_passive_count": {"mean": 0.2, "stdev": 0.5, "_placeholder": true, "calibration_due": true, "axis": "interference", "type": "T2a", "unit": "per_doc"},
+      "double_passive_count": {"mean": 0.1, "stdev": 0.4, "_placeholder": true, "calibration_due": true, "axis": "interference", "type": "T2b", "unit": "per_doc"},
+      "pronoun_density": {"mean": 0.008, "stdev": 0.008, "_placeholder": true, "calibration_due": true, "axis": "interference", "type": "T3"},
+      "deul_overuse_rate": {"mean": 0.003, "stdev": 0.006, "_placeholder": true, "calibration_due": true, "axis": "interference", "type": "T4"},
+      "relative_clause_nesting": {"mean": 0.1, "stdev": 0.3, "_placeholder": true, "calibration_due": true, "axis": "interference", "type": "T5", "unit": "sentences_per_doc"},
+      "have_make_literal_count": {"mean": 0.2, "stdev": 0.5, "_placeholder": true, "calibration_due": true, "axis": "interference", "type": "T6", "unit": "per_doc"},
+      "double_particle_count": {"mean": 0.1, "stdev": 0.4, "_placeholder": true, "calibration_due": true, "axis": "interference", "type": "T7", "unit": "per_doc"},
+      "progressive_aspect_rate": {"mean": 0.05, "stdev": 0.06, "_placeholder": true, "calibration_due": true, "axis": "interference", "type": "T8b"},
+      "mechanical_verb_calque_count": {"mean": 0.0, "stdev": 0.3, "_placeholder": true, "calibration_due": true, "axis": "copy_interference", "type": "A-20", "unit": "per_doc", "interpretation": "기계 맥락 1회로 결정적 (S1)"},
+      "abstract_noun_ending_count": {"mean": 0.2, "stdev": 0.5, "_placeholder": true, "calibration_due": true, "axis": "copy_interference", "type": "A-21", "unit": "per_doc", "interpretation": "문서 2회 초과 시 S1 강화"},
+      "benefactive_calque_count": {"mean": 0.0, "stdev": 0.3, "_placeholder": true, "calibration_due": true, "axis": "copy_interference", "type": "A-22", "unit": "per_doc", "interpretation": "2회 이상이면 S2 가산"},
+      "sentence_initial_deuneun_count": {"mean": 0.0, "stdev": 0.3, "_placeholder": true, "calibration_due": true, "axis": "copy_interference", "type": "A-24", "unit": "per_doc", "interpretation": "문두 1회 이상이면 S2 가산"},
+      "first_person_formal_count": {"mean": 0.3, "stdev": 0.7, "_placeholder": true, "calibration_due": true, "axis": "copy_interference", "type": "I-7", "unit": "per_doc", "interpretation": "3회 이상 또는 격식 종결 70% 이상이면 S2 가산"}
     }
   },
   "axis_definitions": {
@@ -110,6 +131,17 @@
         "progressive_aspect_rate"
       ],
       "interpretation": "high values → AI-like (영어 통사 보존)"
+    },
+    "copy_interference": {
+      "source": "한국어 카피 장르 실전 관찰 — ai-tell-taxonomy.md A-20~A-25·I-7 + content-copywriting/ai-tell-ko-copy-spec.md §1",
+      "metrics": [
+        "mechanical_verb_calque_count",
+        "abstract_noun_ending_count",
+        "benefactive_calque_count",
+        "sentence_initial_deuneun_count",
+        "first_person_formal_count"
+      ],
+      "interpretation": "high values → AI-like (영어 카피 직역). z-score 미산출 — 원값 + copy_interference_index 합성만 보고"
     }
   },
   "z_score_thresholds": {

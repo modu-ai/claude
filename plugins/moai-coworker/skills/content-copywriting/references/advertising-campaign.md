@@ -42,3 +42,7 @@
 | 웹 검색 실패 | 일반 지식으로 진행, 제한사항 기록 |
 | 이미지 생성 실패 | 텍스트 컨셉 및 프롬프트 제공 |
 | 예산 불충분 | 채널 우선순위 재조정 |
+
+## 카피 AI틱 가드
+
+광고 카피(카피라이터)·검수(검수자) 단계 필수 가드: 생성 시 A-20~A-25(굴러가다 직역·추상명사 종결·수혜자 구문·직역 비유·문두 "더는"·3인칭 설명체) + I-7(당사는/저희는 공식)을 회피하고 교정 원칙 8조를 적용한다. 완성 후 `moai-coworker:general-humanize-korean` 카피 모드(사실 앵커 보존 가드)로 2차 윤문한다. SSOT: humanize 스킬 references/ai-tell-taxonomy.md (다업종 before/after 예시 포함) + content-copywriting SKILL.md 안티패턴 표.

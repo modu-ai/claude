@@ -10,7 +10,8 @@ cowork 배치를 가정하고 모듈을 임포트한다.
 - 위험 등급(low/medium/high) 종단 판정
 - CLI 인자(--input/--genre/--output/--baseline)와 JSON 8키 스키마
 - 14개 v2.0 post-editese 지표 + interference index
-- compute_all_v2 상위집합 계약 + compute_all 별칭
+- 6개 v2.1 카피 장르 신호(A-20~A-25·I-7) + copy interference index
+- compute_all_v2 상위집합 계약(v2.1) + compute_all 별칭 + --genre copy CLI
 - 회귀 가드: 알려진 입력에 대한 위험 등급 고정(REGRESSION_FIXTURES)
 """
 
@@ -293,8 +294,8 @@ class V2ReportTests(unittest.TestCase):
         )
         # v1.6 키 보존
         self.assertTrue(_REQUIRED_KEYS <= set(report.keys()))
-        # v2.0 키 추가
-        self.assertEqual(report["version"], "v2.0")
+        # v2.0 키 추가 (버전 문자열은 v2.1로 상향 — 키 스키마는 상위집합 유지)
+        self.assertEqual(report["version"], "v2.1")
         self.assertIn("v2_metrics", report)
         self.assertIn("v2_interference_index", report)
         self.assertEqual(len(report["v2_metrics"]), 14)
@@ -327,8 +328,191 @@ class V2ReportTests(unittest.TestCase):
             self.assertEqual(code, 0)
             with open(dst, "r", encoding="utf-8") as handle:
                 data = json.load(handle)
-            self.assertEqual(data["version"], "v2.0")
+            self.assertEqual(data["version"], "v2.1")
             self.assertIn("v2_metrics", data)
+
+
+class V21CopySignalTests(unittest.TestCase):
+    """v2.1 카피 장르 신호 6종(A-20~A-25·I-7)의 경계/정상/오탐 가드 동작."""
+
+    def test_blank_input_is_safe(self) -> None:
+        self.assertEqual(metrics_v2.mechanical_verb_calque_count(""), 0)
+        self.assertEqual(metrics_v2.abstract_noun_ending_count(""), 0)
+        self.assertEqual(metrics_v2.benefactive_calque_count(""), 0)
+        self.assertEqual(metrics_v2.sentence_initial_deuneun_count(""), 0)
+        self.assertEqual(metrics_v2.first_person_formal_count(""), 0)
+        ratio = metrics_v2.second_person_appeal_ratio("")
+        self.assertEqual(ratio["third_person_declarative"], 0)
+        self.assertEqual(ratio["second_person_tokens"], 0)
+        self.assertFalse(ratio["appeal_absent"])
+        idx = metrics_v2.copy_interference_index("")
+        self.assertEqual(idx["weighted_total"], 0.0)
+
+    # --- A-20 기계 동사 직역 ---
+
+    def test_a20_detects_tech_context_roll(self) -> None:
+        self.assertEqual(
+            metrics_v2.mechanical_verb_calque_count("말 한마디에 굴러가는 자동화."), 1
+        )
+        self.assertEqual(
+            metrics_v2.mechanical_verb_calque_count("이 시스템은 데이터로 굴러갑니다."), 1
+        )
+
+    def test_a20_interrogative_without_tech_noun(self) -> None:
+        # '무엇으로 굴러가' 의문형은 기계 명사 없이도 결정적(what runs it 직역).
+        self.assertEqual(
+            metrics_v2.mechanical_verb_calque_count("이 회사는 무엇으로 굴러가나요?"), 1
+        )
+
+    def test_a20_physical_context_not_counted(self) -> None:
+        # 기계·시스템 명사가 없는 물리 맥락 — precision 가드.
+        self.assertEqual(metrics_v2.mechanical_verb_calque_count("공이 언덕에서 굴러간다."), 0)
+        self.assertEqual(
+            metrics_v2.mechanical_verb_calque_count("눈덩이를 굴려 눈사람을 만들었다."), 0
+        )
+
+    # --- A-21 추상명사 종결구 ---
+
+    def test_a21_ro_sentence_ending(self) -> None:
+        self.assertEqual(metrics_v2.abstract_noun_ending_count("흩어진 일을 하나의 흐름으로."), 1)
+
+    def test_a21_headline_line_without_punctuation(self) -> None:
+        sample = "네 가지가 한 흐름으로\n자세한 내용은 아래에서 확인하세요."
+        self.assertEqual(metrics_v2.abstract_noun_ending_count(sample), 1)
+
+    def test_a21_i_ga_becomes_ending(self) -> None:
+        self.assertEqual(metrics_v2.abstract_noun_ending_count("하나의 흐름이 됩니다."), 1)
+
+    def test_a21_adverb_ro_not_counted(self) -> None:
+        # '-로'로 끝나지만 부사인 어절 — 오탐 가드.
+        self.assertEqual(metrics_v2.abstract_noun_ending_count("이제부터는 앞으로."), 0)
+        self.assertEqual(metrics_v2.abstract_noun_ending_count("모든 것이 저절로."), 0)
+
+    def test_a21_person_noun_becomes_not_counted(self) -> None:
+        # '-원' 사람 명사 + 됩니다 — 추상 접미사에서 '원'을 제외한 가드.
+        self.assertEqual(metrics_v2.abstract_noun_ending_count("그는 내년에 회사원이 됩니다."), 0)
+
+    # --- A-22 대행·협업 동사 직역 ---
+
+    def test_a22_benefactive_calque(self) -> None:
+        self.assertEqual(metrics_v2.benefactive_calque_count("자동화가 나 대신 일합니다."), 1)
+        self.assertEqual(metrics_v2.benefactive_calque_count("AI가 나와 함께 일해요."), 1)
+
+    def test_a22_without_work_verb_not_counted(self) -> None:
+        self.assertEqual(metrics_v2.benefactive_calque_count("나 대신 그가 발표에 나섰다."), 0)
+
+    # --- A-24 문두 '더는' ---
+
+    def test_a24_sentence_initial_deuneun(self) -> None:
+        self.assertEqual(metrics_v2.sentence_initial_deuneun_count("더는 혼자가 아닙니다."), 1)
+        # 종결 부호 없는 헤드라인 줄도 문장 시작으로 본다.
+        self.assertEqual(
+            metrics_v2.sentence_initial_deuneun_count("더는 걱정 없이\n오늘 시작하세요."), 1
+        )
+
+    def test_a24_mid_sentence_deuneun_not_counted(self) -> None:
+        self.assertEqual(
+            metrics_v2.sentence_initial_deuneun_count("우리는 더는 기다리지 않는다."), 0
+        )
+
+    # --- I-7 1인칭 공식 주어 + 격식 종결 ---
+
+    def test_i7_formal_first_person(self) -> None:
+        sample = "당사는 고객 만족을 최우선으로 생각합니다. 저희가 도와드리겠습니다."
+        self.assertEqual(metrics_v2.first_person_formal_count(sample), 2)
+
+    def test_i7_without_formal_subject_not_counted(self) -> None:
+        # 격식 종결이어도 1인칭 공식 주어가 없으면 세지 않는다.
+        self.assertEqual(metrics_v2.first_person_formal_count("그는 회사원입니다."), 0)
+
+    def test_i7_without_polite_tail_not_counted(self) -> None:
+        self.assertEqual(metrics_v2.first_person_formal_count("당사는 계속 노력했다."), 0)
+
+    # --- A-25 인칭 호회 부재 ---
+
+    def test_a25_appeal_absent(self) -> None:
+        sample = "자동화가 반복 업무를 처리합니다. 시스템이 결과를 정리합니다."
+        ratio = metrics_v2.second_person_appeal_ratio(sample)
+        self.assertEqual(ratio["third_person_declarative"], 2)
+        self.assertEqual(ratio["second_person_tokens"], 0)
+        self.assertTrue(ratio["appeal_absent"])
+
+    def test_a25_second_person_present(self) -> None:
+        sample = (
+            "자동화가 반복 업무를 처리합니다. 시스템이 결과를 정리합니다. "
+            "여러분은 확인만 하세요."
+        )
+        ratio = metrics_v2.second_person_appeal_ratio(sample)
+        self.assertEqual(ratio["second_person_tokens"], 1)
+        self.assertFalse(ratio["appeal_absent"])
+
+    # --- 합성 지표 ---
+
+    def test_copy_interference_index_structure(self) -> None:
+        sample = "말 한마디에 굴러가는 자동화. 자동화가 나 대신 일합니다. 더는 혼자가 아닙니다."
+        idx = metrics_v2.copy_interference_index(sample)
+        self.assertEqual(len(idx["components"]), 6)
+        self.assertIn("A20_mechanical_verb_per_1k", idx["components"])
+        self.assertIn("A25_appeal_absent", idx["components"])
+        self.assertGreater(idx["weighted_total"], 0.0)
+        self.assertGreaterEqual(idx["n_sentences"], 3)
+        self.assertEqual(idx["n_chars"], len(sample))
+
+
+class V21ReportTests(unittest.TestCase):
+    """compute_all_v2 v2.1 상위집합 계약 + --genre copy CLI."""
+
+    def test_v21_superset_contract(self) -> None:
+        sample = "자동화가 나 대신 일합니다. 더는 혼자가 아닙니다."
+        report = metrics_v2.compute_all_v2(
+            sample,
+            genre="essay",
+            baseline_path=_BASELINE,
+            baseline_v2_path=_BASELINE_V2,
+        )
+        # 기존 키 전부 보존 (v1.6 + v2.0 — 상위집합 계약)
+        self.assertTrue(_REQUIRED_KEYS <= set(report.keys()))
+        self.assertIn("v2_metrics", report)
+        self.assertIn("v2_interference_index", report)
+        self.assertIn("v2_z_scores", report)
+        self.assertIn("v2_baseline_warnings", report)
+        self.assertEqual(len(report["v2_metrics"]), 14)
+        # v2.1 추가 키
+        self.assertEqual(metrics_v2.VERSION, "v2.1")
+        self.assertEqual(report["version"], "v2.1")
+        self.assertIn("v2_copy_metrics", report)
+        self.assertIn("v2_copy_interference_index", report)
+        self.assertEqual(len(report["v2_copy_metrics"]), 6)
+        self.assertGreaterEqual(report["v2_copy_metrics"]["benefactive_calque_count"], 1)
+        self.assertGreaterEqual(
+            report["v2_copy_metrics"]["sentence_initial_deuneun_count"], 1
+        )
+
+    def test_genre_copy_cli(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            src = os.path.join(tmp, "copy.txt")
+            dst = os.path.join(tmp, "out_copy.json")
+            with open(src, "w", encoding="utf-8") as handle:
+                handle.write("말 한마디에 굴러가는 자동화. 더는 혼자가 아닙니다.")
+            code = metrics_v2._main(
+                [
+                    "--input", src,
+                    "--genre", "copy",
+                    "--output", dst,
+                    "--baseline", _BASELINE,
+                    "--baseline-v2", _BASELINE_V2,
+                ]
+            )
+            self.assertEqual(code, 0)
+            with open(dst, "r", encoding="utf-8") as handle:
+                data = json.load(handle)
+            self.assertEqual(data["version"], "v2.1")
+            self.assertIn("v2_copy_metrics", data)
+            # v1.6 baseline에는 copy 장르가 없다 — essay 폴백 경고(우아한 폴백 계약).
+            self.assertIn("warning", data)
+            self.assertIn("copy", data["warning"])
+            # v2.0 baseline에는 copy 장르 셀이 있고 전부 placeholder로 표시된다.
+            self.assertEqual(len(data["v2_baseline_warnings"]), 14)
 
 
 class RiskBandRegressionTests(unittest.TestCase):

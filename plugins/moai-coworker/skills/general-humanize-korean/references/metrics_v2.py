@@ -1,8 +1,9 @@
-"""general-humanize-korean 정량 메트릭 계산기 (v2.0 — post-editese 확장).
+"""general-humanize-korean 정량 메트릭 계산기 (v2.1 — post-editese + copy 확장).
 
 v1.6 metrics.py의 8개 쉼표·명사화 지표 위에, 번역투/포스트-에디팅 문헌의
-3축(simplification·normalisation·interference)과 T1~T8 직역체 신호 14종을
-얹는다. v2.0 출력은 v1.6 출력의 상위집합이다.
+3축(simplification·normalisation·interference)과 T1~T8 직역체 신호 14종(v2.0),
+그리고 카피 장르 번역투 신호 6종 A-20~A-25·I-7(v2.1 Group D)을 얹는다.
+v2.1 출력은 v2.0 출력의, v2.0 출력은 v1.6 출력의 상위집합이다.
 
 설계 원칙:
 - 표준 라이브러리만 사용한다(json/re/os/sys/argparse/statistics).
@@ -12,6 +13,9 @@ v1.6 metrics.py의 8개 쉼표·명사화 지표 위에, 번역투/포스트-에
 - v2.0이 추가하는 14개 함수는 한자어 접미사 사전(-성/-적/-화/-도/-력/-감/-원),
   평서형 종결(-한다/-된다/-이다), 진행형(-고 있다), 이중 조사(-에서의 등) 등을
   정규식 + 사전으로 근사한다.
+- v2.1이 추가하는 카피 장르 6개 함수(Group D)는 표층 정규식 + 사전 매칭의
+  precision 우선 설계다 — 오탐(false positive)이 미탐보다 나쁘다는 원칙으로
+  결정적 문맥 가드를 두고, 알려진 한계를 각 docstring에 기록한다.
 
 언어 개념 출처(직접 인용):
 - 3축 정의: Toral 2019 (arXiv:1907.00900) simplification/normalisation/interference,
@@ -19,6 +23,8 @@ v1.6 metrics.py의 8개 쉼표·명사화 지표 위에, 번역투/포스트-에
 - T1~T8 한국어 직역체 유형: 한국 번역학계의 번역투 분류(무정물 주어, 이중 피동,
   인칭 대명사 과다, 무정물 복수 -들, 좌향 관형절 중첩, light verb 직역,
   이중 조사, 진행형 1대1 매핑).
+- A-20~A-25·I-7 카피 장르 신호: ai-tell-taxonomy.md v2.2~v2.5 카피 클러스터
+  (한국어 카피 장르 실전 관찰) + content-copywriting/ai-tell-ko-copy-spec.md §1.
 
 CLI:
     python metrics_v2.py --input run/01_input.txt \
@@ -62,7 +68,7 @@ _segment_sentences = _base._split_into_sentences
 _split_words = _base._word_units
 _clean_word = _base._bare_word
 
-VERSION = "v2.0"
+VERSION = "v2.1"
 
 # ---------------------------------------------------------------------------
 # v2.0 상수 — 접미사 / 어휘 사전
@@ -580,6 +586,253 @@ def interference_index(text: str) -> dict[str, Any]:
 
 
 # ---------------------------------------------------------------------------
+# Group D: copy-genre 번역투 신호 — A-20~A-25 + I-7 (v2.1)
+# ---------------------------------------------------------------------------
+# 카피·마케팅·랜딩 장르에서 AI가 반복 생산하는 직역 신호를 표층 정규식 + 사전
+# 매칭으로 근사한다. precision 우선 설계 — 오탐(false positive)이 미탐보다
+# 나쁘다는 원칙에 따라 각 함수는 결정적 문맥 가드를 두고, 알려진 한계를
+# docstring에 기록한다. 패턴 정의와 검출 임계의 출처는 ai-tell-taxonomy.md
+# (A-20~A-25, I-7) + content-copywriting/ai-tell-ko-copy-spec.md §1.
+
+# A-20 기계 동사 '굴러가다/굴리다' 활용형 표층 매칭. '굴러간'은 평서 종결
+# '굴러간다'(간=가+ㄴ 융합 음절)를 잡기 위해 추가한다.
+_ROLL_VERB = re.compile(r"굴러가|굴러간|굴러갑|굴리는|굴린다|굴려")
+# A-20 문맥 가드 — 같은 문장에 기계·시스템 명사가 있어야 번역투로 본다
+# (물리 맥락 "공이 굴러간다" 오탐 차단).
+_COPY_TECH_NOUN = re.compile(
+    r"자동화|시스템|워크플로우|봇|프로그램|앱|툴|기능|서비스|AI"
+)
+# A-20 '무엇으로 굴러가' 의문형(what runs it 직역) — 기계 명사 없이도 결정적.
+_ROLL_INTERROGATIVE = re.compile(r"무엇으로\s*굴러가")
+
+# A-21 문장 끝 '(으)로(+조사)' 어절 — 영어 명사종결(into/as one X) 직역.
+_RO_ENDING = re.compile(r"^[가-힣]+(?:으로|로)(?:도|만|는)?$")
+# A-21 오탐 차단 — '-로'로 끝나지만 명사종결이 아닌 부사·방향어 폐쇄 목록.
+_RO_ADVERB_EXCEPTIONS = frozenset({
+    "정말로", "실제로", "때때로", "때로는", "대체로", "함부로", "제대로",
+    "별도로", "주로", "스스로", "서로", "그대로", "바로", "절대로", "진짜로",
+    "새로", "저절로", "참으로", "진실로", "홀로", "억지로", "다음으로",
+    "처음으로", "첫째로", "둘째로", "셋째로", "끝으로",
+    "앞으로", "뒤로", "위로", "아래로", "안으로", "밖으로", "옆으로",
+})
+# A-21 '이/가 됩니다' 앞의 추상명사 사전(흐름·구조·결과 계열).
+_ABSTRACT_BECOME_NOUNS = frozenset({
+    "흐름", "구조", "결과", "상태", "시작", "하나", "현실", "일상", "기준",
+    "표준", "중심", "미래", "무기", "자산", "습관", "기회", "힘",
+})
+# A-21 추상명사 접미사 — '-성/-화/-력'으로 끝나는 명사도 추상으로 본다.
+# ('-원'은 회사원·공무원 등 사람 명사 오탐이 커서 의도적으로 제외한다.)
+_ABSTRACT_BECOME_SUFFIX = ("성", "화", "력")
+
+# A-22 '나 대신/나와 함께 … 일하-' 직역(works for/with me). 12자 이내 전방 탐색.
+_BENEFACTIVE = re.compile(
+    r"(?:나\s*대신|나와\s*함께|날\s*대신|저\s*대신).{0,12}?(?:일하|일합|일해)"
+)
+
+# I-7 1인칭 공식 주어(당사는/저희는/폐사는 …) + 격식 종결 어미.
+_FORMAL_FIRST_PERSON = re.compile(r"당사는|당사가|저희는|저희가|폐사는")
+_FORMAL_POLITE_TAILS = ("드리겠습니다", "드립니다", "합니다", "입니다")
+
+# A-25 3인칭 기술 주어 토큰 + 2인칭 호회 토큰.
+_THIRD_PERSON_TECH_SUBJECTS = (
+    "자동화가", "시스템이", "AI가", "서비스가",
+    "기술이", "플랫폼이", "솔루션이", "기능이",
+)
+_SECOND_PERSON_TOKENS = re.compile(r"여러분|당신|고객님")
+_POLITE_DECLARATIVE_TAILS = ("합니다", "입니다")
+
+
+def mechanical_verb_calque_count(text: str) -> int:
+    """A-20: 기계 동사 직역 '굴러가다/굴리다' 개수.
+
+    같은 문장 안에 기계·시스템 명사(자동화·시스템·워크플로우·봇·프로그램·앱·
+    툴·기능·서비스·AI)가 있을 때만 '굴러가/굴러간/굴리-' 활용형을 센다 —
+    물리 맥락("공이 굴러간다")은 세지 않는다(precision 가드). '무엇으로
+    굴러가' 의문형(what runs it 직역)은 기계 명사 없이도 결정적이므로
+    별도로 센다.
+
+    알려진 한계: 표층 매칭이라 기계 명사가 이웃 문장에만 있는 경우는
+    놓친다(미탐 감수 — precision 우선).
+    """
+    if not text.strip():
+        return 0
+    hits = 0
+    for sentence in _segment_sentences(text):
+        if _COPY_TECH_NOUN.search(sentence):
+            hits += len(_ROLL_VERB.findall(sentence))
+        else:
+            hits += len(_ROLL_INTERROGATIVE.findall(sentence))
+    return hits
+
+
+def abstract_noun_ending_count(text: str) -> int:
+    """A-21: 추상명사 종결구 문장 개수(문장당 최대 1회).
+
+    다음 중 하나면 그 문장을 센다:
+    - 문장(또는 종결 부호 없는 헤드라인 줄 — 분할기가 줄 단위도 문장으로
+      본다)의 마지막 어절이 '(으)로(+도/만/는)'로 끝나고 부사 예외 목록
+      (정말로·바로·앞으로 …)에 들지 않는 경우
+    - 문장이 '추상명사 + 이/가 됩니다'로 끝나는 경우(추상명사 사전 또는
+      -성/-화/-력 접미사)
+
+    알려진 한계: 부사 예외는 폐쇄 목록이라 목록 밖의 '-로' 부사는 오탐
+    가능하고, '-원' 등 사람 명사 접미사는 오탐 방지를 위해 추상 접미사에서
+    제외했다(미탐 감수 — precision 우선).
+    """
+    if not text.strip():
+        return 0
+    matched = 0
+    for sentence in _segment_sentences(text):
+        words = _clean_words(sentence)
+        if not words:
+            continue
+        final = words[-1]
+        # (a) '(으)로' 명사종결 — 종결 부호 유무와 무관.
+        if (
+            len(final) >= 2
+            and final not in _RO_ADVERB_EXCEPTIONS
+            and _RO_ENDING.match(final)
+        ):
+            matched += 1
+            continue
+        # (b) '추상명사 + 이/가 됩니다' 종결.
+        if final == "됩니다" and len(words) >= 2:
+            prev = words[-2]
+            if len(prev) >= 2 and prev[-1] in ("이", "가"):
+                noun = prev[:-1]
+                if noun in _ABSTRACT_BECOME_NOUNS or (
+                    len(noun) >= 2 and noun[-1] in _ABSTRACT_BECOME_SUFFIX
+                ):
+                    matched += 1
+    return matched
+
+
+def benefactive_calque_count(text: str) -> int:
+    """A-22: 대행·협업 동사 직역 '나 대신/나와 함께 (…) 일하-' 개수.
+
+    '나 대신·나와 함께·날 대신·저 대신'이 같은 문장 안 12자 이내에서
+    '일하/일합/일해'로 이어지는 경우만 센다(works for/with me 직역).
+
+    알려진 한계: 한국어 어순을 따라 전방(주어→동사) 방향만 본다 —
+    역순 배치는 놓친다(미탐 감수 — precision 우선).
+    """
+    if not text.strip():
+        return 0
+    return sum(len(_BENEFACTIVE.findall(s)) for s in _segment_sentences(text))
+
+
+def sentence_initial_deuneun_count(text: str) -> int:
+    """A-24: 문장 첫 어절이 정확히 '더는'인 문장 개수.
+
+    영어 no longer 직역의 시그니처는 문두 '더는'이다("이제는"이 자연).
+    문장 중간의 '더는'("우리는 더는 기다리지 않는다")은 자연 한국어일 수
+    있으므로 세지 않는다. 분할기가 줄바꿈도 문장 경계로 보므로 종결 부호
+    없는 헤드라인 줄의 문두 '더는'도 잡는다.
+    """
+    if not text.strip():
+        return 0
+    matched = 0
+    for sentence in _segment_sentences(text):
+        words = _split_words(sentence)
+        if words and _clean_word(words[0]) == "더는":
+            matched += 1
+    return matched
+
+
+def first_person_formal_count(text: str) -> int:
+    """I-7: 1인칭 공식 주어 + 격식 종결 조합 문장 개수.
+
+    '당사는/당사가/저희는/저희가/폐사는'을 포함하면서 문장 끝 어절이
+    '합니다/입니다/드립니다/드리겠습니다'로 끝나는 문장을 센다. I-7의
+    시그니처는 두 조건의 조합 밀도이므로 둘 다 요구한다 — "그는
+    회사원입니다"처럼 공식 주어가 없는 격식 문장은 세지 않는다.
+    """
+    if not text.strip():
+        return 0
+    matched = 0
+    for sentence in _segment_sentences(text):
+        if not _FORMAL_FIRST_PERSON.search(sentence):
+            continue
+        tail = _final_word(sentence)
+        if tail and any(tail.endswith(end) for end in _FORMAL_POLITE_TAILS):
+            matched += 1
+    return matched
+
+
+def second_person_appeal_ratio(text: str) -> dict[str, Any]:
+    """A-25 신호: 3인칭 설명체 밀도 vs 2인칭 호회 부재.
+
+    반환 dict:
+    - ``third_person_declarative``: 3인칭 기술 주어(자동화가·시스템이·AI가 …)
+      를 포함하고 '합니다/입니다'로 끝나는 문장 수
+    - ``second_person_tokens``: 2인칭 호회 토큰(여러분·당신·고객님) 등장 횟수
+    - ``appeal_absent``: 3인칭 서술 2문장 이상 + 2인칭 0회
+      (taxonomy A-25 검출 임계 "문단 2회+ 이면서 2인칭 호회 0회")
+
+    알려진 한계: 호소성(헤드라인/CTA) vs 정보성(FAQ/사양) 구간 분류는 하지
+    않고 문서 전체를 한 덩어리로 본다 — 정보성 문서는 appeal_absent가
+    참이어도 교정 대상이 아닐 수 있다(최종 판정은 윤문 단계의 몫).
+    """
+    third_person = 0
+    for sentence in _segment_sentences(text):
+        if not any(subj in sentence for subj in _THIRD_PERSON_TECH_SUBJECTS):
+            continue
+        tail = _final_word(sentence)
+        if tail and any(tail.endswith(end) for end in _POLITE_DECLARATIVE_TAILS):
+            third_person += 1
+    second_person = len(_SECOND_PERSON_TOKENS.findall(text)) if text.strip() else 0
+    return {
+        "third_person_declarative": third_person,
+        "second_person_tokens": second_person,
+        "appeal_absent": third_person >= 2 and second_person == 0,
+    }
+
+
+# 카피 신호 가중치 — _INTERFERENCE_WEIGHTS와 같은 방식(성분별 기여를 [0,1]로
+# 클리핑해 합산). 가중치는 taxonomy 심각도(S1 > S2)와 검출 임계("1회 결정적",
+# "2회+")를 반영한 휴리스틱이며, calibration된 baseline이 없다 — baseline_v2
+# placeholder 정책과 같은 정직한 미보정 상태다(정밀 보정은 별도 회차).
+_COPY_INTERFERENCE_WEIGHTS = {
+    "A20_mechanical_verb_per_1k": 0.5,     # S1 — 기계 맥락 1회로 결정적
+    "A21_abstract_ending_per_1k": 0.5,     # S1 — 문서 2회 초과 시 강화
+    "A22_benefactive_per_1k": 0.4,         # S2 — 2회+ 가산
+    "A24_deuneun_initial_per_1k": 0.4,     # S2 — 문두 1회+ 가산
+    "I7_first_person_formal_per_1k": 0.3,  # S2 — 3회+ 또는 종결 70%+ 가산
+    "A25_appeal_absent": 1.0,              # S2 — bool 신호(0 또는 1)
+}
+
+
+def copy_interference_index(text: str) -> dict[str, Any]:
+    """A-20~A-25 + I-7 카피 번역투 가중 합성 신호.
+
+    카운트 신호는 1천 자당 빈도로 정규화하고(A-25는 bool → 0/1), 각 성분을
+    가중한 뒤 [0,1]로 클리핑해 합산한 weighted_total을 함께 돌려준다.
+    가중치는 휴리스틱이다(미보정 — _COPY_INTERFERENCE_WEIGHTS 주석 참고).
+    """
+    sentence_count = max(len(_segment_sentences(text)), 1)
+    char_count = max(len(text), 1)
+    appeal = second_person_appeal_ratio(text)
+    components = {
+        "A20_mechanical_verb_per_1k": mechanical_verb_calque_count(text) / char_count * 1000,
+        "A21_abstract_ending_per_1k": abstract_noun_ending_count(text) / char_count * 1000,
+        "A22_benefactive_per_1k": benefactive_calque_count(text) / char_count * 1000,
+        "A24_deuneun_initial_per_1k": sentence_initial_deuneun_count(text) / char_count * 1000,
+        "I7_first_person_formal_per_1k": first_person_formal_count(text) / char_count * 1000,
+        "A25_appeal_absent": 1.0 if appeal["appeal_absent"] else 0.0,
+    }
+    weighted_total = 0.0
+    for name, raw_value in components.items():
+        scaled = raw_value * _COPY_INTERFERENCE_WEIGHTS[name]
+        weighted_total += min(1.0, max(0.0, scaled))
+    return {
+        "components": components,
+        "weighted_total": weighted_total,
+        "n_sentences": sentence_count,
+        "n_chars": char_count,
+    }
+
+
+# ---------------------------------------------------------------------------
 # baseline + z-score (v2.0 확장)
 # ---------------------------------------------------------------------------
 
@@ -613,13 +866,18 @@ def compute_all_v2(
     baseline_path: Optional[str] = None,
     baseline_v2_path: Optional[str] = None,
 ) -> dict[str, Any]:
-    """v1.6 지표 + v2.0 post-editese + T1~T8 신호를 산출한다.
+    """v1.6 지표 + v2.0 post-editese + T1~T8 신호 + v2.1 카피 신호를 산출한다.
 
     v1.6 compute_all 결과에 다음을 더한다:
         - ``v2_metrics``: 신규 14개 지표 값
         - ``v2_interference_index``: T1~T8 합성 신호
         - ``v2_z_scores``: baseline_v2 대비 지표별 z(placeholder면 None)
         - ``v2_baseline_warnings``: baseline 셀이 `_placeholder: true`인 지표 키 목록
+        - ``v2_copy_metrics``: v2.1 카피 장르 신호 6종 원값(A-20~A-25·I-7)
+        - ``v2_copy_interference_index``: 카피 번역투 가중 합성 신호
+
+    카피 신호는 z-score를 산출하지 않는다 — baseline_v2의 copy 장르 셀은
+    전부 `_placeholder: true`(미보정)이며, 원값 + 합성 신호만 보고한다.
     """
     report = _base.compute_all(text, genre=genre, baseline_path=baseline_path)
     v2_metrics: dict[str, Any] = {
@@ -639,6 +897,14 @@ def compute_all_v2(
         "progressive_aspect_rate": progressive_aspect_rate(text),
     }
     interference = interference_index(text)
+    copy_metrics: dict[str, Any] = {
+        "mechanical_verb_calque_count": mechanical_verb_calque_count(text),
+        "abstract_noun_ending_count": abstract_noun_ending_count(text),
+        "benefactive_calque_count": benefactive_calque_count(text),
+        "sentence_initial_deuneun_count": sentence_initial_deuneun_count(text),
+        "first_person_formal_count": first_person_formal_count(text),
+        "second_person_appeal_ratio": second_person_appeal_ratio(text),
+    }
 
     baseline_v2 = _read_baseline_v2(baseline_v2_path)
     cells: dict[str, Any] = {}
@@ -664,6 +930,8 @@ def compute_all_v2(
     report["v2_interference_index"] = interference
     report["v2_z_scores"] = z_scores
     report["v2_baseline_warnings"] = placeholder_keys
+    report["v2_copy_metrics"] = copy_metrics
+    report["v2_copy_interference_index"] = copy_interference_index(text)
     return report
 
 
@@ -673,9 +941,11 @@ def compute_all_v2(
 
 
 def _main(argv: Optional[list[str]] = None) -> int:
-    parser = argparse.ArgumentParser(description="general-humanize-korean v2.0 메트릭 러너")
+    parser = argparse.ArgumentParser(description="general-humanize-korean v2.1 메트릭 러너")
     parser.add_argument("--input", required=True, help="입력 텍스트 파일 경로")
-    parser.add_argument("--genre", default="essay", help="essay/news/blog/qa/dialogue")
+    parser.add_argument(
+        "--genre", default="essay", help="essay/news/blog/qa/dialogue/copy"
+    )
     parser.add_argument("--output", default=None, help="출력 JSON 경로(선택)")
     parser.add_argument("--baseline", default=None, help="v1.6 baseline JSON 경로 재정의")
     parser.add_argument(
