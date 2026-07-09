@@ -159,8 +159,9 @@ moai-pm/skills/project/references/templates/CLAUDE.md.tmpl
    wc -l 결과가 200라인 이하인지 확인. 초과 시 스킬 체인 나열을 최대 10개로 자동 축소.
    HARD 규칙 블록 7종(office 우선·ai-slop + 신규 5종: 요청 평가 사다리·파일 생성 기준·맥락 적용 규칙·톤 규칙·인용·저작권 가드)은 축소 대상이 아니다.
 
-5. Write
-   ./CLAUDE.md에 저장.
+5. 주석 제거 + Write
+   템플릿의 HTML 주석(`<!-- ... -->`, 출처 표기 포함)은 생성 결과에서 전부 제거한 뒤 ./CLAUDE.md에 저장한다.
+   출처 표기는 템플릿 파일에만 남긴다 — 최종 사용자 프로젝트로 전파하지 않는다.
 
 6. 보조 파일 생성
    - ./.moai/config.json (플러그인/커넥터/키 상태)

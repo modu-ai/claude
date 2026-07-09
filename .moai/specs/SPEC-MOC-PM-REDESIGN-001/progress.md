@@ -90,7 +90,7 @@ total_run_phase_files: 11  # 스킬 9 (tmpl·generator·cowork·execution·coder
 m1_to_mN_commit_strategy: "M1-M5 마일스톤별 분리 커밋, pathspec 한정(plugins/moai-pm + .moai/specs/SPEC-MOC-PM-REDESIGN-001), agent worktree branch, push 없음"
 mx_tags_created: 4  # tmpl HARD @MX:ANCHOR / generator 예산표 @MX:ANCHOR / cowork 저작권 가드 @MX:WARN(+REASON) / execution 검색 스케일링 @MX:NOTE
 deviation_notes:
-  - "플러그인 개명(moai-coder→moai)이 병렬 SPEC-MOC-PLUGIN-MOAI-V2-001 M1(56f9e09)로 선착 — coder-setup 재작성 라인은 현행명 moai(:moai-workflow-project) 사용, 구명은 '(구 moai-coder)' 주석 보존. AC anchor(moai-workflow-project) 불변. SKILL.md·INDEX.md의 잔여 moai-coder 표기는 병렬 SPEC M5 sweep 소관이라 미변경"
+  - "플러그인 개명(moai-coder→moai)이 병렬 SPEC-MOC-PLUGIN-MOAI-V2-001 M1(56f9e09)로 선착 — coder-setup 재작성 라인은 현행명 moai(:moai-workflow-project) 사용, 구명은 '(구 moai-coder)' 주석 보존. AC anchor(moai-workflow-project) 불변. SKILL.md·INDEX.md·router.md·init-protocol.md(×10)·diagnostic-protocol.md의 잔여 moai-coder 표기는 병렬 SPEC M5 sweep 소관이라 미변경 (sync-audit이 전수 열거로 확장)"
 residual_risks:
   - "S1-S5 런타임 E2E 실연 미수행(문면 검증만 — acceptance §D.4 허용 residual)"
   - "AC-PMR-017 명칭 리터럴 기반 — 개념 잔여는 D9 문서화 부채(acceptance §D.4)"
