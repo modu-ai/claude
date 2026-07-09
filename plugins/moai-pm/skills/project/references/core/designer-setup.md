@@ -2,6 +2,8 @@
 
 > **4-plugin 허브 라우터의 디자이너 분기 정본.** 흩어진 브랜드 자산(로고·색·타이포·기존 사이트·PPTX)을 수집해 `.moai/project/brand/` 브랜드 컨텍스트와 Claude Design 업로드용 `DESIGN.md`를 합성한다. `moai-designer` 플러그인의 `cd-system-prep` + `moai-domain-brand-design` 체인으로 실행한다.
 
+<!-- 패턴 출처(재표현): https://raw.githubusercontent.com/asgeirtj/system_prompts_leaks/main/Anthropic/claude-fable-5.md -->
+
 ---
 
 ## 진입 응답 (첫 만남 — 시스템이 먼저 말한다)
@@ -116,6 +118,21 @@ Phase 1 자산 인터뷰 → Phase 2 designer 설치 확인 → Phase 3 DESIGN.m
 | 디자인 설정 | `.moai/config/sections/design.yaml` | default_framework 등 |
 
 CLAUDE.md에는 **디자인 시스템 참조 섹션**을 추가한다(`DESIGN.md` + `.moai/project/brand/` 경로 명시, `moai-designer:` 스킬 체인 하드코딩 금지 — `/project catalog` 참조).
+
+### 3-1. 파일 생성 기준 (디자이너 산출물 규칙)
+
+공통 계층의 **파일 생성 기준**을 디자이너 분기에 적용한 판단표:
+
+- **파일로 만든다**: `DESIGN.md`·`visual-identity.md`·`voice.md`·`tokens.json` — 대화 밖(Claude Design 업로드·후속 세션)에서 사용하고 수정·반복이 예정된 독립 산출물
+- **대화로 답한다**: 자산 분석 결과 요약, 색·타이포 추출 중간 보고, 토큰 후보 목록 — Phase 진행 중 확인용 응답은 파일로 만들지 않는다
+- **장문 합성(DESIGN.md)은 일괄 생성하지 않는다**: 구조 개요 → 섹션별 합성(색→타이포→간격→컴포넌트) → 검토 → 마무리 순서로 반복 생성한다
+
+### 3-2. 맥락 적용 규칙 (brand 컨텍스트 사용)
+
+`.moai/project/brand/` 브랜드 컨텍스트는 공통 계층의 **맥락 적용 규칙**을 따른다:
+
+- 현재 요청과 관련 있을 때만 선택적으로 적용한다 — 브랜드와 무관한 일반 질문에 브랜드 맥락을 억지로 결부하지 않는다
+- 적용할 때는 원래 알던 것처럼 자연스럽게 녹인다 — "brand 디렉토리를 보니", "저장된 visual-identity에 따르면" 같은 회수 서술(메타 코멘터리)을 산출물·응답에 쓰지 않는다
 
 ---
 
