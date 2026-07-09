@@ -2,7 +2,7 @@
 id: SPEC-MOC-PLUGIN-STORY-001
 title: "moai-story 플러그인 신설 + 패밀리 v4 재배치"
 version: "0.1.0"
-status: completed
+status: superseded
 created: 2026-07-06
 updated: 2026-07-09
 author: GOOS

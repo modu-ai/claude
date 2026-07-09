@@ -174,3 +174,25 @@ verification_b12_discipline:
 
 **DRIFT-001 Dependency**: SPEC-MOC-FAMILY-DRIFT-001 is listed in `depends_on` but has not been created. Per M0 gate policy, run-phase accepted DRIFT-001 `status: in-progress` as sufficient. Sync-phase completes without blocking on DRIFT-001 creation (untracked-edits policy).
 
+---
+
+## §E.5 Superseded Notice (2026-07-09)
+
+**Status**: SPEC-MOC-PLUGIN-STORY-001 is superseded by SPEC-MOC-PLUGIN-MOAI-V2-001.
+
+**sync-auditor Independent FAIL**:
+- Harmonic mean: 19.4/100 (FAIL threshold: Tier L requires ≥ 0.85)
+- Functionality: FAIL (0 PASS / 3 PASS-WITH-DEBT / 9 FAIL)
+- Root cause: Parallel session implemented moai-coworker v5.0.0 integration (commit `2b1f40c` "M1.1 moai-coworker 통합 스캐폴드 (cowork + story)") which reverted the moai-story separation design
+- Verification-claim-integrity violation (§2 carry-over): sync-auditor measured against current tree (post-2b1f40c) while STORY-001 implementation assumed the pre-parallel-session state. The moai-story separation was absorbed back into moai-coworker, making the original SPEC assumptions invalid
+
+**Successor SPEC**: SPEC-MOC-PLUGIN-MOAI-V2-001 (parallel session in progress)
+
+**Historical sync commits preserved** (not reverted):
+- `f98ae3b`: STORY-001 AC 정비
+- `32d1d72`: STORY-001 sync commit  
+- `b27e8f2`: STORY-001 frontmatter backfill
+
+These commits remain in git history as the record of STORY-001's 3-phase close (plan→run→sync lifecycle completed 2026-07-09).
+
+
