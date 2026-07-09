@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — SPEC-MOC-PLUGIN-MOAI-V2-001
+
+moai plugin v2 — rename (`moai-coder` → `moai`, clean-slate version `1.0.0` per user decision DP-1), two-layer restructure (`rules/` → `templates/claude/`), single-dispatcher hook consolidation, and deterministic scaffolding via `/moai:project`. Establishes the Web-tier activation contract (marketplace + output-style selector + enabled-plugin) and completes the v2 redesign P2 phase for this repository's owned portion.
+
+**Core deliverables**:
+- **M1** — `git mv plugins/moai-coder → plugins/moai` + `plugin.json` (`name: moai`, `displayName: 코더`, `version: "1.0.0"`) + marketplace.json 4-plugin entry (moai-coder tombstone removed) (AC-MV2-001a/b/c/d)
+- **M2** — two-layer restructure: `rules/moai/` → `templates/claude/rules/moai/` (61 files, 100% git rename R100, 0 content change) + ADK-upstream `templates/CLAUDE.md` (parity-source marker) + `templates/claude/settings.project.json` (Web-activation 3 keys: `outputStyle: moai:MoAI`, marketplace `moai-claude`, enabled `moai@moai-claude`) + `templates/moai/config/sections/*.yaml` (27 token-holders) (AC-MV2-002a~f)
+- **M3** — hook consolidation: single `hooks/dispatch.sh` (fan-in for all 20 events, `$CLAUDE_CODE_REMOTE` branch + `command -v moai` T3 auto-activation + fail-open `exit 0`) + `hooks/gates/` 5 scripts (4 migrated + gateguard-fact-force vendor per DP-2); 20 `handle-*.sh` scripts removed (AC-MV2-003a~e)
+- **M4** — `scripts/scaffold.sh` (deterministic cp+sed scaffolder, `--dry-run`, backup, user-owned preservation, settings.json merge preservation) wired into `/moai:project` skill; Layer-2 template payload deployable to arbitrary target projects (AC-MV2-004a~g)
+- **M5** — reference sweep: `moai-coder` references in `plugins/` → 0 (was 35/12 files), `www/content/plugins/**` old-name (`moai-code`/`moai-coder`) → 0 (was 17/5 files) + `moai@moai-claude` added, root `README.md` 4-plugin topology, `plugins/moai/README.md` reinstall notice (AC-MV2-005a~f)
+- **M6** — verification + P0-8 typed-name measurement: `claude plugin validate` ×2 PASS, `bash -n` 7 scripts PASS, Hugo build 228p PASS; P0-8 verdict recorded (probe-layer indeterminate — 13 project/plugin command names genuinely collide; deactivation-guidance UI is P3 out-of-scope) (AC-MV2-006a~d)
+
+**Verification**: 32/32 AC PASS (AC-MV2-006d link-check PASS-WITH-DEBT — 10 pre-existing broken links in cookbook/cowork/tags, NOT a regression; `--strict` validate exit 1 is SHOULD debt EC-5). Run-phase commits: `56f9e09` (M1) → `ad86a50` (M2) → `7ff8c5f` (M3) → `21fb72c` (M4) → `5037668` (M5) → `6e0ccdc` (M6).
+
+**Key files**:
+- `plugins/moai/` (renamed from `plugins/moai-coder/`; manifest, templates/, hooks/, scripts/scaffold.sh)
+- `plugins/moai/hooks/dispatch.sh` (new — single event dispatcher, `@MX:ANCHOR`)
+- `plugins/moai/scripts/scaffold.sh` (new — deterministic Layer-2 scaffolder, `@MX:ANCHOR`)
+- `plugins/moai/templates/{CLAUDE.md, claude/rules/moai/, claude/settings.project.json, moai/config/sections/}` (new two-layer payload)
+- `.claude-plugin/marketplace.json` (moai entry replaces moai-coder tombstone)
+- `www/content/plugins/{_index,code/_index,chat/_index,cowork/_index,design/_index}.md` (catalog rename)
+- Root `README.md` (4-plugin topology)
+
+**Residual debt**: (1) `--strict` plugin validate exit 1 — 12 command frontmatter gaps (EC-5, follow-up frontmatter SPEC); (2) www link-check 10 pre-existing broken links (cookbook/cowork/tags — separate SPEC); (3) P0-8 typed-name deactivation-guidance UI not implemented (P3 out-of-scope).
+
 ### Added — SPEC-MOC-BOOTSTRAP-DESKTOP-001
 
 Bootstrap architecture + moai-code Desktop Edition capability elevation — defining two-entrypoint parity (`/project init` for non-developers, `/moai:project` for no-install developers) with single canonical source (`internal/template/templates/`). Version stamp SSOT established (4-location release checklist) and version bound from 0.1.0 → 3.0.0 per user decision D1.

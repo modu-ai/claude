@@ -526,4 +526,21 @@ parallel_session_absorbed: "SPEC-MOC-PM-REDESIGN-001 3-phase closed during run (
 
 ## §E.4 Sync-phase Audit-Ready Signal
 
-_<pending sync-phase — manager-docs 기록 영역 (sync_commit_sha)>_
+```yaml
+sync_status: complete
+sync_complete_at: 2026-07-09T09:05:00Z
+sync_commit_sha: <pending>
+sync_audit: "CHANGELOG [Unreleased] + frontmatter completed (3-phase close in-progress→implemented→completed on single sync commit) + spec/plan/acceptance body untouched. link-check PASS-WITH-DEBT (10 pre-existing cookbook/cowork/tags — not a regression, git log 6f92d86..HEAD zero edits to those dirs). --strict EC-5 debt (12 command frontmatter gaps). P0-8 typed-name deactivation-guidance UI P3 out-of-scope."
+frontmatter_status_transitions:
+  spec_md: "in-progress -> completed (single sync commit, 3-phase close)"
+  plan_md: "no frontmatter (markdown-only artifact)"
+  acceptance_md: "no frontmatter (markdown-only artifact)"
+  progress_md: "no frontmatter (markdown-only artifact)"
+canary_compliance_check:
+  changelog_entry_position: "top of [Unreleased] (newest SPEC entry)"
+  duplicate_guard_grep: "grep -c 'SPEC-MOC-PLUGIN-MOAI-V2-001' CHANGELOG.md == 1 (pre-emit 0 -> post-emit 1)"
+  ac_count_ssot: "32 AC rows in acceptance.md (001a-d=4, 002a-f=6, 003a-e=5, 004a-g=7, 005a-f=6, 006a-d=4)"
+b12_self_test_a: "pre-emission grep returned 0 (no duplicate) — PASS"
+b12_self_test_b: "AC count 32 matches acceptance.md SSOT — PASS"
+b12_self_test_c: "all claimed file paths verified via ls/jq/find on main checkout — PASS"
+```

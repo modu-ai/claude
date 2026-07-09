@@ -2,7 +2,7 @@
 id: SPEC-MOC-PLUGIN-MOAI-V2-001
 title: "moai 플러그인 v2 — 개명(moai-coder→moai) + 2계층 재구조화 + 스캐폴드 완성"
 version: "0.1.3"
-status: in-progress
+status: completed
 created: 2026-07-09
 updated: 2026-07-09
 author: Goos Kim
