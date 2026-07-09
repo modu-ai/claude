@@ -2,7 +2,7 @@
 id: SPEC-MOC-BOOTSTRAP-DESKTOP-001
 title: "모두의 클로드 — 부트스트랩 아키텍처 + moai-code Desktop Edition 승격 (명령은 둘, 정본은 하나)"
 version: "0.4.0"
-status: completed
+status: superseded
 created: 2026-07-02
 updated: 2026-07-09
 author: manager-spec

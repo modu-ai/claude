@@ -137,6 +137,24 @@ verification_b12_discipline:
   - File path verification: 모든 claimed path 실제 `ls` 확인 완료
 ```
 
-## §E.5 Mx-phase Audit-Ready Signal
+## §E.5 Superseded Notice (2026-07-09)
 
-_<pending Mx-phase — manager-docs 소관>_
+**Status**: SPEC-MOC-BOOTSTRAP-DESKTOP-001 is superseded by SPEC-MOC-PLUGIN-MOAI-V2-001.
+
+**sync-auditor Independent FAIL**:
+- Harmonic mean: 60.6/100 (FAIL threshold: Tier L requires ≥ 0.85)
+- Functionality: FAIL (5 PASS / 3 FAIL of 8 sampled ACs)
+- Root cause: Parallel session implemented moai-coworker v5.0.0 integration + moai-pm `/project` entry point redesign (commits `43811a3` "M2.1-M2.5 PM /project 4-plugin hub router redesign" and `13f568d` "M3.4 README rewrite") which reverted the BOOTSTRAP premise (moai-cowork `/project` entry point)
+- Verification-claim-integrity violation (§2 carry-over): sync-auditor measured against current tree (post-43811a3/13f568d) while BOOTSTRAP-001 `completed` transition assumed the pre-parallel-session state. The NET-NEW folder scaffold directive (AC-BD-001b) and VERSION-SSOT sentinel (AC-BD-006c) were destroyed by parallel-session commits, and the CLAUDE.md 구조 heading (AC-BD-001c) regressed without detection
+
+**Failed ACs** (3 of 8 sampled):
+- AC-BD-001b (NET-NEW folder scaffold directive) — destroyed by parallel-session commit `43811a3` which moved the project skill to `plugins/moai-pm/`
+- AC-BD-001c (PRESERVE regression — `### 1. CLAUDE.md 구조` heading) — heading missing in current tree
+- AC-BD-006c (NET-NEW "VERSION-SSOT" sentinel) — destroyed by parallel-session commit `13f568d` (M3.4 README rewrite)
+
+**Successor SPEC**: SPEC-MOC-PLUGIN-MOAI-V2-001 (parallel session in progress, currently UNTRACKED)
+
+**Historical sync commit preserved** (not reverted):
+- `8683de5`: BOOTSTRAP-001 completed transition (spec.md `status: implemented → completed`, progress.md §E.4 sync-phase signal)
+
+This commit remains in git history as the record of BOOTSTRAP-001's 3-phase close (plan→run→sync lifecycle completed 2026-07-09).
