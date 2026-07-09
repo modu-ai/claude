@@ -1,0 +1,11 @@
+{
+  "outputStyle": "moai:MoAI",
+  "extraKnownMarketplaces": {
+    "moai-claude": {
+      "source": "github://modu-ai/claude"
+    }
+  },
+  "enabledPlugins": {
+    "moai@moai-claude": true
+  }
+}

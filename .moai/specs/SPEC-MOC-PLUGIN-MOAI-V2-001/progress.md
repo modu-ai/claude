@@ -118,6 +118,87 @@ exit=0
 **Residual-risk**: 본 저장소 T3 공존 typed-name 충돌(P0-8) 실측은 M6. M1은 개명 + manifest 갱신만 수행; 플러그인 본문(스킬·커맨드)의 잔존 `moai-coder` 참조 35곳(12파일)은 M5 소관(AC-MV2-005a) — M1에서는 스코프 외.
 
 
+### M2 — 2계층 재배치 (AC-MV2-002a·b·c·d·e·f)
+
+**Claim**: rules 61파일 `rules/moai/` → `templates/claude/rules/moai/` 이동(git mv, R100 0-content-change), ADK 정본 CLAUDE.md vendor + parity-source 마커, settings.project.json Web-activation 3키, `.moai/config/sections` ≥27 yaml vendor + 최소 토큰화, output-styles 2종 플러그인 네이티브 보존.
+
+**Evidence (verbatim AC outputs, 2026-07-09)**:
+
+AC-MV2-002a (NET-NEW+REMOVAL):
+```
+$ find plugins/moai/templates/claude/rules/moai -type f | wc -l
+61
+$ test ! -d plugins/moai/rules; echo "exit=$?"
+exit=0
+```
+
+AC-MV2-002b (PRESERVE — git mv R100 rename detection, self-pass 의도됨):
+```
+$ git diff --stat -M100 56f9e09..<M2-commit> -- 'plugins/moai/rules' 'plugins/moai/templates/claude/rules'
+61 files changed, 0 insertions(+), 0 deletions(-)
+$ git diff -M100 --summary (...) | grep -c '^ rename'
+61   (전부 100% similarity)
+$ git diff --numstat -M100 (...) | awk '{a+=$1;d+=$2} END{print a,d}'
+0 0   (content-change 라인 0)
+```
+주: M2 커밋 전 staged-diff로 캡처 — e6b8507(BOOTSTRAP 병렬 세션)이 `plugins/moai/rules` 0파일 터치(비중첩 확인) → post-commit `56f9e09..<M2-commit>` diff와 동일.
+
+AC-MV2-002c (NET-NEW — EC-6 ADK 정본 판별):
+```
+$ test -f plugins/moai/templates/CLAUDE.md; echo "exit=$?"
+exit=0
+$ grep -c 'parity-source: internal/template/templates/CLAUDE.md' plugins/moai/templates/CLAUDE.md
+1
+$ wc -l plugins/moai/templates/CLAUDE.md
+321 plugins/moai/templates/CLAUDE.md   (ADK 정본 319행 + 증명 마커 2행)
+$ grep -c 'claude.mo.ai.kr' plugins/moai/templates/CLAUDE.md
+0   (anti-pattern 가드: 루트 CLAUDE.md 프로젝트 고유 참조 부재 → ADK 정본 확인)
+```
+→ parity-source 마커가 유일 기계 판별자(acceptance.md EC-6). ADK 원천 `/Users/goos/moai/moai-adk-go/internal/template/templates/CLAUDE.md`에서 vendor.
+
+AC-MV2-002d (NET-NEW — Web-activation 3키):
+```
+$ jq -r '.outputStyle' plugins/moai/templates/claude/settings.project.json
+moai:MoAI
+$ jq '.extraKnownMarketplaces["moai-claude"]' plugins/moai/templates/claude/settings.project.json
+{
+  "source": "github://modu-ai/claude"
+}   (≠ null)
+$ jq '.enabledPlugins["moai@moai-claude"]' plugins/moai/templates/claude/settings.project.json
+true
+$ jq empty plugins/moai/templates/claude/settings.project.json; echo "exit=$?"
+exit=0   (valid JSON)
+```
+
+AC-MV2-002e (NET-NEW — config sections ≥27 + 최소 토큰화):
+```
+$ find plugins/moai/templates/moai/config/sections -name '*.yaml' | wc -l
+27   (≥27 PASS)
+$ grep -c '{{PROJECT_USER_NAME}}' plugins/moai/templates/moai/config/sections/user.yaml
+1
+$ grep -c '{{PROJECT_NAME}}' plugins/moai/templates/moai/config/sections/project.yaml
+1
+$ grep -c '{{DATE}}' plugins/moai/templates/moai/config/sections/project.yaml
+1
+```
+토큰화 범위(REQ-MV2-007(c)): 프로젝트-변수 값만 → `{{PROJECT_USER_NAME}}`·`{{PROJECT_NAME}}`·`{{DATE}}`(scaffold.sh M4 3토큰과 일치). 방법론 기본값(development_mode·quality 임계·harness level 등)은 리터럴 보존. 절대경로/머신고유값 0건(사전 스캔 확인). 원천 `.moai/config/sections/` 원본은 무수정(C-2 단방향 vendor).
+
+AC-MV2-002f (PRESERVE — output-styles 플러그인 네이티브 잔류, self-pass 의도됨):
+```
+$ find plugins/moai/output-styles -maxdepth 1 -type f | wc -l
+2   (einstein.md, moai.md)
+$ grep -c '^name: MoAI' plugins/moai/output-styles/moai.md
+1
+```
+→ 셀렉터 `moai:MoAI` 계약(research.md §B P0-2) 보존 — M2에서 output-styles 무편집.
+
+**Baseline-attribution**: 기준선 HEAD e6b8507(M1 완료 후 + BOOTSTRAP 병렬 세션 비중첩 커밋). rules 61파일은 M1 커밋 56f9e09에서 `plugins/moai/rules/moai/`에 존재 → M2 git mv로 `templates/claude/rules/moai/` 이동(R100, 0 content-change). CLAUDE.md·settings·config는 HEAD에서 부재(NET-NEW) → M2 산출. output-styles 2종은 M1 기준선과 동일(PRESERVE 회귀 가드).
+
+**Gaps**: scaffold.sh 산출(`{{TOKEN}}` 치환·백업·settings 병합)은 M4 소관(AC-MV2-004a~g) — M2는 템플릿 페이로드 준비까지만. settings.project.json의 `extraKnownMarketplaces` source 포맷(`github://modu-ai/claude`)은 M4 scaffold·P0-w(Web 실측)에서 런타임 검증 대기 — 본 SPEC Out of Scope이나 포맷 적합성은 사용자 실측에 귀속.
+
+**Residual-risk**: templates/CLAUDE.md는 ADK 정본의 스냅샷 — ADK 원본이 갱신되면 templates 사본은 stale(drift 위험). 다만 parity-source 마커가 원천 경로를 명시해 추적 가능. config sections 토큰화는 최소 3종(`{{PROJECT_NAME}}`·`{{VERSION}}`(미사용)·`{{DATE}}` + `{{PROJECT_USER_NAME}}`) — M4 scaffold.sh가 3토큰(PROJECT_NAME/VERSION/DATE)을 치환하므로 `{{PROJECT_USER_NAME}}`은 scaffold 후 리터럴 잔류 가능(M4에서 토큰 세트 확장 여부 소관).
+
+
 ## §E.3 Run-phase Audit-Ready Signal
 
 _<pending run-phase>_
