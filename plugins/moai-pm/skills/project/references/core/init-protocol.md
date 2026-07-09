@@ -2,7 +2,7 @@
 
 ## 개요
 
-bare `/project`(또는 레거시 `/project init`)는 Claude Cowork 프로젝트를 초기화하고, 사용자의 업무 워크플로우를 인터뷰한 뒤, **스킬 체이닝 기반 CLAUDE.md**를 생성한다.
+bare `/project`(또는 레거시 `/project init`)는 모두의클로드 프로젝트를 초기화하고, 사용자의 업무 워크플로우를 인터뷰한 뒤, **스킬 체이닝 기반 CLAUDE.md**를 생성한다.
 
 **현재 상태:**
 - 초기화 워크플로우는 bare `/project`가 기본 진입점이며, `/project init`은 레거시 별칭으로 계속 인식된다(비파괴).
@@ -95,65 +95,60 @@ AskUserQuestion (1질문, 4옵션)
 
 ### 2-1. 인벤토리 소스
 
-**[HARD] 스캔 필터링 — cowork-plugins 출처만 인정 (동적 도출)**:
+**[HARD] 스캔 필터링 — moai-claude 출처만 인정 (동적 도출)**:
 
-`~/.claude/plugins/` 디렉토리에는 사용자가 여러 마켓플레이스에서 설치한 플러그인이 섞여있을 수 있다. project 스킬은 **cowork-plugins (modu-ai/cowork-plugins) 마켓플레이스 출처 플러그인만** 인벤토리에 포함시키고, 그 외 플러그인은 **완전히 제외**한다.
+`~/.claude/plugins/` 디렉토리에는 사용자가 여러 마켓플레이스에서 설치한 플러그인이 섞여있을 수 있다. project 스킬은 **moai-claude (modu-ai/claude) 마켓플레이스 출처 플러그인만** 인벤토리에 포함시키고, 그 외 플러그인은 **완전히 제외**한다.
 
-**[HARD] 플러그인 집합은 하드코딩 화이트리스트가 아니라 동적으로 도출한다.** `moai-*` 접두어 디렉토리이면서 cowork-plugins 마켓플레이스 출처인 플러그인을 plugin.json 스캔으로 식별한다. 이렇게 하면 마켓플레이스에 신규 플러그인이 추가될 때 화이트리스트를 수정하지 않아도 자동으로 포함된다. **카운트(플러그인 수·스킬 수)는 하드코딩하지 않는다.**
+**[HARD] 플러그인 집합은 하드코딩 화이트리스트가 아니라 동적으로 도출한다.** `moai-*` 접두어 디렉토리이면서 moai-claude 마켓플레이스 출처인 플러그인을 plugin.json 스캔으로 식별한다. 이렇게 하면 마켓플레이스에 신규 플러그인이 추가될 때 화이트리스트를 수정하지 않아도 자동으로 포함된다. **카운트(플러그인 수·스킬 수)는 하드코딩하지 않는다.**
 
-현재 스냅샷 — **27 플러그인 / 173 스킬** (동적 도출 결과의 참고 스냅샷일 뿐, 고정값 아님):
+현재 스냅샷 — **4 플러그인 / 234 스킬** (동적 도출 결과의 참고 스냅샷일 뿐, 고정값 아님):
 
 ```
-moai-core          moai-coworker      moai-coworker
-moai-coworker         moai-coworker       moai-hr
-moai-coworker       moai-operations    moai-coworker
-moai-lifestyle     moai-product       moai-support
-moai-coworker        moai-career        moai-data
-moai-public-data   moai-research      moai-coworker
-moai-commerce      moai-bi            moai-pm
-moai-sales         moai-coworker          moai-design
-moai-wealth        moai-productivity  moai-comms
+moai-pm          (1)   프로젝트 시작 허브 라우터 — /project 플래그 분기
+moai-coworker   (193)  실무·사무·콘텐츠·법률·재무·커머스·교육·미디어·스토리/IP·오피스 도메인 통합
+moai-designer    (11)  브랜드·디자인 시스템·Claude Design 핸드오프·GAN 품질 루프
+moai-coder       (29)  MoAI-ADK SPEC plan/run/sync 개발 방법론 (무설치 harness 정본)
 ```
 
-합계: 현재 27 플러그인 / 173 스킬 (동적 도출 — 카운트 하드코딩 금지)
+합계: 현재 4 플러그인 / 234 스킬 (동적 도출 — 카운트 하드코딩 금지)
 
-**소스 A — Bash 디렉토리 스캔 (moai-* 글롭 + cowork 출처 필터 + 모든 SKILL.md 완전 스캔)**:
+**소스 A — Bash 디렉토리 스캔 (moai-* 글롭 + moai-claude 출처 필터 + 모든 SKILL.md 완전 스캔)**:
 
 ```bash
 PLUGIN_DIR=~/.claude/plugins
 
-# Step 1: moai-* 접두어 디렉토리 중 cowork-plugins 마켓플레이스 출처만 동적 식별
+# Step 1: moai-* 접두어 디렉토리 중 moai-claude 마켓플레이스 출처만 동적 식별
 #   - plugin.json이 존재하고
-#   - 해당 플러그인이 cowork-plugins 마켓플레이스에서 설치된 것
+#   - 해당 플러그인이 moai-claude (modu-ai/claude) 마켓플레이스에서 설치된 것
 #   (화이트리스트를 고정하지 않는다 — 신규 플러그인 자동 포함)
-INSTALLED_COWORK_PLUGINS=()
+INSTALLED_MOAI_PLUGINS=()
 for dir in "$PLUGIN_DIR"/moai-*; do
   p=$(basename "$dir")
   if [ -d "$dir" ] && [ -f "$dir/.claude-plugin/plugin.json" ]; then
-    # cowork-plugins 출처 검증: 마켓플레이스 메타데이터/plugin.json author·repository로 확인
-    INSTALLED_COWORK_PLUGINS+=("$p")
+    # moai-claude 출처 검증: 마켓플레이스 메타데이터/plugin.json author·repository로 확인
+    INSTALLED_MOAI_PLUGINS+=("$p")
   fi
 done
 
-# Step 2: 발견된 cowork 플러그인 안의 모든 SKILL.md 완전 스캔
-for plugin in "${INSTALLED_COWORK_PLUGINS[@]}"; do
+# Step 2: 발견된 모두의클로드 플러그인 안의 모든 SKILL.md 완전 스캔
+for plugin in "${INSTALLED_MOAI_PLUGINS[@]}"; do
   find "$PLUGIN_DIR/$plugin/skills" -maxdepth 2 -name SKILL.md 2>/dev/null
 done
 
-# Step 3: moai-* 가 아니거나 cowork 출처가 아닌 디렉토리는 무시
+# Step 3: moai-* 가 아니거나 moai-claude 출처가 아닌 디렉토리는 무시
 # 예: ~/.claude/plugins/other-vendor-plugin/ → 인벤토리에서 완전 제외
 ```
 
-각 SKILL.md frontmatter의 `name:` 필드를 추출해 `<skill-name> → <plugin>` 매핑을 구성한다. cowork 플러그인 0건이면 "설치된 cowork 플러그인 없음"으로 처리하되, 소스 B로 보완한다.
+각 SKILL.md frontmatter의 `name:` 필드를 추출해 `<skill-name> → <plugin>` 매핑을 구성한다. 모두의클로드 플러그인 0건이면 "설치된 모두의클로드 플러그인 없음"으로 처리하되, 소스 B로 보완한다.
 
-**소스 B — system reminder 파싱 (cowork 출처만 필터링)**:
+**소스 B — system reminder 파싱 (moai-claude 출처만 필터링)**:
 
-현재 세션 system reminder에 포함된 "user-invocable skills" 목록을 파싱하되, **cowork-plugins 출처 스킬만** 인벤토리에 등록한다.
+현재 세션 system reminder에 포함된 "user-invocable skills" 목록을 파싱하되, **moai-claude 출처 스킬만** 인벤토리에 등록한다.
 
-- 포함: cowork-plugins 마켓플레이스 출처 `moai-*` 플러그인이 제공하는 스킬 (예: `moai-coworker:content-blog`, `moai-coworker:office-docx-generator`)
+- 포함: moai-claude 마켓플레이스 출처 `moai-*` 플러그인이 제공하는 스킬 (예: `moai-coworker:content-blog`, `moai-coworker:office-docx-generator`, `moai-designer:cd-brief`, `moai-coder:moai`)
 - 제외: 그 외 출처 스킬 (예: `find-skills`, `update-config`, `notion-cli`, 사용자가 별도 설치한 모든 스킬)
 
-`plugin:skill-name` 형태로 추출하되, `plugin`이 cowork 출처 `moai-*` 집합에 없으면 인벤토리에서 제외한다.
+`plugin:skill-name` 형태로 추출하되, `plugin`이 moai-claude 출처 `moai-*` 집합에 없으면 인벤토리에서 제외한다.
 
 **교차 검증 알고리즘**:
 
@@ -172,19 +167,22 @@ done
 
 ```json
 {
-  "scanned_at": "2026-05-18T00:00:00+09:00",
-  "plugins_installed": ["moai-core", "moai-coworker", "moai-coworker"],
+  "scanned_at": "2026-07-09T00:00:00+09:00",
+  "plugins_installed": ["moai-pm", "moai-coworker", "moai-designer", "moai-coder"],
   "skills_available": {
     "content-blog": "moai-coworker",
     "content-card-news": "moai-coworker",
     "office-docx-generator": "moai-coworker",
     "office-pptx-designer": "moai-coworker",
-    "general-ai-slop-reviewer": "moai-core"
+    "general-ai-slop-reviewer": "moai-coworker",
+    "cd-brief": "moai-designer",
+    "moai": "moai-coder"
   },
   "confidence": {
+    "moai-pm": "HIGH",
     "moai-coworker": "HIGH",
-    "moai-coworker": "HIGH",
-    "moai-core": "HIGH"
+    "moai-designer": "HIGH",
+    "moai-coder": "HIGH"
   }
 }
 ```
@@ -195,20 +193,21 @@ done
 
 | 업무 유형 | 우선 플러그인 |
 |----------|------------|
-| 사업 기획·전략 | moai-coworker, moai-coworker |
-| 콘텐츠 제작 | moai-coworker, moai-coworker, moai-coworker |
-| 문서·행정 | moai-coworker, moai-coworker, moai-hr |
-| 제품·연구 | moai-product, moai-research, moai-data, moai-public-data |
-| 이커머스 | moai-commerce |
-| 출판·원고 | moai-coworker |
-| BI·보고 | moai-bi, moai-pm |
-| 영업·제안 | moai-sales |
-| 디자인 핸드오프 | moai-design |
-| 자산·재무 설계 | moai-wealth |
-| 생산성·루틴 | moai-productivity |
-| 커뮤니케이션·협업 | moai-comms |
+| 사업 기획·전략 | moai-coworker (business-* 스킬군) |
+| 콘텐츠 제작 | moai-coworker (content-*, marketing-* 스킬군) |
+| 문서·행정 | moai-coworker (office-*, legal-* 스킬군) |
+| 제품·연구 | moai-coworker (business-spec-writer, business-ux-researcher, education-* 스킬군) |
+| 이커머스 | moai-coworker (commerce-* 스킬군) |
+| 출판·원고·웹툰·IP | moai-coworker (book-*, story-* 스킬군) |
+| BI·보고·재무 | moai-coworker (business-executive-summary, finance-* 스킬군) |
+| 영업·제안 | moai-coworker (business-proposal-writer, business-sales-playbook 스킬군) |
+| 디자인 핸드오프·브랜드 | moai-designer (cd-*, moai-domain-design 스킬군) |
+| 자산·재무 설계 | moai-coworker (finance-wealth-roadmap, finance-household-budget 스킬군) |
+| 생산성·루틴·라이프 | moai-coworker (office-goal-planner, general-wellness-coach 스킬군) |
+| 커뮤니케이션·협업 | moai-coworker (business-meeting-facilitator, business-report-speak 스킬군) |
+| 개발·SPEC·품질 게이트 | moai-coder (moai, moai-workflow-* 스킬군) |
 
-**moai-core는 항상 포함** (라우터·general-ai-slop-reviewer). 선택 UI에는 표시하지 않는다.
+**라우터 허브는 moai-pm** (`/project` 진입). 실무/콘텐츠/사무 도메인은 거의 `moai-coworker`로 수렴하며, 디자인은 `moai-designer`, 개발은 `moai-coder`로 분기된다. `general-ai-slop-reviewer`·`general-humanize-korean`은 moai-coworker 소속으로 텍스트 후처리 체인에 항상 활용 가능하다.
 
 ---
 
@@ -264,7 +263,7 @@ Phase 1-2 결과를 바탕으로 **산출물별 실행 체인**을 설계한다.
 | SEO 감사 | `marketing-seo-audit` → `general-ai-slop-reviewer` |
 | 출판 원고 | moai-coworker 플러그인으로 이관 (v4.0.0) — /plugin install story; 동일 체인이 moai-coworker에서 동작 |
 | BI 리포트 | `business-executive-summary` (숫자·HTML — ai-slop 생략) |
-| 주간보고 | `weekly-report` → `general-ai-slop-reviewer` |
+| 주간보고 | `business-pm-weekly-report` → `general-ai-slop-reviewer` |
 | 영업 제안서 | `business-proposal-writer` → `office-docx-generator` → `general-ai-slop-reviewer` |
 | 자산·재무 로드맵 | `finance-wealth-roadmap` → `general-ai-slop-reviewer` |
 | 커뮤니케이션 스크립트 | `business-report-speak` → `general-ai-slop-reviewer` |
@@ -309,37 +308,31 @@ for each skill in chain_skills:
         missing_plugins.add(missing_plugin)
 ```
 
-`general-ai-slop-reviewer`는 moai-core 소속이므로 항상 설치됨으로 간주한다.
+`general-ai-slop-reviewer`는 moai-coworker 소속이므로 coworker 설치 시 항상 사용 가능하다.
 
 ### 4-2. 스킬 → 플러그인 기본 매핑
 
-| 스킬 | 소속 플러그인 |
+4-plugin 아키텍처에서 각 스킬군의 소속 플러그인:
+
+| 스킬군 | 소속 플러그인 |
 |------|------------|
-| business-strategy-planner, business-market-analyst, finance-investor-relations, business-consulting-brief | moai-coworker |
-| content-blog, content-card-news, content-newsletter, marketing-landing-page, content-copywriting, commerce-product-detail, general-humanize-korean | moai-coworker |
-| office-docx-generator, office-pptx-designer, office-xlsx-creator, office-hwpx-writer, office-pdf-writer | moai-coworker |
-| marketing-seo-audit, marketing-campaign-planner, content-sns-content, content-email-sequence, business-brand-identity | moai-coworker |
-| legal-nda-triage, legal-contract-review, legal-compliance-check | moai-coworker |
-| finance-tax-helper, finance-financial-statements | moai-coworker |
-| business-employment-manager, business-draft-offer | moai-hr |
-| business-resume-builder, business-portfolio-guide | moai-career |
-| office-data-visualizer, office-data-explorer, public-data | moai-data |
-| education-paper-writer, education-grant-writer, legal-patent-analyzer | moai-research |
-| business-spec-writer, business-roadmap-manager, business-ux-researcher | moai-product |
-| business-draft-response, business-kb-article | moai-support |
-| education-curriculum-designer, education-assessment-creator | moai-coworker |
-| general-travel-planner, general-event-planner | moai-lifestyle |
-| media-higgsfield-image, media-higgsfield-video, media-gpt-image-2-prompt, media-gemini-3-image-prompt, media-midjourney-v8-prompt, media-audio-gen | moai-coworker |
-| commerce-automation-audit, commerce-marketplace-coupang, commerce-product-photo-brief | moai-commerce |
-| (출판 스킬 — moai-coworker 플러그인으로 이관, v4.0.0) | moai-coworker |
-| business-executive-summary | moai-bi |
-| weekly-report | moai-pm |
-| business-proposal-writer | moai-sales |
-| korean-stock-search, court-auction-search, real-estate-search | moai-public-data |
-| cd-brief, cd-prompt-builder | moai-design |
-| finance-wealth-roadmap, finance-household-budget | moai-wealth |
-| office-goal-planner, office-retro-builder | moai-productivity |
-| business-report-speak, business-meeting-facilitator | moai-comms |
+| business-* (전략·컨설팅·HR·채용·제안·보고·BI·운영·영업·이슈·협업·PM·라이프스타일) | moai-coworker |
+| content-* (블로그·카드뉴스·뉴스레터·SNS·이메일·카피·편집캘린더) | moai-coworker |
+| marketing-* (랜딩·SEO·캠페인·메타광고·퍼포먼스·퍼스널브랜딜·유튜브팟캐스트) | moai-coworker |
+| office-* (docx·pptx·xlsx·hwpx·pdf·데이터시각화·공공데이터·한글맞춤법·목표·회고·HTML리포트·노션·MCP) | moai-coworker |
+| legal-* (계약·NDA·컴플라이언스·특허·법령리스크·연구) | moai-coworker |
+| finance-* (세무·재무제표·IR·예산·자산·세이버·보험·분산) | moai-coworker |
+| commerce-* (이커머스 자동화·쿠팡·상세페이지·마켓플레이스·LTV/CAC·VOC·크라우드펀딩) | moai-coworker |
+| education-* (논문·연구비·커리큘럼·평가·학습자료·튜터) | moai-coworker |
+| media-* (Higgsfield 이미지·영상·GPT/Gemini/Midjourney 프롬프트·오디오·NotebookLM) | moai-coworker |
+| book-* (출판·원고·챕터·개요·제안·출판사매칭·수정코칭·독자) | moai-coworker |
+| story-* (웹툰·웹소설·시나리오·콘티·캐릭터·표지·IP피칭·프리비즈) | moai-coworker |
+| general-* (ai-slop-reviewer·humanize-korean·travel·event·wellness·self-care·feedback·skill-builder) | moai-coworker |
+| cd-brief, cd-handoff-reader, cd-prompt-builder, cd-slop-check, cd-system-prep, design-system-library, moai-domain-brand-design, moai-domain-copywriting, moai-domain-design-handoff, moai-workflow-design, moai-workflow-gan-loop | moai-designer |
+| moai, claude-agentic-coding, moai-domain-* (backend/database/frontend/html-report/humanize), moai-foundation-* (cc/core/quality/thinking), moai-ref-* (api/git/owasp/react/secops/supply-chain/testing), moai-workflow-* (ci-loop/ddd/loop/project/spec/tdd/testing/worktree), moai-harness-learner, moai-meta-harness | moai-coder |
+| project (초기화 허브) | moai-pm |
+
+> 모두의클로드는 4-plugin 아키텍처로, 과거 27-plugin(cowork-plugins)은 v5.0.0에서 moai-coworker로 통합 흡수되었고 디자인/개발 도메인은 각각 moai-designer·moai-coder로 분리되었다.
 
 ### 4-3. 누락 발견 시 AskUserQuestion 4 옵션
 
@@ -369,10 +362,10 @@ for each skill in chain_skills:
 ```
 1. 누락 플러그인별 설치 명령 안내:
 
-   /plugin install modu-ai/cowork-plugins
+   /plugin install moai-coworker@moai-claude   (또는 moai-designer@moai-claude / moai-coder@moai-claude)
 
-   (개별 플러그인 설치가 아닌 전체 패키지 설치 후 활성화)
-   Settings > Plugins > cowork-plugins > [moai-X] > Enable
+   (최초 1회 마켓 등록: /plugin marketplace add modu-ai/claude)
+   누락된 직원 플러그인을 moai-claude 마켓에서 설치 후 활성화
 
 2. .moai/cache/init-progress.json 저장 (4-5 스키마 참조)
 
@@ -450,7 +443,7 @@ AskUserQuestion (1질문, 3옵션)
 | 변수 | 소스 |
 |---|---|
 | `{project_name}` | 현재 프로젝트 폴더명 |
-| `{version}` | plugin.json의 moai-core version |
+| `{version}` | plugin.json의 moai-coworker version (대표 스킬 정본 버전) |
 | `{date}` | 오늘 날짜 (YYYY-MM-DD) |
 | `{installed_plugins}` | Phase 2 Inventory의 plugins_installed |
 | `{primary_deliverables}` | Phase 1-2 답변 요약 |
@@ -600,4 +593,4 @@ Phase 3에서 설계된 체인 중 상위 3개를 예시로 제시:
 
 ## 현재 상태 요약
 
-현재: 27 플러그인 / 173 스킬 (동적 도출, 카운트 하드코딩 금지), bare `/project` 초기화가 기본 진입점이며 `/project init`은 레거시 별칭으로 인식된다.
+현재: 4 플러그인 / 234 스킬 (동적 도출, 카운트 하드코딩 금지), bare `/project` 초기화가 기본 진입점이며 `/project init`은 레거시 별칭으로 인식된다.

@@ -5,7 +5,7 @@ description: 'Comprehensive testing and development workflow specialist combinin
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # Development Workflow Specialist

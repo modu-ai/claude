@@ -8,7 +8,7 @@ description: 'DEPRECATED — legacy 7-Phase meta-harness. Redirects to the v4 ha
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # moai-meta-harness (DEPRECATED — redirect to v4)

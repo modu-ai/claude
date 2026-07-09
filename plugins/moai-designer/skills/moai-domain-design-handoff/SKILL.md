@@ -1,31 +1,31 @@
 ---
 name: moai-domain-design-handoff
 description: |
-  Claude Design handoff package specialist for /moai brain Phase 7. Assembles 5-file
+  Claude Design handoff package specialist for the /design Path A workflow. Assembles 5-file
   handoff bundle (prompt/context/references/acceptance/checklist) for paste-ready
   claude.com Design session. Handles brand-absent fallback and section regeneration.
 
-  Use for /moai brain Phase 7 design handoff: assembling the 5-file Claude
+  Use for /design Path A design handoff: assembling the 5-file Claude
   Design package (prompt, context, references, acceptance, checklist),
   brand-voice context, and paste-ready claude.com session bundles.
 user-invocable: false
-version: 0.1.0
+version: 0.2.0
 ---
 
 <!-- Verifies: prompt.md is paste-ready (no MoAI tokens) -->
 <!-- Verifies: Brand voice integrated when present; graceful default when absent -->
-<!-- Verifies: Phase 7 exit AskUserQuestion with 3 options -->
+<!-- Verifies: Handoff exit AskUserQuestion with 3 options -->
 
 <!-- @MX:ANCHOR: [AUTO] 5-section prompt.md template structure — canonical definition -->
-<!-- @MX:REASON: Consumed by every brain workflow Phase 7 execution (high fan_in). Structural changes affect user trust — prompt.md is pasted directly into external claude.com Design session. -->
+<!-- @MX:REASON: Consumed by every /design Path A handoff execution (high fan_in). Structural changes affect user trust — prompt.md is pasted directly into external claude.com Design session. -->
 
 # Design Handoff Domain Specialist
 
-Assembles the 5-file Claude Design handoff package for the brain workflow's Phase 7. The package is designed for paste-and-go use in the external claude.com Design product.
+Assembles the 5-file Claude Design handoff package for the `/design` Path A workflow (the handoff-deliverable step). The package is designed for paste-and-go use in the external claude.com Design product.
 
 ## Quick Reference
 
-The handoff package lives at `.moai/brain/IDEA-NNN/claude-design-handoff/`:
+The handoff package lives at `.moai/design/handoff/`:
 
 | File | Purpose | Paste target |
 |------|---------|-------------|
@@ -37,20 +37,20 @@ The handoff package lives at `.moai/brain/IDEA-NNN/claude-design-handoff/`:
 
 Key guarantees:
 
-- [HARD] `prompt.md` contains NO MoAI-specific tokens (no `SPEC-`, `.moai/`, `manager-`, `IDEA-`)
+- [HARD] `prompt.md` contains NO MoAI-specific tokens (no `SPEC-`, `.moai/`, `manager-`, internal skill names)
 - [HARD] Brand voice integrated when `.moai/project/brand/brand-voice.md` exists
 - [HARD] Brand-absent fallback: `Brand Voice (default — please customize)` placeholder section
-- [HARD] Phase 7 exits with AskUserQuestion offering 3 options (a/b/c per the relevant requirement)
+- [HARD] Handoff exits with AskUserQuestion offering 3 options (a/b/c per the relevant requirement)
 - [HARD] All 5 files produced regardless of brand context availability
 
 ---
 
-## Phase 7: Handoff Package Assembly
+## Handoff Package Assembly
 
 ### Input
 
-- `ideation.md` (Lean Canvas + Evaluation Report from Phases 4 and 5)
-- `proposal.md` (product summary and SPEC decomposition from Phase 6)
+- Bundle summary from `cd-handoff-reader` (the preceding Path A step) — what the user wants designed, target users, value propositions
+- Brief from `cd-brief` when the request originates from a design brief (Lean Canvas / evaluation context)
 - Optional: `.moai/project/brand/brand-voice.md` (brand context)
 - Optional: `.moai/project/brand/visual-identity.md` (design tokens, colors)
 
@@ -75,7 +75,7 @@ ELSE:
 
 `prompt.md` MUST follow this exact 5-section structure:
 
-1. **Goal** — 2-3 sentences describing what needs to be designed, target users, top 3 value propositions from Lean Canvas UVP
+1. **Goal** — 2-3 sentences describing what needs to be designed, target users, top 3 value propositions from the bundle summary / brief UVP
 2. **References** — 3-5 URLs to existing products with style notes, plus key aesthetic direction
 3. **Brand Voice** — Two branches (brand_present vs brand_absent), see decision below
 4. **Acceptance Criteria** — Concise non-negotiable requirements list (5-8 items)
@@ -93,10 +93,10 @@ See [5-section prompt template + brand branches detail](references/prompt-templa
 [HARD] The following MUST NOT appear anywhere in prompt.md:
 
 - References to `SPEC-` identifiers (e.g., `SPEC-AUTH-001`)
-- References to `.moai/` paths (e.g., `.moai/brain/`, `.moai/project/`)
-- References to agent names (e.g., `manager-brain`, `manager-spec`)
-- References to `IDEA-NNN` identifiers
-- References to MoAI-specific commands (e.g., `/moai plan`, `/moai run`)
+- References to `.moai/` paths (e.g., `.moai/design/`, `.moai/project/`)
+- References to internal skill / agent names (e.g., `manager-spec`, `cd-brief`, `cd-handoff-reader`)
+- References to internal workflow step identifiers
+- References to MoAI-specific commands (e.g., `/design`, `/moai plan`)
 - Internal implementation details (file structures, Go code, database schemas)
 
 The prompt must read as if written by a human product designer with no knowledge of MoAI's internal structure.
@@ -105,33 +105,33 @@ The prompt must read as if written by a human product designer with no knowledge
 
 | Step | File | Purpose |
 |------|------|---------|
-| 2 | references.md | Competitor analysis + visual inspiration + UX pattern references (3-5 URLs from research.md Sources). Falls back to instructional note when URLs are scarce. |
+| 2 | references.md | Competitor analysis + visual inspiration + UX pattern references (3-5 URLs from the bundle's Sources). Falls back to instructional note when URLs are scarce. |
 | 3 | acceptance.md | Accessibility (WCAG 2.1 AA), Responsiveness (375/768/1280px), Brand Alignment, Content Completeness, Technical Constraints |
-| 4 | context.md | Extended context — NOT for pasting into Claude Design. Full Lean Canvas summary, SPEC roadmap, research findings, brand context |
+| 4 | context.md | Extended context — NOT for pasting into Claude Design. Full brief summary, roadmap context, research findings, brand context |
 | 5 | checklist.md | Human self-check before pasting prompt.md: content review, MoAI-internal cleanup (auto-verified), scope verification, session readiness |
 
 See [supporting files templates](references/supporting-files.md) for verbatim references.md, acceptance.md, context.md, and checklist.md templates.
 
 ---
 
-## Phase 7 Exit: AskUserQuestion
+## Handoff Exit: AskUserQuestion
 
-After all 5 files are written, the workflow MUST invoke AskUserQuestion (with ToolSearch preload) presenting 3 options:
+After all 5 files are written, the skill MUST surface an AskUserQuestion (with ToolSearch preload) presenting 3 options:
 
 ```
 ToolSearch(query: "select:AskUserQuestion")
 AskUserQuestion({
   questions: [{
     question: "핸드오프 패키지가 준비되었습니다. 다음 단계를 선택하세요.",
-    header: "Brain Workflow 완료",
+    header: "Design 핸드오프 완료",
     options: [
       {
-        label: "/moai project 실행 (권장)",
-        description: "IDEA-NNN/proposal.md 기반으로 product.md, structure.md, tech.md 프로젝트 문서 생성. 이후 /moai plan으로 첫 SPEC 작성 가능."
+        label: "Claude Design 세션 시작 (권장)",
+        description: "prompt.md를 claude.com Design에 복사해 붙여넣고 디자인 세션을 시작합니다. context.md/references.md는 보조 자료로 함께 엽니다."
       },
       {
         label: "수동 검토",
-        description: "핸드오프 파일을 직접 검토하고 필요한 경우 편집. .moai/brain/IDEA-NNN/ 디렉토리를 확인하세요. 준비가 되면 /moai project --from-brain IDEA-NNN을 실행하세요."
+        description: "핸드오프 파일을 직접 검토하고 필요한 경우 편집합니다. .moai/design/handoff/ 디렉토리를 확인하세요. 준비가 되면 prompt.md를 Claude Design에 붙여넣으세요."
       },
       {
         label: "핸드오프 패키지 재생성",
@@ -148,10 +148,10 @@ For non-Korean conversation_language, translate option labels and descriptions a
 
 ## Works Well With
 
-- `moai-domain-ideation`: Consumes ideation.md and proposal.md as primary inputs
-- `moai-domain-research`: Pulls reference URLs from research.md Sources section
-- `moai-workflow-design`: Downstream consumer of `claude-design-handoff/` directory after user completes external Claude Design session (Path A handler)
-- `moai-workflow-brain`: Orchestrates Phase 7 execution with IDEA-NNN directory management
+- `cd-brief`: Produces the design brief (Lean Canvas + value propositions) consumed as primary input when the request originates from a brief
+- `cd-system-prep` / `design-system-library`: Provides reference URLs and visual inspiration for the references.md Sources
+- `cd-handoff-reader`: Preceding Path A step — summarizes the imported bundle into the inputs this skill consumes
+- `moai-workflow-design`: Downstream consumer of the `.moai/design/handoff/` directory after the user completes the external Claude Design session (Path A handler)
 
 ---
 
@@ -170,7 +170,7 @@ For non-Korean conversation_language, translate option labels and descriptions a
 - [ ] prompt.md has exactly 5 sections (Goal, References, Brand Voice, Acceptance, Out of Scope)
 - [ ] prompt.md contains no SPEC- identifiers
 - [ ] prompt.md contains no .moai/ path references
-- [ ] prompt.md contains no manager- or /moai references
+- [ ] prompt.md contains no internal skill/agent names or /design references
 - [ ] Brand-absent path includes "Brand Voice (default — please customize)" header in prompt.md
 - [ ] context.md includes note that it is NOT for pasting into Claude Design
-- [ ] Phase 7 exit AskUserQuestion called with exactly 3 options
+- [ ] Handoff exit AskUserQuestion called with exactly 3 options

@@ -124,7 +124,7 @@ Before pasting prompt.md into Claude Design, verify:
 
 ## Session Readiness
 - [ ] You have a claude.com account with Design access
-- [ ] You have reviewed IDEA-NNN/proposal.md and know what this design supports
+- [ ] You have reviewed the design brief / bundle summary and know what this design supports
 - [ ] You are prepared to provide feedback on the generated design
 
 After design is complete:

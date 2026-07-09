@@ -7,7 +7,7 @@ description: |
   - "웹소설 연재", "문피아 집필", "카카오페이지 소설"
   - "웹소설 절단", "클리프행어 설계"
   - "회차 분량", "연재 주기"
-version: "0.1.0"
+version: "5.0.0"
 ---
 
 # story-webnovel-writer

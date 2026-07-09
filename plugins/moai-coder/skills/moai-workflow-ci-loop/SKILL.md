@@ -7,7 +7,7 @@ description: 'Unified CI watch + auto-fix loop skill. Polls gh pr checks after /
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # CI Loop (`moai-workflow-ci-loop`)

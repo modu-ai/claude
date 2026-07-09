@@ -11,7 +11,7 @@ description: |
   Quality, Originality, Completeness, Functionality), stagnation
   detection, and escalation.
 user-invocable: false
-version: 0.1.0
+version: 0.2.0
 ---
 
 # moai-workflow-gan-loop
@@ -258,7 +258,7 @@ When testing tools are unavailable, fall back to static code analysis only, and 
 
 - `moai-domain-brand-design`: Provides design tokens that Evaluator validates in Design Quality dimension
 - `moai-domain-copywriting`: Copy JSON is the reference for Completeness dimension
-- `sync-auditor`: The GAN loop orchestrates sync-auditor for each scoring pass
+- 자체 Evaluator: GAN 루프는 매 스코어링 패스마다 본 스킬의 4-dimension scoring으로 평가합니다. MoAI harness(`moai-coder`)의 `sync-auditor`가 함께 설치된 환경에서는 해당 agent로 평가를 보강할 수 있습니다.
 - `moai-workflow-design`: Extracted tokens (Path A) serve as the design reference baseline
 
 ---

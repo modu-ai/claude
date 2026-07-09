@@ -8,7 +8,7 @@ description: 'REST/GraphQL API design patterns, error handling conventions, and 
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # API Patterns Reference

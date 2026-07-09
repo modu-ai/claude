@@ -11,7 +11,7 @@ description: |
   from .moai/design/, DTCG token validation, and brand-context
   constitutional priority.
 user-invocable: false
-version: 0.1.0
+version: 0.2.0
 ---
 
 # Design Workflow (`moai-workflow-design`)

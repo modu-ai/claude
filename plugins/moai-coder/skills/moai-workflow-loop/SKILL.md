@@ -6,7 +6,7 @@ description: 'Ralph Engine - Automated feedback loop with LSP diagnostics and AS
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # Ralph Engine

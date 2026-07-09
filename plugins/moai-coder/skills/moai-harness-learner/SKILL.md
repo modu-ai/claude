@@ -4,7 +4,7 @@ description: Harness learning subsystem coordinator. Produces Tier 4 auto-update
   by the orchestrator (which surfaces them via AskUserQuestion) and orchestrates Apply/Rollback flows.
   Triggers when harness learning proposals are pending or learning lifecycle management is needed.
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # moai-harness-learner

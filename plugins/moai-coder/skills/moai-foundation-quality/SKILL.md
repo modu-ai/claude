@@ -5,7 +5,7 @@ description: 'Code quality orchestrator enforcing TRUST 5 validation, proactive 
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # Enterprise Code Quality Orchestrator

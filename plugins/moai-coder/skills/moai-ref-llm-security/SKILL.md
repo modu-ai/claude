@@ -10,7 +10,7 @@ description: 'AI/LLM defensive security reference: prompt-injection defense, OWA
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # LLM / AI Defensive Security Reference

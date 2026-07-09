@@ -12,7 +12,7 @@ description: 'DevSecOps, container, and API operational defensive security refer
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # DevSecOps, Container, and API Operational Security Reference

@@ -5,7 +5,7 @@ description: 'SPEC workflow orchestration with EARS format requirements, accepta
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # SPEC Workflow Management

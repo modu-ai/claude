@@ -7,7 +7,7 @@ description: |
   - "웹툰 작화", "웹툰 컷 이미지"
   - "캐릭터 일관성 작화", "Soul ID 웹툰"
   - "AI Anime Generator"
-version: "0.1.0"
+version: "5.0.0"
 ---
 
 # story-webtoon-art

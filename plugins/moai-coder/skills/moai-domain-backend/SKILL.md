@@ -6,7 +6,7 @@ description: 'Backend development specialist covering API design, database integ
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # Backend Development Specialist

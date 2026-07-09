@@ -12,7 +12,7 @@ description: |
   - "어두운 테마 / 따뜻한 화이트 테마로"
   - "Claude Design에 올릴 디자인 시스템 자료 정리"
 user-invocable: true
-version: 0.1.0
+version: 0.2.0
 ---
 
 # design-system-library — 75개 브랜드 디자인 시스템 SSOT

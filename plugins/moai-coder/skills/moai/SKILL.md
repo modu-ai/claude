@@ -6,7 +6,7 @@ description: 'MoAI unified orchestrator for autonomous development. Routes natur
 
   '
 user-invocable: true
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 ## Pre-execution Context

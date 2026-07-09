@@ -7,7 +7,7 @@ description: 'Provides MoAI-ADK foundational principles including TRUST 5 qualit
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # MoAI Foundation Core

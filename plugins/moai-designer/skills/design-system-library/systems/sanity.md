@@ -1,6 +1,6 @@
 ---
 version: alpha
-name: Saniti-design-analysis
+name: Sanity-design-analysis
 description: An inspired interpretation of Saniti's design language — a dark-first, content-platform marketing system that pairs an oversized editorial display sans (waldenburgNormal) with IBM Plex Mono for technical eyebrows. The site reads like a software-engineering trade journal: near-black `{colors.canvas}` reading bands, white text, a single signature coral-red accent (`{colors.brand}`) reserved for the highest-priority action, and a deliberate light-theme inversion on commercial pages (pricing) where dense feature tables demand maximum legibility. Display sizes climb to 112px with tightly-cut negative tracking; rounded pills coexist with sharply-cut 3–6px application-grade radii from the Studio screenshots, signalling the dual identity of "marketing brand" and "developer tool."
 
 colors:

@@ -5,7 +5,7 @@ description: 'Git worktree management for parallel SPEC development with isolate
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # MoAI Worktree Management

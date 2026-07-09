@@ -7,7 +7,7 @@ description: 'AI text humanization and 윤문 (post-editing) specialist that det
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # moai-domain-humanize

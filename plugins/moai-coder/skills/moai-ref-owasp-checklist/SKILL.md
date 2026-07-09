@@ -7,7 +7,7 @@ description: 'OWASP Top 10 security checklist, authentication patterns, input va
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # OWASP Security Checklist Reference

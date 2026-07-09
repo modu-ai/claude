@@ -12,7 +12,7 @@ description: |
   - "claude.ai/design에 넣을 프롬프트"
   - "디자인 요청 정리"
 user-invocable: true
-version: 0.1.0
+version: 0.2.0
 ---
 
 # cd-brief — Claude Design 6요소 브리프 빌더

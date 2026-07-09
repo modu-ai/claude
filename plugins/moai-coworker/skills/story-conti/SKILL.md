@@ -7,7 +7,7 @@ description: |
   - "콘티", "스토리보드", "프레임 시퀀스"
   - "씬 분할", "Popcorn", "Shots"
   - "연출 콘티", "촬영 콘티"
-version: "0.1.0"
+version: "5.0.0"
 ---
 
 # story-conti

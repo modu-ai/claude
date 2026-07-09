@@ -6,7 +6,7 @@ description: 'Database specialist covering PostgreSQL, MongoDB, Redis, Oracle, a
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # Database Domain Specialist

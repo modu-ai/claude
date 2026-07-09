@@ -5,7 +5,7 @@ description: 'Domain-Driven Development workflow specialist using ANALYZE-PRESER
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # Domain-Driven Development (DDD) Workflow

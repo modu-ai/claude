@@ -1,18 +1,18 @@
 ---
 name: claude-agentic-coding
 description: 개발자용 Claude agentic 코딩 — tool use, sub-agents, MCP 연동으로 자율 코딩 워크플로우 구성. Claude 공식 tool-use/sub-agents 문서 기반. "Claude로 자율 코딩 에이전트 만들고 싶어" 질문에 즉시 활용.
+version: "3.1.0"
 metadata:
-  version: "0.1.0"
   category: coder
   status: active
-  updated: 2026-07-08
+  updated: 2026-07-09
   tags: "agentic, tool-use, sub-agents, mcp, coding"
   source: "https://code.claude.com/docs/en/tool-use, https://code.claude.com/docs/en/sub-agents"
 ---
 
 # claude-agentic-coding — 개발자용 Agentic 코딩
 
-> coder 플러그인 스킬 — `commands/` + `skills/` + `agents/` 카테고리만 사용 (hooks/output-styles/rules/mcp 없음).
+> coder 플러그인 스킬 — coder는 무설치 harness 정본(D4)으로 `moai-adk-go` 템플릿과의 무설치 완전 패리티를 위해 `commands/`·`skills/`·`agents/`·`hooks/`·`output-styles/`·`rules/`·`mcp` 전 카테고리를 사용합니다.
 
 ## 핵심 3축 (Claude 공식)
 

@@ -7,7 +7,7 @@ description: 'Markdown-to-single-file-HTML report renderer. Six modes (status, i
 
   '
 user-invocable: true
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # html-report — Single-File HTML Report Renderer

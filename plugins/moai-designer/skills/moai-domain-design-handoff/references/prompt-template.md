@@ -1,6 +1,6 @@
 # prompt.md — 5-Section Template + Brand Branches
 
-Canonical verbatim template for `prompt.md` Phase 7 assembly.
+Canonical verbatim template for `prompt.md` handoff assembly.
 
 ## 5-Section Template
 
@@ -84,7 +84,7 @@ Typography:
 > NOTE: This project does not yet have a defined brand voice. The placeholders below
 > are generic suggestions. Before using this prompt in Claude Design, either:
 > (a) Edit this section with your actual brand voice, OR
-> (b) Run /moai brain brand-interview (when available) to define brand context
+> (b) Run `/design` and choose the brand-interview path (when available) to define brand context
 
 Brand personality: professional, approachable, modern
 

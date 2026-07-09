@@ -6,7 +6,7 @@ description: 'Git workflow patterns, branch strategies, conventional commits, an
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # Git Workflow Reference

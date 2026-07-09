@@ -4,7 +4,7 @@
 
 ---
 
-## 무엇을 하나요 (28스킬)
+## 무엇을 하나요 (29스킬)
 
 | 역할 | 언제 | 무엇을 하나요 |
 |------|------|---------------|
@@ -26,7 +26,7 @@
 → /moai:plan (SPEC 작성) → /moai:run (DDD/TDD 구현) → /moai:sync (문서 동기화 + PR)
 ```
 
-### `/moai` 명령 (13개)
+### `/moai` 명령 (14개)
 
 | 카테고리 | 명령 |
 |---------|------|
@@ -91,7 +91,7 @@
 
 | Tier | 구성 | 능력 |
 |------|------|------|
-| **Tier 1** (플러그인 단독) | moai-coder만 설치 | `/moai:plan → run → sync` + SPEC 템플릿 + 13 명령 ≈ 방법론 90% |
+| **Tier 1** (플러그인 단독) | moai-coder만 설치 | `/moai:plan → run → sync` + SPEC 템플릿 + 14 명령 ≈ 방법론 90% |
 | **Tier 2** (플러그인 + git) | Tier 1 + git CLI | 브랜치·워크트리 흐름 (git CLI 직접 호출) |
 | **Tier 3** (+ moai 바이너리) | Tier 2 + `moai` CLI 바이너리 | 네이티브 훅 강제(품질 게이트·Stop 훅) + LSP 진단 게이트 + 세션 레지스트리 + cg/glm 비용 모드 |
 
@@ -101,7 +101,9 @@
 
 `moai-adk-go` 배포 템플릿 `internal/template/templates/`를 정본으로 무설치 완전 패리티로 재패키징합니다. 각 산출물 상단의 `<!-- parity-source: ... @ <commit> -->` 주석이 정본 커밋을 고정합니다.
 
-무설치 적응 — 워크트리 셸아웃→git 직접(`moai worktree new/done`→`git worktree add/remove`), 바이너리 게이트 기능 `[무설치-이연]` 마커 표기, SKILL.md 4-필드 정제(28스킬 `3.0.0` SSOT), 에이전트 `hooks:` 필드 제거, MCP `context7` 정적 선언.
+> **harness 정본 (D4)** — coder는 무설치 완전 패리티를 위해 `commands/`·`skills/`·`agents/` 외에도 `hooks/`·`output-styles/`·`rules/`·`mcp` 카테고리를 함께 번들합니다. 다른 직원 플러그인(코워커·디자이너·PM)이 skills 중심인 것과 대비되며, coder만이 Claude Code harness 전체를 무설치로 재현합니다.
+
+무설치 적응 — 워크트리 셸아웃→git 직접(`moai worktree new/done`→`git worktree add/remove`), 바이너리 게이트 기능 `[무설치-이연]` 마커 표기, SKILL.md 4-필드 정제(29스킬 `3.1.0` SSOT), 에이전트 `hooks:` 필드 제거, MCP `context7` 정적 선언.
 
 ### 패리티 계약 (`/moai:project` ↔ `moai init`)
 

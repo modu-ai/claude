@@ -10,7 +10,7 @@ description: |
   microcopy, taglines, value propositions, marketing-landing-page and footer copy,
   with anti-AI-slop rules and concrete-number enforcement.
 user-invocable: false
-version: 0.1.0
+version: 0.2.0
 ---
 
 # moai-domain-copywriting
@@ -29,7 +29,7 @@ Before generating copy, verify all three conditions are met:
 2. Target page or section scope is explicitly stated (landing page, about, pricing, etc.).
 3. Anti-AI-slop checklist is active (see below).
 
-If `brand-voice.md` does not exist, stop and instruct the user to run the brand interview via `/moai design` or `manager-spec`.
+If `brand-voice.md` does not exist, stop and instruct the user to run the brand interview via `/design` (Path B brand-interview).
 
 ### Output Format
 
@@ -251,7 +251,7 @@ dependency.
 - `moai-domain-brand-design`: Visual design must accommodate copy constraints
 - `moai-workflow-gan-loop`: GAN loop evaluates copy quality in Design Quality and Completeness dimensions
 - `expert-frontend`: Receives the JSON copy output for implementation
-- `sync-auditor`: Scores copy accuracy against original `brand-voice.md`
+- 카피 정확도 셀프체크: 본 스킬의 brand-voice 정렬 체크리스트로 카피 정확도를 검증합니다. MoAI harness(`moai-coder`)의 `sync-auditor`가 함께 설치된 환경에서는 해당 agent로 평가를 보강할 수 있습니다.
 
 ---
 

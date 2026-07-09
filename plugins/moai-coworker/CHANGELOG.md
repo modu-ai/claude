@@ -15,7 +15,7 @@
 
 ### Known Debt (후속 SPEC)
 
-- `moai-pm` references/core (init-protocol·execution-protocol·diagnostic-protocol·quality-evaluator) + `templates/CLAUDE.md.tmpl`가 옛 27-plugin 구조를 전제 ("27 플러그인 / 173 스킬" 하드코딩 5곳, 스킬→플러그인 매핑 단일화). v5.0.0에서는 이름 rename만 수행, 27→4 reference 재설계는 별도 후속 SPEC에서 처리.
+- `moai-pm` references/core (init-protocol·execution-protocol·diagnostic-protocol·quality-evaluator) + `templates/CLAUDE.md.tmpl`가 옛 27-plugin 구조를 전제 ("27 플러그인 / 173 스킬" 하드코딩 5곳, 스킬→플러그인 매핑 단일화). v5.0.0에서는 이름 rename만 수행 — **27→4 reference 재설계는 2026-07-09 플러그인 스킬 감사에서 완료** (init·diagnostic·evolution-protocol 4-plugin 재작성, stale 5곳 제거, SKILL_PLUGIN_MAP 재매핑).
 
 ### References
 

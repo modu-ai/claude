@@ -6,7 +6,7 @@ description: 'Frontend development specialist covering React 19, Next.js 16, Vue
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # Frontend Development Specialist

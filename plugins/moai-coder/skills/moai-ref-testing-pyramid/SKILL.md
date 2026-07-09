@@ -6,7 +6,7 @@ description: 'Test pyramid strategy, coverage targets, test patterns, and qualit
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # Testing Pyramid Reference

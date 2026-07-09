@@ -11,7 +11,7 @@ description: 'Software supply-chain defensive security reference: SBOM generatio
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # Software Supply-Chain Defensive Security Reference

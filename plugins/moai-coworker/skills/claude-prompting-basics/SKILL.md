@@ -1,11 +1,11 @@
 ---
 name: claude-prompting-basics
 description: 비개발자를 위한 Claude 대화 모범 사례 — 명확한 지시, 맥락 제공, 예시 활용, XML 태그 구조화. Claude 공식 프롬프트 엔지니어링 가이드 기반. "Claude한테 어떻게 물어봐야 잘 답해줘?" 질문에 즉시 활용.
+version: "5.0.0"
 metadata:
-  version: "0.1.0"
   category: cowork
   status: active
-  updated: 2026-07-08
+  updated: 2026-07-09
   tags: "prompting, claude, beginner, non-dev"
   source: "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices"
 ---

@@ -12,12 +12,12 @@ description: |
   - "디자인 카피 후처리"
   - "humanize 직전 검수"
 user-invocable: true
-version: 0.1.0
+version: 0.2.0
 ---
 
 # cd-slop-check — Claude Design 카피 AI 슬롭 검수
 
-> **역할 축소 (P1 — docs 03 §3.3)**: 본 스킬은 **다운스트림 QA 게이트**입니다. AI 슬롭 패턴 사전(영문·한국어 Tier 1/2 + 구조 안티패턴)의 **정본(canonical owner)은 이제 `moai-domain-copywriting`**이며, 카피 생성 단계에서 선제적으로 준수됩니다. 본 스킬은 그 사전을 참조해 결과 카피를 사후 검수하고, `sync-auditor`의 카피 스코어링 기준으로도 참조됩니다. 아래 패턴 사전은 편의를 위해 유지되나, 갱신의 SSOT는 `moai-domain-copywriting` 본문의 "Anti-Slop Pattern Dictionary" 섹션입니다.
+> **역할 축소 (P1 — docs 03 §3.3)**: 본 스킬은 **다운스트림 QA 게이트**입니다. AI 슬롭 패턴 사전(영문·한국어 Tier 1/2 + 구조 안티패턴)의 **정본(canonical owner)은 이제 `moai-domain-copywriting`**이며, 카피 생성 단계에서 선제적으로 준수됩니다. 본 스킬은 그 사전을 참조해 결과 카피를 사후 검수하며, 카피 스코어링 기준도 이 사전을 SSOT로 삼습니다. 아래 패턴 사전은 편의를 위해 유지되나, 갱신의 SSOT는 `moai-domain-copywriting` 본문의 "Anti-Slop Pattern Dictionary" 섹션입니다.
 
 ## 개요
 

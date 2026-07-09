@@ -10,7 +10,7 @@ description: |
   spacing systems, hero-first layout, component specs, design tokens,
   visual identity, and WCAG 2.1 AA accessibility enforcement.
 user-invocable: false
-version: 0.1.0
+version: 0.2.0
 ---
 
 # moai-domain-brand-design

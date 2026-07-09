@@ -6,7 +6,7 @@ description: 'Test-Driven Development workflow specialist using RED-GREEN-REFACT
 
   '
 user-invocable: false
-version: "3.0.0"
+version: "3.1.0"
 ---
 
 # Test-Driven Development (TDD) Workflow

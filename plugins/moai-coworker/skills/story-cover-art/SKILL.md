@@ -7,7 +7,7 @@ description: |
   - "책 표지", "웹툰 썸네일", "웹소설 표지"
   - "일러스트 생성", "Soul 2.0"
   - "인쇄 해상도 표지", "업스케일"
-version: "0.1.0"
+version: "5.0.0"
 ---
 
 # story-cover-art
