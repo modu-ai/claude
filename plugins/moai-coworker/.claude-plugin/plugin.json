@@ -1,10 +1,24 @@
 {
   "name": "moai-coworker",
   "displayName": "코워커",
-  "version": "5.0.0",
-  "description": "모두의 AI 코워커 올인원 동료 플러그인 — 사업·이커머스·마케팅·콘텐츠·법률·재무·HR·교육·미디어 실무 도메인과 출판·웹툰·웹소설·시나리오·콘텐츠 작가/IP 창작 도메인을 한 플러그인에 통합. 사용자 발화에서 [실무 동료]와 [글쓰기 작가] 두 역할 모자를 자동 감지해 상황에 맞게 교체하며, 슬래시 명령 없이 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 작가/IP 워크플로우는 story-project 스킬이 장르별 파이프라인으로 라우팅을 담당합니다. 프로젝트 초기화(/project)는 moai-pm 허브 플러그인으로 이관되었습니다. v5.0.0: moai-story 플러그인 흡수 통합(book-* 8스킬 + story-* 13스킬 + Higgsfield MCP).",
-  "author": { "name": "모두의AI", "email": "email@mo.ai.kr" },
-  "keywords": ["moai", "cowork", "coworker", "korean", "all-in-one", "통합", "작가", "story", "IP", "웹툰"],
+  "version": "6.0.0",
+  "description": "실무 범용 코어 AI 직원 — 사업 전략·브랜드·제안서·협상·고객대응·프로세스 등 비즈니스 실무 스킬 41종. 전문 영역은 8개 전문가 플러그인(작가·마케터·셀러·사무관·법무·재무·인사·튜터)으로 분리되었으며, 코워커는 범용 비즈니스 코어를 담당합니다. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 1인 사업자·스타트업 운영자.",
+  "author": {
+    "name": "모두의AI",
+    "email": "email@mo.ai.kr"
+  },
+  "keywords": [
+    "moai",
+    "cowork",
+    "coworker",
+    "korean",
+    "all-in-one",
+    "통합",
+    "작가",
+    "story",
+    "IP",
+    "웹툰"
+  ],
   "license": "LicenseRef-MoAI-NC-ND-1.0",
   "mcpServers": "./.mcp.json"
 }

@@ -16,7 +16,7 @@ version: "5.0.0"
 ## 개요
 
 13섹션 감정여정 상세페이지 이미지를 생성하고 세로 합성 PNG로 만드는 스킬입니다.
-moai-coworker:media-higgsfield-image를 백엔드로 사용하여 카테고리별 비주얼 톤이 일관된 13장의 섹션 이미지를 만들고,
+moai-marketer:media-higgsfield-image를 백엔드로 사용하여 카테고리별 비주얼 톤이 일관된 13장의 섹션 이미지를 만들고,
 Pillow 단일 의존성으로 1080×12720 단일 합성 이미지를 산출합니다.
 
 ## 트리거 키워드

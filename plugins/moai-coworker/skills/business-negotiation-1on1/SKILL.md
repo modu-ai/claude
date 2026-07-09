@@ -106,7 +106,7 @@ version: "5.0.0"
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **공식 성과평가·인사 면담 진행**: 평가 면담은 `moai-coworker:business-performance-review`를 사용한다.
+- **공식 성과평가·인사 면담 진행**: 평가 면담은 `moai-recruiter:business-performance-review`를 사용한다.
 - **계약서·제안서 등 협상 문서 작성**: 문서 산출물은 `moai-coworker` / `moai-coworker`를 쓴다.
 - **법적 분쟁·노사 협상**: 법적 효력이 걸린 협상은 전문가·공식 절차로 다룬다.
 

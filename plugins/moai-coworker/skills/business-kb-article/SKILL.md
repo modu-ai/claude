@@ -116,11 +116,11 @@ version: "5.0.0"
 KB 아티클(FAQ·가이드·트러블슈팅) 본문을 작성한 뒤에는 다음 체인으로 마무리합니다:
 
 ```
-business-kb-article → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
+business-kb-article → moai-coworker:general-ai-slop-reviewer → moai-writer:general-humanize-korean
 ```
 
 - `moai-coworker:general-ai-slop-reviewer` — AI 티 나는 표현·과잉 수식·기계적 문장 패턴을 검수·수정
-- `moai-coworker:general-humanize-korean` — 한국어 경어 자연스러움과 사람이 쓴 듯한 어조로 다듬기
+- `moai-writer:general-humanize-korean` — 한국어 경어 자연스러움과 사람이 쓴 듯한 어조로 다듬기
 
 ## 이 스킬을 사용하지 말아야 할 때
 

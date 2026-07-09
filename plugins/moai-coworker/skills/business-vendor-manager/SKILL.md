@@ -96,17 +96,17 @@ version: "5.0.0"
 리스크 대응 계획, 벤더 위험 요소 설명, 계약 관리 절차 설명 등 **서술형 보고 본문**은 다음 체인으로 마무리합니다.
 
 ```
-business-vendor-manager → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
+business-vendor-manager → moai-coworker:general-ai-slop-reviewer → moai-writer:general-humanize-korean
 ```
 
 - `moai-coworker:general-ai-slop-reviewer` — 서술형 본문의 AI 티 패턴을 검수·수정합니다.
-- `moai-coworker:general-humanize-korean` — 검수된 본문을 자연스러운 한국어 보고체로 다듬습니다.
+- `moai-writer:general-humanize-korean` — 검수된 본문을 자연스러운 한국어 보고체로 다듬습니다.
 
-벤더 평가표, 리스크 평가 매트릭스 등 **점수·표 산출물**은 산문 후처리 대상이 아니며 `moai-coworker:office-xlsx-creator` 또는 `moai-coworker:office-data-visualizer`로 라우팅합니다.
+벤더 평가표, 리스크 평가 매트릭스 등 **점수·표 산출물**은 산문 후처리 대상이 아니며 `moai-officer:office-xlsx-creator` 또는 `moai-officer:office-data-visualizer`로 라우팅합니다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **실제 계약서 법적 검토** → moai-coworker:legal-contract-review 스킬을 사용하세요
+- **실제 계약서 법적 검토** → moai-lawyer:legal-contract-review 스킬을 사용하세요
 - **발주 시스템 직접 입력** → ERP·구매 시스템에 직접 접속해야 합니다
 - **회계·지급 처리** → moai-coworker 스킬이 더 적합합니다
 - **채용·인력 아웃소싱 업체 관리** → moai-hr 스킬을 사용하세요

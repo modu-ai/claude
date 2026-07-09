@@ -275,15 +275,15 @@ Most productivity tools promise to save you time. Most of them don't. But after 
 ## 관련 스킬
 
 ### 선행 스킬 (입력 생성)
-- `moai-coworker:content-blog` — 블로그 포스트 생성
-- `moai-coworker:marketing-landing-page` — 랜딩 페이지 카피라이팅
-- `moai-coworker:content-newsletter` — 뉴스레터 작성
-- `moai-coworker:content-copywriting` — 마케팅 카피 작성
-- `moai-coworker:office-docx-generator` — DOCX 문서 생성
-- `moai-coworker:office-pptx-designer` — PPTX 발표자료 생성
+- `moai-marketer:content-blog` — 블로그 포스트 생성
+- `moai-marketer:marketing-landing-page` — 랜딩 페이지 카피라이팅
+- `moai-marketer:content-newsletter` — 뉴스레터 작성
+- `moai-marketer:content-copywriting` — 마케팅 카피 작성
+- `moai-officer:office-docx-generator` — DOCX 문서 생성
+- `moai-officer:office-pptx-designer` — PPTX 발표자료 생성
 
 ### 후속 스킬 (선택적)
-- `moai-coworker:media-higgsfield-image` — (선택) 블로그 발행 체인의 이미지 생성 단계
+- `moai-marketer:media-higgsfield-image` — (선택) 블로그 발행 체인의 이미지 생성 단계
 
 ### 통합 워크플로우
 이 스킬은 다음 체인의 **마지막 단계**로 호출됩니다:

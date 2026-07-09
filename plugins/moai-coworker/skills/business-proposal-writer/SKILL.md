@@ -11,7 +11,7 @@ description: |
   - "B2B SaaS 제안서", "엔터프라이즈 영업 제안서", "수주 제안서"
 
   주의: 정부 지원사업 신청서는 `moai-coworker:business-kr-gov-grant`를 사용하세요. 본 스킬은 **B2B 영업 고객 대상** 제안서만 다룹니다.
-  투자자 IR 자료는 `moai-coworker:finance-investor-relations`를 사용하세요.
+  투자자 IR 자료는 `moai-accountant:finance-investor-relations`를 사용하세요.
 version: "5.0.0"
 ---
 <!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
@@ -92,8 +92,8 @@ RFP가 제공된 경우, 모든 필수 항목을 추출해 체크리스트화합
 산출 직후 다음 후속 단계를 사용자에게 안내합니다:
 
 1. `moai-coworker:general-ai-slop-reviewer`로 본문 검수
-2. `moai-coworker:office-docx-generator`(워드/PDF) 또는 `moai-coworker:office-pptx-designer`(슬라이드) 출력
-3. 견적서를 분리 발행하려면, 본 스킬이 가격 섹션(10번)을 기반으로 항목·수량·단가·소계·VAT·합계 표(견적 명세)를 직접 작성한 뒤 `moai-coworker:office-xlsx-creator`로 스프레드시트 출력하세요
+2. `moai-officer:office-docx-generator`(워드/PDF) 또는 `moai-officer:office-pptx-designer`(슬라이드) 출력
+3. 견적서를 분리 발행하려면, 본 스킬이 가격 섹션(10번)을 기반으로 항목·수량·단가·소계·VAT·합계 표(견적 명세)를 직접 작성한 뒤 `moai-officer:office-xlsx-creator`로 스프레드시트 출력하세요
 4. 발송 전 **반드시 사람이 최종 검토** (HubSpot Best Practice: Human-in-the-Loop)
 
 ## 출력 형식
@@ -118,8 +118,8 @@ RFP가 제공된 경우, 모든 필수 항목을 추출해 체크리스트화합
 
 ## 🔍 다음 단계
 1. moai-coworker:general-ai-slop-reviewer로 본문 검수
-2. moai-coworker:office-docx-generator로 PDF 출력
-3. 견적서 분리 발행 시 — 가격 섹션 기반 견적 명세 표 작성 후 moai-coworker:office-xlsx-creator로 출력
+2. moai-officer:office-docx-generator로 PDF 출력
+3. 견적서 분리 발행 시 — 가격 섹션 기반 견적 명세 표 작성 후 moai-officer:office-xlsx-creator로 출력
 ```
 
 ## 사용 예시
@@ -142,7 +142,7 @@ RFP가 제공된 경우, 모든 필수 항목을 추출해 체크리스트화합
 
 - **법적 책임 면제**: 본 스킬은 제안서 초안 보조이며, 최종 발송 전 사람이 검토해야 합니다
 - **VAT 명시 필수**: 가격 섹션에 부가세 별도/포함 여부 자동 표시
-- **NDA 정보 주의**: 고객사 NDA 대상 정보 포함 시 `moai-coworker:legal-nda-triage` 체이닝 권고
+- **NDA 정보 주의**: 고객사 NDA 대상 정보 포함 시 `moai-lawyer:legal-nda-triage` 체이닝 권고
 - **AI 수치 검증**: 정량 데이터(ROI·시장 규모) 출처 없으면 `[추정]` 태그 강제
 - **시간 추정 금지**: "1주 내 도입", "2-3개월 소요" 등 직접 시간 추정은 priority labels(P0/P1)로 변환
 
@@ -153,21 +153,21 @@ RFP가 제공된 경우, 모든 필수 항목을 추출해 체크리스트화합
 
 **After (출력 후처리)**:
 - `moai-coworker:general-ai-slop-reviewer` — 본문 AI slop 검수 (필수)
-- `moai-coworker:office-docx-generator` — Word/PDF 출력
-- `moai-coworker:office-pptx-designer` — 슬라이드 출력
-- `moai-coworker:office-xlsx-creator` — 견적서 별도 발행 (본 스킬이 가격 섹션 기반 견적 명세 표를 작성한 뒤 스프레드시트로 출력)
+- `moai-officer:office-docx-generator` — Word/PDF 출력
+- `moai-officer:office-pptx-designer` — 슬라이드 출력
+- `moai-officer:office-xlsx-creator` — 견적서 별도 발행 (본 스킬이 가격 섹션 기반 견적 명세 표를 작성한 뒤 스프레드시트로 출력)
 
 **Alternative (대체 스킬)**:
-- `moai-coworker:finance-investor-relations` — 투자자 대상 IR (B2B 고객 아님)
+- `moai-accountant:finance-investor-relations` — 투자자 대상 IR (B2B 고객 아님)
 - `moai-coworker:business-kr-gov-grant` — 정부 지원사업 신청서 (B2B 영업 아님)
 
 ## 관련 커맨드
 
 - `/harness` — 본 스킬 자체의 추가 개선·재생성
 - 등록된 스킬 체인:
-  - B2B 영업 제안서: `moai-coworker:business-market-analyst → moai-coworker:business-proposal-writer → moai-coworker:general-ai-slop-reviewer → moai-coworker:office-docx-generator`
-  - B2B 영업 슬라이드: `moai-coworker:business-market-analyst → moai-coworker:business-proposal-writer → moai-coworker:general-ai-slop-reviewer → moai-coworker:office-pptx-designer`
-  - 견적서 분리: `moai-coworker:business-proposal-writer → moai-coworker:office-xlsx-creator` (business-proposal-writer가 가격 섹션 기반 견적 명세 표를 직접 작성)
+  - B2B 영업 제안서: `moai-coworker:business-market-analyst → moai-coworker:business-proposal-writer → moai-coworker:general-ai-slop-reviewer → moai-officer:office-docx-generator`
+  - B2B 영업 슬라이드: `moai-coworker:business-market-analyst → moai-coworker:business-proposal-writer → moai-coworker:general-ai-slop-reviewer → moai-officer:office-pptx-designer`
+  - 견적서 분리: `moai-coworker:business-proposal-writer → moai-officer:office-xlsx-creator` (business-proposal-writer가 가격 섹션 기반 견적 명세 표를 직접 작성)
 
 ## 출처
 

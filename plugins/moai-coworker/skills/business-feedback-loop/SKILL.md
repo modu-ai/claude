@@ -96,11 +96,11 @@ version: "5.0.0"
 - **moai-coworker:business-negotiation-1on1**: 피드백이 면담·요청으로 이어질 때 대화 설계
 - **moai-coworker:business-report-speak**: 중간 보고로 피드백을 미리 받기
 - **moai-coworker:business-conflict-handler**: 피드백이 갈등으로 번질 때 대응
-- **moai-coworker:business-performance-review**: 공식 성과평가 피드백 면담
+- **moai-recruiter:business-performance-review**: 공식 성과평가 피드백 면담
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **공식 인사평가·고과 피드백**: 평가 면담은 `moai-coworker:business-performance-review`를 사용한다.
+- **공식 인사평가·고과 피드백**: 평가 면담은 `moai-recruiter:business-performance-review`를 사용한다.
 - **개인 회고·자기 점검**: 나 혼자 돌아보는 회고는 `moai-productivity`를 쓴다.
 - **괴롭힘·차별 상황**: 단순 피드백이 아니라 직장 내 괴롭힘이면 인사·고충 채널과 공식 절차로 다룬다.
 

@@ -84,7 +84,7 @@ Claude Design 디자인 시스템, 디자인 시스템 자산, DESIGN.md, 브랜
 | 4 | Spacing/Radius/Shadow/Motion | Tailwind config·CSS 변수에서 스케일 추출. 없으면 4px 베이스 표준 스캐폴드 제시 |
 | 5 | Token 3-layer mapping | 2~4에서 확정한 값을 DTCG/CSS/semantic 3계층으로 요약. **실제 변환은 `moai-designer:design-tokens-transformer`에 위임** |
 | 6 | FROZEN Rules | 스타일 가이드 PDF·브랜드 규정에서 금지 항목 추출. 없으면 사용자 질의(임의 창작 금지). WCAG 대비는 팔레트에서 자동 계산 |
-| 7 | Voice & copy patterns | 실제 카피 코퍼스에서 선호/금지 어휘·격식체·이모지 빈도 관찰. `moai-coworker:content-copywriting` 보조 |
+| 7 | Voice & copy patterns | 실제 카피 코퍼스에서 선호/금지 어휘·격식체·이모지 빈도 관찰. `moai-marketer:content-copywriting` 보조 |
 | 8 | Component recipes | 코드 repo 컴포넌트·라이브 DOM에서 자주 쓰는 패턴을 **토큰 변수 참조형 CSS 스니펫**으로 축약 |
 | 9 | Asset index | 로고·이미지를 변형별 분류(가로/정사각/마스코트/화이트 녹아웃)하고 용도 지정 |
 | 10 | Upload guide | 2~9 산출물을 업로드 순서로 정렬. 자동/수동 경로는 **`moai-designer:design-sync-upload`에 위임** |
@@ -318,5 +318,5 @@ DESIGN.md와 함께 **claude.ai/design에 무엇을 어떻게 올릴지** 가이
 | `moai-designer:cd-brief` | 후속: 시스템 셋업 후 첫 시안 작성 |
 | `moai-designer:cd-prompt-builder` | 후속: 특정 영역 디자인 |
 | `moai-coworker:business-brand-identity` | 선행: 브랜드 정체성이 모호할 때 |
-| `moai-coworker:content-copywriting` | 보조: voice·copy 패턴 정리 |
-| `moai-coworker:office-pptx-designer` | 보조: 잘 만든 자사 PPTX가 없으면 |
+| `moai-marketer:content-copywriting` | 보조: voice·copy 패턴 정리 |
+| `moai-officer:office-pptx-designer` | 보조: 잘 만든 자사 PPTX가 없으면 |

@@ -145,7 +145,7 @@ done
 
 현재 세션 system reminder에 포함된 "user-invocable skills" 목록을 파싱하되, **moai-claude 출처 스킬만** 인벤토리에 등록한다.
 
-- 포함: moai-claude 마켓플레이스 출처 `moai-*` 플러그인이 제공하는 스킬 (예: `moai-coworker:content-blog`, `moai-coworker:office-docx-generator`, `moai-designer:cd-brief`, `moai:moai`)
+- 포함: moai-claude 마켓플레이스 출처 `moai-*` 플러그인이 제공하는 스킬 (예: `moai-marketer:content-blog`, `moai-officer:office-docx-generator`, `moai-designer:cd-brief`, `moai:moai`)
 - 제외: 그 외 출처 스킬 (예: `find-skills`, `update-config`, `notion-cli`, 사용자가 별도 설치한 모든 스킬)
 
 `plugin:skill-name` 형태로 추출하되, `plugin`이 moai-claude 출처 `moai-*` 집합에 없으면 인벤토리에서 제외한다.
@@ -197,7 +197,7 @@ done
 | 콘텐츠 제작 | moai-coworker (content-*, marketing-* 스킬군) |
 | 문서·행정 | moai-coworker (office-*, legal-* 스킬군) |
 | 제품·연구 | moai-coworker (business-spec-writer, business-ux-researcher, education-* 스킬군) |
-| 이커머스 | moai-coworker (commerce-* 스킬군) |
+| 이커머스 | moai-seller (commerce-* 스킬군) |
 | 출판·원고·웹툰·IP | moai-coworker (book-*, story-* 스킬군) |
 | BI·보고·재무 | moai-coworker (business-executive-summary, finance-* 스킬군) |
 | 영업·제안 | moai-coworker (business-proposal-writer, business-sales-playbook 스킬군) |
@@ -224,7 +224,7 @@ Phase 1-2 결과를 바탕으로 **산출물별 실행 체인**을 설계한다.
 ```
 
 - 텍스트 산출물 체인은 **반드시 `moai-coworker:general-ai-slop-reviewer`로 종료**
-- **한국어 최종본**은 general-ai-slop-reviewer 직후 `moai-coworker:general-humanize-korean`을 2차 패스로 추가
+- **한국어 최종본**은 general-ai-slop-reviewer 직후 `moai-writer:general-humanize-korean`을 2차 패스로 추가
 - 비텍스트(차트·데이터·숫자)는 ai-slop 단계 **생략**
 - 체인이 단순하면 스킬 1-2개만으로도 OK
 - **Inventory에 없는 스킬은 체인에서 제외하거나 Gap Detection으로 넘긴다**
@@ -241,7 +241,7 @@ Phase 1-2 결과를 바탕으로 **산출물별 실행 체인**을 설계한다.
 | 카드뉴스 | `content-card-news` → `general-ai-slop-reviewer` |
 | 뉴스레터 | `content-newsletter` → `general-ai-slop-reviewer` |
 | 랜딩 페이지(HTML) | `content-copywriting` → `marketing-landing-page` → `general-ai-slop-reviewer` |
-| SNS 콘텐츠 세트 | `moai-coworker:content-sns-content` → `general-ai-slop-reviewer` |
+| SNS 콘텐츠 세트 | `moai-marketer:content-sns-content` → `general-ai-slop-reviewer` |
 | 이메일 시퀀스 | `content-email-sequence` → `general-ai-slop-reviewer` |
 | 계약서 초안 | `legal-contract-review` or `legal-nda-triage` → `office-docx-generator` → `general-ai-slop-reviewer` |
 | 컴플라이언스 체크 | `legal-compliance-check` → `general-ai-slop-reviewer` |
@@ -322,7 +322,7 @@ for each skill in chain_skills:
 | office-* (docx·pptx·xlsx·hwpx·pdf·데이터시각화·공공데이터·한글맞춤법·목표·회고·HTML리포트·노션·MCP) | moai-coworker |
 | legal-* (계약·NDA·컴플라이언스·특허·법령리스크·연구) | moai-coworker |
 | finance-* (세무·재무제표·IR·예산·자산·세이버·보험·분산) | moai-coworker |
-| commerce-* (이커머스 자동화·쿠팡·상세페이지·마켓플레이스·LTV/CAC·VOC·크라우드펀딩) | moai-coworker |
+| commerce-* (이커머스 자동화·쿠팡·상세페이지·마켓플레이스·LTV/CAC·VOC·크라우드펀딩) | moai-seller |
 | education-* (논문·연구비·커리큘럼·평가·학습자료·튜터) | moai-coworker |
 | media-* (Higgsfield 이미지·영상·GPT/Gemini/Midjourney 프롬프트·오디오·NotebookLM) | moai-coworker |
 | book-* (출판·원고·챕터·개요·제안·출판사매칭·수정코칭·독자) | moai-coworker |

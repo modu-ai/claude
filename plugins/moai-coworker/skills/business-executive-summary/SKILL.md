@@ -6,8 +6,8 @@ description: |
   - "임원 보고용 1페이지 요약 만들어줘" / "이사회 보고서 요약해줘" / "경영진 브리핑 1장으로 정리해줘"
   - "이 리포트 핵심만 요약해줘" / "긴 보고서 1페이지로 줄여줘" / "C레벨 요약 작성해줘"
   - "What/So What/Now What 구조로 정리해줘" / "카톡·이메일로 보낼 단일 HTML 1pager 만들어줘"
-  기본 출력은 moai-coworker:office-html-report로 단일 HTML(이미지·CSS·JS 인라인, 카톡·이메일 바로 공유)이며, pdf/docx/pptx/hwpx 변환은 옵션 체이닝. 입력 가능: moai-coworker:marketing-performance-report 출력 · moai-coworker:finance-financial-statements · moai-coworker:finance-variance-analysis · moai-coworker:business-pm-weekly-report · 외부 보고서. 한국 임원/이사회 표준 What/So What/Now What + K-IFRS 재무 지표 우선.
-  [책임 경계] vs moai-coworker:marketing-performance-report: business-executive-summary=임원 압축 요약(≤500단어), marketing-performance-report=마케팅 풀 리포트(전체).
+  기본 출력은 moai-officer:office-html-report로 단일 HTML(이미지·CSS·JS 인라인, 카톡·이메일 바로 공유)이며, pdf/docx/pptx/hwpx 변환은 옵션 체이닝. 입력 가능: moai-marketer:marketing-performance-report 출력 · moai-accountant:finance-financial-statements · moai-accountant:finance-variance-analysis · moai-coworker:business-pm-weekly-report · 외부 보고서. 한국 임원/이사회 표준 What/So What/Now What + K-IFRS 재무 지표 우선.
+  [책임 경계] vs moai-marketer:marketing-performance-report: business-executive-summary=임원 압축 요약(≤500단어), marketing-performance-report=마케팅 풀 리포트(전체).
 version: "5.0.0"
 ---
 <!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
@@ -24,7 +24,7 @@ version: "5.0.0"
 
 ## 기본 출력 = 단일 HTML 파일 (카톡 즉시 공유)
 
-본 스킬의 **기본 출력은 마크다운 + `moai-coworker:office-html-report` 렌더링한 단일 HTML 파일**입니다.
+본 스킬의 **기본 출력은 마크다운 + `moai-officer:office-html-report` 렌더링한 단일 HTML 파일**입니다.
 
 - **1개 HTML 파일**: 이미지(base64/SVG)·CSS(`<style>`)·JS(`<script>`) 전부 인라인
 - **외부 의존성 0**: 폰트 CDN 1건 제외(한국어 가독성 단일 예외)
@@ -147,7 +147,7 @@ business-executive-summary → office-html-report (mode=status, 기본)
 사용자: "이번 분기 변동분석 보고서를 임원 1pager 만들어서 카톡으로 보낼 수 있게 해줘."
 → moai-coworker/finance-variance-analysis 결과 입력
 → business-executive-summary가 K-IFRS 지표 우선 + What/So What/Now What 마크다운 생성
-→ moai-coworker:office-html-report (mode=status)로 단일 HTML 렌더링
+→ moai-officer:office-html-report (mode=status)로 단일 HTML 렌더링
 → 결과: 1개 .html 파일 (이미지·CSS·JS 인라인) → 카톡 첨부 가능
 ```
 

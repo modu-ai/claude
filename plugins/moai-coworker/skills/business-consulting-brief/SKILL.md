@@ -309,5 +309,5 @@ OPL 75%, 재고 회전율 3.2회/년, 불량률 2.1%로 업계 평균 미달.
 
 - **moai-coworker:business-strategy-planner**: 전략 기획서 작성 시 활용
 - **moai-coworker:business-market-analyst**: 시장 분석이 필요한 경우 먼저 실행
-- **moai-coworker:office-pptx-designer**: 브리프를 PPT로 변환
-- **moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean**: 최종 산출물 AI 패턴 검수 후 한국어 표현을 자연스럽게 다듬습니다 (필수)
+- **moai-officer:office-pptx-designer**: 브리프를 PPT로 변환
+- **moai-coworker:general-ai-slop-reviewer → moai-writer:general-humanize-korean**: 최종 산출물 AI 패턴 검수 후 한국어 표현을 자연스럽게 다듬습니다 (필수)

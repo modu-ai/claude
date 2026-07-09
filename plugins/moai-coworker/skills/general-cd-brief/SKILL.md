@@ -233,5 +233,5 @@ Claude Design 브리프, 클로드 디자인 프롬프트, 디자인 브리프 6
 | `moai-coworker:general-cd-prompt-builder` | 대안: 특정 UX 영역(IA·접근성·온보딩 등)에 집중하고 싶을 때 |
 | `moai-coworker:general-cd-slop-check` | 후속: 시안 결과 카피 검수 |
 | `moai-coworker:general-cd-handoff-reader` | 후속: Claude Code 핸드오프 번들 분석 |
-| `moai-coworker:marketing-landing-page` | 대안: 코드 기반 랜딩 페이지 직접 제작 |
+| `moai-marketer:marketing-landing-page` | 대안: 코드 기반 랜딩 페이지 직접 제작 |
 | `moai-coworker:business-brand-identity` | 보조: 브랜드 정체성이 모호할 때 먼저 정리 |

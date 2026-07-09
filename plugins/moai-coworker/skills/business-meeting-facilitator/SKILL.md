@@ -99,7 +99,7 @@ version: "5.0.0"
 - **moai-coworker:business-report-speak**: 회의에서 결론 먼저 발제·보고
 - **moai-coworker:business-negotiation-1on1**: 회의 전 핵심 인물과 사전 정렬·설득
 - **moai-coworker:business-conflict-handler**: 회의 중 충돌·발언 독점 대응
-- **moai-coworker:office-docx-generator**: 회의록을 정식 문서로 정리
+- **moai-officer:office-docx-generator**: 회의록을 정식 문서로 정리
 
 ## 이 스킬을 사용하지 말아야 할 때
 

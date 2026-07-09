@@ -62,15 +62,15 @@ version: "5.0.0"
 SOP, 운영 매뉴얼, 회의록, 조달 문서 등 **서술형 산출물**은 다음 체인으로 마무리합니다.
 
 ```
-business-process-manager → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean
+business-process-manager → moai-coworker:general-ai-slop-reviewer → moai-writer:general-humanize-korean
 ```
 
 - `moai-coworker:general-ai-slop-reviewer` — 문서 본문의 AI 티 패턴을 검수·수정합니다.
-- `moai-coworker:general-humanize-korean` — 검수된 본문을 자연스러운 한국어 실무 문체로 다듬습니다.
+- `moai-writer:general-humanize-korean` — 검수된 본문을 자연스러운 한국어 실무 문체로 다듬습니다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **법적 구속력이 있는 계약서 작성** → 법률 전문가 검토가 필요합니다. moai-coworker:legal-contract-review를 함께 사용하세요
+- **법적 구속력이 있는 계약서 작성** → 법률 전문가 검토가 필요합니다. moai-lawyer:legal-contract-review를 함께 사용하세요
 - **실제 발주 처리 또는 시스템 입력** → ERP나 조달 시스템에 직접 접속해야 합니다
-- **인사·노무 관련 절차** → moai-coworker:business-people-operations 스킬이 더 적합합니다
+- **인사·노무 관련 절차** → moai-recruiter:business-people-operations 스킬이 더 적합합니다
 - **재무·예산 승인 절차** → moai-coworker 스킬을 사용하세요

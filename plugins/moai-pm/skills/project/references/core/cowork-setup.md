@@ -121,7 +121,7 @@ Phase 3 체인 설계는 인터뷰 답변→프리셋 매칭으로 직행하지 
 | 시네마틱 프리비즈 | `story-previz` (Higgsfield 생성) |
 | IP 사업화·판권 | `story-ip-pitch` (단일) |
 
-> 작가 분기의 진입 분류는 coworker의 `story-project` 스킬이 담당한다. CLAUDE.md 생성 시 `story-project` 라우팅 규칙을 워크플로우 섹션에 명시하여, 실행 시점에 `moai-coworker:story-project`가 장르 파이프라인으로 자동 분기한다.
+> 작가 분기의 진입 분류는 coworker의 `story-project` 스킬이 담당한다. CLAUDE.md 생성 시 `story-project` 라우팅 규칙을 워크플로우 섹션에 명시하여, 실행 시점에 `moai-writer:story-project`가 장르 파이프라인으로 자동 분기한다.
 
 ### 3-3. 미디어 체인 (Higgsfield / ElevenLabs MCP)
 
@@ -174,7 +174,7 @@ Phase 3 체인의 스킬이 인벤토리에 없으면 누락으로 간주한다.
 
 1. **≤ 200라인**, 스킬 체인은 최대 10개(나머지는 catalog 참조)
 2. **역할 라벨** — 감지된 역할(실무/글쓰기 작가)을 페르소나에 명시
-3. **HARD 규칙 고정** — office 스킬 우선(DOCX/PPTX/XLSX/HWPX/HTML은 Claude 기본 artifacts 대신 `moai-coworker:office-*` 사용) + 텍스트 산출물 `general-ai-slop-reviewer` 종료 + 신규 5종(요청 평가 사다리·파일 생성 기준·인용·저작권 가드(§3.5)·톤 규칙·맥락 적용 규칙). 200라인 초과 시 축소 대상은 체인만 — HARD 블록은 축소하지 않는다
+3. **HARD 규칙 고정** — office 스킬 우선(DOCX/PPTX/XLSX/HWPX/HTML은 Claude 기본 artifacts 대신 `moai-officer:office-*` 사용) + 텍스트 산출물 `general-ai-slop-reviewer` 종료 + 신규 5종(요청 평가 사다리·파일 생성 기준·인용·저작권 가드(§3.5)·톤 규칙·맥락 적용 규칙). 200라인 초과 시 축소 대상은 체인만 — HARD 블록은 축소하지 않는다
 4. **스킬 참조 정합** — 모든 스킬 참조는 `moai-coworker:` 접두어 사용
 5. **작가 분기 시** — `story-project` 라우팅 규칙을 워크플로우에 명시
 6. **런타임 라우팅 모델** — 생성된 CLAUDE.md는 실행 시점에 요청 평가 사다리로 응답 층을 판단하고, 산출물 요청이면 체인 매칭 → 순차 실행 → ai-slop 종료로 라우팅한다

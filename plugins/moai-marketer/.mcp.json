@@ -1,0 +1,40 @@
+{
+  "mcpServers": {
+    "meta-ads": {
+      "$comment": "Meta 공식 Ads AI Connectors (2026-04-29 오픈 베타, hosted at https://mcp.facebook.com/ads). 인증: Meta Business OAuth 2.0 커넥터 흐름 (RFC 9728 protected-resource discovery + RFC 6750 Bearer). Claude 원격 MCP 커넥터로 URL 등록 시 브라우저 OAuth 로그인·광고계정 선택으로 토큰 자동 발급 — 정적 토큰 불필요. scope: ads_management ads_read catalog_management business_management pages_show_list. 개발자/시스템 사용자 정적 토큰은 fallback 전용 (./CONNECTORS.md §Meta Ads). 라이브 운영 스킬: moai-marketer:marketing-meta-ads-manager (Layer 3).",
+      "type": "http",
+      "url": "https://mcp.facebook.com/ads"
+    },
+    "post-bridge": {
+      "type": "http",
+      "url": "https://app.post-bridge.com/mcp"
+    },
+    "typefully": {
+      "type": "http",
+      "url": "https://api.typefully.com/mcp"
+    },
+    "wordpress": {
+      "type": "http",
+      "url": "https://mcp.wordpress.com/mcp"
+    },
+    "ElevenLabs": {
+      "$comment": "ElevenLabs 공식 MCP (github.com/elevenlabs/elevenlabs-mcp) — TTS·보이스 클로닝·다국어 더빙·효과음. media-audio-gen 스킬 전용. 사전 설치: curl -LsSf https://astral.sh/uv/install.sh | sh. ELEVENLABS_API_KEY 필수 (elevenlabs.io/app/settings/api-keys 발급). 옵션: ELEVENLABS_MCP_BASE_PATH (기본 ~/Desktop), ELEVENLABS_MCP_OUTPUT_MODE (files/resources/both), ELEVENLABS_API_RESIDENCY (us 등).",
+      "command": "uvx",
+      "args": [
+        "elevenlabs-mcp"
+      ],
+      "env": {
+        "ELEVENLABS_API_KEY": "${ELEVENLABS_API_KEY}"
+      }
+    },
+    "higgsfield": {
+      "$comment": "Higgsfield AI 영상·이미지 생성 MCP — moai-story 플러그인에서 이관(2026-07-07 M1.1). 캐릭터 일관성 작화·콘티·프리비즈 생성. story-cover-art·story-previz·story-webtoon-art·story-character-sheet 등 story-* 스킬이 사용. 인증: Higgsfield 계정 토큰(mcp.higgsfield.ai).",
+      "type": "url",
+      "url": "https://mcp.higgsfield.ai/mcp",
+      "timeout": 120000,
+      "headers": {
+        "User-Agent": "MoAI-Story/0.1.0"
+      }
+    }
+  }
+}

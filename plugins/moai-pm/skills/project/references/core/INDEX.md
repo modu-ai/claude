@@ -92,7 +92,7 @@ evolution-protocol.md ← diagnostic-protocol.md ← quality-evaluator.md
 ## 스킬 체이닝 핵심 원칙 (coworker 분기)
 
 1. 텍스트 산출물 체인은 **반드시 `moai-coworker:general-ai-slop-reviewer`로 종료**한다.
-2. 한국어 최종본은 직후 `moai-coworker:general-humanize-korean` 2차 패스.
+2. 한국어 최종본은 직후 `moai-writer:general-humanize-korean` 2차 패스.
 3. 체인은 [기획/분석 → 생성 → 포맷 변환 → 검수] 구조를 기본으로 한다.
 4. 비텍스트 산출물(차트·데이터·숫자·음성·미디어)은 ai-slop 단계를 생략한다.
 5. DOCX/PPTX/XLSX/HWPX/HTML 포맷은 Claude 기본 artifacts가 아닌 **moai-coworker 스킬 우선**.

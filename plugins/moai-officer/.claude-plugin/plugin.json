@@ -1,0 +1,10 @@
+{
+  "name": "moai-officer",
+  "displayName": "사무관",
+  "version": "0.1.0",
+  "description": "사무·데이터 전담 AI 직원 — 한국형 오피스 문서(HWPX·DOCX·XLSX·PPTX·PDF)·HTML 리포트/슬라이드, 공공데이터 조회(부동산·경매·주식·KOSIS·건축물대장), 생산성 루틴 스킬 31종. kordoc·korean-stats·archhub·DART MCP 연동. 이런 분께 추천: 사무직·기획자·자영업 운영자.",
+  "author": {
+    "name": "modu-ai",
+    "email": "email@mo.ai.kr"
+  }
+}

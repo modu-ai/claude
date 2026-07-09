@@ -100,14 +100,14 @@ chain:
   name: "blog-publishing"
   description: "Blog post creation → AI slop review → optional media generation"
   steps:
-    - skill: "moai-coworker:content-blog"
+    - skill: "moai-marketer:content-blog"
       output_type: "markdown"
       provides: ["blog_draft"]
     - skill: "moai-coworker:general-ai-slop-reviewer"
       input_from: ["blog_draft"]
       output_type: "markdown"
       provides: ["reviewed_draft"]
-    - skill: "moai-coworker:media-higgsfield-image"
+    - skill: "moai-marketer:media-higgsfield-image"
       input_from: ["reviewed_draft"]
       output_type: "image_url"
       optional: true

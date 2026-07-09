@@ -1,0 +1,10 @@
+{
+  "name": "moai-recruiter",
+  "displayName": "인사·채용 담당",
+  "version": "0.1.0",
+  "description": "인사·채용 전담 AI 직원 — 채용 공고 분석·이력서 스크리닝·면접 코칭·평가/보상·People Ops·포트폴리오 가이드 스킬 8종. 구직자와 채용 담당자 양쪽 워크플로우를 지원합니다. 이런 분께 추천: 채용 담당자·인사 실무자·구직자.",
+  "author": {
+    "name": "modu-ai",
+    "email": "email@mo.ai.kr"
+  }
+}

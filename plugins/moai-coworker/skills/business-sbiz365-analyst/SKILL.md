@@ -11,7 +11,7 @@ description: |
   - "유동인구랑 경쟁 점포 분석해줘"
   - "예상 매출 어느 정도일지 봐줘"
   PDF를 첨부하면 업종·예산·목적을 먼저 물어본 뒤, 5대 분석과 창업 타당성 점수까지 담은 보고서를 만들고 AI 표현 다듬기로 이어집니다.
-  [책임 경계] vs 산업 단위는 moai-coworker:business-market-analyst, 온라인 카테고리·검색 키워드 단위는 moai-coworker:commerce-market-research를 사용하세요. 이 스킬=오프라인 상권 단위 분석.
+  [책임 경계] vs 산업 단위는 moai-coworker:business-market-analyst, 온라인 카테고리·검색 키워드 단위는 moai-seller:commerce-market-research를 사용하세요. 이 스킬=오프라인 상권 단위 분석.
 version: "5.0.0"
 ---
 <!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
@@ -137,9 +137,9 @@ PDF를 읽어 아래 항목을 항목별로 추출합니다.
 
 ---
 
-### Step 4: 보고서 생성 (moai-coworker:office-docx-generator)
+### Step 4: 보고서 생성 (moai-officer:office-docx-generator)
 
-**반드시 `moai-coworker:office-docx-generator` 스킬을 사용**합니다 (Anthropic 공식 `docx` 스킬이 설치되어 있으면 그쪽을 우선 사용해도 됩니다).
+**반드시 `moai-officer:office-docx-generator` 스킬을 사용**합니다 (Anthropic 공식 `docx` 스킬이 설치되어 있으면 그쪽을 우선 사용해도 됩니다).
 Claude 기본 Word 생성 금지.
 
 보고서 구조 및 각 섹션 작성 가이드 → `references/report-template.md` 참조
@@ -186,13 +186,13 @@ Claude 기본 Word 생성 금지.
 
 ---
 
-### Step 5: AI 슬롭 검수 + 한국어 다듬기 (moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean)
+### Step 5: AI 슬롭 검수 + 한국어 다듬기 (moai-coworker:general-ai-slop-reviewer → moai-writer:general-humanize-korean)
 
-**반드시 마지막 단계**로 체인 `moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean`을 실행합니다.
+**반드시 마지막 단계**로 체인 `moai-coworker:general-ai-slop-reviewer → moai-writer:general-humanize-korean`을 실행합니다.
 우선순위: `anthropic-skills:general-ai-slop-reviewer` > `moai-coworker:general-ai-slop-reviewer`.
 
 - `moai-coworker:general-ai-slop-reviewer`: AI 기계적 문어체 → 현장감 있는 소상공인 언어로 변환, 과도한 수식어 제거, 핵심 메시지 강화
-- `moai-coworker:general-humanize-korean`: AI 티가 남은 한국어 표현을 자연스럽게 다듬습니다
+- `moai-writer:general-humanize-korean`: AI 티가 남은 한국어 표현을 자연스럽게 다듬습니다
 - 진단 요약 → 수정 텍스트 → 주요 변경사항 순서로 출력
 - **적용 범위**: 보고서의 **서술(narrative) 섹션 본문**에만 적용. 4축 평가 점수표·유동인구 수치표·매출 데이터 표 등 **표·수치 산출물은 대상에서 제외**합니다.
 

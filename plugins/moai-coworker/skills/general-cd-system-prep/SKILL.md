@@ -38,7 +38,7 @@ Claude Design 디자인 시스템, 디자인 시스템 자산, DESIGN.md, 브랜
 | **브랜드 자산** | 로고 SVG·PNG, 색 팔레트 이미지, 스타일 가이드 PDF | 색·타이포·로고 사용 규칙 |
 | **실물** | 운영 중 웹사이트 URL, PPTX 덱, 잘 만든 마케팅 페이지 | 실제 컴포넌트·간격·voice |
 | **사전 빌트인** | Apple · Linear · Stripe 시스템 (오픈 라이선스) | 시작점 |
-| **디자인 시스템 라이브러리** | `moai-coworker:office-design-system-library`의 75개 시스템 (claude · clickhouse · clay 등) | 토큰(색·타이포·radius·spacing) + 컴포넌트 매핑 — DESIGN.md 합성의 즉시 소스 |
+| **디자인 시스템 라이브러리** | `moai-officer:office-design-system-library`의 75개 시스템 (claude · clickhouse · clay 등) | 토큰(색·타이포·radius·spacing) + 컴포넌트 매핑 — DESIGN.md 합성의 즉시 소스 |
 
 > **우선 순위 (v2.21.0+)**: 사용자가 특정 브랜드 무드를 지정하거나 결과물 성격에 맞는 시스템이 필요하면, 별도 자산 수집 전 **`design-system-library`의 75개 시스템에서 먼저 선택**합니다. `general-cd-system-prep`는 선택된 `systems/<name>.md` 토큰을 DESIGN.md 합성의 1차 소스로 사용합니다. 외부 자산(웹사이트 URL·Figma 등)은 라이브러리 시스템에 대한 보강 자료로만 활용합니다.
 
@@ -72,7 +72,7 @@ Claude Design 디자인 시스템, 디자인 시스템 자산, DESIGN.md, 브랜
 
 ### 3단계 — DESIGN.md 합성
 
-**라이브러리 시스템 선택 우선 경로 (v2.21.0+)**: 1단계에서 브랜드 무드만 지정된 경우, `moai-coworker:office-design-system-library`의 `systems/registry.md`에서 매칭되는 시스템을 선택하고 `systems/<name>.md`의 YAML 토큰을 DESIGN.md의 Color palette · Typography · Spacing 섹션에 직접 반영합니다. 이 경로는 자산 분석(2단계)을 생략하거나 보강으로만 사용하므로 가장 빠릅니다.
+**라이브러리 시스템 선택 우선 경로 (v2.21.0+)**: 1단계에서 브랜드 무드만 지정된 경우, `moai-officer:office-design-system-library`의 `systems/registry.md`에서 매칭되는 시스템을 선택하고 `systems/<name>.md`의 YAML 토큰을 DESIGN.md의 Color palette · Typography · Spacing 섹션에 직접 반영합니다. 이 경로는 자산 분석(2단계)을 생략하거나 보강으로만 사용하므로 가장 빠릅니다.
 
 다음 구조로 DESIGN.md를 작성합니다.
 
@@ -266,5 +266,5 @@ DESIGN.md와 함께 **claude.ai/design에 무엇을 어떻게 올릴지** 가이
 | `moai-coworker:general-cd-brief` | 후속: 시스템 셋업 후 첫 시안 작성 |
 | `moai-coworker:general-cd-prompt-builder` | 후속: 특정 영역 디자인 |
 | `moai-coworker:business-brand-identity` | 선행: 브랜드 정체성이 모호할 때 |
-| `moai-coworker:content-copywriting` | 보조: voice·copy 패턴 정리 |
-| `moai-coworker:office-pptx-designer` | 보조: 잘 만든 자사 PPTX가 없으면 |
+| `moai-marketer:content-copywriting` | 보조: voice·copy 패턴 정리 |
+| `moai-officer:office-pptx-designer` | 보조: 잘 만든 자사 PPTX가 없으면 |

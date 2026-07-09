@@ -100,12 +100,12 @@ version: "5.0.0"
 - **moai-coworker:business-meeting-facilitator**: 보고가 회의로 이어질 때 진행 설계
 - **moai-coworker:business-feedback-loop**: 진행 중 중간 보고·피드백 요청
 - **moai-coworker:business-conflict-handler**: 까다로운 상사·반응에 대한 대응
-- **moai-coworker:office-docx-generator**: 구두 보고를 문서 보고서로 정리
+- **moai-officer:office-docx-generator**: 구두 보고를 문서 보고서로 정리
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **문서·보고서 자체를 작성**: 글로 된 산출물은 `moai-coworker` / `moai-coworker`를 쓴다. 이 스킬은 말과 구조에 집중한다.
-- **공식 성과평가 면담**: 평가·고과 피드백은 `moai-coworker:business-performance-review`를 사용한다.
+- **공식 성과평가 면담**: 평가·고과 피드백은 `moai-recruiter:business-performance-review`를 사용한다.
 - **마케팅 카피·설득 문구 작성**: 외부 대상 카피는 `moai-coworker` 계열을 쓴다.
 
 ## 출처

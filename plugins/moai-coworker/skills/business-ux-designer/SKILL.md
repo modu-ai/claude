@@ -107,13 +107,13 @@ UX 분석 보고서는 다음 섹션들을 포함합니다:
 |------|----------|
 | `moai-coworker:business-ux-researcher` | 선행 작업: 사용자 리서치가 필요한 경우 |
 | `moai-coworker:business-spec-writer` | 후속 작업: UX 사양서 작성 필요 시 |
-| `moai-coworker:marketing-landing-page` | 대안: 랜딩 페이지 UX 개선 필요 시 |
+| `moai-marketer:marketing-landing-page` | 대안: 랜딩 페이지 UX 개선 필요 시 |
 
 ## 후처리 체인
 
 UX 분석 보고서의 **서술형 권고안 부분**(통합 UX 권고안 P0~P3 설명, 개선 로드맵 서술)만 다음 체인으로 마무리합니다. 심각도·RICE·우선순위 매트릭스 같은 표·점수 데이터는 정제 대상이 아닙니다:
 
-`moai-coworker:business-ux-designer → moai-coworker:general-ai-slop-reviewer → moai-coworker:general-humanize-korean`
+`moai-coworker:business-ux-designer → moai-coworker:general-ai-slop-reviewer → moai-writer:general-humanize-korean`
 
 - `moai-coworker:general-ai-slop-reviewer`: AI 특유의 상투적 표현·과장·군더더기를 점검하고 다듬습니다.
-- `moai-coworker:general-humanize-korean`: 자연스러운 한국어 문장으로 최종 정제합니다.
+- `moai-writer:general-humanize-korean`: 자연스러운 한국어 문장으로 최종 정제합니다.

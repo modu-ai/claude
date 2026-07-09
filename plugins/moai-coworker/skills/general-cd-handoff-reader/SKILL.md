@@ -306,5 +306,5 @@ Page
 |---|---|
 | `moai-coworker:general-cd-brief` | 선행: 핸드오프할 시안 자체를 만들 때 |
 | `moai-coworker:general-cd-system-prep` | 선행: 디자인 시스템 셋업 |
-| `moai-coworker:project` | 후속: Claude Code 작업 폴더 초기화 |
+| `moai-pm:project` | 후속: Claude Code 작업 폴더 초기화 |
 | `moai-coworker:business-spec-writer` | 보조: 핸드오프 후 코드 SPEC 작성 |
