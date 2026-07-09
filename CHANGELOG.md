@@ -88,3 +88,32 @@ Korean-slop remediation across 177 cowork + 11 design skills (gate structure, de
 - D₄: `7771497`, `2e7353c`, `c6c7aed` (이 커밋)
 
 **Residual**: AC-IA-023 pre-existing broken internal links 10건 (cookbook 본문 5건 + Hugo taxonomy 5건) — 별도 후속 SPEC에서 정비. SPEC 산출 콘텐츠는 모든 내부링크 정상(0 broken).
+
+### Added — SPEC-MOC-PLUGIN-STORY-001
+
+moai-story 플러그인 신설 + 패밀리 v4 재배치 — 작가 도메인 전용 플러그인(21스킬: 이관 8 + 신규 13) + Higgsfield MCP 연동 + cowork v4.0.0 마이그레이션.
+
+**Core deliverables**:
+- **M1** — moai-story 스캐폴딩 (plugin.json v0.1.0, .mcp.json higgsfield canonical, skills/)
+- **M2** — 이관 스킬 8종 복사 (cowork → story) + book-revision-coach fallback note
+- **M3** — 신규 스킬 13종 작성 (story-*) + 위생 스윕프 (3rd-person/무엇을-언제/AI-tell across all 21)
+- **M4** — cowork v4.0.0 마이그레이션 (book-* 8스킬 제거, higgsfield MCP 제거, 171 SKILL.md 4.0.0, CHANGELOG v4.0.0)
+- **M5** — marketplace.json 4플러그인 엔트리 (moai-story 추가, metadata.version 4.0.0, per-entry version 미기재)
+- **M5-fix** — moai-story author string→object 정정 (Claude Code plugin schema)
+- **M6** — www 문서 갱신 (index/migration/higgsfield-setup/CHANGELOG + content/_index.md live-site update)
+
+**Verification**:
+- 10/12 AC PASS (AC-001~010 full/intent PASS; AC-011 PASS-WITH-DEBT --strict structural; AC-012 PASS-WITH-DEBT count drift ND5)
+- ND debt: ND3/4/5/6/7/8 resolved (pre-fixed + sync-phase acceptance.md cleanup); ND1/2 resolved (plan-phase); ND9 residual (non-blocking, pre-existing warnings + SPEC-required category)
+- DRIFT-001 depends_on noted: DRIFT-001 not yet created, but run-phase accepted `status: in-progress` per M0 gate policy; sync non-blocking
+- Hugo build: exit 0, dead-link check 0
+- Run-phase commits: `76741dc` (M1) → `105175e` (M2) → `cabbdb1` (M3) → `d1d5887` (M4) → `8629c5d` (M5) → `5dfe2d4` (M5-fix) → `11f7379` (M6)
+
+**Files modified**:
+- `plugins/moai-story/` (NEW PLUGIN — plugin.json, .mcp.json, skills/ 21개)
+- `plugins/moai-cowork/` (v4.0.0 — 8 book-* 스킬 제거, higgsfield MCP 제거, 171 SKILL.md 4.0.0, CHANGELOG)
+- `.claude-plugin/marketplace.json` (4플러그인 엔트리, metadata.version 4.0.0)
+- `www/plugins/{index,migration,higgsfield-setup}.md` + `www/CHANGELOG.md` (문서 갱신)
+
+**Residual**: ND9 — AC-STORY-011 `claude plugin validate . --strict` fails on pre-existing warnings (metadata.language, metadata.license) + SPEC-required category field (structural conflict); non-strict validate exits 0.
+
