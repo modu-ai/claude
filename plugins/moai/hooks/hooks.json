@@ -5,7 +5,7 @@
         "matcher": "startup|resume|clear|compact",
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh SessionStart\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" SessionStart",
             "timeout": 30,
             "type": "command"
           }
@@ -17,7 +17,7 @@
         "matcher": "manual|auto",
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh PreCompact\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" PreCompact",
             "timeout": 5,
             "type": "command"
           }
@@ -28,7 +28,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh SessionEnd\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" SessionEnd",
             "timeout": 10,
             "type": "command"
           }
@@ -40,7 +40,7 @@
         "matcher": "Write|Edit|Bash",
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh PreToolUse\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" PreToolUse",
             "timeout": 10,
             "type": "command"
           }
@@ -52,7 +52,7 @@
         "matcher": "Write|Edit",
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh PostToolUse\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" PostToolUse",
             "timeout": 10,
             "type": "command"
           }
@@ -63,7 +63,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh Stop\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" Stop",
             "timeout": 10,
             "type": "command"
           }
@@ -74,7 +74,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh SubagentStop\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" SubagentStop",
             "timeout": 5,
             "type": "command"
           }
@@ -85,7 +85,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh PostToolUseFailure\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" PostToolUseFailure",
             "timeout": 5,
             "type": "command"
           }
@@ -96,7 +96,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh SubagentStart\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" SubagentStart",
             "timeout": 5,
             "type": "command"
           }
@@ -107,7 +107,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh UserPromptSubmit\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" UserPromptSubmit",
             "timeout": 5,
             "type": "command"
           }
@@ -118,7 +118,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh TeammateIdle\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" TeammateIdle",
             "timeout": 5,
             "type": "command"
           }
@@ -129,7 +129,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh TaskCompleted\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" TaskCompleted",
             "timeout": 5,
             "type": "command"
           }
@@ -141,7 +141,7 @@
         "matcher": "project_settings|local_settings|skills",
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh ConfigChange\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" ConfigChange",
             "timeout": 5,
             "type": "command"
           }
@@ -153,7 +153,7 @@
         "matcher": "rate_limit|authentication_failed|billing_error|max_output_tokens",
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh StopFailure\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" StopFailure",
             "timeout": 5,
             "type": "command"
           }
@@ -165,7 +165,7 @@
         "matcher": "manual|auto",
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh PostCompact\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" PostCompact",
             "timeout": 5,
             "type": "command"
           }
@@ -176,7 +176,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh InstructionsLoaded\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" InstructionsLoaded",
             "timeout": 5,
             "type": "command"
           }
@@ -187,7 +187,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh CwdChanged\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" CwdChanged",
             "timeout": 5,
             "type": "command"
           }
@@ -199,7 +199,7 @@
         "matcher": ".env|.envrc|.gitignore",
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh FileChanged\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" FileChanged",
             "timeout": 5,
             "type": "command"
           }
@@ -210,7 +210,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh PermissionDenied\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" PermissionDenied",
             "timeout": 5,
             "type": "command"
           }
@@ -221,7 +221,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh PermissionRequest\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh\" PermissionRequest",
             "timeout": 5,
             "type": "command"
           }
