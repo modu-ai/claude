@@ -100,7 +100,7 @@ residual_risks:
 
 ```yaml
 sync_complete_at: 2026-07-09
-sync_commit_sha: "BACKFILL-POST-COMMIT"
+sync_commit_sha: "fd8184d"
 sync_status: complete
 files_modified: 11  # plugins/moai-pm (SKILL.md + INDEX.md + tmpl + 6 setup protocols) + spec.md frontmatter + progress.md
 documentation_sync:
