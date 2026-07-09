@@ -147,7 +147,7 @@ Sync-phase completed: CHANGELOG.md entry added + frontmatter `status: in-progres
 
 ```yaml
 sync_complete_at: 2026-07-09
-sync_commit_sha: <pending commit>  # will be backfilled after commit
+sync_commit_sha: 32d1d72   # STORY-001 sync commit
 sync_status: completed
 ac_pass_count: 10      # AC-001,002,004,005,006,007,008,010 full PASS; AC-003,009 intent PASS
 ac_pass_with_debt_count: 2  # AC-011 (--strict structural), AC-012 (count drift ND5)
