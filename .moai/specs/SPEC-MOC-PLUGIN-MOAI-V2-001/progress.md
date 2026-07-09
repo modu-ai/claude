@@ -529,7 +529,7 @@ parallel_session_absorbed: "SPEC-MOC-PM-REDESIGN-001 3-phase closed during run (
 ```yaml
 sync_status: complete
 sync_complete_at: 2026-07-09T09:05:00Z
-sync_commit_sha: <pending>
+sync_commit_sha: 8cc0989c4872342c3d783245d2f5fa0700a21bd0
 sync_audit: "CHANGELOG [Unreleased] + frontmatter completed (3-phase close in-progress→implemented→completed on single sync commit) + spec/plan/acceptance body untouched. link-check PASS-WITH-DEBT (10 pre-existing cookbook/cowork/tags — not a regression, git log 6f92d86..HEAD zero edits to those dirs). --strict EC-5 debt (12 command frontmatter gaps). P0-8 typed-name deactivation-guidance UI P3 out-of-scope."
 frontmatter_status_transitions:
   spec_md: "in-progress -> completed (single sync commit, 3-phase close)"
