@@ -28,9 +28,9 @@
       "category": "디자인"
     },
     {
-      "name": "moai-coder",
-      "source": "./plugins/moai-coder",
-      "version": "3.1.0",
+      "name": "moai",
+      "source": "./plugins/moai",
+      "version": "1.0.0",
       "description": "개발 전담 AI 직원 — MoAI-ADK SPEC plan/run/sync 개발 방법론·DDD/TDD·품질 게이트·문서 동기화 (moai CLI 무설치로 Claude Code/Desktop에서 동작). 비개발자와 개발자 모두 자연어나 Skill(\"moai\") 호출로 개발할 수 있습니다. 이런 분께 추천: 개발자·기술 창업자.",
       "displayName": "코더",
       "category": "개발·무설치"
