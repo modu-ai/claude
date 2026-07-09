@@ -153,7 +153,7 @@ Anthropic 공식 발표(2026-04-17)에서 강조한 **코드 기반 프로토타
 
 - 결과를 PDF·PPTX·HTML 중 어느 것으로 내보낼지
 - 코드로 빌드하려면 → Claude Code 핸드오프
-- 카피 검수 필요 → moai-design:cd-slop-check
+- 카피 검수 필요 → moai-designer:cd-slop-check
 ```
 
 ## 패턴별 템플릿 상세
@@ -324,8 +324,8 @@ Anthropic 공식 발표(2026-04-17)에서 강조한 **코드 기반 프로토타
 
 | 스킬 | 사용 시점 |
 |---|---|
-| `moai-design:cd-brief` | 대안: 일반적 6요소 브리프 (시니어 패턴이 필요 없을 때) |
-| `moai-design:cd-system-prep` | 선행: 디자인 시스템 자산 합성 |
-| `moai-design:cd-slop-check` | 후속: 결과 카피 검수 |
+| `moai-designer:cd-brief` | 대안: 일반적 6요소 브리프 (시니어 패턴이 필요 없을 때) |
+| `moai-designer:cd-system-prep` | 선행: 디자인 시스템 자산 합성 |
+| `moai-designer:cd-slop-check` | 후속: 결과 카피 검수 |
 | `moai-product:business-ux-designer` | 보조: Claude Design 외 UX 분석 |
 | `moai-product:business-ux-researcher` | 보조: 사용자 리서치 단계 |

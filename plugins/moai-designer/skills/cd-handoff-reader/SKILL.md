@@ -295,7 +295,7 @@ Page
 
 | 스킬 | 사용 시점 |
 |---|---|
-| `moai-design:cd-brief` | 선행: 핸드오프할 시안 자체를 만들 때 |
-| `moai-design:cd-system-prep` | 선행: 디자인 시스템 셋업 |
+| `moai-designer:cd-brief` | 선행: 핸드오프할 시안 자체를 만들 때 |
+| `moai-designer:cd-system-prep` | 선행: 디자인 시스템 셋업 |
 | `moai-core:project` | 후속: Claude Code 작업 폴더 초기화 |
 | `moai-product:business-spec-writer` | 보조: 핸드오프 후 코드 SPEC 작성 |
