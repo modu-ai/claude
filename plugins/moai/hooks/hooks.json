@@ -5,7 +5,7 @@
         "matcher": "startup|resume|clear|compact",
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-session-start.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh SessionStart\"",
             "timeout": 30,
             "type": "command"
           }
@@ -17,7 +17,7 @@
         "matcher": "manual|auto",
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-compact.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh PreCompact\"",
             "timeout": 5,
             "type": "command"
           }
@@ -28,7 +28,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-session-end.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh SessionEnd\"",
             "timeout": 10,
             "type": "command"
           }
@@ -37,44 +37,33 @@
     ],
     "PreToolUse": [
       {
+        "matcher": "Write|Edit|Bash",
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-pre-tool.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh PreToolUse\"",
             "timeout": 10,
             "type": "command"
           }
-        ],
-        "matcher": "Write|Edit|Bash"
+        ]
       }
     ],
     "PostToolUse": [
       {
+        "matcher": "Write|Edit",
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-post-tool.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh PostToolUse\"",
             "timeout": 10,
-            "type": "command",
-            "async": true
-          },
-          {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/status-transition-ownership.sh\"",
-            "timeout": 5,
             "type": "command"
           }
-        ],
-        "matcher": "Write|Edit"
+        ]
       }
     ],
     "Stop": [
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-stop.sh\"",
-            "timeout": 5,
-            "type": "command"
-          },
-          {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/sync-phase-quality-gate.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh Stop\"",
             "timeout": 10,
             "type": "command"
           }
@@ -85,7 +74,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-subagent-stop.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh SubagentStop\"",
             "timeout": 5,
             "type": "command"
           }
@@ -96,7 +85,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-post-tool-failure.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh PostToolUseFailure\"",
             "timeout": 5,
             "type": "command"
           }
@@ -107,7 +96,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-subagent-start.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh SubagentStart\"",
             "timeout": 5,
             "type": "command"
           }
@@ -118,7 +107,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-user-prompt-submit.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh UserPromptSubmit\"",
             "timeout": 5,
             "type": "command"
           }
@@ -129,7 +118,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-teammate-idle.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh TeammateIdle\"",
             "timeout": 5,
             "type": "command"
           }
@@ -140,7 +129,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-task-completed.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh TaskCompleted\"",
             "timeout": 5,
             "type": "command"
           }
@@ -152,7 +141,7 @@
         "matcher": "project_settings|local_settings|skills",
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-config-change.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh ConfigChange\"",
             "timeout": 5,
             "type": "command"
           }
@@ -164,7 +153,7 @@
         "matcher": "rate_limit|authentication_failed|billing_error|max_output_tokens",
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-stop-failure.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh StopFailure\"",
             "timeout": 5,
             "type": "command"
           }
@@ -176,7 +165,7 @@
         "matcher": "manual|auto",
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-post-compact.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh PostCompact\"",
             "timeout": 5,
             "type": "command"
           }
@@ -187,7 +176,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-instructions-loaded.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh InstructionsLoaded\"",
             "timeout": 5,
             "type": "command"
           }
@@ -198,7 +187,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-cwd-changed.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh CwdChanged\"",
             "timeout": 5,
             "type": "command"
           }
@@ -207,21 +196,21 @@
     ],
     "FileChanged": [
       {
+        "matcher": ".env|.envrc|.gitignore",
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-file-changed.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh FileChanged\"",
             "timeout": 5,
             "type": "command"
           }
-        ],
-        "matcher": ".env|.envrc|.gitignore"
+        ]
       }
     ],
     "PermissionDenied": [
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-permission-denied.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh PermissionDenied\"",
             "timeout": 5,
             "type": "command"
           }
@@ -232,7 +221,7 @@
       {
         "hooks": [
           {
-            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/moai/handle-permission-request.sh\"",
+            "command": "\"${CLAUDE_PLUGIN_ROOT}/hooks/dispatch.sh PermissionRequest\"",
             "timeout": 5,
             "type": "command"
           }
