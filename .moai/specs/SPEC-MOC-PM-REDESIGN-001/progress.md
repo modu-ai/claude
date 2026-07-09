@@ -75,8 +75,8 @@ ac_count: 19 mechanical + 5 review + 5 GWT
 
 ```yaml
 run_complete_at: 2026-07-09
-run_commit_sha: "M5 커밋 — 본 파일을 포함한 커밋이므로 사전 기입 불가; git log의 'feat(SPEC-MOC-PM-REDESIGN-001): M5' 커밋이 정본 (sync-phase에서 backfill)"
-run_commits: ["0c6e1f3 (M1)", "58e5e19 (M2)", "a8de011 (M3)", "9c4e4e9 (M4)", "M5 — backfill"]
+run_commit_sha: "3008716"
+run_commits: ["c963698 (M1)", "cf80918 (M2)", "3b841cd (M3)", "24edefd (M4)", "3008716 (M5)"]
 run_status: complete
 ac_pass_count: 24  # 기계 19 + 리뷰 5
 ac_fail_count: 0
@@ -98,4 +98,18 @@ residual_risks:
 
 ## §E.4 Sync-phase Audit-Ready Signal
 
-_<pending sync-phase — manager-docs 작성 영역>_
+```yaml
+sync_complete_at: 2026-07-09
+sync_commit_sha: "BACKFILL-POST-COMMIT"
+sync_status: complete
+files_modified: 11  # plugins/moai-pm (SKILL.md + INDEX.md + tmpl + 6 setup protocols) + spec.md frontmatter + progress.md
+documentation_sync:
+  - "plugin.json version: 0.2.0 → 0.3.0"
+  - "SKILL.md version already 0.3.0 (M5 authored)"
+  - "README.md: no version/setup-flow changes required (4-plugin structure stable)"
+version_sync_decisions:
+  - "plugin.json: version bump 0.2.0 → 0.3.0 (SKILL.md canonical version)"
+  - "README.md: skipped (user-facing 4-plugin structure unchanged)"
+  - "marketplace.json: not present in this plugin (CHANGELOG-only emission deferred)"
+artifacts_status_transition: "in-progress → implemented → completed (single sync commit)"
+```
