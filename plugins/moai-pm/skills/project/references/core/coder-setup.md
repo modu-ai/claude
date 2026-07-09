@@ -1,6 +1,6 @@
 # coder-setup.md — `/project --code` 분기 (코더 개발 환경 셋업)
 
-> **4-plugin 허브 라우터의 코더 분기 정본.** 개발 프로젝트의 `.claude/`·`.moai/`·`CLAUDE.md`·`.mcp.json` 정본 스캐폴드를 `moai-coder` 플러그인의 `moai-workflow-project` 정본(templates 11종)으로 생성한다. SPEC DDD/TDD 방법론과 TRUST 5 품질 게이트를 프로젝트에 설정한다.
+> **4-plugin 허브 라우터의 코더 분기 정본.** 개발 프로젝트에 **MoAI-ADK 3.0 정본 baseline**(`.claude/`·`.moai/`·`CLAUDE.md`·`.mcp.json`)을 `moai`(구 moai-coder) 플러그인의 `moai-workflow-project` 정본(templates 11종)으로 설치·구성한다. SPEC DDD/TDD 방법론과 TRUST 5 품질 게이트를 프로젝트에 설정한다. PM 공통 CLAUDE.md.tmpl은 이 분기에 **적용하지 않는다**(두-템플릿 분리 — Phase 3-1).
 
 ---
 
@@ -26,7 +26,7 @@
 - **MoAI-ADK 정본 패리티** — `.claude/`(rules/agents/hooks/commands) + `.moai/`(config/specs) 구조
 - **SPEC 방법론 설정** — DDD/TDD 워크플로우 + TRUST 5 품질 게이트
 
-모든 스킬은 **`moai-coder` 단일 플러그인** 소속이다.
+모든 스킬은 **`moai` 단일 플러그인**(구 moai-coder — 개명 후에도 코더 분기 담당은 동일) 소속이다.
 
 ---
 
@@ -66,17 +66,17 @@ Phase 1 프로젝트 유형 인터뷰 → Phase 2 coder 설치 확인 → Phase 
 
 ### Phase 2: coder 설치 확인 (Gap Detection)
 
-`~/.claude/plugins/` 에서 `moai-coder` 설치 여부 확인(Bash + system reminder 교차 검증). 미설치 시:
+`~/.claude/plugins/` 에서 `moai` 플러그인 설치 여부 확인(Bash + system reminder 교차 검증). 미설치 시:
 
 ```
-누락: moai-coder 플러그인
-설치: /plugin install moai-coder (modu-ai/claude 마켓플레이스)
+누락: moai 플러그인 (코더)
+설치: /plugin install moai (modu-ai/claude 마켓플레이스)
 완료 후: /project resume --code
 ```
 
-### Phase 3: 정본 스캐폴드 (`moai-workflow-project` 위임)
+### Phase 3: MoAI-ADK 3.0 정본 baseline 설치 (`moai-workflow-project` 위임)
 
-`moai-coder:moai-workflow-project` 정본 templates로 산출물 생성:
+`moai:moai-workflow-project` 정본 templates에 위임해 MoAI-ADK 3.0 baseline을 대상 프로젝트에 설치한다. 설치 명세:
 
 ```
 프로젝트 루트/
@@ -95,6 +95,14 @@ Phase 1 프로젝트 유형 인터뷰 → Phase 2 coder 설치 확인 → Phase 
 ```
 
 `moai-workflow-project`의 config-template.json·doc-templates·question-templates가 변수 치환을 담당한다.
+
+### Phase 3-1: 두-템플릿 분리 (HARD)
+
+PM 공통 템플릿(`references/templates/CLAUDE.md.tmpl` — 코워커 체인용)은 코더 분기에 **적용하지 않는다**. 코더 분기의 CLAUDE.md는 `moai:moai-workflow-project` 정본이 유일한 소스다.
+
+- 코워커용 체인 템플릿(산출물 체인·office 우선·ai-slop 종료)과 개발용 오케스트레이터 지침(MoAI 위임·품질 게이트·SPEC 워크플로우)은 목적이 달라, 혼합하면 양쪽 모두 오염된다
+- 사용자가 코더 분기에서 "코워커식 체인 CLAUDE.md"를 요구하면 두-템플릿 분리를 안내하고, 필요 시 같은 프로젝트에서 `--cowork` 분기를 병행 실행하도록 제안한다
+- 외부 사실 확인(최신 라이브러리 버전·릴리스 노트 등)이 필요하면 Context7 MCP를 우선하고, 웹 검색은 `execution-protocol.md` §6-5 검색 스케일링 규모를 따른다
 
 ### Phase 4: 언어·MCP 설정
 
@@ -124,7 +132,7 @@ Phase 1 프로젝트 유형 인터뷰 → Phase 2 coder 설치 확인 → Phase 
 
 | 산출물 | 경로 | 정본 |
 |---|---|---|
-| MoAI 실행 지침 | `CLAUDE.md` | coder `moai-workflow-project` |
+| MoAI 실행 지침 | `CLAUDE.md` | coder `moai-workflow-project` (PM 공통 tmpl 미적용) |
 | 제품·구조·기술 문서 | `product.md`·`structure.md`·`tech.md` | `templates/doc-templates/` |
 | MoAI-ADK 구조 | `.claude/` + `.moai/` | coder 정본 패리티 |
 | 언어 설정 | `.moai/config/sections/language.yaml` | language-localization |
@@ -135,7 +143,7 @@ Phase 1 프로젝트 유형 인터뷰 → Phase 2 coder 설치 확인 → Phase 
 
 ## 4. 상세 레퍼런스
 
-| 주제 | 스킬 (moai-coder) |
+| 주제 | 스킬 (moai — 구 moai-coder) |
 |------|------|
 | 프로젝트 문서·언어·템플릿 최적화(정본) | `moai-workflow-project` |
 | SPEC 워크플로우(EARS/GEARS·인수조건) | `moai-workflow-spec` |
