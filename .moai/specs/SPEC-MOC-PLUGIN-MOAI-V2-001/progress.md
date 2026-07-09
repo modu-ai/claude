@@ -423,6 +423,93 @@ $ grep -rn 'moai-coder' plugins/ README.md www/content/plugins/ .claude/agents/h
 
 **Residual-risk**: 재설치 공지가 `moai-coder` 리터럴을 회피하므로 과거 이름을 모르는 신규 사용자에게 맥락이 다소 추상적일 수 있음(개명 전 사용자층은 맥락 파악 가능). www `code/_index.md`의 GitHub 소스 경로(`plugins/moai-code/`→`plugins/moai/`)가 M1 개명과 정합하게 됐으나, 원격 GitHub 링크의 실제 경로 존재 여부는 push 후 원격 반영에 의존(본 저장소 로컬 경로는 정합). Hugo 빌드·link-check 회귀는 M6(AC-MV2-006d)에서 최종 검증.
 
+### M6 — 검증 + P0-8 typed-name 실측 (AC-MV2-006a·b·c·d)
+
+AC-MV2-006a (plugin validate — RUNTIME, REQ-MV2-022):
+```
+$ claude plugin validate ./plugins/moai; echo exit=$?
+✔ Validation passed with warnings
+exit=0
+```
+12개 커맨드(gate/fix/loop/codemaps/project/clean/mx/sync/run/plan/review/feedback) frontmatter 미비 경고(비엄격 → 경고만, MUST exit 0 만족).
+```
+$ claude plugin validate --strict ./plugins/moai; echo exit=$?
+✘ Validation failed (--strict treats warnings as errors)
+exit=1
+```
+EC-5 해당: `--strict`는 위 12건 frontmatter 경고를 오류로 취급 → exit 1. 비엄격 exit 0이 MUST AC이므로 AC-MV2-006a PASS; strict exit 1은 SHOULD 미달 → debt 기록(debt-1, 아래 Gaps).
+
+AC-MV2-006b (marketplace validate — PRESERVE 회귀 가드, REQ-MV2-022):
+```
+$ claude plugin validate .claude-plugin/marketplace.json; echo exit=$?
+✔ Validation passed with warnings
+exit=0
+```
+3건 경고(metadata.language·license 미인식 필드 + moai-pm version 0.2.0 vs plugin.json 0.3.0 불일치). HEAD에서 이미 PASS 상태 유지 → 회귀 없음, PRESERVE 가드 만족.
+
+AC-MV2-006c (P0-8 typed-name 충돌 실측 — RUNTIME+NET-NEW, REQ-MV2-021):
+
+P0-8-verdict: indeterminate at probe layer — typed-name `moai` is shared by the project namespace (`.claude/commands/moai/` = 13 commands, exposed as `/moai:<cmd>`) AND the plugin namespace (`plugins/moai/commands/` = 14 commands for plugin name `moai`, exposed as `/moai:<cmd>`); 13 command names intersect (clean/codemaps/feedback/fix/gate/harness/loop/mx/plan/project/review/run/sync) so the typed name `/moai:plan` (and 12 siblings) is genuinely colliding. In THIS repo the `moai` plugin is declared in `.claude-plugin/marketplace.json` but NOT enabled (`enabledPlugins: null` in both settings.json and settings.local.json) and NOT installed at user scope (`claude plugin list` shows only gopls/pyright/rust-analyzer/swift LSP plugins), so only the project command is active at runtime here. The `claude -p '/moai:plan ...'` print-mode probe did not observably resolve slash-command dispatch (print mode emitted only permission/connector warnings, no command resolution surface); runtime precedence when BOTH project + plugin commands are active depends on Claude Code's project-vs-plugin resolution order which this probe could not mechanically disambiguate. Deactivation-guidance UI is P3 OUT OF SCOPE (spec §E) — recording the verdict is the M6 deliverable, not the UI.
+
+관찰 증거(verbatim):
+```
+$ find .claude/commands/moai -maxdepth 1 -name '*.md' | wc -l → 13   (project namespace)
+$ find plugins/moai/commands   -maxdepth 1 -name '*.md' | wc -l → 14   (plugin namespace; 14th = claude-agentic-coding)
+$ comm -12 <project-cmds> <plugin-cmds>   → 13 공유 이름 (clean codemaps feedback fix gate harness loop mx plan project review run sync)
+$ jq '.enabledPlugins' .claude/settings.json        → null   (플러그인 미활성)
+$ jq '.enabledPlugins' .claude/settings.local.json  → null
+$ claude plugin list                                 → moai 미포함 (user-scope gopls/pyright/rust/swift-lsp만)
+$ head -1 plugins/moai/commands/plan.md             → <!-- parity-source: internal/template/templates/.claude/commands/moai/plan.md.tmpl @ b8354304c -->
+$ head -1 .claude/commands/moai/plan.md             → ---   (프로젝트 직접 파일, frontmatter 시작)
+$ echo '/moai:plan probe-p0-8' | timeout 45 claude -p --dangerously-skip-permissions
+  ⚠ Permission mode forced to default ... ⚠ claude.ai connectors are disabled ...
+  (print mode가 slash-command dispatch를 관측 가능하게 분해하지 못함 — runtime 우선순위 비결정적)
+```
+
+AC-MV2-006d (bash -n + hugo + link-check — PRESERVE 회귀 가드, REQ-MV2-022):
+```
+$ find plugins/moai -name '*.sh' -exec bash -n {} +; echo exit=$?
+exit=0
+```
+7개 셸 스크립트 전수 합격(dispatch.sh + gates/ 5종[gateguard-fact-force, iggda-audit-preservation-guard, status-transition-ownership, sync-phase-quality-gate, team-ac-verify] + scripts/scaffold.sh).
+```
+$ (cd www && hugo --gc --minify); echo exit=$?
+ Pages 228 | Static files 252 | Aliases 65   Total in 376 ms
+hugo_exit=0
+```
+www 회귀 없음 — Hugo 빌드 정상(M5 www/content/plugins/** 수정 후에도 228 페이지 정상 생성).
+```
+$ node www/scripts/check-links.mjs; echo exit=$?
+Scanned 241 HTML files, 31872 internal <a> links
+broken internal links: 10
+  cookbook/index.html -> ./track-marketing/
+  cookbook/index.html -> ./track-documents/
+  cookbook/index.html -> ./track-data/
+  cookbook/tracks/track-marketing/index.html -> ./skill-chaining/
+  cookbook/tracks/track-marketing/index.html -> ./blog-pipeline/
+  tags/cookbook/page/2/index.html -> ../../cowork/troubleshooting/
+  tags/cookbook/page/2/index.html -> ../../cowork/constraints/
+  tags/cookbook/page/2/index.html -> ../skill-chaining/
+  tags/cookbook/page/2/index.html -> ../../cowork/faq/
+  tags/troubleshooting/index.html -> ../skill-chaining/
+linkcheck_exit=1
+```
+MUST exit 0 미달 → **blocker (AC-006d link-check)**. 단, 기원 분석 결과 본 실패는 **pre-existing 부채**이며 본 SPEC 회귀가 아님:
+```
+$ git log --oneline 6f92d86..HEAD -- 'www/content/cookbook/**' 'www/content/tags/**' 'www/content/cowork/**'   → (empty — 본 SPEC run-phase가 해당 디렉토리 미수정)
+$ git show 6f92d86:www/content/cookbook/_index.md | grep 'track-marketing\|track-documents\|track-data'
+  99:- [마케팅 트랙](./track-marketing/) — 브랜딩·SEO·캠페인 8주
+  100:- [문서 트랙](./track-documents/) — Office 산출물 자동화 8주
+  101:- [데이터 트랙](./track-data/) — 분석·공공데이터 8주
+```
+10건 broken link는 전부 `cookbook/`·`tags/`·`cowork/` 영역(누락된 트랙/스킬 페이지)이며 M5가 수정한 `www/content/plugins/**` 외. 사전 run-phase 기준선(6f92d86)에 이미 동일 broken link 존재 → §D.6 "PASS (HEAD 추정 — pre-flight 재확인)"의 추정이 빗나간 사례 (실측 FAIL). 본 SPEC 스코프(plugins/) 밖 미해결 부채 — blocker 보고, orchestrator 최종 DoD 판단 대상.
+
+**Baseline-attribution**: 기준선 HEAD 5037668(M5 완료, == origin/main, sync `0 0`). M6는 검증 전용(production 파일 수정 없음 — progress.md §E.2 기록이 유일 산출물). 사전 실측: `^P0-8-verdict:` 센티넬 §E.2 내 0건(NET-NEW), `claude plugin validate ./plugins/moai` 경로 존재(M1 개명 후). M6 후: non-strict validate exit 0(006a PASS), marketplace exit 0(006b PRESERVE), bash -n exit 0(006d PASS), hugo exit 0(006d PASS), link-check exit 1(006d pre-existing FAIL — blocker), `^P0-8-verdict:` 센티넬 §E.2 내 ≥1(006c NET-NEW 달성).
+
+**Gaps**: (debt-1) `--strict` validate exit 1 — 12개 커맨드 파일의 YAML frontmatter 미비(EC-5 문서화된 SHOULD 미달; 비엄격 MUST는 PASS). 커맨드 frontmatter는 parity-source 주석 라인이 파일 최상단에 위치하여 `---` 블록이 첫 줄이 아닌 구조적 배치 — 후속 SPEC에서 frontmatter 우선순위 조정 가능. (blocker-1) link-check exit 1 — 10건 pre-existing broken link(cookbook/tags/cowork, 트랙·스킬 페이지 미작성). 본 SPEC 스코프(plugins/) 밖 → M6 검증 전용 스코프에서 수정 불가(scope 확장 금지, §D Constraints). orchestrator 최종 DoD에서 PASS-WITH-DEBT 판정 또는 별도 후속 SPEC 필요. (P0-8) runtime typed-name 우선순위 비결정적 — probe 층에서 분해 불가, 구조적 충돌(13 공유 이름)+enablement 실측(플러그인 미활성)만 확정.
+
+**Residual-risk**: P0-8 verdict가 비결정적이므로, 향후 사용자가 `moai` 플러그인을 활성화(`enabledPlugins["moai@moai-claude"]=true`)하면 project `/moai:plan` vs plugin `/moai:plan` 중 어느 것이 선행하는지 runtime 검증이 별도 필요(안내 문구 구현은 P3). link-check 10건은 본 SPEC과 무관한 cookbook/cowork 콘텐츠 누락이나, DoD §D.4.1의 literal "AC-006d 전부 PASS" 요건과 충돌 → 최종 DoD check에서 pre-existing-debt-out-of-scope 인정 여부가 관건. `--strict` frontmatter 경고는 향후 커맨드 재구조 시 해소 가능.
+
 ## §E.3 Run-phase Audit-Ready Signal
 
 _<pending run-phase>_
