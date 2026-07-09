@@ -84,6 +84,23 @@
       "url": "https://mcp.higgsfield.ai/mcp",
       "timeout": 120000,
       "headers": { "User-Agent": "MoAI-Story/0.1.0" }
+    },
+    "moai-imweb": {
+      "$comment": "아임웹(Imweb) OPEN API v3 MCP — 쇼핑몰 운영 전 도메인 136 엔드포인트를 8 카테고리 도구로 (order·product·member·community·promotion·site·script·payment). OAuth2 authorizationCode + JWT access token(자동 갱신). 사전 설치: uv (curl -LsSf https://astral.sh/uv/install.sh | sh). 소스를 플러그인에 자체 vendor(./mcp-servers/moai-imweb) — PyPI 불필요, 설치 즉시 작동. 도구는 OpenAPI 스펙에서 자동 생성(tools/_generator.py + tools/openapi.json). 자격증명 발급·인증 절차는 mcp-servers/moai-imweb/CONNECTORS.md.",
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "./mcp-servers/moai-imweb",
+        "moai-imweb-mcp"
+      ],
+      "env": {
+        "IMWEB_CLIENT_ID": "${IMWEB_CLIENT_ID}",
+        "IMWEB_CLIENT_SECRET": "${IMWEB_CLIENT_SECRET}",
+        "IMWEB_ACCESS_TOKEN": "${IMWEB_ACCESS_TOKEN}",
+        "IMWEB_REFRESH_TOKEN": "${IMWEB_REFRESH_TOKEN}",
+        "IMWEB_UNIT_CODE": "${IMWEB_UNIT_CODE}"
+      }
     }
   }
 }
