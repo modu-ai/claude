@@ -56,6 +56,16 @@ Three workflows: project initialization, documentation generation from SPEC, tem
 
 See [core workflow walkthroughs](references/workflows.md) for detailed step-by-step procedures.
 
+### Layer-2 Scaffolding (scaffold.sh)
+
+Project initialization for a fresh target project is performed by the deterministic scaffolder script:
+
+```bash
+"${CLAUDE_PLUGIN_ROOT}/scripts/scaffold.sh" <target-dir>   # add --dry-run to preview first
+```
+
+The script copies the MoAI Layer-2 template payload (CLAUDE.md, .claude/rules/moai/**, .claude/settings.json, .moai/config/sections/**) into the target directory with cp + sed token substitution for {{PROJECT_NAME}}, {{VERSION}}, {{DATE}}, and {{PROJECT_USER_NAME}} — no LLM per-file copy. It supports --dry-run (writes nothing), backs up existing files to .moai-backups/<timestamp>/, and preserve-merges .claude/settings.json so existing user keys (e.g. model) are never clobbered while outputStyle + extraKnownMarketplaces + enabledPlugins are added. Run this once when bootstrapping a new project with the MoAI plugin.
+
 ### Language and Localization
 
 Automatic Language Detection: analyzes file content, configuration files, system locale, and directory structure.

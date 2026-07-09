@@ -266,6 +266,91 @@ exit=0   ← 매핑 없음 → drain + fail-open
 
 **Residual-risk**: dispatch.sh의 PascalCase→kebab 변환표는 moai 바이너리 서브커맨드 명명 규칙에 의존 — moai CLI가 서브커맨드명을 변경하면 변환표 갱신 필요(현재 20종 전부 ADK handle-*.sh.tmpl 원천과 교차 검증 완료). `$CLAUDE_CODE_REMOTE` 분기는 Web 세션에서 바이너리 프로브를 생략(REQ-MV2-011)하나, 실제 Web 환경($CLAUDE_CODE_REMOTE=true)에서의 게이트 동작 검증은 P0-w(사용자 수행, §E Out of Scope) 대기. 클라ude plugin validate exit 0(warnings = pre-existing command frontmatter 경고, M1 기준선과 동일 — 회귀 아님).
 
+### M4 — scaffold.sh + /moai:project 배선 (AC-MV2-004a~g)
+
+**Claim**: M4는 결정론적 cp+sed 스캐폴더(`plugins/moai/scripts/scaffold.sh`)를 신규 작성하고 `/moai:project` 스킬에 배선하여, Layer-2 템플릿 페이로드를 임의 타겟 프로젝트에 토큰 치환 + settings.json 보존 병합으로 전개한다. 7개 AC(004a~g) 전부 PASS.
+
+**Evidence** (verbatim, 2026-07-09 임시 디렉토리 실측):
+
+AC-MV2-004a (scaffold.sh 존재 + bash -n clean):
+```
+$ test -x plugins/moai/scripts/scaffold.sh && bash -n plugins/moai/scripts/scaffold.sh
+test -x: PASS
+bash -n exit code: 0
+```
+
+AC-MV2-004b (dry-run — 무기록 + 계획 출력 ≥1줄):
+```
+$ bash plugins/moai/scripts/scaffold.sh --dry-run --name test-project --version 0.1.0 --user testuser /tmp/m4_dry
+scaffold.sh --dry-run (no files will be written)
+  target:       /tmp/m4_dry
+  project_name: test-project
+  version:      0.1.0
+  ...
+  files planned: 90
+---
+  [copy] .../templates/CLAUDE.md -> /tmp/m4_dry/CLAUDE.md
+  [merge] .../templates/claude/settings.project.json -> /tmp/m4_dry/.claude/settings.json
+  ... (90 files listed)
+---
+dry-run complete.
+$ echo $? → 0
+$ bash plugins/moai/scripts/scaffold.sh --dry-run /tmp/m4_dry | wc -l → 191
+$ find /tmp/m4_dry -type f | wc -l → 0
+```
+
+AC-MV2-004c (실제 실행 — Layer-2 트리 생성 + 토큰 치환 완료):
+```
+$ bash plugins/moai/scripts/scaffold.sh --name my-app --version 0.2.0 --user "Goos Kim" /tmp/m4_run
+Done. copied: 89, merged: 1, backed up: 0.
+$ test -f /tmp/m4_run/CLAUDE.md → PASS
+$ find /tmp/m4_run/.claude/rules/moai -type f | wc -l → 61
+$ find /tmp/m4_run/.moai/config/sections -name '*.yaml' | wc -l → 27
+$ grep -rlE '\{\{(PROJECT_NAME|VERSION|DATE)\}\}' /tmp/m4_run | wc -l → 0
+```
+토큰 치환 확인: `project.yaml` → `name: "my-app"`, `user.yaml` → `name: "Goos Kim"`.
+
+AC-MV2-004d (settings.json 보존 병합 — REQ-MV2-014):
+```
+$ echo '{"model":"opus"}' > /tmp/m4_merge/.claude/settings.json   # 사전 seed
+$ bash plugins/moai/scripts/scaffold.sh --name merge-test /tmp/m4_merge
+Done. copied: 89, merged: 1, backed up: 1.
+$ jq -r '.model' /tmp/m4_merge/.claude/settings.json → opus              # 보존
+$ jq -r '.outputStyle' ... → moai:MoAI                                   # 추가
+$ jq -r '.extraKnownMarketplaces["moai-claude"].source' ... → github://modu-ai/claude  # 추가
+$ jq -r '.enabledPlugins["moai@moai-claude"]' ... → true                 # 추가
+```
+최종 settings.json = `{"model":"opus","outputStyle":"moai:MoAI","extraKnownMarketplaces":{"moai-claude":{"source":"github://modu-ai/claude"}},"enabledPlugins":{"moai@moai-claude":true}}` — 사용자 키 보존 + 3키 additive 병합.
+
+AC-MV2-004e (백업 — 동일 디렉토리 2회차 실행):
+```
+$ bash plugins/moai/scripts/scaffold.sh --name my-app /tmp/m4_run   # 2회차
+Done. copied: 89, merged: 1, backed up: 90.
+$ find /tmp/m4_run/.moai-backups -type f | wc -l → 90   # ≥1 PASS
+```
+백업 트리: `.moai-backups/20260709T160958/{CLAUDE.md, .claude/settings.json, .claude/rules/moai/**, .moai/config/sections/**}`.
+
+AC-MV2-004f (#63028 안내 — NET-NEW):
+```
+$ grep -rn '63028' plugins/moai/ | wc -l → 1
+plugins/moai/scripts/scaffold.sh:176:Note (issue #63028): In the first cloud/web session ...
+```
+
+AC-MV2-004g (/moai:project 배선 — NET-NEW):
+```
+$ grep -rn 'scaffold.sh' plugins/moai/skills/ | wc -l → 2
+plugins/moai/skills/moai-workflow-project/SKILL.md:59:### Layer-2 Scaffolding (scaffold.sh)
+plugins/moai/skills/moai-workflow-project/SKILL.md:64:"${CLAUDE_PLUGIN_ROOT}/scripts/scaffold.sh" <target-dir>
+```
+
+scaffold.sh 토큰 세트: `{{PROJECT_NAME}}`, `{{VERSION}}`, `{{DATE}}`, `{{PROJECT_USER_NAME}}` (4종). settings.json 병합 전략: `jq -s '.[0] * .[1]'` 기존 타겟(`.[0]`) + 템플릿(`.[1]`) deep-merge — 기존 키 보존 + 템플릿 3키 additive (REQ-MV2-014). 결정론적 cp+sed만 사용(REQ-MV2-013, LLM 개별 파일 복사 금지). MX 태그: `@MX:ANCHOR`(토큰-셋 + 산출-트리 계약), `@MX:WARN`+`@MX:REASON`(settings 보존 병합 + 백업/dry-run/user-owned 보존 구역).
+
+**Baseline-attribution**: 기준선 HEAD 7ff8c5f(M3 완료 후, PM-REDESIGN 병렬 세션 종료 — origin/main 동기 `0 0`). M4 착수 전: `plugins/moai/scripts/` 부재(NET-NEW), `scaffold.sh` skills 언급 0건(NET-NEW), `63028` plugins/moai/ 내 0건(NET-NEW). templates/ 페이로드(CLAUDE.md 321L + rules 61 + settings.project.json + config 27 yaml)는 M2 산출로 존재. M4 후: scaffold.sh 257L 신규(executable, bash -n clean), skills 내 `scaffold.sh` 언급 2건, `63028` 1건.
+
+**Gaps**: 토큰 `{{VERSION}}`은 현재 템플릿에 리터럴로 미존재(design.yaml·go.md·cpp.md에 plain-text "VERSION"만) — scaffold.sh는 4토큰 전부 sed 치환을 수행하므로 VERSION은 no-op로 동작(AC-004c lingering-token grep은 PROJECT_NAME/VERSION/DATE 3종 → 0 유지). Web/원격 세션에서 settings.json 커밋 시 플러그인 자동 활성(T2 열쇠)의 런타임 검증은 P0-w(사용자 수행, §E Out of Scope) 대기. issue #63028 안내 문구의 실제 효과(재접속 시 inactive → active 전환)는 사용자 실측 귀속.
+
+**Residual-risk**: scaffold.sh는 jq에 의존(merge 모드) — jq 미설치 환경에서는 exit 1(명시적 에러). macOS bash 3.2 호환(associative array 미사용). `sed_safely` 이스케이프(`\`·`&`·`|`)는 일반적인 프로젝트명/버전/날짜/사용자명에 충분하나, 토큰 값에 제어문자나 개행이 포함된 극단적 케이스는 미커버(현실적 사용 범위 외). dry-run은 jq 체크를 우회하지 않으나(dry-run은 jq 사용 안 함 → exit 0 보장).
+
 ## §E.3 Run-phase Audit-Ready Signal
 
 _<pending run-phase>_
