@@ -52,14 +52,17 @@ tags: "plugin, pm, hub-router, claudemd, redesign, plan"
 acceptance.md §D AC 매트릭스의 기계 검증(grep/wc) 배치를 단일 턴 병렬 Bash로 실행하고, Claim/Evidence/Baseline/Gaps/Residual-risk 5섹션 보고로 제출한다. 핵심 배치:
 
 ```bash
-# 1) 신규 규칙 블록 5종 존재 (canonical heading grep)
+# 1) 신규 규칙 블록 존재 (canonical heading grep — tmpl 5종 + 분기 표면)
 grep -l "요청 평가" plugins/moai-pm/skills/project/references/templates/CLAUDE.md.tmpl
 grep -l "파일 생성 기준" plugins/moai-pm/skills/project/references/templates/CLAUDE.md.tmpl
+grep -l "톤 규칙" plugins/moai-pm/skills/project/references/templates/CLAUDE.md.tmpl
+grep -l "인용·저작권 가드" plugins/moai-pm/skills/project/references/templates/CLAUDE.md.tmpl
 grep -l "인용·저작권 가드" plugins/moai-pm/skills/project/references/core/cowork-setup.md
 grep -l "검색 스케일링" plugins/moai-pm/skills/project/references/core/execution-protocol.md
 grep -l "맥락 적용 규칙" plugins/moai-pm/skills/project/references/core/context-collector.md
-# 2) 원문 leak 리터럴 0건
+# 2) 원문 leak 리터럴 0건 + 출처 주석 형식(비주석 매치 0)
 grep -riE "severe violation|displacive|Never reproduce" plugins/moai-pm/skills/project/ | wc -l   # 0
+grep -rn "system_prompts_leaks" plugins/moai-pm/skills/project/ | grep -v '<!--' | wc -l          # 0
 # 3) 불변식 회귀 가드
 grep -c "{user_name}" plugins/moai-pm/skills/project/references/templates/CLAUDE.md.tmpl          # 0
 grep -c "general-ai-slop-reviewer" plugins/moai-pm/skills/project/references/templates/CLAUDE.md.tmpl  # ≥1
@@ -74,10 +77,10 @@ wc -l < plugins/moai-pm/skills/project/references/templates/CLAUDE.md.tmpl      
 
 | 파일 | 변경 |
 |------|------|
-| `references/templates/CLAUDE.md.tmpl` | 신규 규칙 블록 삽입: `요청 평가 사다리`(HARD, ~6라인) · `파일 생성 기준`(~8라인) · `맥락 적용 규칙`(~5라인) · `톤 규칙`(~5라인) + `인용·저작권 가드`(HARD, ~6라인). 기존 HARD 블록(§3 office 우선, §4 ai-slop) 보존. 출처 주석 1줄. 템플릿 정적 라인 ≤ 150 |
+| `references/templates/CLAUDE.md.tmpl` | 신규 규칙 블록 **5종** 삽입 — 전부 HARD 고정(200라인 초과 시 축소 대상 아님, 축소는 체인만): `요청 평가 사다리`(~6라인) · `파일 생성 기준`(~8라인) · `맥락 적용 규칙`(~5라인) · `톤 규칙`(~5라인) · `인용·저작권 가드`(~6라인). **판단 계층 순서(§J R2 결정 인코딩)**: `파일 생성 기준`은 office 스킬 우선 표(§3)의 상위 판단으로 배치 — ① 파일을 만들지 결정(파일 생성 기준) → ② 만들기로 했으면 office 스킬 사용(office 우선 표). 기존 HARD 블록(§3 office 우선, §4 ai-slop) 보존. 출처 주석 1줄. 템플릿 정적 라인 ≤ 150 |
 | `references/core/claudemd-generator.md` | §2.1 라인 예산 표 재배분(여유분 59 → 신규 블록 ~30 배정, 잔여 ~29), §6 검증 체크리스트에 신규 블록 5종 확인 항목 추가, 출처 주석 |
 
-완료 조건: AC-PMR-001/002/004/005(공통분)/007/008 GREEN.
+완료 조건: AC-PMR-001/002/004/007a/008/018 GREEN + AC-PMR-005 공통분 GREEN — 공통분 정의: 공통 계층 2파일(tmpl·generator) 각각 출처 주석 1줄 존재(파일 수 = 2); 전체 ≥ 3 파일 임계는 M2 이후 충족한다.
 
 ### M2 (P0): 코워커 분기 재설계
 
@@ -112,7 +115,7 @@ wc -l < plugins/moai-pm/skills/project/references/templates/CLAUDE.md.tmpl      
 | `SKILL.md` | version `0.2.0 → 0.3.0`, 상세 프로토콜 표에 신규 규칙 블록 반영, 카운트 표기 스냅샷 통일(§B-1), 허브 라우터 원칙 문구 보존 |
 | `references/core/INDEX.md` | 재설계 파일 색인 갱신 |
 
-완료 조건: AC-PMR-013/014/015/016/017 GREEN + §E 검증 배치 전체 GREEN.
+완료 조건: AC-PMR-007b/013/014/015/016/017 GREEN + §E 검증 배치 전체 GREEN.
 
 ## §G Anti-Patterns (run-phase 금지)
 
@@ -144,7 +147,7 @@ wc -l < plugins/moai-pm/skills/project/references/templates/CLAUDE.md.tmpl      
 | # | 위험 | 완화 |
 |---|------|------|
 | R1 | 신규 블록이 200라인 예산을 침식해 체인 슬롯 축소 | M1에서 예산 표 선재배분 + 템플릿 ≤150라인 AC로 상한 고정 |
-| R2 | consumer 전제 패턴이 Claude Code 맥락에서 오작동 (예: 파일 생성 기준이 오피스 스킬 우선 규칙과 충돌) | P3 기준을 office 스킬 우선 표의 상위 판단으로 배치("파일을 만들지 결정" → "만들면 office 스킬 사용") — 충돌 아님 명시 |
+| R2 | consumer 전제 패턴이 Claude Code 맥락에서 오작동 (예: 파일 생성 기준이 오피스 스킬 우선 규칙과 충돌) | P3 기준을 office 스킬 우선 표의 상위 판단으로 배치("파일을 만들지 결정" → "만들면 office 스킬 사용") — §F M1 tmpl 행에 인코딩 + AC-PMR-R05 리뷰 AC로 검증화 |
 | R3 | 전면 재설계 중 불변식 회귀(resume·Gap·역할 감지 누락) | AC-PMR-008..010 회귀 가드 grep + §G 금지 목록 |
 | R4 | 병렬 세션이 plugins/moai-pm을 동시 수정 | run-phase 진입 시 pre-spawn sync check + pathspec 커밋 |
 | R5 | 유출본 출처의 평판·라이선스 논란 | 원문 비수록 + 재표현 + 주석 1줄 한정(사용자 승인 결정 1) — 잔여 위험은 수용 |

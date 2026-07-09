@@ -5,10 +5,11 @@
 ```yaml
 plan_status: audit-ready
 plan_complete_at: 2026-07-09
+plan_audit_iter1: "PASS-WITH-DEBT 0.83 — D1-D8·D10 applied 2026-07-09, D9 documented debt (acceptance §D.4 residual)"
 tier: M
 artifacts: [spec.md, plan.md, acceptance.md, progress.md]
 requirements: 13 REQ + 8 NFR
-ac_count: 17 mechanical + 4 review + 5 GWT
+ac_count: 19 mechanical + 5 review + 5 GWT
 ```
 
 ## §E.2 Run-phase Evidence
