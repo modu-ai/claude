@@ -1,6 +1,8 @@
 # cowork-setup.md — `/project --cowork` 분기 (코워커 체인 init)
 
-> **4-plugin 허브 라우터의 코워커 분기 정본.** 실무(business·content·office·법무·세무·이커머스·미디어)와 글쓰기 작가(story·book·웹툰·웹소설·시나리오) 두 역할을 자동 감지해, `moai-coworker` 플러그인의 스킬 체인으로 CLAUDE.md를 생성한다.
+> **4-plugin 허브 라우터의 코워커 분기 정본.** 실무(business·content·office·법무·세무·이커머스·미디어)와 글쓰기 작가(story·book·웹툰·웹소설·시나리오) 두 역할을 자동 감지해, `moai-coworker` 플러그인의 스킬 체인으로 CLAUDE.md를 생성한다. 생성된 CLAUDE.md는 런타임에 작업을 **워크플로우 체인과 스킬 호출로 라우팅**한다: 산출물 요청 → 체인 매칭 → 순차 실행 → ai-slop 종료.
+
+<!-- 패턴 출처(재표현): https://raw.githubusercontent.com/asgeirtj/system_prompts_leaks/main/Anthropic/claude-fable-5.md -->
 
 ---
 
@@ -56,14 +58,24 @@ Phase 1 인터뷰 → Phase 2 인벤토리 → Phase 3 체인 설계 → Phase 4
 |-------|------|--------|
 | **1 인터뷰** | 업무 유형·주 산출물·톤 제약 수집(이름·회사 등 글로벌 프로필은 묻지 않음) | interview 답변 |
 | **2 인벤토리** | `~/.claude/plugins/` 에서 `moai-coworker` 설치 여부 + 활성 스킬 스캔(Bash + system reminder 교차 검증) | `.moai/cache/inventory.json` |
-| **3 체인 설계** | 산출물별 스킬 체인 설계(아래 §3 프리셋). 텍스트 체인은 `general-ai-slop-reviewer` 종료 | chain_design |
+| **3 체인 설계** | **입력 3종 종합**(Phase 1 인터뷰 + Phase 2 인벤토리 + 수집 맥락 분석 — §2-1) → 산출물별 스킬 체인 설계(아래 §3 프리셋). 텍스트 체인은 `general-ai-slop-reviewer` 종료 | chain_design + 체인별 설계 근거 |
 | **4 Gap Detection** | 체인 스킬 ↔ 인벤토리 대조 → 누락 시 설치 안내 + `/project resume` 재개 | init-progress.json |
-| **5 확인** | 설계된 체인 AskUserQuestion 승인 | 승인/수정/취소 |
-| **6 CLAUDE.md 생성** | `references/templates/CLAUDE.md.tmpl` 치환, ≤200라인, office/ai-slop HARD 규칙 고정 | `./CLAUDE.md` |
+| **5 확인** | 설계된 체인 AskUserQuestion 승인 — 확인 요약에 **체인별 설계 근거(어떤 맥락에서 도출됐는지)** 표시 | 승인/수정/취소 |
+| **6 CLAUDE.md 생성** | `references/templates/CLAUDE.md.tmpl` 치환, ≤200라인, HARD 규칙 블록 고정(office 우선·ai-slop + 요청 평가 사다리·파일 생성 기준·인용·저작권 가드·톤 규칙·맥락 적용 규칙) | `./CLAUDE.md` |
 | **7 API 키** | 체인이 요구하는 키만 선택적 등록 안내 | `.moai/credentials.env` |
 | **8 첫 실행 안내** | 상위 체인 3개 예시 제시 | 안내 메시지 |
 
 각 Phase의 AskUserQuestion 스키마·inventory.json/init-progress.json 상세·Re-entry 흐름은 `references/core/init-protocol.md`(Phase별 상세 레퍼런스) 참조.
+
+### 2-1. Phase 3 입력 — 수집 맥락 분석
+
+Phase 3 체인 설계는 인터뷰 답변→프리셋 매칭으로 직행하지 않는다. 아래 3종 입력을 종합해 체인을 설계하고, 각 체인에 **설계 근거(맥락 출처)**를 남긴다:
+
+1. **Phase 1 인터뷰 답변** — 업무 유형·주 산출물·톤 제약
+2. **Phase 2 인벤토리** — 설치된 스킬 실측 (없는 스킬로 체인을 설계하지 않는다)
+3. **수집된 프로젝트 맥락 분석** — 재진입 시 기존 `./CLAUDE.md` 프로젝트 개요 + `.moai/context.md` 누적 맥락을 읽어, 이미 확립된 산출물 패턴·독자·제약을 체인 설계에 반영한다 (신규 프로젝트면 인터뷰 답변이 유일한 맥락 소스)
+
+기록 규칙: 각 체인에 근거를 1줄로 남긴다 — 예: `사업계획서(PPT) 체인 ← 인터뷰 Q2 "투자유치 문서" + 맥락: 기존 IR 덱 산출 이력`. 이 근거는 Phase 5 확인 요약에 그대로 표시되어, 사용자가 체인이 왜 이렇게 설계됐는지 검증할 수 있게 한다.
 
 ---
 
@@ -122,6 +134,22 @@ Phase 1 인터뷰 → Phase 2 인벤토리 → Phase 3 체인 설계 → Phase 4
 
 ---
 
+## 3.5 인용·저작권 가드 (HARD — content/book/story 체인)
+
+<!-- @MX:WARN: [AUTO] 법적 위험 영역 — 인용·저작권 가드 규칙 블록. 완화·삭제 시 content/book/story 체인 산출물이 저작권 침해에 노출된다 -->
+<!-- @MX:REASON: content-*·book-*·story-* 체인은 외부 자료(기사·서적·가사·시)를 다루는 빈도가 가장 높다. 본 블록은 생성 CLAUDE.md의 인용·저작권 가드 HARD 블록과 쌍으로 유지해야 한다 (SPEC-MOC-PM-REDESIGN-001 REQ-PMR-007) -->
+
+코워커 체인이 외부 자료(기사·서적·가사·시 등)를 인용하거나 요약할 때 — 특히 `content-*`·`book-*`·`story-*` 체인 — 다음 규칙이 HARD로 적용된다. Phase 6에서 생성되는 CLAUDE.md에도 동일 블록이 고정 포함된다(`claudemd-generator.md` 참조).
+
+- **직접 인용은 원문 15단어 미만, 출처당 최대 1회**
+- **가사·시는 한 줄도 전문 재현하지 않는다**
+- **원문 소비를 대체하는 요약을 만들지 않는다** — 원문의 구조·서사 흐름을 그대로 따라가는 요약은 독자가 원문을 대신 소비하게 만든다
+- **기본 동작은 자기 문장으로의 완전 재표현** — 인용은 고유하게 표현된 통찰에 한정한 예외다
+
+적용 범위: 텍스트 인용 상황에만 발동한다. 비텍스트 산출물(차트·숫자·미디어)은 대상이 아니다. DEEP 등급(법률·세무 등)과 외부 인용이 겹치면 검증 깊이 사다리(`execution-protocol.md` §6-4)와 본 가드가 중첩 적용된다 — 상호 배제가 아니다.
+
+---
+
 ## 4. Gap Detection (코워커 설치 확인)
 
 Phase 3 체인의 스킬이 인벤토리에 없으면 누락으로 간주한다. 코워커 분기에서 누락은 곧 **`moai-coworker` 플러그인 미설치**를 의미한다(모든 스킬이 단일 플러그인 소속이므로).
@@ -146,9 +174,10 @@ Phase 3 체인의 스킬이 인벤토리에 없으면 누락으로 간주한다.
 
 1. **≤ 200라인**, 스킬 체인은 최대 10개(나머지는 catalog 참조)
 2. **역할 라벨** — 감지된 역할(실무/글쓰기 작가)을 페르소나에 명시
-3. **HARD 규칙 고정** — office 스킬 우선(DOCX/PPTX/XLSX/HWPX/HTML은 Claude 기본 artifacts 대신 `moai-coworker:office-*` 사용) + 텍스트 산출물 `general-ai-slop-reviewer` 종료
+3. **HARD 규칙 고정** — office 스킬 우선(DOCX/PPTX/XLSX/HWPX/HTML은 Claude 기본 artifacts 대신 `moai-coworker:office-*` 사용) + 텍스트 산출물 `general-ai-slop-reviewer` 종료 + 신규 5종(요청 평가 사다리·파일 생성 기준·인용·저작권 가드(§3.5)·톤 규칙·맥락 적용 규칙). 200라인 초과 시 축소 대상은 체인만 — HARD 블록은 축소하지 않는다
 4. **스킬 참조 정합** — 모든 스킬 참조는 `moai-coworker:` 접두어 사용
 5. **작가 분기 시** — `story-project` 라우팅 규칙을 워크플로우에 명시
+6. **런타임 라우팅 모델** — 생성된 CLAUDE.md는 실행 시점에 요청 평가 사다리로 응답 층을 판단하고, 산출물 요청이면 체인 매칭 → 순차 실행 → ai-slop 종료로 라우팅한다
 
 상세 변수 치환 테이블·HARD 규칙 블록은 `references/core/claudemd-generator.md` 참조.
 
