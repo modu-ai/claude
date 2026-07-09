@@ -134,14 +134,14 @@ exit=0
 
 AC-MV2-002b (PRESERVE — git mv R100 rename detection, self-pass 의도됨):
 ```
-$ git diff --stat -M100 56f9e09..<M2-commit> -- 'plugins/moai/rules' 'plugins/moai/templates/claude/rules'
+$ git diff --stat -M100 56f9e09..ad86a50 -- 'plugins/moai/rules' 'plugins/moai/templates/claude/rules'
 61 files changed, 0 insertions(+), 0 deletions(-)
 $ git diff -M100 --summary (...) | grep -c '^ rename'
 61   (전부 100% similarity)
 $ git diff --numstat -M100 (...) | awk '{a+=$1;d+=$2} END{print a,d}'
 0 0   (content-change 라인 0)
 ```
-주: M2 커밋 전 staged-diff로 캡처 — e6b8507(BOOTSTRAP 병렬 세션)이 `plugins/moai/rules` 0파일 터치(비중첩 확인) → post-commit `56f9e09..<M2-commit>` diff와 동일.
+주: M2 커밋 전 staged-diff로 캡처 — e6b8507(BOOTSTRAP 병렬 세션)이 `plugins/moai/rules` 0파일 터치(비중첩 확인) → post-commit `56f9e09..ad86a50` diff와 동일.
 
 AC-MV2-002c (NET-NEW — EC-6 ADK 정본 판별):
 ```
