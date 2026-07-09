@@ -89,7 +89,7 @@ depends_on: ["SPEC-MOC-FAMILY-DRIFT-001"]
 - [ ] `plugins/moai-story/skills/story-ip-pitch/SKILL.md` 존재
 - [ ] **3인칭 관점 (P0 anti-pattern 1인칭 화법 부재)**: `grep -rn '저는\|제가\|우리는\|내가' plugins/moai-story/skills/*/SKILL.md` 결과 0 매치 (exit 1)
 - [ ] **"무엇을/언제" 명시**: `grep -L '무엇을\|언제' plugins/moai-story/skills/*/SKILL.md` 결과 0행 (모든 스킬이 둘 중 하나 이상 포함)
-- [ ] **한국어 트리거 용어**: 각 SKILL.md frontmatter `description` 필드에 한국어 토큰 1개 이상 — `awk '/^---$/{n++; next} n==1 && /^description:/' plugins/moai-story/skills/*/SKILL.md | grep -cE '[가-힣]'` 매치 수 = 21 (모든 스킬)
+- [ ] **한국어 트리거 용어**: 각 SKILL.md frontmatter `description` 필드에 한국어 토큰 1개 이상 — `for f in plugins/moai-story/skills/*/SKILL.md; do awk '/^---$/{n++; next} n==1 && /^description:/' "$f" | grep -qE '[가-힣]'; done` 모든 파일 exit 0 (21개 모두 한국어 description; ND7 정정: 기존 글로브 awk는 파일 경계마다 `n`을 리셋하지 않아 파일 #1의 description만 읽음 → per-file 루프로 block-aware 검증. 대체 형태: `awk 'FNR==1{n=0} /^---$/{n++; next} n==1 && /^description:/' <glob>`)
 - [ ] 각 SKILL.md이 500줄 이내 — `find plugins/moai-story/skills -name SKILL.md -exec sh -c 'test $(wc -l < "$1") -le 500' _ {} \;` 모두 exit 0
 - [ ] `find plugins/moai-story/skills -type d -mindepth 1 -maxdepth 1 | wc -l` 출력이 21
 
@@ -172,7 +172,7 @@ depends_on: ["SPEC-MOC-FAMILY-DRIFT-001"]
 - [ ] `find plugins/moai-cowork/skills -type d -mindepth 1 -maxdepth 1 | wc -l` 출력이 171 (relative check: post-migration expected = pre-migration count − 8)
 - [ ] `grep -rl 'book-concept-planner' plugins/moai-cowork/skills/` 결과 없음 (모든 book-* 제거됨 — `-r` 재귀 + `-l` 파일명 출력, 인용부호 정상 종료)
 - [ ] `plugins/moai-cowork/.mcp.json`에 higgsfield 엔트리 부재
-- [ ] `grep -L '"version":"4.0.0"' plugins/moai-cowork/skills/*/SKILL.md | wc -l` 출력이 0 (4.0.0 미포함 SKILL.md 없음 → 171개 모두 4.0.0; ND4 정정: `grep -c|wc -l`은 파일 수를 세어 false-positive)
+- [ ] `grep -L 'version:.*4\.0\.0' plugins/moai-cowork/skills/*/SKILL.md | wc -l` 출력이 0 (4.0.0 미포함 SKILL.md 없음 → 171개 모두 4.0.0; ND4 정정: `grep -c|wc -l`은 파일 수를 세어 false-positive; ND6 정정: `"version":"4.0.0"` 공백-없음 리터럴은 무효 YAML이라 pyyaml 오류 → 유효 YAML `version: "4.0.0"` frontmatter + grep 패턴 완화 `'version:.*4\.0\.0'`)
 - [ ] `plugins/moai-cowork/CHANGELOG.md`에 v4.0.0 섹션 존재
 - [ ] CHANGELOG.md에 "book-* 스킬 moai-story로 이관" 안내 포함
 - [ ] CHANGELOG.md에 "`/plugin install story`" 마이그레이션 가이드 포함
@@ -238,7 +238,7 @@ depends_on: ["SPEC-MOC-FAMILY-DRIFT-001"]
 - [ ] **한국어 트리거 용어 포함**: 각 SKILL.md의 frontmatter `description` 필드에 한국어 토큰 1개 이상 — `awk '/^---$/{n++; next} n==1 && /^description:/' plugins/moai-story/skills/*/SKILL.md | grep -E '[가-힣]'` 매치 (모든 스킬)
 - [ ] **SKILL.md 500줄 이내**: `find plugins/moai-story/skills -name SKILL.md -exec sh -c 'test $(wc -l < "$1") -le 500' _ {} \;` 모든 파일 exit 0
 - [ ] **markdown 구조 (H2 섹션 ≥ 2개)**: `for f in plugins/moai-story/skills/*/SKILL.md; do test "$(grep -c '^## ' "$f")" -ge 2; done` 모든 파일 exit 0
-- [ ] **frontmatter parse**: 각 SKILL.md가 `---` 로 시작하고 두 번째 `---` 에서 닫힘 — `for f in plugins/moai-story/skills/*/SKILL.md; do awk '/^---$/{c++; if(c==2) exit 0} END{exit 1}' "$f"; done` 모두 exit 0
+- [ ] **frontmatter parse**: 각 SKILL.md가 `---` 로 시작하고 두 번째 `---` 에서 닫힘 — `for f in plugins/moai-story/skills/*/SKILL.md; do awk '/^---$/{c++; if(c==2){found=1; exit}} END{exit !found}' "$f"; done` 모두 exit 0 (ND8 정정: 기존 `END{exit 1}`는 awk `exit`가 END 블록을 실행하므로 앞선 `c==2 exit 0`을 override하여 항상 exit 1 되는 결함 → `found` 플래그로 override 해소)
 
 > **잔여 주관적 판단 (sync-phase human review)**: 스킬 본문의 자연스러운 문체 품질, 장르 전문 용어의 적절성 등은 기계적 grep로 검증 불가 — 본 AC의 기계적 검사 7종 PASS 후 sync-phase에서 사용자 최종 리뷰로 처리한다.
 
@@ -252,8 +252,8 @@ depends_on: ["SPEC-MOC-FAMILY-DRIFT-001"]
 
 **Then**:
 
-- [ ] `grep '"version":"4.0.0"' plugins/moai-cowork/.claude-plugin/plugin.json` 결과 1건
-- [ ] `grep -L '"version":"4.0.0"' plugins/moai-cowork/skills/*/SKILL.md | wc -l` 결과 0 (4.0.0 미포함 SKILL.md 없음; ND4 정정)
+- [ ] `grep 'version:.*4\.0\.0' plugins/moai-cowork/.claude-plugin/plugin.json` 결과 1건 (ND6 정정: 무효 YAML 리터럴 `"version":"4.0.0"` 대신 유효 YAML `version: "4.0.0"` + 패턴 완화 `'version:.*4\.0\.0'`)
+- [ ] `grep -L 'version:.*4\.0\.0' plugins/moai-cowork/skills/*/SKILL.md | wc -l` 결과 0 (4.0.0 미포함 SKILL.md 없음; ND4 정정; ND6 정정: 동일 패턴 완화)
 - [ ] 모든 스킬 버전이 plugin.json 버전과 일치
 
 ---
@@ -286,7 +286,7 @@ depends_on: ["SPEC-MOC-FAMILY-DRIFT-001"]
 
 - [ ] `find plugins -name '.mcp.json' -not -path '*/node_modules/*' -exec grep -l 'higgsfield' {} \;` 출력이 정확히 1행: `plugins/moai-story/.mcp.json` (higgsfield는 moai-story에만 존재)
 - [ ] `grep -L 'higgsfield' plugins/moai-cowork/.mcp.json` 매치 1행 (cowork .mcp.json에는 higgsfield 없음 — 부재 확인)
-- [ ] `jq '.mcpServers | keys | length' plugins/moai-cowork/.mcp.json` 값이 8 (higgsfield 제거 후 9 → 8)
+- [ ] `jq '.mcpServers | keys | length' plugins/moai-cowork/.mcp.json` 값이 11 (higgsfield 제거 후 12 → 11 — cowork MCP가 한국 MCP 통합 커밋으로 12개까지 증가, higgsfield 제거 후 11개; ND5 정정: 기존 "9 → 8"은 stale 기대값)
 - [ ] `jq '.mcpServers | keys | length' plugins/moai-story/.mcp.json` 값이 1 (higgsfield만 단일 배선)
 - [ ] cowork plugin token budget에서 higgsfield 도구 표면(수십 개 도구)이 제거되어 비용 부담이 story 설치자로만 한정됨
 
