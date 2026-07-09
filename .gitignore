@@ -115,6 +115,7 @@ logs/*
 # Backups
 # ===========================================
 .moai-backups/
+.moai/backups/
 *.backup/
 *-backup/
 *_backup_*/
@@ -231,7 +232,5 @@ dist-ssr/
 .vercel/
 .netlify/
 .firebase/
-# ===========================================
-# Plugin Runtime State (any depth under plugins/)
-# ===========================================
-plugins/**/.moai/
+# vendored MCP runtime state at any depth (covers plugins/<plugin>/mcp-servers/*/.moai/)
+**/.moai/
