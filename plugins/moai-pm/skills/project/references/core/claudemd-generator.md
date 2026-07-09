@@ -1,5 +1,7 @@
 # claudemd-generator.md — CLAUDE.md 생성 프로토콜
 
+<!-- 패턴 출처(재표현): https://raw.githubusercontent.com/asgeirtj/system_prompts_leaks/main/Anthropic/claude-fable-5.md -->
+
 ## 개요
 
 bare `/project`(레거시 `/project init`) 초기화 Phase 6에서 호출되는 CLAUDE.md 자동 생성 프로토콜.
@@ -9,7 +11,7 @@ bare `/project`(레거시 `/project init`) 초기화 Phase 6에서 호출되는 
 **핵심 원칙:**
 - CLAUDE.md 템플릿은 **외부 파일(`references/templates/CLAUDE.md.tmpl`)로 분리**. 인라인 하드코딩 금지.
 - 초기화 워크플로우는 Phase 3에서 설계된 **스킬 체인**을 템플릿의 `{workflow_chains}` 슬롯에 주입한다.
-- 모든 생성된 CLAUDE.md에 **office/web 스킬 우선 + AI 슬롭 후처리 HARD 규칙 블록**이 고정 포함된다.
+- 모든 생성된 CLAUDE.md에 **HARD 규칙 블록**이 고정 포함된다 — 기존 2종(office/web 스킬 우선 + AI 슬롭 후처리) + 신규 5종(요청 평가 사다리 · 파일 생성 기준 · 맥락 적용 규칙 · 톤 규칙 · 인용·저작권 가드). 신규 5종은 전부 HARD 고정으로 200라인 초과 시에도 축소 대상이 아니다(축소는 체인만).
 - **글로벌 프로필 변수(`{user_name}`, `{company_name}`, `{role}`, `{industry}`) 사용 안 함.** 프로젝트 맥락 변수만 사용한다.
 - `.claude/rules/` 생성 안 함 → CLAUDE.md 하나에 지침 통합
 - **한국어 전용** (다국어 템플릿 없음)
@@ -38,18 +40,26 @@ bare `/project`(레거시 `/project init`) 초기화 Phase 6에서 호출되는 
 
 ### 2.1 라인 예산 (200라인 이내)
 
+<!-- @MX:ANCHOR: [AUTO] 200라인 예산 표 — NFR-PMR-002 불변식(생성 CLAUDE.md ≤ 200라인)의 증명 지점 -->
+<!-- @MX:REASON: 신규 규칙 블록 5종은 기존 여유분 59라인에서 약 30라인을 재배분해 조달했다(잔여 약 29). 표를 수정하면 합계 ≤ 200이 유지되는지 반드시 재검산할 것 (SPEC-MOC-PM-REDESIGN-001 REQ-PMR-005) -->
+
 | 섹션 | 예산 | 설명 |
 |------|------|------|
 | 헤더 + 프로젝트 개요 | 약 15라인 | 프로젝트명, 산출물, 톤 제약 |
-| 행동 원칙 | 약 10라인 | 핵심 원칙 4개 (HARD) |
+| 행동 원칙 | 약 10라인 | 핵심 원칙 5개 (HARD) |
+| 요청 평가 사다리 | 약 6라인 | 대화→스킬→파일 3단 판단 (HARD 고정) |
+| 파일 생성 기준 | 약 8라인 | 파일/대화 판단 + 장문 반복 생성 (HARD 고정) |
 | 문서 생성 우선순위 블록 | 약 18라인 | office/content/media 스킬 매핑 (HARD 고정) |
 | AI 슬롭 후처리 블록 | 약 8라인 | general-ai-slop-reviewer 호출 규칙 (HARD 고정) |
+| 인용·저작권 가드 | 약 6라인 | 인용 한도·재표현 원칙 (HARD 고정) |
+| 톤 규칙 | 약 5라인 | 프로즈 기본·응답 깊이 비례 (HARD 고정) |
 | 스킬 체인 워크플로우 | 약 50라인 | Phase 3에서 설계된 체인 최대 10개 |
 | 라우팅 요약 | 약 15라인 | 설치된 플러그인의 키워드 매핑 |
 | 커넥터 + API 키 | 약 15라인 | 등록 상태 요약 |
 | 딥씽킹 + 참조 | 약 10라인 | `--deepthink`/`ultrathink` 조건 |
-| **여유분** | 약 59라인 | 맥락 확장용 |
-| **합계** | **≤ 200** | |
+| 맥락 적용 규칙 + 프로젝트 맥락 | 약 5라인 | 선택 적용·메타 코멘터리 금지 (HARD 고정) |
+| **여유분** | 약 29라인 | 맥락 확장용 (신규 블록 5종에 약 30라인 재배분) |
+| **합계** | **≤ 200** | 신규 규칙 블록 5종은 HARD 고정 — 초과 시 축소 대상은 체인만 |
 
 ### 2.2 스킬 내용 처리 방식
 
@@ -147,6 +157,7 @@ moai-pm/skills/project/references/templates/CLAUDE.md.tmpl
 
 4. 길이 검증
    wc -l 결과가 200라인 이하인지 확인. 초과 시 스킬 체인 나열을 최대 10개로 자동 축소.
+   HARD 규칙 블록 7종(office 우선·ai-slop + 신규 5종: 요청 평가 사다리·파일 생성 기준·맥락 적용 규칙·톤 규칙·인용·저작권 가드)은 축소 대상이 아니다.
 
 5. Write
    ./CLAUDE.md에 저장.
@@ -167,9 +178,14 @@ moai-pm/skills/project/references/templates/CLAUDE.md.tmpl
 - [ ] 프로젝트명·산출물·톤 제약이 올바르게 치환됨
 - [ ] 스킬 체인 블록이 `{workflow_chains}` 자리에 주입됨
 - [ ] `{routing_summary}`가 §7에 주입됨
-- [ ] office/web 스킬 우선 표(§3)가 고정 포함됨
-- [ ] AI 슬롭 후처리 규칙(§4)이 고정 포함됨
-- [ ] 실행 플로우(Interview → Plan → Confirm → Execute) 포함
+- [ ] office/web 스킬 우선 표가 고정 포함됨
+- [ ] AI 슬롭 후처리 규칙이 고정 포함됨
+- [ ] `요청 평가 사다리` 블록 포함 (대화→스킬→파일 3단 순서 + 라우팅 서술 금지 문구)
+- [ ] `파일 생성 기준` 블록 포함 (① 파일 여부 결정 → ② office 스킬 사용 계층 순서 + 장문 반복 생성)
+- [ ] `맥락 적용 규칙` 블록 포함 (선택 적용 + 메타 코멘터리 금지)
+- [ ] `톤 규칙` 블록 포함 (프로즈 기본 + 응답 깊이 비례)
+- [ ] `인용·저작권 가드` 블록 포함 (15단어 미만·출처당 1회·가사·시 재현 금지·재표현 기본)
+- [ ] 실행 플로우(Evaluate → Interview → Plan → Confirm → Execute) 포함
 - [ ] `.moai/config.json` 생성됨
 - [ ] 프로필 관련 변수(`{user_name}` 등) 흔적 없음
 

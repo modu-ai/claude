@@ -2,7 +2,7 @@
 id: SPEC-MOC-PM-REDESIGN-001
 title: "moai-pm project 스킬 재설계 — Fable 5 행동 패턴 증류 + 4-표면 셋업 프로토콜 재설계"
 version: "0.1.0"
-status: draft
+status: in-progress
 created: 2026-07-09
 updated: 2026-07-09
 author: Goos Kim
