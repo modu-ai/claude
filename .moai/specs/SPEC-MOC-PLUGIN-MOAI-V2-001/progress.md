@@ -512,7 +512,17 @@ $ git show 6f92d86:www/content/cookbook/_index.md | grep 'track-marketing\|track
 
 ## §E.3 Run-phase Audit-Ready Signal
 
-_<pending run-phase>_
+```yaml
+run_status: complete
+run_complete_at: 2026-07-09T08:30:13Z
+run_audit: "M1-M6 전 마일스톤 완료 + orchestrator 독립 재실측 6/6 PASS. AC-MV2-001a~005f 전 PASS; AC-006a/b/c PASS; AC-006d bash -n + hugo(228p) PASS, link-check PASS-WITH-DEBT (pre-existing cookbook/cowork/tags 부채 10건 — 본 SPEC 회귀 아님, git log 6f92d86..HEAD 미수정 입증). P0-8-verdict: probe 층 비결정적 정직 기록 (AC-006c 만족)."
+run_debt:
+  - "AC-006d link-check pre-existing (cookbook/cowork 콘텐츠 누락) — spec §E P4 Out-of-Scope 별도 SPEC"
+  - "--strict validate exit 1 (EC-5, 12 커맨드 frontmatter 미비) — 후속 frontmatter 우선순위 SPEC"
+  - "P0-8 typed-name 충돌 안내 문구 미구현 — P3 Out-of-Scope"
+run_commits: ["56f9e09 M1 rename", "ad86a50 M2 two-layer", "7ff8c5f M3 hook consolidation", "21fb72c M4 scaffold", "5037668 M5 reference sweep", "6e0ccdc M6 verification+P0-8"]
+parallel_session_absorbed: "SPEC-MOC-PM-REDESIGN-001 3-phase closed during run (moai-pm v0.3.0); M5 moai-pm 참조 갱신은 PM 재설계 결과 위에 치환-only 적용 (C-1)"
+```
 
 ## §E.4 Sync-phase Audit-Ready Signal
 
