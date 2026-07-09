@@ -108,7 +108,7 @@ evolution-protocol.md ← diagnostic-protocol.md ← quality-evaluator.md
 |---------|--------|------|---------|------------|
 | moai-coworker | 코워커 | 실무 + 글쓰기 작가 올인원 (사업·마케팅·콘텐츠·문서·법무·세무·이커머스·미디어·출판·웹툰 + 구 다중 도메인 전부 흡수) | 192 | `--cowork` |
 | moai-designer | 디자이너 | 디자인 전담 (브랜드·디자인 시스템·Claude Design 핸드오프·GAN 품질 루프) | 11 | `--designer` |
-| moai-coder | 코더 | 개발 전담 (SPEC DDD/TDD·품질 게이트·MoAI-ADK 정본) | 28 | `--code` |
+| moai | 코더 | 개발 전담 (SPEC DDD/TDD·품질 게이트·MoAI-ADK 정본) | 28 | `--code` |
 | moai-pm | PM | 프로젝트 초기화 허브 (본 스킬 — 라우팅만) | 1 | (본 스킬) |
 
 **합계: 4 플러그인 / 232 스킬** (단일 modu-ai/claude 마켓플레이스 — 작성 시점 스냅샷, 실측 정본은 각 분기 Phase 2 인벤토리)

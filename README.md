@@ -1,6 +1,6 @@
-# 모두의 클로드 (MoAI) — `modu-ai/claude` 마켓플레이스
+# 모두의 클로드 (MoAI) — `moai-claude` 마켓플레이스
 
-한국 실무 3종 플러그인 패밀리를 한 곳에. Claude Code / Claude Desktop에서 한 번의 등록으로 세 플러그인을 모두 만나고, 필요한 것만 설치합니다.
+한국 실무 4종 플러그인 패밀리를 한 곳에. Claude Code / Claude Desktop에서 한 번의 등록으로 네 플러그인을 모두 만나고, 필요한 것만 설치합니다.
 
 ## 설치
 
@@ -8,31 +8,34 @@
 claude plugin marketplace add modu-ai/claude
 ```
 
-등록 후 플러그인별 설치:
+등록 후 플러그인별 설치 (`moai-claude` 마켓):
 
 ```bash
-claude plugin install moai-cowork@modu-ai/claude   # 실무 올인원
-claude plugin install moai@modu-ai/claude           # 개발 방법론 (무설치)
-claude plugin install design@modu-ai/claude         # 에이전틱 디자인
+/plugin install moai@moai-claude              # 개발 방법론 (무설치, /moai)
+/plugin install moai-coworker@moai-claude     # 실무·콘텐츠 올인원
+/plugin install moai-designer@moai-claude     # 에이전틱 디자인
+/plugin install moai-pm@moai-claude           # 프로젝트 시작 허브 (/project)
 ```
 
 ## 플러그인 카탈로그
 
 | 플러그인 | 표면 | 한 줄 설명 |
 |----------|------|-----------|
-| **moai-cowork** (`/project` 외 자연어) | Cowork · Chat | 사업·이커머스·마케팅·콘텐츠·법률·재무·HR·교육·디자인·미디어 등 한국 실무 도메인 통합 올인원 |
 | **moai** (`/moai`) | Code | SPEC plan/run/sync 개발 방법론 무설치 에디션 — DDD/TDD·품질 게이트·문서 동기화. 비개발자·개발자 모두 `/moai`로 개발 |
-| **design** (`/design`) | Design | Claude Design 연동, 디자인 토큰(DTCG)·DESIGN.md·브랜드 시스템·GAN 품질 루프. 브리프부터 핸드오프까지 |
+| **moai-coworker** (`/project` 외 자연어) | Cowork · Chat | 사업·이커머스·마케팅·콘텐츠·법률·재무·HR·교육·디자인·미디어 등 한국 실무 도메인 통합 올인원 |
+| **moai-designer** (`/design`) | Design | Claude Design 연동, 디자인 토큰(DTCG)·DESIGN.md·브랜드 시스템·GAN 품질 루프. 브리프부터 핸드오프까지 |
+| **moai-pm** (`/project`) | PM | 프로젝트 시작 허브 — `/project` 라우터가 코더·코워커·디자이너 분기로 안내 |
 
 ## 저장소 구조
 
 ```
 modu-ai/claude/
-├── .claude-plugin/marketplace.json   # 마켓 매니페스트 (3 plugins)
+├── .claude-plugin/marketplace.json   # 마켓 매니페스트 (4 plugins, name: moai-claude)
 ├── plugins/                          # 마켓 플러그인 소스
-│   ├── moai-cowork/
-│   ├── moai-code/                    # 설치명: moai
-│   └── moai-design/                  # 설치명: design
+│   ├── moai/                         # 설치명: moai (개발 방법론)
+│   ├── moai-coworker/                # 설치명: moai-coworker
+│   ├── moai-designer/                # 설치명: moai-designer
+│   └── moai-pm/                      # 설치명: moai-pm
 ├── www/                              # 문서 사이트 (claude.mo.ai.kr, Hugo)
 ├── README.md
 └── LICENSE

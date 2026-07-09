@@ -5,4 +5,4 @@ argument-hint: "[SPEC-XXX] [--merge] [--skip-mx]"
 allowed-tools: Skill
 ---
 
-Use Skill("moai") with arguments: sync $ARGUMENTS
+Use Skill("moai:moai") with arguments: sync $ARGUMENTS

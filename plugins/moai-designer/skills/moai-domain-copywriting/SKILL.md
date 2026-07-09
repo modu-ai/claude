@@ -251,7 +251,7 @@ dependency.
 - `moai-domain-brand-design`: Visual design must accommodate copy constraints
 - `moai-workflow-gan-loop`: GAN loop evaluates copy quality in Design Quality and Completeness dimensions
 - `expert-frontend`: Receives the JSON copy output for implementation
-- 카피 정확도 셀프체크: 본 스킬의 brand-voice 정렬 체크리스트로 카피 정확도를 검증합니다. MoAI harness(`moai-coder`)의 `sync-auditor`가 함께 설치된 환경에서는 해당 agent로 평가를 보강할 수 있습니다.
+- 카피 정확도 셀프체크: 본 스킬의 brand-voice 정렬 체크리스트로 카피 정확도를 검증합니다. MoAI harness(`moai`)의 `sync-auditor`가 함께 설치된 환경에서는 해당 agent로 평가를 보강할 수 있습니다.
 
 ---
 

@@ -5,4 +5,4 @@ argument-hint: "\"설명\" [--team] [--worktree] [--branch] [--resume SPEC-XXX]"
 allowed-tools: Skill
 ---
 
-Use Skill("moai") with arguments: plan $ARGUMENTS
+Use Skill("moai:moai") with arguments: plan $ARGUMENTS

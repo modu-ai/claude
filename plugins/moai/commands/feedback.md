@@ -5,4 +5,4 @@ argument-hint: "[\"설명\"]"
 allowed-tools: Skill
 ---
 
-Use Skill("moai") with arguments: feedback $ARGUMENTS
+Use Skill("moai:moai") with arguments: feedback $ARGUMENTS

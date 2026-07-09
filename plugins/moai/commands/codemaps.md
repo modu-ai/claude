@@ -5,4 +5,4 @@ argument-hint: "[--force] [--area 영역]"
 allowed-tools: Skill
 ---
 
-Use Skill("moai") with arguments: codemaps $ARGUMENTS
+Use Skill("moai:moai") with arguments: codemaps $ARGUMENTS

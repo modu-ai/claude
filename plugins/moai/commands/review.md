@@ -5,4 +5,4 @@ argument-hint: "[--staged] [--branch] [--security]"
 allowed-tools: Skill
 ---
 
-Use Skill("moai") with arguments: review $ARGUMENTS
+Use Skill("moai:moai") with arguments: review $ARGUMENTS

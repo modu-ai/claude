@@ -125,7 +125,7 @@ FOR each chain in CLAUDE.md "프로젝트 워크플로우":
   ✓ moai-pm (project 라우터 허브)
   ✓ moai-coworker (실무·콘텐츠·사무·법률·재무·작가/IP, general-ai-slop-reviewer·general-humanize-korean 포함)
   ✓ moai-designer (cd-*, design-system-library, moai-domain-design, GAN 루프)
-  ✓ moai-coder (moai, moai-workflow-*, 개발 도메인 스킬)
+  ✓ moai (moai, moai-workflow-*, 개발 도메인 스킬)
   ... (총 4 플러그인 / 234 스킬)
 
 API 키 / 커넥터:

@@ -5,4 +5,4 @@ argument-hint: "[--dry] [--safe-only] [--file PATH]"
 allowed-tools: Skill
 ---
 
-Use Skill("moai") with arguments: clean $ARGUMENTS
+Use Skill("moai:moai") with arguments: clean $ARGUMENTS

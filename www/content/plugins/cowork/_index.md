@@ -126,7 +126,7 @@ flowchart LR
 
 - **[Chat에서 스킬·플러그인 활용](/plugins/chat/)** — 스킬과 플러그인을 처음 다루는 분을 위한 관문.
 - **[moai-design 플러그인](/plugins/design/)** — 브랜드 디자인·디자인 시스템이 필요할 때.
-- **[moai-code 플러그인](/plugins/code/)** — 개발 작업을 SPEC 기반으로 진행할 때.
+- **[moai 플러그인](/plugins/code/)** — 개발 작업을 SPEC 기반으로 진행할 때.
 
 ---
 

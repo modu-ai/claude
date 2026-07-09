@@ -351,6 +351,78 @@ scaffold.sh 토큰 세트: `{{PROJECT_NAME}}`, `{{VERSION}}`, `{{DATE}}`, `{{PRO
 
 **Residual-risk**: scaffold.sh는 jq에 의존(merge 모드) — jq 미설치 환경에서는 exit 1(명시적 에러). macOS bash 3.2 호환(associative array 미사용). `sed_safely` 이스케이프(`\`·`&`·`|`)는 일반적인 프로젝트명/버전/날짜/사용자명에 충분하나, 토큰 값에 제어문자나 개행이 포함된 극단적 케이스는 미커버(현실적 사용 범위 외). dry-run은 jq 체크를 우회하지 않으나(dry-run은 jq 사용 안 함 → exit 0 보장).
 
+### M5 — 참조 갱신 (moai-coder → moai 스윕 + www 카탈로그 + README 4-plugin 토폴로지 + 재설치 공지)
+
+스코프: live tree 한정 리터럴 치환(`moai-coder`→`moai` 31건/12파일 + harness 1건) + www 카탈로그(`moai-code`→`moai` 17건/5파일 + install-id `moai@moai-claude` NET-NEW) + 루트 README 4-plugin 토폴로지 재작성 + `plugins/moai/README.md` 재설치 공지(NET-NEW) + 13 parity 커맨드 `Skill("moai")`→`Skill("moai:moai")` 정규화(SHOULD). C-1 행위보존: PM-REDESIGN v0.3.0 본문은 리터럴 치환만(재작성 금지). C-5 자기참조 트랩: `.moai/**`·CHANGELOG·agent-memory 스윕 제외.
+
+파일별 스윕 전후(`moai-coder` hit 수):
+| 파일 | before | after |
+|------|--------|-------|
+| plugins/moai/README.md | 5 | 0 |
+| plugins/moai/commands/claude-agentic-coding.md | 2 | 0 |
+| plugins/moai-pm/README.md | 2 | 0 |
+| plugins/moai-pm/skills/project/SKILL.md | 3 | 0 |
+| plugins/moai-pm/skills/project/references/core/router.md | 1 | 0 |
+| plugins/moai-pm/skills/project/references/core/INDEX.md | 1 | 0 |
+| plugins/moai-pm/skills/project/references/core/coder-setup.md | 3 | 0 |
+| plugins/moai-pm/skills/project/references/core/diagnostic-protocol.md | 1 | 0 |
+| plugins/moai-pm/skills/project/references/core/init-protocol.md | 10 | 0 |
+| plugins/moai-designer/skills/moai-domain-copywriting/SKILL.md | 1 | 0 |
+| plugins/moai-designer/skills/moai-workflow-gan-loop/SKILL.md | 1 | 0 |
+| .claude/agents/harness/harness-builder-skill-builder-specialist.md | 1 | 0 |
+| **plugins/ + harness 합계** | **31** | **0** |
+
+AC-MV2-005a (plugins moai-coder 소거 — REMOVAL):
+```
+$ grep -rn 'moai-coder' plugins/ --include='*.md' --include='*.json' --include='*.sh' --include='*.yaml' | wc -l → 0
+```
+
+AC-MV2-005b (www 카탈로그 — REMOVAL + NET-NEW):
+```
+$ grep -rEn 'moai-code\b|moai-coder\b' www/content/plugins/ | wc -l → 0
+$ grep -rn 'moai@moai-claude' www/content/plugins/ | wc -l → 1
+```
+www `moai-cowork`·`moai-design`·`moai-story` 타 플러그인 명칭은 OUT OF SCOPE(spec §E P4)로 미변경 보존.
+
+AC-MV2-005c (루트 README 4-plugin 토폴로지 — REMOVAL + NET-NEW):
+```
+$ grep -cE 'moai-cowork\b|moai-code\b|moai-design\b|moai-coder\b' README.md → 0
+$ grep -c 'moai-coworker' README.md → 3
+$ grep -c 'moai-designer' README.md → 3
+$ grep -c 'moai-pm' README.md → 3
+$ grep -c 'moai@moai-claude' README.md → 1
+```
+
+AC-MV2-005d (재설치 공지 — NET-NEW):
+```
+$ grep -c '재설치' plugins/moai/README.md → 1
+```
+공지 문구는 `moai-coder` 리터럴을 포함하지 않음(AC-005a 회귀 방지) — "개명 전 이름" 우회 표현.
+
+AC-MV2-005e (harness + claude-plugin — REMOVAL):
+```
+$ grep -rn 'plugins/moai-coder' .claude/agents/harness/ | wc -l → 0
+$ grep -rn 'moai-coder' .claude-plugin/ | wc -l → 0   (M1에서 이미 clean, 회귀 가드)
+```
+
+AC-MV2-005f (Skill 자기참조 정규화 — NET-NEW SHOULD):
+```
+$ grep -l 'Skill("moai:moai")' plugins/moai/commands/*.md | wc -l → 13
+$ grep -l 'Skill("moai")' plugins/moai/commands/*.md | wc -l → 0   (잔여 bare 참조 0)
+```
+13 parity 커맨드(plan/run/sync/project/fix/loop/clean/mx/review/codemaps/gate/harness/feedback) 전부 정규화 — T3 공존 저장소에서 결정론적 자기참조 보장. debt 없음(SHOULD 달성).
+
+최종 live-tree 가드:
+```
+$ grep -rn 'moai-coder' plugins/ README.md www/content/plugins/ .claude/agents/harness/ --include='*.md' --include='*.json' --include='*.sh' --include='*.yaml' | wc -l → 0
+```
+
+**Baseline-attribution**: 기준선 HEAD 21fb72c(M4 scaffold.sh 완료, PM-REDESIGN 병렬 세션 종료 — sync 3dfcc42, origin/main 동기 `0 0`). M5 착수 전 HEAD 실측: plugins `moai-coder` 30건/11파일 + harness 1건, www `moai-code\b|moai-coder\b` 17건/5파일 + `moai@moai-claude` 0건, README 구명칭 5건, `재설치` 0건, `Skill("moai:moai")` 0건, `.claude-plugin/ moai-coder` 0건(M1 clean). M5 후: 전 predicate 예상 방향 이동(REMOVAL N→0, NET-NEW 0→≥1).
+
+**Gaps**: www 타 플러그인 구명칭(`moai-cowork`·`moai-design`·`moai-story` → `moai-coworker`·`moai-designer` 등) 정정은 spec §E P4 OUT OF SCOPE — 본 M5는 `moai-code`/`moai-coder` 한정. PM-REDESIGN 파일 내 "(구 moai-coder)"→"(구 moai)" 등 역사 주석의 리터럴 치환 결과가 맥락상 다소 중복적("구 moai")이나 C-1(본문 재작성 금지) 우선 — 편집 보정은 후속 SPEC 소관. P0-8 typed-name 충돌 런타임 실측은 M6 소관(AC-MV2-006c).
+
+**Residual-risk**: 재설치 공지가 `moai-coder` 리터럴을 회피하므로 과거 이름을 모르는 신규 사용자에게 맥락이 다소 추상적일 수 있음(개명 전 사용자층은 맥락 파악 가능). www `code/_index.md`의 GitHub 소스 경로(`plugins/moai-code/`→`plugins/moai/`)가 M1 개명과 정합하게 됐으나, 원격 GitHub 링크의 실제 경로 존재 여부는 push 후 원격 반영에 의존(본 저장소 로컬 경로는 정합). Hugo 빌드·link-check 회귀는 M6(AC-MV2-006d)에서 최종 검증.
+
 ## §E.3 Run-phase Audit-Ready Signal
 
 _<pending run-phase>_

@@ -19,7 +19,7 @@ flowchart LR
     Q -->|"스킬 켜고 쓰는 법"| Hub["/chat/skills-plugins/<br/>활용 가이드"]
     Q -->|"한국 업무 자동화"| Co["/plugins/cowork/<br/>moai-cowork 플러그인"]
     Q -->|"에이전틱 디자인"| De["/plugins/design/<br/>moai-design 플러그인"]
-    Q -->|"개발 방법론"| Cc["/plugins/code/<br/>moai-code 플러그인"]
+    Q -->|"개발 방법론"| Cc["/plugins/code/<br/>moai 플러그인"]
     Hub -. 내부에 연결 .- Co
     Hub -. 내부에 연결 .- De
     Hub -. 내부에 연결 .- Cc
@@ -53,9 +53,9 @@ Chat 안에서 스킬을 켜고, 직접 만들고, 디렉터리에서 찾는 방
 
 스킬을 직접 만들기보다, 이미 한국 업무 패턴에 맞춰 다듬어진 스킬 177개를 한 번에 가져오고 싶다면 [moai-cowork 플러그인](/plugins/cowork/)이 그 역할을 합니다. 사업계획서·상세페이지·카드뉴스·SNS 캠페인·재무제표·계약서 검토까지 한국 비즈니스 컨텍스트에 특화된 도구 모음입니다.
 
-### 3. 디자인·개발 작업을 위한 빌드 플러그인 — moai-design, moai-code
+### 3. 디자인·개발 작업을 위한 빌드 플러그인 — moai-design, moai
 
-Chat이 아니라 Claude Design이나 Claude Code에서 작업한다면 [moai-design](/plugins/design/)과 [moai-code](/plugins/code/)가 각각 대응됩니다. 다만 두 플러그인 모두 Chat에서 보다는 전용 환경에서 의미가 있으므로, Chat 사용자라면 스킬 디렉터리와 cowork 플러그인부터 시작하는 것이 자연스럽습니다.
+Chat이 아니라 Claude Design이나 Claude Code에서 작업한다면 [moai-design](/plugins/design/)과 [moai](/plugins/code/)가 각각 대응됩니다. 다만 두 플러그인 모두 Chat에서 보다는 전용 환경에서 의미가 있으므로, Chat 사용자라면 스킬 디렉터리와 cowork 플러그인부터 시작하는 것이 자연스럽습니다.
 
 ## 자주 묻는 질문 (요약)
 

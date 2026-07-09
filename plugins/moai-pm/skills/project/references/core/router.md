@@ -68,7 +68,7 @@
 
 → 진입: `designer-setup.md` (브랜드 자산 합성 → DESIGN.md + `.moai/project/brand/`)
 
-### moai-coder (코더) — 개발 전담
+### moai (코더) — 개발 전담
 
 | 도메인 | 키워드 |
 |--------|--------|

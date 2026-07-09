@@ -5,4 +5,4 @@ argument-hint: "[--max N] [--auto-fix] [--seq]"
 allowed-tools: Skill
 ---
 
-Use Skill("moai") with arguments: loop $ARGUMENTS
+Use Skill("moai:moai") with arguments: loop $ARGUMENTS

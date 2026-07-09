@@ -90,7 +90,7 @@ flowchart LR
 
 - **[Claude Design 핸드오프 공식 규격](https://claude.ai/design)** — 핸드오프 번들의 원본 포맷.
 - **[moai-cowork 플러그인](/plugins/cowork/)** — 디자인 산출물을 실무 문서(PPT, PDF)로 마무리할 때.
-- **[moai-code 플러그인](/plugins/code/)** — 핸드오프된 토큰을 코드로 반영할 때.
+- **[moai 플러그인](/plugins/code/)** — 핸드오프된 토큰을 코드로 반영할 때.
 
 ---
 

@@ -5,4 +5,4 @@ argument-hint: "[--force] [--area AREA]"
 allowed-tools: Skill
 ---
 
-Use Skill("moai") with arguments: project $ARGUMENTS
+Use Skill("moai:moai") with arguments: project $ARGUMENTS

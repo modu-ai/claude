@@ -5,4 +5,4 @@ argument-hint: "[--fix]"
 allowed-tools: Skill
 ---
 
-Use Skill("moai") with arguments: gate $ARGUMENTS
+Use Skill("moai:moai") with arguments: gate $ARGUMENTS

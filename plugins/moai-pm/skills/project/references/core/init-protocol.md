@@ -107,7 +107,7 @@ AskUserQuestion (1질문, 4옵션)
 moai-pm          (1)   프로젝트 시작 허브 라우터 — /project 플래그 분기
 moai-coworker   (193)  실무·사무·콘텐츠·법률·재무·커머스·교육·미디어·스토리/IP·오피스 도메인 통합
 moai-designer    (11)  브랜드·디자인 시스템·Claude Design 핸드오프·GAN 품질 루프
-moai-coder       (29)  MoAI-ADK SPEC plan/run/sync 개발 방법론 (무설치 harness 정본)
+moai       (29)  MoAI-ADK SPEC plan/run/sync 개발 방법론 (무설치 harness 정본)
 ```
 
 합계: 현재 4 플러그인 / 234 스킬 (동적 도출 — 카운트 하드코딩 금지)
@@ -145,7 +145,7 @@ done
 
 현재 세션 system reminder에 포함된 "user-invocable skills" 목록을 파싱하되, **moai-claude 출처 스킬만** 인벤토리에 등록한다.
 
-- 포함: moai-claude 마켓플레이스 출처 `moai-*` 플러그인이 제공하는 스킬 (예: `moai-coworker:content-blog`, `moai-coworker:office-docx-generator`, `moai-designer:cd-brief`, `moai-coder:moai`)
+- 포함: moai-claude 마켓플레이스 출처 `moai-*` 플러그인이 제공하는 스킬 (예: `moai-coworker:content-blog`, `moai-coworker:office-docx-generator`, `moai-designer:cd-brief`, `moai:moai`)
 - 제외: 그 외 출처 스킬 (예: `find-skills`, `update-config`, `notion-cli`, 사용자가 별도 설치한 모든 스킬)
 
 `plugin:skill-name` 형태로 추출하되, `plugin`이 moai-claude 출처 `moai-*` 집합에 없으면 인벤토리에서 제외한다.
@@ -168,7 +168,7 @@ done
 ```json
 {
   "scanned_at": "2026-07-09T00:00:00+09:00",
-  "plugins_installed": ["moai-pm", "moai-coworker", "moai-designer", "moai-coder"],
+  "plugins_installed": ["moai-pm", "moai-coworker", "moai-designer", "moai"],
   "skills_available": {
     "content-blog": "moai-coworker",
     "content-card-news": "moai-coworker",
@@ -176,13 +176,13 @@ done
     "office-pptx-designer": "moai-coworker",
     "general-ai-slop-reviewer": "moai-coworker",
     "cd-brief": "moai-designer",
-    "moai": "moai-coder"
+    "moai": "moai"
   },
   "confidence": {
     "moai-pm": "HIGH",
     "moai-coworker": "HIGH",
     "moai-designer": "HIGH",
-    "moai-coder": "HIGH"
+    "moai": "HIGH"
   }
 }
 ```
@@ -205,9 +205,9 @@ done
 | 자산·재무 설계 | moai-coworker (finance-wealth-roadmap, finance-household-budget 스킬군) |
 | 생산성·루틴·라이프 | moai-coworker (office-goal-planner, general-wellness-coach 스킬군) |
 | 커뮤니케이션·협업 | moai-coworker (business-meeting-facilitator, business-report-speak 스킬군) |
-| 개발·SPEC·품질 게이트 | moai-coder (moai, moai-workflow-* 스킬군) |
+| 개발·SPEC·품질 게이트 | moai (moai, moai-workflow-* 스킬군) |
 
-**라우터 허브는 moai-pm** (`/project` 진입). 실무/콘텐츠/사무 도메인은 거의 `moai-coworker`로 수렴하며, 디자인은 `moai-designer`, 개발은 `moai-coder`로 분기된다. `general-ai-slop-reviewer`·`general-humanize-korean`은 moai-coworker 소속으로 텍스트 후처리 체인에 항상 활용 가능하다.
+**라우터 허브는 moai-pm** (`/project` 진입). 실무/콘텐츠/사무 도메인은 거의 `moai-coworker`로 수렴하며, 디자인은 `moai-designer`, 개발은 `moai`로 분기된다. `general-ai-slop-reviewer`·`general-humanize-korean`은 moai-coworker 소속으로 텍스트 후처리 체인에 항상 활용 가능하다.
 
 ---
 
@@ -329,10 +329,10 @@ for each skill in chain_skills:
 | story-* (웹툰·웹소설·시나리오·콘티·캐릭터·표지·IP피칭·프리비즈) | moai-coworker |
 | general-* (ai-slop-reviewer·humanize-korean·travel·event·wellness·self-care·feedback·skill-builder) | moai-coworker |
 | cd-brief, cd-handoff-reader, cd-prompt-builder, cd-slop-check, cd-system-prep, design-system-library, moai-domain-brand-design, moai-domain-copywriting, moai-domain-design-handoff, moai-workflow-design, moai-workflow-gan-loop | moai-designer |
-| moai, claude-agentic-coding, moai-domain-* (backend/database/frontend/html-report/humanize), moai-foundation-* (cc/core/quality/thinking), moai-ref-* (api/git/owasp/react/secops/supply-chain/testing), moai-workflow-* (ci-loop/ddd/loop/project/spec/tdd/testing/worktree), moai-harness-learner, moai-meta-harness | moai-coder |
+| moai, claude-agentic-coding, moai-domain-* (backend/database/frontend/html-report/humanize), moai-foundation-* (cc/core/quality/thinking), moai-ref-* (api/git/owasp/react/secops/supply-chain/testing), moai-workflow-* (ci-loop/ddd/loop/project/spec/tdd/testing/worktree), moai-harness-learner, moai-meta-harness | moai |
 | project (초기화 허브) | moai-pm |
 
-> 모두의클로드는 4-plugin 아키텍처로, 과거 27-plugin(cowork-plugins)은 v5.0.0에서 moai-coworker로 통합 흡수되었고 디자인/개발 도메인은 각각 moai-designer·moai-coder로 분리되었다.
+> 모두의클로드는 4-plugin 아키텍처로, 과거 27-plugin(cowork-plugins)은 v5.0.0에서 moai-coworker로 통합 흡수되었고 디자인/개발 도메인은 각각 moai-designer·moai로 분리되었다.
 
 ### 4-3. 누락 발견 시 AskUserQuestion 4 옵션
 
@@ -362,7 +362,7 @@ for each skill in chain_skills:
 ```
 1. 누락 플러그인별 설치 명령 안내:
 
-   /plugin install moai-coworker@moai-claude   (또는 moai-designer@moai-claude / moai-coder@moai-claude)
+   /plugin install moai-coworker@moai-claude   (또는 moai-designer@moai-claude / moai@moai-claude)
 
    (최초 1회 마켓 등록: /plugin marketplace add modu-ai/claude)
    누락된 직원 플러그인을 moai-claude 마켓에서 설치 후 활성화

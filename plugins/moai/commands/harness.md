@@ -4,4 +4,4 @@ argument-hint: "{status|apply|rollback <YYYY-MM-DD>|disable|list|edit <name>|rem
 allowed-tools: Skill
 ---
 
-Use Skill("moai") with arguments: harness $ARGUMENTS
+Use Skill("moai:moai") with arguments: harness $ARGUMENTS

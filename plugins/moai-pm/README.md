@@ -26,7 +26,7 @@ goos.kim의 "플러그인=AI 직원" 발상 — 모두의클로드는 **4명의 
 |---------|---------|-----------|---------------|
 | 🧑‍💼 **코워커** | `moai-coworker` | 사업·마케팅·콘텐츠·문서 작성·출판·웹툰 작가 | 실무 동료와 글쓰기 작가 모자를 상황에 따라 교체. 사업계획서, 블로그, 카드뉴스, 계약서, 소설, 웹툰까지 올인원 (192스킬) |
 | 🎨 **디자이너** | `moai-designer` | 브랜드·디자인 시스템을 잡고 싶은 분 | 흩어진 브랜드 자산(로고·색·타이포)을 모아 Claude Design용 DESIGN.md로 합성 (11스킬) |
-| 💻 **코더** | `moai-coder` | 개발 프로젝트를 시작하는 분 | 개발 환경 셋업, SPEC 기반 개발(DDD/TDD), 품질 게이트까지 (28스킬) |
+| 💻 **코더** | `moai` | 개발 프로젝트를 시작하는 분 | 개발 환경 셋업, SPEC 기반 개발(DDD/TDD), 품질 게이트까지 (28스킬) |
 | 📋 **PM** | `moai-pm` (본 플러그인) | 전부 | 위 3명 중 **누가 필요한지 판단해 연결** (이 플러그인) |
 
 PM은 직접 일하지 않습니다. **누가 이 일에 맞는지 찾아주는 안내자** 역할만 합니다.
@@ -63,7 +63,7 @@ PM은 직접 일하지 않습니다. **누가 이 일에 맞는지 찾아주는 
     /plugin install moai-pm@moai-claude            # PM 허브 (필수)
     /plugin install moai-coworker@moai-claude      # 실무·콘텐츠·작가 (대다수)
     /plugin install moai-designer@moai-claude      # 디자인 (필요 시)
-    /plugin install moai-coder@moai-claude         # 개발 (필요 시)
+    /plugin install moai@moai-claude         # 개발 (필요 시)
 
 > 처음엔 PM + 코워커만 설치해도 충분합니다. 나중에 다른 직원이 필요해지면 PM이 자동으로 감지하고 **"이 직원을 설치해 주세요"**라고 안내한 뒤, 설치 완료 시 `/project resume`으로 이어서 진행합니다.
 

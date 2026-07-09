@@ -1,4 +1,4 @@
-# moai-coder (코더) — SPEC 기반 개발을 Claude Code만으로 하는 동료
+# moai (코더) — SPEC 기반 개발을 Claude Code만으로 하는 동료
 
 > **코더**는 `moai` CLI **설치 없이** Claude Code 터미널·데스크탑에서 MoAI-ADK의 SPEC 개발 방법론(PLAN › RUN › SYNC)을 쓰는 동료입니다. 개발 환경 셋업부터 DDD/TDD 구현·품질 게이트·문서 동기화까지 `/moai` 명령으로 처리합니다. 비개발자와 개발자 모두 `/moai`로 개발합니다.
 
@@ -64,11 +64,12 @@
 
 **② 이 직원 추가**
 
-    /plugin install moai-coder@moai-claude
+    /plugin install moai@moai-claude
 
-또는 `/plugin` 입력 → **"Browse Plugins"** → moai-coder 선택.
+또는 `/plugin` 입력 → **"Browse Plugins"** → moai 선택.
 
 > 개발 프로젝트를 시작할 때 설치하세요.
+> **재설치 안내 (개명 마이그레이션)** — 본 플러그인은 개명되었습니다. 개명 전 이름으로 설치한 분은 자동 마이그레이션이 제공되지 않으므로, 기존 플러그인을 제거한 뒤 `moai@moai-claude`로 **재설치**해 주세요.
 
 ---
 
@@ -91,7 +92,7 @@
 
 | Tier | 구성 | 능력 |
 |------|------|------|
-| **Tier 1** (플러그인 단독) | moai-coder만 설치 | `/moai:plan → run → sync` + SPEC 템플릿 + 14 명령 ≈ 방법론 90% |
+| **Tier 1** (플러그인 단독) | moai만 설치 | `/moai:plan → run → sync` + SPEC 템플릿 + 14 명령 ≈ 방법론 90% |
 | **Tier 2** (플러그인 + git) | Tier 1 + git CLI | 브랜치·워크트리 흐름 (git CLI 직접 호출) |
 | **Tier 3** (+ moai 바이너리) | Tier 2 + `moai` CLI 바이너리 | 네이티브 훅 강제(품질 게이트·Stop 훅) + LSP 진단 게이트 + 세션 레지스트리 + cg/glm 비용 모드 |
 
@@ -116,7 +117,7 @@
 1. `pkg/version/version.go` — 바이너리 정본 (`Version = "vX.Y.Z"`)
 2. `internal/template/templates/.moai/config/sections/system.yaml.tmpl` — `{{.Version}}` 플레이스홀더
 3. `plugins/moai-coworker/.claude-plugin/plugin.json`
-4. `plugins/moai-coder/.claude-plugin/plugin.json`
+4. `plugins/moai/.claude-plugin/plugin.json`
 
 플러그인 버전은 바이너리 `3.0.x` 라인에 바인딩 (REQ-BD-012). `www/hugo.toml` L50-54의 ⚠️SSOT 주석이 원천.
 
