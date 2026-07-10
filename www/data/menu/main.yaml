@@ -14,6 +14,8 @@ main:
         ref: /getting-started
       - name: Claude Desktop 설치
         ref: /getting-started/install
+      - name: 도구와 기능 개념 기초
+        ref: /getting-started/concepts
       - name: 처음 실행하기
         ref: /getting-started/first-task
 
@@ -27,6 +29,8 @@ main:
         ref: /chat/first-chat
       - name: 프롬프트 작성법
         ref: /chat/prompts
+      - name: 컨텍스트 다루기
+        ref: /chat/context-engineering
       - name: Projects 기능
         ref: /chat/projects
       - name: 웹 검색·리서치·확장 사고
@@ -127,19 +131,57 @@ main:
       - name: 첫 작업 실행
         ref: /code/first-task
 
-  - name: MoAI 플러그인
+  - name: MoAI-Agent Teams
+    icon: plug
+    defaultOpen: true
+    sub:
+      - name: 15 직원 한눈에
+        ref: /agent-teams
+      - name: PM (진입 허브)
+        ref: /agent-teams/pm
+      - name: 코워커
+        ref: /agent-teams/coworker
+      - name: 작가
+        ref: /agent-teams/writer
+      - name: 마케터
+        ref: /agent-teams/marketer
+      - name: 셀러
+        ref: /agent-teams/seller
+      - name: 사무관
+        ref: /agent-teams/officer
+      - name: 법무
+        ref: /agent-teams/lawyer
+      - name: 재무세무
+        ref: /agent-teams/accountant
+      - name: 인사채용
+        ref: /agent-teams/recruiter
+      - name: CS매니저
+        ref: /agent-teams/cs
+        isNew: true
+      - name: 컨설턴트
+        ref: /agent-teams/consultant
+        isNew: true
+      - name: 커리어코치
+        ref: /agent-teams/career
+        isNew: true
+      - name: 튜터
+        ref: /agent-teams/tutor
+      - name: 디자이너
+        ref: /agent-teams/designer
+      - name: 코더
+        ref: /agent-teams/coder
+
+  - name: 플러그인 설치·운용
     icon: plug
     sub:
-      - name: 플러그인 카탈로그
+      - name: 개요
         ref: /plugins
-      - name: Chat — 스킬·플러그인 활용
-        ref: /plugins/chat
-      - name: moai-cowork (한국 실무 177스킬)
-        ref: /plugins/cowork
-      - name: moai-design (에이전틱 디자인)
-        ref: /plugins/design
-      - name: moai-code (무설치 개발 방법론)
-        ref: /plugins/code
+      - name: 설치와 관리
+        ref: /plugins/install
+      - name: 전문가 에이전트 이해
+        ref: /plugins/agents
+      - name: 팀 구성 패턴
+        ref: /plugins/teams
 
   # ============================================================
   # ⌨️ CLI 축 (CLI axis) — 개발자용
@@ -233,6 +275,9 @@ main:
     sub:
       - name: 쿡북 홈
         ref: /cookbook
+      - name: 코워크 프로젝트 (12선)
+        ref: /cookbook/projects
+        isNew: true
       - name: 스킬 체이닝
         ref: /cookbook/skill-chaining
       - name: 베스트 프랙티스

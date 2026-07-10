@@ -1,86 +1,84 @@
 ---
-title: "플러그인 카탈로그"
+title: "플러그인 설치·운용"
 weight: 50
-description: "Claude 제품 라인을 확장하는 4개 플러그인 카테고리 — Chat에서 스킬·플러그인 활용 (문서 허브) · moai-cowork (한국 실무 171스킬) · moai-design (에이전틱 디자인) · moai (무설치 개발 방법론) · moai-story (작가·콘텐츠 + Higgsfield). v4.0.0에서 moai-story가 신설되어 4종 빌드 플러그인 패밀리가 되었습니다."
+description: "모두의 클로드 15-직원 플러그인 패밀리를 설치하고 부리는 법 — 마켓플레이스 등록부터 설치 확인, 에이전트 호출, 팀 구성 패턴까지."
 geekdocBreadcrumb: true
 geekdocCollapseSection: true
 ia_in_scope: true
-aliases: ["/plugins/moai-design-system-library", "/plugins/moai-ads", "/plugins/moai-tech", "/plugins/moai-devops", "/plugins/cowork-plugins", "/plugins/moai-cowork-plugins"]
+aliases: ["/plugins/moai-design-system-library", "/plugins/moai-ads", "/plugins/moai-tech", "/plugins/moai-devops", "/plugins/cowork-plugins", "/plugins/moai-cowork-plugins", "/plugins/chat", "/plugins/cowork", "/plugins/design", "/plugins/code"]
 ---
 
-## 4개 카테고리로 정리된 플러그인 세계
+플러그인은 Claude에게 새로운 직무 능력을 붙여 주는 확장 꾸러미입니다. 스마트폰에 앱을 설치하면 없던 기능이 생기듯, Claude Code나 Claude Desktop에 플러그인을 설치하면 마케팅 캠페인 기획, 쇼핑몰 주문 관리, 계약서 검토 같은 전문 업무를 바로 시킬 수 있게 됩니다. 그리고 이런 플러그인을 받아오는 곳이 **마켓플레이스**입니다 — 앱스토어가 앱을 모아 두는 곳이라면, 마켓플레이스는 플러그인을 모아 두는 곳이라고 생각하면 정확합니다.
 
-이 페이지는 `모두의 클로드` 사이트가 다루는 **네 개의 플러그인 카테고리**를 한눈에 보여주는 카탈로그입니다. 과거(2026년 6월 이전)에는 28개의 개별 플러그인이 늘어선 목록이었으나, [SPEC-MOC-PLUGIN-REMEDIATION-001](https://github.com/modu-ai)을 거치며 실제 마켓플레이스(`.claude-plugin/marketplace.json`)에 존재하는 3개의 빌드 플러그인(moai-cowork, moai-design, moai) 기준으로 정리되었고, Chat 사용자를 안내하는 문서 허브(chat)가 넷째 카테고리로 추가되었습니다. 이 정리는 SPEC-MOC-SITE-IA-001의 정보구조(IA) 개편 결과입니다.
+`모두의 클로드`가 운영하는 마켓플레이스(`modu-ai/claude`)에는 **15명의 AI 직원**이 올라와 있습니다. 실무 범용 코워커부터 작가, 마케터, 셀러, 오피서, 변호사, 회계사, 리크루터, CS 매니저, 컨설턴트, 커리어 코치, 튜터, 디자이너, 개발 방법론(moai), 그리고 프로젝트 허브(PM)까지 — 각 플러그인이 한 명의 전문 직원처럼 자기 분야의 스킬과 에이전트, 필요하면 외부 서비스 연동(MCP)까지 갖추고 있습니다. 전부 설치할 필요는 없습니다. 회사에서 필요한 직무만 채용하듯, 필요한 직원만 골라 설치하면 됩니다.
 
-네 카테고리는 `모두의 클로드` 사이트의 제품 축과 일대일로 대응됩니다. Chat은 데스크탑·웹 채팅 환경, Cowork는 한국 실무 자동화, Design은 Claude Design과의 연동, Code는 Claude Code 기반의 개발 방법론입니다. 사용자가 어느 제품에서 왔는지에 따라 자연스럽게 해당 카테고리로 안내되도록 배치되어 있습니다.
+이 섹션은 그 직원들을 **"어떻게 설치하고 부리나"**를 다루는 운용 매뉴얼입니다. 각 직원이 **"무엇을 하나"** — 어떤 스킬을 갖고 있고 어떤 일을 맡기면 좋은지 — 는 [에이전트 팀 소개](/agent-teams/) 섹션이 직원별 페이지로 안내합니다. 두 섹션을 오가며 읽으면 "누구를 뽑을지"와 "어떻게 부릴지"가 모두 잡힙니다.
+
+## 플러그인 생애주기 한눈에 보기
+
+플러그인 운용은 다섯 단계의 순환입니다. 마켓플레이스를 한 번 등록해 두면, 이후에는 설치 → 확인 → 사용 → 업데이트를 반복하게 됩니다.
 
 ```mermaid
 flowchart LR
-    Root["/plugins/<br/>카탈로그"] --> Chat["chat<br/>문서 허브"]
-    Root --> Cowork["cowork<br/>moai-cowork 플러그인"]
-    Root --> Design["design<br/>moai-design 플러그인"]
-    Root --> Code["code<br/>moai 플러그인"]
-    Root --> Story["story<br/>moai-story 플러그인"]
+    A["① 마켓플레이스 등록<br/>claude plugin marketplace add"] --> B["② 플러그인 설치<br/>claude plugin install"]
+    B --> C["③ 설치 확인<br/>claude plugin list"]
+    C --> D["④ 사용<br/>스킬·에이전트 호출"]
+    D --> E["⑤ 업데이트<br/>claude plugin update"]
+    E -. 새 버전이 나오면 반복 .-> D
 
-    Chat -. 안내 .- ChatFull["/chat/skills-plugins/<br/>본문 가이드"]
-    Cowork -. 산출 .- CoworkSkills["171개 스킬<br/>(한국 실무 도메인)"]
-    Story -. 생성 .- StorySkills["21개 스킬<br/>(작가·Higgsfield)"]
-    Design -. 연동 .- ClaudeDesign["claude.ai/design"]
-    Code -. 무설치 .- SameAs["moai CLI 바이너리와<br/>동일 산출물"]
-
-    style Root fill:#fbf0dc,stroke:#c47b2a,color:#09110f
-    style Chat fill:#dceee9,stroke:#2a8a8c,color:#09110f
-    style Cowork fill:#f5dcd7,stroke:#c44a3a,color:#09110f
-    style Design fill:#e6f0ef,stroke:#144a46,color:#09110f
-    style Code fill:#788C5D,stroke:#5F6F4A,color:#FFFFFF
-    style Story fill:#e8e0f0,stroke:#6b3fa0,color:#09110f
-    style ChatFull fill:#eaeaea,stroke:#6e6e6e,color:#09110f
-    style CoworkSkills fill:#eaeaea,stroke:#6e6e6e,color:#09110f
-    style ClaudeDesign fill:#eaeaea,stroke:#6e6e6e,color:#09110f
-    style SameAs fill:#eaeaea,stroke:#6e6e6e,color:#09110f
-    style StorySkills fill:#eaeaea,stroke:#6e6e6e,color:#09110f
+    style A fill:#fbf0dc,stroke:#c47b2a,color:#09110f
+    style B fill:#e6f0ef,stroke:#144a46,color:#09110f
+    style C fill:#dceee9,stroke:#2a8a8c,color:#09110f
+    style D fill:#d6ebe7,stroke:#1c7c70,stroke-width:2px,color:#09110f
+    style E fill:#eaeaea,stroke:#6e6e6e,color:#09110f
 ```
 
-## 왜 4개인가 — 제품 축과 플러그인 카테고리의 일대일 대응
+## 이 섹션의 구성
 
-플러그인 카테고리 개수가 4개인 이유는 사이트가 다루는 Claude 제품 라인이 4개이기 때문입니다. 세 개는 빌드된 설치형 플러그인이고, 한 개(chat)는 빌드된 플러그인은 아니지만 Chat 사용자가 자주 묻는 "스킬·플러그인 어떻게 쓰나요?" 질문을 받아 `/chat/skills-plugins/` 본문으로 안내하는 문서 허브입니다. Chat은 별도의 Chat 전용 빌드 플러그인 없이도 스킬 체계를 통해 확장되도록 설계되었기 때문에, 이 넷째 카테고리는 빌드 플러그인이 아닌 **안내 관문** 역할을 합니다.
+| 순서 | 페이지 | 다루는 질문 |
+|------|--------|------------|
+| 1 | [설치와 관리](install/) | 마켓플레이스 등록부터 설치·확인·업데이트·제거까지, 터미널에서 무엇을 치는가? |
+| 2 | [전문가 에이전트 이해](agents/) | 일하는 직원(worker)과 검수하는 직원(auditor)은 왜 나뉘어 있고, 어떻게 직접 호출하는가? |
+| 3 | [팀 구성 패턴](teams/) | 직원 하나로 시작해서 여러 직원을 조합하는 실전 시나리오는 어떻게 짜는가? |
 
-### chat — 문서 허브 (빌드 플러그인 아님)
+## 15-직원 패밀리 개요
 
-Chat(데스크탑·웹)에서 스킬과 플러그인을 어떻게 켜고 쓰는지 안내하는 허브. Chat 전용 설치형 플러그인은 없지만, 스킬 체계와 cowork 플러그인을 통해 확장됩니다. → [`/plugins/chat/`](/plugins/chat/)
+마켓플레이스 `moai-claude`(v6.1.0)에 등록된 15개 플러그인입니다. 이름이 곧 직무입니다.
 
-### cowork — moai-cowork 플러그인 (한국 실무 171스킬)
+| 플러그인 | 직무 | 한 줄 소개 |
+|----------|------|-----------|
+| `moai-coworker` | 실무 범용 코워커 | 브랜드·제안서·보고·협상 등 비즈니스 공통 실무 |
+| `moai-writer` | 작가 | 출판 기획·집필, 웹툰·시나리오·콘티, 한국어 윤문 |
+| `moai-marketer` | 마케터 | 캠페인 기획·퍼포먼스 분석·콘텐츠·광고 (Meta Ads·ElevenLabs 연동) |
+| `moai-seller` | 이커머스 셀러 | 스마트스토어·아임웹·카페24 운영 (MCP 연동)·상세페이지·CRM |
+| `moai-officer` | 사무·데이터 오피서 | HWPX·DOCX·XLSX 등 한국형 문서, 공공데이터·통계 조회 |
+| `moai-lawyer` | 변호사 | 계약 검토·컴플라이언스·법령/판례 리서치 (국가법령정보 연동) |
+| `moai-accountant` | 회계사 | 재무제표 분석·결산·세금 절약·가계 예산 |
+| `moai-recruiter` | 리크루터 (고용주 편) | 채용 공고·이력서 스크리닝·오퍼레터·성과평가 |
+| `moai-cs` | CS 매니저 | 티켓 분류·응답 초안·VOC 분석·지식베이스 |
+| `moai-consultant` | 경영 컨설턴트 | 사업계획서·시장 분석·정부 지원사업 매칭·상권분석 |
+| `moai-career` | 커리어 코치 (구직자 편) | 이력서·포트폴리오 첨삭, 면접 준비, 이직 전략 |
+| `moai-tutor` | 튜터 | 커리큘럼 설계·평가 문항·논문 검색/작성 |
+| `moai-designer` | 디자이너 | Claude Design 연동, 토큰 파이프라인, 브랜드 시스템 |
+| `moai` | 개발 방법론 | SPEC plan→run→sync 개발 사이클 무설치 플러그인 |
+| `moai-pm` | 프로젝트 허브 | `/project` 명령으로 프로젝트 단위 셋업·직원 배치 |
 
-사업·이커머스·마케팅·콘텐츠·법률·재무·HR·교육·디자인·미디어·오피스 도메인의 스킬 171개를 하나로 묶은 통합 플러그인. 한국 실무 패턴에 특화. 버전 4.0.0. v4.0.0에서 출판(book-*) 스킬 8종이 moai-story로 이관되었습니다(`/plugin install story`). → [`/plugins/cowork/`](/plugins/cowork/)
+각 직원의 스킬 목록과 활용 예시는 [에이전트 팀 소개](/agent-teams/)의 직원별 페이지에서 확인하세요.
 
-### design — moai-design 플러그인 (에이전틱 디자인)
+## 예전 페이지를 찾아오셨다면
 
-Claude Design과 짝을 이루는 디자인 플러그인. 브리프 작성, 브랜드 컨텍스트 주입, DTCG 토큰 생성, GAN 품질 루프를 11개 스킬로 묶음. 버전 0.1.0. → [`/plugins/design/`](/plugins/design/)
-
-### code — moai 플러그인 (무설치 개발 방법론)
-
-moai CLI 바이너리 없이 Claude Code 안에서 SPEC plan → run → sync 개발 사이클을 그대로 쓸 수 있게 만든 무설치 플러그인. 13개 명령, 7개 에이전트, 28개 스킬. 마켓플레이스 이름 `moai`, 버전 3.0.0. → [`/plugins/code/`](/plugins/code/)
-
-### story — moai-story 플러그인 (작가·콘텐츠)
-
-작가와 콘텐츠 비즈니스를 위한 플러그인(v4.0.0 신설). 출판 기획·집필·퇴고부터 웹툰·웹소설·드라마/영화 시나리오·광고/영상 콘티·캐릭터 시트·표지·시네마틱 프리비즈·IP 피칭까지 21개 스킬. Higgsfield MCP 연동으로 캐릭터 일관성 작화·콘티·프리비즈 생성. 버전 0.1.0. v4.0.0에서 cowork의 출판(book-*) 스킬 8종이 이 플러그인으로 이관되었습니다.
-
-## 구 28-플러그인 목록에서 단일 통합으로
-
-이전 문서에서 "28종 플러그인"으로 소개되던 구조는 2026년 6월 REMEDIATION 작업을 통해 단일 `moai-cowork` 플러그인(버전 3.0.0)으로 통합되었습니다. 따라서 `/plugins/moai-business/`, `/plugins/moai-marketing/` 같은 예전 URL은 이제 `/plugins/cowork/`로 리다이렉트됩니다. 이전 URL을 북마크해 둔 분들도 새 카테고리 페이지로 자연스럽게 도착할 수 있도록, 모든 예전 경로에는 별칭(alias) 리다이렉트가 걸려 있습니다.
+이 섹션은 과거 "플러그인 카탈로그"(chat / cowork / design / code 4-카테고리 시절)를 대체합니다. `moai-cowork` 단일 통합 플러그인(171스킬)은 v6.0.0에서 15개 전문가 플러그인으로 분화되었고, 예전 하위 페이지 URL(`/plugins/cowork/` 등)은 모두 이 페이지로 리다이렉트됩니다. 옛 문서에서 보던 스킬들은 이름이 바뀌지 않은 채 담당 직원 플러그인으로 이사했다고 생각하면 됩니다.
 
 ## 다음 단계
 
-- **처음 Chat을 쓰는 분** → [`/plugins/chat/`](/plugins/chat/) → [`/chat/skills-plugins/`](/chat/skills-plugins/)
-- **한국 실무 자동화가 필요한 분** → [`/plugins/cowork/`](/plugins/cowork/)
-- **Claude Design과 작업하는 분** → [`/plugins/design/`](/plugins/design/)
-- **Claude Code로 개발하는 분** → [`/plugins/code/`](/plugins/code/) → [`/cli/`](/cli/)
+- **처음이라면** → [설치와 관리](install/)에서 마켓플레이스 등록부터 따라 하세요.
+- **설치는 끝났고 부리는 법이 궁금하다면** → [전문가 에이전트 이해](agents/)로 가세요.
+- **여러 직원을 묶어 프로젝트를 돌리고 싶다면** → [팀 구성 패턴](teams/)을 읽으세요.
+- **누구를 뽑을지 고민 중이라면** → [에이전트 팀 소개](/agent-teams/)에서 직원별 소개를 먼저 보세요.
 
 ---
 
 ### Sources
 
-- 마켓플레이스 진실 원본 (3플러그인): [`/.claude-plugin/marketplace.json`](https://github.com/modu-ai/claude.mo.ai.kr/blob/main/.claude-plugin/marketplace.json) (moai-cowork, moai, design)
-- REMEDIATION 결정 (28 → 단일 통합): SPEC-MOC-PLUGIN-REMEDIATION-001 (`status: implemented`)
-- 카테고리별 상세 페이지 — [`/plugins/chat/`](/plugins/chat/) · [`/plugins/cowork/`](/plugins/cowork/) · [`/plugins/design/`](/plugins/design/) · [`/plugins/code/`](/plugins/code/)
-- IA 개편 원본: SPEC-MOC-SITE-IA-001 (이 페이지가 속한 SPEC)
+- 마켓플레이스 진실 원본: [`/.claude-plugin/marketplace.json`](https://github.com/modu-ai/claude.mo.ai.kr/blob/main/.claude-plugin/marketplace.json) (15 plugins, v6.1.0)
+- Claude Code 플러그인 공식 문서: <https://code.claude.com/docs/en/plugins>

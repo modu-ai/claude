@@ -1,227 +1,120 @@
 ---
 title: "설치 가이드"
 weight: 10
-description: "Claude Desktop에 MoAI Cowork Plugins을 설치하는 전체 과정 단계별 안내"
+description: "macOS·Windows에 Claude Desktop을 설치하고 로그인하는 단계별 안내 + 요금제 개요"
 geekdocBreadcrumb: true
 ---
-이 가이드는 MoAI Cowork Plugins을 Claude Desktop에 설치하는 전체 과정을 단계별로 상세히 안내합니다. 약 5-7분 (Claude Desktop이 이미 설치된 경우) 안에 마켓플레이스 등록 + moai-core 활성화까지 완료됩니다.
+이 문서는 Claude Desktop을 처음 설치하는 분을 위한 안내서입니다. 프로그램 설치라고 하면 어렵게 느껴질 수 있지만, 실제 과정은 스마트폰에 앱을 하나 까는 것과 크게 다르지 않습니다. 공식 사이트에서 파일을 내려받아 실행하고, 계정으로 로그인하면 끝입니다. 전체 소요 시간은 인터넷 속도에 따라 다르지만 보통 커피 한 잔 내리는 시간이면 충분합니다.
 
-## 전체 설치 절차
-
-전체 설치는 여섯 단계로 이어지며, 각 단계는 바로 앞 단계가 끝나야만 의미가 있습니다. 새 스마트폰을 처음 샀을 때 세팅하는 과정에 비유하면 순서가 왜 정해져 있는지 한눈에 보입니다. 박스를 개봉해 본체를 꺼내는(① 다운로드) 일부터 시작해, 주인이 누구인지 인증(② 로그인)을 하고, 그래야 비로소 사용 모드를 켤(③ Cowork 모드) 수 있습니다. 이어서 내 사진과 파일을 옮길 폴더를 고르고(④ 작업 폴더), 앱 스토어에 로그인해(⑤ 마켓플레이스) 필요한 필수 앱을 내려받는(⑥ 플러그인 설치) 순서입니다. 앱 스토어에 들어가려면 먼저 로그인이 되어 있어야 하듯, ⑤단계는 ③단계가 켜져 있어야 의미가 있고 ⑥단계는 ⑤단계가 끝나야 실행할 수 있습니다.
-
-순서를 거꾸로 하거나 중간을 건너뛰면 흔히 "마켓플레이스가 안 보여요", "/project init이 안 돼요" 같은 문제로 이어집니다. 아래 흐름도는 여섯 단계가 어떻게 앞단계에 기대어 쌓이는지를 한 방향 화살표로 보여줍니다 — 회색은 준비, 초록은 환경 켜기, 노란색은 콘텐츠(마켓플레이스·플러그인) 채우기, 진한 초록은 최종 완료를 뜻합니다.
+설치는 크게 세 걸음입니다. ① 다운로드(공식 사이트에서 설치 파일 받기) → ② 설치·실행(파일을 열어 프로그램 앉히기) → ③ 로그인(내 계정으로 들어가기). 계정이 아직 없다면 로그인 화면에서 바로 새로 만들 수 있으니 미리 준비할 것은 이메일 주소 하나뿐입니다. 각 단계마다 화면에 무엇이 보여야 정상인지, 잘 안 될 때 무엇을 확인해야 하는지 함께 적어두었습니다.
 
 ```mermaid
-flowchart TD
-    A["① Claude Desktop<br/>다운로드"] --> B["② Anthropic<br/>계정 로그인"]
-    B --> C["③ Cowork 모드<br/>활성화"]
-    C --> D["④ 작업 폴더<br/>연결"]
-    D --> E["⑤ 마켓플레이스<br/>추가"]
-    E --> F["⑥ moai-core<br/>설치"]
-    F --> G["✅ 설치 완료"]
+flowchart LR
+    A["① 다운로드<br/>claude.com/download"] --> B["② 설치·실행<br/>파일 열기"]
+    B --> C["③ 로그인<br/>계정 만들기 포함"]
+    C --> D["✅ 첫 화면<br/>대화 시작 가능"]
 
     style A fill:#eaeaea,stroke:#6e6e6e,color:#09110f
-    style B fill:#eaeaea,stroke:#6e6e6e,color:#09110f
+    style B fill:#fbf0dc,stroke:#c47b2a,color:#09110f
     style C fill:#e6f0ef,stroke:#144a46,color:#09110f
-    style D fill:#e6f0ef,stroke:#144a46,color:#09110f
-    style E fill:#fbf0dc,stroke:#c47b2a,color:#09110f
-    style F fill:#fbf0dc,stroke:#c47b2a,color:#09110f
-    style G fill:#d6ebe7,stroke:#1c7c70,stroke-width:2px,color:#09110f
+    style D fill:#d6ebe7,stroke:#1c7c70,stroke-width:2px,color:#09110f
 ```
-
-### 핵심 용어 3가지
-
-이 가이드 전체에서 세 단어가 반복해서 등장합니다. 요리에 비유해 한 번에 짚고 갑니다.
-
-- **Cowork 모드** — 주방에 들어가 요리를 시작할 수 있게 전원을 켜는 것과 같습니다. 켜기 전에는 Claude Desktop이 그저 대화창일 뿐, 파일을 읽거나 플러그인을 부를 수 없습니다. ③단계에서 켭니다.
-- **마켓플레이스** — 레시피와 조리 도구를 한곳에 모아파는 "요리 용품점(앱 스토어)"입니다. 이 가이드에서는 `modu-ai/cowork-plugins`라는 한 가게에 접속합니다. 가게 자체는 ⑤단계에서 등록합니다.
-- **플러그인** — 그 가게에서 사서 내 주방에 가져다 놓는 "특정 요리 키트/레시피 묶음"입니다. 한 플러그인 안에는 보통 여러 스킬(점원이 아는 요리법)이 들어 있습니다. `moai-core`는 그중 가장 기본이 되는 "기본 조리 도구 세트"라서 제일 먼저 깝니다(⑥단계).
-
-### 1단계: Claude Desktop 다운로드
 
 {{< hint "note" >}}
 **시스템 요구사항**
-- macOS 10.13 이상
-- Windows 10 이상
-- 8GB 이상 RAM
-- 안정적인 인터넷 연결
+- macOS 11 이상 또는 Windows 10 이상
+- 8GB 이상 RAM 권장
+- 안정적인 인터넷 연결 (Claude는 인터넷을 통해 동작합니다)
 {{< /hint >}}
 
-공식 사이트에서 Claude Desktop을 다운로드합니다:
+## 1단계: 설치 파일 다운로드
 
-1. [claude.com/download](https://claude.com/download) 접속
-2. 운영체제에 맞는 버전 다운로드
-3. 다운로드된 파일 실행하여 설치 진행
+1. 웹 브라우저(크롬, 사파리, 엣지 등)를 열고 주소창에 [claude.com/download](https://claude.com/download)를 입력해 접속합니다.
+2. 페이지에서 **Desktop 앱** 항목을 찾습니다. macOS와 Windows 버튼이 나란히 보입니다.
+3. 내 컴퓨터에 맞는 버튼을 클릭합니다. 애플 컴퓨터(맥북, 아이맥)라면 **macOS**, 그 외 대부분의 회사·가정용 PC라면 **Windows**입니다.
+4. 클릭하면 다운로드가 시작되고, 브라우저 하단이나 다운로드 폴더에 파일이 저장됩니다.
 
-![Claude Desktop 다운로드 페이지](/screenshots/getting-started/install-step3.png)
-
-1. **Desktop 앱** — 주요 다운로드 대상입니다. macOS와 Windows 버전을 선택할 수 있습니다.
-2. **Chrome 확장 프로그램** — 브라우저에서 Claude를 사용할 수 있는 확장 프로그램입니다.
-3. **Slack 통합** — Slack 워크스페이스에서 Claude를 연동합니다.
-4. **Excel 통합** — Microsoft Excel과 연동하여 스프레드시트 작업을 보조합니다.
-5. **PowerPoint 통합** — PowerPoint 프레젠테이션 제작을 보조합니다.
-6. **Word 통합** — Word 문서 작성을 보조합니다.
-7. **모바일 앱** — iOS/Android 모바일 앱입니다.
-
-### 2단계: Anthropic 계정 로그인
-
-Claude Desktop을 실행하고 Anthropic 계정으로 로그인합니다:
-
-1. Claude Desktop 애플리케이션 실행
-2. 로그인 화면에서 Anthropic 계정 정보 입력
-3. 2단계 인증이 설정된 경우 인증 코드 입력
-
-{{< hint "warning" >}}
-**중요**: 개인 계정 또는 조직 계정 모두 사용 가능하지만, 조직 계정의 경우 관리자 승인이 필요할 수 있습니다.
-{{< /hint >}}
-
-### 3단계: Cowork 모드 활성화
-
-Cowork 모드를 활성화하여 플러그인 사용이 가능한 환경을 설정합니다:
-
-1. Claude Desktop 왼쪽 사이드바에서 **"Projects"** 선택
-2. "Cowork mode"가 표시되지 않으면 설정 메뉴에서 활성화
-3. Cowork 모드가 활성화되면 추가 기능 탭이 표시됩니다
-
-![Cowork 모드 활성화 인터페이스](/screenshots/getting-started/install-step1.png)
-
-1. **Cowork 탭** — 사이드바에서 Cowork 탭을 선택합니다.
-2. **모델 선택기** — 사용할 AI 모델(Opus 4.7 등)을 선택합니다.
-3. **직접 설정 토글** — 수동으로 설정을 제어하는 스위치입니다.
-4. **프로젝트 선택기** — 작업 컨텍스트를 전환합니다.
-5. **Info 드롭다운** — 현재 설정의 상세 정보를 확인합니다.
-
-### 4단계: 로컬 작업 폴더 연결
-
-사용할 작업 폴더를 Claude Desktop에 연결합니다:
-
-![Customize 메뉴 진입](/screenshots/getting-started/quick-start-marketplace-1.png)
-
-1. **Customize** — 사이드바의 Customize 메뉴를 통해 폴더 연결 및 설정에 접근합니다
-2. "Connect a local work folder" 버튼 클릭
-3. 작업할 프로젝트 폴더 선택
-4. 연결 확인 완료
+{{< screenshot-request "claude.com/download 다운로드 페이지 — macOS/Windows 선택 버튼이 보이는 화면" >}}
 
 {{< hint "tip" >}}
-**팁**: 기존 프로젝트 폴더를 연결하거나 새로운 폴더를 생성하여 사용할 수 있습니다.
+**내 컴퓨터가 뭔지 모르겠다면**: 키보드에 ⌘(command) 키가 있으면 macOS, 윈도우 로고(⊞) 키가 있으면 Windows입니다.
 {{< /hint >}}
 
-### 5단계: 마켓플레이스 추가
+**잘 안 될 때**
+- 다운로드 버튼을 눌러도 반응이 없으면: 다른 브라우저(크롬 권장)로 다시 시도해 보세요.
+- 회사 컴퓨터에서 다운로드가 차단되면: 사내 보안 정책일 수 있으니 IT 담당자에게 "claude.com 다운로드 허용"을 요청하세요.
 
-MoAI Cowork Plugins 마켓플레이스를 추가합니다:
+## 2단계: 설치 실행
 
-![마켓플레이스 추가 메뉴](/screenshots/getting-started/quick-start-marketplace-2.png)
+### macOS
 
-1. **+ 버튼** — 개인 폴더그룹을 추가합니다
-2. **추가 버튼** — 새 폴더그룹을 생성합니다
-3. **마켓플레이스 추가** — 하단 메뉴에서 마켓플레이스를 추가할 수 있습니다
+1. 다운로드 폴더에서 `Claude.dmg` 파일을 더블클릭합니다.
+2. 창이 열리면 **Claude 아이콘을 Applications 폴더로 끌어다 놓습니다**. 이 동작이 곧 설치입니다.
+3. Launchpad 또는 응용 프로그램 폴더에서 **Claude**를 클릭해 실행합니다.
+4. "인터넷에서 다운로드한 앱입니다. 열겠습니까?"라는 확인 창이 뜨면 **열기**를 클릭합니다.
 
-![마켓플레이스 URL 입력](/screenshots/getting-started/quick-start-marketplace-3.png)
+### Windows
 
-4. **URL 입력 필드** — `modu-ai/cowork-plugins`을 입력하고 추가를 확인합니다
+1. 다운로드 폴더에서 `Claude-Setup.exe`(또는 유사한 이름의) 파일을 더블클릭합니다.
+2. "이 앱이 디바이스를 변경하도록 허용하시겠어요?"라는 파란 창이 뜨면 **예**를 클릭합니다.
+3. 설치가 자동으로 진행되고, 끝나면 Claude가 스스로 실행됩니다. 이후에는 시작 메뉴에서 **Claude**를 찾아 실행하면 됩니다.
 
-### 6단계: 필수 플러그인 설치
+{{< screenshot-request "macOS 설치 화면 — Claude 아이콘을 Applications 폴더로 드래그하는 dmg 창" >}}
 
-#### 왜 moai-core를 제일 먼저 깔아야 할까
+{{< screenshot-request "Windows 설치 화면 — Claude-Setup.exe 실행 후 설치 진행 창" >}}
 
-가구 조립에 비유하면 `moai-core`는 책장의 "뼈대(프레임)"입니다. 뼈대 없이 선반판(다른 플러그인)부터 세우면 무너집니다. `moai-core` 안에는 프로젝트를 처음 세팅하는 `/project init`과, 글에서 AI 특유 어투를 솎아내는 `ai-slop-reviewer` 같은 가장 기본 동작이 들어 있습니다. 다른 모든 플러그인은 이 기본 동작 위에서 돌아간다고 가정합니다. 그래서 `moai-core`가 먼저 깔려 있지 않으면 `/project init`이 아예 실행되지 않고, 뒤이어 깐 콘텐츠·문서·마케팅 플러그인들이 "기본 도구를 찾을 수 없다"며 빈 결과를 내놓습니다.
+**잘 안 될 때**
+- macOS에서 "확인되지 않은 개발자" 경고가 뜨면: 시스템 설정 → 개인정보 보호 및 보안에서 **그래도 열기**를 클릭하세요. 공식 사이트에서 받은 파일이라면 안전합니다.
+- Windows에서 Defender가 실행을 막으면: **추가 정보 → 실행**을 클릭하세요. 반드시 claude.com에서 받은 파일인지 먼저 확인하세요.
+- 설치 중 멈춘 것처럼 보이면: 1-2분 기다린 뒤에도 변화가 없을 때만 창을 닫고 다시 실행해 보세요.
 
-아래 흐름도는 이 의존성 관계를 보여줍니다. `moai-core`가 기반 층에 깔리고, 그 위에 다른 플러그인들이 올라타야 안정적으로 동작합니다.
+## 3단계: 로그인 (계정 만들기 포함)
 
-```mermaid
-flowchart TD
-    Base["moai-core (뼈대)<br/>/project init · ai-slop-reviewer"]
-    Base --> P1["moai-content"]
-    Base --> P2["moai-office"]
-    Base --> P3["moai-business"]
-    Base --> P4["moai-legal 외"]
-    P1 --> R["안정적으로 동작<br/>(기본 도구가 준비됨)"]
-    P2 --> R
-    P3 --> R
-    P4 --> R
+Claude를 처음 실행하면 로그인 화면이 나타납니다. 로그인은 "이 프로그램의 주인이 나"라는 것을 알려주는 절차로, 이걸 해야 대화 기록이 내 계정에 안전하게 저장됩니다.
 
-    style Base fill:#fbf0dc,stroke:#c47b2a,stroke-width:2px,color:#09110f
-    style P1 fill:#e6f0ef,stroke:#144a46,color:#09110f
-    style P2 fill:#e6f0ef,stroke:#144a46,color:#09110f
-    style P3 fill:#e6f0ef,stroke:#144a46,color:#09110f
-    style P4 fill:#e6f0ef,stroke:#144a46,color:#09110f
-    style R fill:#d6ebe7,stroke:#1c7c70,stroke-width:2px,color:#09110f
+1. 로그인 화면에서 **이메일 주소를 입력**하거나 **Continue with Google**(구글 계정으로 계속) 버튼을 클릭합니다. 구글 계정이 있다면 이 방법이 가장 간단합니다.
+2. 이메일로 진행한 경우, 입력한 주소로 **로그인 코드**가 담긴 메일이 옵니다. 메일함에서 코드를 확인해 입력합니다. 비밀번호를 외울 필요가 없는 방식입니다.
+3. 처음 가입이라면 이름 입력과 약관 동의 화면이 이어집니다. 안내에 따라 진행합니다.
+4. 로그인이 끝나면 가운데에 입력창이 있는 첫 화면이 나타납니다. 여기까지 오면 설치 완료입니다.
+
+{{< screenshot-request "Claude Desktop 로그인 화면 — 이메일 입력란과 Continue with Google 버튼" >}}
+
+{{< screenshot-request "로그인 완료 후 첫 실행 화면 — 가운데 입력창이 보이는 새 대화 화면" >}}
+
+**잘 안 될 때**
+- 로그인 코드 메일이 안 오면: 스팸함을 확인하고, 1-2분 뒤 **Resend**(다시 보내기)를 눌러보세요.
+- "지역에서 사용할 수 없음" 안내가 나오면: 한국은 지원 지역이므로 VPN이 켜져 있는지 확인하고 꺼보세요.
+- 회사(조직) 계정으로 로그인이 막히면: 조직 관리자의 승인 설정이 필요할 수 있습니다. 관리자에게 문의하세요.
+
+## 요금제 개요
+
+Claude는 무료로 시작할 수 있고, 더 많이 쓰고 싶을 때 유료로 올리는 구조입니다. 휴대폰 요금제처럼 "기본 제공량"의 차이라고 이해하면 쉽습니다 — 무료는 하루에 보낼 수 있는 메시지 양이 제한적이고, 유료는 그 한도가 크게 늘어나며 더 성능 좋은 모델과 부가 기능을 쓸 수 있습니다.
+
+| 요금제 | 대략의 성격 | 이런 분에게 |
+|---|---|---|
+| **Free (무료)** | 기본 대화 가능, 사용량 제한 있음 | 일단 체험해 보고 싶은 분 |
+| **Pro (유료)** | 사용량 대폭 확대, 고성능 모델, Projects 등 부가 기능 | 매일 업무에 쓰는 분 |
+| **Max (유료 상위)** | Pro보다 훨씬 큰 사용량 | 하루 종일 붙어서 쓰는 분 |
+| **Team / Enterprise** | 팀 단위 계정·관리 기능 | 회사에서 여럿이 함께 쓰는 경우 |
+
+{{< hint "tip" >}}
+**처음엔 무료로 충분합니다.** 이 가이드의 실습은 전부 무료 요금제로도 따라올 수 있습니다. "메시지 한도에 도달했습니다"라는 안내를 자주 만나게 되는 시점이 유료 전환을 고민할 때입니다. 정확한 가격과 제공량은 [claude.com](https://claude.com)의 요금 안내 페이지에서 확인하세요.
+{{< /hint >}}
+
+## 설치 확인
+
+마지막으로 제대로 설치되었는지 확인해 봅니다. 입력창에 아래 한 줄을 넣고 엔터를 눌러보세요.
+
+```
+안녕하세요! 설치가 잘 됐는지 확인하고 싶어요.
 ```
 
-가장 먼저 `moai-core` 플러그인을 설치합니다:
-
-![플러그인 목록에서 moai-core 찾기](/screenshots/getting-started/quick-start-plugin-install-1.png)
-
-1. **개인** 탭 — 설치된 플러그인 목록을 확인합니다
-2. **cowork-plugins** 필터 — 마켓플레이스 플러그인만 표시합니다
-3. **자동 추가** 토글 — 새 스킬 자동 포함 여부를 설정합니다
-4. **+ moai-core** 버튼 — moai-core 플러그인을 추가합니다
-
-![moai-core 플러그인 상세](/screenshots/getting-started/quick-start-plugin-install-2.png)
-
-5. **Moai core** — 사이드바에 설치된 moai-core 메뉴가 표시됩니다
-6. **기능 카드** — 제공되는 스킬 목록을 확인합니다
-7. **사용자 지정** 토글 — 개별 스킬 활성화/비활성화를 제어합니다
-
-{{< hint "note" >}}
-**필수 플러그인**: `moai-core`는 `/project init`과 `ai-slop-reviewer` 스킬을 포함한 핵심 기능을 제공하므로 반드시 먼저 설치해야 합니다.
-{{< /hint >}}
-
-## 설치 검증
-
-설치가 완료되었는지 다음과 같이 확인합니다:
-
-### 1. 플러그인 목록 확인
-
-1. Claude Desktop에서 **"Plugins"** 탭 선택
-2. 설치된 플러그인 목록에서 `moai-core` 확인
-3. 상태가 "Active"로 표시되는지 확인
-
-### 2. 스킬 테스트
-
-간단한 명령어로 설치를 테스트합니다:
-
-1. Cowork 모드에서 채팅창 열기
-2. `/project init` 입력 후 실행
-3. 7단계 인터뷰가 정상적으로 진행되는지 확인
-
-## 문제 해결
-
-### 자주 발생하는 문제
-
-**Q: 마켓플레이스가 표시되지 않아요**
-A: Claude Desktop 최신 버전인지 확인하고, 인터넷 연결 상태를 점검하세요.
-
-**Q: moai-core 설치 실패**
-A: 조직 계정 사용 시 관리자 승인이 필요할 수 있습니다. 관리자에게 문의하세요.
-
-**Q: `/project init` 명령어가 작동하지 않아요**
-A: moai-core 플러그인이 먼저 설치되었는지 확인하세요. 설치 순서가 중요합니다.
-
-**Q: 스킬 목록이 나타나지 않아요**
-A: Claude Desktop을 재시작하거나, 캐시를 초기화해보세요.
-
-### 고급 문제 해결
-
-**네트워크 문제**
-- 프록시 설정 확인
-- 방화벽에서 Claude Desktop 허용 목록 추가
-- DNS 캐시 재시도
-
-**권한 문제**
-- 작업 폴더 읽기/쓰기 권한 확인
-- macOS 보안 설정에서 Claude Desktop 권한 부여
-- Windows Defender 실행 허용
+Claude가 인사와 함께 답을 하면 모든 준비가 끝난 것입니다. 답이 오지 않으면 인터넷 연결을 확인하고 프로그램을 껐다가 다시 켜보세요.
 
 ## 다음 단계
 
-설치가 완료되었다면 이제 첫 작업을 진행할 준비가 되었습니다:
-
-- [첫 작업 가이드](../first-task/) - 약 5-7분 실습 예제 (설치 완료 후)
-- [빠른 시작 가이드](../quick-start/) - 주요 스킬 빠르게 숙지하기
+- [도구와 기능 개념 기초](../concepts/) — 앞으로 계속 만날 핵심 개념 9가지를 비유로 정리
+- [첫 작업](../first-task/) — 마켓플레이스에서 첫 직원을 채용하고 첫 요청 던지기
 
 ### Sources
-- GitHub 저장소: [https://github.com/modu-ai/cowork-plugins](https://github.com/modu-ai/cowork-plugins)
 - Claude Desktop 다운로드: [https://claude.com/download](https://claude.com/download)
-- 온라인 문서: [https://cowork.mo.ai.kr](https://cowork.mo.ai.kr)
