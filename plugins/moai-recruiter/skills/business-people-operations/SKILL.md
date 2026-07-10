@@ -4,9 +4,8 @@ description: >
   원격 근무와 팀 운영 정책을 설계해주는 스킬입니다. "재택근무 정책 만들어줘", "협업 도구 추천해줘",
   "비동기 커뮤니케이션 가이드 만들어줘"처럼 말하면 됩니다. 원격·하이브리드 근무 정책,
   협업 도구 선정 기준, 생산성 관리 프레임워크, 직원 경험 설계를 지원합니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 피플 오퍼레이션 (business-people-operations)
 
@@ -164,4 +163,4 @@ business-people-operations → moai-coworker:general-ai-slop-reviewer → moai-w
 - **법적 노동 분쟁 대응**: 재택근무 중 발생한 산재, 임금 분쟁은 노무사에게 의뢰하세요.
 - **채용·온보딩 프로세스 설계**: 채용 파이프라인과 신입 온보딩 계획은 `moai-recruiter:business-employment-manager` 스킬이 더 적합합니다.
 - **성과평가 체계 설계**: OKR/KPI 설정 및 평가 면담은 `moai-recruiter:business-performance-review` 스킬을 사용하세요.
-- **오퍼 레터·근로계약서 작성**: 계약 문서는 `moai-coworker:business-draft-offer` 스킬을 사용하세요.
+- **오퍼 레터·근로계약서 작성**: 계약 문서는 `moai-recruiter:business-draft-offer` 스킬을 사용하세요.

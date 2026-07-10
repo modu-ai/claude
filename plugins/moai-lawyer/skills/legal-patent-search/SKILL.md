@@ -11,9 +11,8 @@ description: |
   - "KIPRIS에서 상표 검색해줘"
   - "이 분야 출원인별 경쟁 현황 정리해줘"
   특허 목록·핵심 청구항 요약·IPC 분류별 분포를 정리하고, 선행기술 조사·FTO·출원서가 필요하면 moai-lawyer:legal-patent-analyzer로 이어집니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 특허 검색 (Patent Search)
 

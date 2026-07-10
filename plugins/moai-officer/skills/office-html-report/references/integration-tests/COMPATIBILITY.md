@@ -85,7 +85,7 @@ moai-accountant:finance-financial-statements → moai-officer:office-html-report
 
 ---
 
-## 3. moai-coworker:business-sbiz365-analyst → mode=plan
+## 3. moai-consultant:business-sbiz365-analyst → mode=plan
 
 ### 적합 모드
 
@@ -111,7 +111,7 @@ moai-accountant:finance-financial-statements → moai-officer:office-html-report
 ### 권장 사용법
 
 ```
-moai-coworker:business-sbiz365-analyst → moai-coworker:general-ai-slop-reviewer → moai-writer:general-humanize-korean → moai-officer:office-html-report mode=plan
+moai-consultant:business-sbiz365-analyst → moai-coworker:general-ai-slop-reviewer → moai-writer:general-humanize-korean → moai-officer:office-html-report mode=plan
 ```
 
 sbiz365 보고서의 "Executive Summary" + "창업 타당성 평가" + "리스크" + "결론" 핵심 섹션만 추출하여 plan 모드 렌더링 권장. 5개 상세 분석 섹션은 마크다운 원본 보고서(docx)에서 참조하도록 안내.
@@ -170,7 +170,7 @@ moai-officer:office-daily-briefing → moai-officer:office-html-report mode=stat
 |---|---|---|---|---|
 | moai-coworker:business-executive-summary | status | 7개 | 3개 | **4** |
 | moai-accountant:finance-financial-statements | financial | 6개 | 4개 | **4** |
-| moai-coworker:business-sbiz365-analyst | plan | 6개 | 3개 | **4** |
+| moai-consultant:business-sbiz365-analyst | plan | 6개 | 3개 | **4** |
 | moai-officer:office-daily-briefing | status | 5개 | 3개 | **4** |
 
 **점수 기준**:

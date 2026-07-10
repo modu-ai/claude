@@ -5,9 +5,8 @@ description: >
   "라이브 커머스 가이드", "쇼핑라이브 스크립트", "그립 방송", "라이브 방송 카피"처럼 말하면 됩니다.
   채널별 정책·노출·수수료를 정리하고, 30분/60분 라이브 방송용 진행 스크립트(오프닝→상품 소개→실시간 응대→마감 CTA)를 산출합니다.
   라이브는 한국 이커머스에서 가장 빠르게 성장 중인 채널입니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 라이브 커머스 가이드 + 스크립트 작성
 
@@ -133,7 +132,7 @@ version: "5.0.0"
 ## 관련 스킬
 
 - `moai-seller:commerce-detail-page-copy` — 상세페이지 카피
-- `moai-seller:commerce-channel-message` — 광고·이메일 카피
+- `moai-cs:commerce-channel-message` — 광고·이메일 카피
 - `moai-seller:commerce-integrated-strategy` — 전체 채널 전략
 - `moai-marketer:content-sns-content` — SNS 콘텐츠 (라이브 클립 재가공)
 - 라이브 후 짧은 영상 콘텐츠 — **Higgsfield MCP**(DOP·Soul) 직접 호출

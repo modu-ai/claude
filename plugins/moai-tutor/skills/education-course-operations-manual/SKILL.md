@@ -6,9 +6,8 @@ description: |
   "강의 운영 매뉴얼 만들어줘", "워크숍 시간표·동선 만들어줘", "연수 D-N 사전 준비물 메일", "강사·조교 동선표", "수업 리스크 Plan B 매트릭스", "교시별·세션별 시간표", "D-N 운영 준비 체크리스트", "강의실 설비·환경 체크리스트".
   체인: education-course-operations-manual → moai-coworker:general-ai-slop-reviewer (운영 매뉴얼 텍스트 검수) → moai-officer:office-docx-generator (Word .docx 출력).
   [책임 경계] vs moai-tutor:education-curriculum-designer: operations-manual=운영 절차·체크리스트, education-curriculum-designer=커리큘럼·학습설계
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 강의 운영 매뉴얼 자동 생성 (강사·교수·교사용)
 

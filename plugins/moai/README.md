@@ -98,6 +98,20 @@
 
 세션 시작 훅이 `moai` 바이너리를 탐지해 Tier 3 승격을 1줄로 안내하고, 없으면 무음 fail-open합니다 (REQ-BD-009/010, AC-BD-005a/b).
 
+### 코드 인텔리전스 (LSP 5종)
+
+플러그인 루트의 `.lsp.json`이 공식 LSP 서버 5종을 선언합니다. 파일 확장자로 언어를 감지해 해당 서버를 자동 기동하며, 바이너리가 없는 환경(Claude Desktop 등)에서는 graceful skip으로 조용히 넘어갑니다 (`claude --debug`로 확인 가능).
+
+| 언어 | 서버 | 설치 |
+|------|------|------|
+| Go | gopls | `go install golang.org/x/tools/gopls@latest` |
+| Python | pyright | `npm i -g pyright` |
+| Rust | rust-analyzer | `brew install rust-analyzer` (또는 rustup) |
+| Swift | sourcekit-lsp | Xcode/Swift toolchain 내장 |
+| TypeScript | typescript-language-server | `npm i -g typescript-language-server typescript` + 워크스페이스에 `typescript@5` (TS 7 네이티브 프리뷰는 tsserver 미포함) |
+
+편집 직후 diagnostics가 대화 컨텍스트로 주입되어 타입 오류를 즉시 인지합니다. 서버 바이너리는 `$PATH`에서 해석되므로, nvm 등 셸 초기화 의존 경로는 표준 경로(`/opt/homebrew/bin` 등)에 심볼릭 링크를 권장합니다.
+
 ### 정본 패리티 (parity-source)
 
 `moai-adk-go` 배포 템플릿 `internal/template/templates/`를 정본으로 무설치 완전 패리티로 재패키징합니다. 각 산출물 상단의 `<!-- parity-source: ... @ <commit> -->` 주석이 정본 커밋을 고정합니다.

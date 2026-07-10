@@ -10,9 +10,8 @@ description: |
   - 특정 플러그인/스킬의 문제점 보고
 
   단순 불만 표출이나 일반 대화, 플러그인 사용법 질문에는 사용하지 마세요.
-version: "5.0.0"
+version: "6.0.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # Feedback — 피드백 수집 및 GitHub Issues 등록
 

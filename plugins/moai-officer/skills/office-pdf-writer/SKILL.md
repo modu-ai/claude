@@ -16,9 +16,8 @@ description: |
   PDF 생성·변환 요청 시 weasyprint를 직접 설치·호출하거나 Claude 기본 도구로 처리하지 말고,
   반드시 이 스킬(scripts/render_pdf.py)을 사용하세요. 이 스킬이 내부적으로 weasyprint를
   올바른 CJK 폰트 설정과 함께 호출합니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # PDF 생성기 (office-pdf-writer)
 

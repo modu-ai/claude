@@ -1,0 +1,19 @@
+{{- $id := .Get 0 -}}
+{{- range where hugo.Data.agent_teams.employees "id" $id -}}
+{{- if .agents -}}
+<table>
+  <thead><tr><th>에이전트</th><th>역할</th><th>유형</th></tr></thead>
+  <tbody>
+  {{- range .agents }}
+    <tr>
+      <td><code>{{ .name }}</code></td>
+      <td>{{ .description }}</td>
+      <td>{{ if .readonly }}검수 (읽기 전용){{ else }}실행 (worker){{ end }}</td>
+    </tr>
+  {{- end }}
+  </tbody>
+</table>
+{{- else -}}
+<p>이 직원은 별도 에이전트 없이 스킬 자동 매칭으로만 동작합니다.</p>
+{{- end -}}
+{{- end -}}

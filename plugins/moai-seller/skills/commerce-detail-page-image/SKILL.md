@@ -7,9 +7,8 @@ description: >
   moai-marketer:media-higgsfield-image(Nano Banana Pro 등 11개 모델)로 13장의 이미지를 생성한 뒤
   Pillow 기반 자체 합성 스크립트(scripts/compose.py)로 1080×12720 세로 합성 PNG를 만듭니다.
   외부 패키지 설치 불필요 — 합성 로직은 cowork에 자체 구현되어 있습니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 상세페이지 이미지 합성 (Detail Page Image Composer)
 

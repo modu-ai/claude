@@ -7,9 +7,8 @@ description: |
   다음과 같은 요청 시 이 스킬을 참조하세요:
   - "새 스킬 만들고 싶어", "스킬 템플릿", "SKILL.md 템플릿"
   - "스킬 작성 방법", "스킬 구조", "스킬 포맷"
-version: "5.0.0"
+version: "6.0.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # SKILL.md Standard Template
 

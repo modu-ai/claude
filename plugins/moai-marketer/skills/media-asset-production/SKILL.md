@@ -3,9 +3,8 @@ name: media-asset-production
 description: |
   (별칭) media-asset-production 스킬은 두 개의 스킬로 분리되었습니다.
   콘텐츠 발행 일정·캘린더는 moai-marketer:content-editorial-calendar 를, 유튜브·팟캐스트 에피소드 기획은 moai-marketer:marketing-youtube-podcast-planner 를 사용하세요.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 미디어 프로덕션 (별칭 → 분리됨)
 

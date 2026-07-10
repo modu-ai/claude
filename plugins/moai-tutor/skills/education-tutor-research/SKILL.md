@@ -11,9 +11,8 @@ description: |
   - "튜터처럼 이 주제 깊이 조사해줘"
   질문을 리서치 축으로 분해해 공식 문서(WebSearch로 찾아 WebFetch로 본문 확인)와 최신 웹 자료(WebSearch)를 병렬 조사하고, 출처를 교차검증한 뒤 education-learning-material로 넘길 종합본을 만듭니다.
   [책임 경계] vs moai-tutor:education-research-assistant: 이 스킬=개인 학습용 최신 정보 빠른 조사, 저 스킬=학술 논문용 문헌 검토와 인용 관리.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 튜터 리서치 (Tutor Research)
 
@@ -119,5 +118,5 @@ version: "5.0.0"
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **학술 논문용 문헌 검토·인용 관리** → `moai-tutor:education-research-assistant`
-- **시장·비즈니스 조사** → `moai-coworker:business-market-analyst`
+- **시장·비즈니스 조사** → `moai-consultant:business-market-analyst`
 - **깊은 다중 소스 교차검증 리포트(단일 질문, 비학습)** → 번들 `/deep-research` 워크플로우

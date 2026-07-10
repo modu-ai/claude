@@ -7,7 +7,7 @@ description: |
   - "광고 콘티", "광고 스토리보드"
   - "제품 영상", "브랜드 콘티"
   - "Marketing Studio", "Ads 2.0", "Seedance"
-version: "5.0.0"
+version: "0.1.0"
 ---
 
 # story-ad-conti

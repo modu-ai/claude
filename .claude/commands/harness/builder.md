@@ -1,5 +1,5 @@
 ---
-description: Build desktop plugin core skills (cowork/code) via 6-Phase pipeline with 3-Layer research (qmd vault then Claude docs then web)
+description: Build marketplace plugin core skills (moai-coworker/moai/moai-designer/moai-pm/moai-seller + future expert plugins) via 7-Phase pipeline with 3-Layer research (qmd vault then Claude docs then web)
 argument-hint: "[자연어 지시: 타깃 플러그인 + 스킬 주제]"
 allowed-tools: Skill
 ---
@@ -8,11 +8,11 @@ allowed-tools: Skill
 
 Dispatches to the `builder` harness. Reads `.claude/commands/harness/builder/manifest.json` (SSOT) and runs the 7-Phase pipeline (Pipeline + Producer-Reviewer patterns) with 5 specialists.
 
-`$ARGUMENTS` is a **natural-language directive** (NOT positional `<plugin> <topic>`). The `intent-parser` specialist extracts target plugin (cowork / code) + skill topic + intent.
+`$ARGUMENTS` is a **natural-language directive** (NOT positional `<plugin> <topic>`). The `intent-parser` specialist extracts target plugin + skill topic + intent, resolving the target plugin against the `.claude-plugin/marketplace.json` plugins list (NOT a fixed 2-value enum).
 
 ## 7-Phase Pipeline
 
-1. **Discovery** (`intent-parser`) — natural-language → plugin + topic + intent
+1. **Discovery** (`intent-parser`) — natural-language → plugin (marketplace-resolved) + topic + intent
 2. **3-Layer Research** (`research-collector`) — Layer 1 qmd vault (priority) → Layer 2 Claude official docs → Layer 3 web search
 3. **Curation** (`plugin-curator`) — 4-dimension rubric (Relevance/Specificity/Practicality/Reusability), top-5
 4. **User Selection** — orchestrator AskUserQuestion
@@ -22,8 +22,10 @@ Dispatches to the `builder` harness. Reads `.claude/commands/harness/builder/man
 
 ## Category Constraints (skill-builder enforces)
 
-- **code-외 스킬** (cowork / designer / pm): `skills/` category ONLY
-- **code 스킬**: `commands/` + `skills/` + `agents/` categories ONLY
+- **Expert plugins** (moai-coworker / moai-designer / moai-pm / moai-seller / 향후 expert 플러그인 — code-외 전부): `skills/` + `agents/` + MCP 선언(`.mcp.json`/`mcp-servers/`) 허용; `commands/`, `hooks/`, `output-styles/`, LSP 금지
+- **Code plugin** (`moai`): full surface — `commands/` + `skills/` + `agents/` + `hooks/` + `output-styles/` + MCP + LSP(`.lsp.json`) 허용
+
+세부 표: `.claude/skills/harness-builder/SKILL.md` § Category Constraints
 
 ## References
 

@@ -13,9 +13,8 @@ description: |
   - "수업 후기 자산화 30일 플랜 만들어줘"
   감사 인사부터 적용 인증, 성과 수치, 영상 후기, 심층 인터뷰까지 시점별 톤에 맞춰 후기를 회수하고, moai-marketer:content-copywriting → moai-coworker:general-ai-slop-reviewer → moai-writer:office-korean-spell-check 체인으로 자연스럽게 다듬어 드립니다.
   [책임 경계] vs moai-marketer:content-copywriting: 이 스킬=강의 수강생 후기 30일 회수 시퀀스, 저 스킬=범용 마케팅 카피.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 강의 종료 후 30일 Follow-up 시퀀스
 
@@ -187,7 +186,7 @@ Step 4: .md 파일 저장 + 발송 가이드 출력
 - 우수 후기 → 차기 모집 랜딩·블로그·SNS 1순위 자산
 - 영상 후기 → 인스타·릴스·유튜브 쇼츠로 재가공 (`moai-coworker` 활용)
 - 심층 인터뷰 → 블로그 사례 기사 (`moai-marketer:content-blog`) → SEO 누적
-- 정량 후기 → 사업계획서·IR·강의 소개서 신뢰 지표 (`moai-coworker:business-strategy-planner`)
+- 정량 후기 → 사업계획서·IR·강의 소개서 신뢰 지표 (`moai-consultant:business-strategy-planner`)
 
 ---
 

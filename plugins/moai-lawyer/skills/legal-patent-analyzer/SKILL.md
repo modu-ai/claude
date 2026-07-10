@@ -11,9 +11,8 @@ description: |
   - "이 청구항 대비 침해 가능성 판단해줘"
   - "회피 설계 방향 제안해줘"
   특허 데이터가 없으면 moai-lawyer:legal-patent-search로 먼저 검색한 뒤 분석하며, 보고서 본문은 ai-slop 검수 체인으로 마무리합니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 특허 분석 (Patent Analyzer)
 

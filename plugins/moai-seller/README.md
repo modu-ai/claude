@@ -1,6 +1,6 @@
 # 셀러 (moai-seller)
 
-이커머스 셀러 전담 AI 직원입니다. 스마트스토어·아임웹·카페24 MCP 연동과 상세페이지·마켓플레이스·광고·CRM 등 커머스 실무 스킬 31종을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
+이커머스 셀러 전담 AI 직원입니다. 스마트스토어·아임웹·카페24 MCP 연동과 상세페이지·마켓플레이스·광고·CRM 등 커머스 실무 스킬 29종을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다. VOC 분류(`commerce-voc-triage`)와 채널 메시지(`commerce-channel-message`)는 `moai-cs`(CS매니저)로 이관되었습니다.
 
 **이런 분께 추천**: 온라인 셀러 · 이커머스 운영자 · 1인 브랜드 대표
 
@@ -20,7 +20,7 @@ claude plugin install moai-seller@moai-claude
 /plugin install moai-seller
 ```
 
-## 스킬 31종
+## 스킬 29종
 
 호출 형식: `/moai-seller:commerce-<스킬명>` — 예: `/moai-seller:commerce-detail-page-planner`. 자연어 요청("우리 제품 상세페이지 기획해줘")으로도 자동 매칭됩니다.
 
@@ -58,14 +58,14 @@ claude plugin install moai-seller@moai-claude
 | `commerce-early-fan-builder` | 초기 팬덤 구축 |
 | `commerce-season-calendar` | 시즌·이벤트 캘린더 운영 |
 
-### CRM·구독 (4종)
+### CRM·구독 (2종)
 
 | 스킬 | 역할 |
 |------|------|
-| `commerce-channel-message` | 채널 메시지(알림톡 등) 운영 |
 | `commerce-repurchase-timer` | 재구매 주기 기반 리텐션 설계 |
 | `commerce-subscription-strategist` | 구독 모델 전략 |
-| `commerce-voc-triage` | 고객 문의·리뷰(VOC) 분류 대응 |
+
+> 채널 메시지(`commerce-channel-message`)·VOC 분류(`commerce-voc-triage`)는 `moai-cs`(CS매니저)로 이관되었습니다.
 
 ### 전략·분석 (8종)
 

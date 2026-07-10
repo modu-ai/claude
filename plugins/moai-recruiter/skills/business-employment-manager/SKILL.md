@@ -4,9 +4,8 @@ description: >
   채용 프로세스 전반을 관리해주는 스킬입니다. "JD 작성해줘", "면접 질문 만들어줘",
   "신입 온보딩 계획 짜줘"처럼 말하면 됩니다. 채용 공고 작성, 면접 설계,
   평가 기준 수립, 온보딩 체크리스트, 멘토링 프로그램 설계를 지원합니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 채용 관리자 (business-employment-manager)
 
@@ -122,6 +121,6 @@ business-employment-manager → moai-coworker:general-ai-slop-reviewer → moai-
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **법적 노동 분쟁 대응**: 해고, 임금 체불, 직장 내 괴롭힘 등 실제 분쟁은 노무사에게 의뢰하세요.
-- **오퍼 레터·근로계약서 작성**: 계약 문서는 `moai-coworker:business-draft-offer` 스킬을 사용하세요.
+- **오퍼 레터·근로계약서 작성**: 계약 문서는 `moai-recruiter:business-draft-offer` 스킬을 사용하세요.
 - **성과평가 체계 설계**: OKR/KPI 설정 및 평가 면담은 `moai-recruiter:business-performance-review` 스킬이 더 적합합니다.
 - **원격 근무 정책 수립**: 재택 정책, 협업 도구 선택은 `moai-recruiter:business-people-operations` 스킬을 사용하세요.

@@ -22,7 +22,7 @@ Per the canonical agent catalog policy, the MoAI agent catalog consists of exact
 
 [ZONE:Frozen] [HARD] Every MoAI SPEC follows the three-phase lifecycle (plan → run → sync). How each phase transition is *triggered* depends on the **route** the SPEC takes. There are exactly TWO routes, and the route is determined by Tier (per § SPEC Complexity Tier) and the explicit `--pr` flag:
 
-- **Route A — Hybrid Trunk main-direct (default; Tier S / Tier M):** manager-develop commits and pushes directly to `main`; there is NO per-phase PR and NO per-phase branch. Phase transitions are triggered by commit / push events (Conventional-Commit subjects pushed to `main` + green CI), NOT by PR merges. This is the 1-person-OSS Hybrid Trunk policy (CLAUDE.md §5 + `manager-develop-prompt-template.md` §B9 + `.moai/docs/git-local-workflow-doctrine.md`).
+- **Route A — Hybrid Trunk main-direct (default; Tier S / Tier M):** manager-develop commits and pushes directly to `main`; there is NO per-phase PR and NO per-phase branch. Phase transitions are triggered by commit / push events (Conventional-Commit subjects pushed to `main` + green CI), NOT by PR merges. This is the 1-person-OSS Hybrid Trunk policy (CLAUDE.md §5 + `manager-develop-prompt-template.md` §B9).
 - **Route B — PR route (Tier L OR explicit `--pr`):** `manager-git` creates a feature branch and opens a PR per phase (`gh pr create`); phase transitions are triggered by PR merges into `main`. This is the route the Late-Branch closure pattern (below) applies to.
 
 The route governs the trigger vocabulary in § Phase Transitions below (commit/push event vs PR merge). Neither route changes the phase *ordering* (plan → run → sync) or the *artifact* set (per Tier).
@@ -48,7 +48,7 @@ The route governs the trigger vocabulary in § Phase Transitions below (commit/p
 
 [ZONE:Frozen] [HARD] Step ordering rules:
 - Step 1 (plan) MUST execute in main checkout on BOTH routes. NO L2/L3 worktree at this step. Plan artifacts are markdown only — no code conflict — and main-authored plans enable cross-SPEC reference for plan-auditor and parallel SPEC scoping. On **Route A** the plan-phase artifacts are committed + pushed directly to `main` (no branch). On **Route B**, the **Late-branch precondition (the Late-Branch closure contract)** applies: when `team.branch_creation.auto_enabled == false` in `git-strategy.yaml`, Step 1 entry requires `git rev-parse --abbrev-ref HEAD == main` (or the user's chosen `main_branch` if it differs). No `plan/SPEC-XXX` branch is created at Step 1; plan-phase commits land directly on `main` and are pushed only after Phase C `git switch -c plan/SPEC-XXX` at PR creation time.
-- Step 2 (run) — **Route A** commits + pushes directly to `main` (no branch, no worktree). **Route B** SHOULD create a fresh L2 SPEC worktree from the plan-merged main HEAD (`--base origin/main`) if the user opted into L2/L3; otherwise continue on the `feat/SPEC-XXX` branch in main checkout. When L2 is used, worktree base alignment is a precondition for `Agent(isolation: "worktree")` correctness (see lessons #13).
+- Step 2 (run) — **Route A** commits + pushes directly to `main` (no branch, no worktree). **Route B** SHOULD create a fresh L2 SPEC worktree from the plan-merged main HEAD (`--base origin/main`) if the user opted into L2/L3; otherwise continue on the `feat/SPEC-XXX` branch in main checkout. When L2 is used, worktree base alignment is a precondition for `Agent(isolation: "worktree")` correctness.
 - Step 3 (sync) — **Route A** emits the single sync commit directly on `main` (carrying the `implemented → completed` transition; see § Phase Transitions). **Route B** SHOULD reuse the SAME L2 worktree as Step 2 if L2 was used; otherwise continue on the same feature branch in main checkout. Sync rotates codemap / MX / docs in the run-modified tree; spawning a fresh L2 worktree at sync would lose run-state context.
 - Step 4 (cleanup) applies to **Route B only**. It MUST happen ONLY after BOTH run AND sync PRs are merged, and ONLY when an L2 worktree was created. Premature `moai worktree done` between run-merge and sync-merge breaks Step 3. **Late-branch closure (the Late-Branch closure contract):** when `auto_enabled == false`, after squash merge of run-PR and sync-PR, the user (or `manager-git` automation) MUST execute the canonical Late-branch closure step:
 
@@ -121,7 +121,7 @@ See `spec.md` §1.2 (Non-Goals) — they are deferred to a future SPEC.
 
 - `--mode` flag matrix (defines `autopilot|loop|team|pipeline`).
 - Pipeline regression guard: `internal/template/agentless_audit_test.go`.
-- Pattern source: `.moai/design/v3-redesign/synthesis/pattern-library.md` §O-6 (Agentless).
+- Pattern source: the Agentless pipeline pattern (localize → repair → validate, no LLM dispatcher).
 - Research source: Xia et al. 2024.
 
 ## SPEC Complexity Tier (S/M/L)
@@ -172,7 +172,7 @@ Output:
 
 ## Run Phase
 
-[SHOULD] When user has opted into L2/L3 worktree, execute in a fresh L2 SPEC worktree: `moai worktree new SPEC-XXX --base origin/main`; otherwise execute on the `feat/SPEC-XXX` branch in main checkout. See § SPEC Phase Discipline (Step 2). Per user policy 2026-05-17, L2/L3 worktree is opt-in; default is main checkout + feature branch.
+[SHOULD] When user has opted into L2/L3 worktree, execute in a fresh L2 SPEC worktree: `moai worktree new SPEC-XXX --base origin/main`; otherwise execute on the `feat/SPEC-XXX` branch in main checkout. See § SPEC Phase Discipline (Step 2). Per the opt-in policy, L2/L3 worktree is opt-in; default is main checkout + feature branch.
 
 Implement specification using configured development methodology.
 
@@ -266,7 +266,7 @@ Integration: Referenced by run.md Phase 2.7 and loop.md iteration checks
 
 ## Sync Phase
 
-[SHOULD] When an L2 SPEC worktree was used in run, continue in the SAME L2 worktree as run; do NOT create a new L2 worktree. Otherwise, continue on the same feature branch in main checkout. See § SPEC Phase Discipline (Step 3). Per user policy 2026-05-17, L2 worktree usage is opt-in.
+[SHOULD] When an L2 SPEC worktree was used in run, continue in the SAME L2 worktree as run; do NOT create a new L2 worktree. Otherwise, continue on the same feature branch in main checkout. See § SPEC Phase Discipline (Step 3). Per the opt-in policy, L2 worktree usage is opt-in.
 
 Generate documentation and prepare for deployment.
 
@@ -313,7 +313,12 @@ Plan to Run:
     3. **Artifact-hash unchanged** since that verdict — no plan-phase artifact
        (spec.md / plan.md / acceptance.md / research.md / design.md) has been
        modified since the audit that produced the verdict (equivalently on
-       Route B: no plan-PR commit has landed since that verdict).
+       Route B: no plan-PR commit has landed since that verdict). Note: the
+       mechanical hash subject is the `ComputeHash` 4-file plan-artifact set
+       (spec.md / plan.md / acceptance.md / tasks.md — see § Report
+       Persistence); research.md / design.md changes are a conservative input
+       to the manual skip judgment, not part of the mechanical plan-artifact
+       hash.
     4. **Within 24h** — the verdict was produced no more than 24 hours ago.
   If ANY of the four fails, Phase 0.5 re-executes (the gate is never disabled by
   harness level; see Gate Entry Condition below). When the skip is taken, the
@@ -362,8 +367,14 @@ the implementation phase.
 
 ### Report Persistence
 
-Every gate call persists a record at `.moai/reports/plan-audit/<SPEC-ID>-<YYYY-MM-DD>.md`.
-Multiple calls on the same day append to the same file. Reports are local artifacts (gitignored).
+Two report streams coexist deliberately in `.moai/reports/plan-audit/`; they are distinct by design and mutually cross-referenced here and in `.claude/agents/moai/plan-auditor.md` § Output Format:
+
+- **plan-phase review stream** — `{SPEC-ID}-review-{N}.md`, iteration-based. Written by the plan-auditor during plan-phase adversarial review; iteration `N` follows the plan-auditor Retry Loop Contract (max 3). Consumed by the plan workflow's assembly/annotation cycle.
+- **run-gate stream** — `<SPEC-ID>-<YYYY-MM-DD>.md`, date-based. Written by the Phase 0.5 Plan Audit Gate (`internal/runtime/audit_report.go`). Every gate call persists a record here; multiple calls on the same day append to the same file. This date-file is the verdict **record surface** only — it is never the hash subject for skip-eligibility (see below).
+
+Skip-eligibility inputs (normative, matching the Go implementation): (a) the "most recent plan-auditor verdict" the run-gate consults is the plan-phase review stream's **final-iteration verdict**; (b) the artifact-hash check recomputes and compares the **plan-artifact hash** — `internal/runtime/audit_cache.go` `ComputeHash` hashes the SPEC directory's plan artifacts (spec.md / plan.md / acceptance.md / tasks.md) as whitespace-normalized SHA-256, with cache key = (specID, planArtifactHash); (c) the run-gate stream's date-file records the verdict but is not hashed.
+
+Reports in both streams are local artifacts (gitignored).
 
 ### Grace Window
 
@@ -413,7 +424,7 @@ All teammates are spawned dynamically via `Agent(subagent_type: "general-purpose
 ### Team Mode Run Phase
 - Spawn the implementation teammates directly via Agent(name=...) — the team forms implicitly on first spawn (one team per session, no setup step)
 - Task decomposition with file ownership boundaries
-- [SHOULD] Implementation teammates (role_profiles: implementer, tester) may use L1 `isolation: "worktree"` for parallel file safety; Claude Code runtime decides per-call. Per user policy 2026-05-17, MoAI orchestrator does not mandate L1 isolation.
+- [SHOULD] Implementation teammates (role_profiles: implementer, tester) may use L1 `isolation: "worktree"` for parallel file safety; Claude Code runtime decides per-call. Per the opt-in policy, MoAI orchestrator does not mandate L1 isolation.
 - [SHOULD] Read-only teammates (role_profiles: reviewer) typically do not need L1 `isolation: "worktree"` — `mode: "plan"` is sufficient.
 - Teammates self-claim tasks from shared list
 - Quality validation after all implementation completes

@@ -67,7 +67,7 @@ uvx moai-smartstore-mcp
 
 ## cowork 통합 등록
 
-`cowork-plugins/moai-cowork/.mcp.json` 의 `mcpServers` 에 stdio 서버로 등록:
+`plugins/moai-seller/.mcp.json` 의 `mcpServers` 에 stdio 서버로 등록:
 
 ```json
 {

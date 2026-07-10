@@ -8,7 +8,7 @@ description: |
   - "한국 출판사 비교", "출판사 인세", "출판사 계약 조건"
   - "출판사 투고 채널", "투고 우선순위"
   - "자비 출판 플랫폼", "독립 출판사 추천"
-version: "5.0.0"
+version: "0.1.0"
 ---
 
 # book-publisher-matcher
@@ -404,7 +404,7 @@ Top 5에 대해 다음 정보 정리:
 - `book-chapter-writer` — 본문 챕터 집필 (출판사 통과 후)
 
 ### Alternative
-- `moai-coworker:business-kr-gov-grant` — 한국출판문화산업진흥원 지원사업 (출판 자금 지원)
+- `moai-consultant:business-kr-gov-grant` — 한국출판문화산업진흥원 지원사업 (출판 자금 지원)
 - `moai-accountant:finance-investor-relations` — 출판 펀딩 (텀블벅 등)
 
 ### 산출물 라우팅 (데이터 출력)

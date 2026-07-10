@@ -11,9 +11,8 @@ description: |
   - "분기별 마일스톤과 담당자 정리해줘"
   일정·리소스·파트너십·지속가능성 계획을 실행 가능한 문서로 정리하고, general-ai-slop-reviewer·general-humanize-korean으로 마무리할 수 있습니다.
   [책임 경계] 운영 케이던스(주간보고·스탠드업·회고·OKR 추적)는 moai-pm, 본 스킬은 제품 발견·로드맵/마일스톤 기획
-version: "5.0.0"
+version: "6.0.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 로드맵 관리 (Roadmap Manager)
 

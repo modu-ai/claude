@@ -11,9 +11,8 @@ description: |
   - "네이버 C-Rank 떨어졌는데 개선 방법 알려줘"
   - "이커머스 사이트 SEO 로드맵 만들어줘"
   네이버(C-Rank·D.I.A.)·구글(E-E-A-T·Core Web Vitals)·AI 검색 인용까지 점검해 개선 우선순위와 키워드 목록을 정리하고, 서술 권고는 moai-coworker:general-ai-slop-reviewer → moai-writer:general-humanize-korean으로 다듬습니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # SEO 감사 (SEO Audit)
 

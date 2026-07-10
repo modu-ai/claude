@@ -8,9 +8,8 @@ description: |
   - "What/So What/Now What 구조로 정리해줘" / "카톡·이메일로 보낼 단일 HTML 1pager 만들어줘"
   기본 출력은 moai-officer:office-html-report로 단일 HTML(이미지·CSS·JS 인라인, 카톡·이메일 바로 공유)이며, pdf/docx/pptx/hwpx 변환은 옵션 체이닝. 입력 가능: moai-marketer:marketing-performance-report 출력 · moai-accountant:finance-financial-statements · moai-accountant:finance-variance-analysis · moai-coworker:business-pm-weekly-report · 외부 보고서. 한국 임원/이사회 표준 What/So What/Now What + K-IFRS 재무 지표 우선.
   [책임 경계] vs moai-marketer:marketing-performance-report: business-executive-summary=임원 압축 요약(≤500단어), marketing-performance-report=마케팅 풀 리포트(전체).
-version: "5.0.0"
+version: "6.0.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # Executive Summary: 경영진 1페이지 요약
 
@@ -196,7 +195,7 @@ business-executive-summary → office-html-report (mode=status, 기본)
 
 **Alternative**:
 - `moai-pm/weekly-report` — 팀 단위 주간 (1pager 아닌 6섹션)
-- `moai-coworker/business-strategy-planner` — 전략 문서 (요약 아닌 본문)
+- `moai-consultant/business-strategy-planner` — 전략 문서 (요약 아닌 본문)
 
 ## 관련 커맨드
 

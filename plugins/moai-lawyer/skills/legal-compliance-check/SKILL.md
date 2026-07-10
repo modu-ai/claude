@@ -5,9 +5,8 @@ description: >
   '컴플라이언스 점검해줘', '내부 감사 보고서 작성해줘', 'ESG 보고서 만들어줘',
   '규제 갭 분석해줘', '인허가 서류 준비해줘'라고 요청하세요.
   한국 주요 규제 기준 적용, 갭 분석, 시정 계획, ESG 지표 보고서를 제공합니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 컴플라이언스 점검 (Compliance Check)
 

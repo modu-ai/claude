@@ -1,0 +1,12 @@
+{{- $id := .Get 0 -}}
+{{- range where hugo.Data.agent_teams.employees "id" $id -}}
+<p><strong>스킬 {{ .skill_count }}종</strong> — 아래 표는 마켓플레이스 정본(v{{ hugo.Data.agent_teams.marketplace_version }})에서 자동 생성됩니다.</p>
+<table>
+  <thead><tr><th>스킬</th><th>무엇을 해주나</th></tr></thead>
+  <tbody>
+  {{- range .skills }}
+    <tr><td><code>{{ .name }}</code></td><td>{{ .summary }}</td></tr>
+  {{- end }}
+  </tbody>
+</table>
+{{- end -}}

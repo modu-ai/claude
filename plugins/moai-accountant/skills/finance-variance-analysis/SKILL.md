@@ -4,9 +4,8 @@ description: >
   예산과 실적 차이를 분석해주는 스킬입니다.
   '예산 대비 실적 분석해줘', '매출 미달 원인 찾아줘', '비용 초과 분석해줘'처럼 말하면 됩니다.
   매출·비용·이익 항목별 분산 원인 분석, KPI 추적, 수익성 개선 권고안 도출을 지원합니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 분산 분석 (Variance Analysis)
 

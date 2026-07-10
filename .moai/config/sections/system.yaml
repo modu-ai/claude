@@ -3,10 +3,10 @@
 
 moai:
   # MoAI-ADK version
-  version: "v3.0.0-rc8"
+  version: "v3.0.0-rc10"
 
   # Template version (updated by moai update)
-  template_version: "v3.0.0-rc8"
+  template_version: "v3.0.0-rc10"
 
   # Version update check frequency (daily, weekly, never)
   update_check_frequency: daily

@@ -1,21 +1,25 @@
 ---
 name: harness-builder
-description: Companion skill for /harness:builder — generates desktop plugin (cowork/code) core skills from a 3-Layer research pipeline (qmd vault → Claude official docs → web search) with category constraints.
+description: Companion skill for /harness:builder — generates marketplace plugin (moai-coworker/moai/moai-designer/moai-pm/moai-seller + future expert plugins) core skills from a 3-Layer research pipeline (qmd vault → Claude official docs → web search) with category constraints.
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   category: harness
   status: active
-  updated: 2026-07-08
+  updated: 2026-07-10
   tags: "harness, plugin, skill-generation, qmd, claude-docs"
 ---
 
-# harness-builder — Desktop Plugin Skill Generator
+# harness-builder — Marketplace Plugin Skill Generator
 
 Companion skill for the `/harness:builder` harness. Turns a natural-language directive into a plugin-scoped core skill via a 7-Phase pipeline with 3-Layer research + audit.
 
+## Target Plugin Resolution (marketplace-driven, NOT a fixed enum)
+
+The target plugin is resolved from natural language against the **plugins list in `.claude-plugin/marketplace.json`** (SSOT). Current family: `moai-coworker` (실무 올인원), `moai` (code/개발), `moai-designer` (디자인), `moai-pm` (프로젝트 허브), `moai-seller` (이커머스), plus future expert plugins (`moai-writer` / `moai-marketer` / `moai-officer` / `moai-lawyer` / `moai-accountant` / `moai-recruiter` / `moai-tutor`) as they register in the marketplace. Do NOT hardcode a 2-value cowork/code enum — the intent-parser reads the marketplace manifest at runtime.
+
 ## 7-Phase Pipeline (Pipeline + Producer-Reviewer)
 
-1. **Discovery** (`intent-parser`) — parse natural-language `$ARGUMENTS` → target plugin (cowork/code) + skill topic + intent. Returns structured block (NOT free-form). The orchestrator surfaces ambiguities via AskUserQuestion.
+1. **Discovery** (`intent-parser`) — parse natural-language `$ARGUMENTS` → target plugin (resolved against `.claude-plugin/marketplace.json` plugins list) + skill topic + intent. Returns structured block (NOT free-form). The orchestrator surfaces ambiguities via AskUserQuestion.
 2. **3-Layer Research** (`research-collector`, dynamic-workflow fan-out):
    - Layer 1 qmd vault — `scripts/qmd-search.sh "<keyword>" [TOP_N]`
    - Layer 2 Claude official docs — `code.claude.com/docs`, `docs.claude.com`
@@ -28,10 +32,18 @@ Companion skill for the `/harness:builder` harness. Turns a natural-language dir
 
 ## Category Constraints (HARD — skill-builder enforces)
 
-| Target plugin | Allowed categories | Forbidden categories |
+Aligned with the official Claude Code plugin component model (skills, agents, hooks, MCP servers, LSP servers, commands [legacy], output-styles) + the v6 expert-plugin design:
+
+| Target plugin | Allowed components | Forbidden components |
 |---------------|-------------------|---------------------|
-| cowork / designer / pm (code-외) | `skills/` | `commands/`, `agents/`, `hooks/`, `output-styles/`, `rules/`, `mcp-servers/` |
-| code | `commands/`, `skills/`, `agents/` | `hooks/`, `output-styles/`, `rules/`, `mcp-servers/` |
+| Expert plugins — all non-code (moai-coworker / moai-designer / moai-pm / moai-seller / future moai-writer·marketer·officer·lawyer·accountant·recruiter·tutor) | `skills/`, `agents/`, MCP declarations (plugin-root `.mcp.json` or `mcpServers` in plugin.json; vendored `mcp-servers/`) | `commands/`, `hooks/`, `output-styles/`, LSP (`.lsp.json`), `rules/` |
+| Code plugin (`moai`) | Full surface: `commands/`, `skills/`, `agents/`, `hooks/`, `output-styles/`, MCP (`.mcp.json`/`mcp-servers/`), LSP (`.lsp.json`) | `rules/` (not an official plugin component) |
+
+## Official Schema Notes (code.claude.com/docs plugins / plugins-reference)
+
+- `.claude-plugin/plugin.json` requires ONLY `name` (kebab-case). Optional: `displayName`, `version` (semver; omitted → git SHA), `description`, `author`, `defaultEnabled`.
+- Plugin skills invoke as `/plugin-name:skill`. Skill frontmatter `name` is kebab-case ≤64 chars (optional, defaults to directory name); `description` is a YAML folded scalar; combined `description` + `when_to_use` listing cap is **1,536 chars**.
+- MCP servers: declare in plugin-root `.mcp.json` (or `mcpServers` in plugin.json); use `${CLAUDE_PLUGIN_ROOT}` for plugin-internal paths (marketplace plugins are cache-copied — external absolute paths break).
 
 ## qmd Layer (Layer 1)
 

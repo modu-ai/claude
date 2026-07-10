@@ -11,9 +11,8 @@ description: |
   - "시리즈 A 투자 유치 자료 준비해줘"
   - "투자자 보고서 정리해줘"
   투자 단계(Pre-Seed~Series B)에 맞춘 12슬라이드 피치덱·재무 모델·예상 질문 Q&A를 만들고, PPT/엑셀 변환으로 이어집니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 투자자 관계 (Investor Relations)
 
@@ -355,9 +354,9 @@ AI옵틱스: 중가, 고기능 (차별화)
 
 ## 관련 스킬
 
-- **moai-coworker:business-startup-launchpad**: 스타트업 초기 IR 자료 및 재무 모델
-- **moai-coworker:business-market-analyst**: 시장 규모 분석 및 TAM/SAM/SOM
-- **moai-coworker:business-strategy-planner**: 비즈니스 모델 및 성장 전략
+- **moai-consultant:business-startup-launchpad**: 스타트업 초기 IR 자료 및 재무 모델
+- **moai-consultant:business-market-analyst**: 시장 규모 분석 및 TAM/SAM/SOM
+- **moai-consultant:business-strategy-planner**: 비즈니스 모델 및 성장 전략
 - **moai-officer:office-pptx-designer**: IR 덱 Markdown → PPT 변환
 - **moai-coworker:general-ai-slop-reviewer → moai-writer:general-humanize-korean**: 생성된 IR 자료 AI 패턴 검수 후 한국어 표현을 자연스럽게 다듬습니다 (필수)
 

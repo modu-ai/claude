@@ -3,9 +3,8 @@ name: office-data-public-data
 description: |
   이 스킬은 `moai-officer:office-public-data-public-data`로 이전되었습니다.
   공공데이터포털(data.go.kr)·KOSIS 통계청 실시간 조회는 moai-public-data 플러그인을 사용하세요.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # public-data — 이전됨
 

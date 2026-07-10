@@ -6,11 +6,20 @@ from __future__ import annotations
 
 from typing import Any
 
+import bcrypt
 import pytest
 
 from moai_smartstore.client import NaverCommerceClient
 from moai_smartstore.config import Config
 from moai_smartstore.errors import ApiError, AuthError
+
+# 운영 client_secret 은 bcrypt.gensalt() 로 만들어진 진짜 bcrypt salt 이다.
+# 공식 인증 문서 예시의 placeholder `$2a$10$abcdefghijklmnopqrstuv` 는
+# bcrypt 4.x 까지는 수용되었으나 bcrypt 5.x 가 "Invalid salt" 로 거부한다.
+# (재현 함정의 자세한 배경은 tests/test_auth.py 의
+#  test_official_doc_example_salt_is_rejected_by_bcrypt5 참조.)
+# 따라서 본 테스트는 운영 환경과 동일하게 진짜 salt 를 생성해 사용한다.
+_SALT = bcrypt.gensalt(rounds=10, prefix=b"2a").decode("utf-8")
 
 
 class FakeResponse:
@@ -63,7 +72,7 @@ class FakeSession:
 def _cfg(type_: str = "SELF", account_id: str = "") -> Config:
     return Config(
         client_id="cid",
-        client_secret="$2a$10$abcdefghijklmnopqrstuv",
+        client_secret=_SALT,
         account_id=account_id,
         type=type_,
         base_url="https://api.commerce.naver.com/external",

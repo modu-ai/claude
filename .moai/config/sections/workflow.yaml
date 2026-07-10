@@ -3,9 +3,11 @@ workflow:
     # Values: autopilot | loop | team. Empty/absent = harness-based auto-selection.
     # Precedence: CLI --mode flag > this field > harness auto.
     # @MX:WARN - Default mode field is utility-skill-only consumer. @MX:REASON - Field is read by run skill dispatcher; changing semantics without updating dispatcher breaks behavior contract.
-    default_mode: "solo"
-    # agentic_loop: pipeline-level completion-loop iteration ceiling, prose-read
-    # by the orchestrator (documented key; no Go-side loader field yet).
+    default_mode: ""
+    # agentic_loop: pipeline-level completion-loop iteration ceiling, loaded by
+    # internal/config AgenticLoopConfig (types.go) with default from
+    # DefaultAgenticLoopMaxIterations (defaults.go); also prose-read by the
+    # orchestrator for the moai.md Agentic Completion Loop termination clause.
     # DISTINCT from loop_prevention.max_iterations (per-operation diagnostic
     # fix-loop bound) — separate blocks, separate semantics.
     agentic_loop:
@@ -16,6 +18,11 @@ workflow:
         enabled: true
         token_threshold: 150000
     execution_mode: team
+    # Iteration-ceiling precedence: CLI --max flag > ralph.yaml loop.max_iterations
+    # > workflow.yaml loop_prevention.max_iterations (this block — the lowest-
+    # precedence documented ceiling surface for the diagnostic fix-loop). The
+    # memory-safe 50-iteration checkpoint (loop workflow Step 2) is an orthogonal
+    # memory-pressure safeguard, not a fourth ceiling.
     loop_prevention:
         failure_pattern_detection: true
         max_iterations: 100
@@ -27,7 +34,14 @@ workflow:
             min_files_for_team: 10
         default_model: sonnet
         delegate_mode: true
-        enabled: true
+        # enabled false (Sonnet 5 / Opus 4.8 re-design). The historical
+        # 200K-window baseline-refill breaker is resolved on the current default
+        # lineup (Sonnet 5 ships a single 1M variant; no 200K fallback target).
+        # team mode is opt-in only (explicit --team); Phase 0.95 defaults to
+        # subagent fanout (Mode 4) for multi-domain research/review and sequential
+        # sub-agent (Mode 5) for coding. See
+        # .claude/rules/moai/workflow/orchestration-mode-selection.md §C.1.
+        enabled: false
         max_teammates: 10
         # role_profile_keys: enumeration of allowed role types for the 5+1+1
         # Agent Teams composition documented in
@@ -158,10 +172,33 @@ workflow:
     # Values are validated against the closed sets: model in
     # {inherit, haiku, sonnet, opus}, effort in {low, medium, high, xhigh, max}.
     workflow_agents:
-        read-only-extract: {model: haiku, effort: low}
-        mechanical-transform: {model: sonnet, effort: medium}
-        synthesize: {model: sonnet, effort: high}
-        research: {model: sonnet, effort: high}
-        verify-judge: {model: sonnet, effort: xhigh}
-        implement: {model: sonnet, effort: xhigh}
-        design-architecture: {model: opus, effort: xhigh}
+        read-only-extract: { model: haiku, effort: low }
+        mechanical-transform: { model: sonnet, effort: medium }
+        synthesize: { model: sonnet, effort: high }
+        research: { model: sonnet, effort: high }
+        verify-judge: { model: sonnet, effort: xhigh }
+        implement: { model: sonnet, effort: xhigh }
+        design-architecture: { model: opus, effort: xhigh }
+    # model_routing: Tier x Phase -> {model, effort} routing defaults.
+    # This block is the SSOT for per-spawn cost routing; the orchestrator
+    # consults RouteModelFor(tier, phase) at spawn time and applies the
+    # returned {model, effort} as a per-spawn override UNLESS the caller
+    # supplied an explicit override (matrix yields to explicit user override).
+    # Key format: <TIER>-<phase> where Tier in {S, M, L} and Phase in
+    # {plan, run, sync, mx}. Closed sets: model in
+    # {inherit, haiku, sonnet, opus, glm}, effort in {low, medium, high, xhigh, max}.
+    # An absent (Tier, Phase) pair falls back to a documented default with
+    # fallback_applied: true on the returned entry.
+    model_routing:
+        S-plan: { model: sonnet, effort: medium }
+        S-run: { model: sonnet, effort: high }
+        S-sync: { model: haiku, effort: low }
+        S-mx: { model: haiku, effort: low }
+        M-plan: { model: sonnet, effort: medium }
+        M-run: { model: sonnet, effort: xhigh }
+        M-sync: { model: sonnet, effort: medium }
+        M-mx: { model: haiku, effort: low }
+        L-plan: { model: opus, effort: high }
+        L-run: { model: opus, effort: xhigh }
+        L-sync: { model: sonnet, effort: high }
+        L-mx: { model: sonnet, effort: medium }

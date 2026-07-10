@@ -13,9 +13,8 @@ description: |
   - "직무 역량 갭 분석하고 개발 계획 만들어줘"
   학습 목표 명세서, 주차별 커리큘럼 표, 강사 가이드 초안까지 한 번에 정리해 드립니다.
   [책임 경계] vs moai-tutor:education-assessment-creator: 이 스킬=커리큘럼과 학습 목표 설계, 저 스킬=실제 시험 문제 출제와 채점.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 커리큘럼 디자이너 (Curriculum Designer)
 

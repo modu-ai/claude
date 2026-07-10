@@ -10,9 +10,8 @@ description: |
   - "주간 회의 자료", "위클리 리포트", "주간 업무 보고"
   - "임원 주간보고", "팀 주간보고"
   [책임 경계] 제품 발견·로드맵/마일스톤 기획은 moai-coworker:business-roadmap-manager, 본 스킬은 운영 케이던스(주간보고)
-version: "5.0.0"
+version: "6.0.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # Weekly Report: 한국 팀 주간보고(WBR) 자동 생성
 

@@ -13,9 +13,8 @@ description: |
   - "4K 이미지 생성"
   Soul·Soul 2.0·Soul Cinema·Nano Banana·Nano Banana Pro·GPT Image·GPT Image 2·Seedream 4.0·Flux Kontext·Wan 2.2 Image·Wan 2.5 11개 공식 이미지 모델과 캐릭터 일관성(Soul Characters), 스타일 프리셋, 해상도(720p/1080p/2K/4K), 시드 고정, 비동기 잡 폴링까지 처리한 완성 이미지를 산출합니다.
   실제 이미지 생성 요청 시 Higgsfield MCP가 연결돼 있으면 이 스킬을 사용하세요 (프롬프트만 필요하면 moai-coworker의 *-prompt 스킬).
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # Higgsfield 이미지 생성 (media-higgsfield-image)
 
@@ -316,7 +315,7 @@ quality: 1080p
 | `moai-marketer:media-gpt-image-2-prompt` | 대안: 외부 ChatGPT 사용 |
 | `moai-marketer:media-codex-image` | 대안: codex CLI gpt-image-2 (OAuth, API 키 불필요·로컬) |
 | `moai-marketer:content-card-news` | 후속: 이미지를 카드뉴스에 배치 |
-| `moai-coworker:general-cd-system-prep` | 보조: 브랜드 톤 확정 |
+| `moai-designer:cd-system-prep` | 보조: 브랜드 톤 확정 |
 | `moai-marketer:marketing-campaign-planner` | 보조: 캠페인 시리즈 이미지 |
 | `moai-seller:commerce-product-image-pipeline` | 보조: 이커머스 일괄 |
 

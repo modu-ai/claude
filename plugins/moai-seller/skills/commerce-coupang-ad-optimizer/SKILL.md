@@ -5,9 +5,8 @@ description: |
   다음과 같은 요청 시 사용하세요:
   "쿠팡 광고 분석해줘", "쿠팡 AI스마트광고 세팅", "쿠팡 캠페인 분리", "목표 ROAS 설정"
   별칭(alias) 유지용 스텁 — 실제 기능은 moai-seller:commerce-marketplace-coupang-ads로 위임됩니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # commerce-coupang-ad-optimizer → commerce-marketplace-coupang-ads (이름 변경됨)
 

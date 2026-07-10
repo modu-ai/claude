@@ -7,7 +7,7 @@ description: |
   - "시나리오", "대본", "씬 작성"
   - "드라마 대본", "영화 시나리오"
   - "씬 넘버", "지문", "대사"
-version: "5.0.0"
+version: "0.1.0"
 ---
 
 # story-screenplay
