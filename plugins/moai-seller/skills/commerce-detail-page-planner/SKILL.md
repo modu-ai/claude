@@ -11,9 +11,8 @@ description: |
   - "화장품 상세페이지 어떻게 구성할지 기획해줘"
   완성한 기획안은 moai-seller:commerce-detail-page-copy(카피) → moai-seller:commerce-product-detail(코드) → moai-seller:commerce-detail-page-image(이미지)로 이어집니다.
   [책임 경계] vs 페어 스킬: 이 스킬=기획·전략, moai-seller:commerce-detail-page-copy=13섹션 카피, moai-seller:commerce-product-detail=코드, moai-marketer:marketing-landing-page=단독 랜딩 1페이지.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 상세페이지 기획자 (Detail Page Planner)
 

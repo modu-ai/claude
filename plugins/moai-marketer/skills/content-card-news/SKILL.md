@@ -10,9 +10,8 @@ description: |
   - "스타트업 시드 라운드 체크리스트 카드뉴스 써줘"
   - "프롬프트 엔지니어링 FAQ 카드뉴스 기획해줘"
   주제에 맞는 구성 패턴을 자동으로 골라 4장을 채우고, 이미지 생성은 moai-coworker 이미지 스킬로, 한국어 자연화는 moai-writer:general-humanize-korean으로 이어집니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 카드뉴스 (Card News)
 
@@ -268,7 +267,7 @@ CTA: [저장/공유/팔로우/링크/댓글/DM 중 1개]
 | `moai-marketer:content-sns-content` | 인스타·스레드·페북 채널별 콘텐츠 |
 | `moai-marketer:marketing-campaign-planner` | 캠페인 단위 시리즈 카드뉴스 |
 | `moai-coworker:general-ai-slop-reviewer` | 텍스트 AI 슬롭 검수 |
-| `moai-coworker:general-cd-slop-check` | 디자인 카피 슬롭 검수 |
+| `moai-designer:cd-slop-check` | 디자인 카피 슬롭 검수 |
 
 ## References
 

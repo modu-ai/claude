@@ -5,9 +5,8 @@ description: |
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "구독 모델 설계", "구독 비즈니스 5가지 질문", "오이식스 구독", "VIPS 구독", "맞춤 구독 모델", "락인 vs 이탈 방지", "한국 구독 시장 적합성".
   4 구독 모델: ① 소비재 (오이식스·롯데 새벽배송) ② 경험 (VIPS·CGM) ③ 관계 (배송 멤버십) ④ 맞춤 (영양제·화장품).
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 구독 비즈니스 모델 설계 (Commerce Subscription Strategist)
 

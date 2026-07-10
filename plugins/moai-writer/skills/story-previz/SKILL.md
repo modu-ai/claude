@@ -7,7 +7,7 @@ description: |
   - "프리비즈", "시네마틱 숏"
   - "카메라 무빙", "렌즈 선택"
   - "DoP", "Cinema Studio"
-version: "5.0.0"
+version: "0.1.0"
 ---
 
 # story-previz

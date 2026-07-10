@@ -11,9 +11,8 @@ description: |
   - "접근 전략 수립해줘"
   - "영업 성공 지표 설정해줘"
   타겟 분석·접근 전략·이의처리·성공 지표를 한 문서로 묶고, PPT 변환이나 AI 표현 다듬기로 이어집니다.
-version: "5.0.0"
+version: "6.0.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 영업 플레이북 (Sales Playbook)
 
@@ -317,7 +316,7 @@ Gartner: 2026 말 기업 앱의 40%가 AI 에이전트 포함. McKinsey: B2B 영
 
 ### 사후 체이닝 (순서대로 실행 권장)
 
-1. **moai-coworker:business-strategy-planner**: 영업 플레이북 생성 전, 제품/서비스의 전략적 포지셔닝을 먼저 수립
+1. **moai-consultant:business-strategy-planner**: 영업 플레이북 생성 전, 제품/서비스의 전략적 포지셔닝을 먼저 수립
 2. **moai-officer:office-pptx-designer**: 생성된 영업 플레이북 Markdown 문서를 피치덱 형식의 PPT로 변환
 3. **moai-coworker:general-ai-slop-reviewer → moai-writer:general-humanize-korean**: 생성된 플레이북 문서의 AI 패턴을 검수·수정한 뒤 한국어 표현을 자연스럽게 다듬습니다 (필수)
 

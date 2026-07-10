@@ -8,9 +8,8 @@ description: |
   - "근본 원인", "현황 점검", "문제 해결", "시스템 이슈"
   - 복합적 원인이 의심되는 문제 상황 진단
   - 성능 저하, 오류 원인, 병목 파악
-version: "5.0.0"
+version: "6.0.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # general-ai-diagnostic
 

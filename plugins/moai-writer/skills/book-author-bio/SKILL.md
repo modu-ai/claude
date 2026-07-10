@@ -9,7 +9,7 @@ description: |
   - "저자 신뢰 신호", "출판 프로필"
   - "북스타그래머 프로필", "SNS 약력"
   - "강연·강의 약력"
-version: "5.0.0"
+version: "0.1.0"
 ---
 
 # book-author-bio
@@ -351,8 +351,8 @@ AskUserQuestion으로 저자에 대한 다음 5 영역 자료 수집:
 - `book-publisher-matcher` — 한국 출판사 매칭 (저자 신뢰 신호 기반)
 
 ### Alternative
-- `moai-recruiter:business-resume-builder` — 일반 이력서 (책 외)
-- `moai-coworker:business-strategy-planner` — 사업 자기소개
+- `moai-career:business-resume-builder` — 일반 이력서 (책 외)
+- `moai-consultant:business-strategy-planner` — 사업 자기소개
 
 ### Post (검수 — 정규 체인)
 - `moai-writer:office-korean-spell-check` — 한국어 맞춤법

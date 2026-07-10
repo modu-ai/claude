@@ -4,9 +4,8 @@ description: >
   한 주나 한 해를 가볍게 돌아보는 회고를 도와주는 스킬입니다.
   '이번 주 회고하고 싶어', 'KPT로 정리해줘', '연말 회고 템플릿', '한 줄 회고', '올해 돌아보기'처럼 말하면 됩니다.
   KPT·한 줄 회고·키워드 회고 등 부담 없는 템플릿으로, 반성·자책이 아니라 가볍게 돌아보고 다음을 정하는 회고를 설계합니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 회고 빌더 (Retro Builder)
 

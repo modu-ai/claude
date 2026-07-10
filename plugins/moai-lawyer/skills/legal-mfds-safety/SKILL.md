@@ -15,9 +15,8 @@ description: |
   - "건강기능식품 1일 섭취량", "MFDS 공식 정보", "식약처 부적합"
   - "의약품 안전 체크", "식품 안전 체크", "회수·판매중지 식품 검색"
   - 헬스/F&B 커머스에서 상품 안전성 확인 시
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # MFDS 의약품·식품 안전 체크 (통합)
 

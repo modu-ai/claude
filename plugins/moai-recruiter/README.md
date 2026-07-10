@@ -1,8 +1,8 @@
 # 인사·채용 담당 (moai-recruiter)
 
-인사·채용 전담 AI 직원입니다. 채용 공고 분석, 이력서 작성·스크리닝, 면접 코칭, 성과평가, People Ops 등 채용 실무 스킬 8종을 하나의 플러그인으로 제공합니다. 채용 담당자와 구직자 양쪽 워크플로우를 모두 지원하며, 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다.
+인사·채용 전담 AI 직원입니다. 채용 공고 분석, 이력서 스크리닝, 오퍼레터·근로계약서, 성과평가, People Ops 등 고용주 편 채용 실무 스킬 6종을 하나의 플러그인으로 제공합니다. 슬래시 명령을 외울 필요 없이 자연어로 요청하면 매칭되는 스킬이 자동 호출됩니다. 구직자 편(이력서·포트폴리오·면접 준비)은 `moai-career`(커리어코치)로 분리되었습니다.
 
-**이런 분께 추천**: 채용 담당자 · 인사 실무자 · 구직자(취준생·이직 준비자)
+**이런 분께 추천**: 채용 담당자 · 인사 실무자 · 직원을 채용하는 1인 사업자
 
 ## 설치
 
@@ -20,27 +20,20 @@ claude plugin install moai-recruiter@moai-claude
 /plugin install moai-recruiter
 ```
 
-## 스킬 8종
+## 스킬 6종
 
 호출 형식: `/moai-recruiter:business-<스킬명>` — 예: `/moai-recruiter:business-resume-screener`. 자연어 요청("이 채용공고 분석해줘")으로도 자동 매칭됩니다.
-
-### 채용 담당자용 (4종)
 
 | 스킬 | 역할 |
 |------|------|
 | `business-employment-manager` | 채용 공고(JD) 작성 · 면접 설계 · 평가 기준 · 온보딩 등 채용 프로세스 전반 관리 |
 | `business-resume-screener` | NCS 기반 이력서·자소서 적합성 평가(인간 검토 보조 — 자동 합격/거절 없음, 보호 정보 마스킹) |
+| `business-draft-offer` | 오퍼레터·근로계약서 작성 (근로기준법 준수 · 연봉 구조 · 4대보험 공제 · 스톡옵션 조항) |
 | `business-performance-review` | MBO·OKR·KPI 성과평가 체계 설계 · 360도 평가 · 피드백 면담 스크립트 |
 | `business-people-operations` | 원격·하이브리드 근무 정책 · 협업 도구 선정 · 직원 경험 설계 |
+| `business-job-analyzer` | 채용공고(JD) 분해 · 기업 리서치 · 오퍼 검증 |
 
-### 구직자용 (4종)
-
-| 스킬 | 역할 |
-|------|------|
-| `business-job-analyzer` | 채용공고(JD) 분해 · 기업 리서치 · 헤드헌터 오퍼 검증 |
-| `business-resume-builder` | 자소서·이력서·경력기술서·영문 CV·링크드인 작성 (ATS·블라인드·NCS 모드) |
-| `business-interview-coach` | 유형별 면접 대비(AI 역량검사·BEI·PT·임원·팀핏) + 모의 면접 루프 + 역질문 |
-| `business-portfolio-guide` | 분야별(개발·디자인·마케팅·기획) 포트폴리오 구성 · 프로젝트 기술서 작성 |
+> 구직자용 스킬 3종(`business-resume-builder`·`business-interview-coach`·`business-portfolio-guide`)은 `moai-career`(커리어코치)로 이관되었습니다.
 
 ## 사람인 채용검색 연동 (Saramin PlayMCP)
 

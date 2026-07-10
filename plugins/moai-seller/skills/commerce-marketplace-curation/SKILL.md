@@ -6,9 +6,8 @@ description: >
   일반 마켓·자사몰과 달리 채널이 큐레이팅·셀렉션하는 입점 모델로,
   채널 정체성에 맞는 브랜드 콘셉트와 제품 라인업을 정리해 입점 제안을 안내합니다.
   카카오 메이커스(주문생산), 무신사(패션 한정), 29CM(라이프스타일 큐레이션) 채널별 정책을 통합합니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 큐레이션 커머스 가이드 (카카오 메이커스·무신사·29CM)
 
@@ -146,7 +145,7 @@ version: "5.0.0"
 - `moai-seller:commerce-product-photo-brief` — 라이프스타일 사진 컷 기획
 - `moai-seller:commerce-integrated-strategy` — 채널 믹스 전략
 - `moai-marketer:marketing-landing-page` — 브랜드 소개 자사몰
-- `moai-coworker:business-strategy-planner` — 사업 계획서 (입점 제안서 베이스)
+- `moai-consultant:business-strategy-planner` — 사업 계획서 (입점 제안서 베이스)
 
 ## 이 스킬을 사용하지 말아야 할 때
 

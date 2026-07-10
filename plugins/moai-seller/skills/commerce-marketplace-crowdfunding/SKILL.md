@@ -6,9 +6,8 @@ description: >
   신상품 출시 또는 한정판을 사전판매·검증 형식으로 런칭하고 싶을 때 유용합니다.
   와디즈(리워드·투자), 텀블벅(창작·문화), 해피빈펀딩(공익) 채널별 차이를 정리하고,
   프로젝트 페이지 카피, 영상 시놉시스, 리워드 가격 구성, 메이커 등록 절차를 안내합니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 크라우드펀딩 가이드 (와디즈·텀블벅)
 

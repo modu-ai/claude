@@ -5,10 +5,9 @@ description: |
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   "오늘 배운 것 종합 전략으로 정리해줘", "통합 전략 뽑아줘", "실행 우선순위 정해줘", "매출 올리는 전략 1장", "지금 당장 해야 할 것 Top3", "ROAS 개선 전략", "채널별 매출 비교 분석", "커머스 전략 짜줘", "채널 믹스 추천해줘", "가격 전략 세워줘", "프로모션 캘린더 만들어줘", "리텐션 전략 추천", "이커머스 KPI 대시보드 설계"
   매크로 전략 모드(채널 믹스·3단계 가격·시즌 프로모션 캘린더·재구매 자동화·KPI 대시보드 references 제공) + 통합 1장 모드(선행 산출물 종합) 2계층으로 동작하며, 전략 1장 직후 moai-coworker:general-ai-slop-reviewer를 자동 체이닝합니다.
-  [책임 경계] 본 스킬은 이커머스 셀러 즉시 실행 전술 + 채널 전략. 중장기 사업 전략은 moai-coworker:business-strategy-planner, 운영 자동화 진단은 moai-seller:commerce-automation-audit 사용.
-version: "5.0.0"
+  [책임 경계] 본 스킬은 이커머스 셀러 즉시 실행 전술 + 채널 전략. 중장기 사업 전략은 moai-consultant:business-strategy-planner, 운영 자동화 진단은 moai-seller:commerce-automation-audit 사용.
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 통합 전략 자동 생성 (Commerce Integrated Strategy)
 
@@ -175,11 +174,11 @@ version: "5.0.0"
 - `commerce-marketplace-coupang/naver/d2c/curation/crowdfunding` — 채널별 운영 실행
 - `commerce-automation-audit` — 운영 자동화 진단 (풀세트)
 - `moai-coworker:general-ai-slop-reviewer` — 전략 문서 AI 검수 (자동 체인)
-- `moai-coworker:business-strategy-planner` — 중장기 사업 전략 (페어, 상위 레벨)
+- `moai-consultant:business-strategy-planner` — 중장기 사업 전략 (페어, 상위 레벨)
 
 ## 이 스킬을 사용하지 말아야 할 때
 
-- **중장기 사업 전략 (분기·연간)**: `moai-coworker:business-strategy-planner` 사용
+- **중장기 사업 전략 (분기·연간)**: `moai-consultant:business-strategy-planner` 사용
 - **운영 자동화 진단 풀세트**: `moai-seller:commerce-automation-audit` 사용
 - **IR 덱·투자 유치 전략**: `moai-officer:office-pptx-designer` + 별도 사업기획 스킬 사용
 - **광고 캠페인 집행 계획**: 광고 플랫폼에서 직접 관리
@@ -210,7 +209,7 @@ version: "5.0.0"
 
 ### 4단계: 프로모션 캘린더
 
-한국 이커머스 시즌(설·가정의달·추석·빼빼로·블프·연말), 프로모션 유형, 시즌별 채널 우선순위, 광고 집중 시점은 `references/promotion.md` 참조. 프로모션 카피는 `moai-seller:commerce-channel-message`로 작성.
+한국 이커머스 시즌(설·가정의달·추석·빼빼로·블프·연말), 프로모션 유형, 시즌별 채널 우선순위, 광고 집중 시점은 `references/promotion.md` 참조. 프로모션 카피는 `moai-cs:commerce-channel-message`로 작성.
 
 ### 5단계: 리텐션 자동화
 

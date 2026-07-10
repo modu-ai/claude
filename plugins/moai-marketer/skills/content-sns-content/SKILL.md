@@ -11,10 +11,9 @@ description: |
   - "한 달치 콘텐츠 달력 짜줘"
   - "내 유튜브 강의를 인스타·블로그·뉴스레터로 리퍼포징해줘"
   채널별 심리와 알고리즘에 맞춰 게시글을 만들고 콘텐츠를 여러 채널로 재활용하며, 텍스트 산출물은 moai-coworker:general-ai-slop-reviewer → moai-writer:general-humanize-korean으로 다듬습니다.
-  [책임 경계] vs 형제 스킬: 범용 광고 카피는 moai-marketer:content-copywriting, 이커머스 광고·톡톡·푸시 카피는 moai-seller:commerce-channel-message, 기업 브랜드 전략은 moai-coworker:business-brand-identity, 개인 브랜드 전략은 moai-marketer:marketing-personal-branding.
-version: "5.0.0"
+  [책임 경계] vs 형제 스킬: 범용 광고 카피는 moai-marketer:content-copywriting, 이커머스 광고·톡톡·푸시 카피는 moai-cs:commerce-channel-message, 기업 브랜드 전략은 moai-coworker:business-brand-identity, 개인 브랜드 전략은 moai-marketer:marketing-personal-branding.
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # SNS 콘텐츠 제작 (SNS Content) — 한국 + 글로벌 통합
 
@@ -178,13 +177,13 @@ CTA: 의견을 댓글로 남겨주세요 / 공감하시면 리포스트
 | `moai-marketer:content-card-news` | 카드뉴스·슬라이드 |
 | `moai-marketer:content-newsletter` | 이메일 뉴스레터 |
 | `moai-marketer:content-copywriting` | 범용 광고 카피·헤드라인·CTA |
-| `moai-seller:commerce-channel-message` | 이커머스 광고·톡톡·푸시·이메일 카피 |
+| `moai-cs:commerce-channel-message` | 이커머스 광고·톡톡·푸시·이메일 카피 |
 | `moai-marketer:marketing-youtube-podcast-planner` | 유튜브 장편 영상·팟캐스트 |
 
 ## 이 스킬을 사용하지 말아야 할 때
 
 - 범용 광고 카피·헤드라인: `moai-marketer:content-copywriting` 스킬 사용
-- 이커머스 광고·톡톡·푸시·이메일 카피: `moai-seller:commerce-channel-message` 사용
+- 이커머스 광고·톡톡·푸시·이메일 카피: `moai-cs:commerce-channel-message` 사용
 - 유튜브 장편 영상 기획: `moai-marketer:marketing-youtube-podcast-planner` 스킬 사용
 - 기업·제품 브랜드 전체 전략: `moai-coworker:business-brand-identity` 사용
 - 카드뉴스·슬라이드: `moai-marketer:content-card-news` 사용

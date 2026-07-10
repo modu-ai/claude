@@ -11,10 +11,9 @@ description: |
   - "정부 과제 제안서 초안 잡아줘"
   - "국가 R&D 사업 신청서 양식대로 써줘"
   연구 목표·내용·방법론·기대효과·예산 섹션을 기관 양식에 맞춰 구성하고, 평가 기준 대비 자체 점검표까지 만들어 ai-slop 검수 체인으로 마무리합니다.
-  [책임 경계] 정부 일반 지원사업은 moai-coworker:business-kr-gov-grant
-version: "5.0.0"
+  [책임 경계] 정부 일반 지원사업은 moai-consultant:business-kr-gov-grant
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 연구비 신청서 작성 (Grant Writer)
 
@@ -115,7 +114,7 @@ AskUserQuestion으로 지원 기관과 사업 유형을 선택받습니다:
 
 - **moai-tutor:education-paper-search** - 선행연구 조사 및 논문 검색
 - **moai-officer:office-data-visualizer** - 기술 로드맵, 간트 차트 시각화
-- **moai-coworker:business-strategy-planner** - 사업화 계획 수립 (TIPS 등 창업 과제)
+- **moai-consultant:business-strategy-planner** - 사업화 계획 수립 (TIPS 등 창업 과제)
 
 ### 후처리 체인 (본문/서술 산출물)
 

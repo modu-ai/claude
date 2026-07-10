@@ -7,7 +7,7 @@ description: |
   - "IP 피칭", "판권 제안", "2차 저작"
   - "웹툰 드라마화", "웹소설 웹툰화"
   - "IP 가치 평가", "IP 확장"
-version: "5.0.0"
+version: "0.1.0"
 ---
 
 # story-ip-pitch

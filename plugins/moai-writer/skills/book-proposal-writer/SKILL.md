@@ -9,7 +9,7 @@ description: |
   - "샘플 챕터 첨부", "원고 미리보기"
   - "출판 마케팅 플랜", "저자 마케팅 활동"
   - "출판사별 양식 변환"
-version: "5.0.0"
+version: "0.1.0"
 ---
 
 # book-proposal-writer
@@ -463,7 +463,7 @@ version: "5.0.0"
 - `book-chapter-writer` — 본문 챕터 집필 (제안서 통과 후)
 
 ### Alternative
-- `moai-coworker:business-strategy-planner` — 사업 제안서 (책 아님)
+- `moai-consultant:business-strategy-planner` — 사업 제안서 (책 아님)
 - `moai-tutor:education-grant-writer` — 정부지원사업 신청
 
 ### Post (검수 — 정규 체인)

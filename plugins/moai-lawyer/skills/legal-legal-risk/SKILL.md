@@ -5,9 +5,8 @@ description: >
   '법적 리스크 평가해줘', '특허 침해 위험 분석해줘', '개인정보 위반 리스크 체크해줘',
   'IP 포트폴리오 분석해줘', '2026년 법령 변화 영향 분석해줘'라고 요청하세요.
   판례·법령 리서치, IP 포트폴리오, 리스크 매트릭스, 대응 액션 플랜을 제공합니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 법적 리스크 분석 (Legal Risk)
 

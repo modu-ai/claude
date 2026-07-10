@@ -7,7 +7,7 @@ description: |
   - "웹툰 기획", "웹툰 세계관", "웹툰 캐릭터 설계"
   - "네이버웹툰 연재", "카카오웹툰 기획"
   - "웹툰 시즌 구성", "회차 설계"
-version: "5.0.0"
+version: "0.1.0"
 ---
 
 # story-webtoon-planner

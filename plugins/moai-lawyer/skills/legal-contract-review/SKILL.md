@@ -5,9 +5,8 @@ description: >
   '계약서 검토해줘', '위험 조항 찾아줘', '이용약관 만들어줘',
   '개인정보처리방침 작성해줘', 'SLA 계약서 써줘'라고 요청하세요.
   한국 민법·상법 기반 10대 리스크 패턴 분석, 수정 권고안을 제공합니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 계약서 검토 (Contract Review)
 

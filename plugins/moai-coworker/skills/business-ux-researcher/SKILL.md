@@ -11,9 +11,8 @@ description: |
   - "고객 설문 인사이트 정리해줘"
   정성·정량 리서치 결과를 의사결정에 쓸 수 있는 인사이트로 정리하고, general-ai-slop-reviewer·general-humanize-korean으로 마무리할 수 있습니다.
   [책임 경계] vs moai-coworker:business-ux-designer: business-ux-researcher=정성/정량 리서치(인터뷰·페르소나·VOC), business-ux-designer=디자인 평가(휴리스틱·접근성·플로우)
-version: "5.0.0"
+version: "6.0.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # UX 리서처 (UX Researcher)
 
@@ -90,7 +89,7 @@ UX, UX 리서치, 사용자 인터뷰, 유저빌리티, 페르소나, VOC, NPS, 
 | 스킬 | 사용 시점 |
 |------|----------|
 | `moai-coworker:business-spec-writer` | PRD·기능 명세 작성 |
-| `moai-coworker:business-draft-response` | 고객 CS 응답 초안 작성 |
+| `moai-cs:business-draft-response` | 고객 CS 응답 초안 작성 |
 | `moai-marketer:marketing-performance-report` | 마케팅 데이터 분석 |
 
 ## 후처리 체인

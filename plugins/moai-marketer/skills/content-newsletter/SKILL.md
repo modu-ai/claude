@@ -10,9 +10,8 @@ description: |
   - "업계 트렌드 뉴스레터 구성 짜줘"
   - "구독자 늘리는 뉴스레터 기획해줘"
   완성 후 moai-coworker:general-ai-slop-reviewer로 AI 티를 정리합니다(필수 후처리).
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 뉴스레터 (Newsletter)
 

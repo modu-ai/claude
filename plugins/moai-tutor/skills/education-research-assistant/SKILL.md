@@ -12,10 +12,9 @@ description: |
   - "RISS, DBpia에서 찾을 검색 키워드 전략 짜줘"
   - "피어 리뷰 대비해서 연구 방법 타당성 점검해줘"
   RISS·DBpia 등 국내외 학술 DB 검색 전략부터 정량·정성 분석, 인용 관리, 피어 리뷰 대비까지 지원합니다.
-  [책임 경계] vs moai-coworker:business-market-analyst: 이 스킬=학술 논문과 연구 리서치, 저 스킬=시장 조사와 비즈니스 리서치.
-version: "5.0.0"
+  [책임 경계] vs moai-consultant:business-market-analyst: 이 스킬=학술 논문과 연구 리서치, 저 스킬=시장 조사와 비즈니스 리서치.
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 리서치 어시스턴트 (Research Assistant)
 
@@ -192,5 +191,5 @@ version: "5.0.0"
 
 - **커리큘럼 및 강의 설계** → moai-tutor:education-curriculum-designer 스킬이 더 적합합니다
 - **시험 문제 출제** → moai-tutor:education-assessment-creator 스킬을 사용하세요
-- **시장 조사·비즈니스 리서치** → moai-coworker:business-market-analyst 스킬이 더 적합합니다
+- **시장 조사·비즈니스 리서치** → moai-consultant:business-market-analyst 스킬이 더 적합합니다
 - **실제 데이터 수집(설문 발송, 인터뷰 진행)** → 해당 도구(구글폼, 카카오폼 등)를 직접 사용하세요

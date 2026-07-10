@@ -13,9 +13,8 @@ description: |
   - "광고 보고서 엑셀 올릴게, 분석해줘"
   퍼널·KPI·지면·연령·성별·누수까지 분석해 HTML·DOCX·PPTX·MD 중 원하는 형식으로 보고서를 만들고, 문서 텍스트는 moai-coworker:general-ai-slop-reviewer → moai-writer:general-humanize-korean으로 다듬습니다.
   [책임 경계] vs marketing-pixel-audit·marketing-landing-page-conversion-audit: 이 스킬=광고관리자 데이터 사후 분석, 저 스킬=픽셀 인프라 진단·랜딩 진단.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 메타 광고 보고서 분석기 (Meta Ads Analyzer)
 

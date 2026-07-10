@@ -8,9 +8,8 @@ description: |
   - "이상값 찾아줘"
   - "데이터 품질 체크해줘"
   컬럼 요약·결측값/이상값 탐지·상관관계 분석을 거쳐 데이터 품질 보고서로 정리합니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 데이터 탐색기 (Data Explorer)
 

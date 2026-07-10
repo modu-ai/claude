@@ -13,9 +13,8 @@ description: |
   - "법원 경매 매각공고", "courtauction.go.kr", "경매 사건 검색"
   - "감정평가액 최저매각가", "매각기일별 결과", "유찰 횟수"
   - 자산 처분·경매 투자·실사 검토 시
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 법원경매 매각공고 조회
 

@@ -4,9 +4,8 @@ description: >
   성과평가 체계를 설계하고 실행을 도와주는 스킬입니다. "OKR 설정해줘", "성과 리뷰 템플릿 만들어줘",
   "피드백 면담 스크립트 써줘"처럼 말하면 됩니다. MBO·OKR·KPI 체계 구축,
   360도 평가 설계, 인사 고과 가이드, 피드백 면담 스크립트 작성을 지원합니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 성과평가 (Performance Review)
 
@@ -187,5 +186,5 @@ business-performance-review → moai-coworker:general-ai-slop-reviewer → moai-
 
 - **법적 노동 분쟁 대응**: 평가 결과로 인한 해고, 징계, 임금 분쟁은 노무사에게 의뢰하세요.
 - **채용·온보딩 프로세스**: JD 작성, 면접 설계, 신입 온보딩은 `moai-recruiter:business-employment-manager` 스킬이 더 적합합니다.
-- **오퍼 레터·연봉 협상 문서**: `moai-coworker:business-draft-offer` 스킬을 사용하세요.
+- **오퍼 레터·연봉 협상 문서**: `moai-recruiter:business-draft-offer` 스킬을 사용하세요.
 - **원격 근무 정책 수립**: 재택 정책, 협업 도구 선택은 `moai-recruiter:business-people-operations` 스킬을 사용하세요.

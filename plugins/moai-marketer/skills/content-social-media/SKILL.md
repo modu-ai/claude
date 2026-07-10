@@ -5,9 +5,8 @@ description: |
   글로벌 4채널(스레드·X·링크드인·유튜브쇼츠)과 한국 3채널(인스타·네이버 블로그·카카오)을 모두 content-sns-content에서 지원합니다.
   본 스텁은 v2.5.0까지 외부 참조 호환성 보존용으로 유지됩니다.
 user-invocable: false
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # content-social-media — RELOCATED
 

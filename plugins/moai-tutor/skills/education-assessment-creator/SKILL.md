@@ -13,9 +13,8 @@ description: |
   - "자격증 시험 대비 퀴즈랑 해설 같이 만들어줘"
   난이도 배분과 정답·해설을 갖춘 평가 문항을 만들고, 오답 분석표로 보충 학습 방향까지 짚어 드립니다.
   [책임 경계] vs moai-tutor:education-curriculum-designer: 이 스킬=시험 문제 출제와 채점, 저 스킬=강의 커리큘럼과 학습 목표 설계.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # 평가 도구 제작 (Assessment Creator)
 

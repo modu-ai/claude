@@ -8,7 +8,7 @@ description: |
   - "챕터 시놉시스", "분량 배분", "꼭지 단위 기획"
   - "책 구성안", "출판 기획서 목차"
   - "장르별 목차 패턴", "실용서 목차 / 소설 플롯"
-version: "5.0.0"
+version: "0.1.0"
 ---
 
 # book-outline-designer
@@ -317,7 +317,7 @@ book-concept-planner와 book-target-reader 결과 입력.
 - `book-chapter-writer` — 본문 챕터 집필 (꼭지 단위 반복)
 
 ### Alternative
-- `moai-coworker:business-strategy-planner` — 사업·서비스 구조 설계 (책 아님)
+- `moai-consultant:business-strategy-planner` — 사업·서비스 구조 설계 (책 아님)
 - `moai-marketer:content-blog` — 블로그 시리즈 구조 (책 분량 미만)
 
 ### Post (검수 — 정규 체인)

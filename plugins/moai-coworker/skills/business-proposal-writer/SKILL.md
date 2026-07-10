@@ -10,11 +10,10 @@ description: |
   - "솔루션 제안서 초안", "[고객사명] 제안서", "이 RFP 답변 초안"
   - "B2B SaaS 제안서", "엔터프라이즈 영업 제안서", "수주 제안서"
 
-  주의: 정부 지원사업 신청서는 `moai-coworker:business-kr-gov-grant`를 사용하세요. 본 스킬은 **B2B 영업 고객 대상** 제안서만 다룹니다.
+  주의: 정부 지원사업 신청서는 `moai-consultant:business-kr-gov-grant`를 사용하세요. 본 스킬은 **B2B 영업 고객 대상** 제안서만 다룹니다.
   투자자 IR 자료는 `moai-accountant:finance-investor-relations`를 사용하세요.
-version: "5.0.0"
+version: "6.0.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # Proposal Writer — B2B 영업 제안서 자동 생성
 
@@ -149,7 +148,7 @@ RFP가 제공된 경우, 모든 필수 항목을 추출해 체크리스트화합
 ## 관련 스킬
 
 **Before (입력 prep)**:
-- `moai-coworker:business-market-analyst` — 고객사 산업·시장 분석 자료 prep
+- `moai-consultant:business-market-analyst` — 고객사 산업·시장 분석 자료 prep
 
 **After (출력 후처리)**:
 - `moai-coworker:general-ai-slop-reviewer` — 본문 AI slop 검수 (필수)
@@ -159,14 +158,14 @@ RFP가 제공된 경우, 모든 필수 항목을 추출해 체크리스트화합
 
 **Alternative (대체 스킬)**:
 - `moai-accountant:finance-investor-relations` — 투자자 대상 IR (B2B 고객 아님)
-- `moai-coworker:business-kr-gov-grant` — 정부 지원사업 신청서 (B2B 영업 아님)
+- `moai-consultant:business-kr-gov-grant` — 정부 지원사업 신청서 (B2B 영업 아님)
 
 ## 관련 커맨드
 
 - `/harness` — 본 스킬 자체의 추가 개선·재생성
 - 등록된 스킬 체인:
-  - B2B 영업 제안서: `moai-coworker:business-market-analyst → moai-coworker:business-proposal-writer → moai-coworker:general-ai-slop-reviewer → moai-officer:office-docx-generator`
-  - B2B 영업 슬라이드: `moai-coworker:business-market-analyst → moai-coworker:business-proposal-writer → moai-coworker:general-ai-slop-reviewer → moai-officer:office-pptx-designer`
+  - B2B 영업 제안서: `moai-consultant:business-market-analyst → moai-coworker:business-proposal-writer → moai-coworker:general-ai-slop-reviewer → moai-officer:office-docx-generator`
+  - B2B 영업 슬라이드: `moai-consultant:business-market-analyst → moai-coworker:business-proposal-writer → moai-coworker:general-ai-slop-reviewer → moai-officer:office-pptx-designer`
   - 견적서 분리: `moai-coworker:business-proposal-writer → moai-officer:office-xlsx-creator` (business-proposal-writer가 가격 섹션 기반 견적 명세 표를 직접 작성)
 
 ## 출처

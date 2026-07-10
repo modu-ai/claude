@@ -6,7 +6,7 @@ description: |
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   - "웹툰 회차 대본", "컷 분할", "웹툰 대사"
   - "웹툰 연출", "말칸 배치"
-version: "5.0.0"
+version: "0.1.0"
 ---
 
 # story-webtoon-episode

@@ -7,7 +7,7 @@ description: |
   - "캐릭터 시트", "인물 설정", "캐릭터 디자인"
   - "Soul ID 학습", "캐릭터 일관성"
   - "인물 비주얼", "캐릭터 시트 생성"
-version: "5.0.0"
+version: "0.1.0"
 ---
 
 # story-character-sheet

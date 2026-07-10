@@ -11,9 +11,8 @@ description: |
   - general-skill-template으로 시작한 스킬의 체계적 생성이 필요할 때
   - /harness 커맨드의 new 단계로 진입할 때
 user-invocable: false
-version: "5.0.0"
+version: "6.0.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # Skill Builder — 6-Phase 스킬 생성 워크플로우
 

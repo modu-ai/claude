@@ -11,9 +11,8 @@ description: |
   - "AI 패턴 검사해줘", "기계적인 느낌 없애줘"
   - Cowork/다른 AI 도구로 생성한 문서의 후처리 검수 요청 시
   - 글쓰기 결과물을 인간적인 톤으로 개선하고 싶을 때
-version: "5.0.0"
+version: "6.0.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # AI 슬롭 검수 및 인간화 스킬
 

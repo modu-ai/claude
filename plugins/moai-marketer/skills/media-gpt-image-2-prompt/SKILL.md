@@ -10,9 +10,8 @@ description: |
   - "/media-gpt-image-2-prompt" (직접 호출)
 
   이미지 자동 생성은 페어 스킬 media-higgsfield-image(Higgsfield MCP)를 사용하세요. 본 스킬은 프롬프트 텍스트 산출 전용입니다.
-version: "5.0.0"
+version: "0.1.0"
 ---
-<!-- moai-coworker v5.0.0 · 3-point sync: plugin.json "version":"5.0.0" = SKILL.md version 5.0.0 = marketplace metadata.version 5.0.0 (REQ-STORY-006/NFR-STORY-003) -->
 
 # GPT-image-2 Prompt Builder — 6-Block 구조 + 3-모델 동시 출력
 
