@@ -98,9 +98,9 @@
 
 세션 시작 훅이 `moai` 바이너리를 탐지해 Tier 3 승격을 1줄로 안내하고, 없으면 무음 fail-open합니다 (REQ-BD-009/010, AC-BD-005a/b).
 
-### 코드 인텔리전스 (LSP 5종)
+### 코드 인텔리전스 (LSP 13개 서버, 12-언어 커버리지)
 
-플러그인 루트의 `.lsp.json`이 공식 LSP 서버 5종을 선언합니다. 파일 확장자로 언어를 감지해 해당 서버를 자동 기동하며, 바이너리가 없는 환경(Claude Desktop 등)에서는 graceful skip으로 조용히 넘어갑니다 (`claude --debug`로 확인 가능).
+플러그인 루트의 `.lsp.json`이 공식 Claude Code 마켓플레이스 언어 세트(11) + Swift를 포함해 12개 언어를 13개 서버 항목으로 선언합니다(HTML/CSS는 `vscode-langservers-extracted` 계열이 별도 바이너리를 제공해 두 항목으로 분리). 파일 확장자로 언어를 감지해 해당 서버를 자동 기동하며, 바이너리가 없는 환경(Claude Desktop 등)에서는 graceful skip으로 조용히 넘어갑니다 (`claude --debug`로 확인 가능). JavaScript는 별도 항목 없이 `typescript` 서버의 `extensionToLanguage` 매핑(`.js`/`.jsx`/`.mjs`/`.cjs`)으로 처리됩니다.
 
 | 언어 | 서버 | 설치 |
 |------|------|------|
@@ -108,9 +108,21 @@
 | Python | pyright | `npm i -g pyright` |
 | Rust | rust-analyzer | `brew install rust-analyzer` (또는 rustup) |
 | Swift | sourcekit-lsp | Xcode/Swift toolchain 내장 |
-| TypeScript | typescript-language-server | `npm i -g typescript-language-server typescript` + 워크스페이스에 `typescript@5` (TS 7 네이티브 프리뷰는 tsserver 미포함) |
+| TypeScript/JavaScript | typescript-language-server | `npm i -g typescript-language-server typescript` + 워크스페이스에 `typescript@5` (TS 7 네이티브 프리뷰는 tsserver 미포함) |
+| Java | jdtls | `brew install jdtls` (JAVA_HOME 21+ 필요) |
+| C/C++ | clangd | `brew install llvm` (또는 `apt install clangd`) |
+| C# | csharp-ls | `dotnet tool install --global csharp-ls` |
+| PHP | phpactor | phar 다운로드 또는 Composer (무료, MIT) |
+| Kotlin | kotlin-lsp (JetBrains 공식) | `brew install JetBrains/utils/kotlin-lsp` |
+| Ruby | ruby-lsp | `gem install ruby-lsp` |
+| HTML | vscode-html-language-server | `npm i -g vscode-langservers-extracted` |
+| CSS | vscode-css-language-server | `npm i -g vscode-langservers-extracted` |
 
-편집 직후 diagnostics가 대화 컨텍스트로 주입되어 타입 오류를 즉시 인지합니다. 서버 바이너리는 `$PATH`에서 해석되므로, nvm 등 셸 초기화 의존 경로는 표준 경로(`/opt/homebrew/bin` 등)에 심볼릭 링크를 권장합니다.
+편집 직후 diagnostics가 대화 컨텍스트로 주입되어 타입 오류를 즉시 인지합니다. 서버 바이너리는 `$PATH`에서 해석되므로, nvm 등 셸 초기화 의존 경로는 표준 경로(`/opt/homebrew/bin` 등)에 심볼릭 링크를 권장합니다. 전체 플랫폼별 설치 안내는 `references/lsp-install-guide.md`를 참고하세요. 세션 시작 시 프로젝트 파일과 일치하는 언어의 서버 바이너리가 없으면 `hooks/gates/lsp-binary-advisory.sh`가 비차단(non-blocking) 안내를 출력합니다(항상 exit 0, 세션을 막지 않음).
+
+### Dev-service MCP 카탈로그
+
+`references/dev-mcp-catalog.json`이 검증된 개발 서비스 MCP 6종(playwright/supabase/vercel/neon/railway/claude-in-chrome)을 선언적으로 관리합니다. 플러그인 자체의 `.mcp.json`은 여전히 context7 전용이며, 이 카탈로그는 `/moai --project` 설문 기반 생성 플로우(`references/mcp-gen-template.json` 소비)가 대상 프로젝트의 `.mcp.json`을 만들 때 참조하는 데이터입니다. 자격증명은 절대 번들되지 않으며 `.env` 플레이스홀더 안내만 제공합니다.
 
 ### 정본 패리티 (parity-source)
 
