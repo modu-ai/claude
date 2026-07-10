@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added — SPEC-MOC-CODER-LSP-MCP-001
+
+moai coder plugin expansion — `.lsp.json` grows from 5 to 13 language-server entries (12-language coverage; HTML/CSS split into separate servers), non-blocking LSP install guidance (install guide + SessionStart advisory hook), a verified declarative dev-service MCP catalog with a deterministic `.mcp.json` generation template, and survey-parameterized meta-harness templates (project settings allowlist + toolchain-auto-detecting quality-gate hook) targeting the user's project.
+
+**Core deliverables**:
+- **M2** — `plugins/moai/.lsp.json` 5→13 entries: java/jdtls, cpp/clangd, csharp/csharp-ls, php/phpactor, kotlin/kotlin-lsp (official JetBrains), ruby/ruby-lsp, html + css split via vscode-langservers-extracted; existing 5 entries (go/python/rust/swift/typescript) preserved byte-identical, all entries on the flat command/args/extensionToLanguage/restartOnCrash/maxRestarts schema (AC-CLM-001~004)
+- **M3** — `plugins/moai/references/lsp-install-guide.md` (13 H3 sections, macOS-first brew + cross-platform apt/npm/pip/gem/dotnet) + `plugins/moai/hooks/gates/lsp-binary-advisory.sh` (SessionStart advisory — warns when a declared language matches project files but its binary is missing from PATH; always exits 0, never emits `decision`/`block` JSON) registered additively in `hooks.json`; existing 5 gate scripts + `dispatch.sh` byte-unchanged (AC-CLM-005~007)
+- **M4** — `plugins/moai/references/dev-mcp-catalog.json` (6 declarative entries: playwright, supabase with dev/test-only production warning, vercel, neon, railway, claude-in-chrome as guidance-only; `$schema_version: "1.0.0"`; extensible as data-only change) + `plugins/moai/references/mcp-gen-template.json` (exact per-server `.mcp.json` fragments, zero credential literals — `${VAR}` placeholders only) (AC-CLM-008~011, AC-CLM-013)
+- **M5** — meta-harness templates: `plugins/moai/templates/claude/settings.project.json` baseline permissions allowlist + `plugins/moai/templates/claude/hooks/quality-gate-hook.sh` (toolchain auto-detect go/node/python/rust, graceful degradation, always exit 0); targets the USER project exclusively, zero references into the plugin's own `hooks/` (AC-CLM-012)
+- **M6** — `plugins/moai/README.md` code-intelligence section rewrite (5-server → 13-server/12-language table with per-language install one-liners) + dev-service MCP catalog cross-reference section
+
+**Verification**: 13/13 AC PASS (evidence in SPEC progress.md §E.2, disk-only per repo `.moai/` gitignore convention). Run-phase commits: `71a17fa` (M2) → `67d7958` (M3) → `9d8abba` (M4) → `2567130` (M5) → `4c43718` (M6).
+
+**Key files**:
+- `plugins/moai/.lsp.json` (5→13 language-server entries)
+- `plugins/moai/references/{lsp-install-guide.md, dev-mcp-catalog.json, mcp-gen-template.json}` (new)
+- `plugins/moai/hooks/gates/lsp-binary-advisory.sh` (new) + `plugins/moai/hooks/hooks.json` (additive registration)
+- `plugins/moai/templates/claude/settings.project.json` + `plugins/moai/templates/claude/hooks/quality-gate-hook.sh` (new meta-harness templates)
+- `plugins/moai/README.md` (code-intelligence + MCP catalog sections)
+
+**Residual**: (1) advisory hook fires every SessionStart with no cool-down/suppression — open risk #6, follow-up SPEC candidate; (2) `$schema_version` field added to catalog + template but no full schema handshake protocol with the sibling consumer SPEC — open risk #7 partially mitigated; (3) marketplace `moai` entry version delta 1.0.0→1.1.0 handed to SPEC-MOC-PM-ADVISORS-001 M5 (marketplace.json untouched by this SPEC); (4) M6 commit `4c43718` missing `🗿 MoAI` trailer (cosmetic).
+
 ### Added — SPEC-MOC-PLUGIN-MOAI-V2-001
 
 moai plugin v2 — rename (`moai-coder` → `moai`, clean-slate version `1.0.0` per user decision DP-1), two-layer restructure (`rules/` → `templates/claude/`), single-dispatcher hook consolidation, and deterministic scaffolding via `/moai:project`. Establishes the Web-tier activation contract (marketplace + output-style selector + enabled-plugin) and completes the v2 redesign P2 phase for this repository's owned portion.
