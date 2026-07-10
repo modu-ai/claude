@@ -94,8 +94,8 @@ version: "0.1.0"
 | `moai-writer:general-humanize-korean` | 사후 체이닝(필수, 서술 부분): general-ai-slop-reviewer 다음 단계로 한국어 AI 티 제거 |
 | `moai-seller:commerce-detail-page-copy` | 이커머스 상세페이지 카피 (13섹션 감정여정) |
 | `moai-seller:commerce-detail-page-image` | 이커머스 상세페이지 합성 이미지 (1080×12720 PNG) |
-| `moai-marketer:media-higgsfield-image` | AI 이미지 생성 |
-| `moai-marketer:media-higgsfield-video` | AI 영상 생성 |
+| `moai-media:media-higgsfield-image` | AI 이미지 생성 |
+| `moai-media:media-higgsfield-video` | AI 영상 생성 |
 
 ## 이 스킬을 사용하지 말아야 할 때
 

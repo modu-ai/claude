@@ -321,7 +321,7 @@ book-concept-planner와 book-target-reader 결과 입력.
 - `moai-marketer:content-blog` — 블로그 시리즈 구조 (책 분량 미만)
 
 ### Post (검수 — 정규 체인)
-- `moai-writer:office-korean-spell-check` — 한국어 맞춤법
+- `moai-writer:korean-spell-check` — 한국어 맞춤법
 - `moai-coworker:general-ai-slop-reviewer` — AI 슬롭 검수 (필수)
 - `moai-writer:general-humanize-korean` — AI 티 정밀 윤문 (필수)
 

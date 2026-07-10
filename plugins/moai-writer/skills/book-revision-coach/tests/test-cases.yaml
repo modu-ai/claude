@@ -91,7 +91,7 @@ test_cases:
       퇴고 완료. 다음 단계는?
     expected:
       - chain:
-        - office-korean-spell-check (정밀 맞춤법)
+        - korean-spell-check (정밀 맞춤법)
         - general-humanize-korean (AI 티 — 필수)
         - general-ai-slop-reviewer (최종 — 필수)
         - book-proposal-writer (투고 제안서)

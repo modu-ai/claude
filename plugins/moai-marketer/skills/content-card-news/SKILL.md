@@ -93,12 +93,12 @@ version: "0.1.0"
 
 | 위임 스킬 | 모델 | 추천 시점 |
 |---|---|---|
-| **`moai-marketer:media-higgsfield-image`** | **GPT Image 2** (1순위) | **텍스트가 정확히 들어가는 카드뉴스 ★ 권장** — MCP 자동 호출 |
-| `moai-marketer:media-higgsfield-image` | Nano Banana Pro | 보조·fallback |
-| `moai-marketer:media-higgsfield-image` | Soul Cinema | 시네마틱 카드 (글자 비중 낮을 때) |
-| `moai-marketer:media-gpt-image-2-prompt` | OpenAI GPT-image-2 | ChatGPT 외부 도구로 복붙 (MCP 미사용 환경) |
-| `moai-marketer:media-gemini-3-image-prompt` | Google Gemini 3 Image | Google AI Studio 외부 도구로 복붙 |
-| `moai-marketer:media-midjourney-v8-prompt` | Midjourney v8.1 | Discord MJ 사용 (비주얼 임팩트) |
+| **`moai-media:media-higgsfield-image`** | **GPT Image 2** (1순위) | **텍스트가 정확히 들어가는 카드뉴스 ★ 권장** — MCP 자동 호출 |
+| `moai-media:media-higgsfield-image` | Nano Banana Pro | 보조·fallback |
+| `moai-media:media-higgsfield-image` | Soul Cinema | 시네마틱 카드 (글자 비중 낮을 때) |
+| `moai-media:media-gpt-image-2-prompt` | OpenAI GPT-image-2 | ChatGPT 외부 도구로 복붙 (MCP 미사용 환경) |
+| `moai-media:media-gemini-3-image-prompt` | Google Gemini 3 Image | Google AI Studio 외부 도구로 복붙 |
+| `moai-media:media-midjourney-v8-prompt` | Midjourney v8.1 | Discord MJ 사용 (비주얼 임팩트) |
 
 해상도·비율 미지정 시 사용자 확인. 인스타는 1:1 (1080×1080) 권장.
 
@@ -257,11 +257,11 @@ CTA: [저장/공유/팔로우/링크/댓글/DM 중 1개]
 
 | 스킬 | 사용 시점 |
 |---|---|
-| `moai-marketer:media-higgsfield-image` | 텍스트 정확 렌더링 카드뉴스 (★ 권장) — GPT Image 2, MCP 자동 호출 |
-| `moai-marketer:media-gpt-image-2-prompt` | 일러스트·캐릭터 강조 |
-| `moai-marketer:media-gemini-3-image-prompt` | Google Gemini 3 Image 외부 도구 복붙 |
-| `moai-marketer:media-midjourney-v8-prompt` | 비주얼 임팩트 중심 |
-| `moai-marketer:media-audio-gen` | 카드뉴스 영상화 시 보이스오버 |
+| `moai-media:media-higgsfield-image` | 텍스트 정확 렌더링 카드뉴스 (★ 권장) — GPT Image 2, MCP 자동 호출 |
+| `moai-media:media-gpt-image-2-prompt` | 일러스트·캐릭터 강조 |
+| `moai-media:media-gemini-3-image-prompt` | Google Gemini 3 Image 외부 도구 복붙 |
+| `moai-media:media-midjourney-v8-prompt` | 비주얼 임팩트 중심 |
+| `moai-media:media-audio-gen` | 카드뉴스 영상화 시 보이스오버 |
 | `moai-marketer:content-copywriting` | 마케팅 카피·헤드라인 |
 | `moai-writer:general-humanize-korean` | 한국어 AI 티 정밀 자연화 |
 | `moai-marketer:content-sns-content` | 인스타·스레드·페북 채널별 콘텐츠 |

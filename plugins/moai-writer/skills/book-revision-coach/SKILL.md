@@ -1,7 +1,7 @@
 ---
 name: book-revision-coach
 description: |
-  도서 본문 퇴고·교열 코치 — 7 단계 점검(어법·문체·논리·인용·분량·시각자료·일관성)으로 출판 직전 원고를 다듬는 스킬. 국립국어원 어문규범 기준 + 한국 출판사 편집자 관점 + book-chapter-writer의 4 장르 문체 일관성 검증. office-korean-spell-check(맞춤법) + general-humanize-korean(AI 티) + general-ai-slop-reviewer(최종) 체인의 첫 단계. 분량 정리·인용 정합성·문체 통일·논리 흐름 검증 후 출판사 투고 준비 완료 상태로 출력.
+  도서 본문 퇴고·교열 코치 — 7 단계 점검(어법·문체·논리·인용·분량·시각자료·일관성)으로 출판 직전 원고를 다듬는 스킬. 국립국어원 어문규범 기준 + 한국 출판사 편집자 관점 + book-chapter-writer의 4 장르 문체 일관성 검증. korean-spell-check(맞춤법) + general-humanize-korean(AI 티) + general-ai-slop-reviewer(최종) 체인의 첫 단계. 분량 정리·인용 정합성·문체 통일·논리 흐름 검증 후 출판사 투고 준비 완료 상태로 출력.
 
   다음과 같은 요청 시 반드시 이 스킬을 사용하세요:
   - "원고 퇴고", "교열", "본문 다듬기"
@@ -13,7 +13,7 @@ version: "0.1.0"
 
 # book-revision-coach
 
-> 도서 본문 초고를 **출판 직전 수준**으로 다듬는 7 단계 퇴고 코치. book-chapter-writer로 작성한 초고를 받아 어법·문체·논리·인용·분량·시각자료·일관성을 차례로 점검합니다. **office-korean-spell-check(맞춤법) → book-revision-coach(퇴고) → general-humanize-korean(AI 티) → general-ai-slop-reviewer(최종)** 4 체인의 첫 단계. 본 스킬 완료 후 곧바로 출판사 편집자에게 보낼 수 있는 수준이 됩니다. **무엇을** 고쳐야 할지(어법·문체·논리·인용·분량)를 7단계로 점검하고 **언제** 다음 체인으로 넘길지 판단한다.
+> 도서 본문 초고를 **출판 직전 수준**으로 다듬는 7 단계 퇴고 코치. book-chapter-writer로 작성한 초고를 받아 어법·문체·논리·인용·분량·시각자료·일관성을 차례로 점검합니다. **korean-spell-check(맞춤법) → book-revision-coach(퇴고) → general-humanize-korean(AI 티) → general-ai-slop-reviewer(최종)** 4 체인의 첫 단계. 본 스킬 완료 후 곧바로 출판사 편집자에게 보낼 수 있는 수준이 됩니다. **무엇을** 고쳐야 할지(어법·문체·논리·인용·분량)를 7단계로 점검하고 **언제** 다음 체인으로 넘길지 판단한다.
 
 ## 1. 개요
 
@@ -49,7 +49,7 @@ version: "0.1.0"
 | 한자어·외래어 비율 | 우리말 우선 (가능하면 한자어 → 우리말 변환) |
 | 어미 일관성 | "~다" / "~합니다" 한 작품 내 일관성 |
 
-> 💡 본 스킬은 1차 점검만 수행. 정밀 맞춤법은 `moai-writer:office-korean-spell-check`(바른한글) 체이닝 권장.
+> 💡 본 스킬은 1차 점검만 수행. 정밀 맞춤법은 `moai-writer:korean-spell-check`(바른한글) 체이닝 권장.
 
 ### Step 2: 문체 일관성 점검
 
@@ -198,7 +198,7 @@ book-outline-designer의 분량 배분과 실제 본문 분량 비교:
 
 | 항목 | 상태 | 비고 |
 |------|:----:|------|
-| 맞춤법 | ✅ / ⚠️ | ___ 건 (정밀 점검은 office-korean-spell-check) |
+| 맞춤법 | ✅ / ⚠️ | ___ 건 (정밀 점검은 korean-spell-check) |
 | 띄어쓰기 | ✅ / ⚠️ | ___ 건 |
 | 외래어 표기 | ✅ / ⚠️ | ___ 건 (Next.js·콘텐츠 등) |
 | 한자어·외래어 비율 | ✅ / ⚠️ | 우리말 우선 |
@@ -280,7 +280,7 @@ book-chapter-writer로 작성한 2장 초고 퇴고해줘.
 2장은 4 꼭지·총 16매 분량 목표.
 ```
 
-→ Step 1: 어법·맞춤법 1차 (2건 검출, 정밀은 office-korean-spell-check)  
+→ Step 1: 어법·맞춤법 1차 (2건 검출, 정밀은 korean-spell-check)  
 → Step 2: 실용서 문체 일관성 (어조 친근·짧은 문장) ✅  
 → Step 3: 5 요소 점검 (2꼭지 클라이맥스 약함 ⚠️)  
 → Step 4: 인용 5건 출처 확인 ✅  
@@ -348,7 +348,7 @@ P3 (편집 단계): 시각 자료 보완, 도표 디자인, 인쇄 해상도
 |------|----------|
 | **퇴고 한 번에 모든 점검** | 7 단계를 차례로 (한 번에 1-2 단계만 집중) |
 | **자신의 문장에 너무 익숙** | 시간 두고 다시 읽기 (1주 후·소리 내어 읽기) |
-| **맞춤법만 점검** | 어법은 1차만, 정밀은 office-korean-spell-check |
+| **맞춤법만 점검** | 어법은 1차만, 정밀은 korean-spell-check |
 | **AI 티 무시** | `moai-coworker:general-ai-slop-reviewer` → `moai-writer:general-humanize-korean` 체이닝 필수 |
 | **분량 편차 방치** | ±20% 초과 시 분리·통합 강제 |
 | **출판사 양식 미준수** | 투고 출판사의 어미·문체 컨벤션 사전 확인 |
@@ -360,7 +360,7 @@ P3 (편집 단계): 시각 자료 보완, 도표 디자인, 인쇄 해상도
   ↓
 1차 어법·문체·논리 (book-revision-coach) ← 본 스킬
   ↓
-정밀 맞춤법 (moai-writer:office-korean-spell-check, 바른한글)
+정밀 맞춤법 (moai-writer:korean-spell-check, 바른한글)
   ↓
 AI 슬롭 검수 (moai-coworker:general-ai-slop-reviewer) ← 필수
   ↓
@@ -371,7 +371,7 @@ AI 티 윤문 (moai-writer:general-humanize-korean) ← 필수
 
 ### moai-coworker 연계 및 미설치 폴백
 
-위 검수 체인의 정밀 맞춤법·AI 슬롭 검수·AI 티 윤문 단계는 `moai-coworker` 플러그인 스킬과 연계된다. **moai-coworker 플러그인이 설치된 경우** `office-korean-spell-check` → `general-ai-slop-reviewer` → `general-humanize-korean` 체인을 자동 연계합니다. **미설치 시 본 스킬의 자체 퇴고 절차를 따릅니다** — Step 1(어법 1차)·Step 2(문체 일관성)·Step 7(일관성 최종) 점검과 본문 내 자체 가이드라인만으로 출판 직전 수준까지 다듬습니다.
+위 검수 체인의 정밀 맞춤법·AI 슬롭 검수·AI 티 윤문 단계는 `moai-coworker` 플러그인 스킬과 연계된다. **moai-coworker 플러그인이 설치된 경우** `korean-spell-check` → `general-ai-slop-reviewer` → `general-humanize-korean` 체인을 자동 연계합니다. **미설치 시 본 스킬의 자체 퇴고 절차를 따릅니다** — Step 1(어법 1차)·Step 2(문체 일관성)·Step 7(일관성 최종) 점검과 본문 내 자체 가이드라인만으로 출판 직전 수준까지 다듬습니다.
 
 ### 출처 정책
 
@@ -386,7 +386,7 @@ AI 티 윤문 (moai-writer:general-humanize-korean) ← 필수
 - `book-outline-designer` — 시놉시스 (장 단위 점검 기준)
 
 ### After (체이닝 — 정규 체인)
-- `moai-writer:office-korean-spell-check` — 정밀 한국어 맞춤법
+- `moai-writer:korean-spell-check` — 정밀 한국어 맞춤법
 - `moai-coworker:general-ai-slop-reviewer` — AI 슬롭 검수 (필수)
 - `moai-writer:general-humanize-korean` — AI 티 정밀 윤문 (필수)
 - `book-proposal-writer` — 검수 완료 후 출판사 투고 제안서로
@@ -394,7 +394,7 @@ AI 티 윤문 (moai-writer:general-humanize-korean) ← 필수
 > 퇴고 완료 본문은 정규 체인 **`book-revision-coach → moai-coworker:general-ai-slop-reviewer → moai-writer:general-humanize-korean`**으로 마무리합니다.
 
 ### Alternative
-- `moai-writer:office-korean-spell-check` 단독 — 빠른 맞춤법만
+- `moai-writer:korean-spell-check` 단독 — 빠른 맞춤법만
 - `moai-coworker:general-ai-slop-reviewer` 단독 — 빠른 AI 티 검출만
 
 ## 9. 출처
@@ -405,7 +405,7 @@ AI 티 윤문 (moai-writer:general-humanize-korean) ← 필수
 |------|-----|------|
 | 국립국어원 한글 맞춤법 | https://www.korean.go.kr | 한국어 어문규범 |
 | 국립국어원 외래어 표기법 | https://www.korean.go.kr | 외래어·로마자 표기 |
-| 바른한글 | (부산대 + 나라인포테크) | 맞춤법 검사 (office-korean-spell-check 사용) |
+| 바른한글 | (부산대 + 나라인포테크) | 맞춤법 검사 (korean-spell-check 사용) |
 | KPIPA | https://www.kpipa.or.kr | 출판 편집 표준 |
 | 한국출판콘텐츠 KPC | https://www.kpc.or.kr | 편집·교정 가이드 |
 | 한국저작권위원회 | https://www.copyright.or.kr | 저작권·공정 사용 |

@@ -467,7 +467,7 @@ version: "0.1.0"
 - `moai-tutor:education-grant-writer` — 정부지원사업 신청
 
 ### Post (검수 — 정규 체인)
-- `moai-writer:office-korean-spell-check` — 한국어 맞춤법
+- `moai-writer:korean-spell-check` — 한국어 맞춤법
 - `moai-coworker:general-ai-slop-reviewer` — AI 슬롭 검수 (필수)
 - `moai-writer:general-humanize-korean` — AI 티 정밀 윤문 (필수)
 

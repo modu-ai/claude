@@ -282,7 +282,7 @@ Most productivity tools promise to save you time. Most of them don't. But after 
 - `moai-officer:office-pptx-designer` — PPTX 발표자료 생성
 
 ### 후속 스킬 (선택적)
-- `moai-marketer:media-higgsfield-image` — (선택) 블로그 발행 체인의 이미지 생성 단계
+- `moai-media:media-higgsfield-image` — (선택) 블로그 발행 체인의 이미지 생성 단계
 
 ### 통합 워크플로우
 이 스킬은 다음 체인의 **마지막 단계**로 호출됩니다:

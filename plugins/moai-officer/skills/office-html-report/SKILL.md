@@ -216,7 +216,7 @@ PR #312 실시간 알림 채널 통합 내용을 HTML 리뷰 문서로 만들어
 - 마크다운 기본 출력을 대체하지 않습니다 — HTML은 추가 렌더링 분기입니다.
 - React / Vue / Tailwind CDN / Chart.js / D3 같은 외부 라이브러리를 쓰지 않습니다.
 - 빌드 단계(webpack, vite, esbuild)를 도입하지 않습니다.
-- 슬라이드는 `moai-officer:office-pptx-designer`, 독립 차트는 `moai-officer:office-data-visualizer`가 맡습니다.
+- 슬라이드는 `moai-officer:office-pptx-designer`, 독립 차트는 `moai-analyst:office-data-visualizer`가 맡습니다.
 - 여러 파일로 나누지 않습니다 — 모든 산출물은 단일 `.html` 파일입니다.
 
 ---

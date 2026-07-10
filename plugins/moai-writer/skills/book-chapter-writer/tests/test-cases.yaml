@@ -101,7 +101,7 @@ test_cases:
       본문 초고 완성 후 다음 단계는?
     expected:
       - chain:
-        - office-korean-spell-check
+        - korean-spell-check
         - book-revision-coach
         - general-humanize-korean (필수)
         - general-ai-slop-reviewer (필수)

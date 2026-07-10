@@ -93,7 +93,7 @@ version: "6.0.0"
 
 ## 관련 스킬
 
-- **moai-officer:office-retro-builder**: 주간보고와 한 주 회고를 함께 운영
+- **moai-coworker:office-retro-builder**: 주간보고와 한 주 회고를 함께 운영
 - **moai-officer:office-notion-template-kit**: 업무일지 DB로 보고 작성 자동화
 - **moai-officer:office-time-system**: 차주 계획을 시간 블록에 배치
 - **moai-comms**: 보고 대화·구두 보고·피드백 등 대인 커뮤니케이션

@@ -122,7 +122,7 @@ business-escalation-manager → moai-coworker:general-ai-slop-reviewer → moai-
 - `moai-coworker:general-ai-slop-reviewer` — AI 티 나는 표현·과잉 수식·기계적 문장 패턴을 검수·수정
 - `moai-writer:general-humanize-korean` — 한국어 경어 자연스러움과 사람이 쓴 듯한 어조로 다듬기
 
-> 주간 CS 요약 보고서의 **수치·KPI 표**(핵심 지표·유형별 현황표 등)는 후처리 체인 대상이 아닙니다. 표·대시보드 형태가 필요하면 `moai-officer:office-xlsx-creator` 또는 `moai-officer:office-data-visualizer`로 라우팅하고, 보고서의 **서술 부분(Top 3 이슈·인사이트·액션 권고)만** 위 체인으로 다듬습니다.
+> 주간 CS 요약 보고서의 **수치·KPI 표**(핵심 지표·유형별 현황표 등)는 후처리 체인 대상이 아닙니다. 표·대시보드 형태가 필요하면 `moai-officer:office-xlsx-creator` 또는 `moai-analyst:office-data-visualizer`로 라우팅하고, 보고서의 **서술 부분(Top 3 이슈·인사이트·액션 권고)만** 위 체인으로 다듬습니다.
 
 ## 이 스킬을 사용하지 말아야 할 때
 

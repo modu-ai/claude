@@ -121,7 +121,7 @@ Phase 3 체인 설계는 인터뷰 답변→프리셋 매칭으로 직행하지 
 | 시네마틱 프리비즈 | `story-previz` (Higgsfield 생성) |
 | IP 사업화·판권 | `story-ip-pitch` (단일) |
 
-> 작가 분기의 진입 분류는 coworker의 `story-project` 스킬이 담당한다. CLAUDE.md 생성 시 `story-project` 라우팅 규칙을 워크플로우 섹션에 명시하여, 실행 시점에 `moai-writer:story-project`가 장르 파이프라인으로 자동 분기한다.
+> 스토리 분기의 진입 분류는 `moai-story` 플러그인의 `story-project` 스킬이 담당한다. CLAUDE.md 생성 시 `story-project` 라우팅 규칙을 워크플로우 섹션에 명시하여, 실행 시점에 `moai-story:story-project`가 장르 파이프라인으로 자동 분기한다.
 
 ### 3-3. 미디어 체인 (Higgsfield / ElevenLabs MCP)
 

@@ -1,0 +1,10 @@
+{
+  "name": "moai-story",
+  "displayName": "스토리 크리에이터",
+  "version": "0.1.0",
+  "description": "스토리/IP 창작 전담 AI 직원 — 웹툰·웹소설·시나리오·콘티·표지·IP 사업화(story-* 13종) 스킬. 캐릭터 일관성 작화·시네마틱 프리비즈·광고 콘티까지 Higgsfield 이미지·영상 MCP 연동. 자연어 요청 시 매칭 스킬이 자동 호출됩니다. 이런 분께 추천: 웹툰/웹소설 창작자·시나리오 작가·IP 콘텐츠 기획자.",
+  "author": {
+    "name": "모두의 AI",
+    "email": "email@mo.ai.kr"
+  }
+}

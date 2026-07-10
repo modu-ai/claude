@@ -349,7 +349,7 @@ book-outline-designer 출력: 2장 3꼭지 "30일 챌린지 시작하기" 시놉
 
 ### Post (검수 — 권장 체인)
 - `book-revision-coach` — 퇴고·교열
-- `moai-writer:office-korean-spell-check` — 한국어 맞춤법
+- `moai-writer:korean-spell-check` — 한국어 맞춤법
 - `moai-coworker:general-ai-slop-reviewer` — AI 슬롭 검수 (필수)
 - `moai-writer:general-humanize-korean` — AI 티 정밀 윤문 (필수)
 

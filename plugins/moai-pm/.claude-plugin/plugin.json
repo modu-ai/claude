@@ -4,7 +4,7 @@
   "version": "0.4.0",
   "description": "프로젝트 초기화 허브 AI 직원 — /project --cowork(code를 제외한 모든 코워크 프로젝트: 전 직원 지침 설정 + .claude/agents/ 커스텀 에이전트 + CLAUDE.md 워크플로우 생성 + 재귀적 자가 개선)·--code(코더 개발환경 셋업) 2-모드로 12개 AI 직원 플러그인의 진입을 라우팅합니다. 비개발자도 자연어 한마디로 프로젝트를 시작할 수 있습니다. 이런 분께 추천: 비개발자·프로젝트 시작자.",
   "author": {
-    "name": "모두의AI",
+    "name": "모두의 AI",
     "email": "email@mo.ai.kr"
   },
   "keywords": [

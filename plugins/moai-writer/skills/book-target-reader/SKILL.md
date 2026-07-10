@@ -324,7 +324,7 @@ JTBD와 페인포인트 매트릭스 만들어줘.
 - `moai-marketer:marketing-campaign-planner` — 마케팅 캠페인 페르소나
 
 ### Post (검수 — 정규 체인)
-- `moai-writer:office-korean-spell-check` — 한글 맞춤법
+- `moai-writer:korean-spell-check` — 한글 맞춤법
 - `moai-coworker:general-ai-slop-reviewer` — AI 슬롭 검수 (필수)
 - `moai-writer:general-humanize-korean` — AI 티 정밀 윤문 (필수)
 

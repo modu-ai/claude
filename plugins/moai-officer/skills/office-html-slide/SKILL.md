@@ -12,7 +12,7 @@ description: |
   - "발표 자료를 HTML 슬라이드 + 편집 가능 PPTX 둘 다"
   design-system-library 75개 브랜드 토큰 중 테마를 골라 적용하고, 각 토큰별 getdesign.md 상세 페이지 링크로 미리보기를 제공합니다.
   PDF 배포본이 필요하면 브라우저 `?print-pdf` 인쇄 모드를 쓰거나, 생성한 HTML을 moai-officer:office-pdf-writer로 넘겨 변환하세요 (weasyprint를 직접 설치·호출하지 말 것).
-  [책임 경계] vs moai-officer:office-pptx-designer: 이 스킬=브라우저에서 바로 열리는 단일 .html 슬라이드 덱(편집 가능 .pptx는 office-pptx-designer 체이닝으로 산출). vs moai-marketer:media-notebooklm-slide-prompt: 저 스킬=NotebookLM 입력용 프롬프트(파일 생성 없음). vs moai-officer:office-html-report: 저 스킬=연속 스크롤 문서/보고서(슬라이드 덱이 아님).
+  [책임 경계] vs moai-officer:office-pptx-designer: 이 스킬=브라우저에서 바로 열리는 단일 .html 슬라이드 덱(편집 가능 .pptx는 office-pptx-designer 체이닝으로 산출). vs moai-media:media-notebooklm-slide-prompt: 저 스킬=NotebookLM 입력용 프롬프트(파일 생성 없음). vs moai-officer:office-html-report: 저 스킬=연속 스크롤 문서/보고서(슬라이드 덱이 아님).
 version: "0.1.0"
 ---
 
@@ -81,7 +81,7 @@ version: "0.1.0"
 
 > 위 4개 백엔드만 허용됩니다. 그 외 외부 이미지 백엔드(MCP·API·게이트웨이)는 사용하지 않습니다 — [`references/image-backend-policy.md`](references/image-backend-policy.md).
 
-한국어 텍스트가 이미지에 들어가면 `moai-marketer:media-gpt-image-2-prompt`(6-Block 프롬프트 빌더)로 verbatim 지시 후 선택 백엔드로 생성합니다.
+한국어 텍스트가 이미지에 들어가면 `moai-media:media-gpt-image-2-prompt`(6-Block 프롬프트 빌더)로 verbatim 지시 후 선택 백엔드로 생성합니다.
 
 ### 5. design-system-library 토큰 적용
 design_system 지정 시 `systems/<name>.md` 토큰 → Tailwind Play CDN config + shadcn vanilla 컴포넌트로 렌더. 미지정 시 0의존 기본 템플릿. office-html-report와 동일 계약 재사용. 사용자가 getdesign.md 링크로 토큰을 미리 확인한 뒤 선택할 수 있습니다.
@@ -145,8 +145,8 @@ design_system 지정 시 `systems/<name>.md` 토큰 → Tailwind Play CDN config
 
 이미지 필요 시 분기:
 ```
-office-html-slide → moai-marketer:media-higgsfield-image (Higgsfield MCP, 기본)
-           → moai-marketer:media-gpt-image-2-prompt (한국어 verbatim 프롬프트 빌더) → media-higgsfield-image
+office-html-slide → moai-media:media-higgsfield-image (Higgsfield MCP, 기본)
+           → moai-media:media-gpt-image-2-prompt (한국어 verbatim 프롬프트 빌더) → media-higgsfield-image
            → codex exec "$imagegen ..." (image_backend: codex 시, 로컬)
 ```
 
@@ -187,7 +187,7 @@ AI 슬라이드 스킬 스타트업 사업계획서 10장 슬라이드로 만들
 
 - 연속 스크롤 문서는 `moai-officer:office-html-report`가 맡습니다 — 본 스킬은 슬라이드 시퀀스(16:9 페이지) 전용입니다.
 - 편집 가능 .pptx 직접 생성은 하지 않습니다 — `office-pptx-designer`(moai-coworker) 체이닝으로 위임합니다.
-- NotebookLM 입력용 프롬프트는 `moai-marketer:media-notebooklm-slide-prompt`가 맡습니다.
+- NotebookLM 입력용 프롬프트는 `moai-media:media-notebooklm-slide-prompt`가 맡습니다.
 - React/Vue/webpack/vite 같은 빌드 단계·런타임 SPA 의존을 도입하지 않습니다 — `file://` 즉시 오픈이 원칙입니다.
 - [`references/image-backend-policy.md`](references/image-backend-policy.md)의 허용 백엔드(Higgsfield MCP + codex)만 사용합니다. 그 외 외부 이미지 백엔드는 사용하지 않습니다.
 - 여러 파일로 나누지 않습니다 — HTML 산출물은 단일 `.html` 파일입니다.
@@ -213,8 +213,8 @@ AI 슬라이드 스킬 스타트업 사업계획서 10장 슬라이드로 만들
 ### 이웃 스킬 (체이닝)
 - `moai-officer:office-design-system-library` — 75개 브랜드 토큰 SSOT
 - `moai-officer:office-pptx-designer` — 편집 가능 .pptx 생성 (체이닝)
-- `moai-marketer:media-higgsfield-image` — Higgsfield MCP 이미지 (기본 백엔드)
-- `moai-marketer:media-gpt-image-2-prompt` — 한국어 verbatim 이미지 프롬프트 빌더
+- `moai-media:media-higgsfield-image` — Higgsfield MCP 이미지 (기본 백엔드)
+- `moai-media:media-gpt-image-2-prompt` — 한국어 verbatim 이미지 프롬프트 빌더
 - `moai-coworker:general-ai-slop-reviewer` → `moai-writer:general-humanize-korean` — 의무 후처리 체인
 
 ## 자체 검수

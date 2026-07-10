@@ -95,10 +95,10 @@ version: "0.1.0"
 
 ## 관련 스킬
 
-- **moai-officer:office-goal-planner**: 목표의 주간 행동을 시간 블록에 배치
-- **moai-officer:office-habit-routine**: 블록 안에 들어가는 반복 행동을 습관화
-- **moai-officer:general-self-care**: 과도한 업무량으로 인한 번아웃 점검·조정
-- **moai-officer:office-retro-builder**: 주간 시간 사용을 가볍게 복기
+- **moai-coworker:office-goal-planner**: 목표의 주간 행동을 시간 블록에 배치
+- **moai-coworker:office-habit-routine**: 블록 안에 들어가는 반복 행동을 습관화
+- **moai-coworker:general-self-care**: 과도한 업무량으로 인한 번아웃 점검·조정
+- **moai-coworker:office-retro-builder**: 주간 시간 사용을 가볍게 복기
 
 ## 이 스킬을 사용하지 말아야 할 때
 

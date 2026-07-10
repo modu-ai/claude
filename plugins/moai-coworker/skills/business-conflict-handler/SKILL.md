@@ -97,7 +97,7 @@ version: "6.0.0"
 - **moai-coworker:business-negotiation-1on1**: 갈등을 면담·요청·협상으로 풀 때
 - **moai-coworker:business-feedback-loop**: 행동 변화가 필요할 때 건설적 피드백 전달
 - **moai-coworker:business-report-speak**: 까다로운 상사에게 보고할 때 화법 설계
-- **moai-officer:office-goal-planner**: 관계 스트레스 관리·경계 설정 루틴
+- **moai-coworker:office-goal-planner**: 관계 스트레스 관리·경계 설정 루틴
 
 ## 이 스킬을 사용하지 말아야 할 때
 

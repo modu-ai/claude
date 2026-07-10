@@ -355,7 +355,7 @@ AskUserQuestion으로 저자에 대한 다음 5 영역 자료 수집:
 - `moai-consultant:business-strategy-planner` — 사업 자기소개
 
 ### Post (검수 — 정규 체인)
-- `moai-writer:office-korean-spell-check` — 한국어 맞춤법
+- `moai-writer:korean-spell-check` — 한국어 맞춤법
 - `moai-coworker:general-ai-slop-reviewer` — AI 슬롭 검수 (필수)
 - `moai-writer:general-humanize-korean` — AI 티 정밀 윤문 (저자의 말은 특히 사람 냄새 필수)
 

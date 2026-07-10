@@ -11,7 +11,7 @@ description: |
   - "D+30 심층 인터뷰 제안 메시지 만들어줘"
   - "사내 AI 연수 follow-up 시퀀스 짜줘"
   - "수업 후기 자산화 30일 플랜 만들어줘"
-  감사 인사부터 적용 인증, 성과 수치, 영상 후기, 심층 인터뷰까지 시점별 톤에 맞춰 후기를 회수하고, moai-marketer:content-copywriting → moai-coworker:general-ai-slop-reviewer → moai-writer:office-korean-spell-check 체인으로 자연스럽게 다듬어 드립니다.
+  감사 인사부터 적용 인증, 성과 수치, 영상 후기, 심층 인터뷰까지 시점별 톤에 맞춰 후기를 회수하고, moai-marketer:content-copywriting → moai-coworker:general-ai-slop-reviewer → moai-writer:korean-spell-check 체인으로 자연스럽게 다듬어 드립니다.
   [책임 경계] vs moai-marketer:content-copywriting: 이 스킬=강의 수강생 후기 30일 회수 시퀀스, 저 스킬=범용 마케팅 카피.
 version: "0.1.0"
 ---
@@ -30,7 +30,7 @@ version: "0.1.0"
 - 대학·대학원 수업, 평생교육원·HRD 과정
 
 **체인**
-후기 카피 5종 생성 시: `moai-marketer:content-copywriting → moai-coworker:general-ai-slop-reviewer → moai-writer:office-korean-spell-check`
+후기 카피 5종 생성 시: `moai-marketer:content-copywriting → moai-coworker:general-ai-slop-reviewer → moai-writer:korean-spell-check`
 
 세 단계를 모두 거쳐야 후기 카피를 출력합니다.
 
@@ -102,7 +102,7 @@ version: "0.1.0"
 ```
 Step 1: moai-marketer:content-copywriting → 시점별 톤·목적·길이 기준 후기 카피 초안 생성
 Step 2: moai-coworker:general-ai-slop-reviewer → AI 패턴 제거, 자연스러운 사람 문체 검수
-Step 3: moai-writer:office-korean-spell-check → 맞춤법 검사
+Step 3: moai-writer:korean-spell-check → 맞춤법 검사
 Step 4: .md 파일 저장 + 발송 가이드 출력
 ```
 
@@ -114,7 +114,7 @@ Step 4: .md 파일 저장 + 발송 가이드 출력
 > "강의 끝났어, D+1 후기 카피 만들어줘"
 
 ```
-체인 실행: content-copywriting → general-ai-slop-reviewer → office-korean-spell-check
+체인 실행: content-copywriting → general-ai-slop-reviewer → korean-spell-check
 출력:
 - followup-d1-review-request.md (후기 카피 ① 감사 + 따뜻한 톤, 3~5문장)
 - 발송 가이드 (채널별 붙여넣기 형식)
@@ -175,7 +175,7 @@ Step 4: .md 파일 저장 + 발송 가이드 출력
 | 후기 카피 ③ (D+7) | 자랑 유도 톤, 성과 수치 포함, 4-6문장 |
 | 후기 카피 ④ (D+14) | 인센티브 안내 톤, 영상 후기 유도, 3-4문장 |
 | 후기 카피 ⑤ (D+30) | 인터뷰 제안 톤, 장기 변화 포착, 5-7문장 |
-| 체인 통과 | content-copywriting → general-ai-slop-reviewer → office-korean-spell-check 3단계 완료 |
+| 체인 통과 | content-copywriting → general-ai-slop-reviewer → korean-spell-check 3단계 완료 |
 | 자연스러운 문체 | general-ai-slop-reviewer 통과 (사람이 쓴 것처럼) |
 | AI 표현 금지 | 시간 예측 표현 없음 |
 
@@ -194,7 +194,7 @@ Step 4: .md 파일 저장 + 발송 가이드 출력
 
 - `moai-marketer:content-copywriting` — 체인 1단계: 후기 카피 초안 생성
 - `moai-coworker:general-ai-slop-reviewer` — 체인 2단계: AI 패턴 후처리
-- `moai-writer:office-korean-spell-check` — 체인 3단계: 맞춤법 검사
+- `moai-writer:korean-spell-check` — 체인 3단계: 맞춤법 검사
 - `moai-tutor:education-course-operations-manual` — 강의 운영 매뉴얼 (선행 스킬)
 - `moai-coworker` — D+30 영상 후기 재가공 (선택)
 - `moai-marketer:content-blog` — D+30 심층 인터뷰 블로그 사례 기사 (선택)

@@ -204,9 +204,9 @@ version: "0.1.0"
 ## 관련 스킬
 
 체이닝 (본 스킬이 오케스트레이션):
-- Higgsfield Soul Characters 캐릭터 등록 — Step 1 (선택, `moai-marketer:media-higgsfield-image` 캐릭터 일관성 기능)
-- `moai-marketer:media-higgsfield-image` — Step 2 (Soul)
-- `moai-marketer:media-higgsfield-video` — Step 3 (DOP)
+- Higgsfield Soul Characters 캐릭터 등록 — Step 1 (선택, `moai-media:media-higgsfield-image` 캐릭터 일관성 기능)
+- `moai-media:media-higgsfield-image` — Step 2 (Soul)
+- `moai-media:media-higgsfield-video` — Step 3 (DOP)
 - 채널 규격 변환 + AI 생성 표기 — Step 4 (Pillow 자체 처리)
 
 연계 (사용자가 별도 호출):
@@ -217,8 +217,8 @@ version: "0.1.0"
 ## 이 스킬을 사용하지 말아야 할 때
 
 - **13섹션 합성 PNG 1장**: `commerce-detail-page-image` 사용
-- **단일 이미지 생성**: `moai-marketer:media-higgsfield-image` 직접 호출
-- **단일 영상 생성**: `moai-marketer:media-higgsfield-video` 직접 호출
+- **단일 이미지 생성**: `moai-media:media-higgsfield-image` 직접 호출
+- **단일 영상 생성**: `moai-media:media-higgsfield-video` 직접 호출
 - **광고 영상 카테고리 라우팅**: **Higgsfield MCP**(DOP) 직접 호출
 
 ## 참고 자료

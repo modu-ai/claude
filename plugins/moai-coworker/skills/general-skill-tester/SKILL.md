@@ -106,7 +106,7 @@ chain:
       input_from: ["blog_draft"]
       output_type: "markdown"
       provides: ["reviewed_draft"]
-    - skill: "moai-marketer:media-higgsfield-image"
+    - skill: "moai-media:media-higgsfield-image"
       input_from: ["reviewed_draft"]
       output_type: "image_url"
       optional: true

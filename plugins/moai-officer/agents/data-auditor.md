@@ -1,6 +1,6 @@
 ---
 name: data-auditor
-description: Read-only skeptical auditor for the moai-officer plugin. Use to independently verify documents, public-data citations, data visualizations, and calculations produced by doc-producer or office-* skills. Returns evidence-based PASS/FAIL findings; never edits files.
+description: Read-only skeptical auditor for the moai-officer plugin. Use to independently verify office documents (HWPX/DOCX/XLSX/PPTX/PDF/HTML), figures embedded in them, and calculations produced by doc-producer or office-* document skills. Returns evidence-based PASS/FAIL findings; never edits files. (Heavy public-data provenance / KOSIS / DART / building-ledger audits belong to the moai-analyst plugin's data-provenance-auditor.)
 tools: Read, Grep, Glob
 ---
 
