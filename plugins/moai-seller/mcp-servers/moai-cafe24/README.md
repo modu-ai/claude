@@ -79,7 +79,7 @@ uv sync
 | `CAFE24_CLIENT_SECRET` | ✓ | 앱 client_secret |
 | `CAFE24_ACCESS_TOKEN` | ✓ | access_token (2h, 자동갱신) |
 | `CAFE24_REFRESH_TOKEN` | ✓ | refresh_token (2w, 회전) |
-| `CAFE24_API_VERSION` | | API 버전 (기본 `2025-09-01` latest) |
+| `CAFE24_API_VERSION` | | API 버전 (기본 `2026-03-01` — 앱 기본값; `2025-09-01` 단종) |
 | `CAFE24_SHOP_NO` | | 기본 멀티샵 번호 (기본 1) |
 | `CAFE24_TIMEOUT` | | HTTP 타임아웃 초 (기본 30) |
 | `CAFE24_REQUEST_DELAY` | | 요청 간 최소 대기 초 (기본 0, 옵션) |

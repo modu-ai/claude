@@ -1,6 +1,6 @@
 {
   "name": "builder",
-  "domain": "Desktop plugin (cowork/code) core skill auto-generation from Claude official docs + qmd vault + web",
+  "domain": "Marketplace plugin (moai-coworker/moai/moai-designer/moai-pm/moai-seller + future expert plugins) core skill auto-generation from Claude official docs + qmd vault + web; target plugin resolved against .claude-plugin/marketplace.json",
   "source_request": "qmd 하네스 스킬참고해서 /harness:plugin 하네스를 생성해주고 클로드 공식 문서를 기반으로 스킬을 생성하도록 코워크용, 코드용 2개 데스크탑 플러그인 설치용으로 생성하자. (자연어 진입 + qmd→공식문서→웹검색 3-Layer 리서치)",
   "patterns": ["Pipeline", "Producer-Reviewer"],
   "specialists": [

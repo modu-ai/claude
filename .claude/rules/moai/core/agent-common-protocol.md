@@ -271,8 +271,8 @@ This refines step 3 above ("do not retry the identical call") along the side-eff
 
 [ZONE:Evolvable] [HARD] The orchestrator MUST execute every read-only verification
 batch as a single-turn multi-Bash call. Serial verification across turns wastes
-wall-time and is the single largest source of run-phase latency (W3 meta-analysis:
-10 min serial verification ≈ 11% of total run-phase wall-time). This rule was
+wall-time and is the single largest source of run-phase latency (empirical
+analysis showed 10 min serial verification ≈ 11% of total run-phase wall-time). This rule was
 added in response to that finding.
 
 ### Read-only verification batching
@@ -289,30 +289,44 @@ in parallel within a single response turn:
 
 ```bash
 # 1. Full test suite (Go)
-go test ./...
+go test ./... > /tmp/moai-verify/1-go-test.log 2>&1; echo "exit=$?"; tail -50 /tmp/moai-verify/1-go-test.log
 
 # 2. Coverage report (per-package)
-go test -coverprofile=cover.out ./internal/<pkg>/...
+go test -coverprofile=cover.out ./internal/<pkg>/... > /tmp/moai-verify/2-cover.log 2>&1; echo "exit=$?"; tail -50 /tmp/moai-verify/2-cover.log
 
 # 3. Subagent-boundary grep (sentinel C-HRA-008)
-grep -rn 'AskUserQuestion\|mcp__askuser' internal/harness/ internal/hook/ | grep -v "_test.go" | grep -v "^[^:]*:[0-9]*:[ \t]*//"
+grep -rn 'AskUserQuestion\|mcp__askuser' internal/harness/ internal/hook/ | grep -v "_test.go" | grep -v "^[^:]*:[0-9]*:[ \t]*//" > /tmp/moai-verify/3-boundary.log 2>&1; echo "exit=$?"; tail -50 /tmp/moai-verify/3-boundary.log
 
-# 4. Sentinel-key audit (build-tag, retired SPEC, etc.)
-grep -rn 'FROZEN_SENTINEL\|HARNESS_FROZEN' internal/ | head -20
+# 4. Sentinel key audit (build-tag, retired SPEC, etc.)
+grep -rn 'FROZEN_SENTINEL\|HARNESS_FROZEN' internal/ | head -20 > /tmp/moai-verify/4-sentinel.log 2>&1; echo "exit=$?"; tail -50 /tmp/moai-verify/4-sentinel.log
 
 # 5. CLI smoke check (cmd/moai)
-go run ./cmd/moai --version
+go run ./cmd/moai --version > /tmp/moai-verify/5-cli.log 2>&1; echo "exit=$?"; tail -50 /tmp/moai-verify/5-cli.log
 
 # 6. Benchmark micro-suite (optional)
-go test -bench=. -benchmem -run=^$ ./internal/<pkg>/...
+go test -bench=. -benchmem -run=^$ ./internal/<pkg>/... > /tmp/moai-verify/6-bench.log 2>&1; echo "exit=$?"; tail -50 /tmp/moai-verify/6-bench.log
 
 # 7. Lint baseline (golangci-lint)
-golangci-lint run --timeout=2m
+golangci-lint run --timeout=2m > /tmp/moai-verify/7-lint.log 2>&1; echo "exit=$?"; tail -50 /tmp/moai-verify/7-lint.log
 ```
 
 In Claude's response, all 7 commands are invoked as separate Bash tool calls
 within the same assistant turn. The orchestrator does NOT issue them serially
 across multiple turns.
+
+### File-redirect contract
+
+The canonical batch above also demonstrates the **file-redirect contract**: when a verification command's verbatim output exceeds the **bounded-tail ceiling** (concrete default: **≤50 lines OR ≤2KB, whichever is smaller**), the orchestrator redirects the verbatim output to a file on disk and surfaces only **exit code + bounded-tail summary** in conversation context. Each command above shows the redirected form (`> /tmp/moai-verify/<N>-<slug>.log 2>&1; echo "exit=$?"; tail -50 …`).
+
+This contract governs *how* verification output is represented in context, NOT *whether* the commands run in parallel — the single-turn multi-Bash HARD obligation above is unchanged. The cited file path MUST appear in the Verification Matrix / Completion Report banner (`.claude/output-styles/moai/moai.md` §8) or in the manager-agent `§E` self-verification block, so the verbatim evidence remains reachable at audit time. This preserves `.claude/rules/moai/core/verification-claim-integrity.md` §1.1 **surface 1** (orchestrator self-report) and **surface 2** (manager-agent `§E` self-verification): every claim row remains attributable to a directly-observed command whose verbatim output is reachable at the cited file path.
+
+The contract is **"verbatim evidence lives on disk with a citable path; context carries exit code + bounded tail"** — NOT **"drop the evidence"**. Inline quotation is PERMITTED when verbatim output is below the ceiling (the redirect obligation triggers only on exceedance); the diet removes the *double-burn* (Bash inline output + banner re-quote), not the evidence itself. The exact ceiling value and directory scheme are tunable per-domain; the contract holds regardless of the specific numbers.
+
+### Evidence persistence obligation
+
+The cited evidence path MUST remain reachable at audit time, including after `/tmp` directory clearance. `/tmp` is OS-cleared periodically (macOS reboot, Linux tmpfs re-mount, systemd-tmpfiles); a cited path that no longer resolves to a file violates `verification-claim-integrity.md` §1.1 surface 1 (orchestrator self-report) and surface 2 (manager-agent §E self-verification) — every claim row MUST remain attributable to a directly-observed command whose verbatim output is reachable at the cited file path.
+
+To satisfy this reachability obligation, evidence SHALL be persisted under `.moai/state/verify/<session>/` (gitignored runtime state, same directory family as `context-usage.json` and `active-sessions.json`). The exact persist mechanism — direct write to `.moai/state/verify/<session>/`, or `/tmp` write followed by a copy step — is a run-phase implementation detail; the contract states the OBLIGATION (evidence survives `/tmp` clearance), not the mechanism. **"Persist evidence" ≠ "drop evidence"**: the diet removes the *double-burn* (inline output + banner re-quote), NOT the evidence itself. The verbatim output MUST remain on disk at a citable, audit-time-reachable path.
 
 ### Anti-pattern: serial verification across turns
 

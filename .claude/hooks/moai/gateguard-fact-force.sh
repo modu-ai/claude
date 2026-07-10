@@ -1,25 +1,22 @@
 #!/bin/bash
 # gateguard-fact-force.sh — PreToolUse hook (first-edit investigation advisory)
 #
-# @MX:ANCHOR High fan-in gate — every edit passes through this hook
+# @MX:ANCHOR High fan-in advisory — every edit passes through this hook
 #
-# Emits a one-time ADVISORY notice on the FIRST Edit/Write/MultiEdit for each
-# file path per session, recommending investigation (importers, data schemas,
-# user instruction). The edit is ALLOWED to proceed (exit 0); the notice rides
-# the stdout systemMessage channel so Claude Code renders it as informational
-# context, NOT as a red "Error" box. The previous exit-2 form surfaced as
-# "Error: PreToolUse hook error: ..." and was widely misread as a crash.
-# Subsequent edits to the same path in the same session get no notice. A prior
-# Read on the same path pre-populates the fact state, so the first post-Read
+# Emits a one-time ADVISORY notice on the FIRST Edit/Write/MultiEdit on each file
+# path per session, recommending investigation (importers, data schemas, user
+# instruction). The edit is ALLOWED to proceed (exit 0) — this hook never blocks.
+# Subsequent edits to the same path in the same session produce no advisory. A
+# prior Read on the same path pre-populates the fact state, so the first post-Read
 # Edit skips the advisory (Read-as-investigation). Advisory opt-out via
-# MOAI_FACT_FORCE=off. Shell-only, O(1), fail-open, self-terminates < 5s.
+# MOAI_FACT_FORCE=off. Shell-only, O(1), fail-open, self-terminates < 5s, jq-free.
 #
 # State: ${CLAUDE_PROJECT_DIR:-$PWD}/.moai/state/fact-force/<hash>
 # keyed by SHA-1(session_id + absolute_file_path), 0o600, single JSON line.
 # The hook MUST NOT invoke any user-prompting mechanism (subagent boundary, C-HRA-008).
 
-# Fail-open wrapper: any unexpected error → exit 0 (allow). The advisory path
-# also exits 0 (edit proceeds); this hook never blocks (exit 2 removed).
+# Fail-open wrapper: any unexpected error → exit 0 (allow). This hook NEVER
+# exits 2 — it is advisory-only (exit 0 on every path).
 set +e
 
 # --- 1. Read payload (cap 1MB to avoid truncation mid-JSON) ---
@@ -111,14 +108,13 @@ if [ "$read_mode" = "1" ]; then
     exit 0
 fi
 
-# --- 11. Emit advisory notice (REQ-FF-001, revised: no-block advisory) ---
-# systemMessage → stdout JSON: Claude Code renders this as informational context
-# (NOT a red "Error" box). The edit is ALLOWED (exit 0). The previous exit-2
-# form surfaced as "Error: PreToolUse hook error: ..." and was misread as a crash.
-msg=$(cat <<ADVISORY
-ℹ️ First-edit advisory on $file_path (one-time, per session).
+# --- 11. Emit advisory systemMessage + allow (REQ-FA-001) ---
+# stdout JSON systemMessage: Claude Code renders this as informational context
+# (NOT a red error box). exit 0 = allow. This hook NEVER blocks.
+guidance=$(cat <<GUIDANCE
+First-edit advisory on $file_path.
 
-Before this edit lands, it is worth checking:
+Before proceeding, investigate:
   1. IMPORTERS — who imports / depends on this file?
        grep -rn "<file-basename>" --include='*.go' --include='*.ts' --include='*.py' .  (adapt to language)
   2. DATA SCHEMAS — what data structures / contracts / API types does this file touch?
@@ -126,18 +122,16 @@ Before this edit lands, it is worth checking:
   3. USER INSTRUCTION — what user instruction justifies this edit?
        Re-read the SPEC acceptance criteria or the explicit user request.
 
-The edit proceeds normally. This notice fires once per (session, file path);
-your next edit to this path will be silent. To disable for the session: MOAI_FACT_FORCE=off
-ADVISORY
+This is a one-time advisory per (session, file path). Your NEXT edit to this path
+will not produce this notice. To disable for the session: MOAI_FACT_FORCE=off
+GUIDANCE
 )
-# JSON-escape the multiline message with awk (jq-free, preserves the
-# self-contained / dependency-free classification per hook-independence §3-G):
-# backslash → \\, double-quote → \", inter-line newline → literal \n.
-esc=$(printf '%s' "$msg" | awk 'BEGIN{ORS=""} {
-    gsub(/\\/, "\\\\")
-    gsub(/"/, "\\\"")
-    if (NR > 1) print "\\n"
-    print
-}')
-printf '{"systemMessage":"%s"}\n' "$esc"
+
+# JSON-escape via awk (jq-free, per §C.5 NFR): backslash to double-backslash,
+# double-quote to backslash-quote, inter-line newline to literal backslash-n.
+escaped=$(printf '%s' "$guidance" | awk '
+BEGIN { sep = "" }
+{ gsub(/\\/, "\\\\"); gsub(/"/, "\\\""); printf "%s%s", sep, $0; sep = "\\n" }
+')
+printf '{"systemMessage":"%s"}\n' "$escaped"
 exit 0

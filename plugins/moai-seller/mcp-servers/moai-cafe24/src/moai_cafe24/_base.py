@@ -35,7 +35,7 @@ if TYPE_CHECKING:
     from .client import Cafe24Client
 
 ANALYTICS_API_BASE = "https://ca-api.cafe24data.com"
-DEFAULT_API_VERSION = "2025-09-01"  # Cafe24 "latest" version as of docs
+DEFAULT_API_VERSION = "2026-03-01"  # Cafe24 app-default version (2025-09-01 retired → HTTP 400)
 DEFAULT_TIMEOUT = 30.0
 DEFAULT_SHOP_NO = 1
 DEFAULT_TOKEN_FILE = Path.home() / ".moai" / "mcp" / "cafe24-tokens.json"
