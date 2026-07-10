@@ -5,7 +5,7 @@
     "email": "email@mo.ai.kr"
   },
   "metadata": {
-    "description": "'MoAI-Claude, 모두의 클로드' 18-plugin AI-직원 패밀리 — 코워커(범용 실무·라이프스타일)·작가(출판)·스토리(웹툰/웹소설/IP)·마케터(캠페인/콘텐츠)·미디어(이미지/영상/오디오 생성)·셀러·사무관(오피스 문서)·데이터 애널리스트(공공데이터/시각화)·법무·재무세무·인사채용·CS매니저·컨설턴트·커리어코치·튜터(전문가 14종)·디자이너(브랜드 디자인 시스템)·코더(개발 방법론)·PM(진입 허브). 각 AI 직원은 슬래시 명령 없이 자연어 요청만으로 동작하며, PM의 /project --cowork(코워크 전반 셋업 + 커스텀 에이전트 + 재귀적 자가 개선)·--code(개발환경 셋업) 2-모드가 진입을 라우팅합니다. Claude Code에서 `claude plugin marketplace add modu-ai/claude`로 한 번에 등록하세요.",
+    "description": "'MoAI-Claude, 모두의 클로드' 18-plugin AI-직원 패밀리 — 코워커(범용 실무·라이프스타일)·작가(출판)·스토리(웹툰/웹소설/IP)·마케터(캠페인/콘텐츠)·미디어(이미지/영상/오디오 생성)·셀러·사무관(오피스 문서)·데이터 애널리스트(공공데이터/시각화)·법무·재무세무·인사채용·CS매니저·컨설턴트·커리어코치·튜터(전문가 14종)·디자이너(브랜드 디자인 시스템)·코더(개발 방법론)·PM(진입 허브). 각 AI 직원은 슬래시 명령 없이 자연어 요청만으로 동작하며, PM의 goose(/goose --project — 코워크 전반 셋업 + 커스텀 에이전트 + 재귀적 자가 개선)·moai(/moai --project — 개발환경 셋업) 두 스킬이 진입을 라우팅합니다. Claude Code에서 `claude plugin marketplace add modu-ai/claude`로 한 번에 등록하세요.",
     "version": "6.2.0",
     "language": "ko",
     "license": "LicenseRef-MoAI-NC-ND-1.0",
@@ -143,7 +143,7 @@
     {
       "name": "moai",
       "source": "./plugins/moai",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "description": "MoAI-ADK SPEC plan/run/sync 개발 방법론 무설치 플러그인 — moai CLI 없이 Claude Code/Desktop에서 DDD/TDD·품질 게이트·문서 동기화. 비개발자와 개발자 모두 /moai로 개발.",
       "displayName": "코더",
       "category": "개발·무설치"
@@ -151,8 +151,8 @@
     {
       "name": "moai-pm",
       "source": "./plugins/moai-pm",
-      "version": "0.4.0",
-      "description": "프로젝트 초기화 허브 AI 직원 — /project --cowork(code를 제외한 모든 코워크 프로젝트: 전 직원 지침 설정 + .claude/agents/ 커스텀 에이전트 + CLAUDE.md 워크플로우 생성 + 재귀적 자가 개선)·--code(코더 개발환경 셋업) 2-모드로 18개 AI 직원 플러그인의 진입을 라우팅합니다. 비개발자도 자연어 한마디로 프로젝트를 시작할 수 있습니다. 이런 분께 추천: 비개발자·프로젝트 시작자.",
+      "version": "1.0.0",
+      "description": "프로젝트 초기화 허브 AI 직원 — goose(code를 제외한 모든 Claude Cowork 프로젝트: 전 직원 지침 설정 + .claude/agents/ 커스텀 에이전트 + CLAUDE.md 워크플로우 생성 + 재귀적 자가 개선)와 moai(개발 프로젝트 초기화 — moai-adk v3.0 철학, SPEC plan/run/sync, TRUST 5, DDD/TDD) 두 스킬로 18개 AI 직원 플러그인의 진입을 라우팅합니다. 비개발자도 자연어 한마디로 프로젝트를 시작할 수 있습니다. 이런 분께 추천: 비개발자·프로젝트 시작자.",
       "displayName": "PM",
       "category": "프로젝트 허브"
     }
