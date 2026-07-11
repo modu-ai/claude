@@ -7,6 +7,32 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed — SPEC-MOC-PM-ADVISORS-001
+
+moai-pm plugin redesign — the single `project` skill is replaced by **two dedicated advisor skills**: `goose` (Desktop super-advisor, `/goose --project` — every Claude Cowork task except development) and `moai` (dev-project init advisor, `/moai --project` — moai-adk v3.0 philosophy: SPEC plan/run/sync, TRUST 5, DDD/TDD). Four tracked drift lines in the legacy skill are closed in-flight during migration rather than copied forward.
+
+**BREAKING** — the `/project` invocation surface is retired. Entry is now `/goose --project` (Desktop) or `/moai --project` (development); `moai-pm` bumps MAJOR (`0.4.0` → `1.0.0`) accordingly. `/moai --project` (flag, moai-pm) and `/moai project` (space-subcommand, coder plugin) are distinct entry points — neither shadows the other.
+
+**Core deliverables**:
+- **M2** — `plugins/moai-pm/skills/goose/` (13 files: `SKILL.md` with the 6 canonical H2 anchors in order — Socratic Interview → Plugin Inventory Scan → Custom Agent & Skill-Chain Design → Generation Targets → Recursive Self-Improvement → Desktop Parity Constraints — plus 11 `references/*.md` and `references/templates/CLAUDE.md.tmpl` preserving all 8 `## N. … (HARD)` blocks). Generates `CLAUDE.md` (≤200 lines) + `.claude/agents/` + `.moai/` scaffold; custom agents are synthesized from interview context, never copied from prebuilt plugin agents (AC-PMA-001/004/004b/005/005b/006/014/019)
+- **M3** — `plugins/moai-pm/skills/moai/` (8 files: `SKILL.md` with 5 canonical H2 anchors + 7 `references/*.md`). Carries the `## LSP Presence Check` and `## MCP Survey` sections consuming the sibling SPEC-MOC-CODER-LSP-MCP-001 catalog, explicit-namespace routing (`moai-pm:moai` vs `moai:moai`), and a degraded guidance-only fallback (`references/mcp-fallback-summary.md`) when the coder plugin is absent (AC-PMA-007/018/020/021/022)
+- **M4** — legacy `plugins/moai-pm/skills/project/` removed in full (15 tracked files); repo-wide sweep of all 4 tracked drift patterns across `plugins/moai-pm/` → 0 matches (AC-PMA-002/003/013)
+- **M5** — `plugins/moai-pm/README.md` full rewrite as a 2-skill entry (18-plugin roster table with per-employee entry-skill column, command-surface disambiguation callout); marketplace + plugin.json version lockstep (AC-PMA-008/009)
+
+**Drift closed during migration** (fixed in-flight, not copied-then-patched): (1) `4-plugin` / `27-plugin` hardcoded counts replaced by citations of `.claude-plugin/marketplace.json` as the roster authority; (2) the heavy Self-Refine evolution model (`evolution-protocol.md`, `metrics.csv`, forced scoring) dropped in favour of the single simplified self-improvement model; (3) custom-agent generation restored as a first-class Phase 7 in the goose setup canon (was API-key-only); (4) `story-*` / `book-*` skill-prefix ownership corrected to `moai-story` (AC-PMA-015/016).
+
+**Verification**: 21/21 machine-gate AC PASS + 3/3 structural-review AC cited + 4/4 Given-When-Then scenarios PASS (24 AC total per `acceptance.md`; evidence in SPEC `progress.md` §E.2/§E.3, disk-only per repo `.moai/` gitignore convention). Run-phase commits: `f98b010` (M1+M2) → `a02314a` (M3) → `8f3b13a` (M4) → `0539fd6` (M5).
+
+**Key files**:
+- `plugins/moai-pm/skills/goose/` (new — 13 files, Desktop super-advisor)
+- `plugins/moai-pm/skills/moai/` (new — 8 files, dev-init advisor)
+- `plugins/moai-pm/skills/project/` (removed — 15 files)
+- `plugins/moai-pm/README.md` (2-skill rewrite)
+- `.claude-plugin/marketplace.json` (`moai-pm` `0.4.0` → `1.0.0` MAJOR; `moai` `1.0.0` → `1.1.0` MINOR — the sibling SPEC-MOC-CODER-LSP-MCP-001 handed delta, single-owner here)
+- `plugins/moai-pm/.claude-plugin/plugin.json` (`1.0.0`) + `plugins/moai/.claude-plugin/plugin.json` (`1.1.0` — version field only, D1 lockstep exception)
+
+**Residual**: (1) `moai/references/mcp-fallback-summary.md` is a static snapshot of the sibling's MCP catalog with **no automated sync mechanism** — flagged in-file as a driftable copy (open risk #1, still open); (2) `/moai` short-form dispatch ambiguity is mitigated by explicit-namespace documentation but remains **platform-defined** and outside this SPEC's control (open risk #3, still open); (3) shared-reference duplication across the two skills (`router.md`, `init-protocol.md`, `execution-protocol.md`, `claudemd-generator.md`) is realized as designed — per-skill adapted copies requiring manual sync on future changes (open risk #4, accepted); (4) runtime E2E of both skills not executed (static verification only); (5) `www/**` guide updates (REQ-D-003) handed to a follow-up — 8 target paths recorded in `progress.md` §E.4; (6) stray untracked runtime-artifact directories under the deleted `skills/project/` require a direct `rm -rf` on the main checkout (never git-tracked, outside commit scope).
+
 ### Added — SPEC-MOC-CODER-LSP-MCP-001
 
 moai coder plugin expansion — `.lsp.json` grows from 5 to 13 language-server entries (12-language coverage; HTML/CSS split into separate servers), non-blocking LSP install guidance (install guide + SessionStart advisory hook), a verified declarative dev-service MCP catalog with a deterministic `.mcp.json` generation template, and survey-parameterized meta-harness templates (project settings allowlist + toolchain-auto-detecting quality-gate hook) targeting the user's project.

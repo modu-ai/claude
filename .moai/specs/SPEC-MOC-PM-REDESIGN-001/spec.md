@@ -12,6 +12,7 @@ module: "plugins/moai-pm/skills/project"
 lifecycle: spec-anchored
 tags: "plugin, pm, hub-router, claudemd, redesign, fable5-distill"
 tier: M
+partially_superseded_by: [SPEC-MOC-PM-ADVISORS-001]
 ---
 
 # SPEC-MOC-PM-REDESIGN-001: moai-pm project 스킬 재설계
