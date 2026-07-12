@@ -143,7 +143,7 @@
     {
       "name": "moai",
       "source": "./plugins/moai",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "description": "MoAI-ADK SPEC plan/run/sync 개발 방법론 무설치 플러그인 — moai CLI 없이 Claude Code/Desktop에서 DDD/TDD·품질 게이트·문서 동기화. 비개발자와 개발자 모두 /moai로 개발.",
       "displayName": "코더",
       "category": "개발·무설치"
