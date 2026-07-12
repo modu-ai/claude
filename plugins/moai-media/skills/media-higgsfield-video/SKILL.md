@@ -1,351 +1,127 @@
 ---
 name: media-higgsfield-video
 description: |
-  Higgsfield MCP 기반 AI 영상을 자연어 요청 한 줄로 생성합니다.
+  Higgsfield MCP 기반 AI 영상을 자연어 요청 한 줄로 생성합니다. 모델·파라미터를 하드코딩하지 않고
+  라이브 카탈로그(models_explore)를 조회해 호출하므로, 카탈로그가 바뀌어도 드리프트 없이 동작합니다.
   다음과 같은 요청 시 사용하세요:
   - "Higgsfield 영상 만들어줘"
-  - "Veo 3로 영상"
-  - "Sora 2로 영상 만들어"
-  - "Kling 3.0으로 영상"
-  - "Seedance Pro로 영상 생성"
-  - "Cinema Studio 3.5로 시네마틱 영상"
-  - "UGC 광고 영상 만들어줘"
-  - "캐릭터 일관성 있는 아바타 영상"
-  Seedance 2.0·Seedance Pro·Cinema Studio 3.5·Kling 2.1 Master·Kling 2.5 Turbo·Kling 3.0·Kling Avatars 2.0·MiniMax Hailuo 02·Google Veo 3·Sora 2·Wan 2.5 11개 공식 영상 모델과 6가지 비디오 프리셋(UGC·Unboxing·Product review·Hyper motion·TV spot·Wild Card), 캐릭터 일관성(Kling Avatars 2.0), 비동기 잡 폴링까지 처리한 완성 영상을 산출합니다.
-  실제 영상 생성 요청 시 Higgsfield MCP가 연결돼 있으면 이 스킬을 사용하세요.
+  - "Veo로 영상"
+  - "Kling으로 영상"
+  - "Seedance로 다이내믹 영상"
+  - "Cinema Studio로 시네마틱 영상"
+  - "Marketing Studio UGC 광고 영상"
+  - "AI 영상 생성"
+  Veo·Kling·Seedance·Cinema Studio·Marketing Studio·Wan·Gemini Omni·Grok 등 계열의 프롬프트 크래프트는
+  references/prompt-craft/*.md에 출처와 함께 큐레이션돼 있고(계열마다 규칙이 다름 — 범용 공식 없음),
+  실제 파라미터(모델 id·해상도·비율·길이·비용)는 런타임에 라이브 조회합니다.
 version: "0.1.0"
 ---
 
 # Higgsfield 영상 생성 (media-higgsfield-video)
 
+> `moai-media` | 라이브 카탈로그 기반 영상 생성 (코어: `media-higgsfield-core`)
+
 ## 개요
 
-Higgsfield MCP의 영상 생성 도구를 호출하는 스킬입니다. 공식 11개 영상 모델 중 사용자 의도에 가장 적합한 것을 선택하고, 비디오 프리셋·캐릭터 일관성·비동기 잡 폴링까지 통합 처리합니다.
+Higgsfield MCP의 영상 생성 도구를 호출하는 스킬입니다. 사용자 의도로 계열 후보를 좁힌 뒤 **파라미터는 라이브 카탈로그에서 조회**해 생성합니다. 이전 스킬의 하드코딩 모델·프리셋 표는 제거되었습니다 — 그 표들은 라이브 스키마와 어긋나 실패하는 호출을 낳았습니다.
 
-## 트리거 키워드
+핵심 설계는 코어 스킬 `media-higgsfield-core`에 있습니다: 호출 계약(`call-schema.md`), 라이브 조회(`catalog-protocol.md`), 공통 규칙 R1–R5(`universal-rules.md`), 잡·비용·리드백(`job-lifecycle.md`).
 
-Higgsfield 영상, Sora 2, Google Veo 3, Kling 2.1 Master, Kling 2.5 Turbo, Kling 3.0, Kling Avatars 2.0, Seedance 2.0, Seedance Pro, Cinema Studio 3.5, MiniMax Hailuo 02, Wan 2.5, UGC 영상, Unboxing 영상, Product review, AI 영상 생성, 광고 영상
+## 계열 크래프트 (references/prompt-craft/) — 계열마다 규칙이 다르다
 
-## 전제 — MCP 등록
+각 파일은 벤더 공식 문서 기반이며 출처·Evidence tier를 답니다.
 
-`moai-coworker` 플러그인 설치 시 `.mcp.json`이 Higgsfield MCP를 자동 등록합니다 (이미지 스킬과 공유). 첫 호출 직전 Cowork에서 OAuth 인증 1회.
-
-## 공식 11개 영상 모델 — 한눈에
-
-[higgsfield.ai 공식 페이지](https://higgsfield.ai) 명시 기준 (2026-05).
-
-### 일반 영상 (text-to-video / image-to-video)
-
-| 모델 | 강점 | 적합 시점 |
-|---|---|---|
-| **Sora 2** ★ | 사실적·자연스러운 동작 | 일반 광고·내러티브 |
-| **Google Veo 3** | 고품질·다양한 톤 | 마케팅·브랜드 영상 |
-| **Kling 2.1 Master** | 인물·캐릭터 모션 (1세대 Master) | 인물 중심 |
-| **Kling 2.5 Turbo** | 빠른 처리·중간 품질 | 빠른 시안·반복 |
-| **Kling 3.0** ★ | Kling 최신·고품질 | 인물·표정 강조 |
-| **Seedance 2.0** | 다이내믹 모션 | 댄스·액션·생동감 |
-| **Seedance Pro** ★ | Seedance 고품질 변형 | 광고·고품질 모션 |
-| **MiniMax Hailuo 02** | 카메라 무브먼트 정교 | 트래킹·줌·팬 |
-| **Wan 2.5** | 다양한 톤·중국 최신 | 실험적·신규 톤 |
-
-### 시네마틱 영화 룩
-
-| 모델 | 강점 |
+| 파일 | 계열 |
 |---|---|
-| **Cinema Studio 3.5** ★ | 영화 그레이딩·필름 룩·카메라 디렉팅 |
+| `references/prompt-craft/veo.md` | Veo (오디오 문법 SFX:/Ambient noise:) |
+| `references/prompt-craft/kling.md` | Kling (유연 프레임워크, 1차-relayed) |
+| `references/prompt-craft/seedance.md` | Seedance (타임스탬프 unstable — 라벨 샷 리스트) |
+| `references/prompt-craft/cinema-studio.md` | Cinema Studio (4계층 참조, enum 라이브 조회) |
+| `references/prompt-craft/marketing-studio.md` | Marketing Studio (hook/setting↔ad_reference 상호배타) |
+| `references/prompt-craft/wan.md` | Wan (Timestamp 멀티샷 — Seedance와 정반대) |
+| `references/prompt-craft/gemini-omni.md` | Gemini Omni (편집은 단순 프롬프트) |
+| `references/prompt-craft/grok.md` | Grok (오디오 문서 부재 — 지어내지 않음) |
 
-### 인물·캐릭터 일관성
+카메라 디렉팅·Marketing Studio 슬러그 참고: `references/dop-motions.md`.
 
-| 모델 | 강점 |
+## 범용 비디오 공식은 없다 — per-family 라우팅
+
+**단일 범용 비디오 프롬프트 공식을 쓰지 않는다.** 벤더마다 컨벤션이 정반대이기 때문이다: Wan은 멀티샷에 명시적 Timestamp를 처방하지만 ByteDance는 Timestamp가 Seedance를 불안정하게 만든다고 경고한다. 이 둘을 하나로 통합하는 것은 correctness 회귀다. 따라서 스킬은 대상 계열의 `prompt-craft/` 파일로 **per-family(계열별)** 라우팅하여 그 계열의 벤더 공식 컨벤션을 적용한다.
+
+## 워크플로우 (REQ-010 흐름)
+
+### 1단계 — 의도 파악 → 후보 좁히기
+
+사용자 요청에서 subject·action·scene·camera·audio·references(+각 용도)·shot count·duration 등 슬롯을 수집(→ core `interview-schema.md`)하고 계열 후보를 좁힙니다. 후보를 좁힐 뿐 파라미터를 단정하지 않습니다. 슬롯이 부족하면 blocker 보고를 반환하고 오케스트레이터가 확인합니다(스킬은 사용자에게 직접 질문하지 않음).
+
+| 사용자 표현 | 후보 계열 |
 |---|---|
-| **Kling Avatars 2.0** | 캐릭터 일관성 영상·아바타 시리즈 |
+| "사실적", "오디오 있는 영상" | Veo |
+| "인물·표정·스토리보드" | Kling |
+| "다이내믹 모션·멀티샷" | Seedance 또는 Wan |
+| "영화 룩·모션 전이" | Cinema Studio |
+| "UGC·DTC 광고 영상" | Marketing Studio |
+| "이미지 편집·간단 참조" | Gemini Omni |
+| "Grok 영상" | Grok |
 
-## 6가지 비디오 프리셋
+### 2단계 — 라이브 조회 (models_explore)
 
-[higgsfield.ai/skills](https://higgsfield.ai/skills) 공식 비디오 프리셋:
+`models_explore(action:'get')`로 좁힌 후보의 실제 제약(aspect_ratios·durations·media role·모델별 param)을 조회합니다. 범위 밖 모델이면 계열 크래프트가 없다는 것을 명시하고 **live lookup**으로 제약만 가져와 R1–R5를 적용합니다. Marketing Studio 계열이면 `show_marketing_studio`로 preset/hook/setting을 조회합니다.
 
-| 프리셋 | 용도 |
-|---|---|
-| **UGC** | 일반 사용자 콘텐츠 톤 (자연스러움) |
-| **Unboxing** | 언박싱·제품 개봉 |
-| **Product review** | 제품 리뷰 (특징 강조) |
-| **Hyper motion** | 빠른 모션·다이내믹 |
-| **TV spot** | 광고 TV 톤 (시네마틱) |
-| **Wild Card** | 실험적·창의적 자유 톤 |
+### 3단계 — 비용 프리플라이트 (get_cost)
 
-프리셋을 지정하면 적절한 모델이 자동 선택되고 시네마틱 설정이 적용됩니다.
+같은 파라미터에 `get_cost: true`를 넣어 `credits`를 확인합니다(크레딧 0). `adjustments`가 있으면 서버가 채운 기본값이므로 리드백해 둡니다(예: 오디오를 요청했는데 `generate_audio: false`로 치환됐다면 보고). 잔액 정지 규칙은 core `job-lifecycle.md`.
 
-## 워크플로우
+### 4단계 — 생성 (generate_video)
 
-### 1단계 — 의도·길이·용도 파악
+조회된 값으로만 실제 `generate_video`를 호출합니다. namespace는 런타임 해석. 참조 미디어는 `media_id`/`job_id`로만 전달합니다.
 
-| 항목 | 자동 추론 |
-|---|---|
-| **길이** | "짧게"·"5초" → Kling 2.5 Turbo·Seedance / "광고"·"8-10초" → Veo 3·Sora 2 |
-| **용도** | 광고 · SNS · 내러티브 · 시연·튜토리얼 · 인물 발화 |
-| **입력** | text-to-video · image-to-video · 캐릭터 시리즈 |
-| **프리셋** | UGC·Unboxing·Product review·Hyper motion·TV spot·Wild Card |
+### 5단계 — 폴링·리드백
 
-부족하면 AskUserQuestion 1라운드.
+`job_status`로 `completed`까지 폴링하고, 결과 URL과 함께 반환된 `adjustments`를 사용자에게 보고합니다.
 
-### 2단계 — 모델·프리셋 자동 선택
+## 위험 블록 (반드시 경고)
 
-| 사용자 표현 | 자동 |
-|---|---|
-| "사실적", "자연스러운", "일반 광고" | Sora 2 또는 Google Veo 3 |
-| "고품질 브랜드 영상" | Google Veo 3 |
-| "인물 표정·연기 중요" | Kling 3.0 또는 Kling 2.1 Master |
-| "빠르게 여러 시안" | Kling 2.5 Turbo (Turbo 처리) |
-| "다이내믹 모션·댄스" | Seedance 2.0 또는 Seedance Pro |
-| "광고 고품질" | Seedance Pro · Cinema Studio 3.5 · Google Veo 3 |
-| "카메라 무브먼트 정교" | MiniMax Hailuo 02 |
-| "영화 룩·필름 그레이딩" | Cinema Studio 3.5 |
-| "캐릭터 시리즈·아바타" | Kling Avatars 2.0 |
-| "실험적·새로운 톤" | Wan 2.5 |
-| "언박싱·리뷰" | Product review·Unboxing 프리셋 |
-| "UGC 톤 자연스럽게" | UGC 프리셋 |
-| "광고 TV 스팟" | TV spot 프리셋 + Cinema Studio 3.5 |
-| "역동적·빠른 변화" | Hyper motion 프리셋 |
+이 세 가지는 계열 크래프트가 벤더 근거로 확인한 위험이다. 스킬은 해당 모델 사용 시 사용자에게 경고한다:
 
-### 3단계 — 입력 준비
+- **`gemini_omni` video-references는 known-broken** — Google 자신의 말: *"...are not correctly processed by the model at this time."* API가 받아들여도 모델이 제대로 처리하지 못한다(→ `prompt-craft/gemini-omni.md`).
+- **`minimax_hailuo`는 카메라 명령을 조용히 덮어쓸 수 있다** — MiniMax 자체 API의 `prompt_optimizer`(기본 true)가 프롬프트를 자동 재작성해 정밀한 수동 카메라 명령을 뭉갤 수 있다. **Higgsfield는 이 스위치를 노출하지 않으므로** MCP로는 끌 수 없다. 정밀 카메라 디렉팅이 무시될 수 있음을 경고한다.
+- **Grok은 오디오 컨벤션이 문서화돼 있지 않다** — 카탈로그가 "native audio"로 태깅해도 xAI 공식 문서엔 오디오 언급이 없다. Grok 오디오 문법을 지어내지 않는다(→ `prompt-craft/grok.md`).
 
-#### Text-to-video
-프롬프트만 필요.
+## 범위 밖 모델 폴백 (live lookup)
 
-#### Image-to-video
-시작 이미지 필요. 시작 프레임이 결과 톤을 좌우합니다.
-
-```
-[권장] media-higgsfield-image (Soul 2.0·Soul Cinema·Flux Kontext)로 시작 이미지 → image-to-video
-```
-
-#### 캐릭터 시리즈
-- Kling Avatars 2.0 사용
-- 사전에 인물 reference 등록
-
-### 4단계 — 파라미터 설계
-
-#### 공통 파라미터
-
-| 파라미터 | 값 |
-|---|---|
-| `prompt` | 행동·분위기·디테일 묘사 |
-| `model` | 모델 식별자 (예: `sora_2`, `veo_3`, `kling_3_0`, `seedance_pro`) |
-| `preset` | UGC · Unboxing · Product review · Hyper motion · TV spot · Wild Card |
-| `quality` | `turbo` (빠름·저렴) · `standard` · `high` |
-| `aspect_ratio` | `16:9` · `9:16` (릴스·숏폼) · `1:1` · `4:5` |
-| `duration_seconds` | 모델별 다름 (5-15초) |
-| `seed` | 재현용 |
-
-#### Image-to-video 추가
-
-| 파라미터 | 값 |
-|---|---|
-| `image_url` 또는 `input_images[]` | 시작 이미지 URL |
-
-### 5단계 — MCP 호출
-
-```
-ToolSearch(query: "select:mcp__higgsfield__generate_video")
-
-mcp__higgsfield__generate_video({
-  model: "veo_3",
-  prompt: "[행동·분위기 묘사]",
-  aspect_ratio: "16:9",
-  duration_seconds: 8,
-  quality: "standard",
-  preset: "TV spot",   // 옵션
-  image_url: "..."     // image-to-video 시
-})
-```
-
-모델 식별자는 공식 페이지에서 underscore_separated 형식 (예: `sora_2`, `veo_3`, `kling_3_0`, `kling_2_5_turbo`, `seedance_pro`, `cinema_studio_3_5`).
-
-### 6단계 — 비동기 잡 폴링
-
-영상은 이미지보다 오래 걸립니다.
-
-| 상태 | 평균 시간 |
-|---|---|
-| `queued` | 잔액 정상 시 즉시 |
-| `in_progress` | Sora 2/Veo: 20-60초 · Kling Turbo: 10-25초 · Cinema Studio·Seedance Pro: 30-90초 |
-| `completed` | 영상 URL 수령 |
-| `failed` | 프롬프트·모델 호환성 문제 |
-| `nsfw` | 콘텐츠 필터링 |
-
-긴 영상(15초)은 1-2분도 정상.
-
-### 7단계 — 결과 검수·반복
-
-| 사용자 반응 | 후속 행동 |
-|---|---|
-| "좋다" | 다운로드·SNS 업로드 |
-| "동작 부자연" | Kling 3.0 또는 Veo 3로 모델 변경 |
-| "톤이 약하다" | Cinema Studio 3.5 + TV spot 프리셋 |
-| "더 빠르게 / 짧게" | duration 단축 + Kling 2.5 Turbo 또는 Seedance |
-| "음성 추가" | `media-audio-gen` (ElevenLabs) → 외부 편집 |
-
-## 사용 예시
-
-### 예시 1 — 8초 광고 영상 (시네마틱)
-
-```
-요청: "신제품 가죽 지갑 광고 영상, 시네마틱 톤, 8초"
-
-플로우:
-1. media-higgsfield-image (Soul Cinema)로 시작 이미지 1장
-2. media-higgsfield-video
-   - model: cinema_studio_3_5 또는 veo_3
-   - preset: TV spot
-   - image_url: 1번 결과
-   - duration: 8s
-   - aspect_ratio: 16:9
-   - quality: high
-3. 60초 대기 → 8초 영상
-```
-
-### 예시 2 — 릴스용 숏폼 (UGC)
-
-```
-요청: "5초 인스타 릴스 영상, 자연스럽게"
-
-자동: model: kling_2_5_turbo (빠름·저비용)
-preset: UGC
-aspect_ratio: 9:16
-duration: 5s
-quality: turbo
-```
-
-### 예시 3 — 캐릭터 시리즈 영상
-
-```
-요청: "브랜드 마스코트가 점프하는 5초 영상"
-
-자동: model: kling_avatars_2_0
-입력: 마스코트 이미지 reference
-duration: 5s
-```
-
-### 예시 4 — 제품 언박싱 영상
-
-```
-요청: "신제품 언박싱 영상 10초"
-
-자동: model: seedance_pro (제품 광고 적합)
-preset: Unboxing
-duration: 10s
-```
-
-### 예시 5 — 다이내믹 댄스 영상
-
-```
-요청: "댄스 영상 짧게, 빠른 모션"
-
-자동: model: seedance_pro
-preset: Hyper motion
-duration: 5s
-quality: standard
-```
-
-### 예시 6 — 카메라 트래킹 영상
-
-```
-요청: "제품을 회전하면서 보여주는 영상"
-
-자동: model: minimax_hailuo_02 (카메라 무브먼트 정교)
-duration: 6s
-```
+계열 크래프트에 없는 모델을 요청하면, 계열 특화 크래프트가 없다는 사실을 명시하고 `models_explore`로 제약을 **live lookup**한 뒤 공통 규칙 R1–R5를 적용합니다.
 
 ## 출력 형식
 
 ```
 ## Higgsfield 영상 생성 결과
-
-### 호출 정보
-- 모델: [예: veo_3]
-- 프리셋: [TV spot 등 또는 없음]
-- 입력: text-to-video / image-to-video
-- 길이·비율·품질: [duration · aspect_ratio · quality]
-- Job ID: [Higgsfield job ID]
-- 소요 시간: [실제]
-
-### 결과
-- 영상 URL: [Higgsfield CDN]
-- 다운로드 경로: [로컬]
-- 썸네일: [첫 프레임]
-
-### 검수
-- 모션 자연스러움·의도 부합·길이·비율: [점수]
-
-### 후속 추천
-- 음성 추가 → media-audio-gen
-- 편집·자막 → 외부 도구
-- 시리즈 영상 → 같은 모델·다른 입력
+- 모델: [models_explore로 확인한 실제 id]
+- 프롬프트: [계열 크래프트로 조립된 최종 프롬프트]
+- 비율·길이: [라이브 aspect_ratios·durations 중 선택]
+- 비용: [get_cost가 반환한 credits]
+- Job ID / 결과 URL: [job_status completed]
+- 서버 조정(adjustments): [있으면 그대로 보고]
 ```
-
-## 비용 관리
-
-| 모델 | 상대 비용 |
-|---|---|
-| Kling 2.5 Turbo | 가장 저렴·빠름 |
-| Seedance 2.0 / Wan 2.5 | 저렴 |
-| Kling 2.1 Master / MiniMax Hailuo 02 | 중간 |
-| Google Veo 3 | 중간-비쌈 |
-| Sora 2 | 비쌈 |
-| Kling 3.0 | 비쌈 |
-| Seedance Pro / Cinema Studio 3.5 | 비쌈 |
-| Kling Avatars 2.0 | 비쌈 (특수) |
-
-워크스페이스 잔액: `higgsfield.ai → Billing`.
 
 ## 주의사항
 
-### Do
-
-- 첫 시도는 **Kling 2.5 Turbo**로 빠른 시안 확보 → Veo 3·Sora 2로 본 생성
-- Image-to-video는 시작 이미지 품질이 결과를 좌우 → `media-higgsfield-image` 우선
-- 광고용은 TV spot 프리셋 + 16:9
-- 릴스·숏폼은 9:16 + UGC 또는 Hyper motion 프리셋
-- 캐릭터 시리즈는 Kling Avatars 2.0 사용
-
-### Don't
-
-- 한 영상에 너무 복잡한 동작 요청
-- 10초 이상 영상에서 급격한 변화
-- nsfw·민감 콘텐츠
-- 초상권 침해 가능한 영상
-- 저작권 있는 캐릭터·로고
-
-## 트러블슈팅
-
-| 증상 | 원인 | 해결 |
-|---|---|---|
-| "Not connected" | OAuth 미인증 | Cowork → 설정 → MCP → Higgsfield → Connect |
-| `queued` 멈춤 | 잔액 부족 | higgsfield.ai/billing 충전 |
-| `failed` (image-to-video) | 시작 이미지 URL 오류 | media-higgsfield-image로 새 이미지 생성 후 재시도 |
-| 결과 부자연 | 모델 부적합 | Sora 2 ↔ Veo 3 ↔ Kling 3.0 교체 |
-| 영상이 너무 짧음 | duration 미지정 | duration_seconds 명시 |
-| 비용 예상보다 큼 | 비싼 모델 사용 | Kling 2.5 Turbo로 우선 탐색 |
-| 프리셋 효과 안 보임 | model과 호환 안 됨 | 프리셋만 단독 사용 또는 권장 모델 |
+- 프롬프트는 대상 계열의 `prompt-craft/` 벤더 공식 컨벤션을 따릅니다 — 범용 공식을 쓰지 않습니다.
+- image-to-video는 시작 이미지가 담은 정적 정보를 빼고 motion + camera로 시작합니다(R2). 시작 이미지는 `media-higgsfield-image`로 먼저 생성할 수 있습니다.
+- 모델 id·파라미터를 추측하지 않습니다 — 언제나 `models_explore`로 확인합니다.
+- nsfw·초상권·저작권 침해 소지 콘텐츠는 생성하지 않습니다.
 
 ## 관련 스킬
 
 | 스킬 | 시점 |
 |---|---|
-| `moai-media:media-higgsfield-image` | 선행: 시작 이미지·캐릭터 reference 생성 |
-| `moai-media:media-audio-gen` | 보조: 영상에 추가할 음성·BGM 생성 |
-| `moai-marketer:marketing-landing-page` | 후속: 영상을 랜딩에 배치 |
-| `moai-marketer:marketing-campaign-planner` | 보조: 캠페인 단위 영상 시리즈 |
-| `moai-seller:commerce-detail-page-image` | 보조: 상세페이지 영상 |
-| `moai-seller:commerce-live-commerce` | 보조: 라이브 커머스 |
+| `moai-media:media-higgsfield-core` | 코어: 호출 계약·라이브 조회·공통 규칙 |
+| `moai-media:media-higgsfield-image` | 선행: 시작 이미지 생성 |
+| `moai-media:media-audio-gen` | 보조: 영상용 음성·BGM |
 
-## References
+## 출처
 
-- [`references/dop-motions.md`](./references/dop-motions.md) — 비디오 프리셋·카메라 디렉팅 가이드
-- [Higgsfield 공식 사이트](https://higgsfield.ai) — 모델 11종 목록
-- [Higgsfield MCP 안내](https://higgsfield.ai/mcp)
-- [Higgsfield Skills](https://higgsfield.ai/skills) — 비디오 프리셋 6종
-
-## 모델 목록 출처
-
-본 스킬의 11개 영상 모델과 6개 비디오 프리셋은 **[higgsfield.ai 공식 사이트](https://higgsfield.ai)** 명시 기준입니다 (2026-05). 모델·프리셋은 Higgsfield 정책에 따라 추가·변경될 수 있습니다.
+- [Higgsfield Skills (공식 agent 문서)](https://github.com/higgsfield-ai/skills)
+- [Higgsfield MCP](https://higgsfield.ai/mcp)
+- 계열별 프롬프트 크래프트 출처는 각 `references/prompt-craft/*.md`의 Evidence tier·출처 참조.
+- 라이브 카탈로그: 런타임 `models_explore` (스냅샷은 plan 단계 증거 기준선일 뿐 런타임 계약 아님).
