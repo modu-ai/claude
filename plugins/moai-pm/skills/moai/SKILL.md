@@ -48,6 +48,7 @@ moai 스킬은 **Claude Code 런타임**을 전제하는 개발-프로젝트 초
 | 문서 언어 | ko·en·ja·zh |
 | 품질 게이트 깊이 | minimal·standard·thorough(harness level) |
 | 개발 방법론 | DDD(레거시 리팩토링) / TDD(신규 기능) 자동 선택 기준 |
+| output-style | MoAI(권장 — 오케스트레이터) · MoAI-Easy(입문자) · Einstein(학습 튜터) · 기본 유지 — `AskUserQuestion`으로 선택받는다 |
 
 **스택 자동 감지**: 프로젝트 루트의 매니페스트(`package.json`/`go.mod`/`pyproject.toml`/`Cargo.toml` 등)를 스캔해 언어·프레임워크 후보를 도출하고, 인터뷰에서는 감지 결과를 확인만 받는다(재입력 요구 금지).
 
@@ -64,9 +65,10 @@ Phase 확인 이후 moai 스킬은 대상 프로젝트에 다음을 생성한다
 1. **`CLAUDE.md`** — moai-adk v3.0 정본 오케스트레이터 지침. PM 공통 `CLAUDE.md.tmpl`(코워커 체인용)은 이 분기에 **적용하지 않는다**(두-템플릿 분리 — §Two-Template Separation). 코더 플러그인 설치 시 `moai:moai-workflow-project` 정본 templates가 유일한 소스다.
 2. **`.claude/agents`** — 8개 retained 에이전트 정의(코더 정본 패리티).
 3. **`.claude/skills`** — 프로젝트 특화 스킬(필요 시).
-4. **`settings.json`** — `.claude/settings.json`: 권한 allowlist + hooks 배선.
+4. **`settings.json`** — `.claude/settings.json`: 권한 allowlist + hooks 배선 + 인터뷰에서 선택된 output-style을 `"outputStyle"` 키로 설정("기본 유지" 선택 시 키를 생성하지 않는다).
 5. **hooks** — 품질 게이트·fact-force·status-transition 훅 스크립트(Claude Code 런타임 전제 — §Claude Code Runtime Assumption).
 6. **`.mcp.json`** — SPEC-MOC-CODER-LSP-MCP-001 카탈로그에서 서베이-선택된 서버로만 구성(자격증명은 절대 인라인하지 않는다 — `.env` 가이던스만).
+7. **output-styles** — 코더 플러그인 정본(`plugins/moai/output-styles/`)의 3종(`moai.md`·`moai-easy.md`·`einstein.md`)을 프로젝트 `.claude/output-styles/`로 복사한다. 플러그인이 설치돼 있지 않은 환경에서도 스타일이 동작하도록 프로젝트-로컬 복사가 정본 경로다. 선택된 스타일은 4번 `settings.json`의 `"outputStyle"` 키가 활성화한다(예: `"outputStyle": "MoAI-Easy"`). 코더 플러그인 부재 시(가이던스 전용 축소 모드) 복사를 생략하고 플러그인 설치 안내만 표시한다.
 
 부가 산출물: `product.md`·`structure.md`·`tech.md`(`moai-workflow-project` doc-templates), `.moai/config/sections/*.yaml`, `.moai/specs/`(SPEC 워크플로우 디렉터리).
 
