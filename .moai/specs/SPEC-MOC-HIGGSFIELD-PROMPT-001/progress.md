@@ -47,7 +47,51 @@ fixture (confirmed it now FAILS on the defect it targets) AND an honest fixture
 
 ## §E.2 Run-phase Evidence
 
-_<pending run-phase — manager-develop>_
+### Execution note (deviation from §F, recorded for honesty)
+
+§F selected `sub-agent` (Mode 5). At run time the Claude Code runtime **deterministically forced worktree isolation** on every `manager-develop` spawn (2 consecutive spawns each returned a structured blocker: `Write` locked to `.claude/worktrees/agent-*`, base `a863ed6` predating the SPEC commit — main-direct commit impossible from an isolated worktree). Root-cause investigation (`git worktree list`, settings.json, agent frontmatter) confirmed the isolation is runtime-autonomous with no orchestrator-controllable off switch. Per user approval (AskUserQuestion), **M1–M3 were authored orchestrator-direct in the main checkout** — the guaranteed non-isolated path honoring the main-direct route. The previously-untracked SPEC dir was first committed to main (`1c18e6b`) to make it reachable.
+
+### Scope of this evidence: M1 + M2 + M3 (core skill + image modality). M4–M7 (video, integrity sweep, E2E) NOT executed — deferred.
+
+### Deliverables
+
+- **M1** `media-higgsfield-core/` CREATED — `SKILL.md` + 5 references (`call-schema.md`, `catalog-protocol.md`, `universal-rules.md`, `interview-schema.md`, `job-lifecycle.md`).
+- **M2** `media-higgsfield-image/references/prompt-craft/` CREATED — 7 files (`soul.md`, `nano-banana.md`, `openai.md`, `seedream.md`, `flux.md`, `recraft.md`, `marketing-studio.md`), each from research.md §3 with `Evidence tier:` + ≥1 `https://` citation.
+- **M3** `media-higgsfield-image/SKILL.md` REWRITTEN (drift removed → live-query flow); `references/model-guide.md` DELETED (`git rm`, D-3).
+
+### AC binary matrix (image + core scope; verified via acceptance.md §D.3, core+image glob)
+
+| AC | Sev | Result | Evidence (observed) |
+|----|-----|--------|---------------------|
+| AC-HGF-001 | BLOCKER | PASS | core = SKILL.md + 5 named refs |
+| AC-HGF-002 | BLOCKER | PASS | image craft = 7 named files; `model-guide.md removed: PASS` |
+| AC-HGF-004 | BLOCKER | PASS | invented IDs in core+image = 0 (`grep -rnE '<F1\|F2>' $CORE $IMG` → 0) |
+| AC-HGF-005 | BLOCKER | PASS | 5a=0 (outside call-schema), 5b=0 (fenced in call-schema), L19 `do not exist` present |
+| AC-HGF-006 | MAJOR | PASS | batch_size w/o ms_image ±3 = 0 |
+| AC-HGF-007 | BLOCKER | PASS | bracket-enum in core+image SKILL.md = 0 |
+| AC-HGF-008 | MAJOR | PASS | negative_prompt in fenced block = 0 |
+| AC-HGF-009 | BLOCKER | PASS | `grep -L models_explore` (core+image SKILL) empty; `grep -L get_cost` (image SKILL + job-lifecycle) empty |
+| AC-HGF-010 | MAJOR | PASS | call-schema namespaces: mcp__higgsfield__=2, mcp__claude_ai_higgsfield__=2, namespace=4 |
+| AC-HGF-011 | BLOCKER | PASS | `grep -L adjustments` empty; `grep -L credits_exact job-lifecycle.md` empty |
+| AC-HGF-012 | MINOR | PASS (advisory) | image SKILL: models_explore(L5) < get_cost(L73) < generate_image(L77) |
+| AC-HGF-013 | BLOCKER | PASS | all 7 image craft cite `https://` |
+| AC-HGF-014 | BLOCKER | PASS | all 7 image craft carry `Evidence tier:` |
+| AC-HGF-015 | BLOCKER | PASS | soul.md `no official prompt formula`=2; fabricated-formula-label check = 0 |
+| AC-HGF-017 | MAJOR | PASS | openai.md `openai_hazel`=5, `unverified`=4 |
+| AC-HGF-018 | BLOCKER | PASS | universal-rules.md `**R[1-5]` distinct = 5 |
+| AC-HGF-019 | MAJOR | PASS | image SKILL `live lookup` (ci) = 3 |
+| AC-HGF-024 | MAJOR | PASS | image marketing-studio: style_id=3, `no default`(ci)=1, show_marketing_studio=4 |
+| REQ-011 tripwire | — | PASS | `grep -rn 'AskUserQuestion('` core+image = 0 |
+
+### Deferred to M4–M7 (NOT claimed PASS)
+
+AC-HGF-003 (video craft set), AC-HGF-016 (grok audio absence), AC-HGF-020 (Wan↔Seedance contradiction), AC-HGF-021 (gemini-omni broken-refs), AC-HGF-022 (minimax prompt_optimizer), AC-HGF-023 (marketing_studio_video mutual exclusion), AC-HGF-025..028 (E2E live MCP). The video skill tree is UNTOUCHED and still carries its pre-SPEC drift (13 invented IDs / 10 retired params measured) — that is M4–M5 scope, not a regression.
+
+### Gaps / residual risk
+
+- Video modality + E2E remain. The full drift-sweep ACs (AC-004/005 over all 3 trees) will only pass after M4–M5 rewrites the video skill.
+- S1 (plan-audit SHOULD-FIX): `marketing_studio_video` lacks a live-query REQ/AC symmetric to REQ-040/AC-024 — to be recorded as documented debt when M4 authors the video marketing-studio craft (per user decision: proceed, record as debt).
+- Skill runtime behavior (actual MCP calls) not exercised — that is M7 E2E.
 
 ## §E.3 Run-phase Audit-Ready Signal
 
