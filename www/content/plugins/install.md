@@ -23,7 +23,7 @@ claude plugin marketplace add modu-ai/claude
 claude plugin marketplace list
 ```
 
-출력에 `moai-claude`라는 이름과 플러그인 개수(15개)가 보이면 정상입니다.
+출력에 `moai-claude`라는 이름과 플러그인 개수(18개)가 보이면 정상입니다.
 
 {{< screenshot-request "터미널에서 claude plugin marketplace add modu-ai/claude 실행 후 성공 메시지와 marketplace list 출력이 보이는 화면" >}}
 
@@ -35,7 +35,7 @@ Claude Desktop 앱에서는 설정 → 플러그인(Plugins) 화면에서 마켓
 
 ## 2. 필요한 직원만 설치
 
-15개를 전부 설치할 필요는 없습니다. 지금 필요한 직무만 골라 설치하세요. 설치 명령의 형식은 `<플러그인 이름>@<마켓플레이스 이름>`입니다.
+18개를 전부 설치할 필요는 없습니다. 지금 필요한 직무만 골라 설치하세요. 설치 명령의 형식은 `<플러그인 이름>@<마켓플레이스 이름>`입니다.
 
 ```bash
 # 예: 마케터 채용
@@ -48,7 +48,7 @@ claude plugin install moai-seller@moai-claude
 claude plugin install moai-coworker@moai-claude
 ```
 
-각 명령이 성공하면 "Installed plugin: moai-marketer" 형태의 메시지가 출력됩니다. 어떤 직원이 있는지는 [플러그인 설치·운용 개요](../)의 15-직원 표를, 각 직원이 무엇을 하는지는 [에이전트 팀 소개](/agent-teams/)를 참고하세요.
+각 명령이 성공하면 "Installed plugin: moai-marketer" 형태의 메시지가 출력됩니다. 어떤 직원이 있는지는 [플러그인 설치·운용 개요](../)의 18-직원 표를, 각 직원이 무엇을 하는지는 [에이전트 팀 소개](/moai-agents/)를 참고하세요.
 
 > **잘 안 될 때** — "Plugin not found"가 나오면 이름 철자(`moai-` 접두사 포함)와 `@moai-claude` 접미사를 확인하세요. 마켓플레이스 등록(1단계)을 건너뛴 경우에도 같은 오류가 납니다.
 
@@ -103,8 +103,12 @@ claude plugin uninstall moai-seller@moai-claude
 | `moai-seller` | 카페24 | 개발자센터 앱 클라이언트 ID·시크릿 등 환경변수 |
 | `moai-seller` | 아임웹 | OPEN API 키 발급 후 환경변수 |
 | `moai-marketer` | Meta Ads | Meta 비즈니스 계정 인증 |
-| `moai-marketer` | ElevenLabs | ElevenLabs API 키 환경변수 |
+| `moai-marketer` | 게시 채널(post-bridge·typefully·wordpress) | 각 서비스 계정 연결 |
+| `moai-media` | Higgsfield·ElevenLabs | Higgsfield OAuth([설정 가이드](higgsfield-setup/))·ElevenLabs API 키 |
+| `moai-story` | Higgsfield | Higgsfield OAuth([설정 가이드](higgsfield-setup/)) |
+| `moai-analyst` | KOSIS·DART·공공데이터포털 | 각 공공 API 키 환경변수 |
 | `moai-lawyer` | 국가법령정보 | 공공 API 키 환경변수 |
+| `moai-officer` | kordoc | 로컬 처리(별도 자격증명 없음) |
 
 자격증명이 없어도 플러그인의 일반 스킬(상세페이지 작성, 캠페인 기획 등)은 그대로 쓸 수 있습니다. 연동 도구를 쓰려는 시점에 해당 서비스의 개발자센터에서 키를 발급받아 환경변수로 넣어 주면 됩니다 — 구체적인 변수 이름과 발급 절차는 각 플러그인의 `details` 출력과 직원별 문서를 참고하세요. **API 키는 비밀번호와 같습니다.** 채팅창이나 문서에 붙여 넣지 말고, 환경변수나 셸 설정 파일로만 관리하세요.
 
@@ -117,4 +121,4 @@ claude plugin uninstall moai-seller@moai-claude
 ### Sources
 
 - Claude Code 플러그인 공식 문서: <https://code.claude.com/docs/en/plugins>
-- 마켓플레이스 진실 원본: [`/.claude-plugin/marketplace.json`](https://github.com/modu-ai/claude.mo.ai.kr/blob/main/.claude-plugin/marketplace.json)
+- 마켓플레이스 진실 원본: [`/.claude-plugin/marketplace.json`](https://github.com/modu-ai/claude/blob/main/.claude-plugin/marketplace.json)

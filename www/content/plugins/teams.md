@@ -11,7 +11,7 @@ geekdocBreadcrumb: true
 
 ## 시작은 단일 직원부터
 
-처음이라면 직원 한 명으로 시작하세요. 예를 들어 `moai-marketer`만 설치하고 "다음 달 뉴스레터 3회분 기획해줘"부터 시켜 보는 겁니다. 단일 직원 운용에 익숙해지면 — 스킬이 자동으로 붙는 감각, worker에게 시키고 auditor로 검수하는 리듬([전문가 에이전트 이해](../agents/) 참고) — 그때 두 번째 직원을 채용하면 됩니다. 한 번에 15명을 다 설치하면 오히려 누구에게 뭘 시킬지 헷갈립니다.
+처음이라면 직원 한 명으로 시작하세요. 예를 들어 `moai-marketer`만 설치하고 "다음 달 뉴스레터 3회분 기획해줘"부터 시켜 보는 겁니다. 단일 직원 운용에 익숙해지면 — 스킬이 자동으로 붙는 감각, worker에게 시키고 auditor로 검수하는 리듬([전문가 에이전트 이해](../agents/) 참고) — 그때 두 번째 직원을 채용하면 됩니다. 한 번에 18명을 다 설치하면 오히려 누구에게 뭘 시킬지 헷갈립니다.
 
 ## 조합 사례 1 — 마케터 × 디자이너: 캠페인 제작
 
@@ -80,7 +80,7 @@ claude plugin install moai-pm@moai-claude
 
 ## 다음 단계
 
-- 각 직원의 스킬과 에이전트 카드 → [에이전트 팀 소개](/agent-teams/)
+- 각 직원의 스킬과 에이전트 카드 → [에이전트 팀 소개](/moai-agents/)
 - 설치·업데이트 명령이 헷갈릴 때 → [설치와 관리](../install/)
 - 에이전트 호출 문형 복습 → [전문가 에이전트 이해](../agents/)
 
@@ -88,5 +88,5 @@ claude plugin install moai-pm@moai-claude
 
 ### Sources
 
-- 마켓플레이스 진실 원본: [`/.claude-plugin/marketplace.json`](https://github.com/modu-ai/claude.mo.ai.kr/blob/main/.claude-plugin/marketplace.json)
+- 마켓플레이스 진실 원본: [`/.claude-plugin/marketplace.json`](https://github.com/modu-ai/claude/blob/main/.claude-plugin/marketplace.json)
 - Claude Code 서브에이전트 공식 문서: <https://code.claude.com/docs/en/sub-agents>

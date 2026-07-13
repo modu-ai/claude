@@ -1,0 +1,47 @@
+---
+title: "「사무관」 — 문서·오피스 담당"
+weight: 6
+description: "HWPX·DOCX·XLSX·PPTX·PDF 등 한국형 오피스 문서와 HTML 리포트·슬라이드 생성을 담당하는 사무 AI 직원. 공공데이터·데이터 분석은 데이터 애널리스트가 전담합니다."
+aliases: ["/agent-teams/officer/"]
+---
+
+사무실의 하루 절반은 문서와 씨름하는 시간입니다. 한글(HWPX) 공문, 엑셀 정리, 파워포인트 보고, 그리고 "이 통계 어디서 찾지?"라는 검색까지. 사무관은 이 모든 서류 업무를 받아 주는 직원입니다. 관공서 민원실의 베테랑 주무관처럼, 어떤 서식이 와도 당황하지 않고 형식에 맞춰 처리해 주는 것이 강점입니다.
+
+스킬은 13종입니다. 문서 계열은 HWPX(한글 문서)·DOCX·XLSX·PPTX·PDF 생성과 문서 읽기·HTML 리포트/슬라이드 생성·노션 템플릿을, 생산성 계열은 데일리 브리핑·시간 관리 루틴을 다룹니다. kordoc(한국 문서 처리) MCP가 연동됩니다. 공공데이터 조회(부동산·경매·주식·KOSIS·건축물대장·DART)와 데이터 시각화는 v6.2.0에서 [데이터 애널리스트](../analyst/)로 분리되었습니다.
+
+숫자와 인용이 들어가는 문서가 많은 만큼, 데이터 출처를 따로 검증하는 검수 직원이 붙어 있습니다.
+
+```mermaid
+flowchart LR
+    A["요청<br/>(보고서 한글파일로)"] --> B["스킬 매칭"]
+    B --> C["doc-producer<br/>문서·데이터 작업"]
+    C --> D["data-auditor<br/>인용·수치 검증"]
+    D --> E["산출물<br/>(HWPX·XLSX·리포트)"]
+```
+
+## 스킬 카탈로그
+
+office-\* 문서/데이터 스킬과 general-\* 생산성 스킬의 전체 목록입니다.
+
+{{< employee-skills "moai-officer" >}}
+
+## 에이전트
+
+**doc-producer**(실행 직원)가 보고서·슬라이드·양식 문서를 생산하고, **data-auditor**(검수 직원)가 읽기 전용으로 공공데이터 인용과 계산을 독립 검증합니다. 통계 수치가 들어간 보고서일수록 이 이중 확인이 빛을 발합니다.
+
+{{< employee-agents "moai-officer" >}}
+
+## 대표 시나리오 3선
+
+**1. 한글 보고서 정리.** "이 회의록을 한글 보고서로 정리해줘"라고 하면 `office-document-reader`가 원문을 읽고 `office-hwpx-writer`가 HWPX 보고서를 만들어 줍니다. 워드가 필요하면 `office-docx-generator`, PDF면 `office-pdf-writer`로 같은 흐름이 이어집니다.
+
+**2. 발표 슬라이드 제작.** "이 기획안을 10장 슬라이드로 만들어줘"라고 하면 `office-pptx-designer`가 파워포인트를, `office-html-slide`가 웹 슬라이드를 만들어 줍니다.
+
+**3. 노션 템플릿·HTML 리포트.** "이 프로젝트 관리용 노션 템플릿 짜줘"라고 하면 `office-notion-template-kit`이 보드를 구성하고, "주간 리포트를 웹 페이지로" 요청엔 `office-html-report`가 응답합니다.
+
+**잘 안 될 때** — HWPX 생성이 실패하면 kordoc MCP 연동 상태를 확인하세요. `office-mcp-connector-setup` 스킬이 연동 설정을 안내합니다.
+
+## MCP 연동
+
+- **kordoc** — HWPX 등 한국형 문서의 생성·파싱·양식 채우기·직인 배치. 로컬 처리 중심이라 별도 자격증명이 없습니다.
+- **공공데이터 MCP**(korean-stats·archhub·dart)는 v6.2.0에서 [데이터 애널리스트](../analyst/)로 이동했습니다.

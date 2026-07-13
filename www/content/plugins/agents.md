@@ -47,7 +47,7 @@ sequenceDiagram
 방금 만든 상세페이지를 auditor 서브에이전트를 사용해서 검수해줘.
 ```
 
-각 플러그인이 어떤 이름의 worker·auditor 에이전트를 데리고 있는지는 [에이전트 팀 소개](/agent-teams/)의 직원별 페이지에 에이전트 카드로 정리되어 있습니다. 터미널에서는 `claude plugin details <이름>@moai-claude` 출력의 에이전트 목록으로도 확인할 수 있습니다.
+각 플러그인이 어떤 이름의 worker·auditor 에이전트를 데리고 있는지는 [에이전트 팀 소개](/moai-agents/)의 직원별 페이지에 에이전트 카드로 정리되어 있습니다. 터미널에서는 `claude plugin details <이름>@moai-claude` 출력의 에이전트 목록으로도 확인할 수 있습니다.
 
 ## 스킬 자동 매칭 vs 에이전트 명시 호출
 
@@ -63,11 +63,11 @@ sequenceDiagram
 
 ## 다음 단계
 
-에이전트 한 명을 부리는 법을 익혔다면, 이제 여러 직원을 조합해 프로젝트를 굴리는 [팀 구성 패턴](../teams/)으로 넘어가세요. 각 직원의 에이전트 카드와 스킬 목록은 [에이전트 팀 소개](/agent-teams/)에서 확인할 수 있습니다.
+에이전트 한 명을 부리는 법을 익혔다면, 이제 여러 직원을 조합해 프로젝트를 굴리는 [팀 구성 패턴](../teams/)으로 넘어가세요. 각 직원의 에이전트 카드와 스킬 목록은 [에이전트 팀 소개](/moai-agents/)에서 확인할 수 있습니다.
 
 ---
 
 ### Sources
 
 - Claude Code 서브에이전트 공식 문서: <https://code.claude.com/docs/en/sub-agents>
-- 직원별 에이전트 카드: [`/agent-teams/`](/agent-teams/) (생성 데이터: `www/data/agent_teams.json`)
+- 직원별 에이전트 카드: [`/moai-agents/`](/moai-agents/) (생성 데이터: `www/data/agent_teams.json`)

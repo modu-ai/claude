@@ -62,7 +62,7 @@ geekdocBreadcrumb: true
 
 ## Chat — 기능
 
-### [주요 기능 살펴보기](/chat/features/)
+### [주요 기능 살펴보기](/guide/chat/features/)
 - [What are artifacts and how do I use them?](https://support.claude.com/en/articles/9487310-what-are-artifacts-and-how-do-i-use-them)
 - [Publish and share artifacts](https://support.claude.com/en/articles/9547008-publish-and-share-artifacts)
 - [Can Claude produce images?](https://support.claude.com/en/articles/9002504-can-claude-produce-images)
@@ -73,16 +73,16 @@ geekdocBreadcrumb: true
 - [Custom visuals in chat and Cowork](https://support.claude.com/en/articles/13979539-custom-visuals-in-chat-and-cowork)
 - [Use Claude Security](https://support.claude.com/en/articles/14661296-use-claude-security)
 
-### [웹 검색·리서치·확장 사고](/chat/search-research/)
+### [웹 검색·리서치·확장 사고](/guide/chat/search-research/)
 - [When should I use web search, extended thinking, and research?](https://support.claude.com/en/articles/11095361-when-should-i-use-web-search-extended-thinking-and-research)
 - [Enable and use web search](https://support.claude.com/en/articles/10684626-enable-and-use-web-search)
 - [Use research on Claude](https://support.claude.com/en/articles/11088861-use-research-on-claude)
 
-### [Projects 기능](/chat/projects/)
+### [Projects 기능](/guide/chat/projects/)
 - [What are projects?](https://support.claude.com/en/articles/9517075-what-are-projects)
 - [Retrieval augmented generation (RAG) for projects](https://support.claude.com/en/articles/11473015-retrieval-augmented-generation-rag-for-projects)
 
-### [스킬과 플러그인](/chat/skills-plugins/)
+### [스킬과 플러그인](/guide/chat/skills-plugins/)
 - [What are skills?](https://support.claude.com/en/articles/12512176-what-are-skills)
 - [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude)
 - [How to create custom skills](https://support.claude.com/en/articles/12512198-how-to-create-custom-skills)
@@ -90,12 +90,12 @@ geekdocBreadcrumb: true
 - [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude)
 - [Install financial services plugins](https://support.claude.com/en/articles/13851150-install-financial-services-plugins)
 
-### [메모리](/chat/memory/)
+### [메모리](/guide/chat/memory/)
 - [Import and export your memory from Claude](https://support.claude.com/en/articles/12123587-import-and-export-your-memory-from-claude)
 
 ## Cowork
 
-### [Cowork 공식 빠른 시작](/cowork/official-quickstart/)
+### [Cowork 공식 빠른 시작](/guide/cowork/official-quickstart/)
 - [Get started with Claude Cowork](https://support.claude.com/en/articles/13345190-get-started-with-claude-cowork)
 
 ## Office 통합
@@ -111,7 +111,7 @@ geekdocBreadcrumb: true
 
 ## Design
 
-### [Claude Design 공식 빠른 시작](/design/official-quickstart/)
+### [Claude Design 공식 빠른 시작](/guide/design/official-quickstart/)
 - [Get started with Claude Design](https://support.claude.com/en/articles/14604416-get-started-with-claude-design)
 - [Set up your design system in Claude Design](https://support.claude.com/en/articles/14604397-set-up-your-design-system-in-claude-design)
 
