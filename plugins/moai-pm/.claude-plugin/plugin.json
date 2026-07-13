@@ -1,6 +1,6 @@
 {
   "name": "moai-pm",
-  "displayName": "PM",
+  "displayName": "🚀 PM",
   "version": "1.0.1",
   "description": "프로젝트 초기화 허브 AI 직원 — goose(code를 제외한 모든 Claude Cowork 프로젝트: 전 직원 지침 설정 + .claude/agents/ 커스텀 에이전트 + CLAUDE.md 워크플로우 생성 + 재귀적 자가 개선)와 moai(개발 프로젝트 초기화 — moai-adk v3.0 철학, SPEC plan/run/sync, TRUST 5, DDD/TDD) 두 스킬로 18개 AI 직원 플러그인의 진입을 라우팅합니다. 비개발자도 자연어 한마디로 프로젝트를 시작할 수 있습니다. 이런 분께 추천: 비개발자·프로젝트 시작자.",
   "author": {
