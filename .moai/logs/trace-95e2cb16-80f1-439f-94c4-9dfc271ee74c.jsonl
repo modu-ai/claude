@@ -1,2 +1,0 @@
-{"ts":"2026-07-07T21:58:17.046175666+09:00","event":"PreToolUse","handler":"*hook.preToolHandler","tool":"Bash","duration_ms":0,"decision":"allow","session_id":"95e2cb16-80f1-439f-94c4-9dfc271ee74c"}
-{"ts":"2026-07-07T22:20:24.911617292+09:00","event":"PostToolUse","handler":"*hook.postToolHandler","tool":"Write","duration_ms":11,"session_id":"95e2cb16-80f1-439f-94c4-9dfc271ee74c"}

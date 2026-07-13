@@ -1,2 +1,0 @@
-{"ts":"2026-07-02T15:41:59.88724+09:00","event":"InstructionsLoaded","handler":"*hook.instructionsLoadedHandler","duration_ms":0,"session_id":"ea299e41-b3cf-494d-b091-1219e6b514f9"}
-{"ts":"2026-07-02T15:58:55.041563917+09:00","event":"PostToolUse","handler":"*hook.postToolHandler","tool":"Edit","duration_ms":10,"session_id":"ea299e41-b3cf-494d-b091-1219e6b514f9"}

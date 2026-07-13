@@ -1,4 +1,0 @@
-{"ts":"2026-06-25T20:16:33.704124834+09:00","event":"SessionStart","handler":"*hook.sessionStartHandler","duration_ms":0,"session_id":"3a963a55-5cb3-47d4-a4f7-84528b34b296"}
-{"ts":"2026-06-25T20:18:47.833424+09:00","event":"InstructionsLoaded","handler":"*hook.instructionsLoadedHandler","duration_ms":0,"session_id":"3a963a55-5cb3-47d4-a4f7-84528b34b296"}
-{"ts":"2026-06-25T20:18:47.845203042+09:00","event":"InstructionsLoaded","handler":"*hook.instructionsLoadedHandler","duration_ms":0,"session_id":"3a963a55-5cb3-47d4-a4f7-84528b34b296"}
-{"ts":"2026-06-25T20:18:47.845955334+09:00","event":"InstructionsLoaded","handler":"*hook.instructionsLoadedHandler","duration_ms":0,"session_id":"3a963a55-5cb3-47d4-a4f7-84528b34b296"}

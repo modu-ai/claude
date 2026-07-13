@@ -1,2 +1,0 @@
-{"ts":"2026-07-07T01:37:39.002050208+09:00","event":"UserPromptSubmit","handler":"*hook.userPromptSubmitHandler","duration_ms":23,"session_id":"acaa09fe-b825-4eee-8e8b-8f2b428c3bcd"}
-{"ts":"2026-07-07T01:52:03.84352+09:00","event":"Stop","handler":"*hook.stopHandler","duration_ms":2,"session_id":"acaa09fe-b825-4eee-8e8b-8f2b428c3bcd"}

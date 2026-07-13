@@ -1,4 +1,31 @@
 # ============================================
+# REPO TRACKING POLICY (authoritative)
+# ============================================
+# This public repo (modu-ai/claude) tracks ONLY:
+#   - plugins/                 marketplace plugins
+#   - www/                     online documentation site
+#   - LICENSE, README.md, .gitignore
+#
+# Everything below is internal development tooling/state
+# (Claude Code harness, MoAI-ADK internals) and must NEVER be
+# committed. Kept local-only. Anchored to repo root so plugins/
+# and www/ subdirs are never affected.
+# ============================================
+/CLAUDE.md
+/CLAUDE.local.md
+/.claude/
+/.claude-plugin/*
+!/.claude-plugin/marketplace.json
+/.claudeignore
+/.moai/
+/.mcp.json
+/Makefile
+/scripts/
+/.github/
+/.git_hooks/
+/CHANGELOG.md
+
+# ============================================
 # MoAI-ADK Package Distribution .gitignore
 # ============================================
 # Version: 0.33.0
@@ -232,5 +259,3 @@ dist-ssr/
 .vercel/
 .netlify/
 .firebase/
-# vendored MCP runtime state at any depth (covers plugins/<plugin>/mcp-servers/*/.moai/)
-**/.moai/

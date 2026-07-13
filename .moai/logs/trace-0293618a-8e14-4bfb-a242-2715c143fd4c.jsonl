@@ -1,4 +1,0 @@
-{"ts":"2026-07-01T11:47:41.496916292+09:00","event":"PostToolUse","handler":"*hook.postToolHandler","tool":"Edit","duration_ms":28,"session_id":"0293618a-8e14-4bfb-a242-2715c143fd4c"}
-{"ts":"2026-07-01T15:00:16.380504459+09:00","event":"PostToolUse","handler":"*hook.postToolHandler","tool":"Edit","duration_ms":10,"session_id":"0293618a-8e14-4bfb-a242-2715c143fd4c"}
-{"ts":"2026-07-01T16:28:12.794598333+09:00","event":"Stop","handler":"*hook.stopHandler","duration_ms":1,"session_id":"0293618a-8e14-4bfb-a242-2715c143fd4c"}
-{"ts":"2026-07-01T18:18:02.63893975+09:00","event":"PostToolUse","handler":"*hook.postToolHandler","tool":"Edit","duration_ms":10,"session_id":"0293618a-8e14-4bfb-a242-2715c143fd4c"}

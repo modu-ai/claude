@@ -1,5 +1,0 @@
-{"ts":"2026-06-23T00:43:39.9388965+09:00","event":"PreToolUse","handler":"*hook.preToolHandler","tool":"Bash","duration_ms":0,"decision":"allow","session_id":"e69a32b7-063e-4322-b695-003ed557a827"}
-{"ts":"2026-06-23T00:56:55.550068541+09:00","event":"SessionStart","handler":"*hook.sessionStartHandler","duration_ms":0,"session_id":"e69a32b7-063e-4322-b695-003ed557a827"}
-{"ts":"2026-06-23T00:56:55.55009625+09:00","event":"SessionStart","handler":"*hook.autoUpdateHandler","duration_ms":0,"session_id":"e69a32b7-063e-4322-b695-003ed557a827"}
-{"ts":"2026-06-23T02:15:38.753248208+09:00","event":"PreToolUse","handler":"*hook.preToolHandler","tool":"Bash","duration_ms":0,"decision":"allow","session_id":"e69a32b7-063e-4322-b695-003ed557a827"}
-{"ts":"2026-06-23T02:15:50.979020708+09:00","event":"PreToolUse","handler":"*hook.preToolHandler","tool":"Bash","duration_ms":0,"decision":"allow","session_id":"e69a32b7-063e-4322-b695-003ed557a827"}

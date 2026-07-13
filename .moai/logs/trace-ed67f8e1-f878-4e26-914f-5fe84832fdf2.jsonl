@@ -1,8 +1,0 @@
-{"ts":"2026-07-04T16:24:38.573291+09:00","event":"SessionStart","handler":"*hook.sessionStartHandler","duration_ms":0,"session_id":"ed67f8e1-f878-4e26-914f-5fe84832fdf2"}
-{"ts":"2026-07-04T17:05:24.238582917+09:00","event":"PostToolUse","handler":"*hook.postToolHandler","tool":"Edit","duration_ms":10,"session_id":"ed67f8e1-f878-4e26-914f-5fe84832fdf2"}
-{"ts":"2026-07-04T17:11:13.740562708+09:00","event":"PostToolUse","handler":"*hook.postToolHandler","tool":"Edit","duration_ms":11,"session_id":"ed67f8e1-f878-4e26-914f-5fe84832fdf2"}
-{"ts":"2026-07-04T17:11:24.340569084+09:00","event":"PostToolUse","handler":"*hook.postToolHandler","tool":"Edit","duration_ms":10,"session_id":"ed67f8e1-f878-4e26-914f-5fe84832fdf2"}
-{"ts":"2026-07-04T17:17:12.066594333+09:00","event":"SubagentStop","handler":"*hook.subagentStopHandler","duration_ms":0,"session_id":"ed67f8e1-f878-4e26-914f-5fe84832fdf2"}
-{"ts":"2026-07-04T17:47:56.992549666+09:00","event":"InstructionsLoaded","handler":"*hook.instructionsLoadedHandler","duration_ms":0,"session_id":"ed67f8e1-f878-4e26-914f-5fe84832fdf2"}
-{"ts":"2026-07-04T17:47:57.093230292+09:00","event":"InstructionsLoaded","handler":"*hook.instructionsLoadedHandler","duration_ms":0,"session_id":"ed67f8e1-f878-4e26-914f-5fe84832fdf2"}
-{"ts":"2026-07-04T18:44:52.249218209+09:00","event":"PostToolUse","handler":"*hook.postToolHandler","tool":"Edit","duration_ms":19,"session_id":"ed67f8e1-f878-4e26-914f-5fe84832fdf2"}
