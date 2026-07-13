@@ -18,6 +18,7 @@
 !/.claude-plugin/marketplace.json
 /.claudeignore
 /.moai/
+plugins/**/.moai/
 /.mcp.json
 /Makefile
 /scripts/
