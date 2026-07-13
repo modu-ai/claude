@@ -1,12 +1,12 @@
 ---
 title: "콘텐츠 트랙"
 weight: 22
-description: "콘텐츠 크리에이터·블로거·SNS 운영자를 위한 워크플로우. moai-content 15스킬 + moai-marketing + moai-media로 블로그·카드뉴스·랜딩·뉴스레터를 한 줄 요청으로 자동 생성."
+description: "콘텐츠 크리에이터·블로거·SNS 운영자를 위한 워크플로우. moai-marketer(content·marketing 스킬) + moai-media + moai-writer(한국어 검수)로 블로그·카드뉴스·랜딩·뉴스레터를 한 줄 요청으로 자동 생성."
 geekdocBreadcrumb: true
 ---
 
 > **대상**: 1인 콘텐츠 크리에이터, 마케터, 블로거, 인플루언서, 뉴스레터 발행자
-> **전제**: moai-core · moai-content 활성화 + (선택) moai-media·moai-marketing
+> **전제**: moai-marketer 활성화 + (선택) moai-media·moai-writer
 > **소요**: 시나리오당 약 3-10분
 
 ## 무엇을 할 수 있나
@@ -163,7 +163,7 @@ flowchart TD
 
 ## 자주 묻는 질문
 
-### Q. 15개 스킬 중 어떤 걸 호출해야 할까요?
+### Q. 여러 스킬 중 어떤 걸 호출해야 할까요?
 
 **사용자는 호출 안 함**. 시스템이 한 줄 요청을 분석해 자동 선택. 예: "블로그" → `blog`, "랜딩" → `landing-page`, "카드뉴스" → `card-news`.
 
@@ -181,13 +181,13 @@ AskUserQuestion에서 "AI 검수 강도" 선택 시 "기본" (3중) / "약함" (
 
 - **[사용 패턴 가이드](../../../cowork/patterns/)**
 - **[광고 트랙](../track-advertising/)** — 콘텐츠 + 광고 결합
-- **[moai-content 플러그인](../../../plugins/moai-content/)** — 15스킬 전체
+- **[마케터 직원](../../../moai-agents/marketer/)** — content·marketing 스킬 전체
 - **[블로그 파이프라인 쿡북](../../blog-pipeline/)** — 발행 시퀀스 심화
 
 ---
 
 ### Sources
 
-- [moai-content 디렉터리](https://github.com/modu-ai/cowork-plugins/tree/main/moai-content)
+- [moai-marketer 플러그인](https://github.com/modu-ai/claude/tree/main/plugins/moai-marketer)
 - humanize-korean — 한국 번역학계 8유형 번역투 계보 기반 cowork 자체 저작
 - [NomaDamas/k-skill (MIT)](https://github.com/NomaDamas/k-skill) — korean-spell-check 원본

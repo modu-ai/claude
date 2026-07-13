@@ -6,3 +6,6 @@
 node_modules/
 *.log
 .vercel
+
+# MoAI runtime state (statusline context-usage) — never commit
+.moai/
