@@ -8,7 +8,7 @@ tags: [cookbook, troubleshooting]
 > 스킬 체인이 기대대로 흘러가지 않을 때 읽는 페이지입니다. 증상 → 원인 후보 → 다음 액션 순서로 정리했습니다.
 
 {{< hint type="note" >}}
-시스템 레이어(앱·로그인·플러그인 설치·MCP)의 트러블슈팅은 [Cowork 트러블슈팅](../../cowork/troubleshooting/)을, 시스템 한도는 [제약과 한도](../../cowork/constraints/)를 함께 보세요. 본 페이지는 **체인 단계의 실패 진단**에 집중합니다.
+시스템 레이어(앱·로그인·플러그인 설치·MCP)의 트러블슈팅은 [Cowork 트러블슈팅](/cowork/troubleshooting/)을, 시스템 한도는 [제약과 한도](/cowork/constraints/)를 함께 보세요. 본 페이지는 **체인 단계의 실패 진단**에 집중합니다.
 {{< /hint >}}
 
 ## 학습 목표
@@ -19,8 +19,8 @@ tags: [cookbook, troubleshooting]
 
 ## 선수 지식
 
-- [스킬 체이닝 가이드](../skill-chaining/)
-- [FAQ — 스킬·플러그인 호출](../../cowork/faq/)
+- [스킬 체이닝 가이드](/cookbook/skill-chaining/)
+- [FAQ — 스킬·플러그인 호출](/cowork/faq/)
 
 ## 진단 3단계
 ## 진단 3단계: 왜 이 순서로 진단하는가
@@ -177,7 +177,7 @@ flowchart LR
 
 ## 다음 단계
 
-- [스킬 체이닝 가이드](../skill-chaining/) — 체인 설계 3원칙 복습
+- [스킬 체이닝 가이드](/cookbook/skill-chaining/) — 체인 설계 3원칙 복습
 
 ---
 

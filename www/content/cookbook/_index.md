@@ -53,7 +53,7 @@ flowchart TD
 
 - **역할이 명확하면 → [실전 트랙](./tracks/)** — 11개 트랙 + 부록 (문서·콘텐츠·광고·이커머스·마케팅·HR·운영·법무·재무·데이터·프로덕트)
 - **구체적 시나리오를 찾는다면 → 아래 쿡북 목록**
-- **개념부터 익힌다면 → [스킬 체이닝 가이드](./skill-chaining/)**
+- **개념부터 익힌다면 → [스킬 체이닝 가이드](/cookbook/skill-chaining/)**
 
 ## 공통 포맷 (모든 쿡북 항목)
 
@@ -93,18 +93,18 @@ flowchart TD
 
 ## 먼저 읽으면 좋은 글
 
-- [스킬 체이닝 가이드](./skill-chaining/) — 쿡북 전반에서 공통으로 쓰는 체인 패턴 입문
+- [스킬 체이닝 가이드](/cookbook/skill-chaining/) — 쿡북 전반에서 공통으로 쓰는 체인 패턴 입문
 - [플러그인 빠른 시작](../plugins/quick-start/) — 마켓플레이스 등록부터 첫 호출까지
 
 ## 예제 목록
 
 - [베스트 프랙티스](./best-practices/) — Cowork 핵심 기능·프롬프트 5원칙·실전 TOP 10
 - [자동화 레시피](./automation-recipes/) — Schedule·Dispatch 본부별 자동화 레시피
-- [블로그 파이프라인](./blog-pipeline/) — 초안→검수→썸네일
+- [블로그 파이프라인](/cookbook/blog-pipeline/) — 초안→검수→썸네일
 - [주간 보고서 자동화](./report-automation/) — 상태 집계→XLSX→DOCX
-- [마케팅 트랙](./track-marketing/) — 브랜딩·SEO·캠페인 8주
-- [문서 트랙](./track-documents/) — Office 산출물 자동화 8주
-- [데이터 트랙](./track-data/) — 분석·공공데이터 8주
+- [마케팅 트랙](/cookbook/tracks/track-marketing/) — 브랜딩·SEO·캠페인 8주
+- [문서 트랙](/cookbook/tracks/track-documents/) — Office 산출물 자동화 8주
+- [데이터 트랙](/cookbook/tracks/track-data/) — 분석·공공데이터 8주
 - [사업계획서 자동화](./business-plan/) — 전략→산업분석→PPT
 - [IR 덱 제작](./ir-deck/) — 투자자 관점 슬라이드
 - [계약서 검토 리포트](./contract-review/) — NDA 트리아지·리스크 점검

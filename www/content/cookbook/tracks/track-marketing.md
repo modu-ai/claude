@@ -8,7 +8,7 @@ tags: [cookbook, marketing]
 
 # 트랙 — 마케팅·콘텐츠
 
-> **사용 방식**: 사용자가 짧은 한 줄 요청만 하면 시스템이 AskUserQuestion으로 맥락 수집 → 자동 체인 실행. [4가지 사용 패턴 참조](../../cowork/patterns/)
+> **사용 방식**: 사용자가 짧은 한 줄 요청만 하면 시스템이 AskUserQuestion으로 맥락 수집 → 자동 체인 실행. [4가지 사용 패턴 참조](/cowork/patterns/)
 
 브랜드 전략부터 SNS 운영, 상세페이지 전환율, SEO 감사까지 — `moai-marketing`과 `moai-content` 플러그인 조합으로 마케팅 본부 하나를 덮는 트랙입니다.
 
@@ -281,7 +281,7 @@ flowchart LR
 
 ### AI 티 나는 문장
 
-특히 블로그·뉴스레터는 [AI 슬롭 검수](./skill-chaining/)가 필수입니다. 시스템이 본문 완성 → `ai-slop-reviewer → humanize-korean` 자동 호출로 처리합니다.
+특히 블로그·뉴스레터는 [AI 슬롭 검수](/cookbook/skill-chaining/)가 필수입니다. 시스템이 본문 완성 → `ai-slop-reviewer → humanize-korean` 자동 호출로 처리합니다.
 
 ### 이미지 생성 비용
 
@@ -297,9 +297,9 @@ flowchart LR
 
 ## 다음 읽을거리
 
-- [트랙 — 데이터](./track-data/)
-- [트랙 — 문서](./track-documents/)
-- [블로그 파이프라인](./blog-pipeline/)
+- [트랙 — 데이터](/cookbook/tracks/track-data/)
+- [트랙 — 문서](/cookbook/tracks/track-documents/)
+- [블로그 파이프라인](/cookbook/blog-pipeline/)
 
 ---
 
