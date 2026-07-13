@@ -170,7 +170,7 @@ for each skill in chain_skills:
 
 ### 4-2. 스킬 → 플러그인 매핑
 
-스킬군 → 소속 플러그인 매핑은 **`.claude-plugin/marketplace.json` 로스터를 정본으로 삼는다** — 하드코딩 매핑 테이블을 유지하지 않는다(신규 플러그인 추가 시 자동 반영). 참고 패턴: `business-*`/`content-*`/`marketing-*`/`office-*`/`legal-*`/`finance-*`/`education-*`/`media-*`/`general-*` → `moai-coworker`; `commerce-*` → `moai-seller`; `book-*` → `moai-writer`; `story-*` → `moai-story`; `cd-*`/디자인 도메인 → `moai-designer`; 개발 도메인 스킬 → `moai`; `project 스킬`/`moai`(PM) → `moai-pm`.
+스킬군 → 소속 플러그인 매핑은 **`.claude-plugin/marketplace.json` 로스터를 정본으로 삼는다** — 하드코딩 매핑 테이블을 유지하지 않는다(신규 플러그인 추가 시 자동 반영). 참고 패턴: `business-*`/`content-*`/`marketing-*`/`office-*`/`legal-*`/`finance-*`/`education-*`/`media-*`/`general-*` → `moai-coworker`; `commerce-*` → `moai-seller`; `book-*` → `moai-writer`; `story-*` → `moai-story`; `cd-*`/디자인 도메인 → `moai-designer`; 개발 도메인 스킬 → `moai`; `project`(PM 허브) → `moai-pm`.
 
 ### 4-3. 누락 발견 시 AskUserQuestion 4 옵션
 

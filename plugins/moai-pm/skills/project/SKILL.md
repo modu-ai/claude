@@ -16,9 +16,9 @@ description: |
 
   이 스킬은 **이름·회사 같은 글로벌 프로필을 재질문하지 않는다.** 프로젝트마다 "이번에 뭘 할 건지"만 인터뷰한다.
 user-invocable: true
-version: "0.1.0"
+version: "0.1.1"
 ---
-<!-- moai-pm project v0.1.0 · 18-plugin 패밀리(v6.2) · 프로젝트 초기화 단일 진입점 (구 goose+moai 스킬 병합) -->
+<!-- moai-pm project v0.1.1 · 18-plugin 패밀리(v6.2) · 프로젝트 초기화 단일 진입점 (구 goose+moai 스킬 병합) -->
 
 # project — 프로젝트 초기화 단일 진입점
 

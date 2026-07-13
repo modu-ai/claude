@@ -2,7 +2,7 @@
 
 ## 개요
 
-사용자의 자연어 요청을 분석해 project 스킬이 다룰 **16개 비개발 AI 직원(플러그인)** 중 어느 스킬 체인이 중심이 될지 결정하는 프로토콜. 단일 'MoAI-Claude, 모두의 클로드'(`modu-ai/claude`) 마켓플레이스의 18-plugin 패밀리가 대상이며, 개발 요청은 `/project --code`(moai 스킬)로 안내한다. 플러그인 수·스킬 수는 하드코딩하지 않는다 — `.claude-plugin/marketplace.json`이 로스터 정본이다.
+사용자의 자연어 요청을 분석해 project 스킬이 다룰 **16개 비개발 AI 직원(플러그인)** 중 어느 스킬 체인이 중심이 될지 결정하는 프로토콜. 단일 'MoAI-Claude, 모두의 클로드'(`modu-ai/claude`) 마켓플레이스의 18-plugin 패밀리가 대상이며, 개발 요청은 `--code` 모드 안내(개발 중)로 처리한다. 플러그인 수·스킬 수는 하드코딩하지 않는다 — `.claude-plugin/marketplace.json`이 로스터 정본이다.
 
 ---
 
@@ -60,7 +60,7 @@
 키워드 매칭 결과 중심 직원 후보가 2개 이상일 때:
 
 - **자동 해소**: 산출물 유형이 명시되면 해당 산출물을 만드는 직원 우선. 예: "브랜드 카드뉴스 만들어줘" → 콘텐츠 산출물 명시 → 마케터 중심.
-- **사용자 확인**: 자동 해소가 어려우면 `AskUserQuestion`(1질문, 후보 직원 최대 4개 + Other). 모드 자체(project 스킬/moai)가 불명확할 때만 모드 질문을 한다.
+- **사용자 확인**: 자동 해소가 어려우면 `AskUserQuestion`(1질문, 후보 직원 최대 4개 + Other). 모드 자체(--cowork/--code)가 불명확할 때만 모드 질문을 한다.
 
 ---
 
@@ -87,7 +87,7 @@
 |------|------|
 | 키워드 매칭 0개 | 기본 코워커 제안 후 확인(대다수 사용자) |
 | 중심 직원 미설치 | Gap Detection → 설치 안내 → `/project resume` 재개 |
-| 모드 불명확(project 스킬/moai) | `AskUserQuestion` 2옵션(project 스킬 진행 권장 / `/project --code`) |
+| 모드 불명확(--cowork/--code) | `AskUserQuestion` 2옵션(cowork 모드 진행 권장 / `--code` — 개발 중 안내) |
 
 ---
 
