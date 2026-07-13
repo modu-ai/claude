@@ -31,7 +31,7 @@
 설치 후 사용 가능한 MCP 서버(참고 스냅샷): playwright, supabase, vercel, neon, railway
 (claude-in-chrome은 서버 설정 없이 내장 기능으로 활성화됩니다.)
 
-설치: /plugin install moai@moai-claude
+설치: /plugin install moai@moai-cowork
 설치 후: /moai resume
 ```
 

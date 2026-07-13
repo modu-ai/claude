@@ -1,12 +1,12 @@
 {
   "outputStyle": "moai:MoAI",
   "extraKnownMarketplaces": {
-    "moai-claude": {
-      "source": "github://modu-ai/claude"
+    "moai-cowork": {
+      "source": "github://modu-ai/moai-cowork"
     }
   },
   "enabledPlugins": {
-    "moai@moai-claude": true
+    "moai@moai-cowork": true
   },
   "permissions": {
     "$comment": "Baseline allowlist for a freshly-scaffolded project (REQ-H-001). /moai --project (SPEC-MOC-PM-ADVISORS-001) MAY extend this list per the survey-detected toolchain (e.g. go test / npm test / pytest / cargo test) before writing it into the target project's .claude/settings.json.",

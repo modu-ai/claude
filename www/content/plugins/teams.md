@@ -73,7 +73,7 @@ flowchart LR
 직원 조합이 프로젝트 단위로 반복된다면, 매번 손으로 지시를 짜는 대신 `moai-pm` 플러그인의 `/project` 명령으로 셋업을 자동화할 수 있습니다. PM은 프로젝트 폴더에 어떤 직원들을 배치할지, 각 직원에게 어떤 프로젝트 맥락(브랜드, 제품, 톤)을 공유할지를 초기화해 주는 **프로젝트 허브** 직원입니다.
 
 ```bash
-claude plugin install moai-pm@moai-claude
+claude plugin install moai-pm@moai-cowork
 ```
 
 설치 후 프로젝트 폴더에서 Claude Code를 열고 `/project`를 실행하면, 프로젝트 성격을 묻는 인터뷰를 거쳐 직원 배치와 공통 지침 파일이 만들어집니다. 이후 그 폴더에서 여는 모든 세션이 같은 프로젝트 맥락을 공유하므로, 위의 조합 패턴들을 "매번 설명 없이" 반복할 수 있게 됩니다.
@@ -88,5 +88,5 @@ claude plugin install moai-pm@moai-claude
 
 ### Sources
 
-- 마켓플레이스 진실 원본: [`/.claude-plugin/marketplace.json`](https://github.com/modu-ai/claude/blob/main/.claude-plugin/marketplace.json)
+- 마켓플레이스 진실 원본: [`/.claude-plugin/marketplace.json`](https://github.com/modu-ai/moai-cowork/blob/main/.claude-plugin/marketplace.json)
 - Claude Code 서브에이전트 공식 문서: <https://code.claude.com/docs/en/sub-agents>

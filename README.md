@@ -1,20 +1,20 @@
-# 모두의 클로드 (MoAI) — `moai-claude` 마켓플레이스
+# 모두의 코워크 (MoAI) — `moai-cowork` 마켓플레이스
 
 한국 실무 4종 플러그인 패밀리를 한 곳에. Claude Code / Claude Desktop에서 한 번의 등록으로 네 플러그인을 모두 만나고, 필요한 것만 설치합니다.
 
 ## 설치
 
 ```bash
-claude plugin marketplace add modu-ai/claude
+claude plugin marketplace add modu-ai/moai-cowork
 ```
 
-등록 후 플러그인별 설치 (`moai-claude` 마켓):
+등록 후 플러그인별 설치 (`moai-cowork` 마켓):
 
 ```bash
-/plugin install moai@moai-claude              # 개발 방법론 (무설치, /moai)
-/plugin install moai-coworker@moai-claude     # 실무·콘텐츠 올인원
-/plugin install moai-designer@moai-claude     # 에이전틱 디자인
-/plugin install moai-pm@moai-claude           # 프로젝트 시작 허브 (/project)
+/plugin install moai@moai-cowork              # 개발 방법론 (무설치, /moai)
+/plugin install moai-coworker@moai-cowork     # 실무·콘텐츠 올인원
+/plugin install moai-designer@moai-cowork     # 에이전틱 디자인
+/plugin install moai-pm@moai-cowork           # 프로젝트 시작 허브 (/project)
 ```
 
 ## 플러그인 카탈로그
@@ -29,8 +29,8 @@ claude plugin marketplace add modu-ai/claude
 ## 저장소 구조
 
 ```
-modu-ai/claude/
-├── .claude-plugin/marketplace.json   # 마켓 매니페스트 (4 plugins, name: moai-claude)
+modu-ai/moai-cowork/
+├── .claude-plugin/marketplace.json   # 마켓 매니페스트 (4 plugins, name: moai-cowork)
 ├── plugins/                          # 마켓 플러그인 소스
 │   ├── moai/                         # 설치명: moai (개발 방법론)
 │   ├── moai-coworker/                # 설치명: moai-coworker

@@ -1568,7 +1568,7 @@
    "skills": [
     {
      "name": "goose",
-     "summary": "| 18개 AI 직원 플러그인 패밀리('MoAI-Claude, 모두의 클로드')를 대표하는 **Desktop 슈퍼 오케스트레이터/어드바이저**. `/goose --project <자연어 지시>`로 진입하며, 개발(`/moai --project`)을 제외한 **모든 Claude Cowork(Desktop) 작업**을 담당한"
+     "summary": "| 18개 AI 직원 플러그인 패밀리('MoAI-Cowork, 모두의 코워크')를 대표하는 **Desktop 슈퍼 오케스트레이터/어드바이저**. `/goose --project <자연어 지시>`로 진입하며, 개발(`/moai --project`)을 제외한 **모든 Claude Cowork(Desktop) 작업**을 담당한"
     },
     {
      "name": "moai",

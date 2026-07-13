@@ -56,20 +56,20 @@
 
 ## 설치
 
-모두의클로드는 `modu-ai/claude` 마켓플레이스 하나에서 4명의 AI 직원을 설치합니다.
+모두의 코워크는 `modu-ai/moai-cowork` 마켓플레이스 하나에서 4명의 AI 직원을 설치합니다.
 
 **① 마켓 등록 (최초 1회)**
 
-    /plugin marketplace add modu-ai/claude
+    /plugin marketplace add modu-ai/moai-cowork
 
 **② 이 직원 추가**
 
-    /plugin install moai@moai-claude
+    /plugin install moai@moai-cowork
 
 또는 `/plugin` 입력 → **"Browse Plugins"** → moai 선택.
 
 > 개발 프로젝트를 시작할 때 설치하세요.
-> **재설치 안내 (개명 마이그레이션)** — 본 플러그인은 개명되었습니다. 개명 전 이름으로 설치한 분은 자동 마이그레이션이 제공되지 않으므로, 기존 플러그인을 제거한 뒤 `moai@moai-claude`로 **재설치**해 주세요.
+> **재설치 안내 (개명 마이그레이션)** — 본 플러그인은 개명되었습니다. 개명 전 이름으로 설치한 분은 자동 마이그레이션이 제공되지 않으므로, 기존 플러그인을 제거한 뒤 `moai@moai-cowork`로 **재설치**해 주세요.
 
 ---
 

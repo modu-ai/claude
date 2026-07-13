@@ -8,7 +8,7 @@ main:
     icon: home
     defaultOpen: true
     sub:
-      - name: 모두의 클로드 소개
+      - name: 모두의 코워크 소개
         ref: /
       - name: 시작하기 홈
         ref: /getting-started

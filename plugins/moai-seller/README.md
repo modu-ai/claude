@@ -9,14 +9,14 @@
 Claude Code에서 두 단계로 설치합니다:
 
 ```
-claude plugin marketplace add modu-ai/claude
-claude plugin install moai-seller@moai-claude
+claude plugin marketplace add modu-ai/moai-cowork
+claude plugin install moai-seller@moai-cowork
 ```
 
 또는 Claude Code 세션 안에서:
 
 ```
-/plugin marketplace add modu-ai/claude
+/plugin marketplace add modu-ai/moai-cowork
 /plugin install moai-seller
 ```
 

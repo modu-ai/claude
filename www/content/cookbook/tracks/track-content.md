@@ -188,6 +188,6 @@ AskUserQuestion에서 "AI 검수 강도" 선택 시 "기본" (3중) / "약함" (
 
 ### Sources
 
-- [moai-marketer 플러그인](https://github.com/modu-ai/claude/tree/main/plugins/moai-marketer)
+- [moai-marketer 플러그인](https://github.com/modu-ai/moai-cowork/tree/main/plugins/moai-marketer)
 - humanize-korean — 한국 번역학계 8유형 번역투 계보 기반 cowork 자체 저작
 - [NomaDamas/k-skill (MIT)](https://github.com/NomaDamas/k-skill) — korean-spell-check 원본

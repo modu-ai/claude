@@ -27,7 +27,7 @@ flowchart LR
 
 ## 에이전트
 
-모두의 클로드 직원 다수는 산출물을 만드는 실행 직원(worker)과 결과를 의심하며 검사하는 검수 직원(auditor)을 분리해 둡니다. 코워커는 범용 코어 특성상 별도 에이전트 없이 스킬 단위로 동작하며, 품질 점검은 `general-ai-slop-reviewer` 같은 후처리 스킬이 맡습니다.
+모두의 코워크 직원 다수는 산출물을 만드는 실행 직원(worker)과 결과를 의심하며 검사하는 검수 직원(auditor)을 분리해 둡니다. 코워커는 범용 코어 특성상 별도 에이전트 없이 스킬 단위로 동작하며, 품질 점검은 `general-ai-slop-reviewer` 같은 후처리 스킬이 맡습니다.
 
 {{< employee-agents "moai-coworker" >}}
 

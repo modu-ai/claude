@@ -154,4 +154,4 @@ tests/           # auth/client/server/tools 단위 테스트 (27건 PASS)
 
 ## 라이선스
 
-LicenseRef-MoAI-NC-ND-1.0 (모두의클로드 플러그인 패밀리).
+LicenseRef-MoAI-NC-ND-1.0 (모두의 코워크 플러그인 패밀리).

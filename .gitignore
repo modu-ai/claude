@@ -1,7 +1,7 @@
 # ============================================
 # REPO TRACKING POLICY (authoritative)
 # ============================================
-# This public repo (modu-ai/claude) tracks ONLY:
+# This public repo (modu-ai/moai-cowork) tracks ONLY:
 #   - plugins/                 marketplace plugins
 #   - www/                     online documentation site
 #   - LICENSE, README.md, .gitignore

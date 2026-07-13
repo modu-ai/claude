@@ -1,5 +1,5 @@
 ---
-title: "모두의 클로드"
+title: "모두의 코워크"
 description: "Claude Desktop으로 시작하는 AI 활용 완전 가이드 — Chat · Cowork · Design · Code 4가지 제품을 한곳에서. 한국어 학습 허브."
 geekdocAnchor: false
 geekdocBreadcrumb: false
@@ -83,14 +83,14 @@ geekdocBreadcrumb: false
     <div class="cw-qstart-card">
       <div class="cw-qstart-step">Step 01</div>
       <div class="cw-qstart-title">마켓플레이스 추가</div>
-      <p class="cw-qstart-desc">모두의 클로드 마켓플레이스(moai-claude)를 등록합니다.</p>
-      <pre class="cw-qstart-pre"><span class="p">$</span> claude plugin marketplace add modu-ai/claude</pre>
+      <p class="cw-qstart-desc">모두의 코워크 마켓플레이스(moai-cowork)를 등록합니다.</p>
+      <pre class="cw-qstart-pre"><span class="p">$</span> claude plugin marketplace add modu-ai/moai-cowork</pre>
     </div>
     <div class="cw-qstart-card">
       <div class="cw-qstart-step">Step 02</div>
       <div class="cw-qstart-title">플러그인 설치</div>
       <p class="cw-qstart-desc">필요한 플러그인을 골라 담습니다 — 18개 중에서.</p>
-      <pre class="cw-qstart-pre"><span class="p">$</span> claude plugin install moai-coworker@moai-claude</pre>
+      <pre class="cw-qstart-pre"><span class="p">$</span> claude plugin install moai-coworker@moai-cowork</pre>
     </div>
     <div class="cw-qstart-card">
       <div class="cw-qstart-step">Step 03</div>

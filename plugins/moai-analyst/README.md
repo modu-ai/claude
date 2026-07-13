@@ -9,14 +9,14 @@
 ## 설치
 
 ```
-claude plugin marketplace add modu-ai/claude
-claude plugin install moai-analyst@moai-claude
+claude plugin marketplace add modu-ai/moai-cowork
+claude plugin install moai-analyst@moai-cowork
 ```
 
 또는 Claude Code 세션 안에서:
 
 ```
-/plugin marketplace add modu-ai/claude
+/plugin marketplace add modu-ai/moai-cowork
 /plugin install moai-analyst
 ```
 

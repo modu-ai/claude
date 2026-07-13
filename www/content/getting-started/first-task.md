@@ -6,7 +6,7 @@ geekdocBreadcrumb: true
 ---
 설치와 개념 정리가 끝났다면 이제 실제로 일을 시켜볼 차례입니다. 이 문서에서 할 일은 딱 세 가지입니다. ① 직원 소개소(마켓플레이스)를 등록하고 → ② 내 일에 맞는 직원(플러그인)을 한 명 채용하고 → ③ 첫 요청을 던져 결과물을 받아봅니다. 처음이라면 전체 과정에 10분이면 충분합니다.
 
-"직원을 채용한다"는 표현이 낯설다면 [도구와 기능 개념 기초](../concepts/)의 플러그인 항목을 먼저 읽고 오시면 좋습니다. 요약하면 — 플러그인은 업무 매뉴얼(스킬)과 일하는 담당자(에이전트)를 한 상자에 담은 "직원 패키지"이고, 마켓플레이스는 그 직원들을 소개해 주는 곳입니다. 모두의 클로드 마켓플레이스에는 문서 담당부터 쇼핑몰 운영 담당까지 분야별 전문 직원이 준비되어 있습니다.
+"직원을 채용한다"는 표현이 낯설다면 [도구와 기능 개념 기초](../concepts/)의 플러그인 항목을 먼저 읽고 오시면 좋습니다. 요약하면 — 플러그인은 업무 매뉴얼(스킬)과 일하는 담당자(에이전트)를 한 상자에 담은 "직원 패키지"이고, 마켓플레이스는 그 직원들을 소개해 주는 곳입니다. 모두의 코워크 마켓플레이스에는 문서 담당부터 쇼핑몰 운영 담당까지 분야별 전문 직원이 준비되어 있습니다.
 
 ```mermaid
 flowchart LR
@@ -28,15 +28,15 @@ flowchart LR
 
 1. 사이드바 하단의 **설정(Settings)** 을 열고 **플러그인(Plugins)** 항목으로 이동합니다.
 2. **마켓플레이스 추가(Add marketplace)** 버튼을 클릭합니다.
-3. 입력란에 `modu-ai/claude` 를 입력하고 추가를 확인합니다.
-4. 목록에 "MoAI-Claude(모두의 클로드)" 마켓플레이스와 직원 플러그인들이 나타나면 성공입니다.
+3. 입력란에 `modu-ai/moai-cowork` 를 입력하고 추가를 확인합니다.
+4. 목록에 "MoAI-Cowork(모두의 코워크)" 마켓플레이스와 직원 플러그인들이 나타나면 성공입니다.
 
-{{< screenshot-request "Claude Desktop 플러그인 설정 화면 — 마켓플레이스 추가 버튼과 modu-ai/claude 입력란" >}}
+{{< screenshot-request "Claude Desktop 플러그인 설정 화면 — 마켓플레이스 추가 버튼과 modu-ai/moai-cowork 입력란" >}}
 
 터미널(명령어 창)을 쓰는 Claude Code 사용자라면 아래 한 줄이면 됩니다. 데스크탑 앱만 쓰는 분은 이 줄을 건너뛰어도 됩니다.
 
 ```
-claude plugin marketplace add modu-ai/claude
+claude plugin marketplace add modu-ai/moai-cowork
 ```
 
 **잘 안 될 때**
@@ -120,4 +120,4 @@ claude plugin marketplace add modu-ai/claude
 - [빠른 시작](../quick-start/) — 전체 동선과 대표 스킬 한눈에 보기
 
 ### Sources
-- 마켓플레이스 저장소: [https://github.com/modu-ai/claude](https://github.com/modu-ai/claude)
+- 마켓플레이스 저장소: [https://github.com/modu-ai/moai-cowork](https://github.com/modu-ai/moai-cowork)

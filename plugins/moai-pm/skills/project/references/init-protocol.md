@@ -2,7 +2,7 @@
 
 ## 개요
 
-`/project`는 모두의클로드 프로젝트를 초기화하고, 사용자의 업무 워크플로우를 인터뷰한 뒤, **스킬 체이닝 + 프로젝트 전용 커스텀 에이전트 기반 CLAUDE.md**를 생성한다.
+`/project`는 모두의 코워크 프로젝트를 초기화하고, 사용자의 업무 워크플로우를 인터뷰한 뒤, **스킬 체이닝 + 프로젝트 전용 커스텀 에이전트 기반 CLAUDE.md**를 생성한다.
 
 **현재 상태**:
 - Phase 2 인벤토리는 설치된 플러그인을 **동적으로 도출**(plugin.json 스캔)하여 신규 플러그인을 자동 포함한다.
@@ -70,9 +70,9 @@ Phase 8: API 키 / 커넥터 + 첫 실행 안내
 
 ### 2-1. 인벤토리 소스
 
-**[HARD] 스캔 필터링 — moai-claude 출처만 인정 (동적 도출)**: `~/.claude/plugins/`에는 여러 마켓플레이스 플러그인이 섞여있을 수 있다. project 스킬은 **moai-claude(modu-ai/claude) 마켓플레이스 출처 플러그인만** 인벤토리에 포함하고, 그 외는 완전히 제외한다.
+**[HARD] 스캔 필터링 — moai-cowork 출처만 인정 (동적 도출)**: `~/.claude/plugins/`에는 여러 마켓플레이스 플러그인이 섞여있을 수 있다. project 스킬은 **moai-cowork(modu-ai/moai-cowork) 마켓플레이스 출처 플러그인만** 인벤토리에 포함하고, 그 외는 완전히 제외한다.
 
-**[HARD] 플러그인 집합은 하드코딩 화이트리스트가 아니라 동적으로 도출한다.** `moai-*` 접두어이면서 moai-claude 마켓플레이스 출처인 플러그인을 `plugin.json` 스캔으로 식별한다. 마켓플레이스에 신규 플러그인이 추가되면 자동으로 포함된다. **카운트(플러그인 수·스킬 수)는 하드코딩하지 않는다** — `.claude-plugin/marketplace.json`이 로스터 정본이다.
+**[HARD] 플러그인 집합은 하드코딩 화이트리스트가 아니라 동적으로 도출한다.** `moai-*` 접두어이면서 moai-cowork 마켓플레이스 출처인 플러그인을 `plugin.json` 스캔으로 식별한다. 마켓플레이스에 신규 플러그인이 추가되면 자동으로 포함된다. **카운트(플러그인 수·스킬 수)는 하드코딩하지 않는다** — `.claude-plugin/marketplace.json`이 로스터 정본이다.
 
 **소스 A — Bash 디렉터리 스캔**:
 
@@ -92,7 +92,7 @@ done
 
 각 SKILL.md frontmatter의 `name:` 필드를 추출해 `<skill-name> → <plugin>` 매핑을 구성한다.
 
-**소스 B — system reminder 파싱**: 현재 세션 system reminder의 "user-invocable skills" 목록에서 moai-claude 출처 `moai-*` 스킬만 등록한다.
+**소스 B — system reminder 파싱**: 현재 세션 system reminder의 "user-invocable skills" 목록에서 moai-cowork 출처 `moai-*` 스킬만 등록한다.
 
 **교차 검증**: 두 소스가 일치하면 신뢰도 HIGH. 한쪽에만 있으면 MEDIUM(설치는 됐으나 세션 미반영 등).
 
@@ -192,8 +192,8 @@ for each skill in chain_skills:
 
 ```
 1. 누락 플러그인별 설치 명령 안내:
-   /plugin install moai-coworker@moai-claude   (또는 해당 플러그인)
-   (최초 1회 마켓 등록: /plugin marketplace add modu-ai/claude)
+   /plugin install moai-coworker@moai-cowork   (또는 해당 플러그인)
+   (최초 1회 마켓 등록: /plugin marketplace add modu-ai/moai-cowork)
 
 2. .moai/cache/init-progress.json 저장
 

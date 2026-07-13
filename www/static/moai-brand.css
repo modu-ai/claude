@@ -2265,7 +2265,7 @@ main a:hover {
 .cw-caps strong { color: var(--neutral-800); }
 
 /* ════════════════════════════════════════════════════════════════
-   모두의클로드 Design System 정합 2026-06-26 — 핸드오프 번들 0795a22b
+   모두의 코워크 Design System 정합 2026-06-26 — 핸드오프 번들 0795a22b
    "Claude 문서 사이트.dc.html" 기반. append-override 패턴:
    - 후순위 :root 선언이 앞선 custom property 정의를 덮어쓴다(later wins).
    - 컴포넌트 규칙도 동일 specificity에서 후순위 선언이 승리.

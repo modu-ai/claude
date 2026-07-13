@@ -1,5 +1,5 @@
 baseURL = "https://claude.mo.ai.kr/"
-title = "모두의 클로드"
+title = "모두의 코워크"
 languageCode = "ko-KR"
 defaultContentLanguage = "ko"
 hasCJKLanguage = true
@@ -53,7 +53,7 @@ disablePathToLower = true
   # 반드시 이 두 줄을 동시에 갱신할 것 (feedback_version_bump_docs_checklist 참조).
   version = "2.27.0"
   releaseDate = "2026-06-19"
-  geekdocRepo = "https://github.com/modu-ai/claude"
+  geekdocRepo = "https://github.com/modu-ai/moai-cowork"
   geekdocEditPath = "edit/main/content"
   geekdocSearch = true
   geekdocSearchShowParent = true

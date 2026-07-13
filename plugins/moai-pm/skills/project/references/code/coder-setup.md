@@ -58,7 +58,7 @@ Phase 1 프로젝트 유형 인터뷰 → Phase 2 coder 설치 확인 → Phase 
 
 ```
 누락: moai 플러그인(코더)
-설치: /plugin install moai(modu-ai/claude 마켓플레이스)
+설치: /plugin install moai(modu-ai/moai-cowork 마켓플레이스)
 완료 후: /moai resume
 ```
 

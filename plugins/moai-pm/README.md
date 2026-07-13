@@ -37,9 +37,9 @@
 
 ---
 
-## 18개 AI 직원 ('MoAI-Claude, 모두의 클로드')
+## 18개 AI 직원 ('MoAI-Cowork, 모두의 코워크')
 
-전부 `modu-ai/claude` 마켓플레이스 하나에서 설치합니다. 정확한 로스터·스킬 수는 마켓플레이스 카탈로그(`/project catalog`)가 정본입니다 — 아래는 역할 요약입니다.
+전부 `modu-ai/moai-cowork` 마켓플레이스 하나에서 설치합니다. 정확한 로스터·스킬 수는 마켓플레이스 카탈로그(`/project catalog`)가 정본입니다 — 아래는 역할 요약입니다.
 
 | AI 직원 | 플러그인 | 무엇을 하나요 | 진입 모드 |
 |---------|---------|---------------|-----------|
@@ -70,9 +70,9 @@ PM은 직접 일하지 않습니다. **누가 이 일에 맞는지 찾아 팀을
 
 ### ① 마켓플레이스 등록 (최초 1회만)
 
-'MoAI-Claude, 모두의 클로드' 18개 AI 직원은 `modu-ai/claude` 마켓플레이스 하나에 들어있습니다:
+'MoAI-Cowork, 모두의 코워크' 18개 AI 직원은 `modu-ai/moai-cowork` 마켓플레이스 하나에 들어있습니다:
 
-    /plugin marketplace add modu-ai/claude
+    /plugin marketplace add modu-ai/moai-cowork
 
 ### ② 플러그인 추가
 
@@ -80,8 +80,8 @@ PM은 직접 일하지 않습니다. **누가 이 일에 맞는지 찾아 팀을
 
 **직접 명령으로** 설치하려면:
 
-    /plugin install moai-pm@moai-claude            # PM 허브 (필수)
-    /plugin install moai-coworker@moai-claude       # 범용 실무 코어 (권장)
+    /plugin install moai-pm@moai-cowork            # PM 허브 (필수)
+    /plugin install moai-coworker@moai-cowork       # 범용 실무 코어 (권장)
     # 필요한 전문가 직원 추가: moai-writer / moai-story / moai-marketer / moai-media /
     # moai-seller / moai-officer / moai-analyst / moai-lawyer / moai-accountant /
     # moai-recruiter / moai-cs / moai-consultant / moai-career / moai-tutor / moai-designer
