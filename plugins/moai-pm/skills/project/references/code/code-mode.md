@@ -1,3 +1,4 @@
+<!-- ⚠️ 보존 자료: 구 moai 스킬 정본. --code 모드는 개발 중(미배포)이며, 배포 시 이 문서가 /project --code 분기의 정본이 된다. 문서 내 /moai --project 표기는 /project --code로 읽는다. -->
 ---
 name: moai
 description: |

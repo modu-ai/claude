@@ -1,6 +1,6 @@
-# designer-setup.md — 디자이너 분기 (goose 서브 프로토콜)
+# designer-setup.md — 디자이너 분기 (project 스킬 서브 프로토콜)
 
-> **goose(18-plugin 패밀리 허브)의 디자이너 분기 정본.** 흩어진 브랜드 자산(로고·색·타이포·기존 사이트·PPTX)을 수집해 `.moai/project/brand/` 브랜드 컨텍스트와 Claude Design 업로드용 `DESIGN.md`를 합성한다. `moai-designer` 플러그인의 `cd-system-prep` + `moai-domain-brand-design` 체인으로 실행한다.
+> **project 스킬(18-plugin 패밀리 허브)의 디자이너 분기 정본.** 흩어진 브랜드 자산(로고·색·타이포·기존 사이트·PPTX)을 수집해 `.moai/project/brand/` 브랜드 컨텍스트와 Claude Design 업로드용 `DESIGN.md`를 합성한다. `moai-designer` 플러그인의 `cd-system-prep` + `moai-domain-brand-design` 체인으로 실행한다.
 
 ---
 
@@ -16,7 +16,7 @@
 
 ## 0. 이 분기가 담당하는 것
 
-사용자가 "디자인 시스템 잡아줘", "브랜드 셋업", "Claude Design 쓸 준비", "DESIGN.md 만들어줘"처럼 **디자인·브랜드·비주얼 컨텍스트** 맥락으로 진입할 때 이 분기가 동작한다. 실무·콘텐츠는 `cowork-setup.md`, 개발은 `/moai --project`로 라우팅된다.
+사용자가 "디자인 시스템 잡아줘", "브랜드 셋업", "Claude Design 쓸 준비", "DESIGN.md 만들어줘"처럼 **디자인·브랜드·비주얼 컨텍스트** 맥락으로 진입할 때 이 분기가 동작한다. 실무·콘텐츠는 `cowork-setup.md`, 개발은 `/project --code`로 라우팅된다.
 
 **담당 영역**:
 - **브랜드 자산 합성** — 흩어진 자산(코드·Figma·로고·실물·사전 빌트인) → `DESIGN.md`
@@ -54,7 +54,7 @@ Phase 1 자산 인터뷰 → Phase 2 designer 설치 확인 → Phase 3 DESIGN.m
 
 ### Phase 2: designer 설치 확인 (Gap Detection)
 
-`~/.claude/plugins/`에서 `moai-designer` 설치 여부 확인. 미설치 시 `/plugin install moai-designer` 안내 후 `/goose resume` 재개.
+`~/.claude/plugins/`에서 `moai-designer` 설치 여부 확인. 미설치 시 `/plugin install moai-designer` 안내 후 `/project resume` 재개.
 
 ### Phase 3: DESIGN.md 합성 (`cd-system-prep` 위임)
 
@@ -71,7 +71,7 @@ Phase 1 자산 인터뷰 → Phase 2 designer 설치 확인 → Phase 3 DESIGN.m
 
 ### Phase 5: Claude Design 온보딩 안내
 
-`DESIGN.md`를 claude.ai/design 온보딩에 업로드하거나, 깔끔한 코드 repo가 있으면 `/design-sync`로 코드베이스 직접 전송. 이후 goose로 콘텐츠·실무 산출물 체인을 설계하고, 디자인 시안 품질 루프는 `moai-designer:moai-workflow-gan-loop`로 반복한다.
+`DESIGN.md`를 claude.ai/design 온보딩에 업로드하거나, 깔끔한 코드 repo가 있으면 `/design-sync`로 코드베이스 직접 전송. 이후 project 스킬로 콘텐츠·실무 산출물 체인을 설계하고, 디자인 시안 품질 루프는 `moai-designer:moai-workflow-gan-loop`로 반복한다.
 
 ---
 
@@ -83,7 +83,7 @@ Phase 1 자산 인터뷰 → Phase 2 designer 설치 확인 → Phase 3 DESIGN.m
 | 브랜드 컨텍스트 | `.moai/project/brand/` | visual-identity.md · voice.md · tokens.json |
 | 디자인 설정 | `.moai/config/sections/design.yaml` | default_framework 등 |
 
-`CLAUDE.md`에는 **디자인 시스템 참조 섹션**을 추가한다(`DESIGN.md` + `.moai/project/brand/` 경로 명시, 스킬 체인 하드코딩 금지 — `/goose catalog` 참조).
+`CLAUDE.md`에는 **디자인 시스템 참조 섹션**을 추가한다(`DESIGN.md` + `.moai/project/brand/` 경로 명시, 스킬 체인 하드코딩 금지 — `/project catalog` 참조).
 
 ### 3-1. 파일 생성 기준 (디자이너 산출물 규칙)
 

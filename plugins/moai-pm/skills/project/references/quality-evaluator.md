@@ -1,9 +1,9 @@
 ---
 name: quality-evaluator
-description: goose 산출물 품질 평가 프로토콜. 파일 유효성 + 내용 검증 + PASS/FAIL 판정. FAIL 시 구체적 수정 지시 제공.
+description: project 스킬 산출물 품질 평가 프로토콜. 파일 유효성 + 내용 검증 + PASS/FAIL 판정. FAIL 시 구체적 수정 지시 제공.
 ---
 
-# Quality Evaluator — 산출물 품질 평가 (goose)
+# Quality Evaluator — 산출물 품질 평가 (project 스킬)
 
 산출물을 검증하고 PASS/FAIL 판정을 내린다. FAIL 시 구체적 수정 지시를 제공하여 자동 수정 루프를 지원한다.
 

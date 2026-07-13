@@ -1,6 +1,6 @@
-# cowork-setup.md — 코워커·작가 8-Phase 정본 (goose 분기)
+# cowork-setup.md — 코워커·작가 8-Phase 정본 (cowork 분기)
 
-> **goose(18-plugin 패밀리 허브)의 코워커·작가 분기 정본.** 실무(business·content·office·법무·세무·이커머스·미디어)와 글쓰기 작가(story·book·웹툰·웹소설·시나리오) 두 역할을 자동 감지해, 대상 직원 플러그인의 스킬 체인으로 `CLAUDE.md`와 프로젝트 전용 커스텀 에이전트를 생성한다. 생성된 `CLAUDE.md`는 런타임에 작업을 **워크플로우 체인과 스킬 호출로 라우팅**한다: 산출물 요청 → 체인 매칭 → 순차 실행 → ai-slop 종료.
+> **project 스킬(18-plugin 패밀리 허브)의 코워커·작가 분기 정본.** 실무(business·content·office·법무·세무·이커머스·미디어)와 글쓰기 작가(story·book·웹툰·웹소설·시나리오) 두 역할을 자동 감지해, 대상 직원 플러그인의 스킬 체인으로 `CLAUDE.md`와 프로젝트 전용 커스텀 에이전트를 생성한다. 생성된 `CLAUDE.md`는 런타임에 작업을 **워크플로우 체인과 스킬 호출로 라우팅**한다: 산출물 요청 → 체인 매칭 → 순차 실행 → ai-slop 종료.
 
 ---
 
@@ -16,7 +16,7 @@
 
 ## 0. 이 분기가 담당하는 것
 
-사용자가 "새 프로젝트 시작", "프로젝트 설정 도와줘", "CLAUDE.md 만들어줘"처럼 **실무·콘텐츠·작업 자동화** 맥락으로 진입할 때 이 분기가 동작한다. 디자인은 `designer-setup.md`, 개발은 `/moai --project`로 라우팅된다(goose SKILL.md §라우팅 참조).
+사용자가 "새 프로젝트 시작", "프로젝트 설정 도와줘", "CLAUDE.md 만들어줘"처럼 **실무·콘텐츠·작업 자동화** 맥락으로 진입할 때 이 분기가 동작한다. 디자인은 `designer-setup.md`, 개발은 `/project --code`로 라우팅된다(project 스킬 SKILL.md §라우팅 참조).
 
 **담당 역할 2종** (Phase 3 역할 라벨 — 내부 모자 교체):
 
@@ -56,10 +56,10 @@ Phase 1 인터뷰 → Phase 2 인벤토리 → Phase 3 체인 설계 → Phase 4
 | **1 인터뷰** | 업무 유형·주 산출물·톤 제약 수집(글로벌 프로필은 묻지 않음) | interview 답변 |
 | **2 인벤토리** | `~/.claude/plugins/`에서 설치 여부 + 활성 스킬 스캔 | `.moai/config.json` 스냅샷 |
 | **3 체인 설계** | 인터뷰 + 인벤토리 + 재진입 시 기존 맥락, 3종 입력을 종합해 산출물별 스킬 체인 설계(§3 프리셋). 텍스트 체인은 `general-ai-slop-reviewer` 종료 | chain_design + 설계 근거 |
-| **4 Gap Detection** | 체인 스킬 ↔ 인벤토리 대조 → 누락 시 설치 안내 + `/goose resume` 재개 | 진행 상태 |
+| **4 Gap Detection** | 체인 스킬 ↔ 인벤토리 대조 → 누락 시 설치 안내 + `/project resume` 재개 | 진행 상태 |
 | **5 확인** | 설계된 체인 `AskUserQuestion` 승인 — 요약에 설계 근거 표시 | 승인/수정/취소 |
 | **6 CLAUDE.md 생성** | `references/templates/CLAUDE.md.tmpl` 치환, ≤200라인, HARD 블록 8종 고정 | `./CLAUDE.md` |
-| **7 커스텀 에이전트 생성** | 반복 작업 유형별 `.claude/agents/*.md` 생성(goose SKILL.md §Custom Agent & Skill-Chain Design 절차) | `.claude/agents/*.md` |
+| **7 커스텀 에이전트 생성** | 반복 작업 유형별 `.claude/agents/*.md` 생성(project 스킬 SKILL.md §Custom Agent & Skill-Chain Design 절차) | `.claude/agents/*.md` |
 | **8 API 키 + 첫 실행 안내** | 체인이 요구하는 키만 선택적 등록 안내 + 상위 체인 3개 예시 | 안내 메시지 |
 
 각 Phase의 `AskUserQuestion` 스키마·`.moai/config.json` 상세·재개(Re-entry) 흐름은 `references/init-protocol.md` 참조.
@@ -147,7 +147,7 @@ Phase 3 체인의 스킬이 인벤토리에 없으면 누락으로 간주한다.
 체인 스킬 중 인벤토리에 없는 것이 1개+
   → 누락 스킬 → 소속 플러그인 매핑
   → AskUserQuestion 4옵션:
-      1. (권장) 설치 안내 + 완료 후 /goose resume 재개
+      1. (권장) 설치 안내 + 완료 후 /project resume 재개
       2. 누락 스킬 제외하고 진행
       3. 대체 스킬로 변경
       4. 중단
@@ -161,7 +161,7 @@ Phase 3 체인의 스킬이 인벤토리에 없으면 누락으로 간주한다.
 
 `references/templates/CLAUDE.md.tmpl` 변수 치환. 규칙:
 
-1. **≤200라인**, 스킬 체인은 최대 10개(나머지는 `/goose catalog` 참조)
+1. **≤200라인**, 스킬 체인은 최대 10개(나머지는 `/project catalog` 참조)
 2. **역할 라벨** — 감지된 역할(실무/글쓰기 작가)을 페르소나에 명시
 3. **HARD 규칙 고정** — office 스킬 우선 + 텍스트 산출물 `general-ai-slop-reviewer` 종료 + 요청 평가 사다리·파일 생성 기준·인용·저작권 가드(§3.5)·톤 규칙·맥락 적용 규칙. 200라인 초과 시 축소 대상은 체인만이다.
 4. **스킬 참조 정합** — 모든 스킬 참조는 소속 플러그인 접두어를 사용한다.
@@ -180,6 +180,6 @@ Phase 3 체인의 스킬이 인벤토리에 없으면 누락으로 간주한다.
 | CLAUDE.md 변수 치환·200라인 예산·HARD 규칙 블록 | `claudemd-generator.md` |
 | 스킬 체인 순차 실행·검증 깊이 사다리 | `execution-protocol.md` |
 | 5차원 평가(정확성·완전성·실용성·톤·도메인) | `evaluation-protocol.md` |
-| 환경 진단(`/goose doctor`) | `diagnostic-protocol.md` |
+| 환경 진단(`/project doctor`) | `diagnostic-protocol.md` |
 
 전체 인덱스: `references/INDEX.md`

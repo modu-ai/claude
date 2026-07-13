@@ -1,8 +1,8 @@
-# evaluation-protocol.md — 평가 프로토콜 (goose)
+# evaluation-protocol.md — 평가 프로토콜 (project 스킬)
 
 ## 개요
 
-goose가 설계한 스킬 체인의 산출물을 평가하는 프로토콜이다. 결정론적 검증(파일/섹션/포맷)은 `quality-evaluator.md`에서 처리하며, 본 프로토콜은 AI 판단이 필요한 품질 평가를 담당한다. 강제 0-100% 점수화는 사용하지 않는다 — Claude가 자기평가를 자연스럽게 수행한다. 강제 피드백 수집도 매 실행마다 하지 않는다 — `/project evolve` 실행 시에만 트리거한다.
+project 스킬이 설계한 스킬 체인의 산출물을 평가하는 프로토콜이다. 결정론적 검증(파일/섹션/포맷)은 `quality-evaluator.md`에서 처리하며, 본 프로토콜은 AI 판단이 필요한 품질 평가를 담당한다. 강제 0-100% 점수화는 사용하지 않는다 — Claude가 자기평가를 자연스럽게 수행한다. 강제 피드백 수집도 매 실행마다 하지 않는다 — `/project evolve` 실행 시에만 트리거한다.
 
 ---
 
@@ -87,4 +87,4 @@ D등급(0-64): 미흡
 [개선 방향]  "다음에 같은 작업을 한다면 어떤 점을 바꾸면 좋을까요?"
 ```
 
-질문은 최대 2개(피로 방지). 수집된 피드백은 goose SKILL.md §Recursive Self-Improvement의 진단 입력으로 활용한다.
+질문은 최대 2개(피로 방지). 수집된 피드백은 project 스킬 SKILL.md §Recursive Self-Improvement의 진단 입력으로 활용한다.

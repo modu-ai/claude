@@ -1,17 +1,17 @@
-# router.md — goose 라우팅 프로토콜 (18-plugin 패밀리, 비개발 전 직원)
+# router.md — project 스킬 라우팅 프로토콜 (18-plugin 패밀리, 비개발 전 직원)
 
 ## 개요
 
-사용자의 자연어 요청을 분석해 goose가 다룰 **16개 비개발 AI 직원(플러그인)** 중 어느 스킬 체인이 중심이 될지 결정하는 프로토콜. 단일 'MoAI-Claude, 모두의 클로드'(`modu-ai/claude`) 마켓플레이스의 18-plugin 패밀리가 대상이며, 개발 요청은 `/moai --project`(moai 스킬)로 안내한다. 플러그인 수·스킬 수는 하드코딩하지 않는다 — `.claude-plugin/marketplace.json`이 로스터 정본이다.
+사용자의 자연어 요청을 분석해 project 스킬이 다룰 **16개 비개발 AI 직원(플러그인)** 중 어느 스킬 체인이 중심이 될지 결정하는 프로토콜. 단일 'MoAI-Claude, 모두의 클로드'(`modu-ai/claude`) 마켓플레이스의 18-plugin 패밀리가 대상이며, 개발 요청은 `/project --code`(moai 스킬)로 안내한다. 플러그인 수·스킬 수는 하드코딩하지 않는다 — `.claude-plugin/marketplace.json`이 로스터 정본이다.
 
 ---
 
 ## 1. 라우팅 흐름
 
 ```
-사용자 자연어 요청 (/goose --project 진입)
+사용자 자연어 요청 (/project 진입)
     ↓
-[1단계] 모드 판정: 개발 키워드 → /moai --project 안내, 그 외 전부 → goose 계속
+[1단계] 모드 판정: 개발 키워드 → /project --code 안내, 그 외 전부 → project 스킬 계속
     ↓
 [2단계] 프로젝트 컨텍스트 확인 — CLAUDE.md "프로젝트 워크플로우"에 이미 정의된 체인 있음 → 직접 실행
     ↓ (없으면)
@@ -46,12 +46,12 @@
 
 → 진입: `cowork-setup.md` (중심 직원·스킬 체인 설계). 디자이너 중심이면 `designer-setup.md` 서브 프로토콜을 호출한다.
 
-### goose (PM 허브) 자체 관리 도메인
+### project 스킬 (PM 허브) 자체 관리 도메인
 
 | 도메인 | 키워드 |
 |--------|--------|
-| 초기화·라우팅 | 프로젝트 초기화, /goose --project, CLAUDE.md 생성 |
-| 관리 | /goose catalog, status, apikey, doctor, /project evolve |
+| 초기화·라우팅 | 프로젝트 초기화, /project, CLAUDE.md 생성 |
+| 관리 | /project catalog, status, apikey, doctor, /project evolve |
 
 ---
 
@@ -60,7 +60,7 @@
 키워드 매칭 결과 중심 직원 후보가 2개 이상일 때:
 
 - **자동 해소**: 산출물 유형이 명시되면 해당 산출물을 만드는 직원 우선. 예: "브랜드 카드뉴스 만들어줘" → 콘텐츠 산출물 명시 → 마케터 중심.
-- **사용자 확인**: 자동 해소가 어려우면 `AskUserQuestion`(1질문, 후보 직원 최대 4개 + Other). 모드 자체(goose/moai)가 불명확할 때만 모드 질문을 한다.
+- **사용자 확인**: 자동 해소가 어려우면 `AskUserQuestion`(1질문, 후보 직원 최대 4개 + Other). 모드 자체(project 스킬/moai)가 불명확할 때만 모드 질문을 한다.
 
 ---
 
@@ -70,12 +70,12 @@
 
 ```
 "스타트업이라 사업계획서랑 웹사이트 디자인 둘 다 필요해"
-→ /goose --project 1회 셋업:
+→ /project 1회 셋업:
    워크플로우 표 = 코워커(사업계획서 체인) + 디자이너(브랜드 셋업 체인)
    커스텀 에이전트 = biz-plan-writer, brand-system-keeper
 ```
 
-개발이 섞이면(`"서비스 개발도 해야 해"`) → `/moai --project`는 별도 진입으로 안내한다(코더 스캐폴드는 goose 셋업과 독립).
+개발이 섞이면(`"서비스 개발도 해야 해"`) → `/project --code`는 별도 진입으로 안내한다(코더 스캐폴드는 project 스킬 셋업과 독립).
 
 **심층 분석 판단**: 복합 요청이거나 3개+ 직원 체인이 걸치면 `ultrathink`(심층 분석)로 최적 설계를 결정한다.
 
@@ -86,8 +86,8 @@
 | 상황 | 대응 |
 |------|------|
 | 키워드 매칭 0개 | 기본 코워커 제안 후 확인(대다수 사용자) |
-| 중심 직원 미설치 | Gap Detection → 설치 안내 → `/goose resume` 재개 |
-| 모드 불명확(goose/moai) | `AskUserQuestion` 2옵션(goose 진행 권장 / `/moai --project`) |
+| 중심 직원 미설치 | Gap Detection → 설치 안내 → `/project resume` 재개 |
+| 모드 불명확(project 스킬/moai) | `AskUserQuestion` 2옵션(project 스킬 진행 권장 / `/project --code`) |
 
 ---
 
