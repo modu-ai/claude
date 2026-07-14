@@ -1,0 +1,11 @@
+{{- /* 모두의AI 마스코트 (handoff 디자인 시스템 — MascotCoding/Talking/Bubble 시각 대응)
+   정서 앵커: hero / empty-state / 404 / footer. 청록 팔레트 + float 애니메이션.
+   사용: {{ partial "mascot.html" (dict "variant" "main" "size" "120") }} */ -}}
+{{- $variant := .variant | default "main" -}}
+{{- $size := .size | default "96" -}}
+{{- $alt := .alt | default "모두의AI 마스코트" -}}
+<img class="moai-mascot moai-mascot--{{ $variant }} mascot-float"
+     src="{{ printf "/mascots/mascot-%s.png" $variant | relURL }}"
+     alt="{{ $alt }}"
+     width="{{ $size }}" height="{{ $size }}"
+     loading="lazy" decoding="async" />

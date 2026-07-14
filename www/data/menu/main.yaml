@@ -3,6 +3,7 @@ main:
   # 🖥️ 데스크탑 축 (Desktop axis) — 비개발자용
   # 학습 난이도 상승 순서: 시작하기 → Chat → Cowork → Design → Code → MoAI 플러그인
   # (Chat → Cowork → Design → Code = 학습 난이도 상승 경로)
+  # 4트랙 목차는 Anthropic 공식 자료(support.claude.com / docs.claude.com / blog) 기반 정렬
   # ============================================================
   - name: 시작하기
     icon: home
@@ -25,37 +26,70 @@ main:
       - name: 4-트랙 안내 홈
         ref: /guide
 
+  # ────────────────────────────────────────────
+  # Chat — Claude Desktop App / 일반 대화 (공식 14 카테고리 정렬)
+  # 핵심 보강: 아티팩트 분리, 웹검색/리서치/확장사고 명확화, 커넥터 분리
+  # ────────────────────────────────────────────
   - name: Chat
     icon: chat
     defaultOpen: true
     sub:
       - name: Chat 개요
         ref: /guide/chat
-      - name: 첫 대화 시작하기
+      - name: 시작하기 — 설치와 로그인
+        ref: /guide/chat/getting-started
+        isNew: true
+      - name: 첫 대화와 기본 사용법
         ref: /guide/chat/first-chat
       - name: 프롬프트 작성법
         ref: /guide/chat/prompts
-      - name: 컨텍스트 다루기
+      - name: 파일과 컨텍스트
         ref: /guide/chat/context-engineering
-      - name: Projects 기능
+      - name: 아티팩트
+        ref: /guide/chat/artifacts
+        isNew: true
+      - name: 프로젝트
         ref: /guide/chat/projects
-      - name: 웹 검색·리서치·확장 사고
+      - name: 웹 검색
         ref: /guide/chat/search-research
-      - name: 주요 기능 살펴보기
-        ref: /guide/chat/features
-      - name: 스킬과 플러그인
-        ref: /guide/chat/skills-plugins
-      - name: 메모리
+      - name: 리서치
+        ref: /guide/chat/research
+        isNew: true
+      - name: 확장 사고
+        ref: /guide/chat/extended-thinking
+        isNew: true
+      - name: 기억과 개인화
         ref: /guide/chat/memory
+      - name: 스킬과 커넥터
+        ref: /guide/chat/skills-plugins
+      - name: 계정과 설정
+        ref: /guide/chat/account-settings
+        isNew: true
+      - name: 요금제와 사용 한도
+        ref: /guide/chat/plans
+        isNew: true
+      - name: 개인정보와 데이터
+        ref: /guide/chat/privacy
+        isNew: true
+      - name: 문제 해결
+        ref: /guide/chat/troubleshooting
+        isNew: true
 
+  # ────────────────────────────────────────────
+  # Cowork — "Claude Code for the rest of your work" (공식 20 카테고리 정렬)
+  # 핵심 보강: 제품 비교, 디스패치, 라이브 아티팩트, 크로스플랫폼, 아키텍처
+  # ────────────────────────────────────────────
   - name: Cowork
     icon: book
     defaultOpen: false
     sub:
-      - name: 개요
+      - name: Cowork 개요
         ref: /guide/cowork
       - name: Cowork 소개
         ref: /guide/cowork/intro
+      - name: Chat vs Cowork vs Desktop
+        ref: /guide/cowork/comparison
+        isNew: true
       - name: 공식 빠른 시작
         ref: /guide/cowork/official-quickstart
       # ── 1. 입문 ──
@@ -63,7 +97,7 @@ main:
         ref: /guide/cowork/install
       - name: 설정하기
         ref: /guide/cowork/setup
-      - name: 사용 패턴 가이드
+      - name: 사용 패턴과 권한 모드
         ref: /guide/cowork/patterns
       - name: 첫 작업 실행
         ref: /guide/cowork/first-task
@@ -86,18 +120,34 @@ main:
         ref: /guide/cowork/connectors-mcp
       - name: 예약 작업
         ref: /guide/cowork/schedule
+      - name: 디스패치·원격 작업
+        ref: /guide/cowork/dispatch
+        isNew: true
       - name: 컴퓨터 사용
         ref: /guide/cowork/computer-use
+      - name: 라이브 아티팩트
+        ref: /guide/cowork/live-artifacts
+        isNew: true
+      - name: 웹·데스크톱·모바일
+        ref: /guide/cowork/cross-platform
+        isNew: true
+      - name: 아키텍처 개요
+        ref: /guide/cowork/architecture
+        isNew: true
       # ── 5. 운영 ──
-      - name: 자주 묻는 질문
-        ref: /guide/cowork/faq
-      - name: 트러블슈팅
-        ref: /guide/cowork/troubleshooting
       - name: 시스템 한도
         ref: /guide/cowork/constraints
       - name: Team·Enterprise
         ref: /guide/cowork/enterprise
+      - name: 자주 묻는 질문
+        ref: /guide/cowork/faq
+      - name: 트러블슈팅
+        ref: /guide/cowork/troubleshooting
 
+  # ────────────────────────────────────────────
+  # Design — Claude Design (Anthropic Labs, claude.ai/design) (공식 12 카테고리 정렬)
+  # 핵심 두 축: 디자인 시스템 설정 + 내보내기·핸드오프
+  # ────────────────────────────────────────────
   - name: Design
     icon: palette
     defaultOpen: false
@@ -109,12 +159,16 @@ main:
       - name: 디자인 시스템 설정
         ref: /guide/design/design-system
         badge: 핵심
+      - name: 컴포넌트·토큰 생성
+        ref: /guide/design/components-tokens
+        isNew: true
       - name: 리파인먼트
         ref: /guide/design/refinement
       - name: 협업과 공유
         ref: /guide/design/collaboration
       - name: 내보내기·핸드오프
         ref: /guide/design/export-handoff
+        badge: 핵심
       - name: 역할별 사용 사례
         ref: /guide/design/use-cases
       - name: 베스트 프랙티스
@@ -123,19 +177,82 @@ main:
         ref: /guide/design/pricing-limits
       - name: 제한 사항·로드맵
         ref: /guide/design/limitations
+      - name: 관리자 가이드 — Team·Enterprise
+        ref: /guide/design/admin-guide
+        isNew: true
       - name: Claude Design 공식 빠른 시작
         ref: /guide/design/official-quickstart
 
+  # ────────────────────────────────────────────
+  # Code — Claude Code (공식 28 카테고리 중 비개발자 적합 선별, 입문→심화 경로)
+  # 비개발자는 터미널 없이 웹/데스크톱/IDE로 진입. adk.mo.ai.kr은 서드파티 구분(official-docs)
+  # ────────────────────────────────────────────
   - name: Code
     icon: code
     defaultOpen: false
     sub:
+      # ── 입문 (비개발자 친화) ──
       - name: Code 개요
         ref: /guide/code
+      - name: 어디서 쓰나요 — 6가지 진입면
+        ref: /guide/code/surfaces
+        isNew: true
+      - name: Chat·Cowork·Design과의 차이
+        ref: /guide/code/comparison
+        isNew: true
       - name: 설치하기
         ref: /guide/code/install
       - name: 첫 작업 실행
         ref: /guide/code/first-task
+      # ── 핵심 사용 ──
+      - name: 일반 워크플로우
+        ref: /guide/code/workflows
+        isNew: true
+      - name: 필수 슬래시 명령
+        ref: /guide/code/slash-commands
+        isNew: true
+      - name: 메모리 — CLAUDE.md
+        ref: /guide/code/memory
+        isNew: true
+      # ── 안전·환경 ──
+      - name: 권한·안전 기초
+        ref: /guide/code/permissions
+        isNew: true
+      - name: 모델·사고 레벨
+        ref: /guide/code/model-effort
+        isNew: true
+      - name: IDE에서 쓰기
+        ref: /guide/code/ide
+        isNew: true
+      - name: 웹·데스크톱
+        ref: /guide/code/web-desktop
+        isNew: true
+      # ── 운영 ──
+      - name: 비용·사용량
+        ref: /guide/code/costs
+        isNew: true
+      - name: 문제 해결
+        ref: /guide/code/troubleshooting
+        isNew: true
+      - name: 모범 사례
+        ref: /guide/code/best-practices
+        isNew: true
+      # ── 심화 (개발자 지망생) ──
+      - name: 심화 — MCP·서브에이전트·스킬·훅
+        ref: /guide/code/advanced-extensions
+        isNew: true
+      - name: 심화 — GitHub Actions·CI
+        ref: /guide/code/github-actions
+        isNew: true
+      - name: 심화 — 자율 실행 /goal·/loop·auto
+        ref: /guide/code/autonomous
+        isNew: true
+      - name: 심화 — 샌드박스
+        ref: /guide/code/sandbox
+        isNew: true
+      - name: 공식 문서 안내
+        ref: /guide/code/official-docs
+        isNew: true
 
   - name: MoAI-Agents
     icon: plug
