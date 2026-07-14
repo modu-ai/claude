@@ -59,7 +59,7 @@ flowchart TB
 
 - 앱 버전이 Cowork 지원 버전인지 확인합니다. 메뉴 → "About Claude"에서 버전 확인 후 [공식 다운로드 페이지](https://support.claude.com/en/articles/10065433)에서 최신 빌드로 갱신
 - 앱을 완전 종료 후 재실행 (메뉴 막대 → Quit, Windows는 시스템 트레이 → 종료)
-- 로그인 계정의 요금제가 Cowork를 지원하는지 확인 — Pro·Max·Team·Enterprise. Free는 원칙적으로 미지원이며, 지역에 따라 순차 출시
+- 로그인 계정의 요금제가 Cowork를 지원하는지 확인 — Pro·Max·Team·Enterprise. Free는 원칙적으로 미지원이며 지역에 따라 순차 출시
 - Team·Enterprise 사용자는 관리자가 Admin Settings → Capabilities에서 **Cowork를 활성화**했는지 확인
 
 ### 1-2. 로그인 후 빈 화면 또는 무한 로딩

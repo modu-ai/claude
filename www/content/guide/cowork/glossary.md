@@ -61,7 +61,7 @@ flowchart TB
 - 사업계획서: `strategy-planner → pptx-designer → ai-slop-reviewer`
 - 블로그 원고: `blog → ai-slop-reviewer → humanize-korean` (2차 후처리)
 
-**오개념**: 체인은 시스템이 자동으로 엮는 것이 아니라, 사용자 요청 문맥에 맞춰 Claude가 판단해 구성합니다.
+**오개념**: 체인은 시스템이 자동으로 엮는 것이 아니라 사용자 요청 문맥에 맞춰 Claude가 판단해 구성합니다.
 
 ### 커넥터 (connector)
 

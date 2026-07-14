@@ -4,7 +4,7 @@ weight: 30
 description: "Power Query · 피벗 테이블 · LAMBDA 등 cowork-plugins로 자동화 가능한 엑셀 고급 패턴."
 geekdocBreadcrumb: true
 ---
-> 엑셀의 90%는 SUM·VLOOKUP만으로 풀리지만, 나머지 10%가 사람의 시간을 다 잡아먹습니다. 그 10%를 cowork-plugins로 자동화합니다.
+> 엑셀의 90%는 SUM·VLOOKUP만으로 풀리지만 나머지 10%가 사람의 시간을 다 잡아먹습니다. 그 10%를 cowork-plugins로 자동화합니다.
 
 ```mermaid
 flowchart TD
@@ -55,7 +55,7 @@ flowchart TD
 
 ### 4. 피벗 + 슬라이서 시뮬레이션
 
-cowork는 동적 피벗 슬라이서를 직접 만들지는 못하지만, 시나리오별 결과 시트를 미리 생성해 같은 효과를 냅니다:
+cowork는 동적 피벗 슬라이서를 직접 만들지는 못하지만 시나리오별 결과 시트를 미리 생성해 같은 효과를 냅니다:
 
 {{< terminal title="claude — cowork" >}}
 > 이 매출 데이터로 채널별·지역별 피벗 결과 시트 4개 미리 만들어줘.
