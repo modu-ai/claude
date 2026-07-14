@@ -4,7 +4,7 @@ weight: 40
 description: "Welcome · Drip · Re-engagement 시퀀스를 moai-content:newsletter와 moai-marketing:email-sequence로 운영하는 템플릿."
 geekdocBreadcrumb: true
 ---
-> 이메일은 "죽었다"는 말을 10년째 듣고 있지만, 매출 ROAS 기준으로는 가장 안정적인 채널입니다. cowork-plugins는 한국 정보통신망법을 준수하면서 시퀀스를 자동 설계합니다.
+> 이메일은 "죽었다"는 말을 10년째 듣고 있지만 매출 ROAS 기준으로는 가장 안정적인 채널입니다. cowork-plugins는 한국 정보통신망법을 준수하면서 시퀀스를 자동 설계합니다.
 
 ```mermaid
 flowchart TD

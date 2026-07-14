@@ -4,7 +4,7 @@ weight: 1
 description: "MoAI Cowork Plugins 버전 업데이트 및 릴리스 노트 모음"
 geekdocBreadcrumb: true
 ---
-MoAI Cowork Plugins은 지속적인 개발을 통해 새로운 기능을 추가하고 기존 기능을 개선합니다. 이 페이지에서는 버전 관리 정책과 릴리스 노트에 대한 정보를 제공합니다.
+MoAI Cowork Plugins은 지속적인 개발로 새로운 기능을 추가하고 기존 기능을 개선합니다. 이 페이지에서는 버전 관리 정책과 릴리스 노트에 대한 정보를 제공합니다.
 
 ```mermaid
 flowchart TD
@@ -191,7 +191,7 @@ MoAI Cowork Plugins의 업그레이드는 일반적으로 안전하게 진행할
 
 ## 피드백 및 기여
 
-릴리스 노트에 기여하거나 개선 제안이 있으면 [GitHub 이슈](https://github.com/modu-ai/cowork-plugins/issues)를 통해 알려주세요.
+릴리스 노트에 기여하거나 개선 제안이 있으면 [GitHub 이슈](https://github.com/modu-ai/cowork-plugins/issues)로 알려주세요.
 
 ### Sources
 - GitHub 저장소: [https://github.com/modu-ai/cowork-plugins](https://github.com/modu-ai/cowork-plugins)
