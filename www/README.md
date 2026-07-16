@@ -6,6 +6,8 @@
 
 - **Hugo** v0.160.1 (extended)
 - **테마**: [Geekdoc](https://github.com/thegeeklab/hugo-geekdoc) (Hugo Module)
+- **폰트**: Pretendard(self-host, 9 weights — `static/fonts/`) + Goorm Sans Code(CDN)
+- **디자인 시스템**: 모두의AI Design System — 모아이 그린(`#3d7d5f`) 시그니처 + 마스코트 6종. `ai-design-system.zip`(Claude Design 핸드오프) 기반. 운영 CSS = `static/moai-brand.css`(단일 진실 소스).
 - **호스팅**: Vercel
 - **도메인**: claude.mo.ai.kr
 

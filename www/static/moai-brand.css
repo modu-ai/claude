@@ -1,33 +1,44 @@
-/* Claude warm editorial theme (anthropic-claude.md tokens)
- * Supersedes the MoAI teal brand per 2026-06-23 user decision.
- * Source: cowork-plugins/moai-design/skills/design-system-library/systems/anthropic-claude.md
- * Single source of truth: this file
- * (assets/css/moai-brand.scss는 빌드 파이프라인에서 사용되지 않는 참고용 사본)
+/* 모두의AI Design System — 모아이 그린 브랜드 (운영 CSS, 단일 진실 소스)
+ * 2026-07 복귀: ai-design-system.zip(Claude Design 핸드오프) 기준 모아이 그린(#3d7d5f)으로 전환.
+ *   2026-06-23 Claude 코랄 결정 → zip 디자인 시스템 도입으로 모아이 그린 복귀.
+ * Pretendard: self-host(/fonts/Pretendard-*.otf, 9 weights). Goorm Sans Code: CDN.
+ * assets/css/moai-brand.scss는 빌드 파이프라인에서 사용되지 않는 참고용 사본(토큰 동기화 유지).
  */
 
-/* ── CSS Custom Properties (Claude warm editorial tokens) ── */
+/* ── Pretendard (self-host brand font — OTF 9 weights, 100~900) ── */
+@font-face { font-family: "Pretendard"; font-weight: 100; font-style: normal; font-display: swap; src: url("/fonts/Pretendard-Thin.otf") format("opentype"); }
+@font-face { font-family: "Pretendard"; font-weight: 200; font-style: normal; font-display: swap; src: url("/fonts/Pretendard-ExtraLight.otf") format("opentype"); }
+@font-face { font-family: "Pretendard"; font-weight: 300; font-style: normal; font-display: swap; src: url("/fonts/Pretendard-Light.otf") format("opentype"); }
+@font-face { font-family: "Pretendard"; font-weight: 400; font-style: normal; font-display: swap; src: url("/fonts/Pretendard-Regular.otf") format("opentype"); }
+@font-face { font-family: "Pretendard"; font-weight: 500; font-style: normal; font-display: swap; src: url("/fonts/Pretendard-Medium.otf") format("opentype"); }
+@font-face { font-family: "Pretendard"; font-weight: 600; font-style: normal; font-display: swap; src: url("/fonts/Pretendard-SemiBold.otf") format("opentype"); }
+@font-face { font-family: "Pretendard"; font-weight: 700; font-style: normal; font-display: swap; src: url("/fonts/Pretendard-Bold.otf") format("opentype"); }
+@font-face { font-family: "Pretendard"; font-weight: 800; font-style: normal; font-display: swap; src: url("/fonts/Pretendard-ExtraBold.otf") format("opentype"); }
+@font-face { font-family: "Pretendard"; font-weight: 900; font-style: normal; font-display: swap; src: url("/fonts/Pretendard-Black.otf") format("opentype"); }
+
+/* ── CSS Custom Properties (모아이 그린 토큰) ── */
 :root {
-  /* ── Brand Color (Claude coral) ── */
+  /* ── Brand Color (모아이 그린 — 마스코트 포인트 컬러) ── */
   --color-primary: #3d7d5f;          /* 모두의AI teal (Notion 가이드라인) — CTA, 타이틀, 아이콘 */
   --color-primary-hover: #316750;
   --color-primary-active: #265240;
-  --color-ink: #09110f;              /* 본문 텍스트 (#000 대체) */
-  --color-bg: #f3f3f3;               /* 페이지 배경 (Notion 명시) */
+  --color-ink: #060606;              /* 본문 텍스트 — 순수 잉크(zip achromatic) */
+  --color-bg: #f4f4f4;               /* 페이지 배경 — 순수 무채색 */
   --color-surface: #ffffff;          /* 모달/입력 */
   --color-surface-card: #ffffff;     /* feature/content 카드 */
 
-  /* ── Neutral Scale (warm cream/taupe) ── */
-  --neutral-50:  #f3f3f3;
-  --neutral-100: #eaeaea;
-  --neutral-200: #d4d4d4;
-  --neutral-300: #bcbcbc;
-  --neutral-400: #959595;
-  --neutral-500: #6e6e6e;
-  --neutral-600: #4c4c4c;
-  --neutral-700: #2e2e2e;
-  --neutral-800: #1a1f1d;
-  --neutral-900: #0e1513;
-  --neutral-950: #09110f;
+  /* ── Neutral Scale (순수 무채색 — zip achromatic, hue 0%) ── */
+  --neutral-50:  #f4f4f4;
+  --neutral-100: #e6e6e6;
+  --neutral-200: #d1d1d1;
+  --neutral-300: #b5b5b5;
+  --neutral-400: #9fa0a0;
+  --neutral-500: #757575;
+  --neutral-600: #565656;
+  --neutral-700: #3a3a3a;
+  --neutral-800: #242424;
+  --neutral-900: #141414;
+  --neutral-950: #060606;
 
   /* ── Semantic ── */
   --color-success: #2e8a63;
@@ -48,7 +59,7 @@
   --border-focus-ring: rgba(61, 125, 95, 0.12);
 
   /* ── Signature gradient (코어 자산 — dark navy editorial band) ── */
-  --gradient-signature: linear-gradient(135deg, #3d7d5f 0%, #09110f 100%);
+  --gradient-signature: linear-gradient(135deg, #3d7d5f 0%, #060606 100%);
   --gradient-signature-soft: linear-gradient(135deg, rgba(61,125,95,0.08) 0%, rgba(9,17,15,0.04) 100%);
   --gradient-signature-dark: linear-gradient(135deg, #5ea885 0%, #3d7d5f 100%);
 
@@ -168,8 +179,8 @@
   :root {
     --body-background: #f3f3f3 !important;
     --body-font-color: #141413 !important;
-    --accent-color: rgba(204,120,92,0.08) !important;
-    --accent-color-lite: rgba(204,120,92,0.04) !important;
+    --accent-color: rgba(61,125,95,0.08) !important;
+    --accent-color-lite: rgba(61,125,95,0.04) !important;
     --link-color: #3d7d5f !important;
     --link-color-visited: #3d7d5f !important;
     --code-background: #f3f3f3 !important;
@@ -233,7 +244,7 @@
 [data-theme="dark"] .gdoc-tabs__label.active {
   background: #3d7d5f !important;
   color: #fff !important;
-  box-shadow: 0 1px 3px rgba(204,120,92,0.32);
+  box-shadow: 0 1px 3px rgba(61,125,95,0.32);
 }
 
 /* 테이블 다크 톤 — th 청록 옅은 강조 */
@@ -242,12 +253,12 @@
   border-color: rgba(255,255,255,0.08);
 }
 [data-theme="dark"] .table-wrap th {
-  background: rgba(204,120,92,0.14) !important;
+  background: rgba(61,125,95,0.14) !important;
   color: var(--fg-1);
   border-bottom-color: rgba(255,255,255,0.10);
 }
 [data-theme="dark"] .table-wrap td { color: var(--fg-2); border-bottom-color: rgba(255,255,255,0.06); }
-[data-theme="dark"] .table-wrap tbody tr:hover td { background: rgba(204,120,92,0.06); }
+[data-theme="dark"] .table-wrap tbody tr:hover td { background: rgba(61,125,95,0.06); }
 
 /* 카드 컴포넌트 다크 톤 보강 (제목 글자 흐림 방지) */
 [data-theme="dark"] .cw-card,
@@ -381,8 +392,8 @@ th {
 [data-theme="dark"] th { background: rgba(255,255,255,0.03); }
 td, th { padding: 12px 16px; border-bottom: 1px solid var(--border-2); }
 tr:last-child td { border-bottom: 0; }
-tr:hover td { background: rgba(204,120,92,0.025); }
-[data-theme="dark"] tr:hover td { background: rgba(204,120,92,0.06); }
+tr:hover td { background: rgba(61,125,95,0.025); }
+[data-theme="dark"] tr:hover td { background: rgba(61,125,95,0.06); }
 
 /* ── Blockquotes / Hints ── */
 /* ── Hint(Note·Info·Tip·Warning) 박스 — 디자인 회색 톤 통일 ──
@@ -669,7 +680,7 @@ a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 0.
 .gdoc-tabs__label.active {
   background: var(--color-primary);
   color: #fff;
-  box-shadow: 0 1px 3px rgba(204,120,92,0.18);
+  box-shadow: 0 1px 3px rgba(61,125,95,0.18);
 }
 [data-theme="dark"] .gdoc-tabs__label:hover,
 [data-theme="dark"] .gdoc-tabs label:hover { background: rgba(255,255,255,0.04); }
@@ -709,16 +720,16 @@ a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 0.
   vertical-align: top;
 }
 .table-wrap th {
-  background: rgba(204,120,92,0.06) !important;
+  background: rgba(61,125,95,0.06) !important;
   font-weight: 700;
   color: var(--fg-1);
   letter-spacing: -0.02em;
   font-size: 13px;
 }
 .table-wrap tr:last-child td { border-bottom: 0; }
-.table-wrap tbody tr:hover td { background: rgba(204,120,92,0.025); }
+.table-wrap tbody tr:hover td { background: rgba(61,125,95,0.025); }
 [data-theme="dark"] .table-wrap th { background: rgba(255,255,255,0.04); }
-[data-theme="dark"] .table-wrap tbody tr:hover td { background: rgba(204,120,92,0.06); }
+[data-theme="dark"] .table-wrap tbody tr:hover td { background: rgba(61,125,95,0.06); }
 
 /* ── 가로 스크롤바 — 디자인 회색 톤 (코드블록·테이블 등) ── */
 .gdoc-markdown ::-webkit-scrollbar { height: 8px; width: 8px; }
@@ -802,14 +813,14 @@ a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 0.
 .gdoc-markdown p code,
 .gdoc-markdown td code,
 .gdoc-markdown th code {
-  background: rgba(204,120,92,0.08);
+  background: rgba(61,125,95,0.08);
   color: var(--color-primary);
   padding: 2px 6px;
   border-radius: 5px;
   font-size: 0.86em;
   font-weight: 600;
   font-family: var(--font-mono);
-  border: 1px solid rgba(204,120,92,0.10);
+  border: 1px solid rgba(61,125,95,0.10);
   letter-spacing: 0;
   white-space: nowrap;
 }
@@ -818,9 +829,9 @@ a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 0.
 [data-theme="dark"] .gdoc-markdown p code,
 [data-theme="dark"] .gdoc-markdown td code,
 [data-theme="dark"] .gdoc-markdown th code {
-  background: rgba(204,120,92,0.16);
+  background: rgba(61,125,95,0.16);
   color: #3d7d5f;
-  border-color: rgba(204,120,92,0.20);
+  border-color: rgba(61,125,95,0.20);
 }
 
 /* ── 디자인 standalone 사이드바 정합 (.cw-side / .cw-side-section / .cw-side-head / .cw-side-link) ── */
@@ -891,10 +902,10 @@ a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 0.
   background: var(--color-surface);
   color: var(--color-primary);
   font-weight: 700;
-  box-shadow: 0 1px 3px rgba(20,20,19,0.06), 0 0 0 1px rgba(204,120,92,0.08);
+  box-shadow: 0 1px 3px rgba(20,20,19,0.06), 0 0 0 1px rgba(61,125,95,0.08);
 }
 [data-theme="dark"] .cw-side-link:hover { background: rgba(255,255,255,0.04); color: var(--fg-1); }
-[data-theme="dark"] .cw-side-link.active { background: rgba(204,120,92,0.18); color: #3d7d5f; }
+[data-theme="dark"] .cw-side-link.active { background: rgba(61,125,95,0.18); color: #3d7d5f; }
 
 .cw-side-link-name { display: inline-flex; align-items: center; gap: 6px; min-width: 0; flex-wrap: wrap; }
 .cw-side-link-name > * + * { margin-left: 0; }
@@ -926,12 +937,12 @@ a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 0.
   font-size: 10px;
   font-weight: 600;
   color: var(--color-primary);
-  background: rgba(204,120,92,0.10);
+  background: rgba(61,125,95,0.10);
   padding: 1px 5px;
   border-radius: 999px;
   letter-spacing: 0.04em;
 }
-[data-theme="dark"] .cw-side-badge { background: rgba(204,120,92,0.16); color: #3d7d5f; }
+[data-theme="dark"] .cw-side-badge { background: rgba(61,125,95,0.16); color: #3d7d5f; }
 
 /* 검색 박스 (Geekdoc 자동) — 디자인 톤으로 */
 .gdoc-search { padding: 4px; margin-bottom: 12px; }
@@ -1087,13 +1098,13 @@ a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 0.
   color: var(--fg-1);
   transition: background-color 120ms;
 }
-.cw-search-modal__list a:hover { background: rgba(204,120,92,0.06); }
-[data-theme="dark"] .cw-search-modal__list a:hover { background: rgba(204,120,92,0.10); }
+.cw-search-modal__list a:hover { background: rgba(61,125,95,0.06); }
+[data-theme="dark"] .cw-search-modal__list a:hover { background: rgba(61,125,95,0.10); }
 .cw-search-modal__list .title { font-weight: 700; font-size: 14px; letter-spacing: -0.02em; }
 .cw-search-modal__list .parent { font-size: 11px; color: var(--fg-3); margin-top: 2px; font-family: var(--font-mono); }
 .cw-search-modal__list .excerpt { font-size: 12.5px; color: var(--fg-2); margin-top: 4px; line-height: 1.5; }
-.cw-search-modal__list mark { background: rgba(204,120,92,0.25); color: var(--color-primary); padding: 0 1px; border-radius: 2px; }
-[data-theme="dark"] .cw-search-modal__list mark { background: rgba(204,120,92,0.18); color: #3d7d5f; }
+.cw-search-modal__list mark { background: rgba(61,125,95,0.25); color: var(--color-primary); padding: 0 1px; border-radius: 2px; }
+[data-theme="dark"] .cw-search-modal__list mark { background: rgba(61,125,95,0.18); color: #3d7d5f; }
 .cw-search-input kbd {
   margin-left: auto;
   font-family: var(--font-mono);
@@ -1235,7 +1246,7 @@ a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 0.
 .gdoc-markdown a,
 main a {
   color: var(--color-primary);
-  text-decoration-color: rgba(204,120,92,0.35);
+  text-decoration-color: rgba(61,125,95,0.35);
   text-underline-offset: 0.18em;
 }
 /* hero·card 등 디자인 컴포넌트 내부 링크는 자체 색 유지 (전역 link 색 override 방지) */
@@ -1295,14 +1306,14 @@ main a:hover {
   font-weight: 600;
   padding: 3px 8px;
   border-radius: 999px;
-  background: rgba(204,120,92,0.10);
+  background: rgba(61,125,95,0.10);
   color: var(--color-primary);
   letter-spacing: 0.04em;
 }
-[data-theme="dark"] .cw-brand-ver { background: rgba(204,120,92,0.16); color: #3d7d5f; }
+[data-theme="dark"] .cw-brand-ver { background: rgba(61,125,95,0.16); color: #3d7d5f; }
 .cw-gh-count { font-family: var(--font-mono); color: var(--fg-2); font-weight: 600; font-size: 12px; margin-left: 2px; }
 [data-theme="dark"] .cw-brand-ver {
-  background: rgba(204,120,92,0.16);
+  background: rgba(61,125,95,0.16);
   color: #3d7d5f;
 }
 .cw-header-nav {
@@ -1352,8 +1363,8 @@ main a:hover {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 85% 20%, rgba(204,120,92,0.18), transparent 40%),
-    radial-gradient(circle at 15% 110%, rgba(204,120,92,0.22), transparent 50%);
+    radial-gradient(circle at 85% 20%, rgba(61,125,95,0.18), transparent 40%),
+    radial-gradient(circle at 15% 110%, rgba(61,125,95,0.22), transparent 50%);
   pointer-events: none;
 }
 .cw-hero > * { position: relative; }
@@ -1372,7 +1383,7 @@ main a:hover {
 .cw-hero .eyebrow .dot {
   width: 6px; height: 6px; border-radius: 999px;
   background: #3d7d5f;
-  box-shadow: 0 0 0 4px rgba(204,120,92,0.18);
+  box-shadow: 0 0 0 4px rgba(61,125,95,0.18);
   animation: cw-pulse 1.6s ease-in-out infinite;
 }
 @keyframes cw-pulse { 0%,100%{opacity:1} 50%{opacity:.35} }
@@ -1458,10 +1469,10 @@ main a:hover {
 }
 .cw-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(204,120,92,0.32);
+  border-color: rgba(61,125,95,0.32);
   box-shadow: var(--shadow-md);
 }
-[data-theme="dark"] .cw-card:hover { border-color: rgba(204,120,92,0.45); }
+[data-theme="dark"] .cw-card:hover { border-color: rgba(61,125,95,0.45); }
 .cw-card .head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
 .cw-card .icon {
   width: 36px; height: 36px;
@@ -1473,7 +1484,7 @@ main a:hover {
   font-weight: 700;
   font-family: var(--font-mono);
 }
-[data-theme="dark"] .cw-card .icon { background: rgba(204,120,92,0.14); color: #3d7d5f; }
+[data-theme="dark"] .cw-card .icon { background: rgba(61,125,95,0.14); color: #3d7d5f; }
 .cw-card .count-pill {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -1569,7 +1580,7 @@ main a:hover {
   padding: 2px 7px;
   border-radius: var(--radius-sm);
 }
-[data-theme="dark"] .cw-stat .num .delta { background: rgba(204,120,92,0.14); color: #3d7d5f; }
+[data-theme="dark"] .cw-stat .num .delta { background: rgba(61,125,95,0.14); color: #3d7d5f; }
 
 /* ── Quick start cards ── */
 .cw-qs {
@@ -1588,11 +1599,11 @@ main a:hover {
   transition: all 180ms var(--easing-default);
 }
 .cw-qs-card:hover {
-  border-color: rgba(204,120,92,0.32);
+  border-color: rgba(61,125,95,0.32);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
-[data-theme="dark"] .cw-qs-card:hover { border-color: rgba(204,120,92,0.45); }
+[data-theme="dark"] .cw-qs-card:hover { border-color: rgba(61,125,95,0.45); }
 .cw-qs-card .step {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -1630,8 +1641,8 @@ main a:hover {
   padding: 16px 18px;
   transition: all 180ms var(--easing-default);
 }
-.cw-track:hover { border-color: rgba(204,120,92,0.32); transform: translateY(-1px); }
-[data-theme="dark"] .cw-track:hover { border-color: rgba(204,120,92,0.45); }
+.cw-track:hover { border-color: rgba(61,125,95,0.32); transform: translateY(-1px); }
+[data-theme="dark"] .cw-track:hover { border-color: rgba(61,125,95,0.45); }
 .cw-track .num {
   width: 32px; height: 32px; flex: none;
   border-radius: var(--radius-md);
@@ -1642,7 +1653,7 @@ main a:hover {
   font-weight: 700;
   display: inline-flex; align-items: center; justify-content: center;
 }
-[data-theme="dark"] .cw-track .num { background: rgba(204,120,92,0.16); color: #3d7d5f; }
+[data-theme="dark"] .cw-track .num { background: rgba(61,125,95,0.16); color: #3d7d5f; }
 .cw-track .ttl {
   font-size: 14.5px;
   font-weight: 700;
@@ -1661,7 +1672,7 @@ main a:hover {
 .cw-academy-banner {
   margin: 56px 0 24px;
   border-radius: 18px;
-  background: linear-gradient(135deg, rgba(204,120,92,0.06) 0%, rgba(212,160,23,0.07) 100%);
+  background: linear-gradient(135deg, rgba(61,125,95,0.06) 0%, rgba(212,160,23,0.07) 100%);
   border: 1px solid var(--border-2);
   position: relative;
   overflow: hidden;
@@ -1735,7 +1746,7 @@ main a:hover {
   .cw-academy-banner__title { font-size: 22px; }
 }
 [data-theme="dark"] .cw-academy-banner {
-  background: linear-gradient(135deg, rgba(204,120,92,0.10) 0%, rgba(212,160,23,0.12) 100%);
+  background: linear-gradient(135deg, rgba(61,125,95,0.10) 0%, rgba(212,160,23,0.12) 100%);
   border-color: var(--neutral-700);
 }
 
@@ -1758,13 +1769,13 @@ main a:hover {
   font-size: 13px;
   font-weight: 600;
   color: var(--color-primary);
-  background: rgba(204,120,92,0.08);
+  background: rgba(61,125,95,0.08);
   padding: 3px 10px;
   border-radius: var(--radius-full);
   letter-spacing: 0.04em;
   margin-right: 12px;
 }
-[data-theme="dark"] .cw-sect-head .num { background: rgba(204,120,92,0.16); color: #3d7d5f; }
+[data-theme="dark"] .cw-sect-head .num { background: rgba(61,125,95,0.16); color: #3d7d5f; }
 
 /* ── NEW tag ── */
 .new-tag {
@@ -1804,7 +1815,7 @@ main a:hover {
 }
 .cw-rel.latest::before {
   background: var(--color-primary);
-  box-shadow: 0 0 0 4px rgba(204,120,92,0.14);
+  box-shadow: 0 0 0 4px rgba(61,125,95,0.14);
 }
 .cw-rel .ver-row { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
 .cw-rel .ver {
@@ -1824,12 +1835,12 @@ main a:hover {
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  background: rgba(204,120,92,0.10);
+  background: rgba(61,125,95,0.10);
   color: var(--color-primary);
   padding: 2px 7px;
   border-radius: var(--radius-sm);
 }
-[data-theme="dark"] .cw-rel .badge { background: rgba(204,120,92,0.16); color: #3d7d5f; }
+[data-theme="dark"] .cw-rel .badge { background: rgba(61,125,95,0.16); color: #3d7d5f; }
 .cw-rel .ttl {
   font-size: 17px;
   font-weight: 700;
@@ -2088,7 +2099,7 @@ main a:hover {
   text-decoration: none; cursor: pointer;
   transition: border-color 150ms, transform 150ms;
 }
-.cw-prodcard:hover { border-color: rgba(204,120,92,0.32); transform: translateY(-1px); }
+.cw-prodcard:hover { border-color: rgba(61,125,95,0.32); transform: translateY(-1px); }
 .cw-prodcard-ico {
   width: 40px; height: 40px; border-radius: 10px;
   display: flex; align-items: center; justify-content: center;

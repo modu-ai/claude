@@ -6,7 +6,6 @@ geekdocBreadcrumb: false
 ---
 
 <div class="cw-hero">
-  <img class="cw-hero-creature" src="/logo-creature.png" alt="" aria-hidden="true" />
   <div class="eyebrow"><span class="dot"></span>{{< version >}} · {{< release-date >}} · claude.mo.ai.kr</div>
   <h1>모두를 위한<br/><span class="accent">Claude 완전 가이드</span></h1>
   <p class="lead-p">
@@ -50,25 +49,25 @@ geekdocBreadcrumb: false
   <div class="cw-sec-title">4가지 제품 — 누가, 언제 쓸까</div>
   <div class="cw-prodgrid">
     <a class="cw-prodcard" href="/chat/">
-      <span class="cw-prodcard-ico" style="background:#F1E7D9;color:#4A3D30"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg></span>
+      <span class="cw-prodcard-ico" style="background:#EAF1ED;color:#3d7d5f"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg></span>
       <div class="cw-prodcard-label">Chat</div>
       <p class="cw-prodcard-desc">질문·설명·검토를 텍스트로. 한국어를 완벽 지원하는 가장 간단한 시작점.</p>
       <div class="cw-prodcard-cta">첫 대화 →</div>
     </a>
     <a class="cw-prodcard" href="/cowork/">
-      <span class="cw-prodcard-ico" style="background:#E6EFE4;color:#5B8C5A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/></svg></span>
+      <span class="cw-prodcard-ico" style="background:#DDE9E0;color:#2F6249"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/></svg></span>
       <div class="cw-prodcard-label">Cowork</div>
       <p class="cw-prodcard-desc">한국 업무 18개 플러그인. 사업계획·IR·계약서·이메일을 자동 생성.</p>
       <div class="cw-prodcard-cta">플러그인 설치 →</div>
     </a>
     <a class="cw-prodcard" href="/design/">
-      <span class="cw-prodcard-ico" style="background:#FBEEE7;color:#BC5F40"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".7" fill="currentColor" stroke="none"/><circle cx="17" cy="11" r=".7" fill="currentColor" stroke="none"/><circle cx="8" cy="7" r=".7" fill="currentColor" stroke="none"/><circle cx="6.5" cy="12" r=".7" fill="currentColor" stroke="none"/><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 10 10 4 4 0 0 1-4 4h-3a2 2 0 0 0-2 2c0 1.1.5 1.6.5 2 0 1.1-.5 2-2 2z"/></svg></span>
+      <span class="cw-prodcard-ico" style="background:#CFE0D5;color:#265240"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".7" fill="currentColor" stroke="none"/><circle cx="17" cy="11" r=".7" fill="currentColor" stroke="none"/><circle cx="8" cy="7" r=".7" fill="currentColor" stroke="none"/><circle cx="6.5" cy="12" r=".7" fill="currentColor" stroke="none"/><path d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 10 10 4 4 0 0 1-4 4h-3a2 2 0 0 0-2 2c0 1.1.5 1.6.5 2 0 1.1-.5 2-2 2z"/></svg></span>
       <div class="cw-prodcard-label">Design</div>
       <p class="cw-prodcard-desc">클릭 가능한 프로토타입. 텍스트 설명만으로 UI·슬라이드·랜딩 시안.</p>
       <div class="cw-prodcard-cta">시작하기 →</div>
     </a>
     <a class="cw-prodcard" href="/code/">
-      <span class="cw-prodcard-ico" style="background:#F7EBD4;color:#C98A2E"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-6-6-6"/><path d="M12 19h8"/></svg></span>
+      <span class="cw-prodcard-ico" style="background:#C2D6CA;color:#1F4A39"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 17 6-6-6-6"/><path d="M12 19h8"/></svg></span>
       <div class="cw-prodcard-label">Code</div>
       <p class="cw-prodcard-desc">터미널에서 코딩. 코드 설명·작성·리팩토링을 자연어로 요청.</p>
       <div class="cw-prodcard-cta">첫 작업 →</div>

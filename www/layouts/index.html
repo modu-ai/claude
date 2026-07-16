@@ -1,7 +1,7 @@
 {{ define "main" }}
   {{- /* 홈은 hero가 첫 요소이므로 page-header(breadcrumb·edit) + 자동 h1 모두 출력 안 함 */ -}}
   <div class="cw-mascot-hero" aria-hidden="true">
-    {{ partial "mascot.html" (dict "variant" "global" "size" "140" "alt" "모두의 코워크 마스코트") }}
+    {{ partial "mascot.html" (dict "variant" "explaining" "size" "140" "alt" "모두의 코워크 마스코트") }}
   </div>
   <article
     class="gdoc-markdown gdoc-markdown__align--{{ default "left" (.Page.Params.geekdocAlign | lower) }}"
