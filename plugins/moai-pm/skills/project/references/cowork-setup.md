@@ -53,7 +53,7 @@ Phase 1 인터뷰 → Phase 2 인벤토리 → Phase 3 체인 설계 → Phase 4
 
 | Phase | 핵심 | 산출물 |
 |-------|------|--------|
-| **1 인터뷰** | 업무 유형·주 산출물·톤 제약 수집(글로벌 프로필은 묻지 않음) | interview 답변 |
+| **1 인터뷰** | 2-Stage 일괄 설문 — S1 한 라운드에 최대 4질문 묶음 배치, 부족 시에만 S2 보강(글로벌 프로필은 묻지 않음) | interview 답변 |
 | **2 인벤토리** | `~/.claude/plugins/`에서 설치 여부 + 활성 스킬 스캔 | `.moai/config.json` 스냅샷 |
 | **3 체인 설계** | 인터뷰 + 인벤토리 + 재진입 시 기존 맥락, 3종 입력을 종합해 산출물별 스킬 체인 설계(§3 프리셋). 텍스트 체인은 `general-ai-slop-reviewer` 종료 | chain_design + 설계 근거 |
 | **4 Gap Detection** | 체인 스킬 ↔ 인벤토리 대조 → 누락 시 설치 안내 + `/project resume` 재개 | 진행 상태 |
@@ -176,7 +176,7 @@ Phase 3 체인의 스킬이 인벤토리에 없으면 누락으로 간주한다.
 | 주제 | 파일 |
 |------|------|
 | 인터뷰 스키마·인벤토리·Re-entry 상세 | `init-protocol.md` |
-| 맥락 수집 등급(A/B/C)·심화 인터뷰 기준 | `context-collector.md` |
+| 맥락 수집 등급(A/B/C)·S1/S2 라운드 기준 | `context-collector.md` |
 | CLAUDE.md 변수 치환·200라인 예산·HARD 규칙 블록 | `claudemd-generator.md` |
 | 스킬 체인 순차 실행·검증 깊이 사다리 | `execution-protocol.md` |
 | 5차원 평가(정확성·완전성·실용성·톤·도메인) | `evaluation-protocol.md` |
