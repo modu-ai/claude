@@ -104,3 +104,5 @@
 {"timestamp":"2026-07-14T12:53:06.164469Z","event_type":"tool_failure","subject":"Bash","context_hash":"UnknownFailure","tier_increment":0,"schema_version":"v2.1"}
 {"timestamp":"2026-07-14T13:17:39.005671Z","event_type":"tool_failure","subject":"DesignSync","context_hash":"UnknownFailure","tier_increment":0,"schema_version":"v2.1"}
 {"timestamp":"2026-07-14T14:19:31.904225Z","event_type":"tool_failure","subject":"Bash","context_hash":"UnknownFailure","tier_increment":0,"schema_version":"v2.1"}
+{"timestamp":"2026-07-16T03:40:27.475424Z","event_type":"tool_failure","subject":"Read","context_hash":"UnknownFailure","tier_increment":0,"schema_version":"v2.1"}
+{"timestamp":"2026-07-16T03:47:25.727547Z","event_type":"tool_failure","subject":"Read","context_hash":"UnknownFailure","tier_increment":0,"schema_version":"v2.1"}

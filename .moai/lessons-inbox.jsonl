@@ -104,3 +104,5 @@
 {"timestamp":"2026-07-14T12:53:06Z","event_key":"tool_failure:Bash:UnknownFailure","summary":"Exit code 1\n=== design/_index.md C-11 매칭 (정확한 위치) ===","source":"tool:Bash"}
 {"timestamp":"2026-07-14T13:17:39Z","event_key":"tool_failure:DesignSync:UnknownFailure","summary":"Design API GetFile failed: HTTP 404 {\"code\":\"not_found\",\"message\":\"file not found\"}","source":"tool:DesignSync"}
 {"timestamp":"2026-07-14T14:19:31Z","event_key":"tool_failure:Bash:UnknownFailure","summary":"Exit code 1\n=== 잔존 통해 (프로즈만, v2.1 문서 제외) ===","source":"tool:Bash"}
+{"timestamp":"2026-07-16T03:40:27Z","event_key":"tool_failure:Read:UnknownFailure","summary":"File does not exist. Note: your current working directory is /Users/goos/MoAI/moai-cowork.","source":"tool:Read"}
+{"timestamp":"2026-07-16T03:47:25Z","event_key":"tool_failure:Read:UnknownFailure","summary":"File does not exist. Note: your current working directory is /Users/goos/MoAI/moai-cowork.","source":"tool:Read"}

@@ -233,11 +233,8 @@ dist-ssr/
 .netlify/
 .firebase/
 
-# ===========================================
-# Local config & Runtime state (commit 금지)
-# ===========================================
+# User Custom Patterns (preserved by moai update)
 CLAUDE.local.md
-.moai/state/
 .moai/logs/
 **/.moai/state/
 **/.moai/logs/
