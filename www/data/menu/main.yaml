@@ -291,8 +291,6 @@ main:
         ref: /moai-agents/tutor
       - name: 디자이너
         ref: /moai-agents/designer
-      - name: 코더
-        ref: /moai-agents/coder
 
   - name: 플러그인 설치·운용
     icon: plug
