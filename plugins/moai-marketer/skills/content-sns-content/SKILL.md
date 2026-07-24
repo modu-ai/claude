@@ -12,7 +12,7 @@ description: |
   - "내 유튜브 강의를 인스타·블로그·뉴스레터로 리퍼포징해줘"
   채널별 심리와 알고리즘에 맞춰 게시글을 만들고 콘텐츠를 여러 채널로 재활용하며, 텍스트 산출물은 moai-coworker:general-ai-slop-reviewer → moai-writer:general-humanize-korean으로 다듬습니다.
   [책임 경계] vs 형제 스킬: 범용 광고 카피는 moai-marketer:content-copywriting, 이커머스 광고·톡톡·푸시 카피는 moai-cs:commerce-channel-message, 기업 브랜드 전략은 moai-coworker:business-brand-identity, 개인 브랜드 전략은 moai-marketer:marketing-personal-branding.
-version: "0.1.1"
+version: "0.1.2"
 ---
 
 # SNS 콘텐츠 제작 (SNS Content) — 한국 + 글로벌 통합
@@ -233,3 +233,11 @@ CTA: 의견을 댓글로 남겨주세요 / 공감하시면 리포스트
 | references/brand-voice-guide.md | 3단계 브랜드 전략 시 — 브랜드 인격·톤·언어 스타일 정의 가이드 |
 | references/brand-identity.md | 3단계 브랜드 전략 시 — 이름·슬로건·톤앤매너·비주얼 아이덴티티 설계 |
 | references/personal-branding.md | 3단계 퍼스널 브랜딩 시 — 개인 전문성·가치 브랜드화 방향성 |
+| references/sns-content/guide.md | SNS·블로그 콘텐츠 생성 종합 가이드 — 네이버 블로그 SEO·인스타·카카오·유튜브 스크립트·시리즈 기획 |
+| references/platform-specs.md | 플랫폼별 규격 통합 비교 시 — 이미지·영상·텍스트·해시태그·포스팅 시간·알고리즘 우선순위 (7채널 2026) |
+| references/instagram.md | 인스타그램 상세 가이드 — 규격·알고리즘·해시태그·포스팅 시간·체크리스트 (2026) |
+| references/kakao.md | 카카오 비즈니스 상세 — 채널·모먼트·비즈보드·친구톡/알림톡 운영 (2026) |
+| references/linkedin.md | 링크드인 B2B 콘텐츠 — 규격·알고리즘·후크-본문-CTA 구조·체크리스트 (2026) |
+| references/threads.md | 스레드 콘텐츠 — 규격·대화형 알고리즘·크로스포스팅·체크리스트 (2026) |
+| references/x-twitter.md | X(트위터) 콘텐츠 — 규격·프리미엄·한국 사용자 특성·스레드 활용 (2026) |
+| references/youtube-shorts.md | 유튜브 쇼츠 — 규격·시청완료율 알고리즘·60초 구조·자막 가이드 (2026) |
