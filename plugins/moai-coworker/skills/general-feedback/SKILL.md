@@ -10,7 +10,7 @@ description: |
   - 특정 플러그인/스킬의 문제점 보고
 
   단순 불만 표출이나 일반 대화, 플러그인 사용법 질문에는 사용하지 마세요.
-version: "6.0.0"
+version: "6.0.1"
 ---
 
 # Feedback — 피드백 수집 및 GitHub Issues 등록
@@ -180,4 +180,5 @@ GitHub Issues: https://github.com/modu-ai/cowork-plugins/issues/new
 
 - **moai:project** — 프로젝트 문서 생성 및 카탈로그 관리
 - **moai-coworker:general-ai-slop-reviewer** — 텍스트 산출물 품질 검수
+- **moai-writer:general-humanize-korean** — 한국어 AI 티 제거 (슬롭 검수 다음, 필수)
 - **moai-foundation-cc** — 스킬 제작 가이드라인

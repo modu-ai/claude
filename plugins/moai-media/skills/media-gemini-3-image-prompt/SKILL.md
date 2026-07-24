@@ -10,7 +10,7 @@ description: |
   - "/media-gemini-3-image-prompt" (직접 호출)
 
   이미지 자동 생성은 페어 스킬 media-higgsfield-image(Higgsfield MCP, Nano Banana Pro 포함)를 사용하세요. 본 스킬은 프롬프트 텍스트 산출 전용입니다.
-version: "0.1.0"
+version: "0.1.1"
 ---
 
 # Gemini 3 Pro Image Prompt Builder — 5-Component + 3-모델 동시 출력
@@ -223,3 +223,9 @@ Component 5 — [Specific Constraint/Text]
 - [Medium — Testing Gemini 3 Pro Image](https://medium.com/google-cloud/testing-gemini-3-pro-image-f585236ae411)
 
 위 출처를 기반으로 5-component 구조, Thinking/Fast 모드 권장, aspect_ratio 범위, 14 reference images, SynthID 정책, 65K/32K 토큰 제한, Search Grounding 활용을 도출했습니다.
+
+## References
+
+| 파일 | 로드 조건 |
+|------|-----------|
+| references/search-grounding.md | 인포그래픽·지도·통계 그래프 등 실시간 사실 데이터가 필요한 이미지에서 Search Grounding 사용 여부를 판단할 때 |

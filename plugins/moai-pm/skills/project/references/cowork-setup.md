@@ -104,8 +104,8 @@ Phase 3 체인 설계는 인터뷰 답변→프리셋 매칭으로 직행하지 
 | 산출물 | 권장 체인 |
 |---|---|
 | 출판 도서 | `book-concept-planner` → `book-outline-designer` → `book-chapter-writer` → `book-revision-coach` |
-| 웹툰 기획 | `story-webtoon-planner` → `story-webtoon-episode` → `story-webtoon-art` |
-| 웹소설 연재 | `story-webnovel-writer` (단일 순환) |
+| 웹툰 기획 | `story-webtoon-planner` → `story-character-sheet` → `story-webtoon-episode` → `story-webtoon-lettering` → `story-webtoon-art` → `story-webtoon-qc` |
+| 웹소설 연재 | `story-webnovel-planner` → `story-webnovel-writer` |
 | 드라마/영화 시놉 | `story-synopsis` → `story-screenplay` |
 | 캐릭터 시트 | `story-character-sheet` (Higgsfield 생성) |
 | 표지·일러스트 | `story-cover-art` (Higgsfield 생성) |

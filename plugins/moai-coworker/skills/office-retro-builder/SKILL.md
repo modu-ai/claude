@@ -4,7 +4,7 @@ description: >
   한 주나 한 해를 가볍게 돌아보는 회고를 도와주는 스킬입니다.
   '이번 주 회고하고 싶어', 'KPT로 정리해줘', '연말 회고 템플릿', '한 줄 회고', '올해 돌아보기'처럼 말하면 됩니다.
   KPT·한 줄 회고·키워드 회고 등 부담 없는 템플릿으로, 반성·자책이 아니라 가볍게 돌아보고 다음을 정하는 회고를 설계합니다.
-version: "0.1.0"
+version: "0.1.1"
 ---
 
 # 회고 빌더 (Retro Builder)
@@ -95,6 +95,13 @@ version: "0.1.0"
 - **moai-coworker:office-habit-routine**: 회고 루틴 자체를 습관으로 정착
 - **moai-coworker:business-productivity-weekly-report**: 업무 주간보고와 한 주 회고를 함께 운영
 - **moai-accountant:finance-household-budget**: 소비 회고를 개인 회고 루틴에 통합
+
+### 후처리 체인 (회고문(한 줄·키워드 회고) 등 서술형 산출물)
+
+회고문(한 줄·키워드 회고) 등 문장 산출물을 작성한 뒤에는 아래 체인으로 마무리한다.
+
+- **moai-coworker:general-ai-slop-reviewer**: AI 티 나는 표현·과장·상투구 검수·수정 (필수)
+- **moai-writer:general-humanize-korean**: 한국어 자연스러움 보정 — 슬롭 검수 다음 (필수)
 
 ## 이 스킬을 사용하지 말아야 할 때
 

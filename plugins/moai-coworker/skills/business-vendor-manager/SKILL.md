@@ -2,7 +2,7 @@
 name: business-vendor-manager
 description: >
   공급업체를 평가·선정하고 계약 및 리스크를 관리합니다. "벤더 평가 기준 만들어줘", "공급업체 리스크 레지스터 작성해줘", "계약 관리 체계를 잡아줘"라고 요청할 때 사용하세요. 벤더 선정 기준, 공급업체 평가표, 계약 관리 워크플로우, 리스크 식별 및 대응 계획을 지원합니다.
-version: "6.0.0"
+version: "6.0.2"
 ---
 
 # 벤더 관리자 (business-vendor-manager)
@@ -12,6 +12,7 @@ version: "6.0.0"
 | ID | 한국명 | 설명 |
 |----|--------|------|
 | risk-register | 리스크 레지스터 | 위험 식별, 영향 평가, 대응 계획 |
+| contract-management | 계약 관리 | 벤더 평가 기준, 계약 체크리스트, 하도급법 준수(대금지급기일 60일·부당 특약 금지·표준하도급계약서), 사업자등록 진위·전자세금계산서 확인 |
 
 → 참조 파일: `references/{id}.md`
 
@@ -109,3 +110,10 @@ business-vendor-manager → moai-coworker:general-ai-slop-reviewer → moai-writ
 - **발주 시스템 직접 입력** → ERP·구매 시스템에 직접 접속해야 합니다
 - **회계·지급 처리** → moai-coworker 스킬이 더 적합합니다
 - **채용·인력 아웃소싱 업체 관리** → moai-hr 스킬을 사용하세요
+
+## References
+
+| 파일 | 로드 조건 |
+|------|----------|
+| references/risk-register.md | 프로젝트 위험 관리 시 (위험 식별→확률·영향 평가→대응 전략 수립→모니터링→상태 보고) |
+| references/contract-management.md | 벤더 계약 관리 시 (벤더 평가 기준 가중치·계약 체크리스트·하도급법 준수 사항·벤더 실사) |

@@ -16,7 +16,7 @@ version: "6.0.0"
 
 # Skill Builder — 6-Phase 스킬 생성 워크플로우
 
-> moai-core | revfactory/harness 방법론 기반 스킬 생성
+> moai-coworker | revfactory/harness 방법론 기반 스킬 생성
 
 ## 개요
 
@@ -144,8 +144,8 @@ Phase 6: Review         → 품질 게이트 통과 확인, 파일 배치
 6. **`## 출처` 섹션 의무**: Phase 1.5에서 수집한 URL·인용을 markdown hyperlink로 명시 (Phase 1.5 적용 스킬)
 7. **정량 수치 인용 규칙**: 모든 수치는 출처 인라인 표기 또는 `[추정]` 태그
 
-**참조:** `moai-core/skills/general-skill-tester/SKILL.md` §스코어링 루브릭 (품질 기준 single source)
-**참조:** `moai-core/skills/general-skill-template/SKILL.md` (템플릿)
+**참조:** `moai-coworker:general-skill-tester (plugins/moai-coworker/skills/general-skill-tester/SKILL.md` §스코어링 루브릭 (품질 기준 single source)
+**참조:** `moai-coworker:general-skill-template (plugins/moai-coworker/skills/general-skill-template/SKILL.md` (템플릿)
 
 **출력물:** `<target-plugin>/skills/<skill-name>/SKILL.md` 초안
 
@@ -193,7 +193,7 @@ tests:
 
 **미달 시:** Phase 3으로 돌아가서 부족한 차원을 보완합니다. 최대 3회 반복.
 
-**참조:** `moai-core/skills/general-skill-tester/SKILL.md` §스코어링 루브릭 (anchor 점수표 + 평가 절차)
+**참조:** `moai-coworker:general-skill-tester (plugins/moai-coworker/skills/general-skill-tester/SKILL.md` §스코어링 루브릭 (anchor 점수표 + 평가 절차)
 
 ### Phase 6: Review (최종 검토)
 

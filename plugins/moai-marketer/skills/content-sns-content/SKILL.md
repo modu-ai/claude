@@ -12,7 +12,7 @@ description: |
   - "내 유튜브 강의를 인스타·블로그·뉴스레터로 리퍼포징해줘"
   채널별 심리와 알고리즘에 맞춰 게시글을 만들고 콘텐츠를 여러 채널로 재활용하며, 텍스트 산출물은 moai-coworker:general-ai-slop-reviewer → moai-writer:general-humanize-korean으로 다듬습니다.
   [책임 경계] vs 형제 스킬: 범용 광고 카피는 moai-marketer:content-copywriting, 이커머스 광고·톡톡·푸시 카피는 moai-cs:commerce-channel-message, 기업 브랜드 전략은 moai-coworker:business-brand-identity, 개인 브랜드 전략은 moai-marketer:marketing-personal-branding.
-version: "0.1.0"
+version: "0.1.1"
 ---
 
 # SNS 콘텐츠 제작 (SNS Content) — 한국 + 글로벌 통합
@@ -223,3 +223,13 @@ CTA: 의견을 댓글로 남겨주세요 / 공감하시면 리포스트
 - **CAPI (전환 API) 설치 필수**
 - **GA4 교차 검증 필수**
 - pixel-only는 iOS 14.5+ 이후 신뢰도 낮음
+
+## References
+
+| 파일 | 로드 조건 |
+|------|-----------|
+| references/content-creator.md | 채널별 콘텐츠 생성 시 — 한국 정서 기반 SNS·블로그·뉴스레터 콘텐츠 생성 패턴 |
+| references/content-repurposer.md | 4단계 리퍼포징 시 — 핵심 콘텐츠를 다채널로 재활용하는 전략 |
+| references/brand-voice-guide.md | 3단계 브랜드 전략 시 — 브랜드 인격·톤·언어 스타일 정의 가이드 |
+| references/brand-identity.md | 3단계 브랜드 전략 시 — 이름·슬로건·톤앤매너·비주얼 아이덴티티 설계 |
+| references/personal-branding.md | 3단계 퍼스널 브랜딩 시 — 개인 전문성·가치 브랜드화 방향성 |

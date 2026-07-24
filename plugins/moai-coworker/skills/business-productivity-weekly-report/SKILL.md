@@ -4,7 +4,7 @@ description: >
   직장에서 제출하는 주간업무보고를 빠르게 작성해주는 스킬입니다.
   '주간보고 작성해줘', '이번 주 한 일 정리', '주간업무보고', '팀장님께 보낼 보고', '한 주 업무 리뷰'처럼 말하면 됩니다.
   한 주 성과·진행 중 일·이슈·다음 주 계획을 정해진 틀로 정리하고, 격식체/구어체 톤까지 맞춰 보고서 초안을 만들어줍니다.
-version: "6.0.0"
+version: "6.0.1"
 ---
 
 # 주간업무보고 (Weekly Report)
@@ -98,6 +98,7 @@ version: "6.0.0"
 - **moai-officer:office-time-system**: 차주 계획을 시간 블록에 배치
 - **moai-comms**: 보고 대화·구두 보고·피드백 등 대인 커뮤니케이션
 - **moai-coworker:general-ai-slop-reviewer**: 보고서 초안의 AI 티 후처리
+- **moai-writer:general-humanize-korean**: 한국어 AI 티 제거 (슬롭 검수 다음, 필수)
 
 ## 이 스킬을 사용하지 말아야 할 때
 

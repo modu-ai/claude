@@ -38,7 +38,7 @@ version: "0.1.0"
 | 인자 | 필수 | 기본값 | 설명 |
 |------|------|--------|------|
 | `topic` / 자연어 주제 | ✓ | — | 덱 주제·대상 청중·발표 목적 |
-| `design_system` | — | `claude` | `claude` \| `clickhouse` \| `clay` 또는 [`design-system-library`](../../../moai-design/skills/design-system-library/SKILL.md)의 75개 시스템. 지정 시 Tailwind Play CDN + shadcn vanilla 컴포넌트로 해당 브랜드 토큰 적용. 각 토큰별 getdesign.md 미리보기 링크는 [`references/design-system-links.md`](references/design-system-links.md) |
+| `design_system` | — | `claude` | `claude` \| `clickhouse` \| `clay` 또는 [`design-system-library`](../../../moai-designer/skills/design-system-library/SKILL.md)의 75개 시스템. 지정 시 Tailwind Play CDN + shadcn vanilla 컴포넌트로 해당 브랜드 토큰 적용. 각 토큰별 getdesign.md 미리보기 링크는 [`references/design-system-links.md`](references/design-system-links.md) |
 | `slide_count` / 발표 시간 | — | 주제에서 추천 | 3분=5-7장 · 10분=10-15장 · 30분=20-30장 |
 | `aspect_ratio` | — | `16:9` | `16:9`(프로젝터 표준) \| `1:1`(소셜/카드뉴스) |
 | `locale` | — | `ko` | `ko` \| `en` — 헤드라인·카피 언어 |
@@ -110,7 +110,7 @@ design_system 지정 시 `systems/<name>.md` 토큰 → Tailwind Play CDN config
 
 ## 디자인 시스템 적용 (`design_system` 파라미터)
 
-`design_system` 입력으로 [`moai-officer:office-design-system-library`](../../../moai-design/skills/design-system-library/SKILL.md)에서 브랜드 토큰을 로드해 **Tailwind Play CDN + shadcn vanilla 컴포넌트**로 렌더합니다. office-html-report와 동일한 두 렌더 엔진을 제공합니다.
+`design_system` 입력으로 [`moai-officer:office-design-system-library`](../../../moai-designer/skills/design-system-library/SKILL.md)에서 브랜드 토큰을 로드해 **Tailwind Play CDN + shadcn vanilla 컴포넌트**로 렌더합니다. office-html-report와 동일한 두 렌더 엔진을 제공합니다.
 
 | `design_system` | 엔진 | 외부 의존 | 산출물 특성 |
 |-----------------|------|-----------|-------------|

@@ -190,7 +190,7 @@ business-executive-summary → office-html-report (mode=status, 기본)
 - `moai-coworker/office-hwpx-writer` — 한국 공공기관 .hwpx
 
 **Post-process**:
-- `moai-core/general-ai-slop-reviewer` — 격식체·정량 출처 검수
+- `moai-coworker:general-ai-slop-reviewer` — 격식체·정량 출처 검수
 - `moai-coworker/general-humanize-korean` — 한국어 자연스러움 보강
 
 **Alternative**:
